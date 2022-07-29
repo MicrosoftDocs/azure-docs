@@ -139,9 +139,13 @@ To deploy the CRs, follow the steps outlined below:
 
 1. Repeat the procedure in the preceding 5 steps to add the remaining Change Requests to be deployed.
 
-1. In the **Import Queue** window, select the **Import All Requests** icon:
+1. In the **Import Queue** window, select the relevant Transport Request once, and then select **F9** or **Select/Deselect Request** icon.
 
-    :::image type="content" source="media/preparing-sap/import-all-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-all-requests-lightbox.png":::
+1. To add the remaining Transport Requests to the deployment, repeat step 9.
+
+1. Select the Import Requests icon:
+
+    :::image type="content" source="media/preparing-sap/import-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-requests-lightbox.png":::
 
 1. In **Start Import** window, select the **Target Client** field.
 
@@ -292,6 +296,10 @@ The required authorizations are listed here by log type. Only the authorizations
 | S_RFC | FUNC | RFC_READ_TABLE |
 | | |
 
+
+## Remove the user role and the optional CR installed on your ABAP system
+
+To remove the user role and optional CR imported to your system, import the deletion CR *NPLK900259* into your ABAP system.
 
 ## Next steps
 

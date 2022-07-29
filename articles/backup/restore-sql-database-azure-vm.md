@@ -2,7 +2,7 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 07/15/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -136,6 +136,33 @@ If you've selected **Logs (Point in Time)** as the restore type, do the followin
 
 1. After you select a date, the timeline graph displays the available recovery points in a continuous range.
 1. Specify a time for the recovery on the timeline graph, or select a time. Then select **OK**.
+
+### Partial restore as files
+
+The Azure Backup service decides the chain of files to be downloaded during restore as files. But there are scenarios where you might not want to download the entire content again.
+
+For eg., when you have a backup policy of weekly fulls, daily differentials and logs, and you already downloaded files for a particular differential. You found that this is not the right recovery point and decided to download the next day's differential. Now you just need the differential file since you already have the starting full. With the partial restore as files ability, provided by Azure Backup, you can now exclude the full from the download chain and download only the differential.
+
+#### Excluding backup file types
+
+The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file, that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+
+1. In the target machine where files are to be downloaded, go to "C:\Program Files\Azure Workload Backup\bin" folder
+2. Create a new JSON file named "ExtensionSettingOverrides.JSON", if it doesn't already exist.
+3. Add the following JSON key value pair
+
+    ```json
+    {
+    "RecoveryPointsToBeExcludedForRestoreAsFiles": "ExcludeFull"
+    }
+    ```
+
+4. No restart of any service is required. The Azure Backup service will attempt to exclude backup types in the restore chain as mentioned in this file.
+
+The ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` only takes specific values which denote the recovery points to be excluded during restore. For SQL, these values are:
+
+- ExcludeFull (Other backup types such as differential and logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndDifferential (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
 
 ### Restore to a specific restore point
 

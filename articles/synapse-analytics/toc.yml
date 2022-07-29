@@ -156,7 +156,7 @@ items:
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
+          href: ./synapse-service-identity.md?context=/azure/synapse-analytics/context/context
         - name: Credentials for user-assigned managed identity
           href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
   - name: How-to guides
@@ -326,6 +326,8 @@ items:
         href: sql/best-practices-serverless-sql-pool.md
       - name: Best practices dedicated SQL pools
         href: sql/best-practices-dedicated-sql-pool.md
+      - name: Distribution Advisor 
+        href: sql/distribution-advisor.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
@@ -469,7 +471,7 @@ items:
         displayName: workload, management
   - name: How-to guides
     items:
-    - name: Backup and restore
+    - name: Back up and restore
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
@@ -704,9 +706,9 @@ items:
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache
       href: ./spark/apache-spark-intelligent-cache-concept.md
-    - name: Azure Synapse runtimes
+    - name: Azure Synapse runtimes for Apache Spark
       items:
-        - name: Runtime overview
+        - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.2 runtime
           href: ./spark/apache-spark-32-runtime.md
@@ -714,6 +716,8 @@ items:
           href: ./spark/apache-spark-3-runtime.md
         - name: Azure Synapse Apache Spark 2.4 runtime
           href: ./spark/apache-spark-24-runtime.md
+        - name: Lifecycle and Supportability
+          href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -728,14 +732,18 @@ items:
       href: ./spark/apache-spark-delta-lake-overview.md
     - name: Manage packages
       items:
-      - name: Manage Python packages
-        href: ./spark/apache-spark-manage-python-packages.md
-      - name: Manage Scala packages
-        href: ./spark/apache-spark-manage-scala-packages.md
+      - name: Manage Workspace packages
+        href: ./spark/apache-spark-manage-workspace-packages.md
+      - name: Manage Spark pool packages
+        href: ./spark/apache-spark-manage-pool-packages.md
+      - name: Manage Notebook session packages
+        href: ./spark/apache-spark-manage-session-packages.md
       - name: Troubleshoot Python package installation errors 
         href: ./spark/apache-spark-troubleshoot-library-errors.md
       - name: Create a Conda private channel
         href: ./spark/apache-spark-custom-conda-channel.md
+      - name: Manage your package outside Synapse Studio portal
+        href: ./spark/apache-spark-manage-packages-outside-ui.md
     - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks
