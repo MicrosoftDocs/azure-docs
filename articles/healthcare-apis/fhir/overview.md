@@ -68,9 +68,9 @@ FHIR capabilities from Microsoft are available in three configurations:
 
 * The FHIR service is a managed platform as a service (PaaS) that operates as part of Azure Health Data Services. Aside from the FHIR service, Azure Health Data Services also includes managed services for storage and exchange of other types of health data. These other services are the DICOM service for medical imaging data and the MedTech service for medical IoT data. All services (FHIR service, DICOM service, and MedTech service) can be connected within an Azure Health Data Services workspace. 
 * Azure API for FHIR is a managed FHIR server offered as a PaaS in Azure – easily provisioned in the Azure portal. Azure API for FHIR is not part of Azure Health Data Services. 
-* FHIR Server for Azure – an open-source FHIR server that can be deployed into your Azure subscription – available on GitHub at https://github.com/Microsoft/fhir-server.
+* FHIR Server for Azure, an open-source FHIR server that can be deployed into your Azure subscription, is available on GitHub at https://github.com/Microsoft/fhir-server.
 
-For use cases that require extending or customizing a FHIR server, or for use cases that require access to the underlying services – such as the database without going through the FHIR API, developers should choose the open-source FHIR Server for Azure. For implementation of a turnkey, production-ready FHIR API and backend service where persisted data is only accessed through the FHIR API, developers should choose FHIR service.
+For use cases that require customizing a FHIR server or that require access to the underlying services – such as the database without going through the FHIR API, developers should choose the open-source FHIR Server for Azure. For implementation of a turnkey, production-ready FHIR API and backend service where persisted data is only accessed through the FHIR API, developers should choose FHIR service.
 
 ## Next Steps
 
