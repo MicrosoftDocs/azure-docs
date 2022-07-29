@@ -1,8 +1,8 @@
 ---
 title: Billing model of Azure Web PubSub service
 description:  An overview of key concepts about billing model of Azure Web PubSub service.
-author: yjin81
-ms.author: yajin1
+author: vicancy
+ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 07/29/2022
@@ -14,21 +14,21 @@ The billing model for Azure Web PubSub service is based on the number of units a
 
 ## Terms used in billing
 
-### What is a connection
+### Connection
 
 A *connection*, also known as a client or a client connection, represents an individual WebSocket connection connected to the Web PubSub service. 
 
-### What is a unit
+### Unit
 
 A *unit* is an abstract concept of the capability of Web PubSub service. Each unit supports up to 1,000 concurrent connections. Each Web PubSub service instance can have 1, 2, 5, 10, 20, 50 or 100 units. The unit count * 1000 equals the maximum number of connections your Web PubSub service instance can accept. 
 
 In production, it's recommended to plan for no more than 80% unit utilization before scaling up to more units to maintain acceptable system performance. For more information, see [Performance guide for Azure Web PubSub service](concept-performance.md).
 
-### What is the message count
+### Message count
 
 The *message count* is an abstract concept for billing purposes. It's defined as the size of outbound traffic (bytes) in 2-KB increments, with each increment counting as one message for billing. For example, 100 KB of traffic is counted as 50 messages. 
 
-### What is outbound traffic 
+### Outbound traffic 
 
 The *outbound traffic* is the messages sent out of Web PubSub service. 
 
@@ -70,8 +70,3 @@ As a result, you'll be billed with 6.25 standard units and 8.75 additional messa
 ## Pricing 
 
 The Web PubSub service offers multiple tiers with different pricing. For more information about Web PubSub pricing, see [Azure Web PubSub service pricing](https://azure.microsoft.com/pricing/details/web-pubsub).
-
-
-
-
-
