@@ -24,7 +24,7 @@ This scenario is showing a multi-tenant use case, where company Contoso is provi
 
 The following sequence diagram shows detailed steps of initiation of a Teams phone call:
 
-:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to initiate a Teams phone call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg":::
+:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg" alt-text="Sequence diagram is describing detailed set of steps that happens to initiate a Teams phone call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg":::
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
@@ -52,7 +52,7 @@ This scenario is showing a multi-tenant use case, where company Contoso is provi
 
 The following sequence diagram shows detailed steps for accepting incoming Teams phone calls:
 
-:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to receive a Teams phone call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg":::
+:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg" alt-text="Sequence diagram is describing detailed set of steps that happens to receive a Teams phone call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg":::
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
@@ -104,7 +104,7 @@ This scenario is showing a multi-tenant use case, where company Contoso is provi
 
 The following sequence diagram shows detailed steps for initiation of a Teams VoIP call:
 
-:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-out-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to initiate a Teams VoIP call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-out-full.svg":::
+:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-out-full.svg" alt-text="Sequence diagram is describing detailed set of steps that happens to initiate a Teams VoIP call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-out-full.svg":::
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
@@ -147,7 +147,7 @@ Permissions: Chat.Create (delegated)
 Response: response.body.value.id; // "19:8c0a1a67-50ce-4114-bb6c-da9c5dbcf6ca_e8b753b5-4117-464e-9a08-713e1ff266b3@unq.gbl.spaces"
 ```
 
-Then the client application creates an instance of callAgent, that holds the Azure Communication Services access token acquired during first step.
+Then the client application creates an instance of callAgent that holds the Azure Communication Services access token acquired during first step.
 
 ```js
 const callClient = new CallClient(); 
@@ -172,11 +172,11 @@ This scenario is showing a multi-tenant use case, where company Contoso is provi
 
 The following sequence diagram shows detailed steps for accepting incoming Teams VoIP calls:
 
-:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-in-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to receive a Teams VoIP call using Azure Communication Services. Graph API, and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-in-full.svg":::
+:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-in-full.svg" alt-text="Sequence diagram is describing detailed set of steps that happens to receive a Teams VoIP call using Azure Communication Services. Graph API, and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-voip-in-full.svg":::
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
-2. Subscribe for receiving calls: Client application uses Azure Communication Services calling SDK to provide the calling capability. First, it creates an instance of callAgent, that holds the Azure Communication Services access token acquired during first step.
+2. Subscribe for receiving calls: Client application uses Azure Communication Services calling SDK to provide the calling capability. First, it creates an instance of callAgent that holds the Azure Communication Services access token acquired during first step.
 
 ```js
 const callClient = new CallClient(); 
@@ -233,7 +233,7 @@ This scenario is showing a multi-tenant use case, where company Contoso is provi
 
 The following sequence diagram shows detailed steps for joining a Teams meeting:
 
-:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-meeting-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to join a Teams meeting using Azure Communication Services, Graph API, and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-meeting-full.svg":::
+:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-meeting-full.svg" alt-text="Sequence diagram is describing detailed set of steps that happens to join a Teams meeting using Azure Communication Services, Graph API, and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-meeting-full.svg":::
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
@@ -251,7 +251,7 @@ Response: response.body.value[0].subject; // ”Project Tailspin”
 
 Contoso's client application will then show the list of Teams meetings and the ability to join them.
 
-3. Join Teams meeting "Project Tailspin": Alice selects a button to join Teams meeting "Project Tailspin" in the Contoso's Client application. Client application uses Azure Communication Services calling SDK to provide the calling capability. Client applications create an instance of callAgent, that holds the Azure Communication Services access token acquired during first step.
+3. Join Teams meeting "Project Tailspin": Alice selects a button to join Teams meeting "Project Tailspin" in the Contoso's Client application. Client application uses Azure Communication Services calling SDK to provide the calling capability. Client applications create an instance of callAgent that holds the Azure Communication Services access token acquired during first step.
 
 ```js
 const callClient = new CallClient(); 
