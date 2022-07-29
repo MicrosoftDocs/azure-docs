@@ -145,7 +145,7 @@ By performing basic TCP SYN/ACK scans across all open ports on the addresses in 
 
 The SSL configuration and organization charts display common SSL-related issues that may impact functions of your online infrastructure.
 
-![Screenshot of SSL charts](media/Dashboards-16.png)
+![Screenshot of SSL configuration and organization charts](media/Dashboards-16.png)
 
 For instance, the SSL configuration chart displays any detected configuration issues that can disrupt your online services. This includes expired SSL certificates and certificates using outdated signature algorithms like SHA1 and MD5, resulting in unnecessary security risk to your organization.
 
