@@ -95,6 +95,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
+
 \* This option will incur a charge. ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) for information. 
 
 ## Virtual network for Azure NetApp Files volumes
