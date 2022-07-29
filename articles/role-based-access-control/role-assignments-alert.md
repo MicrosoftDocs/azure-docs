@@ -1,6 +1,6 @@
 ---
-title: Notification of privileged Azure role assignments
-description: Notification of privileged Azure role assignments by creating an alert rule using Azure Monitor.
+title: Alert on privileged Azure role assignments
+description: Alert on privileged Azure role assignments by creating an alert rule using Azure Monitor.
 services: role-based-access-control
 author: rolyon
 manager: karenhoran
@@ -11,7 +11,7 @@ ms.date: 07/22/2022
 ms.author: rolyon
 ---
 
-# Notification of privileged Azure role assignments
+# Alert on privileged Azure role assignments
 
 Privileged Azure roles, such as [Owner](built-in-roles.md#owner), [Contributor](built-in-roles.md#contributor), and [User Access Administrator](built-in-roles.md#user-access-administrator), are powerful roles and may introduce risk into your system. You might want to be notified by email or text message when these or other roles are assigned. This article describes how to get notified of privileged role assignments at a subscription scope by creating an alert rule using Azure Monitor. 
 
@@ -48,22 +48,26 @@ To get notified of privileged role assignments, you create an alert rule in Azur
     This query filters for all attempts to assign the Owner, Contributor, or User Access Administrator role in the selected subscription.
 
     ```kusto
-    // Get start logs where there was an attempt to assign a privileged role
-    let StartLog = AzureActivity
-        | where Authorization contains "Microsoft.Authorization/roleAssignments/write"
-            and (ActivityStatusValue  == "Start" or ActivityStatus == "Started");
-    StartLog
-        // Filter for privileged role assignments
-        | extend RequestBody = parse_json(Properties).requestbody
-        | where RequestBody contains "b24988ac-6180-42a0-ab88-20f7382dd24c" or  // Contributor
-           RequestBody contains "8e3af657-a8ff-443c-a75c-2fe8c4bcb635" or  // Owner
-           RequestBody contains "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9" // User Access Administrator
-        // Filter for Scope: we only want to alert subscription level role assignments
-        | extend Scope = parse_json(Authorization).scope
-        | where Scope !contains "resourcegroups"
+    AzureActivity
+    | where CategoryValue == "Administrative" and
+        OperationNameValue == "Microsoft.Authorization/roleAssignments/write" and
+        (ActivityStatusValue == "Start" or ActivityStatus == "Started")
+    | extend RoleDefinition = extractjson("$.Properties.RoleDefinitionId",tostring(Properties_d.requestbody),typeof(string))
+    | extend PrincipalId = extractjson("$.Properties.PrincipalId",tostring(Properties_d.requestbody),typeof(string))
+    | extend PrincipalType = extractjson("$.Properties.PrincipalType",tostring(Properties_d.requestbody),typeof(string))
+    | extend Scope = extractjson("$.Properties.Scope",tostring(Properties_d.requestbody),typeof(string))
+    | where Scope !contains "resourcegroups"
+    | extend RoleId = split(RoleDefinition,'/')[-1]
+    | extend RoleDisplayName = case(
+        RoleId == 'b24988ac-6180-42a0-ab88-20f7382dd24c', "Contributor",
+        RoleId == '8e3af657-a8ff-443c-a75c-2fe8c4bcb635', "Owner",
+        RoleId == '18d7d88d-d35e-4fb5-a5c3-7773c20a72d9', "User Access Administrator",
+        "Irrelevant")
+    | where RoleDisplayName != "Irrelevant"
+    | project TimeGenerated,Scope, PrincipalId,PrincipalType,RoleDisplayName
     ```
 
-    :::image type="content" source="./media/role-assignments-notification/alert-rule-condition.png" alt-text="Screenshot of Create an alert rule condition tab in Azure Monitor." lightbox="./media/role-assignments-notification/alert-rule-condition.png":::
+    :::image type="content" source="./media/role-assignments-alert/alert-rule-condition.png" alt-text="Screenshot of Create an alert rule condition tab in Azure Monitor." lightbox="./media/role-assignments-alert/alert-rule-condition.png":::
 
 1. In the **Measurement** section, set the following values:
 
@@ -109,11 +113,11 @@ Once you've created an alert rule, you can test that it fires.
 
 1. On the **Alerts** page, monitor for notifications you specified in the action group.
 
-    :::image type="content" source="./media/role-assignments-notification/alert-fired.png" alt-text="Screenshot of the Alerts page showing that role assignment alert fired." lightbox="./media/role-assignments-notification/alert-fired.png":::
+    :::image type="content" source="./media/role-assignments-alert/alert-fired.png" alt-text="Screenshot of the Alerts page showing that role assignment alert fired." lightbox="./media/role-assignments-alert/alert-fired.png":::
 
     The following image shows an example of the email notification.
 
-    :::image type="content" source="./media/role-assignments-notification/alert-email.png" alt-text="Screenshot of an email notification for a role assignment." lightbox="./media/role-assignments-notification/alert-email.png":::
+    :::image type="content" source="./media/role-assignments-alert/alert-email.png" alt-text="Screenshot of an email notification for a role assignment." lightbox="./media/role-assignments-alert/alert-email.png":::
 
 ## Delete the alert rule
 
