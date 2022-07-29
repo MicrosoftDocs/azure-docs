@@ -80,7 +80,6 @@ If you are using the CLI to attach the gallery to your Dev center, you will need
 1. Select **Access Control (IAM)** from the left menu.
 1. Select **+ Add** > **Add role assignment**.
 1. On the Role tab, select the **Owner** role, and then select **Next**.
-1. On the Role tab, select the **Contributor** role, and then select **Next**.
 1. On the Members tab, under **Assign access to**, select **Managed Identity**, and then select **+ Select Members**.
 1. In Select managed identities, search for and select the user assigned managed identity you created in "Create a Dev center Managed Identity" and then select **Select**.
 1. On the Members tab, select **Next**.
