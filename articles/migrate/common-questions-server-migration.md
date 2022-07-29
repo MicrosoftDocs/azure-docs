@@ -103,9 +103,9 @@ Test migration simulates the actual migration by creating a test Azure VM using 
 Once you have migrated your VM/server successfully, you can view and manage the VM from the Virtual Machines page. Connect to the migrated VM to validate.
 Alternatively, you can review the ‘Job status’ for the operation to check if the migration was successfully completed. If you see any errors, resolve them, and retry the migration operation.
 
-### What happens if I don’t stop replication after migration?
+### What happens if I don’t complete the migration?
 
-When you stop replication, the Azure Migrate: Server Migration tool cleans up the managed disks in the subscription that were created for replication. If you do not stop replication after a migration, you will continue to incur charges for these disks. Stop replication will not impact the disks attached to machines that have already been migrated.
+When you complete migration, the Azure Migrate: Server Migration tool cleans up the managed disks in the subscription that were created for replication. If you do not click **Complete migration** after a migration, you will continue to incur charges for these disks. Complete migration will not impact the disks attached to machines that have already been migrated.
 
 ### How can I migrate UEFI-based machines to Azure as Azure generation 1 VMs?
 Azure Migrate: Server Migration tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them to Azure generation 1 VMs, convert the boot-type to BIOS before starting replication, and then use the Azure Migrate: Server Migration tool to migrate to Azure.

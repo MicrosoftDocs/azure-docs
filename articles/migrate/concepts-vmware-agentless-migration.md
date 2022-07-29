@@ -98,8 +98,8 @@ When a VM undergoes replication(data copy), there are a few possible states:
 - **Paused**: The replication cycles have been paused. The replication cycles can be resumed by performing a resume replication operation. 
 - **Resuming (Queued)**: The VM is queued for resuming replication as there are other VMs that are currently consuming the on-premises resources. 
 - **Resume in progress (x%)**: Replication cycle is being resumed for the VM and has progressed by x%. 
-- **Stop replication in progress**: Replication cleanup is in progress. When you stop replication, the intermediate managed disks (seed disks) created during replication will be deleted. Learn more.  
-- **Complete migration in progress**: Migration cleanup is in progress. When you complete migration, the intermediate managed disks (seed disks) created during replication will be deleted. Learn more.  
+- **Stop replication in progress**: Replication cleanup is in progress. When you stop replication, the intermediate managed disks (seed disks) created during replication will be deleted. [Learn more](#stop-replicationcomplete-migration).  
+- **Complete migration in progress**: Migration cleanup is in progress. When you complete migration, the intermediate managed disks (seed disks) created during replication will be deleted. [Learn more](#stop-replicationcomplete-migration).  
 - **–** : When the VM has successfully migrated and/or when you have stopped replication, the status changes to “-“. Once you stop replication / complete migration and the operation finishes successfully, the VM will be removed from the list of replicating machines. You can find the VM in the virtual machines tab in the replicate wizard.
 
 ### Other states
@@ -108,7 +108,7 @@ When a VM undergoes replication(data copy), there are a few possible states:
 - **Repair replication**: There was an issue in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you had opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool will try to repair it for you. Else, select on the VM, and select **Repair Replication**. If you did not opt for **Automatically repair replication** or the above step did not work for you, then stop replication for the virtual machine, reset changed block tracking on the virtual machine, and then reconfigure the replication.
 - **Repair replication (Queued)**: The VM is queued for replication repair as there are other VMs that are consuming the on-premises resources. Once the resources are free, the VM will be processed for repair replication.
 - **Resync (x%)**: The VM is undergoing a data resynchronization. This can happen if there was some issue / mismatch during data replication. 
-- **Stop replication / complete migration failed**: Select the link to understand the possible causes for failure and actions to remediate (as applicable).
+- **Stop replication/complete migration failed**: Select the link to understand the possible causes for failure and actions to remediate (as applicable).
 
 > [!Note]
 > Some VMs are put in queued state to ensure minimal impact on the source environment due to storage IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
@@ -170,18 +170,13 @@ Azure Migrate supports concurrent replication of 500 virtual machines. When you 
 
 You can deploy the scale-out appliance anytime after configuring the primary appliance, but isn't required until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
 
-## Stop replication
+## Stop replication/Complete migration
 
-When you stop replication, the intermediate managed disks (seed disks) created during replication will be deleted. The VM for which the replication is stopped can be replicated and migrated again following the usual steps.
+When you stop replication, the intermediate managed disks (seed disks) created during replication will be deleted. You can stop replication only during an active replication. You can select **Complete migration** to stop the replication after the VM was migrated.
 
-You can stop replication at two stages:
+The VM for which the replication is stopped, can be replicated by enabling replication again. If the VM was migrated, you can resume replication and migration again.
 
--  When the replication is ongoing
--  When the migration for a VM has completed
-
-As best practice, you should always stop the replication after the VM has migrated successfully to Azure to ensure that you don't incur extra charges for storage transactions on the intermediate managed disks (seed disks).
-
-In some cases, you will notice that stop replication takes time. It is because whenever you stop replication, the ongoing replication cycle is completed (only when the VM is in delta sync) before deleting the artifacts.
+As a best practice, you should always complete the migration after the VM has migrated successfully to Azure to ensure that you don't incur extra charges for storage transactions on the intermediate managed disks (seed disks). In some cases, you will notice that stop replication takes time. It is because whenever you stop replication, the ongoing replication cycle is completed (only when the VM is in delta sync) before deleting the artifacts.
 
 ## Impact of churn
 
