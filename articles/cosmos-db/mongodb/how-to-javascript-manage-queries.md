@@ -101,7 +101,7 @@ await aggCursor.forEach(product => {
 });
 ```
 
-## Use a pipeline in JavaScript
+## Use a aggregation pipeline in JavaScript
 
 Use a pipeline to keep data processing on the server before returning to the client. 
 
