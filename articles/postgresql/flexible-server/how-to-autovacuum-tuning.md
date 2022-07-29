@@ -224,16 +224,15 @@ They are a blocker to vacuum process. Removing the long running transactions fre
 The long-running transactions can be detected using the following query: 
 
 ```
-    SELECT pid, 
-           age(backend_xid) AS age_in_xids, 
-           now () - xact_start AS xact_age, 
-           now () - query_start AS query_age, 
-           state, 
-           query 
-     FROM pg_stat_activity 
-     WHERE state != 'idle' 
-     ORDER BY 2 DESC 
-     LIMIT 10; 
+    SELECT pid, age(backend_xid) AS age_in_xids, 
+    now () - xact_start AS xact_age, 
+    now () - query_start AS query_age, 
+    state, 
+    query 
+    FROM pg_stat_activity 
+    WHERE state != 'idle' 
+    ORDER BY 2 DESC 
+    LIMIT 10; 
 ```
  
 #### Prepared Statements 
@@ -266,19 +265,14 @@ When the database runs into transaction ID wraparound protection one should chec
 
 ### Table-specific Requirements  
 
-Autovacuum parameters may be set for individual tables.   
+Autovacuum parameters may be set for individual tables.It is especially important for very small and very big tables. For instance for a very small table that contains only 100 rows autovacuum will trigger VACUUM operation when 70 rows will change (as calculated above). If this table is frequently updated you might see hundreds of autovacuum operations a day. This will prevent autovacuum from maintaining other tables on which the percentage of changes isn’t that big. On the other hand for a table containing billion of rows, 200 million of rows needs to be changed until autovacuum operation will be triggered for it.Setting the autovacuum parameters prevents such scenarios.
 
-To set auto-vacuum setting per table, change the server parameters as follows (values below are examples):
+To set autovacuum setting per table, change the server parameters as follows (values below are examples):
 ```
-    ALTER TABLE <table name> SET (autovacuum_analyze_scale_factor = 0);
-    ALTER TABLE <table name> SET (autovacuum_analyze_threshold = 5000);
-    ALTER TABLE <table name> SET (autovacuum_vacuum_scale_factor = 0); 
-    ALTER TABLE <table name> SET (autovacuum_vacuum_threshold = 10000); 
-```
-Prioritization of autovacuum can also be made on a per-table basis. 
-For example, if we have a table where growth of dead tuples is faster compared to other tables, we could set 
-`autovacuum_vacuum_cost_delay` or `auto_vacuum_cost_limit parameters` at the table level to make vacuuming on the table more aggressive.     
-```
+    ALTER TABLE <table name> SET (autovacuum_analyze_scale_factor = xx);
+    ALTER TABLE <table name> SET (autovacuum_analyze_threshold = xx);
+    ALTER TABLE <table name> SET (autovacuum_vacuum_scale_factor =xx); 
+    ALTER TABLE <table name> SET (autovacuum_vacuum_threshold = xx); 
     ALTER TABLE <table name> SET (autovacuum_vacuum_cost_delay = xx);  
     ALTER TABLE <table name> SET (autovacuum_vacuum_cost_limit = xx);  
 ```
@@ -290,7 +284,7 @@ In versions of PostgreSQL prior to 13, autovacuum will not run on tables wit
 - The visibility map of the tables is not updated, and thus the query performance especially where there is Index Only Scans 
   starts to suffer over time.
 - The database can run into transaction ID wraparound protection.
-- Hint bits will not be set
+- Hint bits will not be set.
 
 #### Solutions  
 
@@ -300,5 +294,4 @@ Use a cron job to schedule a periodic vacuum analyze on the table. The frequ
 
 ##### Postgres 13 and Higher Versions  
 
-Autovacuum will run on tables with an insert-only workload. Two new server parameters `autovacuum_vacuum_insert_threshold` and 
-`autovacuum_vacuum_insert_scale_factor` help control when autovacuum can be triggered on insert-only tables. 
+Autovacuum will run on tables with an insert-only workload. Two new server parameters `autovacuum_vacuum_insert_threshold` and  `autovacuum_vacuum_insert_scale_factor` help control when autovacuum can be triggered on insert-only tables. 
