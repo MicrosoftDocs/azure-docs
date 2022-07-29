@@ -9,45 +9,62 @@ ms.date: 07/29/2022
 ---
 # Scenarios for using Azure Deployment Environments
 
-Depending on the needs of an enterprise, 'Project Fidalgo' can be configured to meet different requirements. This article discusses a few possible scenarios, covering their benefits brought by using Project Fidalgo, and the resources to use to implement those scenarios.
+This article discusses a few possible scenarios and benefits of Azure Deployment Environments, and the resources used to implement those scenarios.Depending on the needs of an enterprise, Azure Deployment Environments can be configured to meet different requirements. 
 
-- Environments as part of a Pipeline
-- Sandboxed investigations
-- On-demand Test environments
+Some possible scenarios are:
+- Environments as part of a CI/CD pipeline
+- Sandbox environments for investigations
+- On-demand test environments
 - Training sessions, hands-on labs, and hackathons
 
-## Environments as part of a CI/CD Pipeline
+## Environments as part of a CI/CD pipeline
 
-Creating and managing environments across an enterprise can require significant effort. With 'Project Fidalgo', different types of environments such as Dev, Test, Staging, Pre-Prod, Prod, etc. can be easily created, updated and plugged into a CI/CD pipeline.  In this scenario, 'Project Fidalgo' provides the following benefits:
+Creating and managing environments across an enterprise can require significant effort. With Azure Deployment Environments, different types of product lifecycle environments such as development, testing, staging, pre-Production, Production, etc. can be easily created, updated, and plugged into a CI/CD pipeline.
 
-- Organizations can attach a Catalog and provide common 'infra-as-code' templates to create environments ensuring consistency across teams.
-- Developers and Testers can test the latest version of their application by quickly provisioning environments by using reusable templates.
-- Development Teams can connect their environments to CI/CD pipelines to enable DevOps scenarios.
-- Central Dev IT teams can centrally track costs, security alerts and manage environments across different Projects and DevCenters.
+In this scenario, Azure Deployment Environments provides the following benefits:
 
-## Sandboxed investigations
+- Organizations can attach a [Catalog](./concept-environments-key-concepts.md#catalogs) and provide common 'infra-as-code' templates to create environments ensuring consistency across teams.
+- Developers and testers can test the latest version of their application by quickly provisioning environments by using reusable templates.
+- Development teams can connect their environments to CI/CD pipelines to enable DevOps scenarios.
+- Central Dev IT teams can centrally track costs, security alerts, and manage environments across different projects and dev centers.
 
-Developers often investigate different technologies or infrastructure design. By default, all environments created with 'Project Fidalgo' are created in their own resource group and the Project members get contributor access to those resources by default. This scenario allows developers to add and/or change Azure resources as they need for their development or test environments. Central Dev IT teams can easily and quickly track costs for all the environments used for investigations.
+## Sandbox environments for investigations
 
-## On-demand Test environments
+Developers often investigate different technologies or infrastructure designs. By default, all environments created with Azure Deployment Environments are created in their own resource group and the Project members get contributor access to those resources by default. 
 
-Often developers need to create ad-hoc test environments that mimic their formal development or testing environments to test a new capability before even checking in the code and executing a pipeline. With 'Project Fidalgo', test environments can be easily created, updated, or duplicated. It allows teams to access a fully configured environment when it’s needed. Developers can test the latest version of their application by quickly creating new ad-hoc environments using reusable templates.
+In this scenario, Azure Deployment Environments provides the following benefits:
+ - Allows developers to add and/or change Azure resources as they need for their development or test environments.
+ - Central Dev IT teams can easily and quickly track costs for all the environments used for investigation purposes.
+
+## On-demand test environments
+
+Often developers need to create adhoc test environments that mimic their formal development or testing environments to test a new capability before checking in the code and executing a pipeline. With Azure Deployment Environments, test environments can be easily created, updated, or duplicated. 
+
+In this scenario, Azure Deployment Environments provides the following benefits:
+- Allows teams to access a fully configured environment when it’s needed. 
+- Developers can test the latest version of their application by quickly creating new adhoc environments using reusable templates.
 
 ## Trainings, hands-on labs, and hackathons
 
-A Project in 'Project Fidalgo' acts as a great container for transient activities like workshops, hands-on labs, trainings, or hackathons. The service allows you to create a Project where you can provide custom templates that each trainee can use to create identical and isolated environments for training. It’s easy to delete a Project and all related resources when the training is over.
+A Project in Azure Deployment Environments acts as a great container for transient activities like workshops, hands-on labs, trainings, or hackathons. The service allows you to create a Project where you can provide custom templates to each user.
 
-# Proof of concept vs. Scaled Deployment
+In this scenario, Azure Deployment Environments provides the following benefits: 
+- Each trainee can create identical and isolated environments for training. 
+- Easily delete a Project and all related resources when the training is over.
 
-Once you decide to explore Project Fidalgo, there are two general paths forward: Proof of Concept vs Scaled Deployment.
+# Proof of concept deployment vs. scaled deployment
 
-A **proof of concept** deployment focuses on a concentrated effort from a single team to establish organizational value. While it can be tempting to think of a scaled deployment, the approach tends to fail more often than the proof of concept option. Therefore, we recommend that you start small, learn from the first team, repeat the same approach with two to three additional teams, and then plan for a scaled deployment based on the knowledge gained. For a successful proof of concept, we recommend that you pick one or two teams, and identify their scenarios (Environments as part of a CI/CD Pipeline vs Sandbox environments), document their current use cases, and deploy 'Project Fidalgo'.
+Once you decide to explore Azure Deployment Environments, there are two general paths forward: Proof of concept vs scaled deployment.
 
-A **scaled deployment** consists of weeks of reviewing and planning with an intent of deploying Project Fidalgo to the entire enterprise that has hundreds or thousands of developers.
+## Proof of concept deployment
+
+A **proof of concept** deployment focuses on a concentrated effort from a single team to establish organizational value. While it can be tempting to think of a scaled deployment, the approach tends to fail more often than the proof of concept option. Therefore, we recommend that you start small, learn from the first team, repeat the same approach with two to three additional teams, and then plan for a scaled deployment based on the knowledge gained. For a successful proof of concept, we recommend that you pick one or two teams, and identify their scenarios ([environments as part of a CI/CD pipeline](#environments-as-part-of-a-cicd-pipeline) vs [sandbox environments](#sandbox-environments-for-investigations)), document their current use cases, and then deploy Azure Deployment Environments.
+
+## Scaled deployment
+
+A **scaled deployment** consists of weeks of reviewing and planning with an intent of deploying Azure Deployment Environments to the entire enterprise that has hundreds or thousands of developers.
 
 ## Next steps
 
-Read the following articles:
-
-- To get started with the service, [Tutorial: Set up a Fidalgo DevCenter](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/tutorial-create-and-configure-devcenter.md)
-- Learn more about [Project Fidalgo Concepts](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md)
+- To get started with the service, [Tutorial: Create and configure the Azure Deployment Environments dev center](./tutorial-create-and-configure-devcenter.md)
+- Learn more about [Azure Deployment Environments key concepts](./concept-environments-key-concepts.md)
