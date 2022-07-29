@@ -91,8 +91,8 @@ Install the templates using [any deployment method for Resource Manager template
 New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -TemplateFile "<template-filename.json>" -TemplateParameterFile "<parameter-filename.json>"
 ```
 # [CLI](#tab/ARMAgentCLI)
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -TemplateFile "<template-filename.json>" -TemplateParameterFile "<parameter-filename.json>"
+```azurecli
+az deployment group create --resource-group "<resource-group-name>" --template-file "<path-to-template>" --parameters "@<parameter-filename.json>"
 ```
 ---
 
