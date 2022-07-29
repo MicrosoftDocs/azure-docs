@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights for JavaScript web apps
-description: Get page view and session counts, web client data, Single Page Applications (SPA), and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
+description: Get page view and session counts, web client data, and single-page applications (SPAs) and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.devlang: javascript
@@ -22,20 +22,20 @@ Application Insights can be used with any web pages by adding a short piece of J
 1. First you need an Application Insights resource. If you don't already have a resource and connection string, follow the instructions to [create a new resource](create-new-resource.md).
 1. Copy the [connection string](#connection-string-setup) for the resource where you want your JavaScript telemetry to be sent (from step 1). You'll add it to the `connectionString` setting of the Application Insights JavaScript SDK.
 1. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
-    * [npm Setup](#npm-based-setup)
-    * [JavaScript Snippet](#snippet-based-setup)
+    * [Node Package Manager (npm) setup](#npm-based-setup)
+    * [JavaScript snippet](#snippet-based-setup)
 
 > [!WARNING]
 > `@microsoft/applicationinsights-web-basic - AISKULight` doesn't support the use of connection strings.
 
-Only use one method to add the JavaScript SDK to your application. If you use the npm Setup, don't use the Snippet and vice versa.
+Only use one method to add the JavaScript SDK to your application. If you use the npm setup, don't use the snippet and vice versa.
 
 > [!NOTE]
-> npm Setup installs the JavaScript SDK as a dependency to your project, enabling IntelliSense, whereas the Snippet fetches the SDK at runtime. Both support the same features. Developers who want more custom events and configuration generally opt for npm Setup. Users looking for quick enablement of out-of-the-box web analytics opt for the Snippet.
+> The npm setup installs the JavaScript SDK as a dependency to your project and enables IntelliSense. The snippet fetches the SDK at runtime. Both support the same features. Developers who want more custom events and configuration generally opt for the npm setup. Users who are looking for quick enablement of out-of-the-box web analytics opt for the snippet.
 
 ### npm-based setup
 
-Install via Node Package Manager (npm).
+Install via npm.
 
 ```sh
 npm i --save @microsoft/applicationinsights-web
@@ -57,11 +57,11 @@ appInsights.trackPageView(); // Manually call trackPageView to establish the cur
 
 ### Snippet-based setup
 
-If your app doesn't use npm, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each of your pages. Preferably, it should be the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies and optionally any JavaScript errors. If you're using Blazor Server App, add the snippet at the top of the file `_Host.cshtml` in the `<head>` section.
+If your app doesn't use npm, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each of your pages. Preferably, it should be the first script in your `<head>` section. That way it can monitor any potential issues with all your dependencies and optionally any JavaScript errors. If you're using Blazor Server App, add the snippet at the top of the file `_Host.cshtml` in the `<head>` section.
 
-Starting from version 2.5.5, the page view event will include the new tag "ai.internal.snippet" that contains the identified Snippet version. This feature assists with tracking which version of the Snippet your application is using.
+Starting from version 2.5.5, the page view event will include the new tag "ai.internal.snippet" that contains the identified snippet version. This feature assists with tracking which version of the snippet your application is using.
 
-The current Snippet that follows is version "5." The version is encoded in the snippet as sv:"#." The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The current snippet that follows is version "5." The version is encoded in the snippet as sv:"#." The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
@@ -82,11 +82,11 @@ cfg: { // Application Insights Configuration
 > [!NOTE]
 > For readability and to reduce possible JavaScript errors, all of the possible configuration options are listed on a new line in the preceding snippet code. If you don't want to change the value of a commented line, it can be removed.
 
-#### Reporting Script load failures
+#### Report script load failures
 
-This version of the snippet detects and reports failures when loading the SDK from the CDN as an exception to the Azure Monitor portal (under the failures &gt; exceptions &gt; browser). The exception provides visibility into failures of this type so that you're aware your application isn't reporting telemetry (or other exceptions) as expected. This signal is an important measurement in understanding that you have lost telemetry because the SDK didn't load or initialize, which can lead to:
+This version of the snippet detects and reports failures when the SDK is loaded from the CDN as an exception to the Azure Monitor portal (under the failures &gt; exceptions &gt; browser). The exception provides visibility into failures of this type so that you're aware your application isn't reporting telemetry (or other exceptions) as expected. This signal is an important measurement in understanding that you've lost telemetry because the SDK didn't load or initialize, which can lead to:
 
-- Under-reporting of how users are using or trying to use your site.
+- Underreporting of how users are using or trying to use your site.
 - Missing telemetry on how your users are using your site.
 - Missing JavaScript errors that could potentially be blocking your users from successfully using your site.
 
@@ -94,7 +94,7 @@ For information on this exception, see the [SDK load failure](javascript-sdk-loa
 
 Reporting of this failure as an exception to the portal doesn't use the configuration option ```disableExceptionTracking``` from the Application Insights configuration. For this reason, if this failure occurs, it will always be reported by the snippet, even when the window.onerror support is disabled.
 
-Reporting of SDK load failures isn't supported on Internet Explorer 8 or earlier. This behavior reduces the minified size of the snippet by assuming that most environments aren't exclusively IE 8 or less. If you have this requirement and you want to receive these exceptions, you'll need to either include a fetch poly fill or create your own snippet version that uses ```XDomainRequest``` instead of ```XMLHttpRequest```. We recommend that you use the [provided snippet source code](https://github.com/microsoft/ApplicationInsights-JS/blob/master/AISKU/snippet/snippet.js) as a starting point.
+Reporting of SDK load failures isn't supported on Internet Explorer 8 or earlier. This behavior reduces the minified size of the snippet by assuming that most environments aren't exclusively Internet Explorer 8 or less. If you have this requirement and you want to receive these exceptions, you'll need to either include a fetch poly fill or create your own snippet version that uses ```XDomainRequest``` instead of ```XMLHttpRequest```. We recommend that you use the [provided snippet source code](https://github.com/microsoft/ApplicationInsights-JS/blob/master/AISKU/snippet/snippet.js) as a starting point.
 
 > [!NOTE]
 > If you're using a previous version of the snippet, we recommend that you update to the latest version so that you'll receive these previously unreported issues.
@@ -109,7 +109,7 @@ The available configuration options are listed in this table.
 
 | Name | Type | Description
 |------|------|----------------
-| src | string **[required]** | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
+| src | string *[required]* | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
 | name | string *[optional]* | The global name for the initialized SDK, defaults to `appInsights`. So ```window.appInsights``` will be a reference to the initialized instance. If you provide a name value or a previous instance appears to be assigned (via the global name appInsightsSDK), this name value will also be defined in the global namespace as ```window.appInsightsSDK=<name value>```. The SDK initialization code uses this reference to ensure it's initializing and updating the correct snippet skeleton and proxy methods.
 | ld | number in ms *[optional]* | Defines the load delay to wait before attempting to load the SDK. Default value is 0ms. Any negative value will immediately add a script tag to the &lt;head&gt; region of the page, which will then block the page load event until the script is loaded or fails.
 | useXhr | boolean *[optional]* | This setting is used only for reporting SDK load failures. Reporting will first attempt to use fetch() if available and then fall back to XHR. Setting this value to true just bypasses the fetch check. Use of this value is only required if your application is being used in an environment where fetch would fail to send the failure events.
@@ -137,18 +137,18 @@ By default, the Application Insights JavaScript SDK autocollects many telemetry 
 
 This telemetry includes:
 
-- **Uncaught exceptions** in your app, including information on:
-    - Stack trace
-    - Exception details and message accompanying the error
-    - Line and column number of error
-    - URL where error was raised
-- **Network Dependency Requests** made by your app **XHR** and **Fetch** (fetch collection is disabled by default) requests, include information on:
-    - Url of dependency source
-    - Command and method used to request the dependency
-    - Duration of the request
-    - Result code and success status of the request
-    - ID (if any) of user making the request
-    - Correlation context (if any) where request is made
+- **Uncaught exceptions** in your app, including information on the:
+    - Stack trace.
+    - Exception details and message accompanying the error.
+    - Line and column number of the error.
+    - URL where the error was raised.
+- **Network Dependency Requests** made by your app **XHR** and **Fetch** (fetch collection is disabled by default) requests, include information on the:
+    - URL of dependency source.
+    - Command and method used to request the dependency.
+    - Duration of the request.
+    - Result code and success status of the request.
+    - ID (if any) of the user making the request.
+    - Correlation context (if any) where the request is made.
 - **User information** (for example, location, network, IP)
 - **Device information** (for example, browser, OS, version, language, model)
 - **Session information**
@@ -157,7 +157,7 @@ This telemetry includes:
 
 Telemetry initializers are used to modify the contents of collected telemetry before being sent from the user's browser. They can also be used to prevent certain telemetry from being sent by returning `false`. Multiple telemetry initializers can be added to your Application Insights instance. They're executed in the order of adding them.
 
-The input argument to `addTelemetryInitializer` is a callback that takes a [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) as an argument and returns `boolean` or `void`. If returning `false`, the telemetry item isn't sent, else it proceeds to the next telemetry initializer, if any, or is sent to the telemetry collection endpoint.
+The input argument to `addTelemetryInitializer` is a callback that takes a [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) as an argument and returns `boolean` or `void`. If `false` is returned, the telemetry item isn't sent, or else it proceeds to the next telemetry initializer, if any, or is sent to the telemetry collection endpoint.
 
 An example of using telemetry initializers:
 
@@ -174,12 +174,12 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ## Configuration
 
-Most configuration fields are named such that they can be defaulted to false. All fields are optional except for `connectionString`.
+Most configuration fields are named so that they can be defaulted to false. All fields are optional except for `connectionString`.
 
 | Name | Description | Default |
 |------|-------------|---------|
-| connectionString | **Required**<br>Connection string that you obtained from the Azure portal. | string<br/>null |
-| accountId | An optional account ID, if your app groups users into accounts. No spaces, commas, semicolons, equals, or vertical bars. | string<br/>null |
+| connectionString | *Required*<br>Connection string that you obtained from the Azure portal. | string<br/>null |
+| accountId | An optional account ID, if your app groups users into accounts. No spaces, commas, semicolons, equal signs, or vertical bars. | string<br/>null |
 | sessionRenewalMs | A session is logged if the user is inactive for this amount of time in milliseconds. | numeric<br/>1800000<br/>(30 mins) |
 | sessionExpirationMs | A session is logged if it has continued for this amount of time in milliseconds. | numeric<br/>86400000<br/>(24 hours) |
 | maxBatchSizeInBytes | Maximum size of telemetry batch. If a batch exceeds this limit, it's immediately sent and a new batch is started. | numeric<br/>10000 |
@@ -191,20 +191,20 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | loggingLevelTelemetry | Sends *internal* Application Insights errors as telemetry. <br>0: off, <br>1: Critical errors only, <br>2: Everything (errors & warnings) | numeric<br/> 1 |
 | diagnosticLogInterval | (internal) Polling interval (in ms) for internal logging queue. | numeric<br/> 10000 |
 | samplingPercentage | Percentage of events that will be sent. Default is 100, meaning all events are sent. Set this option if you want to preserve your data cap for large-scale applications. | numeric<br/>100 |
-| autoTrackPageVisitTime | If true, on a pageview, the _previous_ instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. It's sent as a custom metric named `PageVisitTime` in `milliseconds` and is calculated via the Date [now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) function (if available) and falls back to (new Date()).[getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) if now() is unavailable (IE8 or less). Default is false. | boolean<br/>false |
+| autoTrackPageVisitTime | If true, on a pageview, the _previous_ instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. It's sent as a custom metric named `PageVisitTime` in `milliseconds` and is calculated via the Date [now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) function (if available) and falls back to (new Date()).[getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) if now() is unavailable (Internet Explorer 8 or less). Default is false. | boolean<br/>false |
 | disableAjaxTracking | If true, Ajax calls aren't autocollected. | boolean<br/> false |
 | disableFetchTracking | If true, Fetch requests aren't autocollected.|boolean<br/>true |
-| overridePageViewDuration | If true, default behavior of trackPageView is changed to record end of page view duration interval when trackPageView is called. If false and no custom duration is provided to trackPageView, the page view performance is calculated using the navigation timing API. |boolean<br/>
+| overridePageViewDuration | If true, default behavior of trackPageView is changed to record end of page view duration interval when trackPageView is called. If false and no custom duration is provided to trackPageView, the page view performance is calculated by using the navigation timing API. |boolean<br/>
 | maxAjaxCallsPerView | Default 500 - controls how many Ajax calls will be monitored per page view. Set to -1 to monitor all (unlimited) Ajax calls on the page. | numeric<br/> 500 |
 | disableDataLossAnalysis | If false, internal telemetry sender buffers will be checked at startup for items not yet sent. | boolean<br/> true |
 | disable&#8203;CorrelationHeaders | If false, the SDK will add two headers ('Request-Id' and 'Request-Context') to all dependency requests to correlate them with corresponding requests on the server side. | boolean<br/> false |
 | correlationHeader&#8203;ExcludedDomains | Disable correlation headers for specific domains. | string[]<br/>undefined |
-| correlationHeader&#8203;ExcludePatterns | Disable correlation headers using regular expressions. | regex[]<br/>undefined |
+| correlationHeader&#8203;ExcludePatterns | Disable correlation headers by using regular expressions. | regex[]<br/>undefined |
 | correlationHeader&#8203;Domains | Enable correlation headers for specific domains. | string[]<br/>undefined |
 | disableFlush&#8203;OnBeforeUnload | If true, flush method won't be called when onBeforeUnload event triggers. | boolean<br/> false |
 | enableSessionStorageBuffer | If true, the buffer with all unsent telemetry is stored in session storage. The buffer is restored on page load. | boolean<br />true |
 | cookieCfg | Defaults to cookie usage enabled. See [ICookieCfgConfig](#icookiemgrconfig) settings for full defaults. | [ICookieCfgConfig](#icookiemgrconfig)<br>(Since 2.6.0)<br/>undefined |
-| ~~isCookieUseDisabled~~<br>disableCookiesUsage | If true, the SDK won't store or read any data from cookies. Disables the User and Session cookies and renders the usage blades and experiences useless. isCookieUseDisable is deprecated in favor of disableCookiesUsage. When both are provided disableCookiesUsage takes precedence.<br>(Since v2.6.0) And if `cookieCfg.enabled` is also defined, it will take precedence over these values, Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). | alias for [`cookieCfg.enabled`](#icookiemgrconfig)<br>false |
+| ~~isCookieUseDisabled~~<br>disableCookiesUsage | If true, the SDK won't store or read any data from cookies. Disables the User and Session cookies and renders the usage blades and experiences useless. isCookieUseDisable is deprecated in favor of disableCookiesUsage. When both are provided, disableCookiesUsage takes precedence.<br>(Since v2.6.0) And if `cookieCfg.enabled` is also defined, it will take precedence over these values. Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). | alias for [`cookieCfg.enabled`](#icookiemgrconfig)<br>false |
 | cookieDomain | Custom cookie domain. This option is helpful if you want to share Application Insights cookies across subdomains.<br>(Since v2.6.0) If `cookieCfg.domain` is defined, it will take precedence over this value. | alias for [`cookieCfg.domain`](#icookiemgrconfig)<br>null |
 | cookiePath | Custom cookie path. This option is helpful if you want to share Application Insights cookies behind an application gateway.<br>If `cookieCfg.path` is defined, it will take precedence over this value. | alias for [`cookieCfg.path`](#icookiemgrconfig)<br>(Since 2.6.0)<br/>null |
 | isRetryDisabled | If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected). | boolean<br/>false |
