@@ -14,6 +14,9 @@ This article describes how to enable VM insights for a virtual machine outside o
 > [!IMPORTANT]
 > The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for VM insights using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
 
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
+
+
 ## Prerequisites
 
 - [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).
