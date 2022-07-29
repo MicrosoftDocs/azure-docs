@@ -11,7 +11,7 @@ manager: femila
 
 In this article, we'll tell you how to move Azure Virtual Desktop resources between Azure regions.
 
-> [!IMPORTANT]
+> [!NOTE]
 > This process does not perform an actual resource move. Rather it does a delete and recreate in the new region which is different. Hence we recommend you test this process before using on production workloads to understand the impact of doing this.
 >
 > The information in this article is applicable to all Azure Virtual Desktop resources, including host pools, application groups, scaling plans, and workspaces.
