@@ -24,7 +24,7 @@ RDP files have the following properties by default:
 |RDP property|For both Desktop and RemoteApp|
 |---|---|
 |Multi-monitor mode|Enabled|
-|Drive redirections enabled|Drives, clipboard, printers, COM ports, smart cards, devices, and usbdevicestore|
+|Redirections enabled|Drives, clipboard, printers, COM ports, smart cards, devices, usbdevicestore, and WebAuthn|
 |Remote audio mode|Play locally|
 |VideoPlayback|Enabled|
 |EnableCredssp|Enabled|
