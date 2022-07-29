@@ -22,7 +22,7 @@ Microsoft has preemptively configured the attack surfaces of many organizations,
 
 2. Then select your organization from the list and click “Build my Attack Surface”.
 
-![Screenshot of pre-configured attack surface option](media/placeholder.png)
+![Screenshot of pre-configured attack surface option](media/Tutorial-1.png)
 
 At this point, the discovery will be running in the background. If you selected a pre-configured Attack Surface from the list of available organizations, you will be redirected to the Dashboard Overview screen where you can view insights into your organization’s infrastructure in Preview Mode. Please review these dashboard insights to become familiar with your Attack Surface as you wait for additional assets to be discovered and populated in your inventory. Please read the [Understanding dashboards](understanding-dashboards.md) article for more information on how to derive insights from these dashboards.
 
@@ -38,25 +38,27 @@ Custom discoveries are organized into Discovery Groups. They are independent see
 
 1. Select the **Discovery** panel under the **Manage** section in the left-hand navigation column.
 
-     ![Screenshot of EASM instance from overview page with manage section highlighted](media/placeholder.png)
+     ![Screenshot of EASM instance from overview page with manage section highlighted](media/Tutorial-2.png)
 
 2. This Discovery page shows your list of Discovery Groups by default. This list will be empty when you first access the platform. To run your first discovery, click **Add Discovery Group**.
 
-     ![Screenshot of Discovery screen with “add disco group” highlighted](media/placeholder.png)
+     ![Screenshot of Discovery screen with “add disco group” highlighted](media/Tutorial-3.png)
 
 3. First, name your new discovery group and add a description. The **Recurring Frequency** field allows you to schedule discovery runs for this group, scanning for new assets related to the designated seeds on a continuous basis. The default recurrence selection is **Weekly**; Microsoft recommends this cadence to ensure that your organization’s assets are routinely monitored and updated. For a single, one-time discovery run, select **Never**. However, we recommend that users keep the **Weekly** default cadence and instead turn off historical monitoring within their Discovery Group settings if they later decide to discontinue recurrent discovery runs.
 
     Select **Next: Seeds >**
 
-    ![Screenshot of first page of disco group setup](media/placeholder.png)
+    ![Screenshot of first page of disco group setup](media/Tutorial-4.png)
 
 4. Next, select the seeds that you’d like to use for this Discovery Group. Seeds are known assets that belong to your organization; the Defender EASM platform scans these entities, mapping their connections to other online infrastructure to create your Attack Surface.
 
-     ![Screenshot of seed selection page of disco group setup](media/placeholder.png)
+     ![Screenshot of seed selection page of disco group setup](media/Tutorial-5.png)
 
     The **Quick Start** option lets you search for your organization in a list of pre-populated Attack Surfaces. You can quickly create a Discovery Group based on the known assets belonging to your organization. 
 
-    ![Screenshot of pre-baked attack surface selection page, then output in seed list](media/placeholder.png)
+    ![Screenshot of pre-baked attack surface selection page, then output in seed list](media/Tutorial-6.png)
+    
+    ![Screenshot of pre-baked attack surface selection page,](media/Tutorial-7.png)
 
     Alternatively, users can manually input their seeds. Defender EASM accepts domains, IP blocks, hosts, email contacts, ASNs, certificate common names, and WhoIs organizations as seed values. You can also specify entities to exclude from asset discovery to ensure they are not added to your inventory if detected. For example, this is useful for organizations that have subsidiaries that will likely be connected to their central infrastructure, but do not belong to your organization.
 
@@ -64,7 +66,7 @@ Custom discoveries are organized into Discovery Groups. They are independent see
 
 5. Review your group information and seed list, then select **Create & Run**.
 
-     ![Screenshot of review + create screen](media/placeholder.png)
+     ![Screenshot of review + create screen](media/Tutorial-8.png)
 
 You will then be taken back to the main Discovery page that displays your Discovery Groups. Once your discovery run is complete, you will see new assets added to your Confirmed Inventory.
 

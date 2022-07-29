@@ -29,11 +29,11 @@ Before you create a Defender EASM resource group, we recommend that you are fami
 
 1. To create a new resource group, first select **Resource groups** in the Azure portal.
 
-    ![Screenshot of resource groups pane highlighted from Azure home page](media/placeholder.png)
+    ![Screenshot of resource groups pane highlighted from Azure home page](media/QuickStart-1.png)
 
 2. Under Resource Groups, select **Create**:
 
-    ![Screenshot of "create resource” highlighted in resource group list view](media/placeholder.png)
+    ![Screenshot of "create resource” highlighted in resource group list view](media/QuickStart-2.png)
 
 3. Select or enter the following property values:
 
@@ -41,7 +41,7 @@ Before you create a Defender EASM resource group, we recommend that you are fami
     - **Resource Group**: Give the resource group a name.
     - **Region**: Specify an Azure location. This location is where the resource group stores metadata about the resource. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will be. Using the same location can simplify your template.
 
-    ![Screenshot of create resource group basics tab](media/placeholder.png)
+    ![Screenshot of create resource group basics tab](media/QuickStart-3.png)
 
 4. Select **Review + Create**.
 
@@ -55,13 +55,13 @@ After you create a resource group, you can deploy resources to the group from th
 
 1. To start a deployment, select “Create a resource” in the Azure portal.
 
-    ![Screenshot of “create resource” option highlighted from Azure home page](media/placeholder.png)
+    ![Screenshot of “create resource” option highlighted from Azure home page](media/QuickStart-4.png)
 
 2. In the search box, type **Microsoft Defender EASM**, and then press Enter.
 
 3. Select the **Create** button to create an EASM resource.
 
-    ![Screenshot of "create” button highlighted from Defender EASM list view](media/placeholder.png)
+    ![Screenshot of "create” button highlighted from Defender EASM list view](media/QuickStart-5.png)
 
 4. Select or enter the following property values:
 
@@ -70,7 +70,7 @@ After you create a resource group, you can deploy resources to the group from th
     - **Name**: give the Defender EASM workspace a name.
     - **Region**: Select an Azure location.
 
-    ![Screenshot of create EASM resource basics tab](media/placeholder.png)
+    ![Screenshot of create EASM resource basics tab](media/QuickStart-6.png)
 
 5. Select **Review + Create**.
 

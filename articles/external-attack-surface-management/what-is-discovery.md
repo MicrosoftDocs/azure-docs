@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface. Discovery scans known assets owned by your organization to uncover previously unknown and unmonitored properties. Discovered assets are indexed in a customer’s inventory, providing a dynamic system of record of web applications, third party dependencies, and web infrastructure under the organization’s management through a single pane of glass.
 
-![Screenshot of Discovery configuration screen](media/placeholder.png)
+![Screenshot of Discovery configuration screen](media/Discovery-1.png)
 
 Through this process, Microsoft enables organizations to proactively monitor their constantly shifting digital attack surface and identify emerging risks and policy violations as they arise. Many vulnerability programs lack visibility outside their firewall, leaving them unaware of external risks and threats—the primary source of data breaches. At the same time, digital growth continues to outpace an enterprise security team’s ability to protect it. Digital initiatives and overly common “shadow IT” lead to an expanding attack surface outside the firewall. At this pace, it is nearly impossible to validate controls, protections, and compliance requirements. Without Defender EASM, it is nearly impossible to identify and remove vulnerabilities and scanners cannot reach beyond the firewall to assess the full attack surface.
 
@@ -31,7 +31,7 @@ To create a comprehensive mapping of your organization’s attack surface, the s
 - IP Address
 - ASN
 
-![Screenshot of Seed list view on discovery screen](media/placeholder.png)
+![Screenshot of Seed list view on discovery screen](media/Discovery-2.png)
 
 Starting with a seed, the system then discovers associations to other online infrastructure to discover other assets owned by your organization; this process ultimately creates your attack surface inventory. The discovery process uses the seeds as the central nodes and spiders outward towards the periphery of your attack surface by identifying all the infrastructure directly connected to the seed, and then identifying all the things related to each of the things in the first set of connections, etc. This process continues until we reach the edge of what your organization is responsible for managing.
 
@@ -56,7 +56,7 @@ When first using Defender EASM, you can access a pre-built inventory for your or
 
 To build a customized inventory, users create Discovery Groups to organize and manage the seeds they use when running discoveries. Separate Discovery groups allow users to automate the discovery process, configuring the seed list and recurrent run schedule.
 
-![Screenshot of Automated attack surface selection screen](media/placeholder.png)
+![Screenshot of Automated attack surface selection screen](media/Discovery-3.png)
 
 ## Confirmed inventory vs. candidate assets
 

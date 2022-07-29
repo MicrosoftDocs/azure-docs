@@ -22,7 +22,7 @@ This article provides guidance on how to view and interpret the expansive data c
 
 You can view the Asset Details page for any asset by clicking on its name from your inventory list. On the left pane of this page, you can view an asset summary that provides key information about that particular asset. This section is primarily comprised of data that applies to all asset types, although additional fields will be available in some cases. The chart below for more information on the metadata provided for each asset type in the summary section.
 
-![Screenshot of asset details, left-hand summary pane highlighted](media/placeholder.png)
+![Screenshot of asset details, left-hand summary pane highlighted](media/Inventory_1.png)
 
 ### General information
 
@@ -111,7 +111,7 @@ In the right-hand pane of the Asset Details page, users can access more expansiv
 
 The Overview tab provides key additional context to ensure that significant insights are quickly identifiable when viewing the details of an asset. This section will include key discovery data for all asset types, providing insight about how Microsoft maps the asset to your known infrastructure. This section can also include dashboard widgets that visualize insights that are particularly relevant to the asset type in question.
 
-![Screenshot of asset details, right-hand overview pane highlighted](media/placeholder.png)
+![Screenshot of asset details, right-hand overview pane highlighted](media/Inventory_2.png)
 
 ### Discovery chain
 
@@ -119,13 +119,11 @@ The discovery chain outlines the observed connections between a discovery seed a
 
 In the example below, we see that the seed domain is tied to this asset through the contact email in its WhoIs record. That same contact email was used to register the IP block that includes this particular IP address asset.
 
-![Screenshot of discovery chain](media/placeholder.png)
+![Screenshot of discovery chain](media/Inventory_3.png)
 
-### Discovery source
+### Discovery information
 
-This section provides information about the process used to detect the asset. It includes information about the discovery seed that connects to the asset, as well as the approval process. Options include “Confirmed Inventory” which indicates the relationship between the seed and discovered asset was strong enough to warrant an automatic approval by the Defender EASM system. Otherwise, the process will be listed as “Candidate”, indicating that the asset required manual approval to be incorporated into your inventory. This section also provides the date that the asset was added to your inventory, as well as the date that it was last scanned in a discovery run.
-
-![Screenshot of discovery source](media/placeholder.png)
+This section provides information about the process used to detect the asset. It includes information about the discovery seed that connects to the asset, as well as the approval process. Options include “Approved Inventory” which indicates the relationship between the seed and discovered asset was strong enough to warrant an automatic approval by the Defender EASM system. Otherwise, the process will be listed as “Candidate”, indicating that the asset required manual approval to be incorporated into your inventory. This section also provides the date that the asset was added to your inventory, as well as the date that it was last scanned in a discovery run.
 
 ### IP reputation
 
@@ -133,31 +131,31 @@ The IP reputation tab displays a list of potential threats related to a given IP
 
 Defender EASM’s IP reputation data displays instances when the IP address was detected on a threat list. For instance, the recent detection in the example below shows that the IP address relates to a host known to be running a cryptocurrency miner. This data was derived from a suspicious host list supplied by CoinBlockers. Results are organized by the “last seen” date, surfacing the most relevant detections first. In this example, the IP address is present on an abnormally high number of threat feeds, indicating that the asset should be thoroughly investigated to prevent malicious activity in the future.
 
-![Screenshot of asset details, IP reputation tab](media/placeholder.png)
+![Screenshot of asset details, IP reputation tab](media/Inventory_4.png)
 
 ### Services
 
 The “Services” tab is available for IP address, domain and host assets. This section provides information on services observed to be running on the asset, and includes IP addresses, name and mail servers, and open ports that correspond with additional types of infrastructure (e.g. remote access services). Defender EASM’s Services data is key to understanding the infrastructure powering your asset. It can also alert you of resources that are exposed on the open internet that should be protected.
 
-![Screenshot of asset details, services tab](media/placeholder.png)
+![Screenshot of asset details, services tab](media/Inventory_5.png)
 
 ### IP Addresses
 
 This section provides insight on any IP addresses that are running on the asset’s infrastructure. On the Services tab, Defender EASM provides the name of the IP address, the first and last seen dates, and a recency column which indicates whether the IP address was observed during our most recent scan of the asset. If there is no checkbox in this column, the IP address has been seen in prior scans but is not currently running on the asset.
 
-![Screenshot of asset details, IP address section of services tab](media/placeholder.png)
+![Screenshot of asset details, IP address section of services tab](media/Inventory_6.png)
 
 ### Mail Servers
 
 This section provides a list of any mail servers running on the asset, indicating that the asset is capable of sending emails. In this section, Defender EASM provides the name of the mail server, the first and last seen dates, and a recency column that indicates whether the mail server was detected during our most recent scan of the asset.
 
-![Screenshot of asset details, mail server section of services tab](media/placeholder.png)
+![Screenshot of asset details, mail server section of services tab](media/Inventory_7.png)
 
 ### Name Servers
 
 This section displays any name servers running on the asset, providing resolution for a host. In this section, we provide the name of the mail server, the first and last seen dates, and a recency column that indicates whether the name server was detected during our most recent scan of the asset.
 
-![Screenshot of asset details, name server section of services tab](media/placeholder.png)
+![Screenshot of asset details, name server section of services tab](media/Inventory_8.png)
 
 ### Open Ports
 
@@ -165,7 +163,7 @@ This section lists any open ports detected on the asset. Microsoft scans around 
 
 In this section, Defender EASM provides the open port number, a description of the port, the last state it was observed in, the first and last seen dates, and a recency column that indicates whether the port was observed as open during Microsoft’s most recent scan.
 
-![Screenshot of asset details, open ports section of services tab](media/placeholder.png)
+![Screenshot of asset details, open ports section of services tab](media/Inventory_9.png)
 
 ### Trackers
 
@@ -173,13 +171,11 @@ Trackers are unique codes or values found within web pages and often are used to
 
 In this section, Defender EASM provides the tracker type (e.g. GoogleAnalyticsID), the unique identifier value, and the first and last seen dates.
 
-![Screenshot of trackers tab](media/placeholder.png)
-
 ### Web components & CVEs
 
 Web components are details describing the infrastructure of an asset as observed through a Microsoft scan. These components provide a high-level understanding of the technologies leveraged on the asset. Microsoft categorizes the specific components and includes version numbers when possible.
 
-![Screenshot of top of Web components & CVEs tab](media/placeholder.png)
+![Screenshot of top of Web components & CVEs tab](media/Inventory_10.png)
 
 The Web components section provides the category, name and version of the component, as well as a list of any applicable CVEs that should be remediated. Defender EASM also provides a first and last seen date as well as a recency indicator; a checked box indicates that this infrastructure was observed during our most recent scan of the asset.
 
@@ -200,25 +196,25 @@ Web components are categorized based on their function. Options include:
 
 Below the Web components section, users can view a list of all CVEs applicable to the list of web components. This provides a more granular view of the CVEs themselves, and the CVSS score indicating the level of risk it poses to your organization.
 
-![Screenshot of CVEs section of tab](media/placeholder.png)
+![Screenshot of CVEs section of tab](media/Inventory_11.png)
 
 ### Resources
 
 The Resources tab provides insight on any JavaScript resources running on any page or host assets. When applicable to a host, these resources are aggregated to represent the Javascript running on all pages on that host. This section provides an inventory of the JavaScript detected on each asset so that your organization has full visibility into these resources and can detect any changes. Defender EASM provides the resource URL and host, MD5 value, and first and last seen dates to help organizations effectively monitor the use of Javascript resources across their inventory.
 
-![Screenshot of resources tab](media/placeholder.png)
+![Screenshot of resources tab](media/Inventory_12.png)
 
 ### SSL certificates
 
 Certificates are used to secure communications between a browser and a web server via Secure Sockets Layer (SSL). This ensures that sensitive data in transit cannot be read, tampered with, or forged. This section of Defender EASM lists any SSL certificates detected on the asset, including key data like the issue and expiry dates.
 
-![Screenshot of SSL certificates tab](media/placeholder.png)
+![Screenshot of SSL certificates tab](media/Inventory_13.png)
 
 ### WhoIs
 
 WhoIs is a protocol that is leveraged to query and respond to the databases that store data related to the registration and ownership of Internet resources. WhoIs contains key registration data that can apply to domains, hosts, IP addresses and IP blocks in Defender EASM. In the WhoIs data tab, Microsoft provides a robust amount of information associated with the registry of the asset.
 
-![Screenshot of WhoIs values tab](media/placeholder.png)
+![Screenshot of WhoIs values tab](media/Inventory_14.png)
 
 Fields include:
 
