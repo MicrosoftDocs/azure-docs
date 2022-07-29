@@ -796,7 +796,7 @@ The following table lists the prebuilt neural voices supported in each language.
 The following neural voices are in public preview.
 
 > [!NOTE]
-> Voices and styles in public preview are only available in three service [regions](regions.md#prebuilt-neural-voices): East US, West Europe, and Southeast Asia. 
+> Voices and styles in public preview are only available in three service [regions](regions.md): East US, West Europe, and Southeast Asia. 
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
