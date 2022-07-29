@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Azure Form Recognizer?
     href: overview.md
+  - name: Form Recognizer Studio
+    href: form-recognizer-studio-overview.md
   - name: Language support
     href: language-support.md
   - name: Pricing
