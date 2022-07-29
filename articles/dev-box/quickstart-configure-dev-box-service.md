@@ -121,11 +121,11 @@ To perform the steps in this section, you must have and existing virtual network
 
 ---
 
-4. Select **Review + Create**.
+1. Select **Review + Create**.
 
-5. On the **Review** tab, select **Create**.
+1. On the **Review** tab, select **Create**.
 
-6. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
+1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
 
 ## Attach network connection to dev center
 You need to attach a network connection to a dev center before it can be used in projects to create dev box pools.
