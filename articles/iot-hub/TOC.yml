@@ -261,10 +261,10 @@
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
             - name: Python
               href: iot-hub-python-python-module-twin-getstarted.md
-            - name: C
-              href: iot-hub-c-c-module-twin-getstarted.md
             - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
+            - name: C
+              href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
             - name: .NET
