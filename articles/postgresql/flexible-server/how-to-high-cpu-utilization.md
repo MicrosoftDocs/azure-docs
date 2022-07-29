@@ -30,7 +30,6 @@ The document covers –
 	- Using Explain Analyze 
 	- Connection Pooling 
 	- Vacuuming the tables 
-	- Hugh Pages
 
 
 ## Tools to Identify high CPU Utilization 
