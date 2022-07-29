@@ -88,6 +88,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 - Ensure that the VM has at least one standard public IP
 3. Create a tmpfs on the virtual machine. This virtual machine is where the data will be written to in order to avoid slow writes to disk:
 ```console
+sudo mkdir /media/aqua
 sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```
 4. Ensure that SOCAT is installed on the machine:

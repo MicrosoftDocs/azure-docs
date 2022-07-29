@@ -1,6 +1,6 @@
 ---
-title: Common Workbooks tasks
-description: Learn how to perform the commonly used tasks in Workbooks.
+title: Common Azure Workbooks tasks
+description: Learn how to perform the commonly used tasks in workbooks.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
@@ -10,59 +10,65 @@ ms.reviewer: gardnerjr
 
 # Get started with Azure Workbooks
 
-This article describes how to access Azure Workbooks and the common tasks used to work with Workbooks.
+This article describes how to access Azure Workbooks and the common tasks used to work with workbooks.
 
-You can access Workbooks in a few ways:
-- In the [Azure portal](https://portal.azure.com), click on **Monitor**, and then select **Workbooks** from the menu bar on the left.
+You can access Azure Workbooks in a few ways:
 
-   :::image type="content" source="./media/workbooks-overview/workbooks-menu.png" alt-text="Screenshot of Workbooks icon in the menu.":::
+- In the [Azure portal](https://portal.azure.com), select **Monitor** > **Workbooks** from the menu bars on the left.
 
-- In a **Log Analytics workspace** page, select the **Workbooks** icon at the top of the page.
+   :::image type="content" source="./media/workbooks-overview/workbooks-menu.png" alt-text="Screenshot that shows Workbooks in the menu.":::
 
-  :::image type="content" source="media/workbooks-overview/workbooks-log-analytics-icon.png" alt-text="Screenshot of Workbooks icon on Log analytics workspace page.":::
+- On a **Log Analytics workspaces** page, select **Workbooks** at the top of the page.
 
-The gallery opens. Select a saved workbook or a template from the gallery, or search for the name in the search bar.
+  :::image type="content" source="media/workbooks-overview/workbooks-log-analytics-icon.png" alt-text="Screenshot of Workbooks on the Log Analytics workspaces page.":::
+
+When the gallery opens, select a saved workbook or a template. You can also search for a name in the search box.
 
 ## Save a workbook
+
 To save a workbook, save the report with a specific title, subscription, resource group, and location.
-The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are shared resources that require write access to the parent resource group to be saved.
+
+The workbook is auto-filled with the same settings as the LA workspace, with the same subscription and resource group. You can change the report settings if you want. Workbooks are saved to 'My Reports' by default, and are only accessible by the individual user, but they can be saved directly to shared reports or shared later on. Workbooks are shared resources and they require write access to the parent resource group to be saved.
 
 ## Share a workbook template
 
-Once you start creating your own workbook template, you may want to share it with the wider community. To learn more, and to explore other templates that aren't part of the default Azure Monitor gallery, visit our [GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). To browse existing workbooks, visit the [Workbook library](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) on GitHub.
+After you start creating your own workbook template, you might want to share it with the wider community. To learn more, and to explore other templates that aren't part of the default Azure Monitor gallery, see the [GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). To browse existing workbooks, see the [Workbook library](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) on GitHub.
 
 ## Pin a visualization
 
-Use the pin button next to a text, query, or metrics components in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has enabled settings for that element to make the pin icon visible.
+You can pin text, query, or metrics components in a workbook by using the **Pin** button on those items while the workbook is in pin mode. Or you can use the **Pin** button if the workbook author has enabled settings for that element to make it visible.
 
-To access pin mode, select **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's *Edit* box on the right-hand side of your screen.
+To access pin mode, select **Edit** to enter editing mode. Select **Pin** on the top bar. An individual **Pin** then appears above each corresponding workbook part's **Edit** button on the right side of the screen.
 
-:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot of the pin experience." border="false":::
+:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot that shows the Pin button." border="false":::
 
 > [!NOTE]
-> The state of the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
+> The state of the workbook is saved at the time of the pin. Pinned workbooks on a dashboard won't update if the underlying workbook is modified. To update a pinned workbook part, you must delete and re-pin that part.
 
 ### Time ranges for pinned queries
 
-Pinned workbook query parts will respect the dashboard's time range if the pinned item is configured to use a *Time Range* parameter. The dashboard's time range value will be used as the time range parameter's value, and any change of the dashboard time range will cause the pinned item to update. If a pinned part is using the dashboard's time range, you will see the subtitle of the pinned part update to show the dashboard's time range whenever the time range changes.
+Pinned workbook query parts will respect the dashboard's time range if the pinned item is configured to use a *TimeRange* parameter. The dashboard's time range value will be used as the time range parameter's value. Any change of the dashboard time range will cause the pinned item to update. If a pinned part is using the dashboard's time range, you'll see the subtitle of the pinned part update to show the dashboard's time range whenever the time range changes.
 
-Additionally, pinned workbook parts using a time range parameter will auto refresh at a rate determined by the dashboard's time range. The last time the query ran will appear in the subtitle of the pinned part.
+Pinned workbook parts using a time range parameter will auto-refresh at a rate determined by the dashboard's time range. The last time the query ran will appear in the subtitle of the pinned part.
 
-If a pinned component has an explicitly set time range (does not use a time range parameter), that time range will always be used for the dashboard, regardless of the dashboard's settings. The subtitle of the pinned part will not show the dashboard's time range, and the query will not auto-refresh on the dashboard. The subtitle will show the last time the query executed.
+If a pinned component has an explicitly set time range and doesn't use a time range parameter, that time range will always be used for the dashboard, regardless of the dashboard's settings. The subtitle of the pinned part won't show the dashboard's time range. The query won't auto-refresh on the dashboard. The subtitle will show the last time the query executed.
 
 > [!NOTE]
-> Queries using the *merge* data source are not currently supported when pinning to dashboards.
+> Queries that use the *merge* data source aren't currently supported when pinning to dashboards.
 
-## Auto-Refresh
-Clicking on the Auto-Refresh button opens a list of intervals to let the user pick up the interval. The Workbook will keep refreshing after the selected time interval. 
-* Auto-Refresh only refreshes when the Workbook is in read mode. If a user sets an interval of say 5 minutes and after 4 minutes switches to edit mode then there is no refreshing when the user is still in edit mode. But if the user comes back to read mode, the interval of 5 minutes resets and the Workbook will be refreshed after 5 minutes. 
-* Clicking on the Refresh button on Read mode also reset the interval. Say a user sets the interval to 5 minutes and after 3 minutes, the user clicks on the refresh button to manually refresh the Workbook, then the Auto-refresh interval resets and the Workbook will be auto refreshed after 5 minutes. 
-* This setting is not saved with Workbook. Every time a user opens a Workbook, the Auto-refresh is Off initially and needs to be set again.
-* Switching Workbooks, going out of gallery will clear the Auto refresh interval.
+## Auto refresh
 
-:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh.png" alt-text="Screenshot of workbooks with auto refresh.":::
+Select **Auto refresh** to open a list of intervals that you can use to select the interval. The workbook will keep refreshing after the selected time interval.
 
-:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot of workbooks with auto-refresh with interval set.":::
+* **Auto refresh** only refreshes when the workbook is in read mode. If a user sets an interval of 5 minutes and after 4 minutes switches to edit mode, refreshing doesn't occur if the user is still in edit mode. But if the user returns to read mode, the interval of 5 minutes resets and the workbook will be refreshed after 5 minutes.
+* Selecting **Auto refresh** in read mode also resets the interval. If a user sets the interval to 5 minutes and after 3 minutes the user selects **Auto refresh** to manually refresh the workbook, the **Auto refresh** interval resets and the workbook will be auto-refreshed after 5 minutes.
+* This setting isn't saved with the workbook. Every time a user opens a workbook, **Auto refresh** is **Off** and needs to be set again.
+* Switching workbooks and going out of the gallery clears the **Auto refresh** interval.
 
-## Next Steps
- - [Azure workbooks data sources](workbooks-data-sources.md)
+:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh.png" alt-text="Screenshot that shows workbooks with Auto refresh.":::
+
+:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot that shows workbooks with Auto refresh with an interval set.":::
+
+## Next steps
+
+[Azure Workbooks data sources](workbooks-data-sources.md)

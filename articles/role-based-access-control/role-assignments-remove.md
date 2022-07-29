@@ -71,7 +71,7 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
 -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
+If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#symptom---role-assignments-with-identity-not-found).
 
 ## Azure CLI
 

@@ -106,6 +106,7 @@ The following features are supported for Linux containers:
 - Mapping `/mounts`, `mounts/foo/bar`, `/`, and `/mounts/foo.bar/` to custom-mounted storage is not supported (you can only use /mounts/pathname for mounting custom storage to your web app.)
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
+- Only Azure Files [SMB](/azure/storage/files/files-smb-protocol) are supported.  Azure Files [NFS](/azure/storage/files/files-nfs-protocol) is not currently supported for Linux App Services.
 
 ::: zone-end
 
@@ -209,12 +210,6 @@ az webapp config storage-account add --resource-group <group-name> --name <app-n
 Verify your storage is mounted by running the following command:
 
 ```azurecli-interactive
-az webapp config storage-account list --resource-group <resource-group> --name <app-name>
-```
-
-Verify your configuration by running the following command:
-
-```azurecli
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 

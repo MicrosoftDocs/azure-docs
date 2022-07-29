@@ -4,7 +4,7 @@ description: Learn how to create a Python function, then publish the local proje
 ms.topic: quickstart
 ms.date: 06/15/2022
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, devdivchpfy22
+ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
