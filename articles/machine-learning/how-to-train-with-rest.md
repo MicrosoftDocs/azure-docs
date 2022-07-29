@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: singankit
 ms.author: anksing
-ms.date: 03/31/2022
+ms.date: 07/28/2022
 ms.reviewer: nibaccam
 ms.custom: devplatv2, event-tier1-build-2022
 ---
@@ -57,11 +57,9 @@ Administrative REST requests a [service principal authentication token](how-to-m
 TOKEN=$(az account get-access-token --query accessToken -o tsv)
 ```
 
-The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. The current Azure Machine Learning API version is `2022-02-01-preview`. Set the API version as a variable to accommodate future versions:
+The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
-```bash
-API_VERSION="2022-02-01-preview"
-```
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
 
 ### Compute
 

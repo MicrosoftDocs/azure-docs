@@ -39,7 +39,7 @@ To set the default workspace retention policy:
 
 By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
-You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
+You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,556 days (seven years). 
 
 # [Portal](#tab/portal-1)
 
@@ -80,8 +80,8 @@ The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
-|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
+|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
+|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. Set this property to null if you don't want to archive data.  | 
 
 **Example**
 
