@@ -62,7 +62,7 @@ FHIR servers are essential for interoperability of health data. The FHIR service
 
 - **Research:** Health researchers have embraced the FHIR standard as it gives the community a shared data model and removes barriers to assembling large datasets for machine learning and analytics. With the FHIR service's data conversion and PHI de-identification capabilities, researchers rely on The FHIR service for preparing health data before sending it to be processed using Azure's machine learning and analytics resources. The FHIR service's audit logging and alert mechanisms are also important in health data research operations.
 
-## FHIR platforms  Microsoft
+## FHIR platforms from Microsoft
 
 FHIR capabilities from Microsoft are available in three configurations:
 
