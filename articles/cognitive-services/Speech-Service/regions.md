@@ -62,9 +62,13 @@ The following regions are supported for Speech service features such as speech-t
 | US | West US 3 | `westus3` |
 
 <sup>1</sup> The region has dedicated hardware for Custom Speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can use the [Speech-to-text REST API v3.0](rest-speech-to-text.md) to [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
+
 <sup>2</sup> The region is available for Custom Neural Voice training. You can copy a trained neural voice model to other regions for deployment.
+
 <sup>3</sup> The Long Audio API is available in the region.
+
 <sup>4</sup> The region supports custom keyword advanced models.
+
 <sup>5</sup> The region supports keyword verification.
 
 ## Intent recognition
