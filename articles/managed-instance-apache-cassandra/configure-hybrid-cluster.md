@@ -214,7 +214,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```
 
 
-## <a id="hybrid-real-time-migration"></a>Use Hybrid cluster for real-time migration
+## <a id="hybrid-real-time-migration"></a>Use hybrid cluster for real-time migration
 
 The above instructions provide guidance for configuring a hybrid cluster. However, using the hybrid cluster feature is also a great way of achieving a seamless zero-downtime migration. If you have an on-premise or other Cassandra environment that you want to decommission with zero downtime, in favour of running your workload in Azure Managed Instance for Apache Cassandra, the following steps must be completed in this order:
 
@@ -234,16 +234,16 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
    >    
    >   az managed-cassandra cluster invoke-command --resource-group $resourceGroupName --cluster-name $clusterName --host $host --command-name nodetool --arguments "setcompactionthroughput"="" "960"=""
 
-1. Cut over your application code to point to the seed nodes in new Cassandra Managed Instance data center(s).
+1. Cut over your application code to point to the seed nodes in your new Azure Managed Instance for Apache Cassandra data center(s).
 
     > [!IMPORTANT]
     > As also mentioned in the hybrid setup instructions, if the data center(s) in your existing cluster do not enforce [client-to-node encryption (SSL)](https://cassandra.apache.org/doc/3.11/cassandra/operating/security.html#client-to-node-encryption), you will need to enable this in your application code, as Cassandra Managed Instance enforces this. 
 
-1. Run nodetool repair **again** on all the nodes in your existing cluster's data center, in the same manner as in step 3 (to ensure any deltas are replicated following application cut over).
+1. Run nodetool repair **again** on all the nodes in your existing cluster's data center, in the same manner as in step 3 above (to ensure any deltas are replicated following application cut over).
 
 1. Run ALTER KEYSPACE for each keyspace, in the same manner as done earlier, but now removing your old data center(s).
 
-1. Run [nodetool decommission](https://cassandra.apache.org/doc/latest/cassandra/tools/nodetool/decommission.html) for each on premise data center node.
+1. Run [nodetool decommission](https://cassandra.apache.org/doc/latest/cassandra/tools/nodetool/decommission.html) for each old data center node.
 
 1. Switch your application code back to quorum (if required/preferred).
 
