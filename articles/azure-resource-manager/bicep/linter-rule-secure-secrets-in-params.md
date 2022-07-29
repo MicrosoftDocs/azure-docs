@@ -1,0 +1,47 @@
+---
+title: Linter rule - secure secrets in parameters
+description: Linter rule - secure secrets in parameters
+ms.topic: conceptual
+ms.date: 07/29/2022
+---
+
+# Linter rule - secure secrets in parameters
+
+This rule finds parameters whose names look like secrets but without the [secure decorator](./parameters.md#decorators), for example:
+
+- password
+- pwd
+- secret
+- accountkey
+- acctkey
+
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
+
+`secure-secrets-in-params`
+
+## Solution
+
+Use the secure decorator for the parameters that contains secrets. The secure decorator marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged.
+
+The following example fails this test because the parameter name might contain secrets.
+
+```bicep
+param mypassword string
+```
+
+## Silencing false positives
+
+Sometimes this rule alerts on parameters that do not actually contain secrets. In these cases, you can disable the warning for this line by adding `#disable-next-line secure-secrets-in-params` before the line with the warning.
+
+```bicep
+#disable-next-line secure-secrets-in-params   // Does not contain a secret
+param mypassword string
+```
+
+It is good practice to add a comment explaining why the rule does not apply to this line.
+
+## Next steps
+
+For more information about the linter, see [Use Bicep linter](./linter.md).
