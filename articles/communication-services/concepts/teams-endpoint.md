@@ -1,7 +1,7 @@
 ---
-title: Integrate communication as Teams user with Azure Communication Services
+title: Communication as Teams user
 titleSuffix: An Azure Communication Services concept document
-description: This article discusses how to integrate communication as Teams user with Azure Communication Services.
+description: This article discusses how to integrate communication as Teams user with Azure Communication Services and Graph API.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
-# Integrate communication as Teams user with Azure Communication Services and Graph API
+# Communication as Teams user
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
@@ -57,7 +57,8 @@ Find more details in [Azure Active Directory documentation](../../active-directo
 
 > [!div class="nextstepaction"]
 > [Check use cases for communication as a Teams user](./interop/custom-teams-endpoint-use-cases.md)
-> [Issue a Teams access token](../quickstarts/manage-teams-identity.md)
-> [Start a call with Teams user as a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
 
-Learn about [Teams interoperability](./teams-interop.md).
+Find more details in the following articles:
+- [Teams interoperability](./teams-interop.md)
+- [Issue a Teams access token](../quickstarts/manage-teams-identity.md)
+- [Start a call with Teams user as a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
