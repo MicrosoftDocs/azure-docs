@@ -121,7 +121,7 @@ To perform the steps in this section, you must have and existing virtual network
 
    ---
 
-1. Select **Review + Create**.
+5. Select **Review + Create**.
 
 1. On the **Review** tab, select **Create**.
 
