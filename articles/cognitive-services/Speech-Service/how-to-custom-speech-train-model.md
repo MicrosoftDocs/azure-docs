@@ -25,7 +25,7 @@ You can use a custom model for a limited time after it's trained. You must perio
 > [!NOTE]
 > You pay to use Custom Speech models, but you are not charged for training a model.
 
-If you plan to train a model with audio data, use a Speech resource in a [region](regions.md#speech-to-text-pronunciation-assessment-and-translation) with dedicated hardware for training. After a model is trained, you can [copy it to a Speech resource](#copy-a-model) in another region as needed. 
+If you plan to train a model with audio data, use a Speech resource in a [region](regions.md#speech-service) with dedicated hardware for training. After a model is trained, you can [copy it to a Speech resource](#copy-a-model) in another region as needed. 
 
 ## Create a model
 
@@ -209,7 +209,7 @@ The top-level `self` property in the response body is the model's URI. Use this 
 
 ## Copy a model
 
-You can copy a model to another project that uses the same locale. For example, after a model is trained with audio data in a [region](regions.md#speech-to-text-pronunciation-assessment-and-translation) with dedicated hardware for training, you can copy it to a Speech resource in another region as needed. 
+You can copy a model to another project that uses the same locale. For example, after a model is trained with audio data in a [region](regions.md#speech-service) with dedicated hardware for training, you can copy it to a Speech resource in another region as needed. 
 
 ::: zone pivot="speech-studio"
 

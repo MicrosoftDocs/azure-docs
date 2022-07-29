@@ -45,7 +45,7 @@ Training with plain text or structured text usually finishes within a few minute
 > 
 > Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
-If you will train a custom model with audio data, choose a Speech resource [region](regions.md#speech-to-text-pronunciation-assessment-and-translation) with dedicated hardware available for training audio data. In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST API.
+If you will train a custom model with audio data, choose a Speech resource [region](regions.md#speech-service) with dedicated hardware available for training audio data. In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST API.
 
 ## Consider datasets by scenario
 
@@ -76,7 +76,7 @@ You can use audio + human-labeled transcript data for both [training](how-to-cus
 For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
 
 > [!IMPORTANT]
-> If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a [region](regions.md#speech-to-text-pronunciation-assessment-and-translation) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
+> If a base model doesn't support customization with audio data, only the transcription text will be used for training. If you switch to a base model that supports customization with audio data, the training time may increase from several hours to several days. The change in training time would be most noticeable when you switch to a base model in a [region](regions.md#speech-service) without dedicated hardware for training. If the audio data is not required, you should remove it to decrease the training time. 
 
 Audio with human-labeled transcripts offers the greatest accuracy improvements if the audio comes from the target use case. Samples must cover the full scope of speech. For example, a call center for a retail store would get the most calls about swimwear and sunglasses during summer months. Ensure that your sample includes the full scope of speech that you want to detect.
 
@@ -261,7 +261,7 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 
 Not all base models support [training with audio data](language-support.md#speech-to-text). For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). 
 
-Even if a base model supports training with audio data, the service might use only part of the audio. In [regions](regions.md#speech-to-text-pronunciation-assessment-and-translation) with dedicated hardware available for training audio data, the Speech service will use up to 20 hours of your audio training data. In other regions, the Speech service uses up to 8 hours of your audio data.
+Even if a base model supports training with audio data, the service might use only part of the audio. In [regions](regions.md#speech-service) with dedicated hardware available for training audio data, the Speech service will use up to 20 hours of your audio training data. In other regions, the Speech service uses up to 8 hours of your audio data.
 
 ## Next steps
 
