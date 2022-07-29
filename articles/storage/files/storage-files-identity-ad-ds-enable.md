@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/14/2022
+ms.date: 07/29/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
@@ -59,22 +59,26 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 # Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-# Login with an Azure AD credential that has either storage account owner or contributor Azure role assignment
-# If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
+# Login with an Azure AD credential that has either storage account owner or contributor Azure role 
+# assignment. If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) 
+# you will need to specify that.
 # See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
 # for more information.
 Connect-AzAccount
 
 # Define parameters
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
-# $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name for the object. See https://docs.microsoft.com/en-us/windows/win32/adschema/a-samaccountname
-# for more information.
+# $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name 
+# for the object. 
+# See https://docs.microsoft.com/en-us/windows/win32/adschema/a-samaccountname for more information.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 $SamAccountName = "<sam-account-name-here>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
-# If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
+# ServiceLogonAccount does not support AES256 encryption.
+# If you don't provide the OU name as an input parameter, the AD identity that represents the 
+# storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
 # Specify the encryption algorithm used for Kerberos authentication. Using AES256 is recommended.
 $EncryptionType = "<AES256|RC4|AES256,RC4>"
@@ -82,10 +86,16 @@ $EncryptionType = "<AES256|RC4|AES256,RC4>"
 # Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
-# Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
-# You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
-# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account (default parameter value), depends on the AD permission you have and preference. 
-# Run Get-Help Join-AzStorageAccountForAuth for more details on this cmdlet.
+# Register the target storage account with your active directory environment under the target OU 
+# (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as 
+# "OU=UserAccounts,DC=CONTOSO,DC=COM"). You can use this PowerShell cmdlet: Get-ADOrganizationalUnit 
+# to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it 
+# with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it 
+# with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify 
+# the target OU. You can choose to create the identity that represents the storage account as either a 
+# Service Logon Account or Computer Account (default parameter value), depending on your AD permissions 
+# and preference. Run Get-Help Join-AzStorageAccountForAuth for more details on this cmdlet. Note that 
+# Service Logon Accounts do not support AES256 encryption.
 
 Join-AzStorageAccount `
         -ResourceGroupName $ResourceGroupName `
@@ -95,10 +105,14 @@ Join-AzStorageAccount `
         -OrganizationalUnitDistinguishedName $OuDistinguishedName `
         -EncryptionType $EncryptionType
 
-#Run the command below to enable AES256 encryption. If you plan to use RC4, you can skip this step.
+# Run the command below to enable AES256 encryption. If you plan to use RC4, you can skip this step.
+# Note that if you set $DomainAccountType to ServiceLogonAccount, running this command will change 
+# the account type to ComputerAccount because ServiceLogonAccount doesn't support AES256.
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 
-#You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, see Azure Files Windows troubleshooting guide.
+# You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration 
+# with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on 
+# the checks performed in this cmdlet, see Azure Files Windows troubleshooting guide.
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
@@ -115,7 +129,8 @@ First, you must check the state of your environment. Specifically, you must chec
 To create this account manually, first create a new Kerberos key for your storage account and get the access key using the PowerShell cmdlets below. This key is only used during setup. It can't be used for any control or data plane operations against the storage account.
 
 ```PowerShell
-# Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
+# Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity 
+# to represent the storage account
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 
