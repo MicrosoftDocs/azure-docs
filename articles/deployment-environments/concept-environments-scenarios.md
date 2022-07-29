@@ -3,8 +3,8 @@ title: User scenarios for Azure Deployment Environments
 description: Learn about scenarios enabled by Azure Deployment Environments.
 ms.service: deployment-environments
 ms.topic: conceptual
-ms.author: anandmeg
-author: meghaanand
+ms.author: meghaanand
+author: anandmeg
 ms.date: 07/29/2022
 ---
 # Scenarios for using Azure Deployment Environments
@@ -52,15 +52,15 @@ In this scenario, Azure Deployment Environments provides the following benefits:
 - Each trainee can create identical and isolated environments for training. 
 - Easily delete a Project and all related resources when the training is over.
 
-# Proof of concept deployment vs. scaled deployment
+## Proof of concept deployment vs. scaled deployment
 
 Once you decide to explore Azure Deployment Environments, there are two general paths forward: Proof of concept vs scaled deployment.
 
-## Proof of concept deployment
+### Proof of concept deployment
 
 A **proof of concept** deployment focuses on a concentrated effort from a single team to establish organizational value. While it can be tempting to think of a scaled deployment, the approach tends to fail more often than the proof of concept option. Therefore, we recommend that you start small, learn from the first team, repeat the same approach with two to three additional teams, and then plan for a scaled deployment based on the knowledge gained. For a successful proof of concept, we recommend that you pick one or two teams, and identify their scenarios ([environments as part of a CI/CD pipeline](#environments-as-part-of-a-cicd-pipeline) vs [sandbox environments](#sandbox-environments-for-investigations)), document their current use cases, and then deploy Azure Deployment Environments.
 
-## Scaled deployment
+### Scaled deployment
 
 A **scaled deployment** consists of weeks of reviewing and planning with an intent of deploying Azure Deployment Environments to the entire enterprise that has hundreds or thousands of developers.
 
