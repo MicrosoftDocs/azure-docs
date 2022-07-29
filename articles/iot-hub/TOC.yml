@@ -225,12 +225,12 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
-            - name: Java
-              href: iot-hub-java-java-c2d.md
-            - name: Node.js
-              href: iot-hub-node-node-c2d.md
             - name: Python
               href: iot-hub-python-python-c2d.md
+            - name: Node.js
+              href: iot-hub-node-node-c2d.md
+            - name: Java
+              href: iot-hub-java-java-c2d.md
             - name: iOS
               href: iot-hub-ios-swift-c2d.md
         - name: Upload files from devices
