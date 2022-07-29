@@ -1,21 +1,24 @@
 ---
-title: Azure Cache for Redis
-description: Learn how to use Redis module with your Azure Cache for Redis instances.
+title: Using Redis modules with Azure Cache for Redis
+description: You can use Redis modules with your Azure Cache for Redis instances.
 author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/26/2022
+ms.custom: template-concept
 
 ---
 # Use Redis modules with Azure Cache for Redis
 
-You can use Redis modules are libraries to add more data structures and functionality to the core Redis software. You add the modules at the time you're creating your Enterprise tier cache.
+With Azure Cache for Redis, you can use Redis modules as libraries to add more data structures and functionality to the core Redis software. You add the modules at the time you're creating your Enterprise tier cache.
 
 For more information on creating an Enterprise cache, see [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md).
 
 Modules were introduced in open-source Redis 4.0. The modules extend the use-cases of Redis by adding functionality like search capabilities and data structures like **bloom and cuckoo filters**.
+
+## Scope of Redis modules
 
 Some popular modules are available for use in the Enterprise tier of Azure Cache for Redis:
 
@@ -32,17 +35,9 @@ Currently, `RediSearch` is the only module that can be used concurrently with ac
 > Currently, you can't manually load any modules into Azure Cache for Redis. Manually updating modules version is also not possible.
 >
 
-## Prerequisites
+## Client library support
 
-<!--
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
-
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
+The standard Redis client libraries have a varying amounts of support for each module. Some modules have specific libraries that add client support. Check the Redis [documentation pages](#modules) for each module to see more detail on which client libraries support them.
 
 ## Adding modules to your cache
 
@@ -85,6 +80,10 @@ You can use **RediSearch** is used in a wide variety of use-cases, including rea
 
 >[!NOTE]
 > The RediSearch module is the only module that can be used with active geo-replication.
+
+>[!IMPORTANT]
+>
+> The RediSearch module can only be used with the _Enterprise_ clustering policy
 
 ### RedisBloom
 
