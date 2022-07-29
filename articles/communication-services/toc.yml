@@ -244,8 +244,20 @@ items:
     items:
       - name: Overview
         href: concepts/teams-interop.md
-      - name: Join a Teams meeting
-        href: concepts/join-teams-meeting.md
+      - name: Communication as Teams guest
+        items:        
+          - name: Overview
+            href: concepts/join-teams-meeting.md
+          - name: Capabilities
+            href: concepts/interop/guest/capabilities.md
+          - name: Teams client experience
+            href: concepts/interop/guest/teams-client-experience.md
+          - name: Teams controls
+            href: concepts/interop/guest/teams-administration.md
+          - name: User privacy
+            href: concepts/interop/guest/privacy.md
+          - name: Known issues
+            href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
         items:
           - name: Overview
