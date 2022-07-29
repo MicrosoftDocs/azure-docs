@@ -32,6 +32,13 @@ are no prerequisites, state that no prerequisites are needed for this tutorial.
 To complete the steps in this tutorial, you must have the following resources and roles.
 
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure account with the following roles to deploy the agent and create the data collection rules:
+
+  |Build-in Role  |Scope  |Reason  |
+  |---------|---------|---------|
+  |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
+  |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy ARM templates       |
+  |[Monitoring Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
 - Log Analytics workspace associated to Microsoft Sentinel
 - Linux server that's running an operating system that supports Azure Monitor agent.
 
@@ -39,31 +46,23 @@ To complete the steps in this tutorial, you must have the following resources an
    - [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or
    - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
 
-- Device that generates event log data like a firewall network device
-- Roles to deploy the agent and create the data collection rules.
-
-
-  |Build-in Role  |Scope  |Reason  |
-  |---------|---------|---------|
-  |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
-  |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy ARM templates       |
-  |[Monitoring Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
-
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+- Device that generates event log data like a firewall network device.
 
 ## Create a data collection rule
 
-Create a date collection rule in the same region as your Microsoft Sentinel workspace.
-A data collection rule (DCR) is an Azure resource that allows you to define the way  data should be handled as it's ingested into Microsoft Sentinel.
+Create a *data collection rule* in the same region as your Microsoft Sentinel workspace.
+A data collection rule is an Azure resource that allows you to define the way  data should be handled as it's ingested into Microsoft Sentinel.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and open **Monitor**.
 1. Under **Settings**, select **Data Collection Rules**.
 1. Select **Create**.
-1. Enter the following information:
+
+   :::image type="content" source="media/forward-syslog-monitor-agent/create-data-collection-rule.png" alt-text="Screenshot":::
+
+### Enter basic information
+
+1. On the **Basics** pane, enter the following information:
 
    |Field   |Value |
    |---------|---------|
@@ -72,13 +71,29 @@ A data collection rule (DCR) is an Azure resource that allows you to define the 
    |Resource group     |    Select the appropriate resource group     |
    |Region     |  Select the same region that your Microsoft Sentinel workspace is located      |
    |Platform Type     |    Linux     |
-1. Select **Next: Resources** > **Add resources**.
-1. Filter items to find and select the virtual machine that you'll use to collect logs.  
+1. Select **Next: Resources**.
+
+### Add resources
+1. Select **Add resources**.
+1. Use the filters to find the virtual machine that you'll use to collect logs.
+   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-scope.png" alt-text="Screenshot of the page to select the scope for the data collection rule. ":::
+1. Select the virtual machine.
 1. Select **Apply**.
-1. Select **Next: Collect and deliver** > **Add data source**.
+1. Select **Next: Collect and deliver**.
+
+### Add data source
+
+1. Select **Add data source**.
 1. For **Data source type**, select **Linux syslog**.
-1. For **Minimum log level**, leave the default value **LOG_DEBUG**.
-1. Select **Next: Destination** > **Add destination**.
+   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot of page to select data source type and minimum log level":::
+1. For **Minimum log level**, leave the default values **LOG_DEBUG**.
+1. Select **Next: Destination**.
+
+### Add destination
+
+1. Select **Add destination**.
+
+   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-add-destination.png" alt-text="Screenshot":::
 1. Enter the following values:
 
    |Field   |Value |
@@ -88,7 +103,11 @@ A data collection rule (DCR) is an Azure resource that allows you to define the 
    |Account or namespace    |Select the appropriate Microsoft Sentinel workspace|
 
 1. Select **Add data source**.
-1. Select **Next: Review + create** > **Create**.
+1. Select **Next: Review + create**.
+
+### Create data collection rule
+
+1. Select **Create**.
 1. Wait 20 minutes before moving on to the next section.
 
 If your VM doesn't have the Azure Monitor agent installed, the data collection rule deployment triggers the installation of the agent on the VM.
@@ -109,9 +128,9 @@ In Microsoft Sentinel, verify that the Azure Monitor agent is running on your VM
 
 ## Enable log reception on port 514
 
-Verify that the device you're collecting data from, like a network firewall, allows reception on port 514 TCP and/or UDP. Then configure your build-in Linux Syslog daemon (rsyslog.d/syslog-ng) to listen for Syslog messages from your security solutions.
+Verify that the device you're collecting data from, like a network firewall, allows reception on port 514 TCP and/or UDP. Then configure your build-in Linux syslog daemon (rsyslog.d/syslog-ng) to listen for syslog messages from your security solutions.
 
-On your Linux VM, run the following command to configure the Linux Syslog daemon:
+On your Linux VM, run the following command to configure the Linux syslog daemon:
 
 ```bash
 sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
@@ -139,17 +158,9 @@ state that there are no resources to clean up in this section.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-your resources with the following steps:
-
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
-
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+Evaluate whether you still need the resources you created like the virtual machine. Resources you leave running can cost you money. You can delete the resources individually or delete the resource group to delete all the resources you've created.
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
