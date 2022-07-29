@@ -6,7 +6,7 @@ author: sarat0681
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 6/15/2022
+ms.date: 7/28/2022
 ---
 
 # Autovacuum Tuning
@@ -17,13 +17,11 @@ Internal data consistency in PostgreSQL is based on the Multi-Version Concurrenc
 
 For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, it marks the existing row as “dead” and inserts a new version of this row. These operations leave behind the dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, these dead tuples will stay, consuming disk space, increasing table and index bloat that results in slow query performance.   
 
-The purpose of autovacuum process is to automate the execution of VACUUM and ANALYZE commands. The autovacuum daemon is made up of multiple processes that reclaim storage by removing obsolete data or tuples from the database. It checks for tables that have a significant number of inserted, updated, or deleted records and vacuums these tables.  
+The purpose of autovacuum process is to clean up dead tuples.
 
 ## Autovacuum Internals
 
-Autovacuum reads pages (8KB default block size) from disk and writes to pages having dead tuples.
-When a page is read, if no dead tuples are found autovacuum discards that page.
-If dead tuples are found, they are removed. The cost is based on:
+When a page is read by autovacuum, if no dead tuples are found autovacuum discards that page.If dead tuples are found, they are removed. The cost is based on:
 
 `vacuum_cost_page_hit`
 Cost of reading a page that is already in shared buffers and does not need a disk read. The default value is set to 1.
@@ -36,18 +34,31 @@ Cost of writing to a page when dead tuples are found in it. The default value is
 
 The amount of work autovacuum does depends on two parameters:
 
-`autovacuum_vacuum_cost_delay` = 20ms    
-`autovacuum_vacuum_cost_limit` = 200    
+`autovacuum_vacuum_cost_delay`   
+`autovacuum_vacuum_cost_limit`   
 
 `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go and every time the cleanup is done autovacuum sleeps for `autovacuum_vacuum_cost_delay` 
-number of milliseconds. By default, every time a cost of 200 is cleaned up autovacuum sleeps for 20 milliseconds.
-Every 1 second autovacuum wakes up 50 times (50*20 ms= 1000 ms). Every time it wakes up, autovacuum reads 200 pages.
+number of milliseconds.   
+
+In postgres versions 9.6, 10 and 11 the default `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 20 milliseconds.
+
+Autovacuum wakes up 50 times (50*20 ms=1000ms). Every time it wakes up, autovacuum reads 200 pages.
 
 That means in 1 second autovacuum can do
+
 - ~80 MB/Sec [ (200 pages/`vacuum_cost_page_hit`) * 50 * 8 KB per page] if all pages with dead tuples are found in shared buffers.
 - ~8 MB/Sec [ (200 pages/`vacuum_cost_page_miss`) * 50 * 8 KB per page] if all pages with dead tuples are read from disk.
 - ~4 MB/Sec  [ (200 pages/`vacuum_cost_page_dirty`) * 50 * 8 KB per page] autovacuum can write up to 4 MB/sec.
 
+In postgres versions 12 and above the default `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 2 milliseconds.
+
+Autovacuum wakes up 500 times (500*2 ms=1000ms). Every time it wakes up, autovacuum reads 200 pages.
+
+That means in 1 second autovacuum can do
+
+- ~800 MB/Sec [ (200 pages/`vacuum_cost_page_hit`) * 500 * 8 KB per page] if all pages with dead tuples are found in shared buffers.
+- ~80 MB/Sec [ (200 pages/`vacuum_cost_page_miss`) * 500 * 8 KB per page] if all pages with dead tuples are read from disk.
+- ~40 MB/Sec  [ (200 pages/`vacuum_cost_page_dirty`) * 500 * 8 KB per page] autovacuum can write up to 4 MB/sec.
 
 ## Monitoring Autovacuum 
 Autovacuum can be monitored by using the query below  
@@ -65,11 +76,17 @@ The following columns help determine if autovacuum is catching up with table act
 
 ## When Does PostgreSQL Trigger Autovacuum 
 
-Autovacuum uses a threshold; autovacuum is triggered when the number of dead tuples exceeds the threshold.   
+One of autovacuum actions (ANALYZE or VACUUM) is triggered when number of dead tuples exceeds particular number dependent on two factors: total count of rows in a table plus fixed threshold. ANALYZE is triggered much earlier than VACUUM, by default when 10% of table plus 50 rows will change, while for VACUUM the percentage is twice higher – 20% plus 50 rows as before. The exact equation for both looks like the following: 
 
-The threshold is calculated using several server parameters as mentioned below:  
+Autoanalyze = autovacuum_analyze_scale_factor * tuples + autovacuum_analyze_threshold 
 
-Threshold --> autovacuum_vacuum_scale_factor * tuples + autovacuum_vacuum_threshold.
+Autovacuum =  autovacuum_vacuum_scale_factor * tuples + autovacuum_vacuum_threshold 
+
+ So, for instance for a table that contains 100 rows analyze will be triggered by autovacuum daemon after the change of 60 rows and vacuum will be triggered when 70 rows will change: 
+
+Autoanalyze = 0.1 * 100 + 50 = 60 
+
+Autovacuum =  0.2 * 100 + 50 = 70 
 
 The query below gives a list of tables in the database and lets you know which ones qualify for autovacuum processing:
 
@@ -120,7 +137,7 @@ Cost-based vacuuming limits the amount of disk I/O autovacuum process is expecte
 
 By default, `autovacuum_vacuum_cost_limit` is set to –1 meaning autovacuum cost limit would be same value as the parameter – `vacuum_cost_limit` that defaults to 200. 
 
-`vacuum_cost_limit` is the cost of manual vacuum. If `autovacuum_vacuum_cost_limit` is set to 200, autovacuum would use this parameter. `autovacuum_vacuum_cost_delay` is set to 20 ms by default. So, by default every time the autovacuum process accumulates a cost of 200 it pauses for 20 ms.  
+`vacuum_cost_limit` is the cost of manual vacuum. If `autovacuum_vacuum_cost_limit` is set to 200, autovacuum would use this parameter.
 
 In case the autovacuum is not keeping up, the following parameters may be changed:
                                                                                                          
@@ -133,7 +150,6 @@ Default: 200. Cost limit may be increased. CPU and I/O utilization on the databa
 ##### autovacuum_vacuum_cost_delay  
 This parameter can have a wide range, from 2 to 10 ms.
 
-
 ### Autovacuum Constantly Running
 There might be two reasons:
 
@@ -143,8 +159,7 @@ Autovacuum daemon uses `autovacuum_work_mem` that is by default set to -1 meanin
 parameter `maintenance_work_mem`. This document assumes `autovacuum_work_mem` is set to -1 and `maintenance_work_mem` is used by 
 the autovacuum daemon.
 
-If `maintenance_work_mem` is low, it may be increased to up to 2 GB on Flexible Server. A general rule of thumb is to allocate 
-50 MB to `maintenance_work_mem` for every 1 GB of RAM.  
+If `maintenance_work_mem` is low, it may be increased to up to 2 GB on Flexible Server. A general rule of thumb is to allocate 50 MB to `maintenance_work_mem` for every 1 GB of RAM.  
 
 
 ##### Large number of databases.
