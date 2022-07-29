@@ -14,9 +14,9 @@ adobe-target: true
 
 Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with the tools, source code, and pre-built binaries specific to your project, so you can immediately start work. Whether you’re a developer, tester, or QA professional, you can use dev boxes in your day-to-day workflows. 
 
-The Dev Box service was designed with three distinct personas in mind: DevCenter owners, project admins, and dev box users. 
+The Dev Box service was designed with three distinct personas in mind: dev center owners, project admins, and dev box users. 
 
-DevCenter owners create and manage DevCenters, which represent the units of organization within an enterprise. They create projects and define the images that are used to create dev boxes. Dev box image definitions can use any developer IDE, SDK, or internal tool that runs on Windows. 
+Dev center owners create and manage dev centers, which represent the units of organization within an enterprise. Any user with sufficient permissions on the subscription or resource group can create a dev center. Dev center owners create projects and define the images that are used to create dev boxes. Dev box image definitions can use any developer IDE, SDK, or internal tool that runs on Windows. 
 
 Project admins are experienced developers with in depth knowledge of their projects who can assist with day-to-day administrative tasks. Project admins create and manage dev box pools, enabling developers in different regions to self-serve dev boxes. 
 
@@ -46,8 +46,8 @@ Microsoft Dev Box bridges the gap between development teams and IT, bringing con
     - Create dev boxes for various roles on a team. Standard dev boxes might be configured with admin rights, giving full-time developers greater control, while more restricted permissions are applied for contractors.
 
 ### For dev infrastructure managers
-- **Configure DevCenters**
-    - Create DevCenters and define the SKUs and images that the development teams use to self-serve dev boxes. 
+- **Configure dev centers**
+    - Create dev centers and define the SKUs and images that the development teams use to self-serve dev boxes. 
 - **Configure the network connection**
     - Define the network configuration that the development teams consume. The network connection defines the region where the dev box is created.
 - **Manage projects**
