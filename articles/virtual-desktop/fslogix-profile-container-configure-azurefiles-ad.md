@@ -76,7 +76,7 @@ To use Active Directory accounts for the share permissions of your file share, y
 
 1. In the box for **Active Directory Domain Services**, select **Set up**.
 
-1. Sign-in to your computer joined to your domain (if using), or one of your session hosts that is joined to your AD DS domain.
+1. Sign in to your computer joined to your domain (if using), or one of your session hosts that is joined to your AD DS domain.
 
 1. Download and extract [the latest version of AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) from the Azure Files samples GitHub repo. Make a note of the folder you extract the files to.
 
@@ -97,7 +97,7 @@ To use Active Directory accounts for the share permissions of your file share, y
    > [!IMPORTANT]
    > This module requires requires the [PowerShell Gallery](/powershell/scripting/gallery/overview) and [Azure PowerShell](/powershell/azure/what-is-azure-powershell). You may be prompted to install these if they are not already installed or they need updating. If you are prompted for these, install them, then close all instances of PowerShell. Re-open an elevated PowerShell prompt and import the `AzFilesHybrid` module again before continuing.
 
-1. Sign-in to Azure by running the command below. You will need to use an account that has one of the following role-based access control (RBAC) roles:
+1. Sign in to Azure by running the command below. You will need to use an account that has one of the following role-based access control (RBAC) roles:
 
    - Storage account owner
    - Owner
@@ -139,17 +139,26 @@ To use Active Directory accounts for the share permissions of your file share, y
 
 1. Join the storage account to your domain by running the commands below, replacing the values for `$subscriptionId`, `$resourceGroupName`, and `$storageAccountName` with your values. You can also add the parameter -OrganizationalUnitDistinguishedName to specify an Organizational Unit (OU) in which to place the computer account.
  
-```powershell
-$subscriptionId = "subscription-id"
-$resourceGroupName = "resource-group-name"
-$storageAccountName = "storage-account-name"
+   ```powershell
+   $subscriptionId = "subscription-id"
+   $resourceGroupName = "resource-group-name"
+   $storageAccountName = "storage-account-name"
 
-Join-AzStorageAccount `
-    -ResourceGroupName $ResourceGroupName `
-    -StorageAccountName $StorageAccountName `
-    -DomainAccountType "ComputerAccount" `
-    -EncryptionType "'RC4','AES256'"
-```
+   Join-AzStorageAccount `
+       -ResourceGroupName $ResourceGroupName `
+       -StorageAccountName $StorageAccountName `
+       -DomainAccountType "ComputerAccount" `
+       -EncryptionType "'RC4','AES256'"
+   ```
+
+1. To verify the storage account has joined your domain, run the commands below and review the output, replacing the values for `$resourceGroupName` and `$storageAccountName` with your values:
+
+   ```powershell
+   $resourceGroupName = "resource-group-name"
+   $storageAccountName = "storage-account-name"
+
+   (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.DirectoryServiceOptions; (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
+   ```
 
 > [!IMPORTANT]
 > If your domain enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. For more information, see [Update the password of your storage account identity in AD DS](../storage/files/storage-files-identity-ad-ds-update-password.md) for details.
@@ -166,16 +175,16 @@ Join-AzStorageAccount `
 
 1. Tick the box to **Enable Azure Active Directory Domain Services (Azure AD DS) for this file share**, then select **Save**. An Organizational Unit (OU) called **AzureFilesConfig** will be created at the root of your domain and a computer account named the same as the storage account will be created in that OU. 
 
----
-
 1. To verify the storage account has joined your domain, run the commands below and review the output, replacing the values for `$resourceGroupName` and `$storageAccountName` with your values:
 
-```powershell
-$resourceGroupName = "resource-group-name"
-$storageAccountName = "storage-account-name"
+   ```powershell
+   $resourceGroupName = "resource-group-name"
+   $storageAccountName = "storage-account-name"
 
-(Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.DirectoryServiceOptions; (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
-```
+   (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.DirectoryServiceOptions; (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
+   ```
+
+---
 
 ## Assign RBAC role to users
 
@@ -209,7 +218,7 @@ To get the Storage account access key:
 
 To set the correct NTFS permissions on the folder:
 
-1. Sign-in to a session host that is part of your host pool.
+1. Sign in to a session host that is part of your host pool.
 
 1. Open an elevated PowerShell prompt and run the command below to map the storage account as a drive on your session host. The mapped drive will not show in File Explorer, but can be viewed with the `net use` command. This is so you can set permissions on the share.
 
@@ -233,21 +242,21 @@ To set the correct NTFS permissions on the folder:
    - `<mounted-drive-letter>` with the letter of the drive you used to map the drive.
    - `<upn>` with the UPN name of the Active Directory group or user that will require access to the share.
 
-     ```cmd
-     icacls <mounted-drive-letter>: /grant "<upn>:(M)"
-     icacls <mounted-drive-letter>: /grant "Creator Owner:(OI)(CI)(IO)(M)"
-     icacls <mounted-drive-letter>: /remove "Authenticated Users"
-     icacls <mounted-drive-letter>: /remove "Builtin\Users"
-     ```
+   ```cmd
+   icacls <mounted-drive-letter>: /grant "<upn>:(M)"
+   icacls <mounted-drive-letter>: /grant "Creator Owner:(OI)(CI)(IO)(M)"
+   icacls <mounted-drive-letter>: /remove "Authenticated Users"
+   icacls <mounted-drive-letter>: /remove "Builtin\Users"
+   ```
 
    For example:
 
-     ```cmd
-     icacls y: /grant "avdusers@contoso.com:(M)"
-     icacls y: /grant "Creator Owner:(OI)(CI)(IO)(M)"
-     icacls y: /remove "Authenticated Users"
-     icacls y: /remove "Builtin\Users"
-     ```
+   ```cmd
+   icacls y: /grant "avdusers@contoso.com:(M)"
+   icacls y: /grant "Creator Owner:(OI)(CI)(IO)(M)"
+   icacls y: /remove "Authenticated Users"
+   icacls y: /remove "Builtin\Users"
+   ```
 
 ## Configure session hosts to use Profile Container
 
@@ -255,7 +264,7 @@ In order to use Profile Container, you'll need to configure Profile Container on
 
 To configure Profile Container on your session host VMs:
 
-1. Sign-in to the VM used to create your custom image or a session host VM from your host pool.
+1. Sign in to the VM used to create your custom image or a session host VM from your host pool.
 
 1. Download the latest version of [FSLogix](https://aka.ms/fslogix-latest) and install it by running `FSLogixAppSetup.exe`. For more details about the installation process, including customizations and unattended installation, see [Download and Install FSLogix](/fslogix/install-ht).
 
@@ -267,7 +276,7 @@ To configure Profile Container on your session host VMs:
    New-ItemProperty -Path $regPath -Name VHDLocations -PropertyType MultiString -Value \\<storage-account-name>.file.core.windows.net\<share-name> -Force
    ```
 
-1. Restart the VM used to create your custom image or a session host VM. If you are installing Profile Container to your custom image, you will need to finish creating the custom image. For more information, follow the steps from [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.  
+1. Restart the VM used to create your custom image or a session host VM. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps from [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.  
 
 ## Make sure your profile works
 
@@ -281,19 +290,12 @@ To check the profile folder has been created properly:
 
 2. Open the Azure portal.
 
-3. Open the storage account you created in [Set up a storage account](#set-up-an-azure-storage-account).
+3. Open the storage account you created in previously.
 
 4. Go to **Data storage** in your storage account, then select **File shares**.
 
 5. Open your file share and make sure the user profile folder you've created is in there.
 
-For extra testing, follow the instructions in [Make sure your profile works](create-profile-container-adds.md#make-sure-your-profile-works).
-
 ## Next steps
-
-If you're looking for alternate storage options for FSLogix Profile Container, check out the following articles:
-
-- [Create a Profile Container for a host pool using a file share](create-host-pools-user-profile.md).
-- [Create a FSLogix Profile Container for a host pool using Azure NetApp Files](create-fslogix-profile-container.md)
 
 You can find more detailed information about concepts related to FSlogix Profile Container for Azure Files in [FSLogix Profile Container for Azure Files](fslogix-containers-azure-files.md).
