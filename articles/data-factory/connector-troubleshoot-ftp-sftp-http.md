@@ -189,6 +189,8 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     - diffie-hellman-group14-sha1
     - diffie-hellman-group1-sha1
 
+    The latest version to support this on SHIR is version 5.19.
+
 ### Error Code: SftpInvalidHostKeyFingerprint
 
 - **Message**: `Host key finger-print validation failed. Expected fingerprint is '<value in linked service>', real finger-print is '<server real value>'`
