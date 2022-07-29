@@ -33,7 +33,7 @@ The HSM devices will be charged based on the service pricing page. All other Azu
 
 ## payShield customization considerations
 
-If you are using payShield on-premise today with a custom firmware, a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
+If you are using payShield on-premises today with a custom firmware, a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
 
 Ensure that the following information is provided:
 - Customization hardware platform (e.g., payShield 9000 or payShield 10K)
