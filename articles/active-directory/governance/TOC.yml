@@ -75,7 +75,7 @@
     href: access-reviews-external-users.md
   - name: Lifecycle Workflows (Preview) 
     items:
-    - name: Lifecycle Workflows Parts (Preview)
+    - name: Workflow Components (Preview)
       href: lifecycle-workflows-concept-parts.md     
     - name: Built-in tasks (Preview)
       href: lifecycle-workflow-tasks.md   
