@@ -11,7 +11,10 @@ manager: femila
 
 In this article, we'll tell you how to move Azure Virtual Desktop resources between Azure regions.
 
-**_NOTE:_**  This process does not perform an actual resource move. Rather it does a delete and recreate in the new region which is different. Hence we recommend you test this process before using on production workloads to understand the impact of doing this.
+> [!IMPORTANT]
+> This process does not perform an actual resource move. Rather it does a delete and recreate in the new region which is different. Hence we recommend you test this process before using on production workloads to understand the impact of doing this.
+>
+> The information in this article is applicable to all Azure Virtual Desktop resources, including host pools, application groups, scaling plans, and workspaces.
 
 ## Important information
 
@@ -20,6 +23,8 @@ When you move Azure Virtual Desktop resources between regions, these are some th
 - When exporting resources, you must move them as a set. All resources associated with a specific host pool have to stay together. A host pool and its associated app groups need to be in the same region.
 
 - Workspaces and their associated app groups also need to be in the same region.
+
+- Scaling plans and the host pools they are assigned to also need to be in the same region.
 
 - All resources to be moved have to be in the same resource group. Template exports require having resources in the same group, so if you want them to be in a different location, you'll need to modify the exported template to change the location of its resources.
 
@@ -53,7 +58,7 @@ To modify the template you exported:
 
 2. In each resource inside the template file, find the "location" property and modify it to the location you want to move them to. For example, if your deployment's currently in the East US region but you want to move it to the West US region, you'd change the "eastus" location to "westus." Learn more about which Azure regions you can use at [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
 
-3. For each host pool, remove the "publicNetworkAccess" parameter, if present.
+3. If you are moving a host pool, remove the "publicNetworkAccess" parameter, if present.
 
 ## Delete original resources
 
