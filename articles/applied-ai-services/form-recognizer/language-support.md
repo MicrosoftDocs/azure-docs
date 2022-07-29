@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 06/06/2022
+ms.date: 07/29/2022
 ms.author: lajanuar
 ---
 
@@ -144,12 +144,12 @@ Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
 
-## Receipt and business card models
+## Receipt model
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Pre-Built Receipt and Business Cards support all English receipts and business cards with the following locales:
+Receipt supports all English receipts with the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
@@ -160,6 +160,19 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 |English (United States)| `en-us`|
 
 ## Business card model
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+Business Card supports all English business cards with the following locales:
+
+|Language| Locale code |
+|:-----|:----:|
+|English (Australia)|`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India|`en-in`|
+|English (United States)| `en-us`|
 
 The **2022-06-30-preview** release includes Japanese language support:
 
@@ -179,7 +192,7 @@ Language| Locale code |
 |Portuguese (**2022-06-30-preview**)|pt|
 |Dutch (**2022-06-30-preview**)| nl|
 
-## ID documents
+## ID document model
 
 This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
 
