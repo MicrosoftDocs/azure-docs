@@ -57,6 +57,8 @@
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Cognitive Services
       href: ../../cognitive-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Azure Machine Learning secure workspace
+      href: ../../machine-learning/tutorial-create-secure-workspace-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Analytics
@@ -339,6 +341,7 @@
   - name: Provide parameters
     items:
     - name: Parameter file
+      displayName: comments,metadata,
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault
@@ -367,6 +370,8 @@
         href: linter-rule-no-loc-expr-outside-params.md
       - name: No unnecessary dependsOn entries
         href: linter-rule-no-unnecessary-dependson.md
+      - name: No unused existing resources
+        href: linter-rule-no-unused-existing-resources.md
       - name: No unused parameters
         href: linter-rule-no-unused-parameters.md
       - name: No unused variables
@@ -375,6 +380,8 @@
         href: linter-rule-outputs-should-not-contain-secrets.md
       - name: Prefer interpolation
         href: linter-rule-prefer-interpolation.md
+      - name: Prefer unquoted property names
+        href: linter-rule-prefer-unquoted-property-names.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
       - name: Simplify interpolation
@@ -383,6 +390,8 @@
         href: linter-rule-explicit-values-for-loc-params.md
       - name: Use protectedSettings for commandToExecute secrets
         href: linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md
+      - name: Use stable resource identifier
+        href: linter-rule-use-stable-resource-identifier.md
       - name: Use stable VM image
         href: linter-rule-use-stable-vm-image.md
   - name: Deploy

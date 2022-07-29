@@ -108,7 +108,7 @@
               href: api-management-howto-deploy-multi-region.md
             - name: Enable zone redundancy
               displayName: Availability zones
-              href: zone-redundancy.md
+              href: ../availability-zones/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: Compute platform
               href: compute-infrastructure.md
             - name: Set up DR using backup/restore
@@ -121,6 +121,8 @@
               href: how-to-event-grid.md
             - name: Move instances between regions
               href: api-management-howto-migrate.md
+            - name: Validate service updates
+              href: validate-service-updates.md
             - name: Recover a deleted instance
               displayName: soft delete
               href: soft-delete.md
@@ -146,8 +148,6 @@
                 href: automation-manage-api-management.md
               - name: Configure using Git
                 href: api-management-configuration-repository-git.md
-              - name: Validate service updates
-                href: validate-service-updates.md
             - name: Self-host the gateway
               items:
                 - name: Provision a self-hosted gateway
