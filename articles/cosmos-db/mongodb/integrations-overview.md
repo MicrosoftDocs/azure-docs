@@ -8,7 +8,7 @@ ms.date: 07/25/2022
 ms.author: shwetn
 ---
 
-# Integrate Azure Cosmos DB API for MongoDB with other Azure services
+# Integrate Azure Cosmos DB API for MongoDB with Azure services
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB API for MongoDB is a cloud-native offering and can be integrated seamlessly with other Azure services to build enterprise-grade modern applications. 
@@ -33,7 +33,7 @@ This sample includes everything you need to build, deploy, and monitor an Azure 
 
 ### Azure Functions & Static Web Apps
 
-Azure Functions allow to host serverless API endpoints or microservices for event-driven scenarios. Static Web Apps are used to host static websites and single-page applications that can be enhanced with the serverless Azure Functions.
+Azure Functions hosts serverless API endpoints or microservices for event-driven scenarios. Static Web Apps are used to host static websites and single-page applications that can be enhanced with the serverless Azure Functions.
 
 Samples to get started: 
 
