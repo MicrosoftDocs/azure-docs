@@ -86,7 +86,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 
 ## Mac (macOS) native VPN client
 
-You must create a separate profile for every Mac device that connects to the Azure virtual network. This is because these devices require the user certificate for authentication to be specified in the profile. The **Generic** folder has all the information that's required to create a profile:
+You must create a separate profile for every Mac device that connects to the Azure virtual network. This is because these devices require the user certificate for authentication to be specified in the profile. Additionally, you can only use the macOS native VPN client if you included the IKEv2 tunnel type in your configuration. The **Generic** folder has all the information that's required to create a profile:
 
 * **VpnSettings.xml** contains important settings such as server address and tunnel type.
 * **VpnServerRoot.cer** contains the root certificate that's required to validate the VPN gateway during P2S connection setup.
