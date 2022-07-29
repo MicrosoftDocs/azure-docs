@@ -128,7 +128,7 @@ Azure Database for Flexible Server offers PgBouncer as a built-in connection poo
 
 ### Terminating Long Running Transactions
 
-You could consider killing a long running transactions as an option.
+You could consider killing a long running transaction as an option.
 
 To terminate a session's PID, you will need to detect the PID using the following query: 
 ~~~
