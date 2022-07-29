@@ -59,17 +59,17 @@ The following steps show you how to create and configure a dev center.
        
    <!-- The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://aka.ms/devbox_acom). -->
 
-4. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
+1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 
 
-5. Select **Review + Create**.
+1. Select **Review + Create**.
 
-6. On the **Review** tab, select **Create**.
+1. On the **Review** tab, select **Create**.
 
-7. You can check on the progress of the dev center creation from any page in the Azure portal by opening the notifications pane. 
+1. You can check on the progress of the dev center creation from any page in the Azure portal by opening the notifications pane. 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/azure-notifications.png" alt-text="Screenshot showing Azure portal notifications pane.":::
 
-8. When the deployment is complete, select **Go to resource**. You'll see the dev center page.
+1. When the deployment is complete, select **Go to resource**. You'll see the dev center page.
 
 
 ## Create a network connection
