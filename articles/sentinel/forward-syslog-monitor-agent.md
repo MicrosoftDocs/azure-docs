@@ -22,11 +22,6 @@ In this tutorial, you learn how to:
 > * Enable log reception on port 514
 > * Verify event logs are forwarded to Microsoft Sentinel
 
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this tutorial.
--->
-
 ## Prerequisites
 
 To complete the steps in this tutorial, you must have the following resources and roles.
@@ -58,7 +53,7 @@ A data collection rule is an Azure resource that allows you to define the way  d
 1. Under **Settings**, select **Data Collection Rules**.
 1. Select **Create**.
 
-   :::image type="content" source="media/forward-syslog-monitor-agent/create-data-collection-rule.png" alt-text="Screenshot":::
+   :::image type="content" source="media/forward-syslog-monitor-agent/create-data-collection-rule.png" alt-text="Screenshot of the data collections rules pane with the create option selected.":::
 
 ### Enter basic information
 
@@ -93,7 +88,7 @@ A data collection rule is an Azure resource that allows you to define the way  d
 
 1. Select **Add destination**.
 
-   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-add-destination.png" alt-text="Screenshot":::
+   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-add-destination.png" alt-text="Screenshot of the destination tab with the add destination option selected.":::
 1. Enter the following values:
 
    |Field   |Value |
@@ -105,7 +100,7 @@ A data collection rule is an Azure resource that allows you to define the way  d
 1. Select **Add data source**.
 1. Select **Next: Review + create**.
 
-### Create data collection rule
+### Create rule
 
 1. Select **Create**.
 1. Wait 20 minutes before moving on to the next section.
