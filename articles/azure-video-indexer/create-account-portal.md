@@ -23,7 +23,7 @@ Before creating a new account, review [Account types](accounts-overview.md).
 * This user should be a member of your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).
 * Register the **EventGrid** resource provider using the Azure portal.
     
-    In the [Azure portal](https://ms.portal.azure.com), go to **Subscriptions**->[<*subscription*>]->**ResourceProviders**.
+    In the [Azure portal](https://portal.azure.com), go to **Subscriptions**->[<*subscription*>]->**ResourceProviders**.
 Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, select **Register**. It takes a couple of minutes to register. 
 
 ### Azure Video Indexer
