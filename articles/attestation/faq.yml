@@ -38,9 +38,8 @@ sections:
         answer: |
           During SGX attestation process, Azure Attestation performs the following validations:
           
-             - Validates if the trusted root of the signed enclave quote belongs to Intel
-             - Validates if the enclave quote meets the Azure security baseline as defined by Trusted Hardware Identity Management (THIM)
-             - Validates if the SHA256 hash of the RuntimeData matches the lower 32 bytes of the enclave quote's "report data" attribute
+             - Validates if the trusted root of signed enclave quote belongs to Intel
+             - Validates if the enclave quote meets Azure security baseline as defined by Trusted Hardware Identity Management (THIM)
              - If customer created an attestation provider and configured a custom policy, in addition to the above validations, Azure Attestation evaluates the enclave quote against the attestation policy. Using attestation policies, customers can define authorization rules for the enclave and also dictate issuance rules for generating the attestation token
           
       - question: |
@@ -76,7 +75,7 @@ sections:
       - question: |
           Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)
         answer: |
-          Public key generated within an enclave can be expressed in the Enclave Held Data (EHD) property of the attestation request object sent by the client to Azure Attestation. After confirming if SHA256 hash of EHD is expressed in reportData field of the quote, Azure Attestation includes EHD in the attestation token. Relying party can use the EHD from the verified attestation response to encrypt the secrets and share with the enclave. See [Azure Attestation basic concepts](basic-concepts.md) for more information.
+          At the time of SGX evidence creation, the code running inside the TEE can include arbitrary information in SGX evidence. For e.g. the TEE can create one or more asymmetric key pairs, serialize the public key components of these key pairs as JWKS JSON string and include the JWKS JSON string in the TEE quote as RuntimeData. Azure Attestation checks if SHA256 hash of the RuntimeData matches the lower 32 bytes of the quote's "report data" attribute. Post evaluating the TEE evidence, Azure Attestation generates JWT with the JWKS available as a claim named "keys" under the "x-ms-runtime" claim. The EunTimeData can be used by relying party to establish secure channel and securely transmit data to the TEE.
 
       - question: |
           Where does Azure Attestation store customer data?
