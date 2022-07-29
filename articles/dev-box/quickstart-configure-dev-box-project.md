@@ -22,13 +22,13 @@ In this quickstart, you'll perform the following tasks:
 * [Provide access to a dev box project](#provide-access-to-a-dev-box-project)
 
 ## Create a dev box pool
-The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the DevCenter to configure a dev box pool. 
+The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure a dev box pool. 
 
-If you don't have an available DevCenter with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Use the Search box to locate Dev Box resources, and select Projects.
+1. Use the search box to locate Dev Box resources, and select **Projects**.
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
 
 2. Open the project in which you want to create the dev box pool.
@@ -60,7 +60,9 @@ The dev box pool will be deployed and health checks will be run to ensure the im
 ## Provide access to a dev box project
 Before users can create dev boxes based on the dev box pools in a project, you must provide access for them through a role assignment. The Dev Box User role enables dev box users to create, manage and delete their own dev boxes. You must have sufficient permissions to a project before you can add users to it.
 
-1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/projects).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+ 
+1. Use the search box to locate Dev Box resources, and select **Projects**.
 
 1. Select the project you want to provide your team members access to.
  
@@ -74,7 +76,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
 
-1. On the Add role assignment page, search for *devcenter*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
+1. On the Add role assignment page, search for *devcenter dev box user*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-user-role.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
 
@@ -88,7 +90,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. On the Add role assignment page, select **Review + assign**.
 
-The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [Developer Portal](https://portal.fidalgo.azure.com).
+The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/developerportal).
 
 ## Project admins
 
