@@ -170,7 +170,7 @@ First you'll create a file with the package dependencies.
     ```
 1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
 
-## <a name="create-local"></a> Create the control script
+## Create the control script
 
 The difference between the following control script and the one that you used to submit "Hello world!" is that you add a couple of extra lines to set the environment.
 
@@ -225,7 +225,7 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-## <a name="submit"></a> Submit the run to Azure Machine Learning
+## Submit the run to Azure Machine Learning
 
 1. Select **Save and run script in terminal** to run the *run-pytorch.py* script.
 
@@ -235,7 +235,7 @@ if __name__ == "__main__":
 
 ### View the output
 
-1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might around 10 minutes to complete.  This image will be reused in future jobs to make them run much quicker.
+1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might take around 10 minutes to complete.  This image will be reused in future jobs to make them run much quicker.
 1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
 1. When the status of the job is **Completed**, select **Output + logs**.
 1. Select **std_log.txt** to view the output of your job.
@@ -367,7 +367,7 @@ dependencies:
 
 Make sure you save this file before you submit the run.
 
-### <a name="submit-again"></a> Submit the run to Azure Machine Learning
+### Submit the run to Azure Machine Learning
 
 Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script.  Make sure you've saved your changes to `pytorch-env.yml` first.
 

@@ -65,7 +65,7 @@ Your project folder structure will now look like:
 :::image type="content" source="../media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Folder structure shows hello.py in src subfolder.":::
 
 
-### <a name="test"></a>Test your script
+### Test your script
 
 You can run your code locally, which in this case means on the compute instance. Running code locally has the benefit of interactive debugging of code.  
 
@@ -79,7 +79,7 @@ Select **Save and run script in terminal** to run the script.
 
 You'll see the output of the script in the terminal window that opens. Close the tab and select **Terminate** to close the session.
 
-## <a name="control-script"></a> Create a control script
+## Create a control script
 
 A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
 
@@ -148,7 +148,7 @@ Here's a description of how the control script works:
 :::row-end:::
 
 
-## <a name="submit"></a> Submit and run your code in the cloud
+## Submit and run your code in the cloud
 
 1. Select **Save and run script in terminal** to run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](../quickstart-create-resources.md).
 
@@ -164,7 +164,7 @@ Here's a description of how the control script works:
 1. When the status of the job is **Completed**, select **Output + logs** at the top of the page.
 1. Select **std_log.txt** to view the output of your job.
 
-## <a name="monitor"></a>Monitor your code in the cloud in the studio
+## Monitor your code in the cloud in the studio
 
 The output from your script will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.

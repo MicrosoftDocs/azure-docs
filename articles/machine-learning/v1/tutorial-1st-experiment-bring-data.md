@@ -204,7 +204,7 @@ To run this script in Azure Machine Learning, you need to make your training dat
     Uploaded 9 files
     ```
 
-## <a name="control-script"></a> Create a control script
+## Create a control script
 
 As you've done previously, create a new Python control script called *run-pytorch-data.py* in the **get-started** folder:
 
@@ -271,7 +271,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-to-cloud"></a> Submit the run to Azure Machine Learning
+## Submit the run to Azure Machine Learning
 
 Select **Save and run script in terminal**  to run the *run-pytorch-data.py* script.  This run will train the model on the compute cluster using the data you uploaded.
 
@@ -280,7 +280,7 @@ This code will print a URL to the experiment in the Azure Machine Learning studi
 [!INCLUDE [amlinclude-info](../../../includes/machine-learning-py38-ignore.md)]
 
 
-### <a name="inspect-log"></a> Inspect the log file
+### Inspect the log file
 
 In the studio, go to the experiment job (by selecting the previous URL output) followed by **Outputs + logs**. Select the `std_log.txt` file. Scroll down through the log file until you see the following output:
 

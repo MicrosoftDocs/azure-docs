@@ -148,7 +148,7 @@ Here's a description of how the control script works:
       `ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)`
    :::column-end:::
    :::column span="2":::
-      [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources.
+      [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and its assets and resources.
    :::column-end:::
 :::row-end:::
 :::row:::
