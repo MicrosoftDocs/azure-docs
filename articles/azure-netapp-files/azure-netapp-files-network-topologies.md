@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 07/29/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -72,6 +72,8 @@ The following table describes what’s supported for each network features confi
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
 
+**Upgrade from Basic to standard network feature is not currently supported.** 
+
 ### Supported network topologies
 
 The following table describes the network topologies supported by each network features configuration of Azure NetApp Files. 
@@ -90,7 +92,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
 |     Connectivity over Virtual WAN (VWAN)    |     No    |     No    |
-* This option will incur a charge. ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) for information. 
+\* This option will incur a charge. ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) for information. 
 
 ## Virtual network for Azure NetApp Files volumes
 
