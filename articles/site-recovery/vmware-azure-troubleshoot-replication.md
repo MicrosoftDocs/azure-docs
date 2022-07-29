@@ -52,6 +52,8 @@ When you try to select the source machine to enable replication by using Site Re
 
 Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. [Learn more](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) about deleting stale entries and resolving the issue.
 
+Another reason could be that the machine was cloned. When machines move between hypervisor and if BIOS ID changes, then the mobility agent blocks replication. Replication of cloned machines is not supported by Site Recovery.
+
 ## No crash consistent recovery point available for the VM in the last 'XXX' minutes
 
 Some of the most common issues are listed below
