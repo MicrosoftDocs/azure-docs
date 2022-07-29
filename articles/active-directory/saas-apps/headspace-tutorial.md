@@ -88,12 +88,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Headspace application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-    ![Screenshot shows the image of Headspace application.](https://user-images.githubusercontent.com/93796095/181595051-953264ea-fd5f-4156-b8c0-e90d4070bb46.png)
+    ![Screenshot shows the image of Headspace application.](https://user-images.githubusercontent.com/93796095/181855302-9b6bf193-db4e-4479-9b92-04bed9845517.png)
 
 1. In order to full Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
 	1. Click the pencil or 'Edit' in the Attributes & Claims modal which should open a new page
 	2. Update the claims to match the below image, see step 3 for configuring `email`
-	![image](https://user-images.githubusercontent.com/93796095/181602617-8a9c60b0-c347-432d-bffe-a9cfcf96bba1.png)
+	![image](https://user-images.githubusercontent.com/93796095/181855281-5da4ce65-2ec3-4f8a-aba5-ae8ab33a8085.png)
 	3. Open to manage the `email` claim and select 'Transform' as the Source type and configure the transformation to match the screenshot below
 	![image](https://user-images.githubusercontent.com/93796095/181603552-4cac53a5-c7dc-4729-b04a-64aef8ec5767.png)
 
