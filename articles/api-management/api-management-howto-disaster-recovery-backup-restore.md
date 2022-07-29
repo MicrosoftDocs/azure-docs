@@ -259,7 +259,7 @@ Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $ap
     -SourceBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
 ```
 
-Restore is a long-running operation that may take up to 30 or more minutes to complete.
+Restore is a long-running operation that may take up to 45 minutes or more to complete. 
 
 ### [REST](#tab/rest)
 
