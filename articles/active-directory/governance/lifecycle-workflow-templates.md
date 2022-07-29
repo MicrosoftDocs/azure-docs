@@ -137,11 +137,55 @@ The default specific parameters for the **Pre-Offboarding of an employee** templ
 |Scope type     | Rule based        | ❌        |
 |Rule     | None       |  ✔️       |
 
+The default tasks for the **Pre-Offboarding of an employee** template:
+
+- Remove user from selected groups
+- Remove user from selected Teams
 
 ### Offboard an employee
 
+The **Offboard an employee** template is designed to configure tasks that will be completed on an employee's last day of work.
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-offboard-employee-template.png" alt-text="offboard employee template":::
+
+The default specific parameters for the **Offboard an employee** template are as follows:
+
+
+|parameter  |description  |Customizable  |
+|---------|---------|---------|
+|Category     |  Leaver       |  ❌       |
+|Trigger Type     | Trigger and Scope Based        |  ❌       |
+|Days from event     | 0        | ✔️        |
+|Event timing     | On        |  ❌       |
+|Event User attribute     | employeeLeaveDateTime      |   ❌      |
+|Scope type     | Rule based        | ❌        |
+|Rule     | (department eq 'Marketing')        |  ✔️       |
+
+The default tasks for the **Offboard an employee** template:
+
+- Disable User Account
+- Remove user from all groups
+- Remove user from all Teams
 
 ### Post-Offboarding of an employee
+
+The **Post-Offboarding of an employee** template is designed to configure tasks that will be completed after an employee's last day of work.
+
+|parameter  |description  |Customizable  |
+|---------|---------|---------|
+|Category     |  Leaver       |  ❌       |
+|Trigger Type     | Trigger and Scope Based        |  ❌       |
+|Days from event     | 7        | ✔️        |
+|Event timing     | After        |  ❌       |
+|Event User attribute     | employeeLeaveDateTime      |   ❌      |
+|Scope type     | Rule based        | ❌        |
+|Rule     | (department eq 'Marketing')        |  ✔️       |
+
+The default tasks for the **Post-Offboarding of an employee** template:
+
+- Remove all licenses for user
+- Remove user from all Teams
+- Delete User Account
+
 
 ## Next steps
 
