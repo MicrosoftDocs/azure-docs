@@ -21,10 +21,59 @@ If the traffic is sent through the default endpoint (often a public endpoint), t
 
 ## App access
 
-If the setting has never been configured, the default behavior is to enable access unless a private endpoint exists after which it will be disabled. You have the ability to explicitly configure this behavior.
-
+App access allows you to configure if access is available thought the default (public) endpoint. If the setting has never been configured, the default behavior is to enable access unless a private endpoint exists after which it will be implicitly disabled. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
 
 ## Site access
+
+Site access restrictions let you filter the incoming requests. Site access restrictions allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can also configure the behavior when no rules are matched (the default action). If the setting has never been configured, the unmatched rule behavior is to allow all access unless one or more rules exists after which it will be implicitly changed to deny all access. You can explicitly configure this behavior to either allow or deny access regardless of defined rules.
+
+Site access restriction has several types of rules that you can apply: 
+
+### IP-based restriction rules
+
+The IP-based access restrictions feature helps when you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Some use cases for this feature:
+* Restrict access to your app from a set of well-defined addresses. 
+* Restrict access to traffic coming through an external load-balancing service or other network appliances with known egress IP addresses. 
+
+To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
+
+> [!NOTE]
+> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multi-tenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
+
+### Restriction rules based on service endpoints 
+
+Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks.
+
+> [!NOTE]
+> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](#app-assigned-address)).
+
+Some use cases for this feature:
+
+* Set up an application gateway with your app to lock down inbound traffic to your app.
+* Restrict access to your app to resources in your virtual network. These resources can include VMs, ASEs, or even other apps that use virtual network integration. 
+
+![Diagram that illustrates the use of service endpoints with Application Gateway.](media/networking-features/service-endpoints-appgw.png)
+
+To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions][serviceendpoints].
+
+### Restriction rules based on service tags
+
+[Azure service tags][servicetags] are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
+
+For a full list of tags and more information, visit the service tag link above. 
+To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
+
+#### Http header filtering for site access restriction rules
+
+For each rule, you can add additional http header filtering. This allows you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following list of http headers is currently supported: 
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Some use cases for http header filtering are:
+* Restrict access to traffic from proxy servers forwarding the host name
+* Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
 
 ## Advanced use cases
 
