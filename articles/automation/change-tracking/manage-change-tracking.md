@@ -100,7 +100,7 @@ File content tracking allows you to view the contents of a file before and after
 * Change Tracking and Inventory must be enabled in your Automation account.
 
 >[!NOTE]
-> If the file size is >1.25MB, the checksum calculation doesn't complete due to memory constraints.
+> If the file size is >1.25MB, the FileContentChecksum is incorrect due to memory constraints during checksum calculation.
 
 ### Enable tracking for file content changes
 

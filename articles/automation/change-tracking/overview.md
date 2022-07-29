@@ -48,7 +48,7 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 - ***.exe** files stored on Windows
 - The **Max File Size** column and values are unused in the current implementation.
 - If you are tracking file changes, it is limited to a file size of 5 MB or less. 
-- If the file size is >1.25MB, the checksum calculation doesn't complete due to memory constraints.
+- If the file size is >1.25MB, the FileContentChecksum is incorrect due to memory constraints during the checksum calculation.
 - If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
