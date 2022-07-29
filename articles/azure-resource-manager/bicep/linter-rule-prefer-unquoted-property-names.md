@@ -7,7 +7,7 @@ ms.date: 07/29/2022
 
 # Linter rule - prefer unquoted property names
 
-This rule finds unnecessary single quotes when an object property name is declared and when an object property is dereferenced with array access.
+This rule finds unnecessary single quotes where an object property name is declared and where an object property is dereferenced with array access.
 
 In Bicep, quotes are optionally allowed when the object property keys contain number or special characters. For example space, '-', or '.'. For more information, see [Objects](./data-types.md#objects).
 
@@ -35,7 +35,7 @@ var x2 = obj['1'] // Quotes and square brackets are required.
 var x3 = obj['myProp'] // Use obj.myProp instead.
 ```
 
-You can fix it by removing the unnecessary quotes
+You can fix it by removing the unnecessary quotes:
 
 ```bicep
 var obj = {
