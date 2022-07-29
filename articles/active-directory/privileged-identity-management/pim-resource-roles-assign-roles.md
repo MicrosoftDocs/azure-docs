@@ -211,7 +211,7 @@ Follow these steps to update or remove an existing role assignment.
 
 1. Select **Add expression** or **Delete** to update the expression. You can also select **Add condition** to add a new condition to your role.
 
-    ![Screenshot that demonstrates how to update or remove attributes of a role assignment.](./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png)
+    :::image type="content" source="./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png" alt-text="Screenshot that demonstrates how to update or remove attributes of a role assignment." lightbox="./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png":::
 
     For information about extending a role assignment, see [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md).
 
