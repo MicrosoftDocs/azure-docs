@@ -14,11 +14,10 @@ This quickstart shows you how to deploy an ASP.NET app in a Windows image from A
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- The <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
-- [Az PowerShell Module](/powershell/azure/install-az-ps#installation)
+- <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/)
 
-## 1 - Connect your Azure account
+## 1 - Setup
 
 Sign into your Azure account by using the [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) command and following the prompt:
 
@@ -26,12 +25,27 @@ Sign into your Azure account by using the [`Connect-AzAccount`](/powershell/modu
 Connect-AzAccount
 ```
 
+The variables below are needed for various commands used in the article. Update the variables to your liking.
+
+```powershell-interactive
+$location = "eastus"
+$appserviceplan = "PV3ASP"
+$tier = "PremiumV3"
+$webappname = "myWebApp"
+$resourcegroup = "myResourceGroup"
+$containerregistryname = "mycontainerregistry" #The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+$containerregistryURL = "myContainerregistry.azurecr.io"
+$containerimagename = "mycontainerregistry.azurecr.io/windows:latest"
+```
+
+
+
 ## 2 - Create a new resource group
 
 Create a new Resource Group by using the [New-AzResourceGroup](/powershell/module/az.websites/myResourceGroup) command:
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "eastus"
+New-AzResourceGroup -Name $resourcegroup -Location $location
 ```
 
 ## 3 - Create your App Service Plan
@@ -39,20 +53,20 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "eastus"
 Create a new App service Plan by using the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command:
 
 ```azurepowershell-interactive
-New-AzAppServicePlan -Name "myAppServicePlan" -Location "eastus" -ResourceGroupName "myResourceGroup" -Tier PremiumV3 -HyperV
+New-AzAppServicePlan -Name $appserviceplan -Location $location -ResourceGroupName $resourcegroup -Tier $tier -HyperV
 ```
 
-## - Create container registry
+## 4 - Create container registry
 
 Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
 
-The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* in the following command, then run it to create the registry:
+The following example creates a registry in the Basic SKU with Admin User enabled.
 
 ```azurepowershell-interactive
-$registry = New-AzContainerRegistry -ResourceGroupName "my-xenon-rg" -Name "myContainerRegistry0079" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName $resourcegroup -Name $containerregistryname -EnableAdminUser -Sku Basic
 ```
 
-## - Log in to registry
+## 5 - Log in to registry
 
 Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. The following example uses the same credentials you logged in with when authenticating to Azure with the `Connect-AzAccount` cmdlet.
 
@@ -64,53 +78,53 @@ Connect-AzContainerRegistry -Name $registry.Name
 ```
 
 The command returns `Login Succeeded` once completed.
-## - Push the image to registry
+## 6 - Push the image to registry
 
 Before you can push an image to your registry, you must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *mycontainerregistry.azurecr.io*.
 
 Tag the image using the [docker tag][docker-tag] command. Replace `<login-server>` with the login server name of your ACR instance.
 
 ```docker
-docker tag mcr.microsoft.com/azure-app-service/windows/parkingpage:latest mycontainerregistry0079.azurecr.io/windows:latest
+docker tag mcr.microsoft.com/azure-app-service/windows/parkingpage:latest mycontainerregistry.azurecr.io/windows:latest
 ```
 
 Finally, use [docker push][docker-push] to push the image to the registry instance. Replace `<login-server>` with the login server name of your registry instance. This example creates the **hello-world** repository, containing the `hello-world:v1` image.
 
 ```docker
-docker push mycontainerregistry0079.azurecr.io/windows:latest
+docker push mycontainerregistry.azurecr.io/windows:latest
 ```
 
-## Get registry credentials
+## 7 - Get registry credentials
 
 In order to create the web app with a container image located in Azure Container Registry, you need to get the registry login credentials using [Get-AzContainerRegistryCredential]() as shown below:
 
 ```azurepowershell-interactive
-$pass = Get-AzContainerRegistryCredential -ResourceGroupName "my-xenon-rg" -Name "myContainerRegistry0079"
+$pass = Get-AzContainerRegistryCredential -ResourceGroupName $resourcegroup -Name $containerregsitryname
 ```
 
-The password is returned as plain text. You need to convert it to a secure string in order to access the registry in the create step.
+You need to convert the password to a Secure String in order to access the registry in the create step.
 
 ```azurepowershell-interactive
-    $securePassword = ConvertTo-SecureString $pass.password -AsPlainText -Force
+$securePassword = ConvertTo-SecureString $pass.password -AsPlainText -Force
 ```
 
-##  - Create your web app
+## 8 - Create your web app
 
 Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
 
 ```azurepowershell-interactive
-New-AzWebApp -Name "app" -AppServicePlan "PV3ASP" -Location "eastus" -ResourceGroupName "my-xenon-rg"  -ContainerRegistryUrl "mycontainerregistry0079.azurecr.io" -ContainerRegistryUser $pass.username -ContainerRegistryPassword $securePassword -ContainerImageName "mycontainerregistry0079.azurecr.io/windows:latest"
+New-AzWebApp -Name $webappname -AppServicePlan $appserviceplan -Location $location -ResourceGroupName $resourcegroup  -ContainerRegistryUrl $containerregistryURL -ContainerRegistryUser $pass.username -ContainerRegistryPassword $securePassword -ContainerImageName $containerimagename
 ```
 
-    - The Location parameter specifies
-    - The ResourceGroupName parameter
-    - The ContainerImageName parameter specifies a Container Image Name and optional tag, for example (image:tag).
-    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A combination of your company name and an app identifier is a good pattern.
-
-    The command might take a few minutes to complete. While running, it creates the App Service resource.
+- The Location parameter specifies
+- The ResourceGroupName parameter
+- The ContainerImageName parameter specifies a Container Image Name and optional tag, for example (image:tag).
 
 
-##  - Browse to the app
+The command might take a few minutes to complete. While running, it creates the App Service resource.
+
+
+## 9 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
@@ -118,10 +132,10 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 Note that the Host operating system appears in the footer, confirming we are running in a Windows container.
 
-## 6 - Clean up resources
+## 10 - Clean up resources
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup my-xenon-rg
+Remove-AzResourceGroup myResourceGroup
 ```
 
 ## Next steps
