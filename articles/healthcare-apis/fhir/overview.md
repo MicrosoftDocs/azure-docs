@@ -38,7 +38,7 @@ The FHIR service in Azure Health Data Services makes FHIR data available to clie
 
 ### Free up your resources to innovate
 
-You could invest resources building and running your own FHIR server, but with the FHIR service in Azure Health Data Services, Microsoft handles setting up the server's components and making sure all compliance requirements are met so that you can focus on building innovative solutions. 
+You could invest resources building and running your own FHIR server, but with the FHIR service in Azure Health Data Services, Microsoft handles setting up the server's components, ensuring all compliance requirements are met so that you can focus on building innovative solutions. 
 
 ### Enable interoperability with FHIR
 
