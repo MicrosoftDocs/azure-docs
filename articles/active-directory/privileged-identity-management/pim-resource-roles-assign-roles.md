@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/24/2022
+ms.date: 07/29/2022
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -50,7 +50,7 @@ Follow these steps to make a user eligible for an Azure resource role.
 
 1. Select **Azure resources**.
 
-1. Use the resource filter to find the managed resources you're looking for.
+1. Select the **Resource type** you want to manage, **Resource**, **Resource group**, **Subscription**, or **Management group**. 
 
     ![List of Azure resources to manage](./media/pim-resource-roles-assign-roles/resources-list.png)
 
