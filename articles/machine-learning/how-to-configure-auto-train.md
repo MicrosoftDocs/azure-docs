@@ -139,7 +139,7 @@ If you want to override these heuristics, apply the following settings:
 
 Task | Setting | Notes
 |---|---|---
-Block&nbsp;data streaming algorithms | Use the `blocked_algorithms` parameter in the `set_training()` function and list the model(s) you don't want to use. | Results in either run failure or long run time
+Block&nbsp;data streaming algorithms | Use the `blocked_training_algorithms` parameter in the `set_training()` function and list the model(s) you don't want to use. | Results in either run failure or long run time
 Use&nbsp;data&nbsp;streaming&nbsp;algorithms| Use the `allowed_algorithms` parameter in the `set_training()` function and list the model(s) you want to use.| 
 Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|Block all models except the big data algorithms you want to use. |
 
@@ -148,10 +148,7 @@ Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-
 
 Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on Azure ML remote compute (cluster or compute instance).
 
-Next determine where the model will be trained. An automated ML training experiment can run on the following compute options. 
-
-* Your **local** machine such as a local desktop or laptop – Generally when you have a small dataset and you are still in the exploration stage. See [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) for a local compute example. 
-
+[Learn more about creating compute with the Python SDKv2 (or CLIv2).](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-sdk#2-create-compute).
  
 <a name='configure-experiment'></a>
 
@@ -177,17 +174,15 @@ classification_job = automl.classification(
 # Limits are all optional
 
 classification_job.set_limits(
-    timeout=600,  # timeout
-    trial_timeout=20,  # trial_timeout
-    max_trials=max_trials,
-    # max_concurrent_trials = 4,
-    # max_cores_per_trial: -1,
+    timeout_minutes=600, 
+    trial_timeout_minutes=20, 
+    max_trials=5,
     enable_early_termination=True,
 )
 
 # Training properties are optional
 classification_job.set_training(
-    blocked_models=["LogisticRegression"], 
+    blocked_training_algorithms=["LogisticRegression"], 
     enable_onnx_compatible_models=True
 )
 ```
@@ -203,7 +198,7 @@ Automated ML supports tabular data based tasks (classification, regression, fore
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
 
-The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
+The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
  
@@ -242,8 +237,6 @@ Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_mac
 | `norm_macro_recall` | Churn prediction |
 | `precision_score_weighted` |  |
 
-You can also see the *enums* to use in Python in this reference page for ClassificationPrimaryMetrics Enum
-
 #### Metrics for classification multi-label scenarios 
 
 - For Text classification multi-label currently 'Accuracy' is the only primary metric supported.
@@ -274,8 +267,6 @@ However, currently no primary metrics for regression addresses relative differen
 | `r2_score` | Airline delay, Salary estimation, Bug resolution time |
 | `normalized_mean_absolute_error` |  |
 
-You can also see the *enums* to use in Python in this reference page for RegressionPrimaryMetrics Enum
-
 #### Metrics for Time Series Forecasting scenarios
 
 The recommendations are similar to those noted for regression scenarios. 
@@ -286,7 +277,6 @@ The recommendations are similar to those noted for regression scenarios.
 | `r2_score` | Price prediction (forecasting), Inventory optimization, Demand forecasting |
 | `normalized_mean_absolute_error` | |
 
-You can also see the *enums* to use in Python in this reference page for ForecastingPrimaryMetrics Enum
 #### Metrics for Image Object Detection scenarios 
 
 - For Image Object Detection, the primary metrics supported are defined in the ObjectDetectionPrimaryMetrics Enum
@@ -341,7 +331,7 @@ There are a few options you can define in the `set_limits()` function to end you
 |----|----
 No&nbsp;criteria | If you do not define any exit parameters the experiment continues until no further progress is made on your primary metric.
 `timeout`| Defines how long, in minutes, your experiment should continue to run.If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size is not greater than 10,000,000 (rows times column) or an error results. <br><br> This timeout includes setup, featurization and training runs but does not include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. 
-`trial_timeout` | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used
+`trial_timeout_minutes` | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used
 `enable_early_termination`|Whether to end the job if the score is not improving in the short term
 `max_trials`| The maximum number of trials/runs each with a different combination of algorithm and hyperparameters to try during an AutoML job. If not specified, the default is 1000 trials. If using `enable_early_termination` the number of trials used can be smaller.
 `max_concurrent_trials`| Represents the maximum number of trials (children jobs) that would be executed in parallel. It's a good practice to match this number with the number of nodes your cluster
@@ -397,9 +387,10 @@ After you test a model and confirm you want to use it in production, you can reg
 
 ## AutoML in pipelines
 
-To leverage AutoML in your MLOps workflows, you can add AutoML Job steps to your [AzureML Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-component-pipeline-python). This allows you to do automate your entire workflow by hooking up your data prep scripts to AutoML and then registering and validating the resulting best model.
+To leverage AutoML in your MLOps workflows, you can add AutoML Job steps to your [AzureML Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-component-pipeline-python). This allows you to automate your entire workflow by hooking up your data prep scripts to AutoML and then registering and validating the resulting best model.
 
-Below is a sample pipeline with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
+Below is a [sample pipeline](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline) with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
+
 ``` python
 # Define pipeline
 @pipeline(
@@ -415,7 +406,6 @@ def automl_classification(
         validation_data=classification_validation_data,
         target_column_name="y",
         primary_metric="accuracy",
-        featurization=TabularFeaturizationSettings(mode="Auto"),
         # currently need to specify outputs "mlflow_model" explictly to reference it in following nodes 
         outputs={"best_model": Output(type="mlflow_model")},
     )
@@ -437,9 +427,13 @@ pipeline_classification = automl_classification(
     classification_train_data=Input(path="./training-mltable-folder/", type="mltable"),
     classification_validation_data=Input(path="./validation-mltable-folder/", type="mltable"),
 )
+
+# ...
+# Note that the above is only a snippet from the bankmarketing example you can find in our examples repo -> https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline
+
 ```
 
-For more examples on how to do include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline).
+For more examples on how to do include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/).
 
 ## Next steps
 
