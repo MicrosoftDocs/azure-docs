@@ -191,7 +191,7 @@ Create three message enrichments that will be routed to the **enriched** storage
 
    :::image type="content" source="./media/tutorial-message-enrichments/select-iot-hub.png" alt-text="Screenshot that shows how to select message routing.":::
 
-   The message routing pane has three tabs labeled **Routes**, **Custom endpoints**, and **Enrich messages**. Browse the first two tabs to see the configuration set up by the script.
+   The message routing pane has three tabs labeled **Routes**, **Custom endpoints**, and **Enrich messages**.
 
 1. Select the **Enrich messages** tab to add three message enrichments for the messages going to the endpoint for the storage container called **enriched**.
 
@@ -240,7 +240,7 @@ az iot hub message-enrichment create \
 
 ---
 
-You now have message enrichments set up for all messages routed to the endpoint you created for enriched messages. Skip to the [Test message enrichments](#test-message-enrichments) section to continue the tutorial.
+You now have message enrichments set up for all messages routed to the endpoint you created for enriched messages. If you don't want to add a location tag to the device twin, you can skip to the [Test message enrichments](#test-message-enrichments) section to continue the tutorial.
 
 ## Add location tag to the device twin
 
@@ -315,7 +315,7 @@ After leaving the console application to run for a few minutes, view the data:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
 
-1. Select **Storage browser** from the navigation menu. Select **Blob containers** to see the two containers that you created over the course of this tutorial.
+1. Select **Storage browser** from the navigation menu. Select **Blob containers** to see the two containers that you created over the course of these tutorials.
 
    :::image type="content" source="./media/tutorial-message-enrichments/show-blob-containers.png" alt-text="See the containers in the storage account.":::
 
