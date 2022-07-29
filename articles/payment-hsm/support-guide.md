@@ -49,11 +49,13 @@ Microsoft support can be contacted by creating a support ticket through the Azur
 
 ## Thales Support
 
-Thales will provide payment application-level support including client software, HSM configuration and backup, and HSM operation support. 
+Thales will provide payment application-level support including client software, HSM configuration and backup, and HSM operation support.
 
-All Azure Payment HSM customers have Enhanced Support Plan with Thales. Thales support plans, scope, and responsiveness are explained in the [Thales Welcome Pack](https://supportportal.thalesgroup.com/sys_attachment.do?sys_id=52681fca1b1e0110e2af520f6e4bcb96) (PDF); see [Thales Welcome Pack for Authentication and Encryption Products](https://supportportal.thalesgroup.com/csm?sys_kb_id=1d2bac074f13f340102400818110c7d9&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=e7f1843d87f3c9107b0664e80cbb352e&sysparm_article=KB0019882).
+All Azure Payment HSM customers have Enhanced Support Plan with Thales. The [Thales Welcome Pack for Authentication and Encryption Products](https://supportportal.thalesgroup.com/csm?sys_kb_id=1d2bac074f13f340102400818110c7d9&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=e7f1843d87f3c9107b0664e80cbb352e&sysparm_article=KB0019882) is an important reference for customers, as it explains Thales support plan, scope, and responsiveness. Please download the [Thales Welcome Pack PDF](https://supportportal.thalesgroup.com/sys_attachment.do?sys_id=52681fca1b1e0110e2af520f6e4bcb96).
 
 Thales support can be contacted through the [Thales CPL Customer Support Portal](https://supportportal.thalesgroup.com/csm).
+
+KB0019882 is important for customer as reference. Thales Support plan, scope and responsiveness is explained in KB0019882  for Thales Welcome Pack for Authentication and Encryption Products, please download the Thales Welcome Pack PDF
 
 ## Support contacts
 
