@@ -16,6 +16,9 @@ Learn what's new in the service. These items may include release notes, videos, 
 
 ## Release notes
 
+### April 2022
+* Local inference SDK (Preview): Personalizer now supports near-realtime (sub-10ms) inference without the need to wait for network API calls. Using the SDK, your Personalizer models can be deployed locally for lightning fast Rank calls using the [C# SDK (Preview)](https://www.nuget.org/packages/Azure.AI.Personalizer/2.0.0-beta.2), enabling your application to personalize quickly and efficiently. Reward calls continue to train your model in Azure and the local model is seamlessly updated behind the scenes, without disruption.
+
 ### May 2021  - //Build conference
 
 * Auto-Optimize (Preview) : You can configure a Personalizer loop that you are using to continuously improve over time with less work. Personalizer will automatically run offline evaluations, discover better machine learning settings, and apply them. To learn more, see [Personalizer Auto-Optimize (Preview)](concept-auto-optimization.md).
