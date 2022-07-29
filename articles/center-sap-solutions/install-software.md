@@ -92,6 +92,7 @@ Before you can download the software, set up an Azure Storage account for the do
     - `jq` version 1.6
     - `ansible` version 2.9.27
     - `zip`
+    - `netaddr` version 0.8.0
 
 1. Sign in to Azure:
 
@@ -114,7 +115,7 @@ Before you can download the software, set up an Azure Storage account for the do
 1. Download the following shell script for the deployer VM packages.
 
     ```azurecli
-    wget "https://raw.githubusercontent.com/Azure/ACSS-preview/main/Installation%20Script/DownloadDeployerVMPackages.sh" -O "DownloadDeployerVMPackages.sh"
+    wget "https://raw.githubusercontent.com/Azure/Azure-Center-for-SAP-solutions-preview/main/DownloadDeployerVMPackages.sh" -O "DownloadDeployerVMPackages.sh"
     ```
 
 1. Update the shell script's file permissions.
