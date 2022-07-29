@@ -6,26 +6,25 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 06/29/2022
+ms.date: 07/29/2022
 ms.topic: how-to
 ---
 
 # Provide access to projects for project admins
 
-You can create multiple projects in the DevCenter to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project Admins can use the network connections and dev box definitions configured at the DevCenter level to create and manage dev box pools within their project.
+You can create multiple projects in the dev center to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project Admins can use the network connections and dev box definitions configured at the dev center level to create and manage dev box pools within their project.
 
-A DevCenter Project Admin can manage a project by:
+A Dev Center Project Admin can manage a project by:
 
-- Viewing the network connections attached to the DevCenter.
-- Viewing the dev box definitions attached to the DevCenter.
+- Viewing the network connections attached to the dev center.
+- Viewing the dev box definitions attached to the dev center.
 - Creating, viewing, updating, deleting dev box pools in the project.
-- Granting permissions to members to create and manage dev boxes within the project.
 
-## Assign permissions to Project Admins
+## Assign permissions to project admins
  
 Follow the instructions below to add role assignments for this role.
 
-1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/projects).
+1. In the [Azure portal](https://portal.azure.com), use the search box to locate Dev Box resources, and select Projects. 
 
 1. Select the project you want to provide your team members access to.
  
@@ -55,6 +54,7 @@ Follow the instructions below to add role assignments for this role.
 
 The user will now be able to manage the project and create dev box pools within it.
 
+[!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 ## Next steps
 
 - [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md)
