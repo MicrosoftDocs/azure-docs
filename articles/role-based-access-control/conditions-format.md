@@ -271,7 +271,7 @@ To use principal attributes, you must have **all** of the following:
 For more information about custom security attributes, see:
 
 - [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)
-- [Principal does not appear in Attribute source when adding a condition (Preview)](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [Principal does not appear in Attribute source (Preview)](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
 - [Add or deactivate custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## Function operators
