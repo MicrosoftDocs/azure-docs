@@ -76,22 +76,22 @@ Here's how you can [index data from the Azure Cosmos DB API for MongoDB account]
 ### Azure Networking
 
 Azure Networking features allow to connect and deliver your hybrid and cloud-native applications with low-latency, Zero Trust based networking services -
-* [Configure the Azure Cosmos API for MongoDB account to allow access only from a specific subnet of virtual network (VNet)](../how-to-configure-vnet-service-endpoint)
-* [Configure IP-based access controls for inbound firewall.](../how-to-configure-firewall)
-* [Configure connectivity to the account via a private endpoint.](../how-to-configure-private-endpoints)
+* [Configure the Azure Cosmos API for MongoDB account to allow access only from a specific subnet of virtual network (VNet)](../how-to-configure-vnet-service-endpoint.md)
+* [Configure IP-based access controls for inbound firewall.](../how-to-configure-firewall.md)
+* [Configure connectivity to the account via a private endpoint.](../how-to-configure-private-endpoints.md)
 
 ### Azure Key Vault
 Azure Key Vault helps you to securely store and manage application secrets.
 You can use Azure Key Vault to -
-* [Secure Azure Cosmos DB API for MongoDB account credentials.](../access-secrets-from-keyvault)
-* [Configure customer-managed keys for your account.](../how-to-setup-cmk)
+* [Secure Azure Cosmos DB API for MongoDB account credentials.](../access-secrets-from-keyvault.md)
+* [Configure customer-managed keys for your account.](../how-to-setup-cmk.md)
 
 ### Azure AD
 
-Azure AD managed identities eliminate the need for developers to manage credentials. Here's how you can [create a managed identity for Azure Cosmos DB accounts](../how-to-setup-managed-identity).
+Azure AD managed identities eliminate the need for developers to manage credentials. Here's how you can [create a managed identity for Azure Cosmos DB accounts](../how-to-setup-managed-identity.md).
 
 ## Next Steps
 
 Learn about other key integrations:
-* [Monitor Azure Cosmos DB with Azure Monitor.](/azure/cosmos-db/monitor-cosmos-db?tabs=azure-diagnostics)
-* [Set up analytics with Azure Synapse Link.](/azure/cosmos-db/configure-synapse-link)
+* [Monitor Azure Cosmos DB with Azure Monitor.](/azure/cosmos-db/monitor-cosmos-db?tabs=azure-diagnostics.md)
+* [Set up analytics with Azure Synapse Link.](/azure/cosmos-db/configure-synapse-link.md)
