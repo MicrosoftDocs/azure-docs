@@ -52,13 +52,6 @@ That means in 1 second autovacuum can do
 
 In postgres versions 12 and above the default `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 2 milliseconds.
 
-Autovacuum wakes up 500 times (500*2 ms=1000ms). Every time it wakes up, autovacuum reads 200 pages.
-
-That means in 1 second autovacuum can do
-
-- ~800 MB/Sec [ (200 pages/`vacuum_cost_page_hit`) * 500 * 8 KB per page] if all pages with dead tuples are found in shared buffers.
-- ~80 MB/Sec [ (200 pages/`vacuum_cost_page_miss`) * 500 * 8 KB per page] if all pages with dead tuples are read from disk.
-- ~40 MB/Sec  [ (200 pages/`vacuum_cost_page_dirty`) * 500 * 8 KB per page] autovacuum can write up to 4 MB/sec.
 
 ## Monitoring Autovacuum 
 Autovacuum can be monitored by using the query below  
