@@ -126,9 +126,9 @@ For more details of pg bouncer
 
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [Pg Bouncer](./concepts-pgbouncer.md)
 
-### Terminating Long Running Sessions
+### Terminating Long Running Transactions
 
-You could consider killing a long running transaction as an option.
+You could consider killing a long running transactions as an option.
 
 To terminate a session's PID, you will need to detect the PID using the following query: 
 ~~~
