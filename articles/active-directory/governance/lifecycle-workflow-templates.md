@@ -23,6 +23,9 @@ Lifecycle Workflows currently have three built-in templates you can use or custo
 - [Onboard pre-hire employee](lifecycle-workflow-templates.md#onboard-pre-hire-employee)
 - [Onboard new hire employee](lifecycle-workflow-templates.md#onboard-new-hire-employee)
 - [Real-time employee termination](lifecycle-workflow-templates.md#real-time-employee-termination)  
+- [Pre-Offboarding of an employee]()
+- [Offboard an employee]()
+- [Post-Offboarding of an employee]()
 
 
 While these templates have specific properties which can be configured for them, they also contain basic properties which are common among each of them. Basic properties of the templates are as follows:
@@ -114,6 +117,31 @@ The default tasks for the **Real-time employee termination** template:
 - **Delete User Account**
 - **Remove user from all Teams**
 
+
+### Pre-Offboarding of an employee
+
+The **Pre-Offboarding of an employee** template is designed to configure tasks that will be completed before an employee's last day of work.
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-offboard-pre-employee-template.png" alt-text="lcw offboarding of an employee":::
+
+
+The default specific parameters for the **Pre-Offboarding of an employee** template are as follows:
+
+
+|parameter  |description  |Customizable  |
+|---------|---------|---------|
+|Category     |  Leaver       |  ❌       |
+|Trigger Type     | Trigger and Scope Based        |  ❌       |
+|Days from event     | 7        | ✔️        |
+|Event timing     | Before        |  ❌       |
+|Event User attribute     | EmployeeHireDate        |   ❌      |
+|Scope type     | Rule based        | ❌        |
+|Rule     | None       |  ✔️       |
+
+
+### Offboard an employee
+
+
+### Post-Offboarding of an employee
 
 ## Next steps
 
