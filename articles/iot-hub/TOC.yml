@@ -237,12 +237,12 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-file-upload.md
-            - name: Java
-              href: iot-hub-java-java-file-upload.md
-            - name: Node.js
-              href: iot-hub-node-node-file-upload.md
             - name: Python
               href: iot-hub-python-python-file-upload.md
+            - name: Node.js
+              href: iot-hub-node-node-file-upload.md
+            - name: Java
+              href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
             - name: .NET
