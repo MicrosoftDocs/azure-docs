@@ -79,18 +79,18 @@ Azure DNS Private Resolver is available in the following regions:
 An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. This endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS Zones, including VMs that are using auto registration, or Private Link enabled services.
 
 > [!NOTE]
-> Inbound Endpoints will be user for DNS resolution from On-Premise to Azure.
+> Inbound Endpoints will be used for DNS resolution from On-Premise to Azure.
 > For this reason Outbound Endpoint Rules is not needed.
-> On On-Premise DNS Server we need to create a conditional forwarder with the Inbound Endpoint as Master DNS Server for this Conditional forward.
+> Inside the On-Premise DNS Server we need to create a conditional forwarder rule with the Inbound Endpoint IP as Master DNS Server for this Conditional forward.
 
 ### Outbound endpoints
 
 An outbound endpoint enables conditional forwarding name resolution from Azure to on-premises, other cloud providers, or external DNS servers. This endpoint requires a dedicated subnet in the VNet where it’s provisioned, with no other service running in the subnet, and can only be delegated to **Microsoft.Network/dnsResolvers**. DNS queries sent to the outbound endpoint will egress from Azure.
 
 > [!NOTE]
-> Outbound Endpoints will be user for DNS resolution from Azure to On-Premise
+> Outbound Endpoints will be used for DNS resolution from Azure to On-Premise.
 > Azure Resource will use the DNS Forwarder and if a Outbound Rule match the request will be forwarded On-Premise.
-> On the DNS Forwarder Rule is important to set the correct DNS Domain and one or more IPs. These IPs are your DNS Server On-Premise.
+> On the DNS Forwarder Rule is important to set the correct DNS Domain and one or more IPs. These IPs are your DNS Servers On-Premise.
 
 
 ## Virtual network links
