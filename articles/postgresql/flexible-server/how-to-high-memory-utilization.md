@@ -63,9 +63,9 @@ Similarly, if the memory use looks high, reduce work_mem.
 
 `maintenance_work_mem` is for maintenance tasks like vacuuming, adding indexes or foreign keys.The usage of memory in this scenario is per session. 
 
-For example, consider a session that is creating an index and there are three autovacuum workers running. 
+For example, consider a scenario where there are three autovacuum workers running. 
 
-If `maintenance_work_mem` is set to 1 GB, then all sessions combined will use 4 GB of memory.
+If `maintenance_work_mem` is set to 1 GB, then all sessions combined will use 3 GB of memory.
 
 A high `maintenance_work_mem` value along with multiple running sessions for vacuuming/index creation/adding foreign keys can cause 
 high memory utilization. The maximum allowed value for the ``maintenance_work_mem`` server parameter in Azure Database for Flexible Server
