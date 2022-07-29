@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/27/2022
+ms.date: 07/29/2022
 ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017
@@ -36,7 +36,7 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
+1. From the left menu, select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
 
     ![Azure AD roles - Discovery and insights page showing the 3 options](./media/pim-security-wizard/new-preview-link.png)
 
