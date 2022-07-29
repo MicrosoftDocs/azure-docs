@@ -23,8 +23,8 @@ Azure Spring Apps Config Server is a centralized configuration service for distr
 
 ## Prerequisites
 
-* Complete the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
-* Azure Spring Apps Config server is only applicable to basic or standard tier.
+- Completion of the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
+- Azure Spring Apps Config Server is only applicable to basic or standard tier.
 
 ## Azure Spring Apps Config Server procedures
 
@@ -43,10 +43,10 @@ Azure Spring Apps Config Server is centralized configuration service for distrib
 
 ## Prerequisites
 
-* [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
-* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Optionally, [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-* Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
+- [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Optionally, [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+- Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
 
 ## Azure Spring Apps Config Server procedures
 
