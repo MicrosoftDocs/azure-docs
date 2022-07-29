@@ -212,10 +212,7 @@ To set the correct NTFS permissions on the folder:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ(truncated)== /user:Azure\fsprofile
      ```
 
-1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own profile while blocking access to the profiles of other users. You should use an Active Directory security group that contains the users you want to use Profile Container. In the commands below, replace:
-
-   - `<mounted-drive-letter>` with the letter of the drive you used to map the drive.
-   - `<upn>` with the UPN name of the Active Directory group or user that will require access to the share.
+1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own profile while blocking access to the profiles of other users. You should use an Active Directory security group that contains the users you want to use Profile Container. In the commands below, replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive and `<upn>` with the UPN name of the Active Directory group or user that will require access to the share.
 
    ```cmd
    icacls <mounted-drive-letter>: /grant "<upn>:(M)"
