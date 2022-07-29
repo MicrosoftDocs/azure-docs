@@ -37,7 +37,7 @@ To view these logs:
     ![Screenshot that highlights system reserved library job results.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "View system library job progress")
 
 ## Track installation failures
-In certain cases, users can also inspect the full installation logs available in the Spark History Server to identify complicated dependency conflicts. The logs avaialble through the Spark UI could be truncated and accessing the full installation logs through the the Spark History Server would be useful in complex library installation scenarios.
+In certain cases, users can also inspect the full installation logs available in the Spark History Server to identify complicated dependency conflicts. The logs available through the Spark UI could be truncated and accessing the full installation logs through the Spark History Server would be useful in complex library installation scenarios.
 
 To view the full installation logs:
 1. Navigate to the Spark applications list in the **Monitor** tab. 
@@ -49,7 +49,7 @@ To view the full installation logs:
     ![Screenshot that highlights the executor details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors.png "View executor detaols in spark history server page")
 5. On the top navigation bar in the Spark history server page, switch to the **Executors** tab.
     ![Screenshot that highlights the job details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-page.png "View the job details in the spark history server page")
-6. Dowload the **stdout** and **stderr** log files to access the full library management output and error logs.
+6. Download the **stdout** and **stderr** log files to access the full library management output and error logs.
     ![Screenshot that highlights the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors-details.png "View stdout and stderr logs in the spark history server page")
 
 ## Validate your permissions
@@ -109,7 +109,7 @@ To recreate the environment and validate your updates:
     conda activate myenv
     ```
    
- 3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
+ 3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
 
 >[!IMPORTANT]
 >Issues may arrise when using pip and conda together. When combining pip and conda, it's best to follow these [recommended best practices](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
