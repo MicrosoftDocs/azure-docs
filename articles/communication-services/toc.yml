@@ -165,6 +165,8 @@ items:
         href: concepts/telephony/direct-routing-provisioning.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
+      - name: Inbound telephony calling capabilities
+        href: concepts/telephony/inbound-calling-capabilities.md
   - name: SMS
     items:
       - name: SMS SDK overview
