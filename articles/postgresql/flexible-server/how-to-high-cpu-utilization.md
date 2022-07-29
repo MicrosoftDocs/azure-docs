@@ -138,7 +138,7 @@ WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active')
 ORDER BY duration DESC;   
 ~~~
 
-You can also filter by other properties like usename (username), datname (database name), client_addr (client's address), state, etc.  
+You can also filter by other properties like usename (username), datname (database name) etc.  
 
 Once you have the session's PID you can terminate using the following query:
 ~~~
