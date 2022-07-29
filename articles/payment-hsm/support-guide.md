@@ -14,6 +14,8 @@ ms.author: mbaldwin
 
 # Azure Payment HSM service support guide
 
+This article outlines the Azure Payment HSM prerequisites, support channels, and division of support responsibility between Microsoft, Thales, and the customer.
+
 ## Prerequisites
 
 Microsoft will work with Thales to ensure that customers meet the prerequisites before starting the onboarding process.
