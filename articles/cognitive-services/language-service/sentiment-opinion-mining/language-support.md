@@ -1,7 +1,7 @@
 ---
 title: Sentiment Analysis and Opinion Mining language support
 titleSuffix: Azure Cognitive Services
-description: This article explains which natural languages are supported by the Sentiment Analysis and Opinion Mining features of Azure Cognitive Service for Language.
+description: This article explains which languages are supported by the Sentiment Analysis and Opinion Mining features of Azure Cognitive Service for Language.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,12 +15,14 @@ ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 
 # Sentiment Analysis and Opinion Mining language support 
 
-Use this article to learn which natural languages are supported by Sentiment Analysis and Opinion Mining.
+Use this article to learn which languages are supported by Sentiment Analysis and Opinion Mining.
 
 > [!NOTE]
-> Languages are added as new model versions are released. The current Generally Available model version for Sentiment Analysis is `2022-06-01`.
+> Languages are added as new model versions are released. The current generally available model version for Sentiment Analysis is `2022-06-01`.
 
 ## Sentiment Analysis language support
+
+Total supported language codes: 21
 
 | Language              | Language code | Starting with model version |              Notes |
 |----------------------|-------------|--------------------------|-------------------|
@@ -38,11 +40,19 @@ Use this article to learn which natural languages are supported by Sentiment Ana
 | Portuguese (Brazil)   |    `pt-BR`          |         2019-10-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`          |         2019-10-01         | `pt` also accepted |
 | Spanish               |     `es`            |         2019-10-01         |                    |
-| Turkish               |     `tr`             |         2020-04-01        |                    |
+| Arabic               |     `ar`             |         2022-06-01        |                    |
+| Danish               |     `da`             |         2022-06-01        |                    |
+| Greek               |     `el`             |         2022-06-01        |                    |
+| Finnish               |     `fi`             |         2022-06-01        |                    |
+| Polish               |     `pl`             |         2022-06-01        |                    |
+| Russian               |     `ru`             |         2022-06-01        |                    |
+| Swedish               |     `sv`             |         2022-06-01        |                    |
 
 ### Opinion Mining language support
 
-| Language              | Language code | Starting with model version: |              Notes |
+Total supported language codes: 7
+
+| Language              | Language code | Starting with model version |              Notes |
 |----------------------|-------------|------------------------------------|-------------------|
 | English               |     `en`      |  2020-04-01              |                    |
 | French                |     `fr`      |         2021-10-01        |                    |
