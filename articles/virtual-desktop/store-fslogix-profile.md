@@ -67,5 +67,5 @@ To learn more about FSLogix profile containers, user profile disks, and other us
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
-- [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azurefiles-ad.md)
+- [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
 - [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)

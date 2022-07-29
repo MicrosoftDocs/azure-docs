@@ -212,7 +212,7 @@
       - name: Use Azure NetApp Files and MSIX app attach
         href: create-netapp-files.md
       - name: Use Azure Files and Active Directory
-        href: fslogix-profile-container-configure-azurefiles-ad.md
+        href: fslogix-profile-container-configure-azure-files-active-directory.md
       - name: Use Azure Files and Azure AD
         href: create-profile-container-azure-ad.md
       - name: Install Office with FSLogix app containers
