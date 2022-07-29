@@ -9,7 +9,7 @@ ms.date: 07/29/2022
 
 This rule finds unnecessary single quotes where an object property name is declared and where an object property is dereferenced with array access.
 
-In Bicep, quotes are optionally allowed when the object property keys contain number or special characters. For example space, '-', or '.'. For more information, see [Objects](./data-types.md#objects).
+In Bicep, quotes are optionally allowed when the object property keys contain numbers or special characters. For example, space, '-', or '.'. For more information, see [Objects](./data-types.md#objects).
 
 ## Linter rule code
 
