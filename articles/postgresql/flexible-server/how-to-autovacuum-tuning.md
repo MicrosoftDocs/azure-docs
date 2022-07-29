@@ -122,58 +122,65 @@ Note: The query does not take into consideration that autovacuum can be conf
 
 ## Common Autovacuum Problems
 
-### Not Keeping Up with Busy Server
+### Not Keeping Up With Busy Server
 
-Cost-based vacuuming limits the amount of disk I/O autovacuum process is expected to do per unit of time. The autovacuum process estimates the cost of every I/O operation, accumulates a total for each operation it performs and pauses once the upper limit of the cost is reached.  
-
-`autovacuum_vacuum_cost_delay` and `autovacuum_vacuum_cost_limit` are the two server parameters that are used in the process.  
+The autovacuum process estimates the cost of every I/O operation, accumulates a total for each operation it performs and pauses once the upper limit of the cost is reached.`autovacuum_vacuum_cost_delay` and `autovacuum_vacuum_cost_limit` are the two server parameters that are used in the process.  
 
 By default, `autovacuum_vacuum_cost_limit` is set to –1 meaning autovacuum cost limit would be same value as the parameter – `vacuum_cost_limit` that defaults to 200. 
 
-`vacuum_cost_limit` is the cost of manual vacuum. If `autovacuum_vacuum_cost_limit` is set to 200, autovacuum would use this parameter.
+`vacuum_cost_limit` is the cost of manual vacuum. If `autovacuum_vacuum_cost_limit` is set to -1 then autovacuum would use `vacuum_cost_limit` parameter but if `autovacuum_vacuum_cost_limit` itself is set greater than -1 then `autovacuum_vacuum_cost_limit` parameter is considered.
 
 In case the autovacuum is not keeping up, the following parameters may be changed:
                                                                                                          
-##### autovacuum_vacuum_scale_factor
+##### `autovacuum_vacuum_scale_factor`
 Default: 0.2, range 0.05 - 0.1. The scale factor is workload-specific and should be set depending on the amount of data in the tables. Before changing the value, the workload and individual table volumes need to be investigated.
 
-##### autovacuum_vacuum_cost_limit
+##### `autovacuum_vacuum_cost_limit`
 Default: 200. Cost limit may be increased. CPU and I/O utilization on the database should be monitored before and after changing this.
 
-##### autovacuum_vacuum_cost_delay  
-This parameter can have a wide range, from 2 to 10 ms.
+##### `autovacuum_vacuum_cost_delay` 
+
+###### Postgres Versions 9.6,10,11   
+Default: 20 ms. The parameter may be decreased to 2-10 ms.
+
+###### Postgres Versions 12 and above   
+Default: 2 ms.
+
+~~~
+Note that the autovacuum_vacuum_cost_limit value is distributed proportionally among the running autovacuum workers, if there is more than one, so that the sum of the limits for each worker does not exceed the value of the autovacuum_vacuum_cost_limit parameter.
+~~~   
 
 ### Autovacuum Constantly Running
-There might be two reasons:
 
-##### maintenance_work_mem  
+Continuously running autovacuum may effect CPU and IO utilization on the server.The following might be possible reasons -
 
-Autovacuum daemon uses `autovacuum_work_mem` that is by default set to -1 meaning `autovacuum_work_mem` would have the same value as the 
-parameter `maintenance_work_mem`. This document assumes `autovacuum_work_mem` is set to -1 and `maintenance_work_mem` is used by 
+
+##### `maintenance_work_mem`     
+
+Autovacuum daemon uses `autovacuum_work_mem` that is by default set to -1 meaning `autovacuum_work_mem` would have the same value as the parameter `maintenance_work_mem`. This document assumes `autovacuum_work_mem` is set to -1 and `maintenance_work_mem` is used by 
 the autovacuum daemon.
 
 If `maintenance_work_mem` is low, it may be increased to up to 2 GB on Flexible Server. A general rule of thumb is to allocate 50 MB to `maintenance_work_mem` for every 1 GB of RAM.  
 
 
-##### Large number of databases.
+##### Large Number Of Databases   
 Auto vacuum tries to start a worker on each database every `autovacuum_naptime` seconds.  
 For example, if a server has 60 databases and autovacuum_naptime is set to 60 seconds, 
 then every second [autovacuum_naptime/Number of DBs] autovacuum worker is started.  
 
 It is a good idea to increase `autovacuum_naptime` if there are more databases in a cluster.
-At the same time, the autovacuum process can be made more aggressive by changing the 
-`autovacuum_cost_limit` & `autovacuum_cost_delay` parameters and increasing the `autovacuum_max_workers` from the default of 3 to 4 or 5. 
+At the same time, the autovacuum process can be made more aggressive by increasing the 
+`autovacuum_cost_limit` and decreasing the `autovacuum_cost_delay` parameters and increasing the `autovacuum_max_workers` from the default of 3 to 4 or 5. 
+
 
 ### Out Of Memory Errors  
-Overly aggressive `maintenance_work_mem` values could periodically cause out-of-memory errors in the system. 
-It is important to understand available RAM on the server before any change to parameter `maintenance_work_mem` is made. 
-Each autovacuum worker uses the entire memory assigned to 'maintenance_work_mem' whenever an autovacuum worker starts.
+Overly aggressive `maintenance_work_mem` values could periodically cause out-of-memory errors in the system. It is important to understand available RAM on the server before any change to parameter `maintenance_work_mem` is made. 
 
-For example, if this parameter is set to 1 GB, each running autovacuum worker will use 1 GB of memory. 
-So, with the default value of 3 workers, 3 autovacuum workers will use 3 GB of memory.
-
-###  Autovacuum is too Disruptive
+###  Autovacuum Is Too Disruptive
 If autovacuum is consuming a lot of resources, the following can be done:
+
+##### Autovacuum Parameters   
+Evaluate the parameters `autovacuum_vacuum_cost_delay`, `autovacuum_vacuum_cost_limit`, `autovacuum_max_workers`.Inproper setting of autovacuum parameters may lead to scenarios where autovacuum becomes too disruptive.
 
 - Increase `autovacuum_vacuum_cost_delay` and reduce `autovacuum_vacuum_cost_limit` if set higher than the default of 200.  
 - Reduce the number of `autovacuum_max_workers` if it is set higher than the default of 3.  
