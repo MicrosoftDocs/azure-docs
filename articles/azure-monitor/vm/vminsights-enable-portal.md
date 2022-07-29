@@ -75,7 +75,7 @@ Use this procedure to enable an unmonitored virtual machine or virtual machine s
 
 1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
 
-1. From the **Overview** page , select **Not Monitored**. 
+1. From the **Overview** page, select **Not Monitored**. 
  
 2. Click the **Enable** button next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
 
@@ -100,11 +100,11 @@ Use this procedure to add the Azure Monitor agent to machines that are already e
 
 1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
  
-2. From the **Overview** page , select **Monitored**.
+2. From the **Overview** page, select **Monitored**.
  
 3. Click **Configure using Azure Monitor agent** next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
 
-    :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration too Azure Monitor agent to monitored machine.":::
+    :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration to Azure Monitor agent to monitored machine.":::
 
 
 1. Follow the process described in [Enable VM insights for Azure Monitor agent
@@ -112,7 +112,7 @@ Use this procedure to add the Azure Monitor agent to machines that are already e
  
     :::image type="content" source="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for monitored machine.":::
 
-5. With both agents installed, a warning will displayed indicating that you may be collecting duplicate data.
+5. With both agents installed, a warning will be displayed indicating that you may be collecting duplicate data.
 
     :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed":::
 

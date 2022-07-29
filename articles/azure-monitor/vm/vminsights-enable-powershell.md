@@ -30,7 +30,7 @@ To enable VM insights for multiple VMs or virtual machine scale sets, use the Po
 - The scoped resource group that's specified by *ResourceGroup*.
 - A single VM or virtual machine scale set that's specified by *Name*.
 
-For each virtual machine or virtual machine scale set, the script verifies whether the VM extension for the Log Analytics agent and Dependency agent are already installed. If both extensions are installed, the script tries to reinstall it. If both extensions aren't installed, the script installs them.
+For each virtual machine or virtual machine scale set, the script verifies whether the VM extension for the Log Analytics agent and Dependency agent is already installed. If both extensions are installed, the script tries to reinstall it. If both extensions aren't installed, the script installs them.
 
 Verify you are using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

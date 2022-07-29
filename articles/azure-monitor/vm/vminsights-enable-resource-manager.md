@@ -22,7 +22,7 @@ This article describes how to enable VM insights for a virtual machine or virtua
 - See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 
 ## Resource Manager templates
-Azure Resource Manager templates are available for download that onboard virtual machines and virtual machine scale sets. A different set of templates are used for Azure Monitor agent and Log Analytics agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
+Azure Resource Manager templates are available for download that onboard virtual machines and virtual machine scale sets. A different set of templates is used for Azure Monitor agent and Log Analytics agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
 
 
 
@@ -95,12 +95,12 @@ az deployment group create --resource-group <ResourceGroupName> --template-file 
 ```
 
 ## To deploy a resource manager template
-Each folder in the download has a template and a parameters file. Modify the parameters file with required detail details such as Virtual Machine Resource Id, Workspace resource Id, data collection rule resource Id, Location, and OS Type. Do not modify the template file unless you need to customize it for you particular scenario.
+Each folder in the download has a template and a parameters file. Modify the parameters file with required details such as Virtual Machine Resource ID, Workspace resource ID, data collection rule resource ID, Location, and OS Type. Do not modify the template file unless you need to customize it for your particular scenario.
 
 ### Deploy with the Azure portal
 See  [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) for details on deploying a template from the Azure portal.
 
-### Deploy with Powershell
+### Deploy with PowerShell
 Use the following command to deploy the template with PowerShell.
 
 ```PowerShell
