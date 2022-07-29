@@ -120,7 +120,6 @@ Whether you have created a new account for the DSA or are using an existing Acti
        - **Write all properties**
        - **Create User objects**
        - **Delete User objects**
-       - **Reset Password for Descendant User objects**
 
     - Select **OK**.
 

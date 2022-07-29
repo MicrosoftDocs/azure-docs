@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 07/11/2022
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -265,7 +265,7 @@ In this step, you remove the changes you made and delete the **Marketing Campaig
 1. Delete the **Marketing resources** group.
 
 ## Set up group writeback in entitlement management
-To set up group writeback for Micosoft 356 groups in access packages, you must complete the following prerequisites:
+To set up group writeback for Micosoft 365 groups in access packages, you must complete the following prerequisites:
 - Set up group writeback in the Azure Active Directory admin center. 
 - The Organizational Unit (OU) that will be used to set up group writeback in Azure AD Connect Configuration.
 - Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-v2.md#enable-group-writeback-using-azure-ad-connect) for Azure AD Connect. 

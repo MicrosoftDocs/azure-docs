@@ -39,7 +39,7 @@ landingContent:
           - text: ASP.NET
             url: tutorial-v2-asp-webapp.md
           - text: Blazor Server
-            url: tutorial-blazor-webassembly.md
+            url: tutorial-blazor-server.md
           - text: Node.js with Express
             url: tutorial-v2-nodejs-webapp-msal.md
   - title: "Web apps in depth"

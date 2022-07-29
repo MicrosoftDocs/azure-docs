@@ -26,7 +26,7 @@ Here are the steps you'll use to explore the graph in this article:
 1. Review your learnings from the experience.
 
 >[!NOTE]
->For simplicity, this quickstart does not cover setting up a live data flow from IoT devices inside the modeled environment. To set up a simulated end-to-end data flow that drives your twin graph, move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md). For more information on data flow between services and integrating Azure Digital Twins into a wider IoT solution, see [Data ingress and egress](concepts-data-ingress-egress.md).
+>For simplicity, this quickstart does not cover setting up a live data flow from IoT devices inside the modeled environment, or from other data sources. To set up a simulated end-to-end data flow that drives your twin graph, move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md). For more information on data flow between services and integrating Azure Digital Twins into a wider IoT solution, see [Data ingress and egress](concepts-data-ingress-egress.md).
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ Room2 doesn't have values set for its properties yet, since this twin was create
 
 ## Query changing IoT data
 
-In Azure Digital Twins, you can query your twin graph to answer questions about your environment, using the SQL-style *Azure Digital Twins query language*. One way to query the twins in your graph is by their properties. Querying based on properties can help answer questions about—or identify outliers in—your environment. In a fully connected, data-driven scenario, the properties of your twins will change frequently in response to IoT data from the sensors in your environment. In this quickstart, you'll change the values manually to simulate a changing sensor reading.
+In Azure Digital Twins, you can query your twin graph to answer questions about your environment, using the SQL-style *Azure Digital Twins query language*. One way to query the twins in your graph is by their properties. Querying based on properties can help answer questions about—or identify outliers in—your environment. In a fully connected, data-driven scenario, the properties of your twins will change frequently in response to IoT data from the sensors in your environment, or other connected data sources. In this quickstart, you'll change the values manually to simulate a changing sensor reading.
 
 Start by running a query to see how many twins in your environment have a temperature above 75. Run the following query in the **Query Explorer** panel.
 
@@ -184,7 +184,7 @@ Recall from viewing the twin properties earlier that Room0 has a temperature rea
 
 ### Edit temperature data
 
-In a fully connected Azure Digital Twins solution, the twins in your graph receive live updates from real IoT devices, and update their properties automatically to stay synchronized with your real-world environment. For simplicity in this quickstart, you'll use Azure Digital Twins Explorer here to manually set the temperature reading of Room0 to 76.
+In a fully connected Azure Digital Twins solution, the twins in your graph receive live updates from real IoT devices and other data sources, and update their properties automatically to stay synchronized with your real-world environment. For simplicity in this quickstart, you'll use Azure Digital Twins Explorer here to manually set the temperature reading of Room0 to 76.
 
 First, rerun the following query to select all digital twins. This will display the full graph again in the **Twin Graph** panel.
 
@@ -224,7 +224,9 @@ Then, you explored the graph, including...
 
 The intent of this exercise is to demonstrate how you can use the Azure Digital Twins graph to answer questions about your environment, especially as IoT environments continue to change.
 
-In this quickstart, you made the temperature update manually. It's common in Azure Digital Twins to connect digital twins to real IoT devices so that they receive updates automatically, based on telemetry data. In this way, you can build a live graph that always reflects the real state of your environment. You can use queries to get information about what's happening in your environment in real time.
+In this quickstart, you made the temperature update manually. It's common in Azure Digital Twins to connect digital twins to real IoT devices so that they receive updates automatically, based on telemetry data. You can also [connect other data sources](concepts-data-ingress-egress.md#data-ingress), integrating data from different systems and defining your own logic for how twins are updated. In this way, you can build a live graph that always reflects the real state of your environment. You can use queries to get information about what's happening in your environment in real time.
+
+You can also export Azure Digital Twins data to historical tracking, data analytics, and AI services to enable greater insights and perform environment simulations. Integrating Azure Digital Twins into your IoT solutions can help you more effectively track the past, control the present, and predict the future.
 
 ## Clean up resources
 
@@ -250,3 +252,8 @@ Move on to the next quickstart to visualize an Azure Digital Twins scenario in a
 
 > [!div class="nextstepaction"]
 > [Get started with 3D Scenes Studio](quickstart-3d-scenes-studio.md)
+
+Or, skip ahead to the tutorials to dive deeper into the SDKs, twin graph creation, and event flow setup.
+* [Code a client app](tutorial-code.md)
+* [Create a graph in Azure Digital Twins](tutorial-command-line-app.md)
+* [Connect an end-to-end solution](tutorial-end-to-end.md)

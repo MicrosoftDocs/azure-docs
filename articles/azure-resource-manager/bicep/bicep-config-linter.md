@@ -22,7 +22,6 @@ The following example shows the rules that are available for configuration.
   "analyzers": {
     "core": {
       "enabled": true,
-      "verbose": false,
       "rules": {
         "adminusername-should-not-be-literal": {
           "level": "warning"
@@ -57,6 +56,9 @@ The following example shows the rules that are available for configuration.
         "use-protectedsettings-for-commandtoexecute-secrets": {
           "level": "warning"
         },
+        "use-stable-resource-identifiers": {
+          "level": "warning"
+        },
         "use-stable-vm-image": {
           "level": "warning"
         }
@@ -89,7 +91,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
 {
   "analyzers": {
     "core": {
-      "verbose": false,
       "enabled": true,
       "rules": {
         "no-hardcoded-env-urls": {
