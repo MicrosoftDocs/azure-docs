@@ -143,7 +143,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
    
    # [Using an environment variable](#tab/env)
    
-   Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your terminal. In Azure Databricks, you can configure environment variables using the cluster configuration page.
+   Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your cluster. This has the advantage of doing the configuration only once per compute cluster. In Azure Databricks, you can configure environment variables using the cluster configuration page.
    
    ![Configure the environment variables in an Azure Databricks cluster](./media/how-to-use-mlflow-azure-databricks/env.png)
    
