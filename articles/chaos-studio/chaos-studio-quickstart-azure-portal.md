@@ -95,7 +95,7 @@ If this is your first time using Chaos Studio, you must first register the Chaos
 ## Run the chaos experiment
 
 1. Open the Azure portal:
-    * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
+    * If using an @microsoft.com account, [click this link](https://portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 2. Check the box next to the experiments name and click **Start Experiment**.
     ![Start experiment](images/quickstart-experiment-start.png)

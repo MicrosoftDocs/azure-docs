@@ -323,6 +323,8 @@
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
   - name: Azure Virtual Desktop for Azure Stack HCI
     href: azure-stack-hci.md
+  - name: Set up Windows Sandbox
+    href: sandbox.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support

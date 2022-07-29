@@ -44,11 +44,14 @@ Azure NetApp Files standard network features are supported for the following reg
 *   East US 2
 *	France Central
 *   Germany West Central
+*   Japan East
 *	North Central US
 *   North Europe
 *	South Central US
+*   Switzerland North
 *   UK South
 *	West Europe
+*   West US
 *   West US 2
 *	West US 3 
 
