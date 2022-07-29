@@ -1,35 +1,37 @@
 ---
-title: Set up network for Azure Monitor for SAP solutions (Preview)
-description: This article provides details to consider network setup while setting up Azure monitor for SAP solutions.
+title: Set up network for Azure Monitor for SAP solutions (preview)
+description: Learn how to set up an Azure virtual network for use with Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.topic: article
-ms.date: 07/06/2022
+ms.topic: how-to
+ms.date: 07/28/2022
 ms.author: sujaj
-
+#Customer intent: As a developer, I want to set up an Azure virtual network so that I can use Azure Monitor for SAP solutions.
 ---
-# Set up network for Azure monitor for SAP solutions
+# Set up network for Azure monitor for SAP solutions (preview)
 
-Before you can deploy Azure Monitor for SAP solutions (AMS), you need to configure an Azure virtual network with all necessary settings.
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-## Configure new subnet
+In this how-to guide, you'll learn how to configure an Azure virtual network so that you can deploy *Azure Monitor for SAP solutions (AMS)*. You'll learn to [create a new subnet](#create-new-subnet) for use with Azure Functions for both versions of the product, *AMS* and *AMS (classic)*. Then, if you're using the current version of AMS, you'll learn to [set up outbound internet access](#configure-outbound-internet-access) to the SAP environment that you want to monitor.
 
+## Create new subnet
 
-> [!IMPORTANT]
-> The following steps apply to both *current* and *classic* versions of AMS.
+> [!NOTE]
+> This section applies to both AMS and AMS (classic).
 
-Create a [new subnet with an **IPv4/28** block or larger](../../../azure-functions/functions-networking-options.md#subnets). Then, make sure there's network connectivity between the new subnet and any target systems that you want to monitor. 
+Azure Functions is the data collection engine for AMS. You'll need to create a new subnet to host Azure Functions.
 
-You'll use this new subnet to host Azure Functions, which is the telemetry collection engine for AMS. For more information, see how to [integrate your app with an Azure virtual network](../../../app-service/overview-vnet-integration.md).
+[Create a new subnet](../../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/28** block or larger. 
+
+For more information, see how to [integrate your app with an Azure virtual network](../../../app-service/overview-vnet-integration.md).
 
 ## Configure outbound internet access
 
 > [!IMPORTANT]
-> The following steps only apply to the *current* version of AMS, and not the *classic* version.
+> This section only applies to the current version of AMS. If you're using AMS (classic), skip this section.
 
-
-In many use cases, you might choose to restrict or block outbound internet access to your SAP network environment. However, AMS requires network connectivity between the [subnet that you configured](#configure-new-subnet) and the systems that you want to monitor. Before you deploy an AMS resource, you need to configure outbound internet access or the deployment will fail.
+In many use cases, you might choose to restrict or block outbound internet access to your SAP network environment. However, AMS requires network connectivity between the [subnet that you configured](#create-new-subnet) and the systems that you want to monitor. Before you deploy an AMS resource, you need to configure outbound internet access, or the deployment will fail.
 
 There are multiple methods to address restricted or blocked outbound internet access. Choose the method that works best for your use case:
 
@@ -37,22 +39,19 @@ There are multiple methods to address restricted or blocked outbound internet ac
 - [Use service tags with a network security group (NSG) in your virtual network](#use-service-tags)
 - [Use a private endpoint for your subnet](#use-private-endpoint)
 
-
 ### Use Route All
 
-**Route All** is a [standard feature of virtual network integration](../../../azure-functions/functions-networking-options.md#virtual-network-integration) in Azure Functions, which is deployed as part of AMS. Enabling or disabling this setting only impacts traffic from Azure Functions. This setting doesn't impact any other incoming or outgoing traffic within your virtual network. 
+**Route All** is a [standard feature of virtual network integration](../../../azure-functions/functions-networking-options.md#virtual-network-integration) in Azure Functions, which is deployed as part of AMS. Enabling or disabling this setting only affects traffic from Azure Functions. This setting doesn't affect any other incoming or outgoing traffic within your virtual network. 
 
 You can configure the **Route All** setting when you create an AMS resource through the Azure portal. If your SAP environment doesn't allow outbound internet access, disable **Route All**. If your SAP environment allows outbound internet access, keep the default setting to enable **Route All**.
 
-> [!NOTE]
-> You can only use this option before you deploy an AMS resource. It's not possible to change the **Route All** setting after you create the AMS resource.
+You can only use this option before you deploy an AMS resource. It's not possible to change the **Route All** setting after you create the AMS resource.
 
 ### Use service tags
 
 If you use NSGs, you can create AMS-related [virtual network service tags](../../../virtual-network/service-tags-overview.md) to allow appropriate traffic flow for your deployment. A service tag represents a group of IP address prefixes from a given Azure service. 
 
-> [!NOTE]
-> You can use this option after you've deployed an AMS resource.
+You can use this option after you've deployed an AMS resource.
 
 1. Find the subnet associated with your AMS managed resource group:
       1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -69,43 +68,40 @@ If you use NSGs, you can create AMS-related [virtual network service tags](../..
 
 | **Priority** | **Name**                 | **Port** | **Protocol** | **Source** | **Destination**      | **Action** |
 |--------------|--------------------------|----------|--------------|------------|----------------------|------------|
-| 450          | allow_monitor            | 443      | TCP          |            | AzureMonitor         | Allow      |
-| 501          | allow_keyVault           | 443      | TCP          |            | AzureKeyVault        | Allow      |
+| 450          | allow_monitor            | 443      | TCP          |            | Azure Monitor         | Allow      |
+| 501          | allow_keyVault           | 443      | TCP          |            | Azure Key Vault        | Allow      |
 | 550          | allow_storage            | 443      | TCP          |            | Storage              | Allow      |
-| 600          | allow_azure_controlplane | 443      | Any          |            | AzureResourceManager | Allow      |
+| 600          | allow_azure_controlplane | 443      | Any          |            | Azure Resource Manager | Allow      |
 | 660          | deny_internet            | Any      | Any          | Any        | Internet             | Deny       |
 
 
-  AMS subnet IP refers to Ip of subnet associated with AMS resource  
-  
-![Diagram shows the subnet associated with ams resource.](./media/azure-monitor-sap/azure-monitor-network-subnet.png)
+The AMS subnet IP address refers to the IP of the subnet associated with your AMS resource. To find the subnet, go to the AMS resource in the Azure portal. On the **Overview** page, review the **vNet/subnet** value.
 
 For the rules that you create, **allow_vnet** must have a lower priority than **deny_internet**. All other rules also need to have a lower priority than **allow_vnet**. However, the remaining order of these other rules is interchangeable.
         
 ### Use private endpoint
-You can enable a private endpoint by creating a new subnet in the same virtual network as the system that you want to monitor. No other resources can use this subnet, so it's not possible to use the same subnet as Azure Functions for your private endpoint.
-To create a private endpoint for AMS:
 
+You can enable a private endpoint by creating a new subnet in the same virtual network as the system that you want to monitor. No other resources can use this subnet. It's not possible to use the same subnet as Azure Functions for your private endpoint.
+
+To create a private endpoint for AMS:
 
 1. [Create a new subnet](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) in the same virtual network as the SAP system that you're monitoring.
 1. In the Azure portal, go to your AMS resource.
 1. On the **Overview** page for the AMS resource, select the **Managed resource group**.
-A private endpoint connection needs to be created for the following resources inside the managed resource group: 
-    1. Key-vault, 
-    2. Storage-account, and 
-    3. Log-analytics workspace
+1. Create a private endpoint connection for the following resources inside the managed resource group. 
+    1. [Azure Key Vault resources](#create-key-vault-endpoint)
+    2. [Azure Storage resources](#create-storage-endpoint)
+    3. [Azure Log Analytics workspaces](#create-log-analytics-endpoint)
 
-![Diagram that shows LogAnalytics screen.](https://user-images.githubusercontent.com/33844181/176844487-388fbea4-4821-4c8d-90af-917ff9c0ba48.png)
- 
-###### Key Vault
+#### Create key vault endpoint
 
-Only 1 private endpoint is required for all the key vault resources (secrets, certificates, and keys). Once a private endpoint is created for key vault, the vault resources cannot be accessed from systems outside the given vnet. 
+You only need one private endpoint for all the Azure Key Vault resources (secrets, certificates, and keys). Once a private endpoint is created for key vault, the vault resources can't be accessed from systems outside the given vnet. 
 
 1. On the key vault resource's menu, under **Settings**, select **Networking**. 
 1. Select the **Private endpoint connections** tab.
 1. Select **Create** to open the endpoint creation page.
 1. On the **Basics** tab, enter or select all required information.
-1. On the **Resource** tab, enter or select all required information. For the key vault resource, there's only one sub-resource available, the vault.
+1. On the **Resource** tab, enter or select all required information. For the key vault resource, there's only one subresource available, the vault.
 1. On the **Virtual Network** tab, select the virtual network and the subnet that you created specifically for the endpoint. It's not possible to use the same subnet as the Azure Functions app.
 1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**. If necessary, add tags.
 1. Select **Review + create** to create the private endpoint.
@@ -113,17 +109,17 @@ Only 1 private endpoint is required for all the key vault resources (secrets, ce
     1. For **Allow access from**, select **Allow public access from all networks**.
     1. Select **Apply** to save the changes.
  
-### Create storage endpoint
+#### Create storage endpoint
 
 It's necessary to create a separate private endpoint for each Azure Storage account resource, including the queue, table, storage blob, and file. If you create a private endpoint for the storage queue, it's not possible to access the resource from systems outside of the virtual networking, including the Azure portal. However, other resources in the same storage account are accessible.
 
-Repeat the following process for each type of storage sub-resource (table, queue, blob, and file):
+Repeat the following process for each type of storage subresource (table, queue, blob, and file):
 
 1. On the storage account's menu, under **Settings**, select **Networking**. 
 1. Select the **Private endpoint connections** tab.
 1. Select **Create** to open the endpoint creation page.
 1. On the **Basics** tab, enter or select all required information.
-1. On the **Resource** tab, enter or select all required information. For the **Target sub-resource**, select one of the sub-resource types (table, queue, blob, or file). 
+1. On the **Resource** tab, enter or select all required information. For the **Target sub-resource**, select one of the subresource types (table, queue, blob, or file). 
 1. On the **Virtual Network** tab, select the virtual network and the subnet that you created specifically for the endpoint. It's not possible to use the same subnet as the Azure Functions app.
 1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**. If necessary, add tags.
 1. Select **Review + create** to create the private endpoint.
@@ -131,26 +127,32 @@ Repeat the following process for each type of storage sub-resource (table, queue
     1. For **Allow access from**, select **Allow public access from all networks**.
     1. Select **Apply** to save the changes.
 
-### Create log analytics endpoint
+#### Create log analytics endpoint
 
 It's not possible to create a private endpoint directly for a Log Analytics workspace. To enable a private endpoint for this resource, you can connect the resource to an [Azure Monitor Private Link Scope (AMPLS)](../../../azure-monitor/logs/private-link-security.md). Then, you can create a private endpoint for the AMPLS resource.
 
 If possible, create the private endpoint before you allow any system to access the Log Analytics workspace through a public endpoint. Otherwise, you'll need to restart the Function App before you can access the Log Analytics workspace through the private endpoint.
 
+Select a scope for the private endpoint:
+
 1. Go to the Log Analytics workspace in the Azure portal.
 1. In the resource menu, under **Settings**, select **Network isolation**.
 1. Select **Add** to create a new AMPLS setting.
 1. Select the appropriate scope for the endpoint. Then, select **Apply**.
-To enable private endpoint for Azure Monitor Private Link Scope, go to Private Endpoint connections tab under configure. 
-![Diagram shows EndPoint Resources.](https://user-images.githubusercontent.com/33844181/176845102-3b5d813e-eb0d-445c-a5fb-9262947eda77.png)
 
-1. Select the **Private endpoint connections** tab.
-1. Select **Create** to open the endpoint creation page.
+Create the private endpoint:
+
+1. Go to the AMPLS resource in the Azure portal.
+1. In the resource menu, under **Configure**, select **Private Endpoint connections**.
+1. Select **Private Endpoint** to create a new endpoint.
 1. On the **Basics** tab, enter or select all required information.
 1. On the **Resource** tab, enter or select all required information.
 1. On the **Virtual Network** tab, select the virtual network and the subnet that you created specifically for the endpoint. It's not possible to use the same subnet as the Azure Functions app.
 1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**. If necessary, add tags.
 1. Select **Review + create** to create the private endpoint.
+
+Configure the scope:
+
 1. Go to the Log Analytics workspace in the Azure portal.
 1. In the resource's menu, under **Settings**, select **Network Isolation**.
 1. Under **Virtual networks access configuration**:
@@ -165,7 +167,7 @@ If you enable a private endpoint after any system accessed the Log Analytics wor
 1. On the managed resource group's page, select the **Function App**.
 1. On the Function App's **Overview** page, select **Restart**.
 
-Next, find and note important IP address ranges.
+Find and note important IP address ranges:
 
 1. Find the AMS resource's IP address range.
     1. Go to the AMS resource in the Azure portal.
@@ -176,27 +178,29 @@ Next, find and note important IP address ranges.
     1. On the **Overview** page, note the **Private endpoint** in the resource group.
     1. In the resource group's menu, under **Settings**, select **DNS configuration**.
     1. On the **DNS configuration** page, note the **IP addresses** for the private endpoint.    
+1. Find the subnet for the log analytics private endpoint.
+    1. Go to the private endpoint created for the AMPLS resource.         
+    2. On the private endpoint's menu, under **Settings**, select **DNS configuration**.
+    3. On the **DNS configuration** page, note the associated IP addresses.
+    4. Go to the AMS resource in the Azure portal.
+    5. On the **Overview** page, select the **vNet/subnet** to go to that resource.
+    6. On the virtual network page, select the subnet that you used to create the AMS resource.
 
-    1. For Log analytics private endpoint: Go to the private endpoint created for Azure Monitor Private Link Scope resource.         
-    
-        ![Diagram that shows linked scope resource.](https://user-images.githubusercontent.com/33844181/176845649-0ccef546-c511-4373-ac3d-cbf9e857ca78.png)
-
-1. On the private endpoint's menu, under **Settings**, select **DNS configuration**.
-1. On the **DNS configuration** page, note the associated IP addresses.
-1. Go to the AMS resource in the Azure portal.
-1. On the **Overview** page, select the **vNet/subnet** to go to that resource.
-1. On the virtual network page, select the subnet that you used to create the AMS resource.
+Add outbound security rules:
 
 1. Go to the NSG resource in the Azure portal.
 1. In the NSG menu, under **Settings**, select **Outbound security rules**.
-The below image contains the required security rules for AMS resource to work. 
-![Diagram that shows Security Roles.](https://user-images.githubusercontent.com/33844181/176845846-44bbcb1a-4b86-4158-afa8-0eebd1378655.png)
+1. Add the following required security rules.
+    
+    | Priority | Description |
+    | -------- | ------------- |
+    | 550 | Allow the source IP for making calls to source system to be monitored. |
+    | 600 | Allow the source IP for making calls Azure Resource Manager service tag. |
+    | 650 | Allow the source IP to access key-vault resource using private endpoint IP. |
+    | 700 | Allow the source IP to access storage-account resources using private endpoint IP. (Include IPs for each of storage account sub resources: table, queue, file, and blob)  |
+    | 800 | Allow the source IP to access log-analytics workspace resource using private endpoint IP.  |
+    
+## Next steps
 
-
-| Priority | Description |
-| -------- | ------------- |
-| 550 | Allow the source IP for making calls to source system to be monitored. |
-| 600 | Allow the source IP for making calls AzureResourceManager service tag. |
-| 650 | Allow the source IP to access key-vault resource using private endpoint IP. |
-| 700 | Allow the source IP to access storage-account resources using private endpoint IP. (Include IPs for each of storage account sub resources: table, queue, file, and blob)  |
-| 800 | Allow the source IP to access log-analytics workspace resource using private endpoint IP.  |
+- [Quickstart: set up AMS through the Azure portal](azure-monitor-sap-quickstart.md)
+- [Quickstart: set up AMS with PowerShell](azure-monitor-sap-quickstart-powershell.md)
