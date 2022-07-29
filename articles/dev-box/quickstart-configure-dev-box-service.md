@@ -1,6 +1,6 @@
 ---
 title: Configure the Microsoft Dev Box service
-description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You will create a DevCenter, add a network connection, and then create a dev box definition, and a project.'
+description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You will create a dev center, add a network connection, and then create a dev box definition, and a project.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 <!-- 
   Customer intent:
-	As an enterprise admin I want to understand how to create and configure Dev Box components so that I can provide Dev Box projects my users.
+	As an enterprise admin I want to understand how to create and configure dev box components so that I can provide dev box projects my users.
  -->
 
 # Quickstart: Configure the Microsoft Dev Box service
@@ -20,9 +20,9 @@ This quickstart describes how to configure the Microsoft Dev Box service by usin
 
 In this quickstart, you'll perform the following tasks:
 
-* [Create a DevCenter](#create-a-devcenter)
+* [Create a dev center](#create-a-dev-center)
 * [Create a network connection](#create-a-network-connection)
-* [Attach a network connection to a DevCenter](#attach-network-connection-to-devcenter)
+* [Attach a network connection to a dev center](#attach-network-connection-to-dev-center)
 * [Create a dev box definition](#create-a-dev-box-definition)
 * [Create a project](#create-a-project)
 
@@ -31,55 +31,55 @@ In this quickstart, you'll perform the following tasks:
 
 To complete this quick start, make sure that you have:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- Owner or Contributor permissions on an Azure Subscription or specific resource group.
+- Owner or Contributor permissions on an Azure Subscription or a specific resource group.
 - Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
 
-## Create a DevCenter
+## Create a dev center
 
-The following steps show you how to create and configure a DevCenter.  
+The following steps show you how to create and configure a dev center.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Use the Search box to locate Dev Box resources, and select DevCenters.
+1. Use the search box to locate dev box resources, and select dev centers.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
 
-1. On the DevCenters page, select **+Add**. 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter.png" alt-text="Screenshot showing the Azure portal DevCenter page with create highlighted.":::
+1. On the dev centers page, select **+Add**. 
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter.png" alt-text="Screenshot showing the Azure portal Dev center with create highlighted.":::
 
-1. On the **Create a DevCenter** page, on the **Basics** tab, enter the following values:
+1. On the **Create a dev center** page, on the **Basics** tab, enter the following values:
 
    |Name|Value|
    |----|----|
-   |**Subscription**|Select the subscription in which you want to create the DevCenter.|
+   |**Subscription**|Select the subscription in which you want to create the dev center.|
    |**Resource group**|Select an existing resource group or select **Create new**, and enter a name for the resource group.|
-   |**Name**|Enter a name for your DevCenter.|
-   |**Location**|Select the location/region you want the DevCenter to be created in.|
+   |**Name**|Enter a name for your dev center.|
+   |**Location**|Select the location/region you want the dev center to be created in.|
  
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-basics.png" alt-text="Screenshot showing the Create DevCenter Basics tab."::: 
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-basics.png" alt-text="Screenshot showing the Create dev center Basics tab."::: 
        
    <!-- The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://aka.ms/devbox_acom). -->
 
 4. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-tags.png" alt-text="Screenshot showing the Create DevCenter Tags tab."::: 
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 
 
 5. Select **Review + Create**.
 
 6. On the **Review** tab, select **Create**.
 
-7. You can check on the progress of the DevCenter creation from any page in the Azure portal by opening the notifications pane. 
+7. You can check on the progress of the dev center creation from any page in the Azure portal by opening the notifications pane. 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/azure-notifications.png" alt-text="Screenshot showing Azure portal notifications pane.":::
 
-8. When the deployment is complete, select **Go to resource**. You'll see the DevCenter page.
+8. When the deployment is complete, select **Go to resource**. You'll see the dev center page.
 
 
 ## Create a network connection
 Network connections determine the region into which dev boxes are deployed and allow them to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 
-To perform the steps in this section, you must have and existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network?branch=main) to create a vnet and subnet. 
+To perform the steps in this section, you must have and existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network?branch=main) to create them. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Use the Search box to locate Dev Box resources, and select Network connections.
+1. Use the search box to locate dev box resources, and select network connections.
 
 1. On the **Network Connections** page, select **+Add**.
      :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Add highlighted.":::
@@ -127,27 +127,27 @@ To perform the steps in this section, you must have and existing virtual network
 
 6. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
 
-## Attach network connection to DevCenter
-You need to attach a network connection to a DevCenter before it can be used in projects to create dev box pools.
+## Attach network connection to dev center
+You need to attach a network connection to a dev center before it can be used in projects to create dev box pools.
 
-1. In the [Azure portal](https://portal.azure.com), use the Search box to locate Dev Box resources, and select DevCenters.
+1. In the [Azure portal](https://portal.azure.com), use the search box to locate dev box resources, and select dev centers.
 
-1. Select the DevCenter you created and select **Networking**. 
+1. Select the dev center you created and select **Networking**. 
  
 1. Select  **+ Add**.
  
 1. In the **Add network connection** pane, select the network connection you created earlier, and then select **Add**. 
 
-After creation, several health checks are run on the network. You can view the status of the checks on the resource overview page. Network connections that pass all the health checks can be added to a DevCenter and used in the creation of Dev Box Pools. The Dev Boxes within the Dev Box Pools will be created and domain joined in the location of the vnet assigned to the network connection.
+After creation, several health checks are run on the network. You can view the status of the checks on the resource overview page. Network connections that pass all the health checks can be added to a dev center and used in the creation of dev box pools. The dev boxes within the dev box pools will be created and domain joined in the location of the vnet assigned to the network connection.
 
 :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connection-grid-populated.png" alt-text="Screenshot showing the status of a network connection.":::
 
 To resolve any errors, refer to the [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
 ## Create a dev box definition
-The following steps show you how to create and configure a dev box definition. You can use dev box definitions across multiple projects in the same DevCenter. Dev box definitions define the image and SKU (compute + storage) that will be used in creation of the dev boxes. 
+The following steps show you how to create and configure a dev box definition. You can use dev box definitions across multiple projects in the same dev center. Dev box definitions define the image and SKU (compute + storage) that will be used in creation of the dev boxes. 
 
-1. Open the DevCenter in which you want to create the dev box definition.
+1. Open the dev center in which you want to create the dev box definition.
 
 1. Select **Dev box definitions**.
 
@@ -177,7 +177,7 @@ The following steps show you how to create and configure a dev box definition. Y
 
 The following steps show you how to create and configure a project in dev box.
 
-1. In the [Azure portal](https://portal.azure.com), use the Search box to locate Dev Box resources, and select Projects. 
+1. In the [Azure portal](https://portal.azure.com), use the search box to locate dev box resources, and select projects. 
 
 1. On the Projects page,  select **+Add**.
  
@@ -187,7 +187,7 @@ The following steps show you how to create and configure a project in dev box.
    |----|----|
    |**Subscription**|Select the subscription in which you want to create the project.|
    |**Resource group**|Select an existing resource group or select **Create new**, and enter a name for the resource group.|
-   |**DevCenter**|Select the DevCenter to which you want to associate this project. All the DevCenter level settings will be applied to the project.|
+   |**dev center**|Select the dev center to which you want to associate this project. All the dev center level settings will be applied to the project.|
    |**Name**|Enter a name for your project. |
    |**Description**|Enter a brief description of the project. |
    |**Region**| Select the region you want the project to be created in.|
@@ -206,10 +206,10 @@ The following steps show you how to create and configure a project in dev box.
 
 ## Next steps
 
-In this quickstart, you created a Dev Box project and the resources necessary to support it. You created a DevCenter, added a network connection, created a dev box definition, and a project.'
+In this quickstart, you created a dev box project and the resources necessary to support it. You created a dev center, added a network connection, created a dev box definition, and a project.'
 
-To learn about how to manage Dev Box projects, advance to the next quickstart:
+To learn about how to manage dev box projects, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
-> [Configure a Dev Box project](./quickstart-configure-dev-box-project.md)
+> [Configure a dev box project](./quickstart-configure-dev-box-project.md)
 
