@@ -47,7 +47,7 @@ To allow the services to perform these actions, you must provide permissions to 
 ### Create a Dev center Managed Identity
 1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Use the Search box to locate Dev Box resources, and select DevCenter.
+1. Use the search box to locate Dev Box resources, and select Dev center.
 1. Open your DevCenter and select **Identity** from the left menu.
 1. Use the search box to locate Dev Box resources, and select dev center.
 1. Open your dev center and select **Identity** from the left menu.
@@ -64,19 +64,25 @@ If you are using the CLI to attach the gallery to your Dev center, you will need
 
 #### Windows 365 Service Principal
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Use the Search box to locate the Azure Compute Gallery you want to attach to the DevCenter.
+
 1. Use the search box to locate the Azure Compute Gallery you want to attach to the dev center.
+
 1. Select the **Access Control (IAM)** menu item.
+
 1. Select **+ Add** > **Add role assignment**.
+
 1. On the Role tab, select **Reader**, and then select **Next**.
+
 1. On the Members tab, select **+ Select Members**.
+
 1. In Select members, search for and select **Cloud PC**, and then select **Select**. 
+
 1. On the Members tab, select **Next**.
+
 1. On the Review + assign tab, select **Review + assign**.
 
 #### Dev center Managed Identity
-1. Open the gallery you want to attach to the DevCenter from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can use the search bar to search for Azure Compute Galleries to find your gallery easily.
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can use the search bar to search for Azure Compute Galleries to find your gallery easily.
+1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can search for Azure Compute Galleries to find your gallery.
 1. Select **Access Control (IAM)** from the left menu.
 1. Select **+ Add** > **Add role assignment**.
 1. On the Role tab, select the **Owner** role, and then select **Next**.
@@ -86,37 +92,6 @@ If you are using the CLI to attach the gallery to your Dev center, you will need
 1. On the Review + assign tab, select **Review + assign**.
 
 You can use the same managed identity in multiple DevCenters and Azure Compute Galleries. Any DevCenter with the managed identity added will have the necessary permissions to the images in the Azure Compute Gallery you've added the owner role assignment to.
-You can use the same managed identity in multiple dev centers and Azure Compute Galleries. Any dev center with the managed identity added will have the necessary permissions to the images in the Azure Compute Gallery you've added the owner role assignment to.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Use the search box to locate the Azure Compute Gallery you want to attach to the dev center.
-1. Select the **Access Control (IAM)** menu item.
-1. Select **+ Add** > **Add role assignment**.
-1. On the Role tab, select **Reader**, and then select **Next**.
-1. On the Members tab, select **+ Select Members**.
-1. In Select members, search for and select **Cloud PC**, and then select **Select**. 
-1. On the Members tab, select **Next**.
-1. On the Review + assign tab, select **Review + assign**.
-
-### Dev center Managed Identity
-1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Use the search box to locate Dev Box resources, and select dev center.
-1. Open your dev center and select **Identity** from the left menu.
-1. On the **User assigned** tab, select **+ Add**.
-1. In Add user assigned managed identity, select the user-assigned managed identity that you created in step 1 and then select **Add**.
-
-   :::image type="content" source="media/how-to-configure-azure-compute-gallery/assign-managed-id.png" alt-text="Screenshot showing the Add user assigned managed identity pane, with the managed ID highlighted."::: 
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can use the search bar to search for Azure Compute Galleries to find your gallery easily.
-1. Select **Access Control (IAM)** from the left menu.
-1. Select **+ Add** > **Add role assignment**.
-1. On the Role tab, select the **Contributor** role, and then select **Next**.
-1. On the Members tab, under **Assign access to**, select **Managed Identity**, and then select **+ Select Members**.
-1. In Select managed identities, search for and select the user assigned managed identity you created in step 1 and then select **Select**.
-1. On the Members tab, select **Next**.
-1. On the Review + assign tab, select **Review + assign**.
-
-You can use the same managed identity in multiple dev centers and Azure Compute Galleries. Any dev center with the managed identity added will have the necessary permissions to the images in the Azure Compute Gallery you've added the owner role assignment to.
 
 ## Attach a gallery to a dev center
 In order to use the images from a gallery in dev box definitions, you must first associate it with the dev center.
