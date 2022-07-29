@@ -129,3 +129,51 @@ The following JSON shows the **AllocationResponse** object returned by a custom 
    }
 }
 ```
+
+## Use device payloads in custom allocation
+
+Devices can send a custom payload that is passed by DPS to your custom allocation webhook, which can then use that data in its logic. The webhook may use this data in a number of ways, perhaps to determine which IoT hub to assign the device to, or to look up information in an external database that might be used to set properties on the initial twin. Conversely, your webhook can return data back to the device through DPS, which may be used in the device's client-side logic.
+
+For example, you may want to allocate devices based on the device model. In this case, you can configure the device to report its model information in the request payload when it registers with DPS. DPS will pass this payload to the custom allocation webhook, which will determine which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can return data back to the DPS as a JSON object in the webhook response, and DPS will return this data to your device in the registration response.
+
+### Device sends data payload to DPS
+
+A device calls the [register](/rest/api/iot-dps/device/runtime-registration/register-device) API to register with DPS. The request can be enhanced with the optional `pqyload` property. This property can contain any valid JSON object. The exact contents will depend on the requirements of your solution.
+
+For attestation with TPM, the request body looks like the following:
+
+```json
+{ 
+    "registrationId": "mydevice", 
+    "tpm": { 
+        "endorsementKey": "xxxx-device-endorsement-key-xxxxx", 
+        "storageRootKey": "xxxx-device-storage-root-key-xxxxx" 
+    }, 
+    "payload": { "property1": "value1", "property2": {"propertyA":"valueA", "property2-2":1234}, ... } 
+} 
+```
+
+### DPS sends data payload to custom allocation webhook
+
+### Custom allocation webhook returns data to the DPS
+
+If the custom allocation policy webhook wishes to return some data to the device, it will pass the data back as a JSON object in the webhook response. The change is in the payload section below.
+
+```json
+{ 
+    "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
+    "initialTwin": { 
+        "tags": { 
+            "tag1": true 
+        }, 
+        "properties": { 
+            "desired": { 
+                "prop1": true 
+            } 
+        } 
+    }, 
+    "payload": { A JSON object that contains the data returned by the webhook } 
+} 
+```
+
+### DPS sends data payload to device
