@@ -16,7 +16,13 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Azure Monitor agent
 
-The samples in this section install the Azure Monitor agent on Windows and Linux virtual machines and Azure Arc-enabled servers. To configure data collection for these agents, you must also deploy [Resource Manager templates data collection rules and associations](./resource-manager-data-collection-rules.md).
+The samples in this section install the Azure Monitor agent on Windows and Linux virtual machines and Azure Arc-enabled servers. 
+
+> [!IMPORTANT] 
+> The below templates do not perform the prerequisite [creation](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3) and [assignment](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#user-assigned-managed-identity) of a user-assigned managed identity or [enablement](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity) of system-assigned managed identity. A managed identity is required for Azure Monitor agent to collect and publish data. User-assigned managed identities are _strongly recommended_ over system-assigned managed identities due to their ease of management at scale.
+
+> [!IMPORTANT] 
+> To configure data collection for these agents, you must also deploy [Resource Manager templates data collection rules and associations](./resource-manager-data-collection-rules.md).
 
 ## Permissions required
 
@@ -27,9 +33,9 @@ The samples in this section install the Azure Monitor agent on Windows and Linux
 
 ### Azure Windows virtual machine
 
-The following sample installs the Azure Monitor agent on an Azure Windows virtual machine. Azure Monitor agent can be used with either user-assigned managed identity-based or system-assigned managed identity-based authentication. Based on your desired authentication method, choose the appropriate template below. Note that the below templates do not perform the prerequisite managed identity assignment or enablement; it must be performed separately.
+The following sample installs the Azure Monitor agent on an Azure Windows virtual machine. Based on your desired authentication method, choose the appropriate template below.
 
-#### User-assigned managed identity
+#### User-assigned managed identity (recommended)
 
 # [Bicep](#tab/bicep)
 
@@ -200,9 +206,9 @@ resource windowsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' 
 
 ### Azure Linux virtual machine
 
-The following sample installs the Azure Monitor agent on a Azure Linux virtual machine. Azure Monitor agent can be used with either user-assigned managed identity-based or system-assigned managed identity-based authentication. Based on your desired authentication method, choose the appropriate template below. Note that the below templates do not perform the prerequisite managed identity assignment or enablement; it must be performed separately.
+The following sample installs the Azure Monitor agent on a Azure Linux virtual machine. Based on your desired authentication method, choose the appropriate template below.
 
-#### User-assigned managed identity
+#### User-assigned managed identity (recommended)
 
 ##### Template file
 
