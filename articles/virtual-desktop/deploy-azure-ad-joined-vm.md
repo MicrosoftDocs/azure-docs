@@ -90,8 +90,10 @@ While you don't need an Active Directory to deploy or access your Azure AD-joine
 
 ## Next steps
 
-Now that you've deployed some Azure AD joined VMs, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session, check out these articles:
+Now that you've deployed some Azure AD joined VMs, we recommend enabling single sign-on before connecting with a supported Azure Virtual Desktop client to test it as part of a user session. To learn more, check out these articles:
 
+- [Configure single sign-on](configure-single-sign-on.md)
+- [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md)
 - [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md)
 - [Connect with the web client](user-documentation/connect-web.md)
 - [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md)

@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/09/2022
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop

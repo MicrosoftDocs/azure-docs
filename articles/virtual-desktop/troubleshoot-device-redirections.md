@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/26/2022
+ms.date: 08/09/2022
 ms.author: helohr
 ---
 # Device redirections
@@ -27,6 +27,16 @@ If WebAuthn requests from the session are not redirected to the local PC, verify
 
 - you're using supported operating systems for [in-session passwordless authentication](authentication.md#in-session-passwordless-authentication) on both the local PC and the session host.
 - WebAuthn redirection is enabled as a [device redirection](configure-device-redirections.md#webauthn-redirection).
+
+If the option to use Windows Hello for Business or security keys isn't available when accessing Azure AD resources, verify that the FIDO2 security key method has been enabled for the user account in Azure AD. Follow the steps to [Enable FIDO2 security key method](../active-directory/authentication/howto-authentication-passwordless-security-key.md#enable-fido2-security-key-method).
+
+If a user signs in to the session host using single factor credential like username and password, and then tries to access an Azure AD resource that requires MFA, they may not be able to use Windows Hello for Business. To authenticate to that resource, they can follow the steps below:
+
+1. If they are not prompted for a user account, they should first sign out.
+1. On the account selection page, choose Use another account.
+1. Choose Sign-in options at the bottom.
+1. Select Sign in with Windows Hello or a security key.
+1. They should not see option to select their local Windows Hello or security key authentication methods.
 
 ## Next steps
 

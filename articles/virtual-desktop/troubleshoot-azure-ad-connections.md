@@ -3,11 +3,11 @@ title: Connections to Azure AD-joined VMs Azure Virtual Desktop - Azure
 description: How to resolve issues while connecting to Azure AD-joined VMs in Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
-manager: lizross
+manager: femila
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/20/2021
+ms.date: 08/09/2022
 ms.author: helohr
 ---
 # Connections to Azure AD-joined VMs

@@ -104,5 +104,4 @@ For connections to succeed, you must [disable the legacy per-user multi-factor a
 ## Next steps
 
 - [Learn more about Conditional Access policies](../active-directory/conditional-access/concept-conditional-access-policies.md)
-
 - [Learn more about user sign in frequency](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)
