@@ -55,11 +55,9 @@ To download and setup the Remote Desktop app for Windows, follow these steps:
    
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.png" alt-text="Screenshot of the Your dev box card showing the Open in RDP client option.":::
 
-1. Choose **Open Windows Desktop** to launch the Remote Desktop client.
+1. Choose **Open Windows Desktop** to connect to your dev box in the Remote Desktop client.
    
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-windows-desktop.png" alt-text="Screenshot of the  Open Windows Desktop option on the Connect dialog":::
-
-1. Your dev box will appear in the Remote Desktop client. Double-click to connect.
 
 ## Download the Remote Desktop client (non-Windows) and connect to your dev box
 
@@ -75,14 +73,17 @@ To use a non-Windows Remote Desktop client to connect to your dev box, follow th
    
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-non-windows-rdp-client.png" alt-text="Screenshot of the non-Windows Remote Desktop client download option on the Configure Remote Desktop dialog.":::
 
-1. Copy the subscription feed URL from step(2) of the **Configure Remote Desktop** card. Once Remote Desktop client is installed, you'll connect to your dev box with this subscription URL.
+1. Copy the subscription feed URL from step(2) of the **Configure Remote Desktop** card. Once Remote Desktop client is installed, you'll connect to your dev box with this subscription feed URL.
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/copy-subscription-url-non-windows.png" alt-text="Screenshot of the subscription feed URL copied from the Configure Remote Desktop card.":::
 
-1. Open the Remote Desktop client and subscribe to the feed using the copied subscription URL from previous step.
+1. Open the Remote Desktop client, select **Add Workspace** and paste the subscription feed URL.
+   
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-subscription-feed.png" alt-text="Screenshot of the non-Windows Remote Desktop client Add Workspace dialog.":::
+   
+1. Your dev box will appear in the Remote Desktop client's Workspaces. Double-click to connect.
 
-1. Your dev box will appear in the Remote Desktop client. Double-click to connect.
-
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of the non-Windows Remote Desktop client workspace with dev box.":::
 
 ## Next steps
 To learn about managing Microsoft Dev Box, see:
