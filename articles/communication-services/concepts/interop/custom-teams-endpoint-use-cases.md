@@ -66,7 +66,10 @@ callAgent = await callClient.createTeamsCallAgent(tokenCredential)
 Then you subscribe to the incoming call event.
 
 ```js
-const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
+const incomingCallHandler = async (args: { teamsIncomingCall: TeamsIncomingCall }) => {
+    
+    const incomingCall = args.teamsIncomingCall;
+    
     // Get information about caller
     var callerInfo = incomingCall.callerInfo
     
@@ -183,7 +186,10 @@ callAgent = await callClient.createTeamsCallAgent(tokenCredential)
 Then application subscribes to the incoming call event.
 
 ```js
-const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
+const incomingCallHandler = async (args: { teamsIncomingCall: TeamsIncomingCall }) => {
+    
+    const incomingCall = args.teamsIncomingCall;
+    
     // Get information about caller
     var callerInfo = incomingCall.callerInfo
     
