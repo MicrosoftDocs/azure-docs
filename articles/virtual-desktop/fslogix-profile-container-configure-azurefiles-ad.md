@@ -1,5 +1,5 @@
 ---
-title: Set up FSLogix Profile Container with Azure Files and Active Directory - Azure Virtual Desktop
+title: Set up FSLogix Profile Container with Azure Files and AD DS or AAD DS - Azure Virtual Desktop
 description: This article describes how to create a FSLogix Profile Container with Azure Files and Active Directory Domain Services or Azure Active Directory Domain Services.
 author: dknappettmsft
 ms.topic: how-to
@@ -9,23 +9,20 @@ manager: femila
 ms.custom: subject-rbac-steps
 ---
 
-# Set up FSLogix Profile Container with Azure Files and Active Directory
+# Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Azure Active Directory Domain Services
 
-This article will show you how to set up a FSLogix Profile Container with Azure Files when your session host virtual machines (VMs) are joined to an Active Directory Domain Services (AD DS) domain or Azure Active Directory Domain Services (Azure AD DS) managed domain.
+This article will show you how to set up FSLogix Profile Container with Azure Files when your session host virtual machines (VMs) are joined to an Active Directory Domain Services (AD DS) domain or Azure Active Directory Domain Services (Azure AD DS) managed domain.
 
 ## Prerequisites
 
 You'll need the following:
 
-- A host pool where the session hosts are joined to an Azure AD DS managed domain and users are assigned. If you don't have one yet, follow the instructions to [create a host pool](create-host-pools-azure-marketplace.md) first, then return here.
-- A security group that contains the users who will use Profile Container in (depending on your scenario):
-  - Your AD DS domain that is synced to Azure AD.
-  - Your Azure AD DS managed domain.
+- A host pool where the session hosts are joined to an AD DS domain or Azure AD DS managed domain and users are assigned.
+- An security group in your domain that contains the users who will use Profile Container. If you're using AD DS, this must be synchronized to Azure AD.
 - Permission on your Azure subscription to create a storage account and add role assignments.
-- If you're using AD DS, a domain account on your domain to open an elevated PowerShell prompt.
-- If you're using Azure AD DS managed to join computers and 
+- A domain account to join computers to the domain and open an elevated PowerShell prompt.
 - The subscription ID of your Azure subscription where your storage account will be.
-- *(Optional)*: A computer joined to your domain to install and run PowerShell modules to join a storage account to your domain. This device will need to be running a [Supported version of Windows](/powershell/scripting/install/installing-powershell-on-windows.md#supported-versions-of-windows). Alternatively you can use a session host.
+- A computer joined to your domain for installing and running PowerShell modules that will join a storage account to your domain. This device will need to be running a [Supported version of Windows](/powershell/scripting/install/installing-powershell-on-windows.md#supported-versions-of-windows). Alternatively, you can use a session host.
 
 > [!IMPORTANT]
 > If users have previously signed in to the session hosts you want to use, local profiles will have been created for them and must be deleted first by an administrator for their profile to be stored in a Profile Container.
@@ -45,14 +42,19 @@ To set up a storage account:
     - Create a new resource group or select an existing one to store the storage account in.
     - Enter a unique name for your storage account. This storage account name needs to be between 3 and 24 characters.
     - For **Region**, we recommend you choose the same location as the Azure Virtual Desktop host pool.
-    - In most cases, for **Performance**, select **Standard**. Whether you should select **Premium** depends on your IOPS and latency requirements. For more information, see [Storage options for FSLogix Profile Containers in Azure Virtual Desktop](store-fslogix-profile.md).)
+    - For **Performance**, select **Standard** as a minimum.
     - If you select Premium performance, set the **Premium account type** to **File shares**.
-    - For **Redundancy**, select **Locally-redundant storage (LRS)**.
+    - For **Redundancy**, select **Locally-redundant storage (LRS)** as a minimum.
+    - The defaults on the remaining tabs don't need to be changed.
    
    > [!TIP]
-   > The defaults on the remaining tabs don't need to be changed, but your organization may have requirements to change these defaults. On the **Advanced** tab, **Enable storage account key access** must be left enabled. For more information on the remaining configuration options, see [Planning for an Azure Files deployment](../storage/files/storage-files-planning.md).
+   > Your organization may have requirements to change these defaults:
+   >
+   > - Whether you should select **Premium** depends on your IOPS and latency requirements. For more information, see [Storage options for FSLogix Profile Containers in Azure Virtual Desktop](store-fslogix-profile.md). 
+   > - On the **Advanced** tab, **Enable storage account key access** must be left enabled.
+   > - For more information on the remaining configuration options, see [Planning for an Azure Files deployment](../storage/files/storage-files-planning.md).
 
-1. Select **Review + create**.  Review the parameters and the values that will be used, then select **Create**. The other tab sections
+1. Select **Review + create**.  Review the parameters and the values that will be used, then select **Create**.
 
 1. Once the storage account has been created, select **Go to resource**.
 
@@ -68,21 +70,13 @@ To use Active Directory accounts for the share permissions of your file share, y
 
 # [AD DS](#tab/adds)
 
-1. From the Azure portal, open the storage account you created previously.
-
-1. In the **Data storage** section, select **File shares**.
-
-1. In the main section of the page, next to **Active Directory**, select **Not configured**.
-
-1. In the box for **Active Directory Domain Services**, select **Set up**.
-
-1. Sign in to your computer joined to your domain (if using), or one of your session hosts that is joined to your AD DS domain.
+1. Sign in to a computer that is joined to your AD DS domain. Alternatively, sign in to one of your session hosts.
 
 1. Download and extract [the latest version of AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) from the Azure Files samples GitHub repo. Make a note of the folder you extract the files to.
 
-1. Open an elevated PowerShell prompt and change to the directory where you extracted the files to.
+1. Open an elevated PowerShell prompt and change to the directory where you extracted the files.
 
-1. Run the following command to add the `AzFilesHybrid` module to the PowerShell modules directory of the user you are running the elevated PowerShell prompt as:
+1. Run the following command to add the `AzFilesHybrid` module to your user's PowerShell modules directory:
 
    ```powershell
    .\CopyToPSPath.ps1
@@ -108,36 +102,9 @@ To use Active Directory accounts for the share permissions of your file share, y
    ```
 
    > [!TIP]
-   > If your Azure account has access to multiple tenants and/or subscriptions, follow the steps below to make sure you select the correct subscription:
-   >
-   > Run the following cmdlet to get a list of all the Azure tenants your account has access to:
-   > 
-   > ```powershell
-   > Get-AzTenant
-   > ```
-   > 
-   > When you see the tenant you want to sign in to, make a note of its name.
-   > 
-   > 1. Run the following command to store the ID of the Azure tenant you want to connect to, replacing `"Fabrikam"` with your tenant name:
-   > 
-   > ```powershell
-   > $tenantId = (Get-AzTenant | ? Name -eq "Fabrikam").Id
-   > ```
-   > 1. Run the following command to list all subscriptions containing a host pool that are currently available to you:
-   > 
-   > ```powershell
-   > Get-AzSubscription -TenantId $tenantId
-   > ```
-   > 
-   > Find the name of the subscription that contains a host pool you want to assign a managed identity to in that list. Once you do, make a note of its name and ID.
-   > 
-   > 1. Change your current Azure session to use the subscription you identified in the previous step, replacing the placeholder value `"<subscription name or id>"` with the name or ID of the subscription you want to use:
-   > 
-   > ```powershell
-   > Set-AzContext -Tenant $tenantId -Subscription "<subscription name or id>"
-   > ```
+   > If your Azure account has access to multiple tenants and/or subscriptions, you will need to select the correct subscription by setting your context. For more information, see [Azure PowerShell context objects](/powershell/azure/context-persistence.md)
 
-1. Join the storage account to your domain by running the commands below, replacing the values for `$subscriptionId`, `$resourceGroupName`, and `$storageAccountName` with your values. You can also add the parameter -OrganizationalUnitDistinguishedName to specify an Organizational Unit (OU) in which to place the computer account.
+1. Join the storage account to your domain by running the commands below, replacing the values for `$subscriptionId`, `$resourceGroupName`, and `$storageAccountName` with your values. You can also add the parameter `-OrganizationalUnitDistinguishedName` to specify an Organizational Unit (OU) in which to place the computer account.
  
    ```powershell
    $subscriptionId = "subscription-id"
@@ -160,8 +127,16 @@ To use Active Directory accounts for the share permissions of your file share, y
    (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.DirectoryServiceOptions; (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
    ```
 
+1. From the Azure portal, open the storage account you created previously.
+
+1. In the **Data storage** section, select **File shares**.
+
+1. In the main section of the page, next to **Active Directory**, select **Not configured**.
+
+1. In the box for **Active Directory Domain Services**, select **Set up**.
+
 > [!IMPORTANT]
-> If your domain enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. For more information, see [Update the password of your storage account identity in AD DS](../storage/files/storage-files-identity-ad-ds-update-password.md) for details.
+> If your domain enforces password expiration, you must update the password before it expires to prevent authentication failures when accessing Azure file shares. For more information, see [Update the password of your storage account identity in AD DS](../storage/files/storage-files-identity-ad-ds-update-password.md) for details.
 
 # [Azure AD DS](#tab/aadds)
 
@@ -192,7 +167,7 @@ Users needing to store profiles in your file share will need permission to acces
 
 To assign users the role:
 
-1. From the Azure portal, open the file share you created previously.
+1. From the Azure portal, browse to the storage account, then to the file share you created previously.
 
 1. Select **Access control (IAM)**.
 
@@ -237,7 +212,7 @@ To set the correct NTFS permissions on the folder:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ(truncated)== /user:Azure\fsprofile
      ```
 
-1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own Profile Container while blocking access to the Profile Containers from other users. You should use an Active Directory security group that contains the users you want to use Profile Containers, although you can specify individual users. In the commands below, replace:
+1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own profile while blocking access to the profiles of other users. You should use an Active Directory security group that contains the users you want to use Profile Container. In the commands below, replace:
 
    - `<mounted-drive-letter>` with the letter of the drive you used to map the drive.
    - `<upn>` with the UPN name of the Active Directory group or user that will require access to the share.
@@ -260,13 +235,15 @@ To set the correct NTFS permissions on the folder:
 
 ## Configure session hosts to use Profile Container
 
-In order to use Profile Container, you'll need to configure Profile Container on your session host VMs. If you're using a [custom image](set-up-golden-image.md), we recommend that you install FSLogix Agent to your image. If you're not using a custom image, you will need to install the agent on all your session host VMs. We recommend you use group policy preferences to set registry keys and values at scale across all your session hosts. You can also set these in your custom image or manually on each session host.
+In order to use Profile Container, you'll need to make sure the agent is installed on your session host VMs. If you're using a [custom image](set-up-golden-image.md), you can install the FSLogix Agent in your image.
+
+To configure Profile Container, we recommend you use Group Policy Preferences to set registry keys and values at scale across all your session hosts. You can also set these in your custom image.
 
 To configure Profile Container on your session host VMs:
 
-1. Sign in to the VM used to create your custom image or a session host VM from your host pool.
+1. Sign in to the VM used to create your custom image ora session host VM from your host pool.
 
-1. Download the latest version of [FSLogix](https://aka.ms/fslogix-latest) and install it by running `FSLogixAppSetup.exe`. For more details about the installation process, including customizations and unattended installation, see [Download and Install FSLogix](/fslogix/install-ht).
+1. Download the latest version of [FSLogix](https://aka.ms/fslogix-latest) and install it by running `FSLogixAppSetup.exe`, then following the instructions in the setup wizard. For more details about the installation process, including customizations and unattended installation, see [Download and Install FSLogix](/fslogix/install-ht).
 
 1. Open an elevated PowerShell prompt and run the following commands, replacing `\\<storage-account-name>.file.core.windows.net\<share-name>` with the UNC path to your storage account you created earlier. These commands enable Profile Container and configure the location of the share.
 
@@ -276,25 +253,31 @@ To configure Profile Container on your session host VMs:
    New-ItemProperty -Path $regPath -Name VHDLocations -PropertyType MultiString -Value \\<storage-account-name>.file.core.windows.net\<share-name> -Force
    ```
 
-1. Restart the VM used to create your custom image or a session host VM. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps from [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.  
+1. Restart the VM used to create your custom image or a session host VM. You will need to repeat these steps for any remaining session host VMs.
 
-## Make sure your profile works
+You have now finished the setting up Profile Container. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps from [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.  
 
-Once you've installed and configured FSLogix, you can test your deployment by signing in with a user account that's been assigned an app group or desktop on the host pool. Make sure the user account you sign in with has permission on the file share. When the user signs in, the message "Please wait for the FSLogix Apps Services" should appear as part of the sign-in process, before reaching the desktop.
+## Validate profile creation 
+
+Once you've installed and configured Profile Container, you can test your deployment by signing in with a user account that's been assigned an app group or desktop on the host pool. 
 
 If the user has signed in before, they'll have an existing local profile that they'll use during this session. Either delete the local profile first, or create a new user account to use for tests.
 
-To check the profile folder has been created properly:
+Users can check that Profile Container is set up by following the steps below:
 
 1. Sign in to Azure Virtual Desktop as the test user.
 
-2. Open the Azure portal.
+1. When the user signs in, the message "Please wait for the FSLogix Apps Services" should appear as part of the sign-in process, before reaching the desktop.
 
-3. Open the storage account you created in previously.
+Administrators can check the profile folder has been created by following the steps below:
 
-4. Go to **Data storage** in your storage account, then select **File shares**.
+1. Open the Azure portal.
 
-5. Open your file share and make sure the user profile folder you've created is in there.
+1. Open the storage account you created in previously.
+
+1. Go to **Data storage** in your storage account, then select **File shares**.
+
+1. Open your file share and make sure the user profile folder you've created is in there.
 
 ## Next steps
 
