@@ -111,7 +111,7 @@ Use a pipeline to keep data processing on the server before returning to the cli
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregate/average-price-in-each-product-subcategory.js" id="aggregation_1":::
 ```
 
-## Example 2: Bike types with price range
+### Example 2: Bike types with price range
 
 ```javascript
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregate/bike-types-and-price-ranges.js" id="aggregation_1":::
