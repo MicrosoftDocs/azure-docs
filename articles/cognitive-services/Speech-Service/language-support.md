@@ -1028,7 +1028,11 @@ The following table lists the released languages and public preview languages.
 
 ## Speech translation
 
-The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
+Speech Translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
+
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](#speech-to-text) above. The default language is `en-US` if you don't specify a language.
+
+To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
 ### Text languages
 
@@ -1165,6 +1169,8 @@ The Intent Recognizer Pattern Matcher supports the following locales:
 | Locale                            | Locale (BCP-47) |
 |-----------------------------------|-----------------|
 | English (United States)           | `en-US`         |
+| Chinese (Cantonese, Traditional)  | `zh-HK`         |
+| Chinese (Mandarin, Simplified)    | `zh-CN`         |
 
 ## Next steps
 
