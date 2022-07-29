@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 08/01/2022
 ---
 
 # Azure HDInsight release notes
@@ -16,7 +16,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 07/28/2022
+## Release date: 08/10/2022
 
 This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
@@ -26,7 +26,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
 ## New Feature
 
-**Attach external disks in HDI Hadoop/Spark clusters.**
+1. **Attach external disks in HDI Hadoop/Spark clusters**
 
 HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
@@ -37,6 +37,17 @@ This  new feature allows to add more disks in cluster, which will be used as nod
 > 
 
 For more information, [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing )
+
+2. **Selective logging analysis**
+
+Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
+
+1. The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
+1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
+1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
+
+For more information, [see here] <Add link after merging the PR for the Doc>
+
 
 ![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
 ## Fixed
@@ -79,6 +90,7 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
   ```
 
 ### Other bug fixes
+
 1. Yarn log’s CLI failed to retrieve the logs if any TFile is corrupt or empty. 
 2. Resolved invalid service principal details error while getting the OAuth token from Azure Active Directory.
 3. Improved cluster creation reliability when 100+ worked nodes are configured.
@@ -89,21 +101,16 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 
 |Bug Fixes|Apache JIRA|
 |---|---|
-|Upgrade protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
-|Upgrade async from 2.3.0 to 2.6.4 to fix the vulnerability|[TEZ-4422](https://issues.apache.org/jira/browse/TEZ-4422)|
-|Upgrade minimist version from 0.0.8 to 1.2.6 to fix the vulnerability|[TEZ-4423](https://issues.apache.org/jira/browse/TEZ-4423)|
-|Upgrade json-schema from 0.2.3 to 0.4.0 to fix the vulnerability|[TEZ-4424](https://issues.apache.org/jira/browse/TEZ-4424)|
-|Upgrade jsonpointer version from 4.0.1 to 4.1.0|[TEZ-4425](https://issues.apache.org/jira/browse/TEZ-4425)|
-|Upgrade cryptiles version from 2.0.5 to 4.1.2 to fix vulnerability|[TEZ-4426](https://issues.apache.org/jira/browse/TEZ-4426)|
-|Upgrade lodash.merge version to 4.6.2 to fix vulnerability|[TEZ-4427](https://issues.apache.org/jira/browse/TEZ-4427)|
+|Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
+|TezUtils.createConfFromByteString on Configuration larger than 32MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
 
 #### Hive bug fixes
 
 |Bug Fixes|Apache JIRA|
 |---|---|
-|Upgrade DataNucleus dependency to 5.2|[HIVE-23363](https://issues.apache.org/jira/browse/HIVE-23363)|
-|ITestDbTxnManager is broken after HIVE-24120 fix.|[HIVE-25516](https://issues.apache.org/jira/browse/HIVE-25516)|
-| Upgrade DataNucleus dependency to 5.2.8| [HIVE-26082](https://issues.apache.org/jira/browse/HIVE-26082)|
 |Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
 |Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
 |Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
@@ -111,4 +118,4 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 
 ### Known issues
 
-Hive version 3.1.2 open source that is compatible on HDInsight; but  this release shows the Hive version as 3.1.0 in some places. However, there's no impact on the functionality, despite the Hive version is displayed as 3.1.0.
+HDInsight is compatible with Apache HIVE 3.1.2.  Due to a bug in in  this release the Hive version is shown as 3.1.0 in hive interfaces. However, there is no impact on the functionality.
