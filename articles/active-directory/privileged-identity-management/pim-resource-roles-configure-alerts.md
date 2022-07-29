@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/24/2022
+ms.date: 07/29/2022
 ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -49,13 +49,23 @@ Alert | Severity | Trigger | Recommendation
 
 ## Configure security alert settings
 
-From the Alerts page, go to **Settings**.
+Follow these steps to configure security alerts for Azure roles in Privileged Identity Management:
 
-![Alerts page with Settings highlighted](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-Customize settings on the different alerts to work with your environment and security goals.
+1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
-![Setting page for an alert to enable and configure settings](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+1. From the left menu, select **Azure resources**.
+
+1. From the list of resources, select your Azure subscription. 
+
+1. On the **Alerts** page, select **Settings**.
+
+    ![Alerts page with Settings highlighted](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+
+1. Customize settings on the different alerts to work with your environment and security goals.
+
+    ![Setting page for an alert to enable and configure settings](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## Next steps
 
