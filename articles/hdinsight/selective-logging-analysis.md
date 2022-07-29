@@ -93,8 +93,8 @@ If Script Action is submitted but there are no changes in the log analytics work
 :::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/script_action_persisits.png" alt-text="Screenshot showing script action persisits":::
 
 1. It's possbile, that a new node has been added to the cluster recently.
-    > [!NOTE]  
-    > For the script to run in the latest cluster,  and  the script must persist the script.
+  > [!NOTE]  
+  > For the script to run in the latest cluster,  and  the script must persist the script.
 1. Make sure all the node types are selected while running  the script action.
 
 :::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select_node_types.png" alt-text="Screenshot showing select node types":::
