@@ -38,7 +38,7 @@ The FHIR service in Azure Health Data Services makes FHIR data available to clie
 
 ### Free up your resources to innovate
 
-You could invest resources building and running your own FHIR server, but with the FHIR service in Azure Health Data Services, Microsoft takes on the task of setting up the server's components and making sure all compliance requirements are met so that you can focus on building innovative solutions. 
+You could invest resources building and running your own FHIR server, but with the FHIR service in Azure Health Data Services, Microsoft handles setting up the server's components and making sure all compliance requirements are met so that you can focus on building innovative solutions. 
 
 ### Enable interoperability with FHIR
 
@@ -58,7 +58,7 @@ FHIR servers are essential for interoperability of health data. The FHIR service
 
 - **Startup App Development:** Customers developing a patient- or provider-centric app (mobile or web) can leverage FHIR service as a fully managed backend for their health data needs. The FHIR service enables secure transfer of PHI, and with SMART on FHIR, app developers can take advantage of the robust identities management in AAD for fine-grained authorization of FHIR RESTful API actions. 
 
-- **Healthcare Ecosystems:** While EHRs exist as the primary ‘source of truth’ in many clinical settings, it isn't uncommon for providers to have multiple databases that aren’t connected to one another or that store data in different formats. Utilizing the FHIR service as a conversion layer between these systems allows organizations to standardize data in the FHIR format. Ingesting and persisting in FHIR enables health data querying and exchange across multiple disparate systems. 
+- **Healthcare Ecosystems:** While EHRs exist as the primary ‘source of truth’ in many clinical settings, it isn't uncommon for providers to have multiple databases that aren’t connected to one another (often because the data is stored in different formats). Utilizing the FHIR service as a conversion layer between these systems allows organizations to standardize data in the FHIR format. Ingesting and persisting in FHIR enables health data querying and exchange across multiple disparate systems. 
 
 - **Research:** Health researchers have embraced the FHIR standard as it gives the community a shared data model and removes barriers to assembling large datasets for machine learning and analytics. With the FHIR service's data conversion and PHI de-identification capabilities, researchers rely on The FHIR service for preparing health data before sending it to be processed using Azure's machine learning and analytics resources. The FHIR service's audit logging and alert mechanisms are also important in health data research operations.
 
@@ -67,7 +67,7 @@ FHIR servers are essential for interoperability of health data. The FHIR service
 FHIR capabilities from Microsoft are available in three configurations:
 
 * The FHIR service is a managed platform as a service (PaaS) that operates as part of Azure Health Data Services. Aside from the FHIR service, Azure Health Data Services also includes managed services for storage and exchange of other types of health data. These other services are the DICOM service for medical imaging data and the MedTech service for medical IoT data. All services (FHIR service, DICOM service, and MedTech service) can be connected within an Azure Health Data Services workspace. 
-* Azure API for FHIR - A managed FHIR server offered as a PaaS in Azure – easily provisioned in the Azure portal. Azure API for FHIR is not part of Azure Health Data Services. 
+* Azure API for FHIR is a managed FHIR server offered as a PaaS in Azure – easily provisioned in the Azure portal. Azure API for FHIR is not part of Azure Health Data Services. 
 * FHIR Server for Azure – an open-source FHIR server that can be deployed into your Azure subscription – available on GitHub at https://github.com/Microsoft/fhir-server.
 
 For use cases that require extending or customizing a FHIR server, or for use cases that require access to the underlying services – such as the database without going through the FHIR API, developers should choose the open-source FHIR Server for Azure. For implementation of a turnkey, production-ready FHIR API and backend service where persisted data is only accessed through the FHIR API, developers should choose FHIR service.
