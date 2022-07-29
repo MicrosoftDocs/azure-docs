@@ -9,6 +9,11 @@ ms.author: msangapu
 ms.custom: mvc
 ---
 # Create a WordPress site
+<!--
+Other WP options on Azure:
+- https://docs.microsoft.com/en-us/azure/mysql/flexible-server/tutorial-deploy-wordpress-on-aks
+- https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-lamp-stack#install-wordpress
+-->
 
 [WordPress](https://www.wordpress.org) is an open source content management system (CMS) that can be used to create websites, blogs, and other applications. Over 40% of the web uses WordPress from  blogs to major news websites.
 
@@ -54,7 +59,11 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
     :::image type="content" source="./media/quickstart-wordpress/09-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button":::
 
     > [!NOTE]
-    > App Service creates environment variables and application settings needed for WordPress/PHP configuration. For more information on customizing environment variables, see the WordPress section in [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress).
+    > App Service creates environment variables and application settings needed for WordPress/PHP configuration. Two of these [Application Settings](configure-common?tabs=portal#configure-app-settings) include WordPress credentials such as **Admin Username** and **Admin Password**. These  settings are only intended for deployment purposes and modifying the values has no effect on the WordPress installation. To change the WordPress password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).
+    >
+    > MySQL database credentials are also saved as [Application Settings](configure-common?tabs=portal#configure-app-settings). These settings are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password).
+    >
+    > For more information on customizing environment variables, see the WordPress section in [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress).
 
 1. Browse to your site URL and verify the app is running properly. The site may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser.
 
