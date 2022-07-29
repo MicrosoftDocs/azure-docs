@@ -13,7 +13,7 @@ ms.date: 07/29/2022
 	As a Dev Box User I want to understand how to create and access a dev box so that I can start work.
  -->
 
-# Quickstart: Create a Dev Box by using the developer portal
+# Quickstart: Create a dev box by using the developer portal
 
 Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through a remote desktop app. 
 
