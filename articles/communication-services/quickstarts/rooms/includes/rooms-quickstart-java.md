@@ -149,9 +149,9 @@ try {
 
 Participants that have been added to a `room` become eligible to join calls.
 
-### Get list of participants of an existing room
+### Get list of participants
 
-Retrieve the list of participants of an existing `room` by referencing the `roomId`:
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
 ```java
 try {
