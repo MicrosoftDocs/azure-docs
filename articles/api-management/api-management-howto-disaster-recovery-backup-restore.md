@@ -204,7 +204,7 @@ Backup is a long-running operation that may take several minutes to complete. If
 In the following examples, 
 
 * An API Management instance named *myapim* is restored from the backup blob named *ContosoBackup.apimbackup* in storage account *backupstorageaccount*.
-* The backup blob is ins a container named *backups*.
+* The backup blob is in a container named *backups*.
 
 Set variables in PowerShell:
 
@@ -319,7 +319,7 @@ In the body of the request, specify the existing storage account name, blob cont
 
 Set the value of the `Content-Type` request header to `application/json`.
 
-Restore is a long-running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
+Restore is a long-running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
 
 ---
 
@@ -352,7 +352,7 @@ If an API Management system-assigned managed identity is used to access a firewa
 -   [Protocols and ciphers](api-management-howto-manage-protocols-ciphers.md) settings.
 -   [Developer portal](developer-portal-faq.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) content.
 
-The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
+The frequency with which you perform service backups affects your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 
 ## Next steps
 
