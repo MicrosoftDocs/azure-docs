@@ -46,7 +46,7 @@ The FHIR service enables connection with any health data system or application c
 
 ### Control Data Access at Scale
 
-With FHIR service, you control your data – at scale. Role-Based Access Control (RBAC) rooted in AAD identities management enables you to grant or deny access to health data based on the roles given to individuals in your organization. These RBAC security measures for FHIR service are configurable in Azure Health Data Services at the workspace level, simplifying system management and guaranteeing your organization's PHI is safe within a HIPAA and HITRUST-compliant environment.
+With FHIR service, you control your data – at scale. Role-Based Access Control (RBAC) rooted in AAD identities management enables granting or denying access to health data based on the roles given to individuals in your organization. These RBAC security measures for FHIR service are configurable in Azure Health Data Services at the workspace level, simplifying system management and guaranteeing your organization's PHI is safe within a HIPAA and HITRUST-compliant environment.
 
 ### Secure your data
 
