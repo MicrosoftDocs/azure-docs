@@ -77,6 +77,20 @@ For more information, see [Identity and access management](../active-directory/f
 
 1. Once deployed you should start seeing sampled flow logs within the configure Log Analytics workspace.
 
+    :::image type="content" source="./media/how-to-configure-traffic-collector/log-analytics.png" alt-text="Screenshot of logs in Log Analytics workspace." lightbox="./media/how-to-configure-traffic-collector/log-analytics.png":::
+
+## Clean up resources
+
+To delete the ExpressRoute Traffic Collector resource, you first need to remove all ExpressRoute circuit associations. 
+
+> [!IMPORTANT]
+> If you delete the ExpressRoute Traffic Collector resource before removing all circuit associations, you'll need to wait about 40 mins for the deletion to timeout before you can try again.
+>
+
+Once all circuits have been removed from the ExpressRoute Traffic Collector, select **Delete** from the overview page to remove the resource from your subscription.
+
+:::image type="content" source="./media/how-to-configure-traffic-collector/overview.png" alt-text="Screenshot of delete button on overview page." lightbox="./media/how-to-configure-traffic-collector/overview.png":::
+
 ## Next steps
 
 - [ExpressRoute Traffic Collector Metrics](expressroute-monitoring-metrics-alerts.md#expressroute-traffic-collector-metrics)
