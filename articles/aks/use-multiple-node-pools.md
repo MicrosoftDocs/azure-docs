@@ -183,7 +183,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name cvmnodepool \
     --node-count 3 \
-    --node-vm-size Standard_DCa4_v5 \
+    --node-vm-size Standard_DCa4_v5
 ```
 
 ### Add a node pool with a unique subnet
