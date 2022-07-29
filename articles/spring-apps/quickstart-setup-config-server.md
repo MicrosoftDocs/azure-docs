@@ -23,8 +23,8 @@ Azure Spring Apps Config Server is a centralized configuration service for distr
 
 ## Prerequisites
 
-* Complete the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
-* Azure Spring Apps Config server is only applicable to basic or standard tier.
+- Completion of the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
+- Azure Spring Apps Config Server is only applicable to basic or standard tier.
 
 ## Azure Spring Apps Config Server procedures
 
