@@ -1,7 +1,7 @@
 ---
-title: Implement disaster recovery using backup and restore in API Management
+title: Backup and restore your Azure API Management instance for disaster recovery
 titleSuffix: Azure API Management
-description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
+description: Learn how to use backup and restore operations in Azure API Management to carry out your disaster recovery strategy.
 services: api-management
 author: dlepow
 
