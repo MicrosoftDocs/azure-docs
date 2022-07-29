@@ -75,7 +75,7 @@ The Iot Hub management SDKs help you build backend applications that manage the 
 | .NET|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.IotHub) |[GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iothub)| [Reference](/dotnet/api/microsoft.azure.management.iothub) |
 | Java|[Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-iothub) |[GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iothub/azure-resourcemanager-iothub)| [Reference](/java/api/overview/azure/resourcemanager-iothub-readme) |
 | Node.js|[npm](https://www.npmjs.com/package/@azure/arm-iothub)|[GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub)|[Reference](/javascript/api/overview/azure/arm-iothub-readme) |
-| Python|[pip](https://pypi.org/project/azure-mgmt-iothub/) |[GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub/azure-mgmt-iothub)|[Reference](python/api/azure-mgmt-iothub) |
+| Python|[pip](https://pypi.org/project/azure-mgmt-iothub/) |[GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub/azure-mgmt-iothub)|[Reference](/python/api/azure-mgmt-iothub) |
 
 ## SDK and hardware compatibility
 
