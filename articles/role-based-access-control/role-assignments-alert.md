@@ -121,7 +121,7 @@ Once you've created an alert rule, you can test that it fires.
 
 ## Delete the alert rule
 
-Follow these steps to delete the role assignment alert rule and associated costs.
+Follow these steps to delete the role assignment alert rule and stop additional costs.
 
 1. In **Monitor**, navigate to **Alerts**.
 
