@@ -153,7 +153,7 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 ### Configure how updates to modules are applied
 When a deployment is updated, Edge Agent receives the new configuration as a twin update. If the new configuration has new or updated module images, by default, Edge Agent processes each module sequentially - the updated image is downloaded, the running module is stopped, a new module instance is started, and then the next module update is processed. 
 
-In some cases, for example when dependencies exist between modules, it may be desirable to first download all updated module images before restarting any running modules. This module update behavior can be configured by setting an Edge Agent environment variable `ModuleUpdateMode` to string value `WaitForAllPulls`. See [IoT Edge Environment Variable](https://github.com/Azure/iotedge/blob/f117da1db2aa73d375df85b1db68c0ccfbfed7b5/doc/EnvironmentVariables.md).
+In some cases, for example when dependencies exist between modules, it may be desirable to first download all updated module images before restarting any running modules. This module update behavior can be configured by setting an Edge Agent environment variable `ModuleUpdateMode` to string value `WaitForAllPulls`. See [IoT Edge Environment Variable](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md) for more information.
 
 ```JSON
 {
