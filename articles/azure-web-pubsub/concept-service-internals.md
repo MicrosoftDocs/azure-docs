@@ -184,7 +184,7 @@ As you may have noticed when we describe the PubSub WebSocket clients, that a cl
 | `webpubsub.joinLeaveGroup.<group>` | The client can join/leave group `<group>`.
 | `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`.
 
-The server-side can also grant or revoke permissions of the client dynamically through [server protocol](#connection_manager) as to be illustrated in a later section.
+The server-side can also grant or revoke permissions of the client dynamically through [server protocol](#connection-manager) as to be illustrated in a later section.
 
 ## Server protocol
 
