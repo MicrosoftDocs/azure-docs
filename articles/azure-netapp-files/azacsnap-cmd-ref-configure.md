@@ -45,7 +45,7 @@ azacsnap -c configure --configuration new
 
 ```output
 Building new config file
-Add comment to config file (blank entry to exit adding comments): This is a new config file for 'AzAcSnap 6'
+Add comment to config file (blank entry to exit adding comments): This is a new config file for AzAcSnap 6
 Add comment to config file (blank entry to exit adding comments):
 Enter the database type to add, 'hana', 'oracle', or 'exit' (for no database): hana
 
@@ -185,7 +185,7 @@ cat azacsnap.json
   "logPath": "./logs",
   "securityPath": "./security",
   "comments": [
-    "This is a new config file for \u0027AzAcSnap 6\u0027"
+    "This is a new config file for AzAcSnap 6"
   ],
   "database": [
     {
