@@ -208,13 +208,11 @@ When a database runs into transaction ID wraparound protection, an error message
     
 Note: This error message is a long-standing oversight. Usually, you do not need to switch to single-user mode. Instead, you can run the required VACUUM commands and perform tuning for VACUUM to run fast. While you cannot run any data manipulation language (DML), you can still run VACUUM.
 ```
-The wraparound problem occurs when the database is either not vacuumed or there are too many dead tuples that could not be 
-removed by autovacuum. The reasons for this might be: 
+The wraparound problem occurs when the database is either not vacuumed or there are too many dead tuples that could not be removed by autovacuum. The reasons for this might be: 
  
 #### Heavy Workload 
 
-The workload could cause too many dead tuples in a brief period that makes it difficult for autovacuum to catch up.
-The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation. 
+The workload could cause too many dead tuples in a brief period that makes it difficult for autovacuum to catch up.The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation.One reason for this situation to arise might be because autovacuum parameters are not adequately set and it is not keeping up with a busy server.
 
  
 #### Long Running Transactions 
@@ -258,7 +256,7 @@ Use pg_drop_replication_slot() to delete unused replication slots.
 
 
 When the database runs into transaction ID wraparound protection one should check if there are any blockers as mentioned above
- and remove those for autovacuum to continue and complete. The speed of the autovacuum can also be increased by
+ and remove those manually for autovacuum to continue and complete. The speed of the autovacuum can also be increased by
   setting `autovacuum_cost_delay` to 0 and increasing the `autovacuum_cost_limit` to a value much greater than 200. 
   However, it should be noted that existing autovacuum workers will not pick up any updates to the above parameters; 
   a database restart or killing of existing workers will be needed.
