@@ -51,11 +51,11 @@ The following table shows supported server-side capabilities available in Azure 
 
 |Capability | Supported |
 | --- | --- |
-| [Manage ACS call recording](../voice-video-calling/call-recording.md)                                                        | ❌ |
-| [Azure Metrics](../metrics.md)                                                                                               | ✔️ |
-| [Azure Monitor](../logging-and-diagnostics.md)                                                                                  | ✔️ |
-| [Azure Communication Services Insights](../analytics/insights.md)                                                            | ✔️ |
-| [Azure Communication Services Voice and video calling events](../../../event-grid/communication-services-voice-video-events.md) | ❌ |
+| [Manage ACS call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
+| [Azure Metrics](../../metrics.md)                                                                                               | ✔️ |
+| [Azure Monitor](../../logging-and-diagnostics.md)                                                                                  | ✔️ |
+| [Azure Communication Services Insights](../../analytics/insights.md)                                                            | ✔️ |
+| [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 
 
 ## Teams capabilities
