@@ -70,7 +70,7 @@ These DDSes are used for storing sequential data. They are optimistic. Sequence 
 
 ### Common issues and best practices for sequence DDSes
 
-- Store only immutable data as an item in a sequence. The only way to change the value of an item is to first remove it from the sequence and then insert a new value at the position where the old value was. But because other clients can insert and remove, there's no reliable way of getting the new value into the the desired position.
+- Store only immutable data as an item in a sequence. The only way to change the value of an item is to first remove it from the sequence and then insert a new value at the position where the old value was. But because other clients can insert and remove, there's no reliable way of getting the new value into the desired position.
 
 ## Strings
 
