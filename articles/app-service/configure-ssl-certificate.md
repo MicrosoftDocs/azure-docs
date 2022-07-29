@@ -126,23 +126,23 @@ If you already have a working App Service certificate, you can complete the foll
 
 1. Go to the [App Service Certificate creation page](https://portal.azure.com/#create/Microsoft.SSL), and start your purchase for an App Service certificate.
 
-> [!NOTE]
-> In this article, all prices shown are for example purposes only.
->
-> App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
+   > [!NOTE]
+   > In this article, all prices shown are for example purposes only.
+   >
+   > App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
 
-:::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Start App Service certificate purchase":::
+   :::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Start App Service certificate purchase":::
 
 1. To help you configure the certificate, use the following table. When you're done, select **Create**.
 
-| Setting | Description |
-|-|-|
-| **Subscription** | The Azure subscription to associate with the certificate. |
-| **Resource group** | The resource group that will contain the certificate. You can either create a new resource group or select the same resource group as your App Service app. |
-| **SKU** | Determines the type of certificate to create, either a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
-| **Naked Domain Host Name** | Specify the root domain. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the **Common Name** field specifies the root domain, and the **Subject Alternative Name** field specifies the `www` domain. To secure any subdomain only, specify the fully qualified domain name for the subdomain, for example, `mysubdomain.contoso.com`.|
-| **Certificate name** | The friendly name for your App Service certificate. |
-| **Enable auto renewal** | Select whether to automatically renew the certificate before expiration. Each renewal extends the certificate expiration by one year and the cost is charged to your subscription. |
+   | Setting | Description |
+   |-|-|
+   | **Subscription** | The Azure subscription to associate with the certificate. |
+   | **Resource group** | The resource group that will contain the certificate. You can either create a new resource group or select the same resource group as your App Service app. |
+   | **SKU** | Determines the type of certificate to create, either a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
+   | **Naked Domain Host Name** | Specify the root domain. The issued certificate secures *both* the root domain and the `www` subdomain. In the issued certificate, the **Common Name** field specifies the root domain, and the **Subject Alternative Name** field specifies the `www` domain. To secure any subdomain only, specify the fully qualified domain name for the subdomain, for example, `mysubdomain.contoso.com`.|
+   | **Certificate name** | The friendly name for your App Service certificate. |
+   | **Enable auto renewal** | Select whether to automatically renew the certificate before expiration. Each renewal extends the certificate expiration by one year and the cost is charged to your subscription. |
 
 ### Store certificate in Azure Key Vault
 
