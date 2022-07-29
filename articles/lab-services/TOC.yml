@@ -43,7 +43,7 @@
   - name: Set up a lab (educator)
     href: tutorial-setup-lab.md 
   - name: Set up lab to lab communication (admin, educator)
-    href: tutorial-connect-lab-virtual-machine.md
+    href: tutorial-create-lab-with-advanced-networking.md
   - name: Access a lab (student)
     href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
