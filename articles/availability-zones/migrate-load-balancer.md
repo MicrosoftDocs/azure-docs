@@ -59,9 +59,9 @@ When you create an internal load balancer, a virtual network is configured as th
 Azure internal load balancers can't be moved from one region to another. We must associate the new load balancer to resources in the target region. For the migration, we can you use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer. We can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.
 
 To migrate an internal load balancer to another region:
-1. Export configuration of internal load balancer
 1. Export configuration of Virtual network
-    1. Change of the VNET name and target location are required. It's optional to update other parameters such as address prefix and subnet.
+    1. Changing the VNET name and target location are required. It's optional to update other parameters such as address prefix and subnet.
+1. Deploy virtual network in target region
 1. Once VNET is deployed in the target region, export the internal load balancer template, edit the target load balancer name, target VNET resource ID and other parameters.
 1. No need to change the Load balancing rules, Inbound NAT rules and health probes, these can be left as it is unless you want to modify/add more rules.
 1. Edit template to deploy Frontend private IP in the subnet, ensure Zonal or Zone redundant option is selected as per requirement.
