@@ -15,7 +15,7 @@ When you connect to an Azure virtual network (VNet) using point-to-site (P2S) an
 
 The VPN client configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
 
-## <a name="generate"></a>Before you begin
+## Before you begin
 
 Before beginning, verify that you are on the correct article. The following table shows the configuration articles available for Azure VPN Gateway P2S VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
 
@@ -72,7 +72,7 @@ After viewing the files, continue with the steps that you want to use:
 
 #### <a name="gui"></a>strongSwan GUI instructions
 
-This section walks you through the configuration using the strongSwan GUI. The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 doesn’t support strongSwan GUI. If you want to use Ubuntu 16.0.10, you’ll have to use the [command line](#linuxinstallcli). The following examples may not match screens that you see, depending on your version of Linux and strongSwan.
+This section walks you through the configuration using the strongSwan GUI. The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 doesn’t support strongSwan GUI. If you want to use Ubuntu 16.0.10, you’ll have to use the [command line](#cli). The following examples may not match screens that you see, depending on your version of Linux and strongSwan.
 
 1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example.
 
@@ -147,7 +147,7 @@ This section walks you through the configuration using the strongSwan CLI.
 
 ## <a name="openvpn"></a>OpenVPN tunnel type steps
 
-This section helps you configure Linux clients for certificate authentication that uses the OpenVPN tunnel type. To connect to Azure, you download the OpenVPN client and configure the connection profile.
+This section helps you configure Linux clients for certificate authentication that uses the OpenVPN tunnel type. To connect to Azure, download the OpenVPN client and configure the connection profile.
 
 [!INCLUDE [Configuration steps for OpenVPN Linux](../../includes/vpn-gateway-config-openvpn-linux.md)]
 
@@ -155,5 +155,5 @@ This section helps you configure Linux clients for certificate authentication th
 
 For additional steps, return to the original point-to-site article that you were working from.
 
-* [PowerShell configuration steps](vpn-gateway-howto-point-to-site-rm-ps.md).
-* [Azure portal configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* [P2S Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* [P2S PowerShell steps](vpn-gateway-howto-point-to-site-rm-ps.md).
