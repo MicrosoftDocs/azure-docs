@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 07/28/2022
+ms.date: 07/29/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -99,35 +99,36 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Normal and dedicated host   | Availability zone support   |
 | -------------------- | :-------------------------: | :-------------------------: |
-| Australia East       | x                         | x                         |
-| Australia Southeast  | x                         |                           |
-| Brazil South         | x                         | x                         |
-| Canada Central       | x                         | x                         |
-| Canada East          | x                         |                           |
-| Central India        | x                         | x                         |
-| Central US           | x                         | x                         |
-| East Asia            | x                         | x                         |
-| East US              | x                         | x                         |
-| East US 2            | x                         | x                         |
-| France Central       | x                         | x                         |
-| Germany West Central | x                         | x                         |
-| Japan East           | x                         | x                         |
-| Korea Central        | x                         | x                         |
-| North Central US     | x                         |                           |
-| North Europe         | x                         | x                         |
-| Norway East          | x                         | x                         |
-| South Africa North   | x                         | x                         |
-| South Central US     | x                         | x                         |
-| Southeast Asia       | x                         | x                         |
-| Switzerland North    | x                         |                           |
-| UAE North            | x                         |                           |
-| UK South             | x                         | x                         |
-| UK West              | x                         |                           |
-| West Central US      | x                         |                           |
-| West Europe          | x                         | x                         |
-| West US              | x                         |                           |
-| West US 2            | x                         | x                         |
-| West US 3            | x                         | x                         |
+| Australia East       | x                           | x                           |
+| Australia Southeast  | x                           |                             |
+| Brazil South         | x                           | x                           |
+| Canada Central       | x                           | x                           |
+| Canada East          | x                           |                             |
+| Central India        | x                           | x                           |
+| Central US           | x                           | x                           |
+| East Asia            | x                           | x                           |
+| East US              | x                           | x                           |
+| East US 2            | x                           | x                           |
+| France Central       | x                           | x                           |
+| Germany West Central | x                           | x                           |
+| Japan East           | x                           | x                           |
+| Korea Central        | x                           | x                           |
+| North Central US     | x                           |                             |
+| North Europe         | x                           | x                           |
+| Norway East          | x                           | x                           |
+| South Africa North   | x                           | x                           |
+| South Central US     | x                           | x                           |
+| Southeast Asia       | x                           | x                           |
+| Sweden Central       | x                           | x                           |
+| Switzerland North    | x                           | x                           |
+| UAE North            | x                           |                             |
+| UK South             | x                           | x                           |
+| UK West              | x                           |                             |
+| West Central US      | x                           |                             |
+| West Europe          | x                           | x                           |
+| West US              | x                           |                             |
+| West US 2            | x                           | x                           |
+| West US 3            | x                           | x                           |
 
 ### Azure Government:
 
