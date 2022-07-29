@@ -69,9 +69,11 @@ Editing configuration complete, writing output to 'azacsnap.json'
 
 The following sections provide detailed guidance on the various values required for the configuration file.
 
-### SAP HANA values
+Database section
 
-When adding a *database* to the configuration, the following values are required:
+# [SAP HANA](#tab/sap-hana)
+
+When adding a *SAP HANA database* to the configuration, the following values are required:
 
 - **HANA Server's Address** = The SAP HANA server hostname or IP address.
 - **HANA SID** = The SAP HANA System ID.
@@ -84,7 +86,17 @@ When adding a *database* to the configuration, the following values are required
 - HSR without STONITH: IP and Hostname of the node
 - Multi SID on Single node: Hostname and IP of the node hosting those SIDs
 
-### Azure Large Instance (HLI) storage values
+# [Oracle](#tab/oracle)
+
+When adding an *Oracle database* to the configuration, the following values are required:
+
+- **Oracle DB Server's Address** = The database server hostname or IP address.
+- **SID** = The database System ID.
+- **Oracle Connect String** = The Connect String used by `sqlplus` to connect to Oracle and enable/disable backup mode.
+
+---
+
+# [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
 
 When adding *HLI Storage* to a database section, the following values are required:
 
@@ -104,7 +116,7 @@ When adding *HLI Storage* to a database section, the following values are requir
     hana_shared_p40_soldub41_t020_vol
     ```
 
-### Azure NetApp Files (ANF) storage values
+# [Azure NetApp Files (with VM)](#tab/azure-netapp-files)
 
 When adding *ANF Storage* to a database section, the following values are required:
 
@@ -112,6 +124,8 @@ When adding *ANF Storage* to a database section, the following values are requir
     communication with Azure NetApp Files storage.
 - **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from:
     Azure portal –> ANF –> Volume –> Settings/Properties –> Resource ID
+
+---
 
 ## Configuration file overview (`azacsnap.json`)
 
