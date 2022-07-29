@@ -81,7 +81,7 @@ A reasonable setting for shared buffers is 25% of RAM. It is recommended to not 
                                                                                                          
 ### Max Connections 
 
-All new and idle connections on a Postgres database consume up to 2 MB of memory. One way to monitor connections is using the following query: 
+All new and idle connections on a Postgres database consume up to 2 MB of memory. One way to monitor connections is by using the following query: 
 ~~~
     select count(*) from pg_stat_activity;
 ~~~
