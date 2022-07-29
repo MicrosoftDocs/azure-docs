@@ -1155,7 +1155,7 @@ Content-type: application/json
 
 ## Credentials
 
-This endpoint allows you to search for issued verifiable credentials, check revokation status and revoke credentials.
+This endpoint allows you to search for issued verifiable credentials, check revocation status and revoke credentials.
 
 ### Methods
 
