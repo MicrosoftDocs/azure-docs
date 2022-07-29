@@ -7,6 +7,7 @@ ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
+ms.custom: references_regions
 ---
 
 # How to: Provision an Azure Fluid Relay service
