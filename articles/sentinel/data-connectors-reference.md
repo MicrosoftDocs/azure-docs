@@ -1277,7 +1277,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | NGINX_CL |
 | **DCR support** | Not currently supported |
 | **Kusto function alias:** | NGINXHTTPServer |
-| **Kusto function URL** | https://aka.ms/Sentinel-NGINXHTTP-parser |
+| **Kusto function URL** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/NGINX%20HTTP%20Server/Parsers/NGINXHTTPServer.txt |
 | **Vendor documentation/<br>installation instructions** | [Module ngx_http_log_module](https://nginx.org/en/docs/http/ngx_http_log_module.html) |
 | **Custom log sample file:** | access.log or error.log |
 | **Supported by** | Microsoft |
