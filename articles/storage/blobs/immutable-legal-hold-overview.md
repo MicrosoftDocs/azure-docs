@@ -71,7 +71,7 @@ The **AllowProtectedAppendWritesAll** property setting allows for writing new bl
 > [!NOTE]
 > This property is available only for container-level policies. This property is not available for version-level policies.
 
-This setting also adds the ability to write new blocks to a block blob. The Blob Storage API does not provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. 
+This setting also adds the ability to write new blocks to a block blob. The Blob Storage API does not provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
 
 ## Next steps
 
