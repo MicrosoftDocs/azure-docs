@@ -18,7 +18,7 @@ This article will show you how to set up FSLogix Profile Container with Azure Fi
 You'll need the following:
 
 - A host pool where the session hosts are joined to an AD DS domain or Azure AD DS managed domain and users are assigned.
-- An security group in your domain that contains the users who will use Profile Container. If you're using AD DS, this must be synchronized to Azure AD.
+- A security group in your domain that contains the users who will use Profile Container. If you're using AD DS, this must be synchronized to Azure AD.
 - Permission on your Azure subscription to create a storage account and add role assignments.
 - A domain account to join computers to the domain and open an elevated PowerShell prompt.
 - The subscription ID of your Azure subscription where your storage account will be.
