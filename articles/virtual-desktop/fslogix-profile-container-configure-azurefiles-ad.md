@@ -54,7 +54,7 @@ To set up a storage account:
    > - On the **Advanced** tab, **Enable storage account key access** must be left enabled.
    > - For more information on the remaining configuration options, see [Planning for an Azure Files deployment](../storage/files/storage-files-planning.md).
 
-1. Select **Review + create**.  Review the parameters and the values that will be used, then select **Create**.
+1. Select **Review + create**. Review the parameters and the values that will be used, then select **Create**.
 
 1. Once the storage account has been created, select **Go to resource**.
 
@@ -235,15 +235,15 @@ To set the correct NTFS permissions on the folder:
 
 ## Configure session hosts to use Profile Container
 
-In order to use Profile Container, you'll need to make sure the agent is installed on your session host VMs. If you're using a [custom image](set-up-golden-image.md), you can install the FSLogix Agent in your image.
+In order to use Profile Container, you'll need to make sure FSLogix Apps is installed on your session host VMs. FSLogix Apps is preinstalled in Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session operating systems, but you should still follow the steps below as it might not have the latest version installed. If you're using a [custom image](set-up-golden-image.md), you can install FSLogix Apps in your image.
 
 To configure Profile Container, we recommend you use Group Policy Preferences to set registry keys and values at scale across all your session hosts. You can also set these in your custom image.
 
 To configure Profile Container on your session host VMs:
 
-1. Sign in to the VM used to create your custom image ora session host VM from your host pool.
+1. Sign in to the VM used to create your custom image or a session host VM from your host pool.
 
-1. Download the latest version of [FSLogix](https://aka.ms/fslogix-latest) and install it by running `FSLogixAppSetup.exe`, then following the instructions in the setup wizard. For more details about the installation process, including customizations and unattended installation, see [Download and Install FSLogix](/fslogix/install-ht).
+1. If you need to install or update FSLogix Apps, download the latest version of [FSLogix](https://aka.ms/fslogix-latest) and install it by running `FSLogixAppsSetup.exe`, then following the instructions in the setup wizard. For more details about the installation process, including customizations and unattended installation, see [Download and Install FSLogix](/fslogix/install-ht).
 
 1. Open an elevated PowerShell prompt and run the following commands, replacing `\\<storage-account-name>.file.core.windows.net\<share-name>` with the UNC path to your storage account you created earlier. These commands enable Profile Container and configure the location of the share.
 
@@ -255,7 +255,7 @@ To configure Profile Container on your session host VMs:
 
 1. Restart the VM used to create your custom image or a session host VM. You will need to repeat these steps for any remaining session host VMs.
 
-You have now finished the setting up Profile Container. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps from [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.  
+You have now finished the setting up Profile Container. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps from [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.
 
 ## Validate profile creation 
 
