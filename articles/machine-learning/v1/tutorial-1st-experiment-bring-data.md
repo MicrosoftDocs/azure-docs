@@ -39,7 +39,7 @@ In this tutorial, you:
 You'll need the data that was downloaded in the previous tutorial.  Make sure you have completed these steps:
 
 1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts).  
-1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local).
+1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-locally).
 
 ## Adjust the training script
 
