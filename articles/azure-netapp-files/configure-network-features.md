@@ -17,8 +17,10 @@ ms.custom: references_regions
 ms.author: anfdocs
 ---
 # Configure network features for an Azure NetApp Files volume
+This functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
 
-The **Network Features** functionality is available for public preview.  This functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
+> [!IMPORTANT]
+> The Network Features functionality is current in public preview. It is not available in Azure Government regions.
 
 This article helps you understand the options and shows you how to configure network features.
 
