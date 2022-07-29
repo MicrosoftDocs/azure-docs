@@ -25,6 +25,27 @@ Before beginning, verify that you are on the correct article. The following tabl
 
 You can generate client configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
 
+### Generate files using the Azure portal
+
+1. In the Azure portal, navigate to the virtual network gateway for the virtual network that you want to connect to.
+1. On the virtual network gateway page, select **Point-to-site configuration** to open the Point-to-site configuration page.
+1. At the top of the Point-to-site configuration page, select **Download VPN client**. This doesn't download VPN client software, it generates the configuration package used to configure VPN clients. It takes a few minutes for the client configuration package to generate. During this time, you may not see any indications until the packet has generated.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/download-configuration.png" alt-text="Download the VPN client configuration." lightbox="./media/point-to-site-vpn-client-cert-mac/download-configuration.png":::
+1. Once the configuration package has been generated, your browser indicates that a client configuration zip file is available. It's named the same name as your gateway.
+
+### Generate files using PowerShell
+
+1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
+
+   ```azurepowershell-interactive
+   $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+
+   $profile.VPNProfileSASUrl
+   ```
+
+1. Copy the URL to your browser to download the zip file.
+
 ### View the folder and files
 
 Unzip the file to view the following folders:
