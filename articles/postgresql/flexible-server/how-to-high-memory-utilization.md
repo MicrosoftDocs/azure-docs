@@ -20,7 +20,7 @@ This document highlights the following -
 
 ### Azure Metrics
 Various metrics including percentage of memory in use for the definite date and timeframe can be monitored using Azure Metrics.
-For proactive monitoring, configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics] (./howto-alert-on-metrics.md).
+For proactive monitoring, configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
 
 
 ### Query Store
@@ -29,7 +29,7 @@ Query Store automatically captures the history of queries and their runtime stat
 It can correlate wait event information with query run time statistics. Query Store can be used to identify queries which have
  high memory consumption during the period of interest. 
 
-For more information on setting up and usage of Query Store visit [Query Store] (./concepts-query-store.md).
+For more information on setting up and usage of Query Store visit [Query Store](./concepts-query-store.md).
 
 ## Reasons And Remedial Actions
 
@@ -101,16 +101,16 @@ In situations where there are a lot of idle database connections consider using 
 
 For more details on PgBouncer check:
 
-[Connection Pooler] (https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+[Connection Pooler](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
-[Best Practices] (https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/connection-handling-best-practice-with-postgresql/ba-p/790883).
+[Best Practices](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/connection-handling-best-practice-with-postgresql/ba-p/790883).
 
 
-Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [Pg Bouncer] (./concepts-pgbouncer.md).
+Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [Pg Bouncer](./concepts-pgbouncer.md).
 
 ### Explain Analyze 
 
 Once high memory-consuming queries have been identified from Query Store,
 use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate and tune them.
 
-For more information on EXPLAIN command, check [Explain Plan] (https://www.postgresql.org/docs/current/sql-explain.html).
+For more information on EXPLAIN command, check [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html).
