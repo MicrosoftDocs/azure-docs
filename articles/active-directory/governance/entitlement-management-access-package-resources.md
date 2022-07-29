@@ -42,7 +42,11 @@ If you need to add resources to an access package, you should check whether the 
 
     ![List of resources in a catalog](./media/entitlement-management-access-package-resources/catalog-resources.png)
 
-1. If the resources aren't already in the catalog, and you're an administrator or a catalog owner, you can [add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
+1. If the resources aren't already in the catalog, and you're an administrator or a catalog owner, you can [add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog). The types of resources you can add are groups, applications, and SharePoint Online sites. For example:
+
+* Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. If you wish to give a user access to an application that uses AD security group memberships to control access, then create a new group in Azure AD, configure group writeback, enable that group to be written back, and in AD, nest the cloud-created security group into the application's group. Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
+* Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. For more information on how to select appropriate resources for applications with multiple roles, see [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
+* Sites can be SharePoint Online sites or SharePoint Online site collections.
 
 1. If you are an access package manager and you need to add resources to the catalog, you can ask the catalog owner to add them.
 
