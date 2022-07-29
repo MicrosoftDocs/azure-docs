@@ -6,14 +6,14 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/27/2022
+ms.date: 07/29/2022
 ---
 <!-- 
   Customer intent:
-	As a Dev Box User I want to understand how to create and access a Dev Box so that I can start work.
+	As a Dev Box User I want to understand how to create and access a dev box so that I can start work.
  -->
 
-# Quickstart: Create a Dev Box by using the developer portal
+# Quickstart: Create a dev box by using the developer portal
 
 Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through a remote desktop app. 
 
@@ -58,7 +58,7 @@ Once you've provisioned your dev box, you can access it in multiple ways.
 
 For quick access in a browser tab, the Developer portal links directly to a browser session through which you can connect to and use your dev box.
 
-1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
+1. Sign in to the [developer portal](https://aka.ms/developerportal).
 
 1. To connect to a dev box, select **Open in browser**.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-rdp.png" alt-text="Screenshot of dev box card showing the Open in browser option.":::
@@ -70,7 +70,7 @@ A new tab will open with an RD session to your dev box.
 When no longer needed, you can delete your dev box.
 1. Sign in to the [developer portal](https://aka.ms/developerportal).
 
-1. In **Your dev box**, from the setting menu, select **Delete**.
+1. For the dev box you want to delete, from the setting menu, select **Delete**.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the dev box Settings menu with the Delete option highlighted."::: 
 
 1. To confirm the deletion, select **Delete**.
