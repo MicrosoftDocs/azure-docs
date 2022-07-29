@@ -62,7 +62,7 @@ Following table shows a summary of key types and supported algorithms.
 - **RSNULL** - See [RFC2437](https://tools.ietf.org/html/rfc2437), a specialized use-case to enable certain TLS scenarios.  
 
 > [!NOTE]
-> The DigestInfo is constructed on the server side for Sign operations that algorithms RS256, RS384 and RS512 generate
+> The DigestInfo is constructed on the server side for Sign operations that algorithms RS256, RS384 and RS512 generate.
 
 ##  Symmetric key algorithms (Managed HSM only)
 - **AES-KW** - AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
