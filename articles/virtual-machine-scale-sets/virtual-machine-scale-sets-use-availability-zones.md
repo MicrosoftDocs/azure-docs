@@ -204,7 +204,7 @@ The following example creates a Linux single-zone scale set named *myScaleSet* i
 }
 ```
 
-For a complete example of a single-zone scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
+For a complete example of a single-zone scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/singlezone.json)
 
 ### Zone-redundant scale set
 
