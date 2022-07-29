@@ -13,7 +13,7 @@ ms.author: rolyon
 
 # Alert on privileged Azure role assignments
 
-Privileged Azure roles, such as [Owner](built-in-roles.md#owner), [Contributor](built-in-roles.md#contributor), and [User Access Administrator](built-in-roles.md#user-access-administrator), are powerful roles and may introduce risk into your system. You might want to be notified by email or text message when these or other roles are assigned. This article describes how to get notified of privileged role assignments at a subscription scope by creating an alert rule using Azure Monitor. 
+Privileged Azure roles, such as Contributor, Owner, or User Access Administrator, are powerful roles and may introduce risk into your system. You might want to be notified by email or text message when these or other roles are assigned. This article describes how to get notified of privileged role assignments at a subscription scope by creating an alert rule using Azure Monitor. 
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
 1. In the **Log query** box, add the following Kusto query that will run on the subscription's log and trigger the alert.
 
-    This query filters for all attempts to assign the Owner, Contributor, or User Access Administrator role in the selected subscription.
+    This query filters for attempts to assign the [Contributor](built-in-roles.md#contributor), [Owner](built-in-roles.md#owner), or [User Access Administrator](built-in-roles.md#user-access-administrator) roles at the scope of the selected subscription.
 
     ```kusto
     AzureActivity
@@ -107,7 +107,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
 Once you've created an alert rule, you can test that it fires. 
 
-1. Assign the Owner, Contributor, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
 1. Wait a few minutes to receive the notification based on the aggregation granularity and the frequency of evaluation of the log query.
 
