@@ -16,8 +16,6 @@
       href: add-application-portal-assign-users.md
     - name: View applications
       href: view-applications-portal.md
-    - name: Delete applications
-      href: delete-application-portal.md
   - name: Tutorials
     items:
     - name: Manage access and security
@@ -94,6 +92,8 @@
       href: assign-app-owners.md
     - name: Configure properties
       href: add-application-portal-configure.md
+    - name: Add enterprise app for multi-tenant app
+      href: create-service-principal-cross-tenant.md
     - name: Manage access
       items:
       - name: Manage consent and permissions
@@ -234,12 +234,16 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
-    - name: Create enterprise app for multi-tenant app registration
-      href: create-service-principal-cross-tenant.md    
+    - name: Deprecate
+      items:
+      - name: Delete an enterprise application
+        href: delete-application-portal.md
+      - name: Restore an enterprise application
+        href: restore-application.md   
   - name: Reference
     items:
     - name: Deletion and recovery FAQ
-      href: recover-deleted-apps-faq.md
+      href: delete-recover-faq.yml
     - name: Admin consent workflow FAQ
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
