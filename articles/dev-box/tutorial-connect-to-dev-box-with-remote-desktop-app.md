@@ -63,7 +63,7 @@ To download and setup the Remote Desktop app for Windows, follow these steps:
 
 ## Download the Remote Desktop client (non-Windows) and connect to your dev box
 
-To download and setup the Remote Desktop app for non-Windows OS, follow these steps:
+To use a non-Windows Remote Desktop client to connect to your dev box, follow these steps:
 
 1. Sign in to the [developer portal](https://aka.ms/developerportal).
 
@@ -73,7 +73,7 @@ To download and setup the Remote Desktop app for non-Windows OS, follow these st
 
 1. Choose **Download** to download the Remote Desktop client.
    
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot of the non-Windows Remote Desktop client download option on the Configure Remote Desktop dialog.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-non-windows-rdp-client.png" alt-text="Screenshot of the non-Windows Remote Desktop client download option on the Configure Remote Desktop dialog.":::
 
 1. Copy the subscription feed URL from step(2) of the **Configure Remote Desktop** card. Once Remote Desktop client is installed, you'll connect to your dev box with this subscription URL.
 
