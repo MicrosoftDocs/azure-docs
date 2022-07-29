@@ -36,12 +36,12 @@ sections:
       - question: |
           What validations does Azure Attestation perform for attesting SGX enclaves
         answer: |
-          Azure Attestation is a unified framework for remotely attesting different types of TEEs. Azure Attestation:
+          During SGX attestation process, Azure Attestation performs the following validations:
           
-             - Validates if the trusted root of a signed enclave quote belongs to Intel.
-             - Validates if the enclave quote meets the Azure security baseline as defined by Trusted Hardware Identity Management (THIM).
-             - Validates if the SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote.
-             - Allows customers to create an attestation provider and configure a custom policy. In addition to the above validations, Azure Attestation evaluates the enclave quote against the policy. Policies define authorization rules for the enclave and also dictate issuance rules for generating the attestation token. To confirm if intended software is running in an enclave, customers can add authorization rules to verify if **mrsigner** and **mrenclave** fields in the enclave quote matches the values of customer binaries.
+             - Validates if the trusted root of the signed enclave quote belongs to Intel
+             - Validates if the enclave quote meets the Azure security baseline as defined by Trusted Hardware Identity Management (THIM)
+             - Validates if the SHA256 hash of the RuntimeData matches the lower 32 bytes of the enclave quote's "report data" attribute
+             - If customer created an attestation provider and configured a custom policy, in addition to the above validations, Azure Attestation evaluates the enclave quote against the attestation policy. Using attestation policies, customers can define authorization rules for the enclave and also dictate issuance rules for generating the attestation token
           
       - question: |
           How can a verifier obtain the collateral for SGX attestation supported by Azure Attestation
