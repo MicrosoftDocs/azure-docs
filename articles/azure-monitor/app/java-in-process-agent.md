@@ -424,7 +424,7 @@ The following table represents currently supported custom telemetry types that y
 
 Currently, we're not planning to release an SDK with Application Insights 3.x.
 
-Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. And it fills an important gap in our custom telemetry support until the OpenTelemetry API is generally available.
+Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. And it fills an important gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
 
 ### Send custom metrics by using Micrometer
 
