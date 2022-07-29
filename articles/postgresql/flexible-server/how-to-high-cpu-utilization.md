@@ -132,9 +132,10 @@ You could consider killing a long running transaction as an option.
 
 To terminate a session's PID, you will need to detect the PID using the following query: 
 ~~~
-SELECT * FROM pg_stat_activity  
-WHERE usename != 'azure_superuser'  
-AND application_name = '<YOUR APPLICATION NAME>'; 
+SELECT pid, usename, datname, query, now() - xact_start as duration 
+FROM pg_stat_activity  
+WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active') 
+ORDER BY duration DESC;   
 ~~~
 
 You can also filter by other properties like usename (username), datname (database name), client_addr (client's address), state, etc.  
