@@ -160,8 +160,8 @@ Copy the output id from the preceding command. You can then assign roles using t
 
 ```azurecli
 az role assignment create --assignee "<your-username>" \
---role "Storage Blob Data Contributor" \
---scope "<your-resource-id>"
+  --role "Storage Blob Data Contributor" \
+  --scope "<your-resource-id>"
 ```
 
 ---
