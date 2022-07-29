@@ -37,6 +37,7 @@ If you receive an error when configuring the Azure Arc-enabled servers agent, th
 | AZCM0066 | The agent web service is not responding or unavailable | Contact Microsoft Support for assistance |
 | AZCM0067 | The agent is already connected to Azure | Run `azcmagent disconnect` to remove the current connection, then try again. |
 | AZCM0068 | An internal error occurred while disconnecting the server from Azure | Contact Microsoft Support for assistance |
+| AZCM0070 | Unable to obtain local config | The Hybrid Instance Metadata service (HIMDS) might not be running. Check the status of your HIMDS service (for Windows) or the HIMDS daemon (for Linux). |
 | AZCM0081 | An error occurred while downloading the Azure Active Directory managed identity certificate | If this message is encountered while attempting to connect the server to Azure, the agent won't be able to communicate with the Azure Arc service. Delete the resource in Azure and try connecting again. |
 | AZCM0101 | The command was not parsed successfully | Run `azcmagent <command> --help` to review the correct command syntax |
 | AZCM0102 | Unable to retrieve the computer hostname | Run `hostname` to check for any system-level error messages, then contact Microsoft Support. |
