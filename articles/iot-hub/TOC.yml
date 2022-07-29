@@ -277,14 +277,14 @@
               href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
-            - name: Node.js
-              href: iot-hub-node-node-schedule-jobs.md
             - name: .NET
               href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: Java
-              href: iot-hub-java-java-schedule-jobs.md
             - name: Python
               href: iot-hub-python-python-schedule-jobs.md
+            - name: Node.js
+              href: iot-hub-node-node-schedule-jobs.md
+            - name: Java
+              href: iot-hub-java-java-schedule-jobs.md
     - name: Manage
       items:
         - name: Create an IoT hub
