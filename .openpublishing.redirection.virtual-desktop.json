@@ -8,12 +8,12 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/create-file-share.md",
             "redirect_url": "/azure/virtual-desktop/fslogix-profile-container-configure-azurefiles-ad",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/azure-files-authorization.md",
             "redirect_url": "/azure/virtual-desktop/fslogix-profile-container-configure-azurefiles-ad",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/create-profile-container-adds.md",
