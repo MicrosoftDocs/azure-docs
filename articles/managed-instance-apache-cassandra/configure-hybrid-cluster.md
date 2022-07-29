@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
+Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance. 
 
 This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster. If you have existing datacenters in an on-premises or self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to add other datacenters to that cluster and maintain them.
 
@@ -205,10 +205,12 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3};
    ```
 
-   You also need to update the password tables:
+   You also need to update several system tables:
 
    ```bash
    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
+   ALTER KEYSPACE "system_distributed" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
+   ALTER KEYSPACE "system_traces" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
 
    > [!IMPORTANT]
@@ -226,7 +228,9 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
         az managed-cassandra cluster update --cluster-name --resource-group--repair-enabled false
     ```
 
-1. Run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this **only after all of the prior steps have been taken**. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. 
+1. Run `nodetool repair --full` on each node in your existing cluster's data center. You should run this **only after all of the prior steps have been taken**. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. For most installations you can only run one or two in parallel to not overload the cluster. You can monitor a particular repair run by checking `nodetool netsats` and `nodetool compactionstats` against the specific node. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. 
+
+
 
    > [!NOTE]
    > To speed up repairs we advise (if system load permits it) to increase both stream throughput and compaction throughput as in the example below:
