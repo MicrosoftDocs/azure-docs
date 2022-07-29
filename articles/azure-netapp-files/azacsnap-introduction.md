@@ -96,7 +96,7 @@ The command options are as follows with the commands as the main bullets and the
   - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.
   - refer to [restore command reference](azacsnap-cmd-ref-restore.md).
 - **`[--configfile <configfilename>]`** The optional  command-line parameter to provide a different JSON configuration filename.  This is particularly useful for creating a separate configuration file per SID (e.g `--configfile H80.json`).
-- - **`--preview`** Allows the use of Preview Features, more information on the [Preview](azacsnap-preview.md) page.
+- **`--preview`** Allows the use of Preview Features, more information on the [Preview](azacsnap-preview.md) page.
 
 ## Next steps
 
