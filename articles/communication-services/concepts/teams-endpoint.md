@@ -57,7 +57,8 @@ Find more details in [Azure Active Directory documentation](../../active-directo
 
 > [!div class="nextstepaction"]
 > [Check use cases for communication as a Teams user](./interop/custom-teams-endpoint-use-cases.md)
-> [Issue a Teams access token](../quickstarts/manage-teams-identity.md)
-> [Start a call with Teams user as a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
 
-Learn about [Teams interoperability](./teams-interop.md).
+Find more details in the following articles:
+- [Teams interoperability](./teams-interop.md)
+- [Issue a Teams access token](../quickstarts/manage-teams-identity.md)
+- [Start a call with Teams user as a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)

@@ -25,7 +25,7 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 ## Create an Azure Monitor extension
 
-Follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md) to create an Azure Monitor extension for the Azure Arc-enabled Kubernetes cluster. Ensure that you use the instructions for the Azure CLI, and that you choose **Option 4 - On Azure Stack Edge** when you carry out [Create extension instance using Azure CLI](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli).
+Follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md) to create an Azure Monitor extension for the Azure Arc-enabled Kubernetes cluster. Ensure that you use the instructions for the Azure CLI, and that you choose **Option 4 - On Azure Stack Edge** when you carry out [Create extension instance using Azure CLI](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?tabs=cli#create-extension-instance).
 
 ## Configure and deploy the ConfigMap
 

@@ -3,7 +3,7 @@ title: "Upgrading Azure Arc-enabled Kubernetes agents"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
-ms.topic: article
+ms.topic: how-to
 description: "Control agent upgrades for Azure Arc-enabled Kubernetes"
 keywords: "Kubernetes, Arc, Azure, K8s, containers, agent, upgrade"
 ---

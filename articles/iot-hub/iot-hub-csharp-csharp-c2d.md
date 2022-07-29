@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). It shows you how to do the following tasks:
+This article builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). It shows you how to do the following tasks:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
@@ -30,14 +30,14 @@ This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-deve
 
 You can find more information on cloud-to-device messages in [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
-At the end of this tutorial, you run two .NET console apps.
+At the end of this article, you run two .NET console apps.
 
 * **SimulatedDevice**. This app connects to your IoT hub and receives cloud-to-device messages. This app is a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
 * **SendCloudToDevice**. This app sends a cloud-to-device message to the device app through IoT Hub, and then receives its delivery acknowledgment.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages, including C, Java, Python, and JavaScript, through [Azure IoT device SDKs](iot-hub-devguide-sdks.md). For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
+> IoT Hub has SDK support for many device platforms and languages, including C, Java, Python, and JavaScript, through [Azure IoT device SDKs](iot-hub-devguide-sdks.md). For step-by-step instructions on how to connect your device to this article's code, and generally to Azure IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
 >
 
 ## Prerequisites
@@ -211,7 +211,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
    ![Device app receiving message and service app receiving feedback](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> For simplicity, this tutorial does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+> For simplicity, this article does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 >
 
 ## Next steps
