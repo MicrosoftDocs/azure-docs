@@ -91,6 +91,7 @@ Before you can download the software, set up an Azure Storage account for the do
     - `wheel` version 0.37.1
     - `jq` version 1.6
     - `ansible` version 2.9.27
+    - `netaddr` version 0.8.0
     - `zip`
     - `netaddr` version 0.8.0
 
