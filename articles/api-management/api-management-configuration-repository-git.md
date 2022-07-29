@@ -2,55 +2,54 @@
 title: Configure your API Management service using Git - Azure | Microsoft Docs
 description: Learn how to save and configure your API Management service configuration using Git.
 services: api-management
-documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: mattfarm
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/12/2019
+ms.topic: how-to
+ms.date: 07/28/2022
 ms.author: danlep
 ---
 # How to save and configure your API Management service configuration using Git
 
-Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using a PowerShell cmdlet, or making a REST API call. In addition to these methods, you can also manage your service instance configuration using Git, enabling service management scenarios such as:
+Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using Azure tools such as Azure PowerShell or the Azure :::image type="content" source="media/api-management-configuration-repository-git/api-management-git-configure.png" alt-text="":::CLI, or making a REST API call. In addition to these methods, you can manage your service instance configuration using Git, enabling service management scenarios such as:
 
-* Configuration versioning - download and store different versions of your service configuration
-* Bulk configuration changes - make changes to multiple parts of your service configuration in your local repository and integrate the changes back to the server with a single operation
-* Familiar Git toolchain and workflow - use the Git tooling and workflows that you are already familiar with
+* **Configuration versioning** - Download and store different versions of your service configuration
+* **Bulk configuration changes** - Make changes to multiple parts of your service configuration in your local repository and integrate the changes back to the server with a single operation
+* **Familiar Git toolchain and workflow** - use the Git tooling and workflows that you are already familiar with
 
 The following diagram shows an overview of the different ways to configure your API Management service instance.
 
-![Git configure][api-management-git-configure]
+:::image type="content" source="media/api-management-configuration-repository-git/api-management-git-configure.png" alt-text="Diagram that compares ways to configure Azure API Management." border="false":::
 
-When you make changes to your service using the Azure portal, PowerShell cmdlets, or the REST API, you are managing your service configuration database using the `https://{name}.management.azure-api.net` endpoint, as shown on the right side of the diagram. The left side of the diagram illustrates how you can manage your service configuration using Git and Git repository for your service located at `https://{name}.scm.azure-api.net`.
+
+When you make changes to your service using the Azure portal, Azure tools such as Azure PowerShell or the Azure CLI, or the REST API, you are managing your service configuration database using the `https://{name}.management.azure-api.net` endpoint, as shown on the right side of the diagram. The left side of the diagram illustrates how you can manage your service configuration using Git and Git repository for your service located at `https://{name}.scm.azure-api.net`.
 
 The following steps provide an overview of managing your API Management service instance using Git.
 
 1. Access Git configuration in your service
-2. Save your service configuration database to your Git repository
-3. Clone the Git repo to your local machine
-4. Pull the latest repo down to your local machine, and commit and push changes back to your repo
-5. Deploy the changes from your repo into your service configuration database
+1. Save your service configuration database to your Git repository
+1. Clone the Git repo to your local machine
+1. Pull the latest repo down to your local machine, and commit and push changes back to your repo
+1. Deploy the changes from your repo into your service configuration database
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
 > [!IMPORTANT]
-> This feature is designed to work with API Management services that have a small/medium configuration. Services with large number of configuration elements (APIs, Operations, Schemas etc.) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact support if you need assistance. 
+> This feature is designed to work with small-medium API Management services, such as those with an exported configuration less than 10 MB in size, or with fewer than 10,000 entities. Services with large number of entities (products, APIs, operations, schemas, and so on) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact support if you need assistance. 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
+
+
 ## Access Git configuration in your service
 
-To view and configure your Git configuration settings, you can click the **Deployment and infrastructure** menu and navigate to the **Repository** tab.
+ 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
+ 1. In the left menu, under **Deployment and infrastructure**, select **Repository**.
 
 ![Enable GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Any secrets that are not defined as Named Values will be stored in the repository and will remain in its history until you disable and re-enable Git access. Named Values provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [How to use Named Values in Azure API Management policies](api-management-howto-properties.md).
+> Any secrets that are not defined as named values will be stored in the repository and will remain in its history until you disable and re-enable Git access. Named values provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [Use named values in Azure API Management policies](api-management-howto-properties.md).
 >
 >
 
@@ -274,7 +273,7 @@ For information on other ways to manage your service instance, see:
 [api-management-configuration-git-clone]: ./media/api-management-configuration-repository-git/api-management-configuration-git-clone.png
 [api-management-generate-password]: ./media/api-management-configuration-repository-git/api-management-generate-password.png
 [api-management-password]: ./media/api-management-configuration-repository-git/api-management-password.png
-[api-management-git-configure]: ./media/api-management-configuration-repository-git/api-management-git-configure.png
+
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
