@@ -104,9 +104,19 @@ The location is the region where the custom image will be created. The following
 
 Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name FairfaxPublicPreview
+```
+
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
 ```
+
+---
 
 ```json
 "location": "<region>",
