@@ -1129,7 +1129,7 @@ Jump to a resource provider namespace:
 > Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
 
 > [!WARNING]
-> When moving a workspace-based Application Insights component to a new subscription, telemetry stored in the original subscription will not be accessible anymore. Please notice that there is no way of retrieving that telemetry.
+> When moving a workspace-based Application Insights component to a different subscription, telemetry stored in the original subscription will not be accessible anymore. This is because telemetry is identified by the Application Insights resource ID, which changes when you move the component to a different subscription. Please notice that there is no way of retrieving the telemetry.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
