@@ -60,7 +60,9 @@ The dev box pool will be deployed and health checks will be run to ensure the im
 ## Provide access to a dev box project
 Before users can create dev boxes based on the dev box pools in a project, you must provide access for them through a role assignment. The Dev Box User role enables dev box users to create, manage and delete their own dev boxes. You must have sufficient permissions to a project before you can add users to it.
 
-1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/projects).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+ 
+1. Use the search box to locate Dev Box resources, and select **Projects**.
 
 1. Select the project you want to provide your team members access to.
  
@@ -74,7 +76,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
 
-1. On the Add role assignment page, search for *devcenter*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
+1. On the Add role assignment page, search for *devcenter dev box user*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
 
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-user-role.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
 
