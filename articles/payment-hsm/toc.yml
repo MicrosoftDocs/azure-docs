@@ -14,6 +14,9 @@
     href: deployment-scenarios.md
   - name: Certification and compliance
     href: certification-compliance.md
+- name: Support
+  - name: Azure Payment HSM Service support guide
+    href: support-guide.md
 - name: Reference
   items:
   - name: Thales payShield 10K
