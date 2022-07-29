@@ -794,9 +794,6 @@ items:
           href: app/azure-web-apps-java.md
         - name: Node.js
           href: app/azure-web-apps-nodejs.md
-      - name: Azure Cloud Services
-        displayName: cloud, cloud services, PaaS
-        href: app/cloudservices.md
       - name: Azure Functions
         displayName: functions, monitor functions, automation
         href: app/monitor-functions.md
@@ -1184,7 +1181,7 @@ items:
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
-    - name: Install agents
+    - name: Enable and configure
       items:
       - name: Overview
         href: vm/vminsights-enable-overview.md

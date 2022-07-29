@@ -475,6 +475,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/proactive-email-notification.md" ,
             "redirect_url": "/azure/azure-monitor/alerts/proactive-email-notification",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/cloudservices.md" ,
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net-core",
+            "redirect_document_id": false
         }
     ]
 }
