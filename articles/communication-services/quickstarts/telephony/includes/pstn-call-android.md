@@ -15,7 +15,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A phone number acquired in Communication Services resource. [how to get a phone number](../get-phone-number.md).
+- A [phone number acquired](../get-phone-number.md) in your Communication Services resource, or Azure Communication Services [direct routing configured](../../../concepts/telephony/direct-routing-provisioning.md)
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Complete the quickstart for [getting started with adding calling to your application](../../voice-video-calling/getting-started-with-calling.md)
 
@@ -43,7 +43,7 @@ import com.azure.android.communication.common.PhoneNumberIdentifier;
 Specify the phone number you acquired from within your Communication Services resource. This will be used to start the call:
 
 > [!WARNING]
-> Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 
 Modify `startCall()` event handler in **MainActivity.java**, so that it handles phone calls:
 
