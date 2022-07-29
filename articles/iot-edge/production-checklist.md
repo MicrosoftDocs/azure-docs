@@ -153,13 +153,21 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 ### Configure how updates to modules are applied
 When a deployment is updated, Edge Agent receives the new configuration as a twin update. If the new configuration has new or updated module images, by default, Edge Agent processes each module sequentially - the updated image is downloaded, the running module is stopped, a new module instance is started, and then the next module update is processed. 
 
-In some cases with slow internet speed, if the system restarts while the new modules are getting downloaded, Edge Agent will wait until the new module is downloaded so a user may experience downtime. For this, consider changing your desired property in the Edge Agent module configuration file using the environment variable "ModuleUpdateMode" and setting the value range as "WaitForAllPulls". By applying this setting, Edge Agent will download or 'docker pull' all updated container images first, and only then remove the existing container images to create new ones. For more information about environment variables, see [IoT Edge Environment Variable](https://github.com/Azure/iotedge/blob/f117da1db2aa73d375df85b1db68c0ccfbfed7b5/doc/EnvironmentVariables.md).
+In some cases, for example when dependencies exist between modules, it may be desirable to first download all updated module images before restarting any running modules. This module update behavior can be configured by setting an Edge Agent environment variable `ModuleUpdateMode` to string value `WaitForAllPulls`. See [IoT Edge Environment Variable](https://github.com/Azure/iotedge/blob/f117da1db2aa73d375df85b1db68c0ccfbfed7b5/doc/EnvironmentVariables.md).
 
 ```JSON
 {
-    "ModuleUpdateMode": {
-        "value": "WaitForAllPulls"
-    }
+    "modulesContent": {
+        "$edgeAgent": {
+            "properties.desired": {
+                ...
+                "systemModules": {
+                    "edgeAgent": {
+                        "env": {
++                           "ModuleUpdateMode": {
++                               "value": "WaitForAllPulls"
++                            }
+                        ...
 }
 ```
 ::: moniker-end
