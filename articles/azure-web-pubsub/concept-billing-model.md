@@ -38,7 +38,7 @@ The outbound traffic is the messages sent out of Azure Web PubSub service. You c
 
 - The messages broadcasted from service to receivers.
 - The messages sent from the service to the upstream webhooks.
-- The resource logs with [live trace tool](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool). 
+- The resource logs with live trace tool. 
 
 The inbound traffic is the messages sent to the Azure Web PubSub service. 
 
