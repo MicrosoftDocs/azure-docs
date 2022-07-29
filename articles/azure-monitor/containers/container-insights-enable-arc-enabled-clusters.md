@@ -49,7 +49,7 @@ ms.reviewer: aul
     | `global.handler.control.monitor.azure.com` | Access control service | 443 |
     | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
-    **Azure government cloud**
+    **Azure Government cloud**
 
     If your Azure Arc-enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
 
@@ -245,7 +245,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name \<cluster-
  
 3. Edit the values in the parameter file.
 
-  - For **workspaceDomain**, use *opinsights.azure.com* for Azure public cloud and *opinsights.azure.us* for Azure government cloud.
+  - For **workspaceDomain**, use *opinsights.azure.com* for Azure public cloud and *opinsights.azure.us* for Azure Government cloud.
   - Specify the tags in the **resourceTagValues** parameter if you want to use any Azure tags on the Azure resources that will be created as part of the Container insights extension.
 
 4. Deploy the template to create Container Insights extension. 

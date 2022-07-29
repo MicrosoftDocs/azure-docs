@@ -96,7 +96,7 @@ The following table lists the additional firewall configuration required for man
 | `global.handler.control.monitor.azure.cn` | Access control service | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.cn` | Fetch data collection rules for specific AKS cluster | 443 |
 
-**Azure government cloud**
+**Azure Government cloud**
 
 The following table lists the proxy and firewall configuration information for Azure US Government:
 
