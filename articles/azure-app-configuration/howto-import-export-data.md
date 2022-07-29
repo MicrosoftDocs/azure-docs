@@ -407,11 +407,11 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     > [!IMPORTANT]
     > If the keys you want to export have labels, you must use the command `--label` and enter the corresponding labels. If you don't select a label, only keys without labels will be exported. Use a comma sign (`,`) to select several labels or use `*` to include all labels, including the null label (no label).
 
-1. Optionally also add the following parameters:
+1. Optionally also add the following parameter:
 
     | Parameter      | Description                                                                                                                                               | Example                 |
     |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-    | `--dest-label` | Optional. Enter a destination label to label exported key-values with this label.                                                                         | `new`                    |
+    | `--dest-label` | Optional. Enter a destination label, to assign this label to exported key-values.                                                                         | `new`                    |
 
     Example: export keys and feature flags with the label "prod" to another App Configuration store and add the destination label "new".
 
