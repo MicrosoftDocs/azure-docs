@@ -208,6 +208,12 @@ This error occurs when trying to enable replication and the application folders 
 - All the items under the below path -
     - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
+## Troubleshoot and handle time changes on replicated servers
+This error occurs when the source machine's time moves forward and then moves back in short time, to correct the change. You may not notice the change as the time is corrected very quickly.
+
+**How to fix**: 
+To resolve this issue, wait till system time crosses the skewed future time. Another option is to disable and enable replication once again, which is only feasible for forward replication (data replicated from on-premises to Azure) and is not applicable for reverse replication (data replicated from Azure to on-premises). 
+
 ## Next steps
 
 If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](/answers/topics/azure-site-recovery.html). We have an active community, and one of our engineers can assist you.
