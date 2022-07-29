@@ -109,15 +109,15 @@ Once you've created an alert rule, you can test that it fires.
 
 1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
-1. Wait a few minutes to receive the notification based on the aggregation granularity and the frequency of evaluation of the log query.
+1. Wait a few minutes to receive the alert based on the aggregation granularity and the frequency of evaluation of the log query.
 
-1. On the **Alerts** page, monitor for notifications you specified in the action group.
+1. On the **Alerts** page, monitor for alert you specified in the action group.
 
     :::image type="content" source="./media/role-assignments-alert/alert-fired.png" alt-text="Screenshot of the Alerts page showing that role assignment alert fired." lightbox="./media/role-assignments-alert/alert-fired.png":::
 
-    The following image shows an example of the email notification.
+    The following image shows an example of the email alert.
 
-    :::image type="content" source="./media/role-assignments-alert/alert-email.png" alt-text="Screenshot of an email notification for a role assignment." lightbox="./media/role-assignments-alert/alert-email.png":::
+    :::image type="content" source="./media/role-assignments-alert/alert-email.png" alt-text="Screenshot of an email alert for a role assignment." lightbox="./media/role-assignments-alert/alert-email.png":::
 
 ## Delete the alert rule
 
