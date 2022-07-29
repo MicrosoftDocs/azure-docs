@@ -24,10 +24,12 @@ Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool tha
 
 - **Databases**
   - SAP HANA (refer to [support matrix](azacsnap-get-started.md#snapshot-support-matrix-from-sap) for details)
+  - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](../virtual-machines/workloads/oracle/oracle-vm-solutions.md) for details)
 
 - **Operating Systems**
   - SUSE Linux Enterprise Server 12+
   - Red Hat Enterprise Linux 7+
+  - Oracle Linux 7+
 
 - **Azure Platforms**
   - Azure Virtual Machine with Azure NetApp Files storage
@@ -81,6 +83,7 @@ The command options are as follows with the commands as the main bullets and the
 - **`-c backup`** is the primary command to execute database consistent storage snapshots for data (SAP HANA data volumes) & other (for example, shared, log backups, or boot) volumes.
   - **`--volume data`** to snapshot all the volumes in the `dataVolume` stanza of the configuration file.
   - **`--volume other`** to snapshot all the volumes in the `otherVolume` stanza of the configuration file.
+  - **`--volume all`** to snapshot all the volumes in the `dataVolume` stanza and then all the volumes in the `otherVolume` stanza of the configuration file.
   - refer to [backup command reference](azacsnap-cmd-ref-backup.md).
 - **`-c details`** provides information on snapshots or replication.
   - **`--details snapshots`** Provides a list of basic details about the snapshots for each volume that has been configured.
@@ -93,6 +96,7 @@ The command options are as follows with the commands as the main bullets and the
   - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.
   - refer to [restore command reference](azacsnap-cmd-ref-restore.md).
 - **`[--configfile <configfilename>]`** The optional  command-line parameter to provide a different JSON configuration filename.  This is particularly useful for creating a separate configuration file per SID (e.g `--configfile H80.json`).
+- - **`--preview`** Allows the use of Preview Features, more information on the [Preview](azacsnap-preview.md) page.
 
 ## Next steps
 
