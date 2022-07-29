@@ -457,7 +457,7 @@ Once you've added a code sample to your application, navigate back to your main 
 > [!div class="nextstepaction"]
 > [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
-### [Node.js](#tab/nodejs)
+### [JavaScript: Node.js](#tab/nodejs)
 
 ### Set up your Node.js Express project
 
