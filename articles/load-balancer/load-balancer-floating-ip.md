@@ -116,9 +116,5 @@ sudo ufw allow 80/tcp
 
 ## Next steps
 
-- See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
+- Learn about [using multiple frontends](load-balancer-multivip-overview.md) with Azure Load Balancer.
 - Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).
-- Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [Health Probes](load-balancer-custom-probe-overview.md).
-- Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md).

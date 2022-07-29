@@ -40,7 +40,7 @@ The following pre-requisites must be met in order to enable group writeback.
 - Azure AD Premium license
 - Azure AD Connect version 2021 December release or later.  
 - Enable Azure AD Connect group writeback
-- **Optional** - On-Prem Exchange Server 2016 CU15 or later.  Only needed for configuring cloud groups with exchange hybrid - optional.  See [Configure Microsoft 365 Groups with on-premises Exchange hybrid](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites) for more information. If you don't have Exchange hybrid and/or an on-premises Exchange Server, the mail components of a group won't be written back.
+- **Optional** - On-Prem Exchange Server 2016 CU15 or later.  Only needed for configuring cloud groups with exchange hybrid - optional.  See [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites) for more information. If you don't have Exchange hybrid and/or an on-premises Exchange Server, the mail components of a group won't be written back.
 
 The latest version of Group Writeback is enabled tenant-wide and not per Azure AD Connect server. The default values for writeback settings on cloud groups are backward compatible. 
 
@@ -119,7 +119,7 @@ To enable group writeback via PowerShell:
     Set-ADSyncScheduler -SyncCycleEnabled $true 
     ```
 
-You've now enabled the group writeback feature. 
+You've now enabled the group writeback feature, and can [select the groups for writeback](../enterprise-users/groups-write-back-portal.md).
 
 ### Optional Configuration 
 
@@ -194,4 +194,5 @@ Limitations and known issues specific to Group Writeback:
 
 ## Next steps
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+- Configure [group writeback in the Azure Active Directory Admin Center](../enterprise-users/groups-write-back-portal.md)
+- Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

@@ -39,7 +39,7 @@ When you use SSML, keep in mind that special characters, such as quotation marks
 Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following sections detail how each element is used and when an element is required or optional.
 
 > [!IMPORTANT]
-> Don't forget to use double quotation marks around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that aren't in double quotation marks. 
+> Don't forget to use double quotation marks around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that aren't in double quotation marks.
 
 ## Create an SSML document
 
@@ -269,7 +269,7 @@ The following table has descriptions of each supported role.
 
 By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
 
-You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions. 
+You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions.
 
 **Syntax**
 
@@ -307,14 +307,14 @@ The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must sp
 </speak>
 ```
 
-Within the `speak` element, you can specify multiple languages including `en-US` for text-to-speech output. For each adjusted language, the text must match the language and be wrapped in a `voice` element. This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `es-MX`, `en-US`, and `fr-FR`. 
+Within the `speak` element, you can specify multiple languages including `en-US` for text-to-speech output. For each adjusted language, the text must match the language and be wrapped in a `voice` element. This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `es-MX`, `en-US`, and `fr-FR`.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
         <lang xml:lang="es-MX">
-            ¡Esperamos trabajar con usted! 
+            ¡Esperamos trabajar con usted!
         </lang>
         <lang xml:lang="en-US">
            We look forward to working with you!
@@ -488,8 +488,9 @@ Sometimes text-to-speech can't accurately pronounce a word. Examples might be th
 The custom lexicon currently supports UTF-8 encoding.
 
 > [!NOTE]
-> At this time, the custom lexicon isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
-
+> Custom lexicon feature may not work for some new locales.
+> 
+> The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -599,7 +600,7 @@ It's easy to make mistakes in the custom lexicon, so Microsoft provides a [valid
 
 In the preceding sample, we're using the IPA, which is also known as the IPA phone set. We suggest that you use the IPA because it's the international standard. For some IPA characters, they're the "precomposed" and "decomposed" version when they're being represented with Unicode. The custom lexicon only supports the decomposed Unicode.
 
-The IPA isn't easy to remember, so the Speech service defines a phonetic set for seven languages: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
+The IPA isn't easy to remember, so the Speech service defines a phonetic set for these locales: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, `zh-HK`, and `zh-TW`.
 
 You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated here:
 
@@ -730,14 +731,14 @@ The optional `emphasis` element is used to add or remove word-level stress for t
 
 **Example**
 
-This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings". 
-    
+This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings".
+
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US"> 
-    <voice name="en-US-GuyNeural">   
-    I can help you join your <emphasis level="moderate">meetings</emphasis> fast. 
-    </voice> 
-</speak> 
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-GuyNeural">
+    I can help you join your <emphasis level="moderate">meetings</emphasis> fast.
+    </voice>
+</speak>
 ```
 
 ## Add say-as element
@@ -805,7 +806,7 @@ Any audio included in the SSML document must meet these requirements:
 * The audio must not contain any customer-specific or other sensitive information.
 
 > [!NOTE]
-> The 'audio' element is not supported by the Long Audio API.
+> The 'audio' element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -844,7 +845,9 @@ If the background audio provided is shorter than the text-to-speech or the fade 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
 
 > [!NOTE]
-> The `mstts:backgroundaudio` element is not supported by the Long Audio API.
+> The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
+> 
+> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -1032,10 +1035,10 @@ For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cogniti
 
 ## Supported MathML elements
 
-The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. 
+The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech.
 
 > [!NOTE]
-> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales. 
+> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales.
 
 **Example**
 

@@ -15,7 +15,7 @@ ms.custom: mqtt, devx-track-js, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-At the end of this tutorial, you will have two Node.js console apps:
+At the end of this article, you will have two Node.js console apps:
 
 * **AddTagsAndQuery.js**, a Node.js back-end app, which adds tags and queries device twins.
 
@@ -27,21 +27,17 @@ At the end of this tutorial, you will have two Node.js console apps:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this article, you need:
+
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
 * Node.js version 10.0.x or later.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Get the IoT hub connection string
 
@@ -162,7 +158,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
 
-4. Add the following code to the **ReportConnectivity.js** file. Replace `{device connection string}` with the device connection string you copied when you created the **myDeviceId** device identity in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+4. Add the following code to the **ReportConnectivity.js** file. Replace `{device connection string}` with the device connection string you saw when you registered a device in the IoT Hub:
 
     ```javascript
         'use strict';
@@ -224,12 +220,12 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 ## Next steps
 
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the SQL-like IoT Hub query language.
+In this article, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the SQL-like IoT Hub query language.
 
 Use the following resources to learn how to:
 
-* send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) tutorial,
+* send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) article,
 
-* configure devices using device twin's desired properties with the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial,
+* configure devices using device twin's desired properties with the [Use desired properties to configure devices](tutorial-device-twins.md) article,
 
 * control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-nodejs) quickstart.
