@@ -288,7 +288,8 @@ In versions of PostgreSQL prior to 13, autovacuum will not run on tables wit
 
 ##### Postgres Versions prior to 13  
 
-Use a cron job to schedule a periodic vacuum analyze on the table. The frequency of the cron job would depend on the workload.   
+Using pg_cron extension a cron job can be setup to schedule a periodic vacuum analyze on the table. The frequency of the cron job would depend on the workload.   
+For step by step guidance for using pg_cron follow [Extensions](./concepts-extensions.md).
 
 ##### Postgres 13 and Higher Versions  
 
