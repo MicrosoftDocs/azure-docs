@@ -152,7 +152,7 @@ The following query helps to identify the tables that need vacuuming
 ~~~
 select schemaname,relname,n_dead_tup,n_live_tup,last_vacuum,last_analyze,last_autovacuum,last_autoanalyze from pg_stat_all_tables where n_live_tup > 0;   
 ~~~
-last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly steps should be taken to tune autovacuum. More details about autovacuum tuning, see [Autovacuum Troubleshooting](./how-to-autovacuum-tuning.md).
+last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly steps should be taken to tune autovacuum. For more details about autovacuum troubleshooting and tuning, see [Autovacuum Troubleshooting](./how-to-autovacuum-tuning.md).
 
 A more short term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:
 ~~~
