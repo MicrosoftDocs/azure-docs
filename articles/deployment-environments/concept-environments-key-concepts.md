@@ -3,8 +3,8 @@ title: Azure Deployment Environments key concepts
 description: Learn the key concepts behind Azure Deployment Environments.
 ms.service: deployment-environments
 ms.topic: conceptual
-ms.author: anandmeg
-author: meghaanand
+ms.author: meghaanand
+author: anandmeg
 ms.date: 07/29/2022
 ---
 
@@ -26,7 +26,7 @@ Environment is a collection of Azure resources on which your application is depl
 
 ## Identities
 
-[Managed Identities](../active-directory/managed-identities-azure-resources/overview) are used in Azure Deployment Environments to provide elevation-of-privilege capabilities. Identities will help provide self-serve capabilities to your development teams without them needing any access to the target subscriptions in which the Azure resources are created. The managed identity attached to the dev center needs to be granted appropriate access to the target subscriptions and Azure Deployment Environments will use that identity to perform the deployment on behalf of the developer.
+[Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) are used in Azure Deployment Environments to provide elevation-of-privilege capabilities. Identities will help provide self-serve capabilities to your development teams without them needing any access to the target subscriptions in which the Azure resources are created. The managed identity attached to the dev center needs to be granted appropriate access to the target subscriptions and Azure Deployment Environments will use that identity to perform the deployment on behalf of the developer.
 
 ## Environment types
 
@@ -38,16 +38,16 @@ Mappings will help you pre-configure the target subscription in which Azure reso
 
 ## Catalogs
 
-Catalogs help you provide a set of curated 'infra-as-code' templates for your development teams to create Environments. You can attach either a [GitHub repository or an [Azure DevOps Services repository](devops/repos/get-started/what-is-repos?view=azure-devops) as a Catalog. Deployment Environments will scan through the specified folder of the repository to find [Catalog Items](#catalog-items), and make them available for use by all the Projects associated with the dev center.
+Catalogs help you provide a set of curated 'infra-as-code' templates for your development teams to create Environments. You can attach either a [GitHub repository or an [Azure DevOps Services repository](/devops/repos/get-started/what-is-repos) as a Catalog. Deployment Environments will scan through the specified folder of the repository to find [Catalog Items](#catalog-items), and make them available for use by all the Projects associated with the dev center.
 
 ## Catalog Items
 
 A Catalog Item is a combination of an 'infra-as-code' template (Azure Resource Manager(ARM) template) and a manifest file. The environment definition will be defined in the ARM template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
 
-[Azure Resource Manager(ARM) templates](../azure-resource-manager/templates/overview) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
+[Azure Resource Manager(ARM) templates](../azure-resource-manager/templates/overview.md) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
 
-[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax) describes the structure of an Azure Resource Manager template, the different sections of a template, and the properties that are available in those sections.
+[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md) describes the structure of an Azure Resource Manager template, the different sections of a template, and the properties that are available in those sections.
 
 ## Next steps
 
-[Tutorial: Create and configure a dev center](./tutorial-create-and-configure-devcenter)
+[Tutorial: Create and configure a dev center](./tutorial-create-and-configure-devcenter.md)
