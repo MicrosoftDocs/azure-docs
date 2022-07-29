@@ -141,7 +141,7 @@ You can assign these roles from [Azure portal](https://portal.azure.com).
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 2. At the top of the page, select **Role Assignment**.
-3. To make modifications, add user as a Reservation Administrator role or Reservation Reader using Access control.
+3. To make modifications, add user as a Reservation Administrator or Reservation Reader using Access control.
 
 ## Add a Reservation Administrator role at the tenant level using Azure PowerShell script
 
