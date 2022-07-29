@@ -189,7 +189,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     - diffie-hellman-group14-sha1
     - diffie-hellman-group1-sha1
 
-    The latest version to support this on SHIR is version 5.19.
+    The latest version to support above key exchange algorithms on SHIR is version 5.19.
 
 ### Error Code: SftpInvalidHostKeyFingerprint
 
