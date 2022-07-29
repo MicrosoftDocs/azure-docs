@@ -12,17 +12,15 @@ ms.custom: [mqtt, 'Role: IoT Device', 'Role: Cloud Development']
 
 # Azure IoT Hub SDKs
 
-There are two categories of software development kits (SDKs) for working with IoT Hub:
+There are three categories of software development kits (SDKs) for working with IoT Hub:
 
 * [**IoT Hub device SDKs**](#azure-iot-hub-device-sdks) enable you to build apps that run on your IoT devices using device client or module client. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub. You can use these SDKs to build device apps that use [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions and models to advertise their capabilities to IoT Plug and Play-enabled applications. You can also use module client to author [modules](../iot-edge/iot-edge-modules.md) for [Azure IoT Edge runtime](../iot-edge/about-iot-edge.md).
 
 * [**IoT Hub service SDKs**](#azure-iot-hub-service-sdks) enable you to build backend applications to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices or modules.
 
-In addition, we also provide a set of SDKs for working with the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
+* [**IoT Hub management SDKs**](#azure-iot-hub-management-sdks) help you build backend applications that manage the IoT hubs in your Azure subscription.
 
-* **Provisioning device SDKs** enable you to build apps that run on your IoT devices to communicate with the Device Provisioning Service.
-
-* **Provisioning service SDKs** enable you to build backend applications to manage your enrollments in the Device Provisioning Service.
+Microsoft also provides a set of SDKs for provisioning devices through and building backend services for the [Device Provisioning Service](../iot-dps/about-iot-dps.md). To learn more, see [Microsoft SDKs for IoT Hub Device Provisioning Service](../iot-dps/libraries-sdks.md).
 
 Learn about the [benefits of developing using Azure IoT SDKs](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
 
@@ -68,19 +66,28 @@ The Azure IoT service SDKs contain code to facilitate building applications that
 | Node | [npm](https://www.npmjs.com/package/azure-iothub) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/service/samples) | [Reference](/javascript/api/azure-iothub/) |
 | Python | [pip](https://pypi.org/project/azure-iot-hub) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-hub/samples) | [Reference](/python/api/azure-iot-hub) |
 
-## Microsoft Azure provisioning SDKs
+## Azure IoT Hub management SDKs
 
-The **Microsoft Azure provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md). To learn more about the provisioning SDKs, see [Microsoft SDKs for Device Provisioning Service](../iot-dps/libraries-sdks.md).
+The Iot Hub management SDKs help you build backend applications that manage the IoT hubs in your Azure subscription.
+
+| Platform | Package | Code repository | Reference |
+| -----|-----|-----|-----|
+| .NET|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.IotHub) |[GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/iothub)| [Reference](/dotnet/api/microsoft.azure.management.iothub) |
+| Java|[Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-iothub) |[GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/iothub/azure-resourcemanager-iothub)| [Reference](/java/api/overview/azure/resourcemanager-iothub-readme) |
+| Node.js|[npm](https://www.npmjs.com/package/@azure/arm-iothub)|[GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub)|[Reference](/javascript/api/overview/azure/arm-iothub-readme) |
+| Python|[pip](https://pypi.org/project/azure-mgmt-iothub/) |[GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub/azure-mgmt-iothub)|[Reference](python/api/azure-mgmt-iothub) |
 
 ## SDK and hardware compatibility
 
-For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/) or individual repository.
+For more information about device SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/) or individual repository.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## SDKs for related Azure IoT services
 
 Azure IoT SDKs are also available for the following services:
+
+* [Microsoft SDKs for IoT Hub Device Provisioning Service](../iot-dps/libraries-sdks.md): To help you provision devices through and build backend services for the Device Provisioning Service.
 
 * [Device Update for IoT Hub SDKs](../iot-hub-device-update/understand-device-update.md): To help you deploy over-the-air (OTA) updates for IoT devices.
 
