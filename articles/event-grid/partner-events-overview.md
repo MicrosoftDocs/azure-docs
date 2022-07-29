@@ -80,7 +80,7 @@ Through Microsoft Graph API, you can get events from a diverse set of Microsoft 
 
 ## Verified partners
 
-A verified partner is a partner organization whose identity has been validated by Microsoft. Not all partners are verified as verification is requested by the partner. However, all partners in the [Event Grid Gallery](https://ms.portal.azure.com/#create/Microsoft.EventGridPartnerTopic) have been vetted as verification is required before they can have a presence on the Azure portal.
+A verified partner is a partner organization whose identity has been validated by Microsoft. Not all partners are verified as verification is requested by the partner. However, all partners in the [Event Grid Gallery](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) have been vetted as verification is required before they can have a presence on the Azure portal.
 
 >[!IMPORTANT]
 >You should only work with verified partners. However, there are valid cases where you might work with partners that haven't been verified. For example, the partner may be a team in your own company that's the owner of a platform solution that publishes events to corporate applications. 
