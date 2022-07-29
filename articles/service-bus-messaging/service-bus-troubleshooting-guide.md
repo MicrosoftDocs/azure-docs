@@ -90,13 +90,13 @@ You'll receive the following error message:
 `Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
 
 ### Cause
-Number of autnetication tokens for conncurrent links in a single connection to a Service Bus namespace has exceeded the limit: 1000. 
+Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace has exceeded the limit: 1000. 
 
 ### Resolution
 Do one of the following steps:
 
-- Reduce the number of conncurrent links in a single connection or use a new connection
-- Use SDKs for Azure Service Bus, which ensures that you don't get into this situation. 
+- Reduce the number of concurrent links in a single connection or use a new connection
+- Use SDKs for Azure Service Bus, which ensures that you don't get into this situation (recommended)
 
 
 ## Adding virtual network rule using PowerShell fails
