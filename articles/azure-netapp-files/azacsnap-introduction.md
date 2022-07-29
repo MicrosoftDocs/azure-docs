@@ -83,7 +83,8 @@ The command options are as follows with the commands as the main bullets and the
 - **`-c backup`** is the primary command to execute database consistent storage snapshots for data (SAP HANA data volumes) & other (for example, shared, log backups, or boot) volumes.
   - **`--volume data`** to snapshot all the volumes in the `dataVolume` stanza of the configuration file.
   - **`--volume other`** to snapshot all the volumes in the `otherVolume` stanza of the configuration file.
-  - **`--volume all`** to snapshot all the volumes in the `dataVolume` stanza and then all the volumes in the `otherVolume` stanza of the configuration file.
+  - **`--volume all`** to snapshot all the volumes in the `dataVolume` stanza and then all the volumes in the `otherVolume` stanza of the configuration 
+    file.  
   - refer to [backup command reference](azacsnap-cmd-ref-backup.md).
 - **`-c details`** provides information on snapshots or replication.
   - **`--details snapshots`** Provides a list of basic details about the snapshots for each volume that has been configured.
