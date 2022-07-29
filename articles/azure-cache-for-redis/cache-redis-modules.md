@@ -79,7 +79,7 @@ Additionally, **RediSearch** can function as a secondary index, expanding your c
 You can use **RediSearch** is used in a wide variety of use-cases, including real-time inventory, enterprise search, and in indexing external databases. [For more information, see the RediSearch documentation page](https://redis.io/docs/stack/search/).
 
 >[!IMPORTANT]
-> The RediSearch module can only be used with the `Enterprise` clustering policy. For more information, see [Create or join an active geo-replication group](/azure/azure-cache-for-redis/cache-how-to-active-geo-replication).
+> The RediSearch module can only be used with the `Enterprise` clustering policy. For more information, see [Clustering Policy](quickstart-create-redis-enterprise.md#clustering-policy).
 
 >[!NOTE]
 > The RediSearch module is the only module that can be used with active geo-replication.
