@@ -22,7 +22,7 @@ Microsoft will work with Thales to ensure that customers meet the prerequisites 
 - Customers must have Thales smart cards and card readers for payShield Manager. If a customer need to purchase smart cards or card readers they should contact their Thales representatives, or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
 - If a customer need to purchase a payShield Trusted Management Device (TMD), they should contact their Thales representatives or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
 - Customers must download and review the "Hosted HSM End User Guide", which is available through the Thales CPL Customer Support Portal. The Hosted HSM End User Guide will provide more details on the changes to payShield to this service.
-- Customers must review the "Azure Payment HSM - Get Ready for payShield 10K" guide that they received from Microsoft. (A customer who does not have the guide may request it from [Microsoft Support](#microsoft-support).)
+- Customers must review the "Azure Payment HSM - Get Ready for payShield 10K" guide that they received from Microsoft. (Customers who do not have the guide may request it from [Microsoft Support](#microsoft-support).)
 - If a customer is new to payShield or the remote management option, they should take the formal training courses available from Thales and its approved partners.
 - If a customer is using payShield on premises today with custom firmware, they must conduct a porting exercise to update the firmware to a version compatible with the Azure deployment. Contact a Thales account manager to request a quote.
 
@@ -51,11 +51,9 @@ Microsoft support can be contacted by creating a support ticket through the Azur
 
 Thales will provide payment application-level support including client software, HSM configuration and backup, and HSM operation support.
 
-All Azure Payment HSM customers have Enhanced Support Plan with Thales. The [Thales Welcome Pack for Authentication and Encryption Products](https://supportportal.thalesgroup.com/csm?sys_kb_id=1d2bac074f13f340102400818110c7d9&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=e7f1843d87f3c9107b0664e80cbb352e&sysparm_article=KB0019882) is an important reference for customers, as it explains Thales support plan, scope, and responsiveness. Please download the [Thales Welcome Pack PDF](https://supportportal.thalesgroup.com/sys_attachment.do?sys_id=52681fca1b1e0110e2af520f6e4bcb96).
+All Azure Payment HSM customers have Enhanced Support Plan with Thales. The [Thales Welcome Pack for Authentication and Encryption Products](https://supportportal.thalesgroup.com/csm?sys_kb_id=1d2bac074f13f340102400818110c7d9&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=e7f1843d87f3c9107b0664e80cbb352e&sysparm_article=KB0019882) is an important reference for customers, as it explains the Thales support plan, scope, and responsiveness. Please download the [Thales Welcome Pack PDF](https://supportportal.thalesgroup.com/sys_attachment.do?sys_id=52681fca1b1e0110e2af520f6e4bcb96).
 
 Thales support can be contacted through the [Thales CPL Customer Support Portal](https://supportportal.thalesgroup.com/csm).
-
-KB0019882 is important for customer as reference. Thales Support plan, scope and responsiveness is explained in KB0019882  for Thales Welcome Pack for Authentication and Encryption Products, please download the Thales Welcome Pack PDF
 
 ## Support contacts
 
