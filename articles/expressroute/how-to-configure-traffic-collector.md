@@ -77,7 +77,7 @@ For more information, see [Identity and access management](../active-directory/f
 
 1. Once deployed you should start seeing sampled flow logs within the configure Log Analytics workspace.
 
-    :::image type="content" source="./media/how-to-configure-traffic-collector/log-analytics.png" alt-text="Screenshot of logs in Log Analytics workspace.":::
+    :::image type="content" source="./media/how-to-configure-traffic-collector/log-analytics.png" alt-text="Screenshot of logs in Log Analytics workspace." lightbox="./media/how-to-configure-traffic-collector/log-analytics.png":::
 
 ## Clean up resources
 
