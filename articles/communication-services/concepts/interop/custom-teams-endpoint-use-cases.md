@@ -1,7 +1,7 @@
 ---
-title: Use cases for Azure Communication Services support Teams identities
+title: Use cases of Azure Communication Services support for Teams identities
 titleSuffix: An Azure Communication Services concept document
-description: This article describes use cases for Azure Communication Services support Teams identities.
+description: This article describes use cases of Azure Communication Services support for Teams identities.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -13,18 +13,18 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Azure Communication Services support Teams identities — Use cases
+# Azure Communication Services support for Teams identities — Use cases
 
-Microsoft Teams provides identities managed by Azure Active Directory and calling experiences controlled by Teams Admin Center and policies. Users might have assigned licenses to enable PSTN connectivity and advanced calling capabilities of Microsoft Teams Phone. Azure Communication Services support Teams identities for managing Teams VoIP calls, Teams PSTN calls, and join Teams meetings. Developers might extend the Azure Communication Services with Graph API to provide contextual data from Microsoft 365 ecosystem. This page is providing inspiration on how to use existing Microsoft technologies to provide an end-to-end experience for calling scenarios with Teams users and Azure Communication Services calling SDKs. 
+Microsoft Teams provides identities managed by Azure Active Directory and calling experiences controlled by Teams Admin Center and policies. Users might have assigned licenses to enable phone calls and advanced calling capabilities of Microsoft Teams Phone. Azure Communication Services support for Teams identities allows managing Teams voice over IP (VoIP) calls, Teams phone calls, and join Teams meetings. Developers might extend the Azure Communication Services with Graph API to provide contextual data from Microsoft 365 ecosystem. This page is providing inspiration on how to use existing Microsoft technologies to provide an end-to-end experience for calling scenarios with Teams users and Azure Communication Services calling SDKs. 
 
 ## Use case 1: Make outbound Teams PSTN call
-This scenario is showing a multi-tenant use case, where company Contoso is providing SaaS to company Fabrikam. SaaS allows Fabrikam's users to make Teams PSTN calls via a custom website that takes the identity of the Teams user and configuration of the PSTN connectivity assigned to that Teams user.
+This scenario is showing a multi-tenant use case, where company Contoso is providing SaaS to company Fabrikam. SaaS allows Fabrikam's users to make Teams phone calls via a custom website that takes the identity of the Teams user and configuration of the PSTN connectivity assigned to that Teams user.
 
-![Diagram is showing user experience of Alice making Teams PSTN call to customer Megan.](./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-overview.svg)
+![Diagram is showing user experience of Alice making Teams phone call to customer Megan.](./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-overview.svg)
 
-The following sequence diagram shows detailed steps of initiation of a Teams PSTN call:
+The following sequence diagram shows detailed steps of initiation of a Teams phone call:
 
-:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to initiate a Teams PSTN call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg":::
+:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to initiate a Teams phone call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-out-full.svg":::
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
@@ -34,7 +34,7 @@ The following sequence diagram shows detailed steps of initiation of a Teams PST
 ```js
 const callClient = new CallClient(); 
 tokenCredential = new AzureCommunicationTokenCredential('<AlICE_ACCESS_TOKEN>');
-callAgent = await callClient.createCallAgent(tokenCredential)
+callAgent = await callClient.createTeamsCallAgent(tokenCredential)
 ```
 Then you need to start a call to Megan's phone number.
 
@@ -42,17 +42,17 @@ Then you need to start a call to Megan's phone number.
 const pstnCallee = { phoneNumber: '<MEGAN_PHONE_NUMBER_E164_FORMAT>' }
 const oneToOneCall = callAgent.startCall([pstnCallee], { threadId: '00000000-0000-0000-0000-000000000000' });
 ```
-4. Connecting PSTN call to Megan: The call is routed through the Teams PSTN connectivity assigned to Alice, reaching the PSTN network and ringing the phone associated with the provided phone number. Megan sees an incoming call from the phone number associated with Alice's Teams user. 
+4. Connecting PSTN call to Megan: The call is routed through the Teams phone connectivity assigned to Alice, reaching the PSTN network and ringing the phone associated with the provided phone number. Megan sees an incoming call from the phone number associated with Alice's Teams user. 
 5. Megans accepts the call: Megan accepts the call and the connection between Alice and Megan is established.
 
-## Use case 2: Receive inbound Teams PSTN call
-This scenario is showing a multi-tenant use case, where company Contoso is providing SaaS to company Fabrikam. SaaS allows Fabrikam's users to receive a Teams PSTN call via a custom website that takes the identity of the Teams user and configuration of the PSTN connectivity assigned to that Teams user.
+## Use case 2: Receive inbound Teams phone call
+This scenario is showing a multi-tenant use case, where company Contoso is providing SaaS to company Fabrikam. SaaS allows Fabrikam's users to receive a Teams phone call via a custom website that takes the identity of the Teams user and configuration of the PSTN connectivity assigned to that Teams user.
 
-![Diagram is showing user experience of Alice receiving Teams PSTN call from customer Megan.](./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-overview.svg)
+![Diagram is showing user experience of Alice receiving Teams phone call from customer Megan.](./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-overview.svg)
 
-The following sequence diagram shows detailed steps for accepting incoming Teams PSTN calls:
+The following sequence diagram shows detailed steps for accepting incoming Teams phone calls:
 
-:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to receive a Teams PSTN call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg":::
+:::image type="content" source="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to receive a Teams phone call using Azure Communication Services and Teams." lightbox="./media/custom-teams-endpoint/end-to-end-use-cases/cte-e2e-cte-to-pstn-in-full.svg":::
 
 ### Steps
 1. Authenticate Alice from Fabrikam in Contoso's client application: Alice is using a browser to open Fabrikam's web page and authenticates. You can find more details about [the authentication with Teams identity](./custom-teams-endpoint-authentication-overview.md). If the authentication is successful, Alice is redirected to the initial page.
@@ -61,7 +61,7 @@ The following sequence diagram shows detailed steps for accepting incoming Teams
 ```js
 const callClient = new CallClient(); 
 tokenCredential = new AzureCommunicationTokenCredential('<AlICE_ACCESS_TOKEN>');
-callAgent = await callClient.createCallAgent(tokenCredential)
+callAgent = await callClient.createTeamsCallAgent(tokenCredential)
 ```
 Then you subscribe to the incoming call event.
 
@@ -89,7 +89,7 @@ If you select the decline button, then the following code is used:
 incomingCall.reject();
 ```
 
-3. Megan start's a call to PSTN number assigned to Teams user Alice: Megan uses her phone to call Alice. The carrier network will connect to Teams PSTN connectivity assigned to Alice and it will ring all Teams endpoints registered for Alice. It includes: Teams desktop, mobile, web clients, and applications based on Azure Communication Services calling SDK.
+3. Megan start's a call to PSTN number assigned to Teams user Alice: Megan uses her phone to call Alice. The carrier network will connect to Teams phone connectivity assigned to Alice and it will ring all Teams endpoints registered for Alice. It includes: Teams desktop, mobile, web clients, and applications based on Azure Communication Services calling SDK.
 4. Contoso's client application shows Megan's incoming call: Client application receives incoming call notification. _showIncomingCall_ method would use custom Contoso's logic to translate the phone number to customer's name (for example, a database storing key-value pairs consisting of a phone number and customer name). When the information is retrieved, the notification is shown to Alice in Contoso's client application.
 5. Alice accepts the call: Alice selects a button to accept the call and the connection between Alice and Megan is established.
 
@@ -149,7 +149,7 @@ Then the client application creates an instance of callAgent, that holds the Azu
 ```js
 const callClient = new CallClient(); 
 tokenCredential = new AzureCommunicationTokenCredential('<AlICE_ACCESS_TOKEN>');
-callAgent = await callClient.createCallAgent(tokenCredential)
+callAgent = await callClient.createTeamsCallAgent(tokenCredential)
 ```
 Then you start a call to Megan's Teams ID.
 
@@ -178,7 +178,7 @@ The following sequence diagram shows detailed steps for accepting incoming Teams
 ```js
 const callClient = new CallClient(); 
 tokenCredential = new AzureCommunicationTokenCredential('<AlICE_ACCESS_TOKEN>');
-callAgent = await callClient.createCallAgent(tokenCredential)
+callAgent = await callClient.createTeamsCallAgent(tokenCredential)
 ```
 Then application subscribes to the incoming call event.
 
@@ -250,7 +250,7 @@ Contoso's client application will then show the list of Teams meetings and the a
 ```js
 const callClient = new CallClient(); 
 tokenCredential = new AzureCommunicationTokenCredential('<AlICE_ACCESS_TOKEN>');
-callAgent = await callClient.createCallAgent(tokenCredential)
+callAgent = await callClient.createTeamsCallAgent(tokenCredential)
 ```
 Then application joins a meeting via received joinUrl.
 
