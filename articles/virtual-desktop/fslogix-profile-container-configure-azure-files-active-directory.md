@@ -1,5 +1,5 @@
 ---
-title: Set up FSLogix Profile Container with Azure Files and AD DS or AAD DS - Azure Virtual Desktop
+title: Set up FSLogix Profile Container with Azure Files and AD DS or Azure AD DS - Azure Virtual Desktop
 description: This article describes how to create a FSLogix Profile Container with Azure Files and Active Directory Domain Services or Azure Active Directory Domain Services.
 author: dknappettmsft
 ms.topic: how-to
