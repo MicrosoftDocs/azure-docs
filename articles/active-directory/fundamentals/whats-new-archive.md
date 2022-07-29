@@ -1203,7 +1203,7 @@ For the Risky users, Risky sign-ins, and Risk detections reports in Identity Pro
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-Now group owners in Azure AD can create and manage Azure AD access reviews on their groups. This ability can be enabled by tenant administrators through Azure AD access review settings and is disabled by default. [Learn more](../governance/create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview).
+Now group owners in Azure AD can create and manage Azure AD access reviews on their groups. This ability can be enabled by tenant administrators through Azure AD access review settings and is disabled by default. [Learn more](../governance/create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups).
  
 ---
 
@@ -3907,7 +3907,7 @@ Because of modern browser [3rd party cookie restrictions such as Safari ITP](../
 **Service category:** Device Management
 **Product capability:** Device Lifecycle Management
  
-Previously, the only filters you could use were "Enabled" and "Activity date." Now, you can [filter your list of devices on more properties](../devices/device-management-azure-portal.md#device-list-filtering-preview), including OS type, join type, compliance, and more. These additions should simplify locating a particular device.
+Previously, the only filters you could use were "Enabled" and "Activity date." Now, you can [filter your list of devices on more properties](../devices/device-management-azure-portal.md#view-and-filter-your-devices-preview), including OS type, join type, compliance, and more. These additions should simplify locating a particular device.
 
 ---
 
