@@ -63,7 +63,7 @@ The following modules are available when creating a new Enterprise cache.
 
 ### RediSearch
 
-The **RediSearch** module adds a _real-time search engine_ to a Redis server, combining low latency performance with powerful search features.
+The **RediSearch** module adds a real-time search engine to your cache combining low latency performance with powerful search features.
 
 Features include:
 
@@ -74,16 +74,15 @@ Features include:
 - Geo-filtering
 - Boolean queries
 
-Additionally, **RediSearch** can function as a secondary index, expanding the Redis server beyond a key-value structure and offering more sophisticated queries.
+Additionally, **RediSearch** can function as a secondary index, expanding your cache beyond a key-value structure and offering more sophisticated queries.
 
 You can use **RediSearch** is used in a wide variety of use-cases, including real-time inventory, enterprise search, and in indexing external databases. [For more information, see the RediSearch documentation page](https://redis.io/docs/stack/search/).
 
+>[!IMPORTANT]
+> The RediSearch module can only be used with the _Enterprise_ clustering policy.
+
 >[!NOTE]
 > The RediSearch module is the only module that can be used with active geo-replication.
-
->[!IMPORTANT]
->
-> The RediSearch module can only be used with the _Enterprise_ clustering policy
 
 ### RedisBloom
 
@@ -102,7 +101,7 @@ For more information, see [RedisBloom](https://redis.io/docs/stack/bloom/).
 
 ### RedisTimeSeries
 
-The **RedisTimeSeries** module adds high-throughput time series capabilities to a Redis server. This data structure is optimized for high volumes of incoming data and contains features to work with time series data, including:
+The **RedisTimeSeries** module adds high-throughput time series capabilities to your cache. This data structure is optimized for high volumes of incoming data and contains features to work with time series data, including:
 
 - Aggregated queries (for example, average, maximum, standard deviation, etc.)
 - Time-based queries (for example, start-time and end-time)
@@ -116,7 +115,7 @@ For more information, see [RedisTimeSeries](https://redis.io/docs/stack/timeseri
 
 ### RedisJSON
 
-The **RedisJSON** module adds the capability to store, query, and search JSON-formatted data. This functionality is useful for storing document-like data within a Redis server.
+The **RedisJSON** module adds the capability to store, query, and search JSON-formatted data. This functionality is useful for storing document-like data within your cache.
 
 Features include:
 
