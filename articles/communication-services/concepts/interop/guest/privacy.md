@@ -19,7 +19,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 
 All chat messages sent by Teams users or Communication Services users during a Teams meeting are stored in the geographic region associated with the Microsoft 365 organization hosting the meeting. For more information, review the article [Location of data in Microsoft Teams](/microsoftteams/location-of-data-in-teams). For each Teams guest joining via Azure Communication Services SDKs in the meetings, there is a copy of the most recently sent message stored in the geographic region associated with the Communication Services resource used to develop the Communication Services application. Review the article [Region availability and data residency](./privacy.md).
 
-Azure Communication Services will delete all copies of the most recently sent message per Teams retention policies. If no retention policy is defined, Azure Communication Services delete data after 30 days. For more information about Teams retention policies, review the article [Learn about retention for Microsoft Teams](/microsoft-365/compliance/retention-policies-teams).
+Azure Communication Services will delete all copies of the most recently sent message per Teams retention policies. If no retention policy is defined, Azure Communication Services deletes data after 30 days. For more information about Teams retention policies, review the article [Learn about retention for Microsoft Teams](/microsoft-365/compliance/retention-policies-teams).
 
 ## Next steps
 
