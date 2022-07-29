@@ -58,22 +58,13 @@ If disk sorts are happening during this time and there is plenty of unused memor
 until a good balance of available and used memory is reached.
 Similarly, if the memory use looks high, reduce work_mem. 
 
-Identify the temp file usage using the following query:
-~~~
-    select count (*) from pg_stat_activity where state = 'idle' ;
-~~~
-
-Identify the query that requires more temp space using the parameter - `log_temp_files`
-
--1 – default value, 0 – logs all temp file information, Positive value(in KB) – log  the queries greater than this size.
 
 #### Maintenance_Work_Mem 
 
-`maintenance_work_mem` is for maintenance tasks like vacuuming, adding indexes or foreign keys. We can set a large value that can help in these specific tasks. 
-
-The usage of memory in this scenario is per session. 
+`maintenance_work_mem` is for maintenance tasks like vacuuming, adding indexes or foreign keys.The usage of memory in this scenario is per session. 
 
 For example, consider a session that is creating an index and there are three autovacuum workers running. 
+
 If `maintenance_work_mem` is set to 1 GB, then all sessions combined will use 4 GB of memory.
 
 A high `maintenance_work_mem` value along with multiple running sessions for vacuuming/index creation/adding foreign keys can cause 
@@ -86,7 +77,7 @@ high memory utilization. The maximum allowed value for the ``maintenance_work_me
 The `shared_buffers` parameter determines how much memory is dedicated to the server for caching data. The objective of shared buffers 
 is to reduce DISK I/O.
 
-A reasonable setting for shared buffers is 25% of RAM. It is recommended to not set to a value more than 40% of RAM for most of the use cases. 
+A reasonable setting for shared buffers is 25% of RAM. It is recommended to not set to a value more than 40% of RAM for most common workloads.
                                                                                                          
 ### Max Connections 
 
@@ -95,9 +86,9 @@ is using the following query:
 ~~~
     select count(*) from pg_stat_activity;
 ~~~
-When the number of active and idle connections to a database is high, memory consumption also increases.
+When the number of connections to a database is high, memory consumption also increases.
 
-In situations where there are a lot of idle database connections consider using a connection pooler like PgBouncer.
+In situations where there are a lot of database connections consider using a connection pooler like PgBouncer.
 
 For more details on PgBouncer check:
 
@@ -110,7 +101,6 @@ Azure Database for Flexible Server offers PgBouncer as a built-in connection poo
 
 ### Explain Analyze 
 
-Once high memory-consuming queries have been identified from Query Store,
-use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate and tune them.
+Once high memory-consuming queries have been identified from Query Store,use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate and tune them.
 
 For more information on EXPLAIN command, check [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html).
