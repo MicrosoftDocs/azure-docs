@@ -11,15 +11,14 @@ ms.date: 07/20/2022
 ms.author: lajanuar
 recommendations: false
 robots: noindex
-
-#Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
+
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # Overview: What is Azure Form Recognizer?
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that analyzes forms and documents, extracts text and data, and maps field relationships as key-value pairs. To learn more about each model, *see* concepts pages:
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that analyzes forms and documents, extracts text and data, and maps field relationships as key-value pairs. To learn more about each model, *see* Concepts articles:
 
 | Model type | Model name |
 |------------|-----------|
@@ -29,25 +28,23 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 
 ## Which Form Recognizer model should I use?
 
-This section helps you decide which Form Recognizer v3.0 supported model you should use for your application:
+This section will help you decide which Form Recognizer v3.0 supported model you should use for your application:
 
 | Type of document | Data to extract |Document format | Your best solution |
 | -----------------|-------------------| ----------|-------------------|
-|**An unstructured document** like a contract or letter.|You want to extract primarily text lines, words, locations, and detected languages from a text-based document (not tables, selection marks, and/or structure).|</li></ul>The document is composed in a [supported language](language-support.md#read-layout-and-custom-form-template-model).| <ul><li>Use the [**Read (preview)**](concept-read.md) model for text-only extraction.|
-|**Any document that includes structural types like tables and selection marks** like a report or study.|In addition to text, you need to extract structure information like tables, selection marks, paragraphs, titles, headings, and subheadings|The document is composed in a [supported language](language-support.md#read-layout-and-custom-form-template-model)|<ul><li>Use the [**Layout**](concept-layout.md) model if you also need structure information like pages, tables, barcodes and element location.</li></ul>
-|**A structured document** like a survey or questionnaire.|You want to extract key-value pairs, selection marks, and tables from a structured document.|Your document is mostly structured and contains fields and values that may not be covered by the other prebuilt models.|<ul><li>Use the [**General document (preview)**](concept-general-document.md) model for a structured and semi-structured document.</li></ul>
-|**An industry-standard form or document**, like a credit or job application.|You want to extract key-value pairs, from customary documents including document types not covered by the scenario-specific prebuilt models.|The form or document is a standardized format commonly used in business or industry.| <ul><li>Use the [**General document (preview)**](concept-general-document.md) model to extract the fields found in the layout model and, in addition,  key-value pairs.</li></ul>
-|**U.S. W-2 form**|You want to extract key information such as salary, wages, and taxes withheld from US W2 tax forms.</li></ul> |The W-2 document is composed in United States English (en-US) text.|<ul><li>Use the [**W-2 Form**](concept-w2.md) model</li></ul>.
-|**Invoice**|You want to extract key information such as customer name, billing address, and amount due from invoices.</li></ul> |The invoice document is formatted in a [supported language](language-support.md#invoice-model).|<ul><li>Use the [**Invoice**](concept-invoice.md) model.</li></ul>
- |**Receipt**|You want to extract key information such as merchant name, transaction date, and transaction total from a sales or single-page hotel receipt.</li></ul> |The receipt is formatted in English text|<ul><li> Use the [**Receipt**](concept-receipt.md) model.</li></ul>|
-|**Business card**|You want to extract key information such as first name, last name, company name, email address, and phone number  from business cards.</li></ul>|The business card document formatted in English or Japanese text. | <ul><li>Use the [**Business Card**](concept-business-card.md) model.</li></ul>|
-|**ID document**|You want to extract key information such as first name, last name, and date of birth from US drivers' licenses or international passports. |Your ID document is a US driver's license or the biographical page from an international passport (not a visa).| Use the [**ID document**](concept-id-document.md) model.</li></ul>|
-|**Structured documents or form types with fields and values not covered by pre-trained models.**| You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions.|Your document set consists of structured documents (templates) where the formatting and layout are static and constant from one document instance to the next.| <ul><li>Use the [**Custom template model**](concept-custom-template.md).</li></ul>|
-|**Mixed-type documents or forms with fields and values not covered by pre-trained models.**| You want to extract key-value pairs and selection marks. | Your document set is a combination of structured, semi-structured, or unstructured documents.| <ul><li>Use the [**Custom neural model**](concept-custom-neural.md).</li></ul>|
+|**A text-based document** like a contract or letter.|You want to extract primarily text lines, words, locations, and detected languages.|</li></ul>The document is written or printed in a [supported language](language-support.md#read-layout-and-custom-form-template-model).| [**Read (preview) model**](concept-read.md)|
+|**A document that includes structural information** like a report or study.|In addition to text, you need to extract structural information like tables, selection marks, paragraphs, titles, headings, and subheadings.|The document is written or printed in a [supported language](language-support.md#read-layout-and-custom-form-template-model)| [**Layout model**](concept-layout.md)
+|**A structured or semi-structured document that includes content formatted as fields and values**, like a credit application or survey form.|You want to extract fields and values including ones not covered by the scenario-specific prebuilt models **without training a customized model**.| The form or document is a standardized format commonly used in your business or industry and printed in a [supported language](language-support.md#read-layout-and-custom-form-template-model#general-document).|[**General document (preview) model**](concept-general-document.md)
+|**U.S. W-2 form**|You want to extract key information such as salary, wages, and taxes withheld from US W2 tax forms.</li></ul> |The W-2 document is in United States English (en-US) text.|[**W-2 model**](concept-w2.md)
+|**Invoice**|You want to extract key information such as customer name, billing address, and amount due from invoices.</li></ul> |The invoice document is written or printed in a [supported language](language-support.md#invoice-model).|[**Invoice model**](concept-invoice.md)
+ |**Receipt**|You want to extract key information such as merchant name, transaction date, and transaction total from a sales or single-page hotel receipt.</li></ul> |The receipt is written or printed in a [supported language](language-support.md#receipt-model) |[**Receipt model**](concept-receipt.md)|
+|**ID document** like a passport or driver's license. |You want to extract key information such as first name, last name, and date of birth from US drivers' licenses or international passports. |Your ID document is a US driver's license or the biographical page from an international passport (not a visa).| [**ID document model**](concept-id-document.md)|
+|**Business card**|You want to extract key information such as first name, last name, company name, email address, and phone number from business cards.</li></ul>|The business card document is in English or Japanese text. | [**Business card model**](concept-business-card.md)|
+|**Mixed-type document(s)**| You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| You have various documents with structured, semi-structured, and/or unstructured elements.| [**Custom model**](concept-custom.md)|
 
 >[!Tip]
 >
-> * If you're still unsure as to which model to use, try the General Document model.
+> * If you're still unsure which model to use, try the General Document model.
 > * The General Document model is powered by the Read OCR model to detect lines, words, locations, and languages.
 > * General document extracts all the same fields as Layout model (pages, tables, styles) in addition to extracting key-value pairs.
 
