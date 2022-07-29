@@ -92,7 +92,6 @@ An outbound endpoint enables conditional forwarding name resolution from Azure t
 > Azure Resource will use the DNS Forwarder and if a Outbound Rule match the request will be forwarded On-Premise.
 > On the DNS Forwarder Rule is important to set the correct DNS Domain and one or more IPs. These IPs are your DNS Servers On-Premise.
 
-
 ## Virtual network links
 
 Virtual network links enable name resolution for virtual networks that are linked to an outbound endpoint with a DNS forwarding ruleset. This is a 1:1 relationship.
