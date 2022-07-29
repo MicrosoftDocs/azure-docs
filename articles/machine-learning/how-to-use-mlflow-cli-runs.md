@@ -41,8 +41,8 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 * [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
-* (Optional) Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
-* (Optional) Install and set up SDK(v2) for Python.
+* (Optional) Install and [set up Azure ML CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
+* (Optional) Install and set up Azure ML SDK(v2) for Python.
 
 
 ## Track runs from your local machine or remote compute
