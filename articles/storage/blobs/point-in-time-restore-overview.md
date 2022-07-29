@@ -101,9 +101,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 
 There is no charge to enable point-in-time restore. However, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which may result in additional charges.
 
-Billing for point-in-time restore depends on the amount of data processed to perform the restore operation. The amount of data processed is based on the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
-
-In addition to charges for the changefeed data processed, point-in-time restores also incur charges for any transactions involved in performing the restore.
+Billing for performing point-in-time restores is based on the amount of changefeed data processed for the restore. You are also billed for any storage transactions involved in the restore process. 
 
 For more information about pricing for point-in-time restore, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

@@ -51,14 +51,14 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     * Apply & Restart - restart the Docker daemon for the changes to take effect.
 
 2. Start the cluster via PowerShell.<br/>
+    <b>Ubuntu 20.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u20
+    ```
+
     <b>Ubuntu 18.04 LTS:</b>
     ```powershell
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
-    ```
-
-    <b>Ubuntu 16.04 LTS:</b>
-    ```powershell
-    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
 
     >[!TIP]

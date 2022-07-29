@@ -34,7 +34,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
-* [Azure Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md)
+* [Azure Key Vault insights](../../key-vault/key-vault-insights-overview.md)
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 

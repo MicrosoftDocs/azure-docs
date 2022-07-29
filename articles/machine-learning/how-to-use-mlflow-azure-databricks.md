@@ -17,7 +17,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 
 In this article, learn how to enable MLflow to connect to Azure Machine Learning while working in an Azure Databricks workspace. You can leverage this configuration for tracking, model management and model deployment.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training job metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
@@ -29,6 +29,7 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 * An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
+
 
 ## Install libraries
 
@@ -167,9 +168,12 @@ When MLflow is configured to exclusively track experiments in Azure Machine Lear
 mlflow.set_experiment(experiment_name="experiment-name")
 ```
 
+In your training script, import `mlflow` to use the MLflow logging APIs, and start logging your job metrics. The following example, logs the epoch loss metric. 
+
 ## Logging models with MLflow
 
 After your model is trained, you can log it to the tracking server with the `mlflow.<model_flavor>.log_model()` method. `<model_flavor>`, refers to the framework associated with the model. [Learn what model flavors are supported](https://mlflow.org/docs/latest/models.html#model-api). In the following example, a model created with the Spark library MLLib is being registered:
+
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model")
@@ -272,5 +276,5 @@ The [Training models in Azure Databricks and deploying them on Azure ML](https:/
 ## Next steps
 * [Deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
 * [Manage your models](concept-model-management-and-deployment.md).
-* [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
+* [Track experiment jobs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
 * Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/).
