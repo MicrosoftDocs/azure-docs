@@ -21,34 +21,18 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2022-08-01
 
-### Azure Machine Learning SDK for Python v1.44.0
-
-   + **azureml-automl-core**
-    + Increase numpy version for AutoML packages
-    + Added extension capability for classical models (AutoArima, Arimax, ExponentialSmoothing, Naive, Seasonal Naive, Average, SeasonalAverage) so that they can make forecasts from context data that is more recent that the training data without refitting parameters. Extension is now applied automatically by the model object's forecast method (i.e. the object returned by AutoMLRun.get_output) if there are non-null values in the y input.
-  + **azureml-automl-dnn-nlp**
-    + Enable code generation for vision and nlp
-    + Increase numpy version for AutoML packages
+### Azure Machine Learning SDK for Python v1.44.0  
+  
+  + **azureml-automl-dnn-nlp** 
     + Weighted accuracy and Matthews Correlation will no longer be a metric displayed on calculated metrics for NLP Multilabel classification.
-  + **azureml-automl-dnn-vision**
-    + Enable code generation for vision and nlp
-    + Increase numpy version for AutoML packages
+  + **azureml-automl-dnn-vision**   
     + Raise user error when invalid annotation format is provided
-    + Adding candidate validation result generation script
-  + **azureml-automl-runtime**
-    + Increase numpy version for AutoML packages
-    + Allow setting a timeout_seconds parameter when downloading artifacts from a Run
-    + Weighted accuracy and Matthews Correlation will no longer be a metric displayed on calculated metrics for NLP Multilabel classification.
-    + If the user has provided custom weights for their dataset, the class balancing check and the class imbalance treatment feature should be entirely avoided to respect the user's instructions rather than applying our own.
-    + Added extension capability for classical models (AutoArima, Arimax, ExponentialSmoothing, Naive, Seasonal Naive, Average, SeasonalAverage) so that they can make forecasts from context data that is more recent that the training data without refitting parameters. Extension is now applied automatically by the model object's forecast method (i.e. the object returned by AutoMLRun.get_output) if there are non-null values in the y input.
   + **azureml-cli-common**
     + Updated the v1 CLI description
-  + **azureml-contrib-automl-dnn-forecasting**
-    + Increase numpy version for AutoML packages
+  + **azureml-contrib-automl-dnn-forecasting**   
     + Fixed the "Failed to calculate TCN metrics." issues caused for TCNForecaster when different timeseries in the validation dataset have different lengths.
     + Added auto timeseries ID detection for DNN forecasting models like TCNForecaster.
-    + Fixed a bug with the Forecast TCN model where validation data could be corrupted in some circumstances when the user provided the validation set.
-    + Added extension capability for classical models (AutoArima, Arimax, ExponentialSmoothing, Naive, Seasonal Naive, Average, SeasonalAverage) so that they can make forecasts from context data that is more recent that the training data without refitting parameters. Extension is now applied automatically by the model object's forecast method (i.e. the object returned by AutoMLRun.get_output) if there are non-null values in the y input.
+    + Fixed a bug with the Forecast TCN model where validation data could be corrupted in some circumstances when the user provided the validation set. 
   + **azureml-core**
     + Allow setting a timeout_seconds parameter when downloading artifacts from a Run
     + Warning message added - Azure ML CLI v1 is getting retired on 30 Sep 2025. Users are recommended to adopt CLI v2.
@@ -58,15 +42,10 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Increase numpy version for AutoML packages
   + **azureml-pipeline-core**
     + Fix regenerate_outputs=True not taking effect when submit pipeline.
-  + **azureml-train-automl-client**
-    + Increase numpy version for AutoML packages
   + **azureml-train-automl-runtime**
     + Increase numpy version for AutoML packages
     + Enable code generation for vision and nlp
     + Original columns on which grains are created are added as part of predictions.csv
-  + **azureml-training-tabular**
-    + Increase numpy version for AutoML packages
-    + Added extension capability for classical models (AutoArima, Arimax, ExponentialSmoothing, Naive, Seasonal Naive, Average, SeasonalAverage) so that they can make forecasts from context data that is more recent that the training data without refitting parameters. Extension is now applied automatically by the model object's forecast method (i.e. the object returned by AutoMLRun.get_output) if there are non-null values in the y input.
 
 ## 2022-07-21
 
