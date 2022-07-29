@@ -230,6 +230,6 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In article, you learned how to send and receive cloud-to-device messages.
+In this article, you learned how to send and receive cloud-to-device messages.
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
