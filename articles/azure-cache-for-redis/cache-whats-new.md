@@ -17,11 +17,9 @@ ms.date: 08/01/2022
 
 The Enterprise and Enterprise Flash tiers of Azure Cache for Redis now support the **RedisJSON** module. This module adds native functionality to store, query, and search JSON-formatted data that allows you to store data more easily in a document-style format in Redis. By using this module, you simplify common use cases like storing product catalog or user profile data.  
 
-The **RedisJSON** module implements the community version of the module so you can use your existing knowledge and workstreams. **RedisJSON** is  designed for use with the search functionality of **RediSearch**. Using both modules provides integrated indexing and querying of data.
+The **RedisJSON** module implements the community version of the module so you can use your existing knowledge and workstreams. **RedisJSON** is  designed for use with the search functionality of **RediSearch**. Using both modules provides integrated indexing and querying of data. For more information, see [RedisJSON](https://aka.ms/redisJSON).
 
-For more information, see [RedisJSON](https://aka.ms/redisJSON).
-
-The **RediSearch** module is also available for Azure Cache for Redis. For more information on using open-source Redis Modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](cache-how-to-use-modules.md).
+The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](cache-how-to-use-modules.md).
 
 ## July 2022
 
