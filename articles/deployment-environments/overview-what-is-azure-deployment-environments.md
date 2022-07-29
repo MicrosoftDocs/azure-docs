@@ -10,10 +10,11 @@ ms.date: 07/29/2022
 
 # What is Azure Deployment Environments?
 
-Azure Deployment Environments is an Azure service that enables enterprises to provide development teams with self-service management of environments in Azure, while adhering to enterprise security guidelines. Development teams can create [Environments](./concept-environments-key-concepts.md#environments) from a curated list of Azure Resource Manager(ARM) templates. An environment is a pre-configured collection of Azure resources,deployed in predefined subscriptions where Azure governance is applied based on the [type of environment](./concept-environments-key-concepts.md#environment-types), such as sandbox, testing, staging or production.
+Azure Deployment Environments is an Azure service that enables enterprises to provide development teams with self-service management of environments in Azure, while adhering to enterprise security guidelines. Development teams can create [Environments](./concept-environments-key-concepts.md#environments) from a curated list of Azure Resource Manager(ARM) templates. An environment is a pre-configured collection of Azure resources deployed in predefined subscriptions, where Azure governance is applied based on the [type of environment](./concept-environments-key-concepts.md#environment-types), such as sandbox, testing, staging or production.
 
-Azure Deployment Environments will provide self-serve capability to developers enabling them to deploy on-demand environments quickly. Development teams will be able to easily test the latest versions of their applications.
+Azure Deployment Environments provide self-serve capability to developers enabling them to deploy on-demand environments quickly. Development teams will be able to easily test the latest versions of their applications.
 
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Azure Load Testing architecture.":::
 
 ## Usage scenarios
 
@@ -58,7 +59,9 @@ Enable your development teams to quickly and easily create PaaS resources by usi
 Use the API to provision environments directly from your preferred continuous integration (CI) tool, integrated development environment (IDE), or automated release pipeline. You can also use the comprehensive command-line tool.
 
 ## Next steps
-See the following articles:
+Start using Azure Deployment Environments:
 
-- To learn more about Project Fidalgo, see [Project Fidalgo concepts](project-fidalgo-concepts.md).
-- For a walkthrough with step-by-step instructions, see [Tutorial: Set up and Configure a DevCenter](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/tutorial-create-and-configure-devcenter.md).
+- Learn about the [key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
+- [Azure Deployment Environments scenarios](./concept-environments-scenarios.md).
+- [Tutorial: Create and configure a dev center](./tutorial-create-and-configure-devcenter.md).
+- [Tutorial: Create and configure project](./tutorial-create-and-configure-projects.md).
