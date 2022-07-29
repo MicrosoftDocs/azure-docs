@@ -1,6 +1,6 @@
 ---
-title: Metrics in Azure Web PubSub Service
-description: Metrics in Azure Web PubSub Service.
+title: Metrics in Azure Web PubSub service
+description: Metrics in Azure Web PubSub service.
 author: zackliu
 ms.service: azure-web-pubsub
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: chenyl
 ---
 # Metrics in Azure Web PubSub Service
 
-Azure Web PubSub Service has some built-in metrics and you and sets up [alerts](../azure-monitor/alerts/alerts-overview.md) base on metrics.
+Azure Web PubSub service has some built-in metrics and you and sets up [alerts](../azure-monitor/alerts/alerts-overview.md) base on metrics.
 
 ## Understand metrics
 

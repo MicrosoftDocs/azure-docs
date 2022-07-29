@@ -14,7 +14,7 @@ Azure Web PubSub Service provides an easy way to publish/subscribe messages usin
 
 - Clients can be written in any language that has Websocket support.
 - Both text and binary messages are supported within one connection.
-- There is a simple protocol for clients to do direct client-client message publishing.
+- There's a simple protocol for clients to do direct client-to-client message publishing.
 - The service manages the WebSocket connections for you.
 
 ## Terms
@@ -168,13 +168,13 @@ The maximum allowed message size for one WebSocket frame is **1MB**.
 
 #### Authentication workflow
 
-Client uses a signed JWT token to connect to the service. The upstream can also reject the client when it is `connect` event handler of the incoming client. The event handler authenticates the client by specifying the `userId` and the `role`s the client has in the webhook response, or decline the client with 401. [Event handler](#event-handler) section describes it in detail.
+Client uses a signed JWT token to connect to the service. The upstream can also reject the client when it's `connect` event handler of the incoming client. The event handler authenticates the client by specifying the `userId` and the `role`s the client has in the webhook response, or decline the client with 401. [Event handler](#event-handler) section describes it in detail.
 
 The below graph describes the workflow:
 
 ![Diagram showing the client authentication workflow.](./media/concept-service-internals/client-connect-workflow.png)
 
-As you may have noticed when we describe the PubSub WebSocket clients, that a client can publish to other clients only when it is *authorized* to. The `role`s of the client determines the *initial* permissions the client have:
+As you may have noticed when we describe the PubSub WebSocket clients, that a client can publish to other clients only when it's *authorized* to. The `role`s of the client determines the *initial* permissions the client have:
 
 | Role | Permission |
 |---|---|
@@ -195,7 +195,7 @@ In general, server protocol contains two roles:
 1. [Connection manager](#connection-manager)
 
 ### Event handler
-The event handler handles the incoming client events. Event handlers are registered and configured in the service through portal or Azure CLI beforehand so that when a client event is triggered, the service can identify if the event is expected to be handled or not. Now we use `PUSH` mode to invoke the event handler: that the event handler as the server side, exposes public accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook**. 
+The event handler handles the incoming client events. Event handlers are registered and configured in the service through portal or Azure CLI. When a client event is triggered, the service can identify if the event is to be handled or not. Now we use `PUSH` mode to invoke the event handler: that the event handler as the server side, exposes public accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook**. 
 
 Service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
@@ -207,22 +207,22 @@ The data sending from the service to the server is always in CloudEvents `binary
 
 #### Upstream and Validation
 
-Event handlers need to be registered and configured in the service through portal or Azure CLI beforehand so that when a client event is triggered, the service can identify if the event is expected to be handled or not. For public preview, we use `PUSH` mode to invoke the event handler: that the event handler as the server side, exposes public accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook** **upstream**. 
+Event handlers need to be registered and configured in the service through portal or Azure CLI before first use. When a client event is triggered, the service can identify if the event must be handled or not. For public preview, we use `PUSH` mode to invoke the event handler: that the event handler as the server side, exposes public accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook** **upstream**. 
 
-When configuring the webhook endpoint, the URL can use `{event}` parameter to define a URL template. The service calculates the value of the webhook URL dynamically when the client request comes in. For example, when a request `/client/hubs/chat` comes in, with a configured event handler URL pattern `http://host.com/api/{event}` for hub `chat`, when the client connects, it will first POST to this URL: `http://host.com/api/connect`. This can be useful when a PubSub WebSocket client sends custom events, that the event handler helps dispatch different events to different upstream. Note that the `{event}` parameter is not allowed in the URL domain name.
+The URL can use `{event}` parameter to define a URL template for the webhook handler. The service calculates the value of the webhook URL dynamically when the client request comes in. For example, when a request `/client/hubs/chat` comes in, with a configured event handler URL pattern `http://host.com/api/{event}` for hub `chat`, when the client connects, it will first POST to this URL: `http://host.com/api/connect`. This behavior can be useful when a PubSub WebSocket client sends custom events, that the event handler helps dispatch different events to different upstream. The `{event}` parameter isn't allowed in the URL domain name.
 
 When setting up the event handler upstream through Azure portal or CLI, the service follows the [CloudEvents abuse protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. The `WebHook-Request-Origin` request header is set to the service domain name `xxx.webpubsub.azure.com`, and it expects the response having header `WebHook-Allowed-Origin` to contain this domain name.
 
-When doing the validation, the `{event}` parameter is resolved to `validate`. For example, when trying to set the URL to `http://host.com/api/{event}`, the service tries to **OPTIONS** a request to `http://host.com/api/validate` and only when the response is valid the configure can be set successfully.
+When doing the validation, the `{event}` parameter is resolved to `validate`. For example, when trying to set the URL to `http://host.com/api/{event}`, the service tries to **OPTIONS** a request to `http://host.com/api/validate` and only when the response is valid the configuration can be set successfully.
 
-For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
+For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
 
 #### Authentication between service and webhook
 - Anonymous mode
 - Simple authentication that `code` is provided through the configured Webhook URL.
-- Use AAD authentication, check [here](howto-use-managed-identity.md) for details.
+- Use Azure Active Directory (Azure AD) authentication, check [here](howto-use-managed-identity.md) for details.
    - Step1: Enable Identity for the Web PubSub service
-   - Step2: Select from existing AAD application that stands for your webhook web app
+   - Step2: Select from existing Azure AD application that stands for your webhook web app
 
 
 ### Connection manager
@@ -249,7 +249,7 @@ The service provides REST APIs for the server to do connection management:
 The detailed REST API protocol is defined [here][rest].
 
 ### Summary
-You may have noticed that the *event handler role* handles communication from the service to the server while *the manager role* handles communication from the server to the service. So combing the two roles, the data flow between service and server looks as similar to below, using HTTP protocol:
+You may have noticed that the *event handler role* handles communication from the service to the server while *the manager role* handles communication from the server to the service. After combining the two roles, the data flow between service and server looks similar to the following diagram using HTTP protocol.
 
 ![Diagram showing the Web PubSub service bi-directional workflow.](./media/concept-service-internals/http-service-server.png)
 
