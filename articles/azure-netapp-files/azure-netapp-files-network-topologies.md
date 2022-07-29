@@ -72,7 +72,7 @@ The following table describes what’s supported for each network features confi
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
 
-**Upgrade from Basic to standard network feature is not currently supported.** 
+**Upgrade from basic to standard network feature is not currently supported.** 
 
 ### Supported network topologies
 
