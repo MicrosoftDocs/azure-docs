@@ -198,8 +198,6 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > [!IMPORTANT]
    > If your existing application code is using QUORUM for consistency, you should ensure that **prior to changing the replication settings in the step below**, your existing application code is using **LOCAL_QUORUM** to connect to your existing cluster (otherwise live updates will fail after you change replication settings in the below step). Once the replication strategy has been changed, you can revert to QUORUM if preferred. 
    
-   > [!IMPORTANT]
-   > If the data center(s) in your existing cluster do not enforce [client-to-node encryption (SSL)](https://cassandra.apache.org/doc/3.11/cassandra/operating/security.html#client-to-node-encryption), and you intend for your application code to connect directly to Cassandra Managed Instance, you will also need to enable it in your application code. 
 
 1. Finally, use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
@@ -212,6 +210,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```bash
    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
+
+   > [!IMPORTANT]
+   > If the data center(s) in your existing cluster do not enforce [client-to-node encryption (SSL)](https://cassandra.apache.org/doc/3.11/cassandra/operating/security.html#client-to-node-encryption), and you intend for your application code to connect directly to Cassandra Managed Instance, you will also need to enable SSL in your application code. 
 
 
 ## <a id="hybrid-real-time-migration"></a>Use hybrid cluster for real-time migration
