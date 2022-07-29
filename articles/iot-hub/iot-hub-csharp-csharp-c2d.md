@@ -108,9 +108,11 @@ In this section, you create a .NET console app that sends cloud-to-device messag
 
 1. In the current Visual Studio solution, select **File** > **New** > **Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
 
-1. Name the project *SendCloudToDevice*. Under **Solution**, select **Add to solution** and accept the most recent version of the .NET Framework. Select **Create** to create the project.
+1. Name the project *SendCloudToDevice*, then select **Next**.
 
    ![Configure a new project in Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
+
+1. Accept the most recent version of the .NET Framework. Select **Create** to create the project.
 
 1. In Solution Explorer, right-click the new project, and then select **Manage NuGet Packages**.
 
