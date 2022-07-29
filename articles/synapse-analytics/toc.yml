@@ -156,7 +156,7 @@ items:
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
+          href: ./synapse-service-identity.md?context=/azure/synapse-analytics/context/context
         - name: Credentials for user-assigned managed identity
           href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
   - name: How-to guides
@@ -471,7 +471,7 @@ items:
         displayName: workload, management
   - name: How-to guides
     items:
-    - name: Backup and restore
+    - name: Back up and restore
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
