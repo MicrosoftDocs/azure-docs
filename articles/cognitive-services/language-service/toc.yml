@@ -159,7 +159,7 @@ items:
     - name: Java
       href: https://aka.ms/sdk-samples-java
     - name: JavaScript
-      href: https://aka.ms/sdk-samples-java-script
+      href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cognitivelanguage/ai-language-text/samples-dev/customEntityRecognition.ts
     - name: C#
       href:  https://aka.ms/sdk-samples-dot-net
     - name: Python
