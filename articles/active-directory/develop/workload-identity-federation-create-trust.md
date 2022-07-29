@@ -23,33 +23,9 @@ This article describes how to manage a federated identity credential on an appli
 
 You can then configure an external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload can access Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  
 
-Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf.  Anyone in the Application Administrator or Application Owner roles can do this.
-
 In this article, you learn how to create, list, and delete federated identity credentials on an application in Azure AD.
 
-## Important considerations and restrictions
-
-A maximum of 20 federated identity credentials can be added to an application.
-
-When you configure a federated identity credential, there are several important pieces of information to provide.
-
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
-
-*issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  If the `issuer` claim has leading or trailing whitespace in the value, the token exchange is blocked.
-
-*subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings.
-
-> [!IMPORTANT]
-> The *subject* setting values must exactly match the configuration on the GitHub workflow configuration.  Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
-
-> [!IMPORTANT]
-> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
-
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory.  The recommended value is "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
-
-*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It's immutable once created.
-
-*description* is the unvalidated, user-provided description of the federated identity credential.
+[!INCLUDE [Important considerations and restrictions](./includes/workload-identity-federation-apps-considerations.md)]
 
 ::: zone pivot="identity-wif-apps-methods-azp"
 
@@ -186,12 +162,12 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 - [Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
-- Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
+- Find the object ID, app (client) ID, or identifier URI of the app, which you need in the following steps.  You can find these values in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, get the **Object ID**, **Application (client) ID**, or **Application ID URI** value, which you need in the following steps.
 - Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 ## Configure a federated identity credential on an app
 
-Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-credential) command to create a new federated identity credential on your app (specified by the object ID of the app).  
+Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-credential) command to create a new federated identity credential on your app.  
 
 The *id* parameter specifies the identifier URI, application ID, or object ID of the application.  *parameters* specifies the parameters, in JSON format, for creating the federated identity credential.
 
@@ -250,7 +226,7 @@ You can configure a federated identity credential on an app and create a trust r
 
 *name* is the name of the federated credential, which can't be changed later.
 
-*ObjectID*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
+*id*: the object ID, application (client) ID, or identifier URI of the app.
 
 *subject*: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
 
