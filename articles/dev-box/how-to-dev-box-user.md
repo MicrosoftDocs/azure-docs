@@ -24,7 +24,7 @@ A DevCenter Dev Box User can:
 
 ## Assign permissions to dev box users
 
-1. In the [Azure portal](https://portal.azure.com), use the Search box to locate Dev Box resources, and select Projects. 
+1. In the [Azure portal](https://portal.azure.com), use the search box to locate Dev Box resources, and select Projects. 
 
 1. Select the project you want to provide your team members access to.
  
