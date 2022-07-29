@@ -83,15 +83,16 @@ Example: (Replace the \<placeholders\> with your values.)
 
 ```azurecli
 az containerapp revision show \
-  --name <REVISION_NAME> \
+  --name <APPLICATION_NAME> \
+  --revision <REVISION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp revision show `
-  --name <REVISION_NAME> `
+  --name <APPLICATION_NAME> `
+  --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
