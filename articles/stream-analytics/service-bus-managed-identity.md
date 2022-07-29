@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/25/2022
+ms.date: 07/19/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -75,6 +75,9 @@ Now that your managed identity is configured, you're ready to add the Service 
 1. Select **Add > Service Bus queue or Service Bus topic**. In the output properties window, search and select your Service Bus account and select **Managed Identity: System assigned** from the *Authentication mode* drop-down menu.
 
 1. Fill out the rest of the properties and select **Save**.
+
+### Limitation
+Test connection on the azure portal is not expected to work when authentication mode for Service Bus is set to user-assigned or system-assigned managed identity.
 
 ## Next steps
 
