@@ -77,7 +77,7 @@ Follow these steps to make a user eligible for an Azure resource role.
 
     - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
 
-    - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
+    - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned ready to use.
 
 1. To specify a specific assignment duration, change the start and end dates and times.
 
