@@ -4,7 +4,7 @@ description: You can use the Azure Monitor HTTP Data Collector API to add POST J
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2021
+ms.date: 07/14/2022
 
 ---
 
@@ -173,7 +173,7 @@ The data posted to the Azure Monitor Data collection API is subject to certain c
 * Maximum of 32 KB for field values. If the field value is greater than 32 KB, the data will be truncated.
 * Recommended maximum of 50 fields for a given type. This is a practical limit from a usability and search experience perspective.  
 * Tables in Log Analytics workspaces support only up to 500 columns (referred to as fields in this article). 
-* Maximum of 50 characters for column names.
+* Maximum of 45 characters for column names.
 
 ## Return codes
 The HTTP status code 200 means that the request has been received for processing. This indicates that the operation finished successfully.

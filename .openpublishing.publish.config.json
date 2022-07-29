@@ -813,8 +813,8 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-spring-cloud-reference-architecture",
-      "url": "https://github.com/Azure/azure-spring-cloud-reference-architecture",
+      "path_to_root": "azure-spring-apps-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -885,6 +885,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-cosmos-tableapi-dotnet",
+      "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
+      "branch": "v12",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "msdocs-django-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
       "branch": "main",
@@ -941,7 +947,7 @@
     {
       "path_to_root": "azure-cosmos-mongodb-dotnet",
       "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
-      "branch": "quickstart-test",
+      "branch": "main",
       "branch_mapping": {}
     }
   ],
@@ -1010,9 +1016,11 @@
     "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
+    "articles/spring-apps/.openpublishing.redirection.spring-apps.json",
     "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
     "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
     "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
-    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json"
+    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
+    ".openpublishing.redirection.virtual-desktop.json"
   ]
 }

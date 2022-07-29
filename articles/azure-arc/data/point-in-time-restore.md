@@ -197,14 +197,8 @@ The backups are stored under `/var/opt/mssql/backups/archived/<dbname>/<datetime
 
 Point-in-time restore to Azure Arc-enabled SQL Managed Instance has the following limitations:
 
-- Point-in-time restore of a whole Azure Arc-enabled SQL Managed Instance is not possible. 
-- An Azure Arc-enabled SQL managed instance that is deployed with high availability does not currently support point-in-time restore.
-- You can only restore to the same Azure Arc-enabled SQL managed instance.
-- Dropping and creating different databases with same names isn't handled properly at this time.
-- Providing a future date when executing the restore operation using ```--dry-run``` will result in an error
-
-
-
+- Point-in-time restore is database level feature, not an instance level feature. You cannot restore the entire instance with Point-in-time restore.
+- You can only restore to the same Azure Arc-enabled SQL managed instance from where the backup was taken.
 
 ## Next steps
 
