@@ -54,6 +54,7 @@ Follow the instructions below to add role assignments for this role.
 
 The user will now be able to manage the project and create dev box pools within it.
 
+[!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 ## Next steps
 
 - [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md)
