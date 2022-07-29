@@ -16,6 +16,9 @@ ms.author: mbaldwin
 
 This article outlines the Azure Payment HSM prerequisites, support channels, and division of support responsibility between Microsoft, Thales, and the customer.
 
+> [!IMPORTANT]
+> There is no service-level agreement (SLA) during the Azure Payment HSM public preview. Use of this service for production workloads will not be supported until GA.
+
 ## Prerequisites
 
 Microsoft will work with Thales to ensure that customers meet the prerequisites before starting the onboarding process.
