@@ -538,7 +538,7 @@ Once you've added a code sample to your application, navigate back to your main 
 > [!div class="nextstepaction"]
 > [I built my application](#run-your-application-javascript) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-javascript)
 
-### Run your application (Javascript)
+### Run your application (JavaScript)
 
 Once you've added the code sample to your application, run your program:
 
@@ -702,7 +702,7 @@ After a successful call, you should see the following response:
 
 ## Next steps
 
-That's it, congratulations! You have learned to use the Translator service to translate text.
+That's it, congratulations! You've learned to use the Translator service to translate text.
 
  Explore our how-to documentation and take a deeper dive into Translation service capabilities:
 
