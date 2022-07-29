@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 07/28/2022
+ms.date: 07/29/2022
 ms.custom: references_regions
 ms.author: barclayn
 
