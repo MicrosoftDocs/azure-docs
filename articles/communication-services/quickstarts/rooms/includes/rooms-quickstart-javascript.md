@@ -86,7 +86,7 @@ console.log(`Retrieved Room with ID ${roomId}`);
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```javascript
 validFrom.setTime(validUntil.getTime());
@@ -127,6 +127,14 @@ To add new participants to a `room`, use the `addParticipants` method exposed on
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
+
+### Get list of participants
+
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+
+```javascript
+  const participantsList = await roomsClient.getParticipants(roomId);
+```
 
 ### Remove participants
 
