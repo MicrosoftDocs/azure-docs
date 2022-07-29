@@ -134,7 +134,7 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 - Accept wildcard characters: False
 
 ## Tenant-level access
-[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservation Administrator and Reservation Reader roles at the tenant level.
+[User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservation Administrator and Reservation Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
 
 ## Add a Reservation Administrator role at the tenant level
 

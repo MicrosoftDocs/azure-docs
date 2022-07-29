@@ -53,14 +53,7 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ### <a name="view"></a>View files
 
-Unzip the file to view the following folders.
-
-* **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
-* **Generic**, which contains general information used to create your own VPN client configuration. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder isn’t present.
-
-To connect to Azure, you manually configure the native IKEv2 VPN client. Azure doesn’t provide a *mobileconfig* file. You can find all of the information that you need for configuration in the **Generic** folder.
-
-If you don't see the Generic folder, check the following items, then generate the zip file again.
+Unzip the file to view the folders. When you configure macOS native clients, you use the files in the **Generic** folder. The Generic folder is present if IKEv2 was configured on the gateway. You can find all of the information that you need to configure the native VPN client in the **Generic** folder. If you don't see the Generic folder, check the following items, then generate the zip file again.
 
 * Check the tunnel type for your configuration. It's likely that IKEv2 wasn’t selected as a tunnel type.
 * On the VPN gateway, verify that the SKU isn’t Basic. The VPN Gateway Basic SKU doesn’t support IKEv2. Then, select IKEv2 and generate the zip file again to retrieve the Generic folder.
@@ -158,11 +151,13 @@ Configure authentication settings. There are two sets of instructions. Choose th
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-cert-mac/expanded/connected.png":::
 
-##  <a name="openvpn-macOS"></a>OpenVPN - macOS steps
+##  <a name="openvpn-macOS"></a>OpenVPN Client - macOS steps
 
 >[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
-##  <a name="OpenVPN-iOS"></a>OpenVPN - iOS steps
+##  <a name="OpenVPN-iOS"></a>OpenVPN Client - iOS steps
+
+The following steps use **OpenVPN Connect** from the App store.
 
 >[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 

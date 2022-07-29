@@ -3,7 +3,7 @@ title: Auto scale Azure SignalR Service
 description: Learn how to autoscale Azure SignalR Service.
 author: zackliu
 ms.service: signalr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/06/2022
 ms.author: chenyl
 ---
