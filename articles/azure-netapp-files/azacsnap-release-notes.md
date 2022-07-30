@@ -22,7 +22,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 ## Jul-2022
 
-### AzAcSnap 6 (Build: 1A5EAD9)
+### AzAcSnap 6 (Build: 1A5F0B8)
 
 > [!IMPORTANT]
 > AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
