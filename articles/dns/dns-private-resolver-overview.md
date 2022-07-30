@@ -89,8 +89,8 @@ An outbound endpoint enables conditional forwarding name resolution from Azure t
 
 > [!NOTE]
 > Outbound Endpoints will be used for DNS resolution from Azure to On-Premise.
-> Azure Resource will use the DNS Forwarder and if a Outbound Rule match the request will be forwarded On-Premise.
-> On the DNS Forwarder Rule is important to set the correct DNS Domain and one or more IPs. These IPs are your DNS Servers On-Premise.
+> Azure Resource will use the DNS Private Resolver and if a Outbound Rule match the request will be forwarded On-Premise.
+> On the DNS Private Resolver Rule is important to set the correct DNS Domain and one or more IPs. These IPs are your DNS Servers On-Premise.
 
 ## Virtual network links
 
