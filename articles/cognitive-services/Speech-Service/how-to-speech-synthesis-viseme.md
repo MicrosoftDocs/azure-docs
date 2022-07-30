@@ -88,7 +88,7 @@ using (var synthesizer = new SpeechSynthesizer(speechConfig, audioConfig))
         var animation = e.Animation;
     };
 
-    var result = await synthesizer.SpeakSsmlAsync(ssml));
+    var result = await synthesizer.SpeakSsmlAsync(ssml);
 }
 
 ```
