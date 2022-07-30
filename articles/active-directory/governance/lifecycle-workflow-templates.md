@@ -162,13 +162,15 @@ The default specific parameters for the **Offboard an employee** template are as
 
 The default tasks for the **Offboard an employee** template:
 
-- Disable User Account
-- Remove user from all groups
-- Remove user from all Teams
+- **Disable User Account**
+- **Remove user from all groups**
+- **Remove user from all Teams**
 
 ### Post-Offboarding of an employee
 
 The **Post-Offboarding of an employee** template is designed to configure tasks that will be completed after an employee's last day of work.
+:::image type="content" source="media/lifecycle-workflow-templates/lcw-offboard-post-employee-template.png" alt-text="lcw post offboarding employee template":::
+
 
 |parameter  |description  |Customizable  |
 |---------|---------|---------|
@@ -182,9 +184,9 @@ The **Post-Offboarding of an employee** template is designed to configure tasks 
 
 The default tasks for the **Post-Offboarding of an employee** template:
 
-- Remove all licenses for user
-- Remove user from all Teams
-- Delete User Account
+- **Remove all licenses for user**
+- **Remove user from all Teams**
+- **Delete User Account**
 
 
 ## Next steps
