@@ -122,7 +122,7 @@
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
-  - name: Considerations when using at scale
+  - name: Use at scale
     href: considerations-when-use-at-scale.md
   - name: Network Security
     href: network-security.md
