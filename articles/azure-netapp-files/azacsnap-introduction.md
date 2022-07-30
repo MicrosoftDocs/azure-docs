@@ -91,12 +91,14 @@ The command options are as follows with the commands as the main bullets and the
   - **`--details replication`** Provides basic details around the replication status from the production site to the disaster-recovery site.
   - refer to [details command reference](azacsnap-cmd-ref-details.md).
 - **`-c delete`** This command deletes a storage snapshot or a set of snapshots. You can use either the SAP HANA Backup ID as found in HANA Studio or the storage snapshot name. The Backup ID is only tied to the `hana` snapshots, which are created for the data and shared volumes. Otherwise, if the snapshot name is entered, it searches for all snapshots that match the entered snapshot name.
-  - see the [delete](azacsnap-cmd-ref-delete.md).
+  - see the [delete command reference](azacsnap-cmd-ref-delete.md).
 - **`-c restore`** provides two methods to restore a snapshot to a volume, by either creating a new volume based on the snapshot or rolling back a volume to a previous state.
   - **`--restore snaptovol`** Creates a new volume based on the latest snapshot on the target volume.
   - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.
   - refer to [restore command reference](azacsnap-cmd-ref-restore.md).
 - **`[--configfile <configfilename>]`** The optional  command-line parameter to provide a different JSON configuration filename.  This is particularly useful for creating a separate configuration file per SID (e.g `--configfile H80.json`).
+- **`[--runbefore]`** and **`[--runafter]`** are optional commands to run external commands or shell scripts before and after the execution of AzAcSnap's main logic.
+  - refer to [runbefore/runafter command reference](azacsnap-cmd-ref-runbefore-runafter.md).
 - **`[--preview]`** Optional command-line option, required when using Preview Features, more information on the [Preview](azacsnap-preview.md) page.
 
 ## Next steps
