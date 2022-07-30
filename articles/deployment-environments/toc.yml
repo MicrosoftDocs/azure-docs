@@ -1,12 +1,17 @@
 items: 
 - name: Azure Deployment Environments documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is Azure Deployment Environments?
+      displayName: ADE Overview
+      href: overview-what-is-azure-deployment-environments.md
+- name: Tutorials
+  displayName: Tutorials
   expanded: true
   items:
-  - name: Tutorials
-    displayName: DevCenter Tutorials
-    expanded: true
-    items:
     - name: Create and configure DevCenter
       href: tutorial-create-and-configure-devcenter.md
     - name: Create and configure a DevCenter Project
-      href: tutorial-create-and-configure-projects.md    
+      href: tutorial-create-and-configure-projects.md  
