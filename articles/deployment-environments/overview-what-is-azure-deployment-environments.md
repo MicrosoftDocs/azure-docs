@@ -1,6 +1,6 @@
 ---
 title: What is Azure Deployment Environments?
-description: 'Azure Load Testing is a fully managed load-testing service for generating high-scale loads and identifying performance bottlenecks. Quickly create a load test based on a URL or by using existing JMeter scripts.'
+description: 'Azure Deployment Environments is an Azure service that enables developers to deploy on-demand environments using self-service, project-specific templates pre-configured by dev infra teams for any stage of development, to establish consistency and best practices while maximizing security, compliance, and cost efficiency.'
 ms.service: deployment-environments
 ms.topic: overview
 ms.author: meghaanand
@@ -14,7 +14,7 @@ Azure Deployment Environments is an Azure service that enables enterprises to pr
 
 With Azure Deployment Environments, devOps can quickly and easily spin-up app infrastructure with project-based templates that establish consistency and best practices while maximizing security, compliance, and cost efficiency. 
 
-Azure Deployment Environments provide self-serve capability to developers enabling them to deploy on-demand environments quickly, making it easy to test the latest versions of their applications. This helps accelerate the software development lifecycle.
+Azure Deployment Environments provide self-serve capability to developers by enabling them to deploy on-demand environments easily to test the latest versions of their applications. Developments teams can deploy environments from a catalog of project-specific templates pre-configured by their dev infra/IT teams for different stages of development. This helps accelerate the software development lifecycle.
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Azure Deployment Environments scenario flow.":::
 
