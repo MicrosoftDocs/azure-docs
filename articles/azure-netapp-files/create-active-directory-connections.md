@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 07/29/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -121,7 +121,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
         ![Screenshot of the AES description field which is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
         
         See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
-  
+          ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
+
     * <a name="ldap-signing"></a>**LDAP Signing**   
 
         This option enables LDAP signing. This functionality enables integrity verification for Simple Authentication and Security Layer (SASL) LDAP binds from Azure NetApp Files and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). 
@@ -243,7 +244,34 @@ This feature is currently in preview. You need to register the feature before us
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
- 
+
+## <a name="reset-active-directory"></a> Reset Active Directory computer account password
+
+If you accidentally reset the password of the AD computer account on the AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
+
+### Register the feature
+
+The reset Active Directory computer account password feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
+
+1. Register the **reset Active Directory computer account password** feature:   
+```azurepowershell-interactive
+Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
+```
+2.   Check the status of the feature registration. The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
+```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
+
+### Steps
+
+1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**.
+:::image type="content" source="../media/azure-netapp-files/active-directory-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-overview.png":::
+Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the meatballs menu at the end of the row. Select **Reset Active Directory Account**.
+:::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
+2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
+:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed.." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
+
 ## Next steps  
 
 * [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
