@@ -56,7 +56,7 @@ To allow the services to perform these actions, you must provide permissions to 
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/assign-managed-id.png" alt-text="Screenshot showing the Add user assigned managed identity pane, with the managed ID highlighted."::: 
 
-### Attaching a gallery
+### How does the Dex Box service assign permissions?
 The Dev Box service behaves differently depending how you attach your gallery.
 - When you use the Azure Portal to attach the gallery to your Dev center, the Dev Box service creates the necessary role assignments automatically when you attach the gallery.
 - When you use the CLI to attach the gallery to your Dev center, you must manually create the Windows 365 Service Principal and dev center Managed Identity role assignments before attempting to attach the gallery.
