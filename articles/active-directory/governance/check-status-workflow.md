@@ -156,16 +156,6 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/work
 > [!NOTE]
 > A workflow must have activity in the past 7 days to get **userProcessingResults ID**. If there has not been any activity in that time-frame, the **userProcessingResults** call will not return a value.
 
-## Supported statuses
-
-|Status  |Description  |
-|---------|---------|
-|Canceled     |  The task or workflow was canceled       |
-|Failed     |    The task or workflow failed     |
-|InProgress     | The task or workflow is in progress        |
-|Queued     | The task or workflow hasn't started        |
-|Completed     |  The task or workflow succeeded       |
-
 
 ## Next steps
 

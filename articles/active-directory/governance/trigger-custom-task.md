@@ -50,7 +50,7 @@ To create a Logic App, you'd follow these steps:
 
 
 > [!NOTE]
-> The Logic App must be made within the same tenant as the custom task extension. For a list of compatible roles for Logic Apps with Lifecycle Workflows, see: [Logic App parameters required for integration with the custom task extension](lifecycle-workflow-extensibility.md#logic-app-parameters-required-for-integration-with-the-custom-task-extension).
+> The Logic App must be made within the same tenant as the custom task extension and must have proper roles defined. For a list of compatible roles for Logic Apps with Lifecycle Workflows, see: [Prerequisite Logic App roles required for integration with the custom task extension](lifecycle-workflow-extensibility.md#prerequisite-logic-app-roles-required-for-integration-with-the-custom-task-extension).
 
 ## Configure Logic Apps for LCW use
 
@@ -356,7 +356,7 @@ An example response is as follows:
 You'll then take the custom extension **id**, and use it as the value in the customTaskExtensionId parameter for the custom task example here:
 
 > [!NOTE]
-> The new “Run a Custom Task Extension” task is already available in the Private Preview UI.
+> The new “Run a Custom Task Extension” task is already available in the Public Preview UI.
 
 ```Example of Custom Task extension task
 "tasks":[
