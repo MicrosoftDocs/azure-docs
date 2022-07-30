@@ -18,44 +18,48 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Azure portal tutorials
+    - name: Govern access to applications
+      items:
+      - name: Automate identity governance tasks - PowerShell
+        href: identity-governance-automation.md
+      - name: Governing an application's existing users - PowerShell
+        href: identity-governance-applications-existing-users.md
+      - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
+        href: tutorial-prepare-azuread-user-accounts.md 
+    - name: Entitlement Management
       items:
       - name: Manage access to resources - Azure portal
         href: entitlement-management-access-package-first.md
-      - name: Manage the lifecycle of your group-based licenses in Azure AD
-        href: entitlement-management-group-licenses.md
-      - name: Onboard external users to Azure AD through an approval process
-        href: entitlement-management-onboard-external-user.md
-      - name: On-boarding users to your organization using Lifecycle workflows with Azure portal (Preview)
-        href: tutorial-onboard-custom-workflow-portal.md
-      - name: Off-boarding users from your organization using Lifecycle workflows with Azure portal (Preview)
-        href: tutorial-offboard-custom-workflow-portal.md
-      - name: Post off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)
-        href: tutorial-scheduled-leaver-portal.md  
-    - name: API tutorials
-      items:
       - name: Manage access to resources - Microsoft Graph
         href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Manage access to resources - PowerShell
         href: /powershell/microsoftgraph/tutorial-entitlement-management
+      - name: Manage the lifecycle of your group-based licenses in Azure AD
+        href: entitlement-management-group-licenses.md
+      - name: Onboard external users to Azure AD through an approval process
+        href: entitlement-management-onboard-external-user.md
+    - name: Access Reviews
+      items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
         href: /graph/tutorial-accessreviews-m365group
       - name: Review access to security groups - Microsoft Graph
         href: /graph/tutorial-accessreviews-securitygroup
       - name: Review access to privileged roles - Microsoft Graph
         href: /graph/tutorial-accessreviews-roleassignments
-      - name: Automate identity governance tasks - PowerShell
-        href: identity-governance-automation.md
-      - name: Governing an application's existing users - PowerShell
-        href: identity-governance-applications-existing-users.md
-      - name: Preparing user accounts for Lifecycle workflows tutorials (Preview)
-        href: tutorial-prepare-azuread-user-accounts.md  
+    - name: Lifecycle Workflows (Preview)
+      items:
+      - name: On-boarding users to your organization using Lifecycle workflows with Azure portal (Preview)
+        href: tutorial-onboard-custom-workflow-portal.md 
       - name: On-boarding users from your organization using Lifecycle workflows with Microsoft Graph (Preview)
-        href: tutorial-onboard-custom-workflow-graph.md 
+        href: tutorial-onboard-custom-workflow-graph.md
+      - name: Off-boarding users from your organization using Lifecycle workflows with Azure portal (Preview)
+        href: tutorial-offboard-custom-workflow-portal.md
       - name: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (Preview)
-        href: tutorial-offboard-custom-workflow-graph.md  
+        href: tutorial-offboard-custom-workflow-graph.md
+      - name: Post off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)
+        href: tutorial-scheduled-leaver-portal.md  
       - name: Post off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)
-        href: tutorial-scheduled-leaver-graph.md  
+        href: tutorial-scheduled-leaver-graph.md 
 - name: Concepts
   expanded: true
   items:
