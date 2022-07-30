@@ -41,6 +41,39 @@ This article explains how to find the IP address of your search service and conf
    aliases:  contoso.search.windows.net
    ```
 
+## Allow access from your client IP address
+
+Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service).
+
+Add your client IP address to allow access to the service from the Azure portal on your current computer. Navigate to the **Networking** section on the left navigation pane. Change **Public Network Access** to **Selected networks**, and then check **Add your client IP address** under **Firewall**.
+
+   :::image type="content" source="media\service-configure-firewall\azure-portal-firewall.png" alt-text="Screenshot of adding client ip to search service firewall" border="true":::
+
+## Get the Azure portal IP address
+
+If you're using the portal or the [Import Data wizard](search-import-data-portal.md) to create an indexer, you'll need an inbound rule for the portal as well.
+
+To get the portal's IP address, perform `nslookup` (or `ping`) on `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. For nslookup, the IP address is visible in the "Non-authoritative answer" portion of the response. 
+
+In the example below, the IP address that you should copy is "52.252.175.48".
+
+```bash
+$ nslookup stamp2.ext.search.windows.net
+Server:  ZenWiFi_ET8-0410
+Address:  192.168.50.1
+
+Non-authoritative answer:
+Name:    azsyrie.northcentralus.cloudapp.azure.com
+Address:  52.252.175.48
+Aliases:  stamp2.ext.search.windows.net
+          azs-ux-prod.trafficmanager.net
+          azspncuux.management.search.windows.net
+```
+
+Services in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
+
+For ping, the request will time out, but the IP address will be visible in the response. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
+
 ## Get IP addresses for "AzureCognitiveSearch" service tag
 
 You'll also need to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). This environment is managed by Microsoft and it's used to offload processing intensive jobs that could otherwise overwhelm your search service. This section explains how to get the range of IP addresses needed to create this inbound rule.

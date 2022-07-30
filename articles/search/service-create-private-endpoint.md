@@ -217,11 +217,9 @@ When the search service endpoint is private, some portal features are disabled. 
 
 <a id="portal-access-private-search-service"></a>
 
-## Use the Portal to access a private search service
+## Use the Azure portal to access a private search service
 
 When the search service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. To work around this restriction, connect to Azure portal from a browser on a virtual machine inside the virtual network. The portal uses the private endpoint on the connection and gives you visibility into content and operations.
-
-### Use a virtual machine to access the portal
 
 1. Follow the [steps to provision a VM that can access the search service through a private endpoint](#create-virtual-machine-private-endpoint).
 1. On a virtual machine in your virtual network, open a browser and sign into the Azure portal. The portal will use the private endpoint attached to the virtual machine to connect to your search service.
