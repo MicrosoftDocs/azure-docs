@@ -213,12 +213,6 @@ Verify your storage is mounted by running the following command:
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
-Verify your configuration by running the following command:
-
-```azurecli
-az webapp config storage-account list --resource-group <resource-group> --name <app-name>
-```
-
 ---
 
 > [!NOTE]

@@ -9,9 +9,6 @@ manager: femila
 ---
 # Use Microsoft Teams on Azure Virtual Desktop
 
->[!IMPORTANT]
->Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams isn't supported for Microsoft 365 DoD.
-
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the following two clients:
 >
@@ -48,7 +45,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4YM8L) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
