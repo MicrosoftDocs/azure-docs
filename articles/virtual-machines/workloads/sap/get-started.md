@@ -22,13 +22,13 @@ ms.custom: H1Hack27Feb2017
 
 # Use Azure to host and run SAP workload scenarios
 
-When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL server, oracle, Db2, etc, we've got you covered.
+When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL Server, Oracle, Db2, etc, we've got you covered.
 
 Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. 
 
-We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP 2.0 entering the public previe stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
+We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP 2.0 entering the public previev stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
-For customers and partners who focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP Deployment Automation Framework (SDAF) to jump start your SAP deployments into Azure using our public Terraform and ansible modules on [github](https://github.com/Azure/sap-automation).
+For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP Deployment Automation Framework (SDAF) to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "Azure AD SAP identity integration and single sign-on."
 
