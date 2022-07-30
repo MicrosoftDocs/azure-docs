@@ -43,8 +43,8 @@
     href: manage-multiple-tenants.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Add contributor role to Media Services
-    href: add-contributor-role-on-the-media-service.md
+  - name: Use at scale
+    href: considerations-when-use-at-scale.md
   - name: Insights
     items:
     - name: Language identification model
@@ -101,6 +101,8 @@
     href: connect-classic-account-to-arm.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
+  - name: Add contributor role to Media Services
+    href: add-contributor-role-on-the-media-service.md    
   - name: Use Azure Video Indexer API
     href: video-indexer-use-apis.md
   - name: Upload and index videos
@@ -122,8 +124,6 @@
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
-  - name: Use at scale
-    href: considerations-when-use-at-scale.md
   - name: Network Security
     href: network-security.md
   - name: Disaster recovery
