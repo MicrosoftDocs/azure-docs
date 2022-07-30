@@ -113,6 +113,20 @@ the parameters for the **clientConfiguration** argument are:
 
 For a complete example of the custom task extension API, see [Linking Lifecycle Workflows with Logic Apps using Microsoft Graph](trigger-custom-task.md#linking-lifecycle-workflows-with-logic-apps-using-microsoft-graph).
 
+## Information sent to the Logic App from the custom task extension
+
+
+When the required information above are added to a customTaskExtension instance you are able to call out to a Logic App. This call out information, known as the customTaskExtensionCalloutData, sends the following information to the Logic App:
+
+
+
+|parameter  |Description  |
+|---------|---------|
+|Subject     | The workflow's subject. Includes a subject ID, name, and email for the subject and the subject manager. Also includes user principal name for the subject.       |
+|workflow     |  The workflow where the task is running inside of. Workflow ID, version number, and display name is included.       |
+|task     | The task which is running the workflow.Includes the task ID and display name        |
+|callbackUriPath     | The path in Microsoft graph used to call back to the workflow to resume.         |
+
 
 
 ## Next steps
