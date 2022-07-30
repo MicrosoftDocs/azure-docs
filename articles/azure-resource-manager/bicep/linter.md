@@ -2,7 +2,7 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 07/29/2022
 ---
 
 # Use Bicep linter
@@ -29,6 +29,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
+- [prefer-unquoted-property-names](./linter-rule-prefer-unquoted-property-names.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)

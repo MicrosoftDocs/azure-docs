@@ -1,7 +1,7 @@
 ---
-title: Integrate communication as Teams user with Azure Communication Services
+title: Communication as Teams user
 titleSuffix: An Azure Communication Services concept document
-description: This article discusses how to integrate communication as Teams user with Azure Communication Services.
+description: This article discusses how to integrate communication as Teams user with Azure Communication Services and Graph API.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
-# Integrate communication as Teams user with Azure Communication Services and Graph API
+# Communication as Teams user
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
