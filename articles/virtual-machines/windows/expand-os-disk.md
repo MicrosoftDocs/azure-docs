@@ -6,7 +6,7 @@ manager: roshar
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.date: 12/02/2021
+ms.date: 07/29/2022
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
@@ -21,15 +21,15 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 - To migrate a physical PC or VM from on-premises with a larger OS drive.
 
 > [!IMPORTANT]
-> Unless you use [Resize without downtime (preview)](#resize-without-downtime-preview), resizing an OS or data disk of an Azure VM requires the VM to be deallocated.
+> Unless you use [Expand without downtime (preview)](#expand-without-downtime-preview), resizing a data disk requires the VM to be deallocated.
 >
 > Shrinking an existing disk isn’t supported, and can potentially result in data loss.
 > 
 > After expanding the disks, you need to [Expand the volume in the operating system](#expand-the-volume-in-the-operating-system) to take advantage of the larger disk.
 
-## Resize without downtime (preview)
+## Expand without downtime (preview)
 
-You can now resize your managed disks without deallocating your VM.
+You can now expand your managed disks without deallocating your VM.
 
 The preview for this has the following limitations:
 
@@ -50,7 +50,7 @@ Get-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Co
 ## Resize a managed disk in the Azure portal
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 1. To resize a disk without downtime in the Azure portal, you must use the following link: [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
+> If you've enabled **LiveResize** and your disk meets the requirements in [Expand without downtime (preview)](#expand-without-downtime-preview), you can skip step 1. To expand a disk without downtime in the Azure portal, you must use the following link: [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
 
 1. In the [Azure portal](https://aka.ms/iaasexp/DiskLiveResize), go to the virtual machine in which you want to expand the disk. Select **Stop** to deallocate the VM.
 1. In the left menu under **Settings**, select **Disks**.
@@ -58,7 +58,7 @@ Get-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Co
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot that shows the Disks option selected in the Settings section of the menu.":::
 
  
-1. Under **Disk name**, select the disk you want to resize.
+1. Under **Disk name**, select the disk you want to expand.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot that shows the Disks pane with a disk name selected.":::
 
@@ -105,7 +105,7 @@ $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 4 and 6.
+> If you've enabled **LiveResize** and your disk meets the requirements in [expand without downtime (preview)](#expand-without-downtime-preview), you can skip step 4 and 6.
 
 Stop the VM before resizing the disk:
    

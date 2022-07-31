@@ -18,7 +18,7 @@
   items:
     - name: Azure portal tutorials
       items:
-      - name: Manage access to resources - Azure portal
+      - name: Manage access to resources
         href: entitlement-management-access-package-first.md
       - name: Manage the lifecycle of your group-based licenses in Azure AD
         href: entitlement-management-group-licenses.md
@@ -55,8 +55,8 @@
       href: manage-access-review.md
     - name: Manage users excluded from Conditional Access
       href: conditional-access-exclusion.md
-    - name: Review recommendations for group access reviews
-      hreg: peer-outlier-access-reviews.md
+    - name: Review recommendations for access reviews
+      href: review-recommendations-access-reviews.md
   - name:  Review and remove users from external organizations
     href: access-reviews-external-users.md
 - name: How-to guides

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 07/27/2022
 ---
 
 # Indexers in Azure Cognitive Search
@@ -37,22 +37,18 @@ You can use an indexer as the sole means for data ingestion, or in combination w
 
 Indexers crawl data stores on Azure and outside of Azure.
 
-+ [Amazon Redshift](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
-+ [Azure MySQL](search-howto-index-mysql.md) (in preview)
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
-+ [Elasticsearch](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [PostgreSQL](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Salesforce Objects](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Salesforce Reports](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Smartsheet](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Snowflake](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 + [Azure Files](search-file-storage-integration.md) (in preview)
++ [Azure MySQL](search-howto-index-mysql.md) (in preview)
++ [SharePoint in Microsoft 365](search-howto-index-sharepoint-online.md) (in preview)
++ [Azure Cosmos DB (MongoDB API)](search-howto-index-cosmosdb-mongodb.md) (in preview)
++ [Azure Cosmos DB (Gremlin API)](search-howto-index-cosmosdb-gremlin.md) (in preview)
 
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 

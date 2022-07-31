@@ -33,7 +33,7 @@ The HSM devices will be charged based on the service pricing page. All other Azu
 
 ## payShield customization considerations
 
-If you are using payShield on-premise today with a custom firmware, a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
+If you are using payShield on-premises today with a custom firmware, a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
 
 Ensure that the following information is provided:
 - Customization hardware platform (e.g., payShield 9000 or payShield 10K)
@@ -41,19 +41,7 @@ Ensure that the following information is provided:
 
 ## Support
 
-There is no service-level agreement (SLA) for this public preview.  Use of this service for production workloads isn't supported
-
-The HSM base firmware installed in public preview is Thales payShield10K base software version 1.4a 1.8.3.
-
-Microsoft will provide support for hardware issues, networking issues, and provisioning issues. Support tickets can be created from the Azure portal. Select **Dedicated HSM** as the Service Type, and mention "payment HSM" in the summary field, with a severity case of B or C.
-
-Support through engineering escalation is only available during business hours: Monday - Friday, 9 AM - 5 PM PST.
-
-Thales provides application-level support, such as client software, HSM configuration, and backup.
-
-Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs. Thales payShield10K versions prior to 1.4a 1.8.3. aren't supported
-
-Microsoft will apply payShield security patches to unallocated HSMs.
+For details on Azure Payment HSM prerequisites, support channels, and division of support responsibility between Microsoft, Thales, and the customer, see the [Azure Payment HSM service support guide](support-guide.md).
 
 ## Next steps
 
@@ -61,5 +49,3 @@ Microsoft will apply payShield security patches to unallocated HSMs.
 - See some common [deployment scenarios](deployment-scenarios.md)
 - Learn about [Certification and compliance](certification-compliance.md)
 - Read the [frequently asked questions](faq.yml)
-
-
