@@ -255,12 +255,12 @@
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions
     items:
-  - name: General FAQ
-    href: faqs-general.md
-  - name: OT networks FAQ
-    href: faqs-ot.md
-  - name: Enterprise IoT networks FAQ
-    href: faqs-eiot.md
+    - name: General FAQ
+      href: faqs-general.md
+    - name: OT networks FAQ
+      href: faqs-ot.md
+    - name: Enterprise IoT networks FAQ
+      href: faqs-eiot.md
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
 - name: Resources
