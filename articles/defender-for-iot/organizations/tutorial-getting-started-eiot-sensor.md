@@ -42,12 +42,23 @@ In Defender for Endpoint, you can view discovered IoT devices and related alerts
 
 ## Prerequisites
 
-Before you start, make sure that you have:
-
 - Added a Defender for IoT plan for Enterprise IoT networks to your Azure subscription from the Microsoft Defender for Endpoint portal.
 To onboard a plan, see [Onboard with Microsoft Defender for IoT](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 - Required Azure permissions, as listed in [Quickstart: Getting Started with Defender for IoT](getting-started.md#permissions).
+
+- A physical or virtual machine with the following specifications
+
+    | Tier | Requirements |
+    |--|--|
+    | **Minimum** | To support up to 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
+    | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
+
+    Make sure that your appliance or VM also has:
+
+    - [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+
+    - Two network adapters, one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
 
 ## Set up a physical or virtual machine
 
@@ -64,8 +75,10 @@ Before you deploy your Enterprise IoT sensor, you'll need to configure your serv
 
     Make sure that your appliance or VM also has:
 
-    - [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system
+    - [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+
     - Two network adapters, one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
+
 
 1. Connect a network interface (NIC) from your physical appliance or VM to a switch as follows:
 
@@ -89,6 +102,40 @@ Before you deploy your Enterprise IoT sensor, you'll need to configure your serv
 
     where *monitoring port* is an interface you want to monitor. Repeat this step for each interface you want to monitor.
 
+
+## Configure a monitoring interface (SPAN)
+
+While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
+
+*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
+
+For more information, see [Purdue reference model and Defender for IoT](../best-practices/understand-network-architecture.md#purdue-reference-model-and-defender-for-iot).
+
+**To configure a SPAN port with ESXi**:
+
+1. Open vSwitch properties.
+
+1. Select **Add**.
+
+1. Select **Virtual Machine** > **Next**.
+
+1. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
+
+1. Select **Finish**.
+
+1. Select **SPAN Network** > **Edit*.
+
+1. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
+
+1. Select **OK**, and then select **Close** to close the vSwitch properties.
+
+1. Open the **OT Sensor VM** properties.
+
+1. For **Network Adapter 2**, select the **SPAN** network.
+
+1. Select **OK**.
+
+1. Connect to the sensor, and verify that mirroring works.
 
 ## Prepare networking requirements
 
@@ -155,6 +202,10 @@ Run the command that you received and saved when you registered the Enterprise I
     The installation wizard appears when the command process completes:
 
     - In the **What is the name of the monitored interface?** screen, use the SPACEBAR to select the interfaces you want to monitor with your sensor, and then select OK.
+
+        For example:
+
+        :::image type="content" source="media/tutorial-get-started-eiot/install-monitored-interface.png" alt-text="Screenshot of the Configuring microsoft-eiot-sensor screen.":::
 
     - In the **Set up proxy server** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**).
 
