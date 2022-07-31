@@ -62,11 +62,11 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 #### Private link
 
-The Defender for Container's Kubernetes agent doesn't support the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
-:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to tirn data ingestion off.":::
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
 
-By doing this, you‘ll cause the agent to malfunction due to communication failures.
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
@@ -124,11 +124,11 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 #### Private link
 
-The Defender for Container's Kubernetes agent doesn't support the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
-:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to tirn data ingestion off.":::
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
 
-By doing this, you‘ll cause the agent to malfunction due to communication failures.
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
@@ -190,11 +190,11 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 #### Private link
 
-The Defender for Container's Kubernetes agent doesn't support the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
-:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to tirn data ingestion off.":::
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
 
-By doing this, you‘ll cause the agent to malfunction due to communication failures.
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
@@ -269,11 +269,11 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 #### Private link
 
-The Defender for Container's Kubernetes agent doesn't support the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
+Defender for Containers relies on the Defender profile\extension for several features. The Defender profile\extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that no machine can send data to that workstation except those that are configured to send traffic through Azure Monitor Private Link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
-:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to tirn data ingestion off.":::
+:::image type="content" source="media/supported-machines-endpoint-solutions-cloud-containers/network-access.png" alt-text="Screenshot that shows where to go to turn data ingestion off.":::
 
-By doing this, you‘ll cause the agent to malfunction due to communication failures.
+Allowing data ingestion to occur only through Private Link Scope on your workspace Network Isolation settings, can result in communication failures and partial converge of the Defender for Containers feature set.
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
