@@ -45,6 +45,15 @@
 - name: Tutorials
   expanded: true
   items:
+    - name: Python get started (Day 1)
+      expanded: true
+      items: 
+        - name: 1. Run a Python script
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 2. Train your model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 3. Use your own data
+          href: tutorial-1st-experiment-bring-data.md
     - name: "Build a training pipeline (Python)"
       href: "tutorial-pipeline-python-sdk.md"
 - name: How-to guides
@@ -88,7 +97,7 @@
       href: how-to-create-attach-compute-cluster.md
     - name: Azure Kubernetes Service
       displayName: AKS, inference
-      href: ../how-to-create-attach-kubernetes.md
+      href: how-to-create-attach-kubernetes.md
   - name: Security
     items:
     - name: Use managed identities for access control
@@ -97,10 +106,10 @@
       items:
       - name: Secure inferencing environment (v1)
         displayName: vnet
-        href: ../how-to-secure-inferencing-vnet.md
+        href: how-to-secure-inferencing-vnet.md
       - name: Configure secure web services (v1)
         displayName: ssl, tls
-        href: ../how-to-secure-web-service.md
+        href: how-to-secure-web-service.md
   - name: Work with data
     items:
     - name: Access data
@@ -172,7 +181,7 @@
     items:
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-      href: ../how-to-deploy-and-where.md
+      href: how-to-deploy-and-where.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: how-to-tune-hyperparameters-v1.md
@@ -187,7 +196,7 @@
       href: how-to-deploy-mlflow-models.md
     - name: Update web service
       displayName: update hot reload model mounting
-      href: ../how-to-deploy-update-web-service.md
+      href: how-to-deploy-update-web-service.md
     - name: Deployment targets
       items: 
         - name: Local

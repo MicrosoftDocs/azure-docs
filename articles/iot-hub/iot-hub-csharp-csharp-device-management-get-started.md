@@ -16,15 +16,13 @@ ms.custom:  "mqtt, devx-track-csharp"
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-This tutorial shows you how to:
-
-* Use the Azure portal to create an IoT hub and create a device identity in your IoT hub.
+This article shows you how to:
 
 * Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
 
 * Create a .NET console app that calls the reboot direct method in the simulated device app through your IoT hub.
 
-At the end of this tutorial, you have two .NET console apps:
+At the end of this article, you have two .NET console apps:
 
 * **SimulateManagedDevice**. This app connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 
@@ -34,17 +32,13 @@ At the end of this tutorial, you have two .NET console apps:
 
 * Visual Studio.
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Get the IoT hub connection string
 
@@ -127,7 +121,7 @@ In this section, you create a .NET console app, using C#, that initiates a remot
 1. Select **Build** > **Build Solution**.
 
 > [!NOTE]
-> This tutorial performs only a single query for the device's reported properties. In production code, we recommend polling to detect changes in the reported properties.
+> This article performs only a single query for the device's reported properties. In production code, we recommend polling to detect changes in the reported properties.
 
 ## Create a simulated device app
 
@@ -162,7 +156,7 @@ To create the simulated device app, follow these steps:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Add the following fields to the **Program** class. Replace the `{device connection string}` placeholder value with the device connection string that you noted previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+1. Add the following fields to the **Program** class. Replace the `{device connection string}` placeholder value with the device connection string you saw when you registered a device in the IoT Hub:
 
     ```csharp
     static string DeviceConnectionString = "{device connection string}";
@@ -237,7 +231,7 @@ To create the simulated device app, follow these steps:
 1. Select **Build** > **Build Solution**.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this article does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 ## Run the apps
 

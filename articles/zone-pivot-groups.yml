@@ -875,8 +875,8 @@ groups:
     title: Windows container
   - id: code-windows
     title: Windows code
-- id: programming-languages-spring-cloud
-# Owner: bmitchell287
+- id: programming-languages-spring-apps
+# Owner: karler
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -1603,9 +1603,9 @@ groups:
   - id: azure-sql-elastic-pool
     title: Elastic pool
 # Owner: karler
-- id: spring-cloud-tier-selection
-  title: Azure Spring Cloud tier
-  prompt: Select an Azure Spring Cloud tier
+- id: spring-apps-tier-selection
+  title: Azure Spring Apps tier
+  prompt: Select an Azure Spring Apps tier
   pivots:
   - id: sc-standard-tier
     title: Basic/Standard tier
