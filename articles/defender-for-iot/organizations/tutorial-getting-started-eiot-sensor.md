@@ -96,7 +96,7 @@ This procedure describes how to prepare your physical appliance or VM to install
 
 When you're ready continue with [Install the Enterprise IoT monitoring software](#install-the-enterprise-iot-monitoring-software).
 
-### Configure a monitoring interface (SPAN)
+### (Example) Configure a monitoring interface (SPAN)
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 
@@ -170,9 +170,11 @@ This procedure describes how to download and install Defender for IoT's Enterpri
 
     :::image type="content" source="media/tutorial-get-started-eiot/install-monitored-interface.png" alt-text="Screenshot of the Configuring microsoft-eiot-sensor screen.":::
 
-1. In the **Set up proxy server?** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**).
+1. In the **Set up proxy server?** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**). For example:
 
-    If you're setting up a proxy server, define the proxy server host, port, username, and password, selecting **Ok** after each option.
+    :::image type="content" source="media/tutorial-get-started-eiot/proxy.png" alt-text="Screenshot of the Set up a proxy server? screen.":::
+
+    If you're setting up a proxy server, select **Yes**, and then define the proxy server host, port, username, and password, selecting **Ok** after each option.
 
 The installation takes a few minutes to complete.
 
