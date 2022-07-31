@@ -82,7 +82,7 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 
 ### Same passwords for cyberx_host and cyberx users
 
-During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. Starting in software versions 22.1.7, the **cyberx_host** password is assigned with an identical password.
+During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. When updating from version 10.x.x to version 22.1.7, the **cyberx_host** password is assigned with an identical password to the **cyberx** user.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
