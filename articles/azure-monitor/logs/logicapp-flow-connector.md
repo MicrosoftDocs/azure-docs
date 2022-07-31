@@ -125,7 +125,8 @@ This tutorial shows how to create a logic app that sends the results of an Azure
 
     ![Sample email](media/logicapp-flow-connector/sample-mail.png)
 
-    The email includes a JPEG file that shows all rows in the result set. If your query doesn't return results, the logic app doesn't create a JPEG file or send an email.
+    > [!NOTE]
+    > The log app generates an email with a JPEG file that shows all rows in the result set. If your query doesn't return results, the logic app won't create a JPEG file or send an email.  
 
 ## Next steps
 

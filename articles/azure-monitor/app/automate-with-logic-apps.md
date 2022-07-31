@@ -49,15 +49,17 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 ### Step 4: Connect to an Application Insights resource
 
-To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
+To complete this step, you need an application ID and an API key for your resource. To retrieve the application ID and API key for your resource from the Azure portal:
 
-![Screenshot shows the API Access page in the Azure portal with the Create API key button selected.](./media/automate-with-logic-apps/5apiaccess.png)
+1. Select **API access** > **Create API key**:
 
-![Application ID in the Azure portal](./media/automate-with-logic-apps/6apikey.png)
+    ![Screenshot shows the API Access page in the Azure portal with the Create API key button selected.](./media/automate-with-logic-apps/5apiaccess.png)
+    
+    ![Application ID in the Azure portal](./media/automate-with-logic-apps/6apikey.png)
 
-Provide a name for your connection, the application ID, and the API key.
+1. Provide a name for your connection, the application ID, and the API key.
 
-![Logic App Designer flow connection window](./media/automate-with-logic-apps/7connection.png)
+    ![Logic App Designer flow connection window](./media/automate-with-logic-apps/7connection.png)
 
 ### Step 5: Specify the Analytics query and chart type
 In the following example, the query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates the failed requests, based on the operation_Id identifier. The query then segments the results by using the autocluster algorithm. 
@@ -91,7 +93,7 @@ When you create your own queries, verify that they're working properly in Analyt
 
     ![Office 365 Outlook selection](./media/automate-with-logic-apps/9sendemail.png)
 
-1. In the **Send an email** window, do the following:
+1. In the **Send an email** window:
 
    a. Type the email address of the recipient.
 
@@ -127,7 +129,8 @@ When you create your own queries, verify that they're working properly in Analyt
     
     ![Logic app email message](./media/automate-with-logic-apps/flow9.png)
 
-    The email includes a JPEG file that shows all rows in the result set. If your query doesn't return results, the logic app doesn't create a JPEG file or send an email.
+    > [!NOTE]
+    > The log app generates an email with a JPEG file that shows all rows in the result set. If your query doesn't return results, the logic app won't create a JPEG file or send an email.    
     
 ## Next steps
 
