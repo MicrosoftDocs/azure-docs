@@ -62,7 +62,7 @@ This procedure describes how to prepare your physical appliance or VM to install
 
     - **Physical appliance** - Connect a monitoring NIC to a SPAN port directly by a copper or fiber cable.
 
-    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For more information, see [Configure a monitoring interface (SPAN)](#configure-a-monitoring-interface-span).
+    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For more information, see [(Example) Configure a monitoring interface (SPAN)](#example-configure-a-monitoring-interface-span).
 
 1. <a name="sign-in"></a>Sign in to your physical appliance or VM, and run the following command to validate incoming traffic to the monitoring port.
 
