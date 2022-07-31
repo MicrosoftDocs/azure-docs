@@ -43,7 +43,3 @@
     href: ./machine-configuration-dsc-extension-migration.md
   - name: Remediation options for machine configuration
     href: ./machine-configuration-policy-effects.md
-- name: Resources
-  items:
-  - name: Reference link
-    href: ./overview.md

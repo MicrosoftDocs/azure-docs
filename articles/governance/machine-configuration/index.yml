@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Automanage Machine Configuration documentation
-summary: This is the description.
+summary: Azure Automanage Machine Configuration (formerly called Azure Policy Guest Configuration) provides native capability to audit or configure operating system settings as code, both for machines running in Azure and hybrid Arc-enabled machines.
 
 metadata:
   title: Azure Automanage Machine Configuration documentation
-  description: This is the description.
+  description: Landing page for the new Azure Automanage Machine Configuration service (formerly called Azure Policy Guest Configuration)
   ms.service: machine-configuration
   ms.topic: landing-page
   ms.collection: collection
   author: timwarner-msft
   ms.author: timwarner
-  ms.date: 05/25/2022
+  ms.date: 08/01/2022
 
 landingContent:
   - title: About Azure Automanage Machine Configuration
@@ -25,26 +25,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a custom package artifact
-            url: ./overview.md
+          - text: Create a machine configuration assignment using templates
+            url: ./machine-configuration-create-assignment.md
+          - text: How to create custom machine configuration policy definitions
+            url: ./machine-configuration-create-definition.md
 
-  - title: PowerShell Desired State Configuration (DSC)
+  - title: Migration from PowerShell DSC
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Azure Automation DSC?
-            url: ./overview.md
-
-  - title: Migration
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Migrating to machine configuration
-            url: ./overview.md
-
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Placeholder text
-            url: ./overview.md
+          - text: Changes in behavior in PowerShell DSC for machine configuration
+            url: ./machine-configuration-custom.md
+          - text: Migration planning
+            url: ./machine-configuration-azure-automation-migration.md
