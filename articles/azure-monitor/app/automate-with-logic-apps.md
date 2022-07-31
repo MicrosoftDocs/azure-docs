@@ -49,7 +49,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 ### Step 4: Connect to an Application Insights resource
 
-To complete this step, you need an application ID and an API key for your resource. To retrieve the application ID and API key for your resource from the Azure portal:
+To complete this step, you need an application ID and an API key for your resource:
 
 1. Select **API access** > **Create API key**:
 
