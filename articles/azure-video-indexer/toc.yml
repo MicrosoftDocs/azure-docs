@@ -25,10 +25,6 @@
   - name: Deploy using ARM template
     displayName: Azure resporce manager
     href: deploy-with-arm-template.md
-  - name: Upload and index videos
-    href: upload-index-videos.md    
-  - name: View and edit insights
-    href: video-indexer-view-edit.md    
 - name: Samples
   items:
   - name: Azure Video Indexer samples
@@ -109,8 +105,12 @@
     href: add-contributor-role-on-the-media-service.md    
   - name: Use Azure Video Indexer API
     href: video-indexer-use-apis.md
+  - name: Upload and index videos
+    href: upload-index-videos.md    
   - name: Index Video from OneDrive
     href: odrv-download.md    
+  - name: View and edit insights
+    href: video-indexer-view-edit.md    
   - name: Examine Azure Video Indexer output
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
