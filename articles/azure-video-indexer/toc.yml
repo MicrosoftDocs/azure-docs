@@ -25,6 +25,10 @@
   - name: Deploy using ARM template
     displayName: Azure resporce manager
     href: deploy-with-arm-template.md
+  - name: Upload and index videos
+    href: upload-index-videos.md    
+  - name: View and edit insights
+    href: video-indexer-view-edit.md    
 - name: Samples
   items:
   - name: Azure Video Indexer samples
@@ -105,8 +109,6 @@
     href: add-contributor-role-on-the-media-service.md    
   - name: Use Azure Video Indexer API
     href: video-indexer-use-apis.md
-  - name: Upload and index videos
-    href: upload-index-videos.md
   - name: Index Video from OneDrive
     href: odrv-download.md    
   - name: Examine Azure Video Indexer output
@@ -118,8 +120,6 @@
     href: scenes-shots-keyframes.md
   - name: Identify and transcribe multi-language content
     href: multi-language-identification-transcription.md
-  - name: View and edit insights
-    href: video-indexer-view-edit.md
   - name: Use editor to create projects
     href: use-editor-create-project.md
   - name: Embed widgets into your application
