@@ -2,7 +2,10 @@
 title: Automate Azure Application Insights processes by using Logic Apps
 description: Learn how you can quickly automate repeatable processes by adding the Application Insights connector to your logic app.
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 31/07/2022
+author: guywild
+ms.author: guywild
+ms.reviewer: yossi-y
 ---
 
 # Automate Application Insights processes by using Logic Apps
@@ -22,7 +25,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 ### Step 1: Create a logic app
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Click **Create a resource**, select **Web + Mobile**, and then select **Logic App**.
+1. Select **Create a resource** > **Web + Mobile** > **Logic App**.
 
     ![New logic app window](./media/automate-with-logic-apps/1createlogicapp.png)
 
@@ -36,11 +39,11 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
     ![Logic App Designer "Recurrence" window](./media/automate-with-logic-apps/3recurrence.png)
 
 ### Step 3: Add an Application Insights action
-1. Click **New step**.
+1. Select **New step**.
 
 1. In the **Choose an action** search box, type **Azure Application Insights**.
 
-1. Under **Actions**, click **Azure Application Insights - Visualize Analytics query**.
+1. Under **Actions**, select **Azure Application Insights - Visualize Analytics query**.
 
     ![Logic App Designer "Choose an action" window](./media/automate-with-logic-apps/4visualize.png)
 
@@ -59,7 +62,7 @@ Provide a name for your connection, the application ID, and the API key.
 ### Step 5: Specify the Analytics query and chart type
 In the following example, the query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates the failed requests, based on the operation_Id identifier. The query then segments the results by using the autocluster algorithm. 
 
-When you create your own queries, verify that they are working properly in Analytics before you add it to your flow.
+When you create your own queries, verify that they're working properly in Analytics before you add it to your flow.
 
 1. In the **Query** box, add the following Analytics query:
 
@@ -80,11 +83,11 @@ When you create your own queries, verify that they are working properly in Analy
 
 ### Step 6: Configure the logic app to send email
 
-1. Click **New step**.
+1. Select **New step**.
 
 1. In the search box, type **Office 365 Outlook**.
 
-1. Click **Office 365 Outlook - Send an email**.
+1. Select **Office 365 Outlook - Send an email**.
 
     ![Office 365 Outlook selection](./media/automate-with-logic-apps/9sendemail.png)
 
@@ -94,15 +97,15 @@ When you create your own queries, verify that they are working properly in Analy
 
    b. Type a subject for the email.
 
-   c. Click anywhere in the **Body** box and then, on the dynamic content menu that opens at the right, select **Body**.
+   c. Select anywhere in the **Body** box and then, on the dynamic content menu that opens at the right, select **Body**.
     
-   d. Click the **Add new parameter** drop down and select Attachments and Is HTML.
+   d. Select the **Add new parameter** dropdown and select Attachments and Is HTML.
 
       ![Screenshot shows the Send an email window with the Body box highlighted and the Dynamic content menu with Body highlighted on the right side.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Office 365 Outlook configuration](./media/automate-with-logic-apps/11emailparameter.png)
 
-1. On the dynamic content menu, do the following:
+1. On the dynamic content menu:
 
     a. Select **Attachment Name**.
 
@@ -113,16 +116,19 @@ When you create your own queries, verify that they are working properly in Analy
       ![Office 365 email configuration screen](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### Step 7: Save and test your logic app
-* Click **Save** to save your changes.
 
-You can wait for the trigger to run the logic app, or you can run the logic app immediately by selecting **Run**.
+1. Select **Save** to save your changes.
 
-![Logic app creation screen](./media/automate-with-logic-apps/13save.png)
+    You can wait for the trigger to run the logic app, or you can run the logic app immediately by selecting **Run**.
+    
+    ![Logic app creation screen](./media/automate-with-logic-apps/13save.png)
+    
+    When your logic app runs, the recipients you specified in the email list will receive an email that looks like this:
+    
+    ![Logic app email message](./media/automate-with-logic-apps/flow9.png)
 
-When your logic app runs, the recipients you specified in the email list will receive an email that looks like the following:
-
-![Logic app email message](./media/automate-with-logic-apps/flow9.png)
-
+    The email includes a JPEG file that shows all rows in the result set. If your query doesn't return results, the logic app doesn't create a JPEG file or send an email.
+    
 ## Next steps
 
 - Learn more about creating [Analytics queries](../logs/get-started-queries.md).
