@@ -10,6 +10,7 @@ ms.date: 07/14/2022
 
 - [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace)
 - [Can I delete the default workspaces created by Defender for Cloud?](#can-i-delete-the-default-workspaces-created-by-defender-for-cloud)
+- [Is data ingestion through private link supported?](#is-data-ingestion-through-private-link-supported)
 - [I deleted my default workspace, how can I get it back?](#i-deleted-my-default-workspace-how-can-i-get-it-back)
 - [Where is the default Log Analytics workspace located?](#where-is-the-default-log-analytics-workspace-located)
 - [My organization requires me to tag my resources, and auto provision failed, what went wrong?](#my-organization-requires-me-to-tag-my-resources-and-auto-provision-failed-what-went-wrong)
@@ -21,6 +22,10 @@ You can use your existing Log Analytics workspace by following the steps in the 
 ### Can I delete the default workspaces created by Defender for Cloud? 
 
 We don't recommend deleting the default workspace. Defender for Containers uses the default workspaces to collect security data from your clusters. Defender for Containers will be unable to collect data, and some security recommendations and alerts, will become unavailable if you delete the default workspace. 
+
+### Is data ingestion through private link supported? 
+
+Unfortunately, Defender for Containers Kubernetes agent is not supporting data ingestion through private link scopes. Therefore, restricting data ingestion from public networks not connected through a Private Link Scope on connected workspace's "Network Isolation" settings, will cause the agent to malfunction due to communication failures.
 
 ### I deleted my default workspace, how can I get it back?
 
