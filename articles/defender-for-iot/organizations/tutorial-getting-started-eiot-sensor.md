@@ -168,9 +168,9 @@ This procedure describes how to download and install Defender for IoT's Enterpri
 
 1. In the **Configure microsoft-eiot-sensor** wizard, in the **What is the name of the monitored interface?** screen, select the interfaces you want to monitor with your sensor, and then select OK.
 
-        For example:
+    For example:
 
-        :::image type="content" source="media/tutorial-get-started-eiot/install-monitored-interface.png" alt-text="Screenshot of the Configuring microsoft-eiot-sensor screen.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/install-monitored-interface.png" alt-text="Screenshot of the Configuring microsoft-eiot-sensor screen.":::
 
 1. In the **Set up proxy server?** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**).
 
@@ -237,16 +237,6 @@ For more information, see:
 > [!TIP]
 > If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
 
-## Remove an Enterprise IoT network sensor (optional)
-
-Remove a sensor if it's no longer in use with Defender for IoT.
-
-**To remove a sensor**, run the following command on the sensor server or VM:
-
-```bash
-sudo apt purge -y microsoft-eiot-sensor
-```
-
 ## Microsoft Defender for Endpoint integration
 
 Once you’ve onboarded a plan and set up your sensor, your device data integrates automatically with Microsoft Defender for Endpoint. Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals. Use this integration to extend security analytics capabilities for your Enterprise IoT devices and providing complete coverage.
@@ -258,6 +248,17 @@ In Defender for Endpoint, you can view discovered IoT devices and related alerts
 - [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+
+
+## Remove an Enterprise IoT network sensor (optional)
+
+Remove a sensor if it's no longer in use with Defender for IoT.
+
+**To remove a sensor**, run the following command on the sensor server or VM:
+
+```bash
+sudo apt purge -y microsoft-eiot-sensor
+```
 
 ## Next steps
 
