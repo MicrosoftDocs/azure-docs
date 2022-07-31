@@ -49,7 +49,7 @@ To onboard a plan, see [Onboard with Microsoft Defender for IoT](/microsoft-365/
 
 - Required Azure permissions, as listed in [Quickstart: Getting Started with Defender for IoT](getting-started.md#permissions).
 
-## Set up a server or Virtual Machine (VM)
+## Set up a physical or virtual machine
 
 Before you deploy your Enterprise IoT sensor, you'll need to configure your server or VM, and connect a Network Interface Card (NIC) to a switch monitoring (SPAN) port.
 
@@ -62,30 +62,33 @@ Before you deploy your Enterprise IoT sensor, you'll need to configure your serv
     | **Minimum** | To support up to 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
     | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
 
-    Make sure that your server or VM also has:
+    Make sure that your appliance or VM also has:
 
-    - Two network adapters
-    - Ubuntu 18.04 operating system
+    - [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system
+    - Two network adapters, one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
 
-1. Connect a NIC to a switch as follows:
+1. Connect a network interface (NIC) from your physical appliance or VM to a switch as follows:
 
-    - **Physical device** - Connect a monitoring network interface (NIC) to a switch monitoring (SPAN) port.
+    - **Physical appliance** - Connect a monitoring NIC to a SPAN port directly by a copper or fiber cable.
 
-    - **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
+    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*.
 
-        For a VM, run the following command to enable the network adapter in promiscuous mode.
-
-        ```bash
-        ifconfig <monitoring port> up promisc
-        ```
-
-1. Validate incoming traffic to the monitoring port. Run:
+1. Sign in to your physical appliance or VM, and run the following command to validate incoming traffic to the monitoring port.
 
     ```bash
-    ifconfig <monitoring interface>
+    ifconfig
     ```
 
-    If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have.
+    The system displays a list of all monitored interfaces. Identify the interfaces that you want to monitor, which are usually the interfaces with no IP address listed. Interfaces with incoming traffic will show an increasing number of RX packets.
+
+1. For each interface you want to monitor, run the following command to enable promiscuous mode in the network adapter.
+
+    ```bash
+    ifconfig <monitoring port> up promisc
+    ```
+
+    where *monitoring port* is an interface you want to monitor. Repeat this step for each interface you want to monitor.
+
 
 ## Prepare networking requirements
 
@@ -95,8 +98,8 @@ This procedure describes how to prepare networking requirements on your server o
 
 1. Open the following ports in your firewall:
 
-    - **HTTPS** - 443 TCP
-    - **DNS** - 53 TCP
+    - **HTTPS** - 443 TCP, for cloud connection
+    - **DNS** - 53 TCP, for address resolution
 
 1. Make sure that your server or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
