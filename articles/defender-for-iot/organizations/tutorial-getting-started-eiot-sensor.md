@@ -62,9 +62,9 @@ This procedure describes how to prepare your physical appliance or VM to install
 
     - **Physical appliance** - Connect a monitoring NIC to a SPAN port directly by a copper or fiber cable.
 
-    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For example, see [Configure a monitoring interface (SPAN)](#configure-a-monitoring-interface-span).
+    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For more information, see [Configure a monitoring interface (SPAN)](#configure-a-monitoring-interface-span).
 
-1. Sign in to your physical appliance or VM, and run the following command to validate incoming traffic to the monitoring port.
+1. <a name="sign-in"></a>Sign in to your physical appliance or VM, and run the following command to validate incoming traffic to the monitoring port.
 
     ```bash
     ifconfig
@@ -102,8 +102,6 @@ While a virtual switch doesn't have mirroring capabilities, you can use *Promisc
 
 *Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
 
-For more information, see [Purdue reference model and Defender for IoT](../best-practices/understand-network-architecture.md#purdue-reference-model-and-defender-for-iot).
-
 This procedure describes an example of how to configure a SPAN port on your vSwitch with ESXi.
 
 **To configure a SPAN port**:
@@ -124,7 +122,7 @@ This procedure describes an example of how to configure a SPAN port on your vSwi
 
 1. Connect to the sensor, and verify that mirroring works.
 
-
+If you've jumped to this procedure from [preparing a physical appliance or VM](#prepare-a-physical-appliance-or-vm), continue with step 2 [above](#sign-in).
 
 ### (Optional) Download Azure public IP ranges
 
