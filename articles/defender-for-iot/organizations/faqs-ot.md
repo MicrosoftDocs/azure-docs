@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/07/2022
 ---
 
-# OT Networks frequently asked questions
+# OT networks frequently asked questions
 
 This article provides a list of frequently asked questions and answers about OT networks in Defender for IoT.
 
