@@ -240,3 +240,4 @@ For more information, see:
 - [View and manage alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
 - [Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)](workbooks.md)
 - [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
+- [Enterprise IoT networks frequently asked questions](faqs-eiot.md)
