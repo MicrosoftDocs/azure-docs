@@ -633,7 +633,7 @@ For more information, see:
 
 ### Data connector health enhancements (Public preview)
 
-Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you [turn on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event generated.
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you [turn on the Azure Sentinel health feature](monitor-sentinel-health.md) in your Azure Sentinel workspace, at the first success or failure health event generated.
 
 For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
 

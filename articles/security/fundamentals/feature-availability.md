@@ -215,7 +215,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - [Incident advanced search](../../sentinel/investigate-cases.md#search-for-incidents) |GA |GA |
-| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md#incident-integration) |Public Preview |Public Preview|
+| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md) |Public Preview |Public Preview|
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 |- [Search large datasets](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
@@ -238,6 +238,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Threat Intelligence - TAXII data connector](../../sentinel/understand-threat-intelligence.md)  | GA | GA |
 | - [Threat Intelligence Platform data connector](../../sentinel/understand-threat-intelligence.md)  | Public Preview | Not Available |
 | - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
+| - [Add indicators in bulk to threat intelligence by file](../../sentinel/indicators-bulk-file-import.md) | Public Preview | Not Available |
 | - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Public Preview | Not Available |
 | - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | GA |
 | - [GeoLocation and WhoIs data enrichment](../../sentinel/work-with-threat-indicators.md) | Public Preview | Not Available |

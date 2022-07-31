@@ -132,7 +132,7 @@ In Azure, network latency within a region can typically be measured milliseconds
 
 In most cases, the connection delay between IO threads and the source server is caused by high CPU utilization on the source server. The IO threads are processed slowly. You can detect this problem by using Azure Monitor to check CPU utilization and the number of concurrent connections on the source server.
 
-If you don't see high CPU utilization on the source server, the problem might be network latency. If network latency is suddenly abnormally high, check the [Azure status page](https://status.azure.com/status) for known issues or outages. 
+If you don't see high CPU utilization on the source server, the problem might be network latency. If network latency is suddenly abnormally high, check the [Azure status page](https://azure.status.microsoft/status) for known issues or outages. 
 
 ### Heavy bursts of transactions on the source server
 
