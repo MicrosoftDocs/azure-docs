@@ -76,7 +76,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 
 Certain plans allow you to customize your protection.
 
-You can learn about the differences between the [Defender for Servers plans](defender-for-servers-introduction.md#available-defender-for-server-plans) to help you choose which one you would like to apply to your subscription.
+You can learn about the differences between the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-server-plans) to help you choose which one you would like to apply to your subscription.
 
 Defender for Databases allows you to [select which type of resources you want to protect](quickstart-enable-database-protections.md). You can learn about the different types of protections offered.
 
