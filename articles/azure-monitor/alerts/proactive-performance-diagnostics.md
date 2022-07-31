@@ -10,11 +10,11 @@ ms.date: 05/04/2017
 >[!NOTE]
 >You can migrate your Application Insight resources to alerts-based smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 >
-> For more information on the migration process, see [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md).
+> For more information on the migration process, see [Smart Detection Alerts migration](./alerts-smart-detections-migration.md).
 
-[Application Insights](./app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems.
+[Application Insights](../app/app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems.
 
-This feature requires no special setup, other than configuring your app for Application Insights for your [supported language](./platforms.md). It's active when your app generates enough telemetry.
+This feature requires no special setup, other than configuring your app for Application Insights for your [supported language](../app/platforms.md). It's active when your app generates enough telemetry.
 
 ## When would I get a smart detection notification?
 
@@ -42,7 +42,7 @@ The notifications include diagnostic information. Here's an example:
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
 3. **Diagnose**. Often, the diagnostic information in the notification will suggest the nature of the problem. For example, if response time slows down when request rate is high, it may indicate that your server or dependencies are beyond their capacity. 
 
-    Otherwise, open the Performance blade in Application Insights. You'll find there [Profiler](profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](./snapshot-debugger.md).
+    Otherwise, open the Performance blade in Application Insights. You'll find there [Profiler](../profiler/profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../snapshot-debugger/snapshot-debugger.md).
 
 ## Configure Email Notifications
 
@@ -57,22 +57,22 @@ Emails about smart detection performance anomalies are limited to one email per 
 ## FAQ
 
 * *So, Microsoft staff look at my data?*
-  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](./data-retention-privacy.md).
+  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../app/data-retention-privacy.md).
 * *Do you analyze all the data collected by Application Insights?*
   * Currently, we analyze request response time, dependency response time, and page load time. Analysis of other metrics is on our backlog looking forward.
 
 * What types of application does this detection work for?
-  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](./api-custom-events-metrics.md#trackrequest) or [TrackDependency](./api-custom-events-metrics.md#trackdependency), then smart detection will work in the same way.
+  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](../app/api-custom-events-metrics.md#trackrequest) or [TrackDependency](../app/api-custom-events-metrics.md#trackdependency), then smart detection will work in the same way.
 
 * *Can I create my own anomaly detection rules or customize existing rules?*
 
   * Not yet, but you can:
-    * [Set up alerts](../alerts/alerts-log.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](./export-telemetry.md) to a [database](../../stream-analytics/app-insights-export-sql-stream-analytics.md) or [to Power BI](./export-power-bi.md), where you can analyze it yourself.
+    * [Set up alerts](./alerts-log.md) that tell you when a metric crosses a threshold.
+    * [Export telemetry](../app/export-telemetry.md) to a [database](../../stream-analytics/app-insights-export-sql-stream-analytics.md) or [to Power BI](../app/export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis done?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
-* *Does this replace [metric alerts](../alerts/alerts-log.md)?*
+* *Does this replace [metric alerts](./alerts-log.md)?*
   * No. We don't commit to detecting every behavior that you might consider abnormal.
 
 
@@ -89,16 +89,16 @@ First, does it matter? If a page is always slow to load, but only 1% of your sit
 
 Use the impact statement, such as affected users or % of traffic, as a general guide. Be aware that it may not be telling the whole story. Gather other evidence to confirm.
 
-Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](./monitor-web-app-availability.md) including that region: there might be network issues in that area.
+Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](../app/monitor-web-app-availability.md) including that region: there might be network issues in that area.
 
 ### Diagnose slow page loads
 Where is the problem? Is the server slow to respond, is the page too long, or does the browser need too much work to display it?
 
 Open the Browsers metric blade. The segmented display of browser page load time shows where the time is going. 
 
-* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with large amount of data. Look at the [performance metrics](./performance-counters.md) to investigate response times.
-* Set up [dependency tracking](./asp-net-dependencies.md) to see whether the slowness is because of external services or your database.
-* If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images, and so on (but not asynchronously loaded data) are long. Set up an [availability test](./monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
+* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with large amount of data. Look at the [performance metrics](../app/performance-counters.md) to investigate response times.
+* Set up [dependency tracking](../app/asp-net-dependencies.md) to see whether the slowness is because of external services or your database.
+* If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images, and so on (but not asynchronously loaded data) are long. Set up an [availability test](../app/monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
 * High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.
 
 ### Improve slow pages
@@ -167,12 +167,12 @@ Modify the time range and filters to explore the telemetry.
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
 
-* [Profiler](profiler.md) 
-* [snapshot debugger](./snapshot-debugger.md)
+* [Profiler](../profiler/profiler.md) 
+* [snapshot debugger](../snapshot-debugger/snapshot-debugger.md)
 * [Analytics](../logs/log-analytics-tutorial.md)
 * [Analytics smart diagnostics](../logs/log-query-overview.md)
 
 Smart detection is automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../alerts/alerts-log.md)
-* [Availability web tests](./monitor-web-app-availability.md)
+* [Manually configured metric alerts](./alerts-log.md)
+* [Availability web tests](../app/monitor-web-app-availability.md)
