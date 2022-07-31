@@ -13,8 +13,8 @@ This article provides a list of frequently asked questions and answers about Ent
 
 To get started, you'll need to:
 
-1. Add a Defender for IoT plan with Enterprise IoT to your Azure subscription from Microsoft Defender for Endpoint.
-1. Set up a Defender for IoT network sensor.
+1. Add a Defender for IoT plan with Enterprise IoT to your Azure subscription from [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+1. [Set up a Defender for IoT network sensor](tutorial-getting-started-eiot-sensor.md).
 
 If you’re a Defender for Endpoint customer, when adding your Defender for IoT plan, take care to exclude any devices already managed by Defender for Endpoint from your count of committed devices.
 
@@ -64,9 +64,9 @@ To change the subscription you're using for your Defender for IoT plan, you'll n
 
 ## How can I cancel Enterprise IoT?
 
-To remove only Enterprise IoT from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). 
+To remove only Enterprise IoT from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see [Cancel your Defender for IoT plan](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#cancel-your-defender-for-iot-plan). 
 
-You can cancel the entire plan from your subscription, removing all Defender for IoT services from that subscription. For more information, see [Cancel a Defender for IoT plan from a subscription](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan-from-a-subscription).
+To cancel the plan and remove all Defender for IoT services from the associated subscription, cancel the plan in Defender for IoT in the Azure portal. For more information, see [Cancel a Defender for IoT plan from a subscription](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan-from-a-subscription).
 
 ## What happens when the 30-day trial ends? 
 
