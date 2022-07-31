@@ -143,7 +143,7 @@ When the request reaches its configured expiration date and expires, it can no l
 
 An email notification is sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
 
-:::image type="content" source="./media/entitlement-management-process/requestor-expiration-request-flow.png" alt-text="2-stage approval process flow" lightbox="./media/entitlement-management-process/requestor-expiration-request-flow.png":::
+:::image type="content" source="./media/entitlement-management-process/requestor-expiration-request-flow.png" alt-text="Requestor extend access process flow" lightbox="./media/entitlement-management-process/requestor-expiration-request-flow.png":::
 
 Here is a sample email notification that is sent to a requestor when their access request has expired:
 
