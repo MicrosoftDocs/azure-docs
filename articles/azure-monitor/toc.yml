@@ -478,8 +478,6 @@ items:
         items:
         - name: Using extension
           href: agents/azure-monitor-agent-manage.md
-        - name: Extension versions
-          href: agents/azure-monitor-agent-extension-versions.md
         - name: Using Windows client installer (preview)
           href: agents/azure-monitor-agent-windows-client.md
       - name: Data collection
@@ -1549,6 +1547,8 @@ items:
       href: essentials/activity-log-schema.md
   - name: Windows diagnostics extension schema
     href: agents/diagnostics-extension-schema-windows.md
+  - name: Azure Monitor Agent extension versions
+    href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
