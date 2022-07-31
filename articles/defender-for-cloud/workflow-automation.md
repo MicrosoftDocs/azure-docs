@@ -2,7 +2,7 @@
 title: Workflow automation in Microsoft Defender for Cloud
 description: Learn how to create and automate workflows in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 07/31/2022
 ---
 # Automate responses to Microsoft Defender for Cloud triggers
 
@@ -89,7 +89,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 You can also run Logic Apps manually when viewing any security alert or recommendation.
 
-To manually run a Logic App, open an alert or a recommendation and select **Trigger Logic App**:
+To manually run a Logic App, open an alert, or a recommendation and select **Trigger Logic App**:
 
 [![Manually trigger a Logic App.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -113,7 +113,7 @@ To implement these policies:
     |Workflow automation for regulatory compliance changes|[Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
 
     > [!NOTE]
-    > The three workflow automation policies have recently been rebranded. The rebranding has caused an unavoidable breaking change. To learn how to mitigate this breaking change, see [mitigate breaking change](#mitigate-breaking-change),
+    > The three workflow automation policies have recently been rebranded. nfortunately, this change came with an unavoidable breaking change. To learn how to mitigate this breaking change, see [mitigate breaking change](#mitigate-breaking-change),
 
     > [!TIP]
     > You can also find these by searching Azure Policy:
@@ -151,13 +151,13 @@ Learn more about [Business continuity and disaster recovery for Azure Logic Apps
 
 ### Mitigate breaking change
 
-Recently we have rebranded the following recommendation:
+Recently we've rebranded the following recommendation:
 
 - [Deploy Workflow Automation for Microsoft Defender for Cloud alerts](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1525828-9a90-4fcf-be48-268cdd02361e)
 - [Deploy Workflow Automation for Microsoft Defender for Cloud recommendations](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F73d6ab6c-2475-4850-afd6-43795f3492ef)
 - [Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509122b9-ddd9-47ba-a5f1-d0dac20be63c)
 
-Unfortunately, this change accompanied with unavoidable breaking change and all old workflow automation polices that use the built-in connectors will be uncompliant.
+Unfortunately, this change came with an unavoidable breaking change. The breaking change causes all of the old workflow automation policies that used the built-in connectors to be uncompliant.
 
 **To mitigate this issue**:
 
