@@ -11,9 +11,9 @@ ms.reviewer: yagil
 >[!NOTE]
 >You can migrate smart detection on your Application Insights resource to be based on alerts. The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 >
-> For more information, see [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md).
+> For more information, see [Smart Detection Alerts migration](./alerts-smart-detections-migration.md).
 
-Smart detection automatically warns you of potential performance problems and failure anomalies in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](./app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
+Smart detection automatically warns you of potential performance problems and failure anomalies in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](../app/app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
 You can access the detections issued by smart detection both from the emails you receive, and from the smart detection blade.
 
@@ -54,10 +54,10 @@ Alternatively, you can change the configuration using Azure Resource Manager tem
 These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](../essentials/metrics-charts.md)
-* [Search explorer](./diagnostic-search.md)
+* [Search explorer](../app/diagnostic-search.md)
 * [Analytics - powerful query language](../logs/log-analytics-tutorial.md)
 
 Smart Detection is automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../alerts/alerts-log.md)
-* [Availability web tests](./monitor-web-app-availability.md)
+* [Manually configured metric alerts](./alerts-log.md)
+* [Availability web tests](../app/monitor-web-app-availability.md)

@@ -86,7 +86,7 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 | Destination | Description | Reference |
 | ----------- | ----------- | --------- |
 | Azure Resource Manager control plane changes | Change Analysis provides a historical record of how the Azure resources that host your application have changed over time, using Azure Resource Graph | [Resources | Get Changes](../governance/resource-graph/how-to/get-resource-changes.md) |
-| Resource configurations and settings changes | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Azure Resource Manager proxied setting changes](./change/change-analysis.md#azure-resource-manager-proxied-setting-changes) |
+| Resource configurations and settings changes | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Azure Resource Manager configuration changes](./change/change-analysis.md#azure-resource-manager-configuration-changes) |
 | Web app in-guest changes | Every 30 minutes, Change Analysis captures the deployment and configuration state of an application. | [Diagnose and solve problems tool for Web App](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app) |
 
 ## Azure resources
