@@ -10,11 +10,11 @@ ms.reviewer: yagil
 >[!NOTE]
 >You can migrate your Application Insight resources to alerts-bases smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 >
-> For more information, see [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md).
+> For more information, see [Smart Detection Alerts migration](./alerts-smart-detections-migration.md).
 
 Smart detection automatically analyze the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.
 
-This feature requires no special setup, other than [configuring exception reporting](./asp-net-exceptions.md#set-up-exception-reporting) for your app. It's active when your app generates enough exception telemetry.
+This feature requires no special setup, other than [configuring exception reporting](../app/asp-net-exceptions.md#set-up-exception-reporting) for your app. It's active when your app generates enough exception telemetry.
 
 ## When would I get this type of smart detection notification?
 You get this type of notification if your app is showing an abnormal rise in the number of exceptions of a specific type, during a day. This number is compared to a baseline calculated over the previous seven days.
