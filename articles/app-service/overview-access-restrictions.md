@@ -29,47 +29,56 @@ Site access restrictions let you filter the incoming requests. Site access restr
 
 Site access restriction has several types of rules that you can apply: 
 
-### IP-based restriction rules
+### IP-based access restriction rules
 
 The IP-based access restrictions feature helps when you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Some use cases for this feature:
+
 * Restrict access to your app from a set of well-defined addresses. 
 * Restrict access to traffic coming through an external load-balancing service or other network appliances with known egress IP addresses. 
 
-To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
+To learn how to enable this feature, see [Configuring access restrictions](./app-service-ip-restrictions.md).
 
 > [!NOTE]
 > IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multi-tenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
 
-### Restriction rules based on service endpoints 
+### Access restriction rules based on service endpoints 
 
 Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks.
 
 > [!NOTE]
-> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](#app-assigned-address)).
+> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](./networking-features.md#app-assigned-address)).
 
-Some use cases for this feature:
+To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-* Set up an application gateway with your app to lock down inbound traffic to your app.
-* Restrict access to your app to resources in your virtual network. These resources can include VMs, ASEs, or even other apps that use virtual network integration. 
+### Access restriction rules based on service tags
 
-![Diagram that illustrates the use of service endpoints with Application Gateway.](media/networking-features/service-endpoints-appgw.png)
-
-To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions][serviceendpoints].
-
-### Restriction rules based on service tags
-
-[Azure service tags][servicetags] are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
+[Azure service tags](../virtual-network/service-tags-overview.md) are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
 
 For a full list of tags and more information, visit the service tag link above. 
-To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
+To learn how to enable this feature, see [Configuring access restrictions](./app-service-ip-restrictions.md).
+
+### Advanced access restriction rule types
+
+#### Any service endpoint source
+
+For testing or in very specific scenarios, you may want to allow traffic from any service endpoint enabled subnet. You can do that by defining an IP-based rule with the text "AnyVnets" instead of an IP range. You cannot create these rules in the portal, but you can modify an existing IP-based rule and replace the IP address with the "AnyVnets" string.
+
+#### Multi-source rules
+
+Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use this if you have more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
+
+Multi-source rules are defined the same way you define single-source rules, but with each range separated with comma.
+
+You cannot create these rules in the portal, but you can modify an existing service tag or IP-based rule and add additional sources to the rule.
 
 #### Http header filtering for site access restriction rules
 
-For each rule, you can add additional http header filtering. This allows you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following list of http headers is currently supported: 
-* X-Forwarded-For
-* X-Forwarded-Host
-* X-Azure-FDID
-* X-FD-HealthProbe
+For any rule, regardless of type, you can add additional http header filtering. This allows you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following lists the supported http headers:
+
+* **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid CIDR values.
+* **X-Forwarded-Host**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) for identifying the original host requested by the client. Accepts any string up to 64 characters in length.
+* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the proxy host. Azure Front Door will send a guid identifying the instance, but it can also be used by 3rd party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
+* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the health probe of the proxy backend. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by 3rd party proxies to identify health probes. Accepts any string up to 64 characters in length.
 
 Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name
