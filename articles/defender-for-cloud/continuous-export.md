@@ -45,7 +45,7 @@ Continuous export can export the following data types whenever they change:
 - Secure score per subscription or per control.
 - Regulatory compliance data.
 
-## Set up a continuous export
+## Set up a continuous export 
 
 You can configure continuous export from the Microsoft Defender for Cloud pages in Azure portal, via the REST API, or at scale using the supplied Azure Policy templates. Select the appropriate tab below for details of each.
 
@@ -63,7 +63,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
     :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Microsoft Defender for Cloud." lightbox="./media/continuous-export/continuous-export-options-page.png":::
 
-    Here you see the export options. There's a tab for each available export target.
+    Here you see the export options. There's a tab for each available export target, either Event hub or Log Analytics workspace.
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 
@@ -71,7 +71,7 @@ The steps below are necessary whether you're setting up a continuous export to L
     - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
     - **Snapshots** – a snapshot of the current state of the selected data types will be sent once a week per subscription. To identify snapshot data, look for the field ``IsSnapshot``.
 
-1. If your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
+    If your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
     - [SQL databases should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/82e20e14-edc5-4373-bfc4-f13121257c37)
     - [SQL servers on machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f97aa83c-9b63-4f9a-99f6-b22c4398f936)
     - [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648)
@@ -82,7 +82,10 @@ The steps below are necessary whether you're setting up a continuous export to L
 
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration." :::
 
-1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hubs instance or a central Log Analytics workspace).
+1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
+
+    You can also send the data to an [Event hub or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
+
 1. Select **Save**.
 
 > [!NOTE]
@@ -94,9 +97,11 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 Continuous export can be configured and managed via the Microsoft Defender for Cloud [automations API](/rest/api/securitycenter/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
 
-- Azure Event Hubs
-- Log Analytics
+- Azure Event Hub
+- Log Analytics workspace
 - Azure Logic Apps
+
+You can also send the data to an [Event hub or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
 
 Here are some examples of options that you can only use in the the API:
 
@@ -166,6 +171,16 @@ The name of the Log Analytics solution containing these tables depends on whethe
 ![The *SecurityAlert* table in Log Analytics.](./media/continuous-export/log-analytics-securityalert-solution.png)
 
 To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
+
+## Export data to an Azure Event hub or Log Analytics workspace in another tenant
+
+You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, which can help you to gather your data for central analysis.
+
+To export data to an Azure Event hub or Log Analytics workspace in a different tenant:
+
+1. In the tenant that has the Azure Event hub or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal) from the tenant that hosts the continuous export configuration.
+1. For a Log Analytics workspace: After the user accepts the invitation to join the tenant, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, Monitoring Contributor
+1. Configure the continuous export configuration and select the Event hub or Analytics workspace to send the data to.
 
 ##  View exported alerts and recommendations in Azure Monitor
 
