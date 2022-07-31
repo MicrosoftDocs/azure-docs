@@ -27,11 +27,11 @@ Azure AD currently provides three areas of automated provisioning.  They are:
 - Provisioning from Azure AD to applications, via **[App provisioning](#app-provisioning)**  
 - Provisioning between Azure AD and Active Directory domain services, via **[inter-directory provisioning](#inter-directory-provisioning)** 
 
-![identity lifecycle management](media/what-is-provisioning/provisioning.png)
+![Diagram of the identity lifecycle management.](media/what-is-provisioning/provisioning.png)
 
 ## HR-driven provisioning
 
-![HR provisioning](media/what-is-provisioning/cloud-2a.png)
+![Diagram of the HR provisioning.](media/what-is-provisioning/cloud-2a.png)
 
 Provisioning from HR to Azure AD involves the creation of objects, typically user identities representing each employee, but in some cases other objects representing departments or other structures, based on the information that is in your HR system.  
 
@@ -52,7 +52,7 @@ For more information, see [What is HR driven provisioning?](../app-provisioning/
 
 ## App provisioning
 
-![app provisioning](media/what-is-provisioning/cloud-3b.png)
+![Diagram that shows the app provisioning flow.](media/what-is-provisioning/cloud-3b.png)
 
 In Azure AD, the term **[app provisioning](../app-provisioning/user-provisioning.md)** refers to automatically creating copies of user identities in the applications that users need access to, for applications that have their own data store, distinct from Azure AD or Active Directory. In addition to creating user identities, app provisioning includes the maintenance and removal of user identities from those apps, as the user's status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), as each of these applications have their own user repository distinct from Azure AD.
 
@@ -60,7 +60,7 @@ For more information, see [What is app provisioning?](../app-provisioning/user-p
 
 ## Inter-directory provisioning
 
-![inter-directory provisioning](media/what-is-provisioning/cloud-4a.png)
+![Diagram that shows the inter-directory provisioning](media/what-is-provisioning/cloud-4a.png)
 
 Many organizations rely upon both Active Directory and Azure AD, and may have applications connected to Active Directory, such as on-premises file servers.
 

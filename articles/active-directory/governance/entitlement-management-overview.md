@@ -85,7 +85,7 @@ With an access package, an administrator or delegated access package manager lis
 
 Access packages also include one or more *policies*. A policy defines the rules or guardrails for assignment to access package. Each policy can be used to ensure that only the appropriate users are able to have access assignments, and the access is time-limited and will expire if not renewed.
 
-![Access package and policies](./media/entitlement-management-overview/elm-overview-access-package.png)
+![Diagram of access package and policies.](./media/entitlement-management-overview/elm-overview-access-package.png)
 
 You can have policies for users to request access. In these kinds of policies, an administrator or access package manager defines
 
@@ -100,7 +100,7 @@ The following diagram shows an example of the different elements in entitlement 
 - **Access package 1** includes a single group as a resource. Access is defined with a policy that enables a set of users in the directory to request access.
 - **Access package 2** includes a group, an application, and a SharePoint Online site as resources. Access is defined with two different policies. The first policy enables a set of users in the directory to request access. The second policy enables users in an external directory to request access.
 
-![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)
+![Entitlement management overview diagram](./media/entitlement-management-overview/elm-overview.png)
 
 ## When should I use access packages?
 
