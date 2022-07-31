@@ -71,7 +71,7 @@ A container is a schema-agnostic container of items. Items in a container can ha
 
 You can set [Time to Live (TTL)](time-to-live.md) on selected items in a container or for the entire container to gracefully purge those items from the system. Azure Cosmos DB automatically deletes the items when they expire. It also guarantees that a query performed on the container doesn't return the expired items within a fixed bound. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
 
-You can use [change feed](change-feed.md) to subscribe to the operations log that is managed for each logical partition of your container. Change feed provides the log of all the updates performed on the container, along with the before and after images of the items. For more information, see [Build reactive applications by using change feed](serverless-computing-database.md). You can also configure the retention duration for the change feed by using the change feed policy on the container.
+You can use [change feed](change-feed.md) to subscribe to the operations log that is managed for each logical partition of your container. Change feed provides the log of all the updates performed on the container, along with the before and after images of the items. For more information, see [Build reactive applications by using change feed](change-feed.md). You can also configure the retention duration for the change feed by using the change feed policy on the container.
 
 You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your container.
 
