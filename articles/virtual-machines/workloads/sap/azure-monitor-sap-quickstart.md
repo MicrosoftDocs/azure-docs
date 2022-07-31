@@ -3,26 +3,28 @@ title: Deploy Azure Monitor for SAP solutions with the Azure portal (preview)
 description: Learn how to use a browser method for deploying Azure Monitor for SAP solutions.
 author: sameeksha91
 ms.author: sakhare
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/21/2022
+# Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions in the Azure portal so that I can configure providers.
 ---
 
-# Deploy Azure Monitor for SAP solutions by using the Azure portal (preview)
+# Quickstart: deploy Azure Monitor for SAP solutions in Azure portal (preview)
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this article, we'll walk through deploying Azure Monitor for SAP solutions (AMS) from the [Azure portal](https://azure.microsoft.com/features/azure-portal). Using the portal's browser-based interface, we'll deploy AMS and configure providers.
+Get started with Azure Monitor for SAP solutions (AMS) by using the [Azure portal](https://azure.microsoft.com/features/azure-portal) to deploy AMS resources and configure providers.
 
 This content applies to both versions of the service, AMS and AMS (classic).
-## Sign in to the portal
 
-Sign in to the [Azure portal](https://portal.azure.com).
+## Prerequisites
 
-## Create a monitoring resource
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-###### For Azure Monitor for SAP solutions
+## Create AMS monitoring resource
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In Azure **Search**, select **Azure Monitor for SAP solutions**.
 
@@ -30,20 +32,22 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 
 
-2. On the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
+1. On the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
  
 
     ![Diagram that shows Azure Monitor for SAP solutions Quick Start 2.](./media/azure-monitor-sap/azure-monitor-quickstart-2-new.png)
 
 
-###### For Azure Monitor for SAP solutions (classic)
+## Create AMS (classic) monitoring resource
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP solutions (classic)**.
 
   ![Diagram shows Azure Monitor for SAP solutions classic quick start page.](./media/azure-monitor-sap/azure-monitor-quickstart-classic.png)
 
 
-2. On the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
+1. On the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Screenshot that shows configuration options on the Basics tab." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
