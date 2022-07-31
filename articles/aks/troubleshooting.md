@@ -89,6 +89,10 @@ Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whet
 
 The minimum supported TLS version in AKS is TLS 1.2.
 
+## I'm using Alias minor version, but I can't seem to upgrade in the same minor version? Why?
+
+When upgrading by alias minor version, only a higher minor version is supported. For example, upgrading from 1.14.x to 1.14 will not trigger an upgrade to the latest GA 1.14 patch, but upgrading to 1.15 will trigger an upgrade to the latest GA 1.15 patch.
+
 ## My application is failing with `argument list too long`
 
 You may receive an error message similar to:
