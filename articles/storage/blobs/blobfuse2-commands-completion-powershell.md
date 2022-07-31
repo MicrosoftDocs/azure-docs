@@ -1,6 +1,6 @@
 ---
-title: How to use the completion powerShell command to generate the autocompletion script for BlobFuse2 | Microsoft Docs
-description: Learn how to use the completion powerShell command to generate the autocompletion script for BlobFuse2.
+title: How to use the "completion powershell" command to generate the autocompletion script for BlobFuse2 | Microsoft Docs
+description: Learn how to use the "completion powershell" command to generate the autocompletion script for BlobFuse2.
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
@@ -58,12 +58,12 @@ blobfuse2 completion powershell | Out-String | Invoke-Expression
 ```
 
 To load completions for every new session, add the output of the above command
-to your powershell profile.
+to your PowerShell profile.
 
 > [!NOTE]
 > You will need to start a new shell for this setup to take effect.
 
-## See Also
+## See also
 
 - [The Blobfuse2 completion command](blobfuse2-commands-completion.md)
 - [The Blobfuse2 completion bash command](blobfuse2-commands-completion-bash.md)

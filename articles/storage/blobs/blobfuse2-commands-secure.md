@@ -70,7 +70,7 @@ The following flags apply only to command `blobfuse2 secure`:
 
 For examples, see the documentation for [the individual subcommands](#arguments).
 
-## See Also
+## See also
 
 - [The Blobfuse2 secure encrypt command](blobfuse2-commands-secure-encrypt.md)
 - [The Blobfuse2 secure decrypt command](blobfuse2-commands-secure-decrypt.md)

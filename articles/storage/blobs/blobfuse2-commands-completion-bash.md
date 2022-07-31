@@ -67,7 +67,7 @@ To load completions for every new session, execute once:
     blobfuse2 completion bash > /etc/bash_completion.d/blobfuse2
     ```
 
-- On MacOS:
+- On macOS:
 
     ```bash
     blobfuse2 completion bash > /usr/local/etc/bash_completion.d/blobfuse2
@@ -76,7 +76,7 @@ To load completions for every new session, execute once:
 > [!NOTE]
 > You will need to start a new shell for this setup to take effect.
 
-## See Also
+## See also
 
 - [The Blobfuse2 completion command](blobfuse2-commands-completion.md)
 - [The Blobfuse2 completion fish command](blobfuse2-commands-completion-fish.md)

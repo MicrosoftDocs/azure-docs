@@ -56,7 +56,7 @@ The following flags are inherited from grandparent command `blobfuse2`:
 | disable-version-check |    | boolean | false | Enables or disables automatic version checking of the BlobFuse2 binaries |
 | help                  | -h | n/a     |       | Help info for the blobfuse2 command and subcommands                      |
 
-## See Also
+## See also
 
 - [The Blobfuse2 completion bash command](blobfuse2-commands-completion-bash.md)
 - [The Blobfuse2 completion fish command](blobfuse2-commands-completion-fish.md)

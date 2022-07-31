@@ -68,7 +68,7 @@ Get the value of parameter `logging.log_level` from an encrypted BlobFuse2 confi
 
 `blobfuse2 secure get --config-file=./config.yaml --passphrase=PASSPHRASE --key=logging.log_level`
 
-## See Also
+## See also
 
 - [The Blobfuse2 secure set command](blobfuse2-commands-secure-set.md)
 - [The Blobfuse2 secure encrypt command](blobfuse2-commands-secure-encrypt.md)

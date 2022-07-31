@@ -62,7 +62,7 @@ To load completions for every new session, execute once:
 > [!NOTE]
 > You will need to start a new shell for this setup to take effect.
 
-## See Also
+## See also
 
 - [The Blobfuse2 completion command](blobfuse2-commands-completion.md)
 - [The Blobfuse2 completion bash command](blobfuse2-commands-completion-bash.md)

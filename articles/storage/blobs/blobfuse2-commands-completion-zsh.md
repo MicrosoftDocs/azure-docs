@@ -66,14 +66,14 @@ To load completions for every new session, execute once:
 
     `blobfuse2 completion zsh > "${fpath[1]}/_blobfuse2"`
 
-- On MacOS:
+- On macOS:
 
     `blobfuse2 completion zsh > /usr/local/share/zsh/site-functions/_blobfuse2`
 
 > [!NOTE]
 > You will need to start a new shell for this setup to take effect.
 
-## See Also
+## See also
 
 - [The Blobfuse2 completion command](blobfuse2-commands-completion.md)
 - [The Blobfuse2 completion bash command](blobfuse2-commands-completion-bash.md)

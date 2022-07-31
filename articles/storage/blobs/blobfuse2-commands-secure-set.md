@@ -69,7 +69,7 @@ Set the value of parameter `logging.log_level` in an encrypted BlobFuse2 configu
 
 `blobfuse2 secure set --config-file=config.yaml --passphrase=PASSPHRASE --key=logging.log_level --value=log_debug`
 
-## See Also
+## See also
 
 - [The Blobfuse2 secure get command](blobfuse2-commands-secure-get.md)
 - [The Blobfuse2 secure encrypt command](blobfuse2-commands-secure-encrypt.md)

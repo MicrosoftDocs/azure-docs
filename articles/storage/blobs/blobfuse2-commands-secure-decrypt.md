@@ -60,7 +60,7 @@ Decrypt a BlobFuse2 configuration file using a passphrase:
 
 `blobfuse2 secure decrypt --config-file=./config.yaml --passphrase=PASSPHRASE`
 
-## See Also
+## See also
 
 - [The Blobfuse2 secure encrypt command](blobfuse2-commands-secure-encrypt.md)
 - [The Blobfuse2 secure get command](blobfuse2-commands-secure-get.md)
