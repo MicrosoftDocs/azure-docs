@@ -26,16 +26,32 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
   - More transparency and control of additional capabilities and services, such as Sentinel, Defender for Cloud, and VM Insights, etc.
 - **A single agent** that consolidates all features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11). This is goal, though AMA is currently converging with the Log Analytics agents.
 
-## When should I migrate to the Azure Monitor agent?
-Your migration plan to the Azure Monitor agent should include the following considerations:
+## When should I migrate to the Azure Monitor Agent?
+Your migration plan to the Azure Monitor Agent should include the following considerations:
 
-|Consideration  |Description  |
-|---------|---------|
-|**Environment requirements**     | Verify that AMA currently supports your environment. For more information, see [Supported operating systems](./agents-overview.md#supported-operating-systems).         |
-|**Current and new feature requirements**     | While AMA provides [several new features](#current-capabilities), such as filtering, scoping, and multihoming, it is not yet at parity with the legacy Log Analytics agent. As you plan your migration, make sure that the features your organization requires are already supported by the AMA. You may decide to continue using the Log Analytics agent for now, and migrate at a later date. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features) for a current status of features that are supported and that may be in preview. | 
+- **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will only be provided in this new agent. If the Azure Monitor agent supports your current environment, start transitioning to it.
+
+- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality. For more information, see [Azure Monitor Agent's supported services and features](agents-overview.md#supported-services-and-features).
+
+  Most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Review whether the Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent.
+
+  If the Azure Monitor agent has all the core capabilities you need, start transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.
+
+- **Tolerance for rework:** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If the setup will take a significant amount of work, consider setting up your new environment with the new agent as it's now generally available.
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are currently using the Log Analytics agent with Azure Monitor or other supported features and services, you should start planning your migration to the Azure Monitor agent using the information in this article.
+
+## Should I install install Azure Monitor Agent together with a legacy agent? 
+
+The Azure Monitor agent can coexist (run side by side on the same machine) with the legacy Log Analytics agents so that you can continue to use their existing functionality during evaluation or migration. While this allows you to begin transition given the limitations, you must review the below points carefully:
+- Be careful in collecting duplicate data because it could skew query results and affect downstream features like alerts, dashboards or workbooks. For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data. As such, ensure you're not collecting the same data from both agents. If you are, ensure they're **collecting from different machines** or **going to separate destinations**.
+- Besides data duplication, this would also generate more charges for data ingestion and retention.
+- Running two telemetry agents on the same machine would result in double the resource consumption, including but not limited to CPU, memory, storage space and network bandwidth.
+
+> [!NOTE]
+> When you use both agents during evaluation or migration, you can use the **Category** column of the [Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat) table in your Log Analytics workspace, and filter for **Azure Monitor Agent**.
+
 
 ## Current capabilities
 
