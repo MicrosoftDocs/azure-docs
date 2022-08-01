@@ -149,31 +149,53 @@ For attestation with TPM, the request body looks like the following:
         "endorsementKey": "xxxx-device-endorsement-key-xxxxx", 
         "storageRootKey": "xxxx-device-storage-root-key-xxxxx" 
     }, 
-    "payload": { "property1": "value1", "property2": {"propertyA":"valueA", "property2-2":1234}, ... } 
+    "payload": { "property1": "value1", "property2": {"propertyA":"valueA", "property2-2":1234}, .. } 
 } 
 ```
 
 ### DPS sends data payload to custom allocation webhook
 
-### Custom allocation webhook returns data to the DPS
+If a device includes a payload its registration request, DPS passes the payload in the `AllocationRequest.deviceRuntimeContext.payload` property when it calls the custom allocation webhook.
 
-If the custom allocation policy webhook wishes to return some data to the device, it will pass the data back as a JSON object in the webhook response. The change is in the payload section below.
+For the TPM registration request in the previous section, the device runtime context will look like the following:
 
 ```json
 { 
-    "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
-    "initialTwin": { 
-        "tags": { 
-            "tag1": true 
-        }, 
-        "properties": { 
-            "desired": { 
-                "prop1": true 
-            } 
-        } 
+    "registrationId": "mydevice", 
+    "tpm": { 
+        "endorsementKey": "xxxx-device-endorsement-key-xxxxx", 
+        "storageRootKey": "xxxx-device-storage-root-key-xxxxx" 
     }, 
-    "payload": { A JSON object that contains the data returned by the webhook } 
+    "payload": { "property1": "value1", "property2": {"propertyA":"valueA", "property2-2":1234}, .. } 
 } 
 ```
 
+If this isn't the initial registration for the device then the runtime context will also include the `currentIoTHubHostname` and the `currentDeviceId` properties.
+
+### Custom allocation webhook returns data to the DPS
+
+The custom allocation policy webhook can return data intended for a device to DPS in a JSON object using the `AllocationResponse.payload` property in the webhook response.
+
+The following JSON shows a webhook response that includes a payload:
+
+```json
+{
+   "iotHubHostName":"custom-allocation-toasters-hub.azure-devices.net",
+   "initialTwin":{
+      "properties":{
+         "desired":{
+            "state":"ready",
+            "darknessSetting":"medium"
+         }
+      },
+      "tags":{
+         "deviceType":"toaster"
+      }
+   }
+      "payload": { "property1": "value1" } 
+}
+```
+
 ### DPS sends data payload to device
+
+If DPS receives a payload in the webhook response, it passes this data back to the device in the `RegistrationOperationStatus.registrationState.payload` property in the response on a successful registration.
