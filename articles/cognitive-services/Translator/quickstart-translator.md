@@ -172,7 +172,7 @@ Once you've added a code sample to your application, choose the green **start bu
 
 :::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
 
-**Translation output**
+**Translation output:**
 
 After a successful call, you should see the following response:
 
@@ -199,7 +199,7 @@ After a successful call, you should see the following response:
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=run-your-c-application)
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=run-your-c-application)
 
 ### [Go](#tab/go)
 
@@ -304,7 +304,7 @@ Once you've added a code sample to your application, your Go program can be exec
  go run translation.go
 ```
 
-**Translation output**
+**Translation output:**
 
 After a successful call, you should see the following response:
 
@@ -331,7 +331,7 @@ After a successful call, you should see the following response:
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=run-your-go-application)
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=run-your-go-application)
 
 ### [Java: Gradle](#tab/java)
 
@@ -492,7 +492,7 @@ Once you've added a code sample to your application, navigate back to your main 
     gradle run
     ```
 
-**Translation output**
+**Translation output:**
 
 After a successful call, you should see the following response:
 
@@ -519,7 +519,7 @@ After a successful call, you should see the following response:
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=build-and-run-your-java-application)
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=build-and-run-your-java-application)
 
 ### [JavaScript: Node.js](#tab/nodejs)
 
@@ -623,7 +623,7 @@ Once you've added the code sample to your application, run your program:
     node index.js
     ```
 
-**Translation output**
+**Translation output:**
 
 After a successful call, you should see the following response:
 
@@ -650,7 +650,7 @@ After a successful call, you should see the following response:
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=run-your-javascript-application)
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=run-your-javascript-application)
 
 ### [Python](#tab/python)
 
@@ -761,7 +761,7 @@ After a successful call, you should see the following response:
 ```
 
 > [!div class="nextstepaction"]
-> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
 
 ---
 
