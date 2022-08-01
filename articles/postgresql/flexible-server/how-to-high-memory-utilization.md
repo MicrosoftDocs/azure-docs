@@ -39,10 +39,10 @@ The following server parameters impact memory consumption and should be reviewed
 
 #### Work_Mem  
 The `work_mem` parameter specifies the amount of memory to be used by internal sort operations and hash tables before writing to
- temporary disk files. It is not on a per-query basis rather, it is set based on the number of sort and hash operations. 
+ temporary disk files. It isn't on a per-query basis rather, it's set based on the number of sort and hash operations. 
 
-If the workload has a lot of short-running queries with simple joins and minimal sort operations, it is 
-advised to keep lower `work_mem`. If there are a few active queries with complex joins and sorts, then it is advised 
+If the workload has many short-running queries with simple joins and minimal sort operations, it's
+advised to keep lower `work_mem`. If there are a few active queries with complex joins and sorts, then it's advised 
 to set a higher value for work_mem. 
 
 It is tough to get the value of `work_mem` right. But if you notice high memory utilization or out-of-memory issues, 
@@ -53,15 +53,14 @@ A safer setting for `work_mem` is
 `work_mem` = Total RAM / Max_Connections / 16 
 
 The default value of `work_mem` = 4 MB. You can set the `work_mem` value on multiple levels including at the server level 
-via parameters page in Azure Portal. A good strategy is to monitor memory consumption during peak times. 
-If disk sorts are happening during this time and there is plenty of unused memory, increase work_mem gradually 
-until a good balance of available and used memory is reached.
+via parameters page in Azure portal. A good strategy is to monitor memory consumption during peak times. 
+If disk sorts are happening during this time and there is plenty of unused memory, increase work_mem gradually until a good balance of available, and used memory is reached.
 Similarly, if the memory use looks high, reduce work_mem. 
 
 
 #### Maintenance_Work_Mem 
 
-`maintenance_work_mem` is for maintenance tasks like vacuuming, adding indexes or foreign keys.The usage of memory in this scenario is per session. 
+`maintenance_work_mem` is for maintenance tasks like vacuuming, adding indexes or foreign keys. The usage of memory in this scenario is per session. 
 
 For example, consider a scenario where there are three autovacuum workers running. 
 
@@ -100,6 +99,6 @@ Azure Database for Flexible Server offers PgBouncer as a built-in connection poo
 
 ### Explain Analyze 
 
-Once high memory-consuming queries have been identified from Query Store,use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate and tune them.
+Once high memory-consuming queries have been identified from Query Store, use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate and tune them.
 
 For more information on EXPLAIN command, check [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html).
