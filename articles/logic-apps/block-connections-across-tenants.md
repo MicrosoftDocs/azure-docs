@@ -17,9 +17,9 @@ ms.date: 08/01/2022
 
 Azure Logic Apps includes many connectors for you to build integration apps and workflows and to access various data, apps, services, systems, and other resources. These connectors authorize your access to these resources by using Azure Active Directory (Azure AD) to authenticate your credentials.
 
-When you create a connection from your workflow to access a resource, you can share that connection with others in the same Azure AD tenant or different tenant by sending a consent link. This shared connection provides access to same resource. However, this capability creates a security vulnerability. Anyone in other Azure AD tenants can create a logic app workflow with a connection. They can then share that connection's consent link with anyone else in a different tenant, for example, by sending a phishing email. If the receiver signs in using the shared connection, the sender can now access the resources in recipient's tenant.
+When you create a connection from your workflow to access a resource, you can share that connection with others in the same Azure AD tenant or different tenant by sending a consent link. This shared connection provides access to same resource but creates a security vulnerability.
 
-To prevent this scenario, you can block access to and from your own Azure AD tenant through shared connections. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Azure AD authorized access.
+As a security measure to prevent this scenario, you can block access to and from your own Azure AD tenant through such shared connections. You can also permit but restrict connections only to specific tenants. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Azure AD authorized access.
 
 ## Prerequisites
 
@@ -37,13 +37,15 @@ To prevent this scenario, you can block access to and from your own Azure AD ten
 
     For example, some legacy connections might not have an associated tenant ID. So, you have to choose whether to block or allow such connections.
 
-  - The choice whether to initially enable or disable the isolation policy.
+  - The choice whether to enable or disable the isolation policy.
 
   - The tenant IDs for any tenants where you want to allow connections to or from your tenant.
 
-  - The choice whether to allow inbound connections to your tenant from each allowed tenant.
+    If you choose to allow such connections, include the following information:
+    
+    - The choice whether to allow inbound connections to your tenant from each allowed tenant.
 
-  - The choice whether to allow inbound connections from your tenant to each allowed tenant.
+    - The choice whether to allow inbound connections from your tenant to each allowed tenant.
 
 - To test the tenant isolation policy, you need a second Azure AD tenant. From this tenant, you'll try connecting to and from the isolated tenant after the isolation policy takes effect.
 
