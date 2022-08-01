@@ -84,7 +84,7 @@ When you're creating the private endpoint, you can integrate it with a [private 
 
 ## Migration with existing Batch account private endpoints
 
-With the introduction of the new private endpoint sub-resource **nodeManagement** for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. To keep backward compatibility with the previously used private DNS zone, the DNS CNAME mappings for private endpoint enabled Batch accounts contain both zones, for example:
+With the introduction of the new private endpoint sub-resource **nodeManagement** for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. To keep backward compatibility with the previously used private DNS zone, for a Batch account with any approved **batchAccount** private endpoint, its account endpoint's DNS CNAME mappings contains both zones (with the previous zone comes first), for example:
 
 ```
 myaccount.east.batch.azure.com CNAME myaccount.privatelink.east.batch.azure.com
@@ -99,9 +99,9 @@ If you have already used the previous DNS zone `privatelink.<region>.batch.azure
 > [!IMPORTANT]
 > With existing usage of previous private DNS zone, please keep using it even with newly created private endpoints. Do not use the new zone with your DNS integration solution until you can [migrate to the new zone](#migrating-privious-private-dns-zone-to-the-new-zone).
 
-### Manually created new private endpoints with DNS integration in Azure Portal
+### Create a new batchAccount private endpoint with DNS integration in Azure Portal
 
-If you manually create a new **batchAccount** private endpoint using Azure Portal with automatic DNS integration enabled, it will use the new private DNS zone `privatelink.batch.azure.com` for the DNS integration: create private DNS zone, link it to your virtual network, and configure DNS A record in the zone for your private endpoint.
+If you manually create a new **batchAccount** private endpoint using Azure Portal with automatic DNS integration enabled, it will use the new private DNS zone `privatelink.batch.azure.com` for the DNS integration: create the private DNS zone, link it to your virtual network, and configure DNS A record in the zone for your private endpoint.
 
 However, if your virtual network has already been linked to the previoud private DNS zone `privatelink.<region>.batch.azure.com`, this will break the DNS resolution for your batch account in your virtual network, because the DNS A record for your new private endpoint is registed into the new zone but DNS resolution checks the previous zone first for backward-compatibility support.
 
@@ -122,10 +122,10 @@ You can mitigate this issue with following options:
 
 ### Migrating privious private DNS zone to the new zone
 
-Although you can continue to use the previous private DNS zone with your existing environment and deployment process, it's recommended to migrate your existing private DNS zone to the new zone for simplicity of DNS configuration management:
+Although you can continue to use the previous private DNS zone with your existing environment and deployment process, it's recommended to migrate your existing private DNS zone to the new zone for the simplicity of DNS configuration management:
 
 - With the new private DNS zone `privatelink.batch.azure.com`, you will not need to configure and manage different zones for each region with your Batch accounts.
-- When you start to use the new [**nodeManagement** private endpoint](./private-connectivity.md) which also use the new zone, you only need to manage one private DNS zone for both type of private endpoints.
+- When you start to use the new [**nodeManagement** private endpoint](./private-connectivity.md) which also uses the new private DNS zone, you will only need to manage one single private DNS zone for both types of private endpoints.
 
 You can migrate the previous private DNS zone with following steps:
 
