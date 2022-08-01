@@ -105,14 +105,60 @@ await aggCursor.forEach(product => {
 
 Use a pipeline to keep data processing on the server before returning to the client. 
 
+### Example product data 
+
+The aggregations below use the [sample products collection](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/252-insert-many/products.json) with data in the shape of:
+
+```json
+[
+    {
+        "_id": "08225A9E-F2B3-4FA3-AB08-8C70ADD6C3C2",
+        "categoryId": "75BF1ACB-168D-469C-9AA3-1FD26BB4EA4C",
+        "categoryName": "Bikes, Touring Bikes",
+        "sku": "BK-T79U-50",
+        "name": "Touring-1000 Blue, 50",
+        "description": "The product called \"Touring-1000 Blue, 50\"",
+        "price": 2384.0700000000002,
+        "tags": [
+        ]
+    },
+    {
+        "_id": "0F124781-C991-48A9-ACF2-249771D44029",
+        "categoryId": "56400CF3-446D-4C3F-B9B2-68286DA3BB99",
+        "categoryName": "Bikes, Mountain Bikes",
+        "sku": "BK-M68B-42",
+        "name": "Mountain-200 Black, 42",
+        "description": "The product called \"Mountain-200 Black, 42\"",
+        "price": 2294.9899999999998,
+        "tags": [
+        ]
+    },
+    {
+        "_id": "3FE1A99E-DE14-4D11-B635-F5D39258A0B9",
+        "categoryId": "26C74104-40BC-4541-8EF5-9892F7F03D72",
+        "categoryName": "Components, Saddles",
+        "sku": "SE-T924",
+        "name": "HL Touring Seat/Saddle",
+        "description": "The product called \"HL Touring Seat/Saddle\"",
+        "price": 52.640000000000001,
+        "tags": [
+        ]
+    },
+]
+```
+
 ### Example 1: Product subcategories, count of products, and average price
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/average-price-in-each-product-subcategory.js" id="aggregation_1":::
+Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/average-price-in-each-product-subcategory.js) to report on average price in each product subcategory. 
+
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/average-price-in-each-product-subcategory.js" id="aggregation_1" highlight="31, 48, 58, 61, 71":::
 
 
 ### Example 2: Bike types with price range
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/bike-types-and-price-ranges.js" id="aggregation_1":::
+Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/bike-types-and-price-ranges.js) to report on the `Bikes` subcategory. 
+
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/bike-types-and-price-ranges.js" id="aggregation_1" highlight="28, 35, 43, 50, 73, 85, 90, 103":::
 
 
 
