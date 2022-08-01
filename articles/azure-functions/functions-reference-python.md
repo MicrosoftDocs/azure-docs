@@ -634,7 +634,7 @@ When your packages are available from an accessible custom package index, use a 
 You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in Python documentation.
 
 > [!NOTE]
-> If you want to change the base URL of the Python Package Index (default https://pypi.org/simple), please [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_INDEX_URL` to change the index URL. `PIP_INDEX_URL` and `PIP_EXTRA_INDEX_URL` are `pip` specific app settings and change the source for `pip` to use.
+> If you need to change the base URL of the Python Package Index from the default of `https://pypi.org/simple`, you can do this by [creating an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named [`PIP_INDEX_URL`](functions-app-settings.md#pip_index_url) that points to a different package index URL. Like [`PIP_EXTRA_INDEX_URL`](functions-app-settings.md#pip_extra_index_url), [`PIP_INDEX_URL`](functions-app-settings.md#pip_index_url) is a pip-specific application setting that changes the source for pip to use.
 
 
 #### Installing local packages
