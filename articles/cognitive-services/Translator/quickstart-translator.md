@@ -666,8 +666,6 @@ After a successful call, you should see the following response:
 
 ### [Python](#tab/python)
 
-#### Feedback: Run your pyapplication (Python)
-
 > [!div class="nextstepaction"]
 > [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
 
