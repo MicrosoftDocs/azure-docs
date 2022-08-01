@@ -46,20 +46,8 @@ Azure Load Testing requires both inbound and outbound access to the public inter
 |Direction  |Ports  |Service tag/IP address  |Purpose  |
 |---------|---------|---------|---------|
 |Inbound     | 29876-29877  | BatchNodeManagement        | Create, update, and delete of Azure Load Testing compute instances. |
-|Inbound     | 8080         | Azure Load Testing outbound IP address   | Create, update, and delete of Azure Load Testing compute instances. |
+|Inbound     | 8080         | AzureLoadTestingInstanceManagement   | Create, update, and delete of Azure Load Testing compute instances. |
 |Outbound     | *        | *        | Used for various operations involved in orchestrating a load tests |
-
-### Azure Load Testing outbound IP addresses per region
-
-The following table lists the outbound IP addresses for Azure Load Testing per Azure region. You can use these IP addresses in a network security group (NSG) to allowlist the service in your VNET.
-
-|Azure region  |IP address  |
-|---------|---------|
-|East US     | 52.146.62.140        |
-|East US 2     | 20.96.144.103        |
-|North Europe     | 40.127.229.174        |
-|South Central US     | 20.188.77.178        |
-|Australia East | 20.53.147.86 |
 
 ## Prepare your subscription
 
