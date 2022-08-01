@@ -130,7 +130,7 @@ There are different automation and deployment options available depending on whi
 
 There are several network requirements you'll need to meet to successfully deploy Azure Virtual Desktop. This lets users connect to their virtual desktops and remote apps while also giving them the best possible user experience.
 
-Users connecting to Azure Virtual Desktop use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) on port 443, which securely establishes a reverse connection to the service. This means you don't need to open any inbound ports.
+Users connecting to Azure Virtual Desktop securely establish a reverse connection to the service. This means you don't need to open any inbound ports. Transmission Control Protocol (TCP) on port 443 is used by default, however RDP Shortpath can be used for [managed networks](shortpath.md) and [public networks](shortpath-public.md) that establishes a direct User Datagram Protocol (UDP)-based transport.
 
 To successfully deploy Azure Virtual Desktop, you'll need to meet the following network requirements:
 
