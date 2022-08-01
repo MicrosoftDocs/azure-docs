@@ -110,7 +110,7 @@ Set the following RDP property to configure location redirection:
 - `redirectlocation:i:1` enables location redirection.
 - `redirectlocation:i:0` disables location redirection.
 
-When enabled, the location of the local device is sent to the session host and set as it's location. This enables applications like maps or printer search to use your physical location. When disabled, these applications will use the location of the session host instead.
+When enabled, the location of the local device is sent to the session host and set as its location. Location redirection lets applications like Maps or Printer Search use your physical location. When you disable location redirection, these applications will use the location of the session host instead.
 
 ### Printer redirection
 
