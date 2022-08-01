@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -141,7 +141,7 @@ The following flags apply only to command `blobfuse2 mount`:
     blobfuse2 mount ./mount_dir2 --config-file=./config.yaml --container-name=container2
     ```
 
-## See Also
+## See also
 
 - [The Blobfuse2 mount all command](blobfuse2-commands-mount-all.md)
 - [The Blobfuse2 mount list command](blobfuse2-commands-mount-list.md)

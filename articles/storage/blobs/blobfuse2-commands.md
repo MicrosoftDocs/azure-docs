@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -51,7 +51,7 @@ The supported commands for BlobFuse2 are:
 | Command | Description |
 |--|--|
 | [mount](blobfuse2-commands-mount.md)           | Mounts an Azure blob storage container as a filesystem in Linux or lists mounted file systems |
-| [mountv1](blobfuse2-commands-mountv1.md)       | Mounts a blob container using legacy BlobFuse configuration and cli parameters |
+| [mountv1](blobfuse2-commands-mountv1.md)       | Mounts a blob container using legacy BlobFuse configuration and CLI parameters |
 | [unmount](blobfuse2-commands-unmount.md)       | Unmounts a BlobFuse2-mounted file system |
 | completion | Generates an autocompletion script for BlobFuse2 for the specified shell |
 | secure         | Encrypts or decrypts a configuration file, or gets or sets values in an encrypted configuration file |

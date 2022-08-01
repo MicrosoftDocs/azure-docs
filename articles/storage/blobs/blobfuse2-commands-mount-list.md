@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -74,7 +74,7 @@ Display all current BlobFuse2 mount points:
 2 : /home/<user>/bf2b
 ```
 
-## See Also
+## See also
 
 - [The `Blobfuse2 unmount` command](blobfuse2-commands-unmount.md)
 - [The `Blobfuse2 mount` command](blobfuse2-commands-mount.md)

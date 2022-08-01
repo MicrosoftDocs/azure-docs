@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -60,7 +60,7 @@ The following flags apply only to command `blobfuse2 mountv1` command:
 | background-download           |    | boolean | false                          | File download to run in the background on open call        |
 | basic-remount-check           |    | boolean | false                          | Check for an already mounted status using /etc/mtab        |
 | block-size-mb                 |    | uint    |                                | Size of a block to be downloaded during streaming<br /><sub>(in MB)</sub> |
-| ca-cert-file                  |    | string  |                                | Specifies the proxy pem certificate path if its not in the default path |
+| ca-cert-file                  |    | string  |                                | Specifies the proxy pem certificate path if it's not in the default path |
 | cache-on-list                 |    | boolean | true                           | Cache attributes on listing                                |
 | cache-poll-timeout-msec       |    | uint    |                                | Time in milliseconds in order to poll for possible expired files awaiting cache eviction<br /><sub>(in milliseconds)</sub> |
 | cache-size-mb                 |    | float   |                                | File cache size<br /><sub>(in MB)</sub>                    |
@@ -112,7 +112,7 @@ The following flags apply only to command `blobfuse2 mountv1` command:
     blobfuse2 mountv1 --config-file=./config.cfg --output-file=./config.yaml --convert-config-only=true
     ```
 
-## See Also
+## See also
 
 - [The Blobfuse2 mount command](blobfuse2-commands-mount.md)
 - [The Blobfuse2 command set](blobfuse2-commands.md)

@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -77,7 +77,7 @@ There are no flags only supported by the unmount command.
     blobfuse2 unmount all
     ```
 
-## See Also
+## See also
 
 - [The Blobfuse2 unmount all command](blobfuse2-commands-unmount-all.md)
 - [The Blobfuse2 mount command](blobfuse2-commands-mount.md)

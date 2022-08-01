@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -49,7 +49,7 @@ Unmount all BlobFuse2 mount points:
 blobfuse2 unmount all
 ```
 
-## See Also
+## See also
 
 - [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)
 - [The Blobfuse2 mount all command](blobfuse2-commands-mount-all.md)

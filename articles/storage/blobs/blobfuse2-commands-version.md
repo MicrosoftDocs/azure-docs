@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -53,6 +53,6 @@ The following flags apply only to command `blobfuse2 version`:
 
 `blobfuse2 version --check=true`
 
-## See Also
+## See also
 
 - [The Blobfuse2 command set](blobfuse2-commands.md)

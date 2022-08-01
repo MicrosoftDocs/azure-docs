@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -92,7 +92,7 @@ Mounting container : blobfuse2b to path : bf2all/blobfuse2b
 2 : /home/<user>/bf2all/blobfuse2b
 ```
 
-## See Also
+## See also
 
 - [The Blobfuse2 unmount all command](blobfuse2-commands-unmount-all.md)
 - [The Blobfuse2 mount command](blobfuse2-commands-mount.md)
