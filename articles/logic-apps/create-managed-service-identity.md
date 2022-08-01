@@ -706,8 +706,8 @@ The built-in HTTP trigger or action can use the system-assigned identity that yo
 As a specific example, suppose that you want to run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity. However, the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can run this operation by using the [HTTP action](logic-apps-workflow-actions-triggers.md#http-action) or another [Blob Service REST API operation](/rest/api/storageservices/operations-on-blobs).
 
 > [!IMPORTANT]
-> To access Azure storage accounts behind firewalls by using HTTP requests and managed identities, 
-> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-blob-storage-in-same-region-with-system--managed-identities).
+> To access Azure storage accounts behind firewalls by using the Azure Blob connector and managed identities, 
+> make sure that you also set up your storage account with the [exception that allows access by trusted Microsoft services](../connectors/connectors-create-api-azureblobstorage.md#access-blob-storage-in-same-region-with-system-managed-identities).
 
 To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
 
