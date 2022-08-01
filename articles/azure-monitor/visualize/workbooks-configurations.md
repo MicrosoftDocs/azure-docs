@@ -55,7 +55,7 @@ Time range brushing allows a user to "brush" or "scrub" a range on a chart and h
 You can also choose to only export a parameter when a range is explicitly brushed:
 
  - If this setting is cleared (default), the parameter always has a value. When the parameter isn't brushed, the value is the full time range displayed in the chart.
- - If this setting is selected, the parameter has no value before the user brushes the parameter,, The value is only set after a user brushes the parameter.
+ - If this setting is selected, the parameter has no value before the user brushes the parameter. The value is only set after a user brushes the parameter.
 
 ### Brushing in a metrics chart
 
