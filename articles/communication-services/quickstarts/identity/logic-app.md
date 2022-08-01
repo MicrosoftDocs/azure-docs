@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create and Manage Azure Communication Services users and access tokens in Microsoft Power Automate
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, learn how to manage users an access tokens in Azure Logic Apps workflows by using the Azure Communication Services Identity connector.
+description: In this quickstart, learn how to manage users and access tokens in Azure Logic Apps workflows by using the Azure Communication Services Identity connector.
 author: sanchezjuan
 manager: chpalm
 services: azure-communication-services
@@ -37,9 +37,9 @@ Add a new step in your workflow by using the Azure Communication Services Identi
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Create user action.":::
 
-1. Provide the Connection String. This can be found in the [Azure Portal](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
+1. Provide the Connection String. This can be found in the [Microsoft Azure](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
 
-    :::image type="content" source="./media/logic-app/azure-portal-connection-string.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource.":::
+    :::image type="content" source="./media/logic-app/azure-portal-connection-string.png#lightbox" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource.":::
 
 1. Provide a Connection Name
 
@@ -63,7 +63,7 @@ After you have a Communication Services identity, you can use the Issue a user a
  
 1.	Then, you can use the User ID output from the previous [Create a user](#create-user) step.
 
-1.	Specify the token scope: voip or chat. [Learn more about tokens and authentication](../../concepts/authentication.md).
+1.	Specify the token scope: VoIP or chat. [Learn more about tokens and authentication](../../concepts/authentication.md).
  
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-issue-access-token-action-token-scope.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Issue access token action, specifying the token scope.":::
 

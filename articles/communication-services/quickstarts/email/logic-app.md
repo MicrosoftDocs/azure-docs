@@ -1,7 +1,7 @@
 ---
 title: Quickstart -Send email message in Power Automate with Azure Communication Services in Microsoft Power Automate
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, learn how send an email in Azure Logic Apps workflows by using the Azure Communication Services Email connector.
+description: In this quickstart, learn how to send an email in Azure Logic Apps workflows by using the Azure Communication Services Email connector.
 author: sanchezjuan
 manager: chpalm
 services: azure-communication-services
@@ -44,7 +44,7 @@ Add a new step in your workflow by using the Azure Communication Services Email 
 
 1.	Provide the Connection String. This can be found in the [Azure Portal](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connection-string.png" alt-text="Screenshot that shows the Azure Communication Services Connection String."::: 
+    :::image type="content" source="./media/logic-app/azure-communications-services-connection-string.png#lightbox" alt-text="Screenshot that shows the Azure Communication Services Connection String."::: 
  
 1.	Provide a Connection Name
 
