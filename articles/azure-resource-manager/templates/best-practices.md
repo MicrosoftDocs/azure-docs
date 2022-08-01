@@ -204,6 +204,8 @@ The following information can be helpful when you work with [resources](./syntax
     ]
     ```
 
+   For more details about comments and metadata see [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax#comments-and-metadata).
+
 * If you use a *public endpoint* in your template (such as an Azure Blob storage public endpoint), *don't hard-code* the namespace. Use the `reference` function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you're using for the storage account in your template.
 
     ```json
@@ -289,7 +291,7 @@ The following information can be helpful when you work with [resources](./syntax
 
 ## Comments
 
-In addition to the `comments` property, if your ARM template is stored in a `.jsonc` file, comments using the `//` syntax are supported.
+In addition to the `comments` property, if your ARM template is stored in a `.jsonc` file, comments using the `//` syntax are supported.  For more details about comments and metadata see [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax#comments-and-metadata).
 
 ## Use test toolkit
 
