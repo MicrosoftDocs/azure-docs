@@ -76,11 +76,10 @@ And then defining these elements for the resulting alert actions using:
     1. Select **Done**.
     ### [Log alert](#tab/log)
 
-    1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
+    1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert. [Get started on writing your own query](../logs/log-analytics-tutorial.md), [learn how to create optimized alert queries](alerts-log-query.md), and [see alert query examples](../logs/queries.md#query-sidebar).
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot of the query pane when creating a new log alert rule.":::    
 
-        [Get started on writing your own query](../logs/log-analytics-tutorial.md), [learn how to create optimized alert queries](alerts-log-query.md), and [see alert query examples](../logs/queries.md#query-sidebar). 
     1. Select **Run** to run the alert.
     1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
     1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
