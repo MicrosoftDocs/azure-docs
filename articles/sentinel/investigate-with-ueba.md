@@ -127,7 +127,7 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 
 1. Select the administrative user entity in the map, and then select **Insights** on the right to find more details, such as the graph of sign-ins over time.
 
-1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](identify-threats-with-entity-behavior-analytics.md#entity-pages) to drill down further. 
+1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](entity-pages.md) to drill down further. 
 
     For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign in history to understand whether the failures were anomalous.
 

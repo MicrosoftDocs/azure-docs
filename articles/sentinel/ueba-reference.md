@@ -41,7 +41,7 @@ This section describes the enrichments UEBA adds to Microsoft Sentinel entities,
 
 ### BehaviorAnalytics table
 
-The following table describes the behavior analytics data displayed on each [entity details page](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) in Microsoft Sentinel.
+The following table describes the behavior analytics data displayed on each [entity details page](entity-pages.md#how-to-use-entity-pages) in Microsoft Sentinel.
 
 | Field                     | Type     | Description                                                     |
 | ------------------------- | -------- | --------------------------------------------------------------- |

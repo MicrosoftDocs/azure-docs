@@ -237,7 +237,7 @@ Azure Sentinel now supports the IP address entity, and you can now view IP entit
 
 Like the user and host entity pages, the IP page includes general information about the IP, a list of activities the IP has been found to be a part of, and more, giving you an ever-richer store of information to enhance your investigation of security incidents.
 
-For more information, see [Entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages).
+For more information, see [Entity pages](entity-pages.md).
 
 ### Activity customization (Public preview)
 
@@ -484,7 +484,7 @@ Our collection of third-party integrations continues to grow, with thirty connec
 
 ### UEBA insights in the entity page (Public preview)
 
-The Azure Sentinel entity details pages provide an [Insights pane](identify-threats-with-entity-behavior-analytics.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
+The Azure Sentinel entity details pages provide an [Insights pane](entity-pages.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
 
 If you have [UEBA enabled](ueba-reference.md), and have selected a timeframe of at least four days, this Insights pane will now also include the following new sections for UEBA insights:
 

@@ -469,7 +469,7 @@ After building your SOC, you need to start using it. The "day in a SOC analyst l
 
 [Integrating with Microsoft Teams directly from Microsoft Sentinel](collaborate-in-microsoft-teams.md) enables your teams to collaborate seamlessly across the organization, and with external stakeholders. Watch the _Decrease Your SOC’s MTTR (Mean Time to Respond) by Integrating Microsoft Sentinel with Microsoft Teams_ webinar [here](https://www.youtube.com/watch?v=0REgc2jB560&ab_channel=MicrosoftSecurityCommunity).
 
-You might also want to read the [documentation article on incident investigation](investigate-cases.md). As part of the investigation, you'll also use the [entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages) to get more information about entities related to your incident or identified as part of your investigation.
+You might also want to read the [documentation article on incident investigation](investigate-cases.md). As part of the investigation, you'll also use the [entity pages](entity-pages.md) to get more information about entities related to your incident or identified as part of your investigation.
 
 **Incident investigation** in Microsoft Sentinel extends beyond the core incident investigation functionality. We can build **additional investigation tools** using Workbooks and Notebooks (the latter are discussed later, under _Hunting_). You can also build more investigation tools or modify existing one to your specific needs. Examples include: 
 * The [Investigation Insights Workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/announcing-the-investigation-insights-workbook/ba-p/1816903) provides an alternative approach for investigating incidents.

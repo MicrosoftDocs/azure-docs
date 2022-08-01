@@ -21,7 +21,7 @@ More specifically, entity pages consist of three parts:
 
 - The center panel shows a [graphical and textual timeline](#the-timeline) of notable events related to the entity, such as alerts, bookmarks, [anomalies](soc-ml-anomalies.md), and activities. Activities are aggregations of notable events from Log Analytics. The queries that detect those activities are developed by Microsoft security research teams, and you can now [add your own custom queries to detect activities](customize-entity-activities.md) of your choosing. 
 
-- The right-side panel presents [behavioral insights](#entity-insights) on the entity. These insights help to quickly identify [anomalies](soc-ml-anomalies.md) and security threats. The insights are developed by Microsoft security research teams, and are based on anomaly detection models.
+- The right-side panel presents [behavioral insights](#entity-insights) on the entity. These insights are continuously developed by Microsoft security research teams. They are based on various data sources and provide context for the entity and its observed activities, helping you to quickly identify [anomalous behavior](soc-ml-anomalies.md) and security threats.
 
 ## The timeline
 
@@ -82,6 +82,6 @@ In this document, you learned about getting information about entities in Micros
 
 - [Classify and analyze data using entities in Microsoft Sentinel](entities.md).
 - [Customize activities on entity page timelines](customize-entity-activities.md).
-- 
+- [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
 - [Enable entity behavior analytics](./enable-entity-behavior-analytics.md) in Microsoft Sentinel.
 - [Hunt for security threats](./hunting.md).
