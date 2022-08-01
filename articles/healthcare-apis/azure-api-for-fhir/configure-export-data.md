@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 06/03/2022
 ms.author: ranku
 ---
 
@@ -60,3 +60,5 @@ In this article, you learned the steps in configuring export settings that allow
 
 >[!div class="nextstepaction"]
 >[Additional Settings](azure-api-for-fhir-additional-settings.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

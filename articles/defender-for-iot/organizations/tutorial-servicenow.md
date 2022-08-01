@@ -45,7 +45,7 @@ Access to ServiceNow and Defender for IoT
 - Defender for IoT patch 2.8.11.1 or above.
 
 > [!Note]
-> If you are already working with a Defender for IoT and ServiceNow integration, and upgrade using the on-premises management console, pervious data received from Defender for IoT sensors should be cleared from ServiceNow.
+>If you are already working with a Defender for IoT and ServiceNow integration and upgrade using the on-premises management console. In that case, the previous data from Defender for IoT sensors should be cleared from ServiceNow.
 
 ### Architecture
 

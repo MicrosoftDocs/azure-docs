@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/16/2022
+ms.date: 06/06/2022
 ms.author: chrupa
 ---
 
@@ -77,3 +77,5 @@ To start working with the FHIR service, follow the 5-minute quickstart to deploy
 
 >[!div class="nextstepaction"]
 >[Deploy FHIR service](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

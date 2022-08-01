@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 06/07/2022
 ---
 
 # Indexer connections to SQL Server on an Azure virtual machine
@@ -21,6 +21,9 @@ A connection from Azure Cognitive Search to SQL Server on a virtual machine is a
 + Obtain a certificate from a [Certificate Authority provider](https://en.wikipedia.org/wiki/Certificate_authority#Providers) for the fully qualified domain name of the SQL Server instance on the virtual machine
 
 + Install the certificate on the virtual machine, and then enable and configure encrypted connections on the VM using the instructions in this article.
+
+> [!NOTE]
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
 
 ## Enable encrypted connections
 
@@ -89,8 +92,7 @@ If you are using the Azure portal to create an indexer, you must grant the porta
 
 To get the portal IP address, ping `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. The request will time out, but the IP address be visible in the status message. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
 
-> [!NOTE]
-> Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
+Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
 ## Next steps
 

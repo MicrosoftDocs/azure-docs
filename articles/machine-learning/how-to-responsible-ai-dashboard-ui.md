@@ -46,7 +46,7 @@ After you picked your dataset, select your modeling task type.
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/modeling.png" alt-text="Screenshot of the wizard on modeling task type." lightbox= "./media/how-to-responsible-ai-dashboard-ui/modeling.png":::
 
 > [!NOTE]
-> The wizard only supports models with MLflow format and sci-kit learn flavor.
+> The wizard only supports models with MLflow format and scikit-learn flavor.
 
 ## Select your dashboard components
 
@@ -117,3 +117,6 @@ After you’ve finished your experiment configuration, select **Create** to star
 - Summarize and share your Responsible AI insights with the [Responsible AI scorecard as a PDF export](how-to-responsible-ai-scorecard.md).
 - Learn more about the  [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Learn more about how to [collect data responsibly](concept-sourcing-human-data.md)
+- Learn more about how the Responsible AI Dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn about how the Responsible AI Dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
+- Explore the features of the Responsible AI Dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)

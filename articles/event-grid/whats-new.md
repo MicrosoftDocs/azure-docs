@@ -2,7 +2,7 @@
 title: What's new? Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 03/31/2022
+ms.date: 07/20/2022
 ---
 
 # What's new in Azure Event Grid?
@@ -11,6 +11,21 @@ ms.date: 03/31/2022
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
 
+## Microsoft.Azure.Management.EventGrid version 9.0.0 (REST API version 2022-06)
+This release corresponds to REST API version 2022-06-15, which includes the following features:
+
+- [Partner Events - General Availability (GA)](partner-events-overview-for-partners.md)
+- [Data residency for topics and domains](/azure/event-grid/event-grid-faq#where-does-azure-event-grid-store-data-).
+
+## Microsoft.Azure.Management.EventGrid version 7.0.0 (REST API version 2021-12)
+This release corresponds to REST API version 2021-12-01, which includes the following features:
+
+- [Enable managed identities for system topics](enable-identity-system-topics.md)
+- [Enabled managed identities for custom topics and domains](enable-identity-custom-topics-domains.md)
+- [Use managed identities to deliver events to destinations](add-identity-roles.md)
+- [Support for delivery attributes](delivery-properties.md)
+- [Storage queue - message time-to-live (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)- 
+- [Azure Active Directory authentication for topics and domains, and partner namespaces](authenticate-with-active-directory.md)
 
 ## REST API version 2021-10
 This release corresponds to REST API version 2021-10-15-preview, which includes the following features:

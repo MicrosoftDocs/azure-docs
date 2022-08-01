@@ -109,7 +109,7 @@ You can also follow the steps in [Create an overview Log Analytics dashboard usi
 
 ## Estimate costs
 
-Log Analytics will ingest an average of 1.4 GB of data a day for each log streamed to it by a single packet core instance. [Monitor usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md) provides information on how to estimate the cost of using Log Analytics to monitor Azure Private 5G Core.
+Log Analytics will ingest an average of 1.4 GB of data a day from each packet core instance. [Monitor usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md) provides information on how to estimate the cost of using Log Analytics to monitor Azure Private 5G Core.
 
 ## Next steps
 - [Enable Log Analytics for Azure Private 5G Core](enable-log-analytics-for-private-5g-core.md)

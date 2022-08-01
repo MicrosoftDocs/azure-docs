@@ -12,9 +12,9 @@ zone_pivot_groups: app-service-containers-code
 
 ::: zone pivot="code-windows"
 > [!NOTE]
-> Mounting Azure Storage as a local share for App Service on Windows code is currently in preview.
+> Mounting Azure Storage as a local share for App Service on Windows code (non-container) is currently in preview.
 >
-This guide shows how to mount Azure Storage Files as a network share in Windows code in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage Files as a network share in Windows code (non-container) in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
 - Configure persistent storage for your App Service app and manage the storage separately.
 - Make static content like video and images readily available for your App Service app. 
@@ -106,6 +106,7 @@ The following features are supported for Linux containers:
 - Mapping `/mounts`, `mounts/foo/bar`, `/`, and `/mounts/foo.bar/` to custom-mounted storage is not supported (you can only use /mounts/pathname for mounting custom storage to your web app.)
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
+- Only Azure Files [SMB](/azure/storage/files/files-smb-protocol) are supported.  Azure Files [NFS](/azure/storage/files/files-nfs-protocol) is not currently supported for Linux App Services.
 
 ::: zone-end
 
@@ -165,7 +166,7 @@ The following features are supported for Linux containers:
     | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
-    | **Mount path** | Directory inside your file/blob storage that you want to mount. Only `/mounts/pathname` is supported.|
+    | **Mount path** | Directory inside your app service that you want to mount. Only `/mounts/pathname` is supported.|
     ::: zone-end
     ::: zone pivot="container-windows"
     | Setting | Description |
@@ -175,7 +176,7 @@ The following features are supported for Linux containers:
     | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
-    | **Mount path** | Directory inside your file/blob storage that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).|
+    | **Mount path** | Directory inside your Windows container that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`) as it's not supported.|
     ::: zone-end
     ::: zone pivot="container-linux"
     | Setting | Description |
@@ -209,12 +210,6 @@ az webapp config storage-account add --resource-group <group-name> --name <app-n
 Verify your storage is mounted by running the following command:
 
 ```azurecli-interactive
-az webapp config storage-account list --resource-group <resource-group> --name <app-name>
-```
-
-Verify your configuration by running the following command:
-
-```azurecli
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 

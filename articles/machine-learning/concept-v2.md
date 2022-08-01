@@ -116,6 +116,7 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 
 ## Next steps
 
+* [How to migrate from v1 to v2](how-to-migrate-from-v1.md)
 * Get started with CLI v2
 
     * [Install and set up CLI (v2)](how-to-configure-cli.md)

@@ -5,16 +5,12 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 06/10/2022
 ---
 
 # Azure Stream Analytics preview features
 
 This article summarizes all the features currently in preview for Azure Stream Analytics. Using preview features in a production environment isn't recommended.
-
-## Authenticate to SQL Database output with managed identities (preview)
-
-Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes. 
 
 ## C# custom de-serializers
 Developers can leverage the power of Azure Stream Analytics to process data in Protobuf, XML, or any custom format. You can implement [custom de-serializers](custom-deserializer-examples.md) in C#, which can then be used to de-serialize events received by Azure Stream Analytics.

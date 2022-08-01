@@ -24,6 +24,21 @@ landingContent:
         links:
           - text: What is AKS?
             url: intro-kubernetes.md
+      - linkListType: whats-new
+        links:
+          - text: Automatically upgrade an AKS cluster
+            url: auto-upgrade-cluster.md
+          - text: Start/stop node pools
+            url: start-stop-nodepools.md
+          - text: Default OS disk sizing
+            url: cluster-configuration.md#default-os-disk-sizing
+          - text: Bring your own CNI plugin (GA)
+            url: use-byo-cni.md
+          - text: Calico for Windows Server containers (GA)
+            url: use-network-policies.md#create-an-aks-cluster-for-calico-network-policies
+          - text: API Server VNet integration (preview)
+            url: api-server-vnet-integration.md
+            
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS
@@ -79,10 +94,6 @@ landingContent:
           - text: Use Bridge to Kubernetes with Visual Studio
             url: /visualstudio/containers/bridge-to-kubernetes
 
-
-
-
-
   # Card
   - title: Architecture guidance
     linkLists:
@@ -102,6 +113,43 @@ landingContent:
               url: best-practices.md
             - text: Other AKS solutions
               url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE   
+
+  - title: Configure your cluster for Windows containers
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Windows Server container using the Azure CLI
+            url: learn/quick-windows-container-deploy-cli.md
+          - text: Create a Windows Server container using the Azure PowerShell
+            url: learn/quick-windows-container-deploy-powershell.md
+      - linkListType: concept
+        links:
+          - text: Windows Server node security
+            url: concepts-security.md#node-security
+          - text: Security baseline
+            url: /security/benchmark/azure/baselines/aks-security-baseline?context=%2Fazure%2Faks%2Fcontext%2Faks-context
+      - linkListType: how-to-guide
+        links:
+          - text: Create Dockerfiles for Windows Server containers
+            url: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context 
+          - text: Optimize Dockerfiles for Windows Server containers
+            url: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context
+          - text: Use HostProcess containers
+            url: use-windows-hpc.md
+          - text: Enable Calico network policies
+            url: use-network-policies.md#create-an-aks-cluster-for-calico-network-policies
+          - text: Enable GMSA
+            url: use-group-managed-service-accounts.md
+          - text: Use Azure disks CSI drivers
+            url: azure-disk-csi.md#windows-containers
+          - text: Use Azure files CSI drivers
+            url: azure-files-csi.md#windows-containers
+          - text: Connect to Windows Server nodes over RDP
+            url: rdp.md
+          - text: Connect to Windows Server nodes over SSH
+            url: node-access.md#create-the-ssh-connection-to-a-windows-node
+          - text: Windows Server containers FAQ
+            url: windows-faq.md
 
   # Card
   - title: Deploy, manage, and update applications

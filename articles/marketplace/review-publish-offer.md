@@ -1,13 +1,12 @@
 ---
 title: How to review and publish an offer to Microsoft commercial marketplace
 description: Use Partner Center to submit your offer to preview, preview your offer, and then publish it to the Microsoft commercial marketplace.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 02/16/2022
+ms.date: 06/29/2022
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -70,7 +69,7 @@ The first step in the publishing process is a set of automated validations. Each
 
 - **Lead management validation and registration** (<15 min)
 
-    We confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
+   We confirm that your CRM system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with CRM system configured.
 
 - **Offer validation** (<30 min)
 

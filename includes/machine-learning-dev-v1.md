@@ -8,4 +8,4 @@ ms.author: sgilley
 
 **APPLIES TO:**
 :::image type="icon" source="media/applies-to/yes.png"  border="false":::[Azure CLI ml extension **v1**](../articles/machine-learning/how-to-configure-cli.md)
-:::image type="icon" source="media/applies-to/yes.png" border="false"::: [Python SDK azureml **v1**](/python/api/overview/azure/ml/?view=azure-ml-py)
+:::image type="icon" source="media/applies-to/yes.png" border="false"::: [Python SDK azureml **v1**](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)

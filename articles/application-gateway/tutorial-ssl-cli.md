@@ -102,6 +102,7 @@ az network application-gateway create \
   --frontend-port 443 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
+  --priority "1" \
   --public-ip-address myAGPublicIPAddress \
   --cert-file appgwcert.pfx \
   --cert-password "Azure123456!"

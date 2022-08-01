@@ -21,7 +21,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
 * Understanding of what a job is in Azure Machine Learning. See [how to train models with the CLI (v2)](how-to-train-cli.md).
 
@@ -37,8 +37,6 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 * Or, you may enter the job creation from the left pane. Click **+New** and select **Job**. 
 [![Azure Machine Learning studio left navigation](media/how-to-train-with-ui/left-nav-entry.png)](media/how-to-train-with-ui/left-nav-entry.png)
 
-* Or, if you're in the Experiment page, you may go to the **All runs** tab and click **Create job**. 
-[![Experiment page entry for job creation UI](media/how-to-train-with-ui/experiment-entry.png)](media/how-to-train-with-ui/experiment-entry.png)
 
 These options will all take you to the job creation panel, which has a wizard for configuring and creating a training job. 
 
@@ -50,7 +48,7 @@ The first step in the job creation UI is to select the compute target on which y
 | --- | --- | 
 | Compute instance | [What is an Azure Machine Learning compute instance?](concept-compute-instance.md) | 
 | Compute cluster | [What is a compute cluster?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| Attached Kubernetes cluster | [Configure and attach Kubernetes cluster anywhere (preview)](how-to-attach-kubernetes-anywhere.md). | 
+| Attached Compute (Kubernetes cluster) | [Configure and attach Kubernetes cluster anywhere (preview)](how-to-attach-kubernetes-anywhere.md). | 
 
 1. Select a compute type
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
@@ -80,7 +78,7 @@ After selecting a compute target, you need to specify the runtime environment fo
 
 ### Curated environments
 
-Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the run preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
+Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the job preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
 
  [![Curated environments](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 
@@ -142,7 +140,7 @@ You may choose **view the YAML spec** to review and download the yaml file gener
 [![view yaml spec](media/how-to-train-with-ui/view-yaml.png)](media/how-to-train-with-ui/view-yaml.png)
 [![Yaml spec](media/how-to-train-with-ui/yaml-spec.png)](media/how-to-train-with-ui/yaml-spec.png)
 
-To launch the job, choose **Create**. Once the job is created, Azure will show you the run details page, where you can monitor and manage your training job. 
+To launch the job, choose **Create**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
   [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 

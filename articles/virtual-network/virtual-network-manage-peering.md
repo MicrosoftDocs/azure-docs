@@ -19,7 +19,7 @@ ms.author: altambaw
 
 # Create, change, or delete a virtual network peering
 
-Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks in the same region and across regions (also known as Global VNet Peering) through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're new to virtual network peering, you can learn more about it in the [virtual network peering overview](virtual-network-peering-overview.md) or by completing a [tutorial](tutorial-connect-virtual-networks-portal.md).
+Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks in the same region and across regions (also known as Global VNet Peering) through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're new to virtual network peering, you can learn more about it in the [virtual network peering overview](virtual-network-peering-overview.md) or by completing the [virtual network peering tutorial](tutorial-connect-virtual-networks-portal.md).
 
 ## Before you begin
 

@@ -4,6 +4,7 @@ description: "Learn how to scale your resource web app, cloud service, virtual m
 ms.topic: conceptual
 ms.date: 04/05/2022
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 # Get started with Autoscale in Azure
 This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.

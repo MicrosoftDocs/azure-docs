@@ -6,8 +6,8 @@ ms.subservice: integration-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 10/22/2021
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ---
 
 # Provision the Azure-SSIS integration runtime in Azure Data Factory

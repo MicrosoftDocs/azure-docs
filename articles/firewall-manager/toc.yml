@@ -7,9 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Secure virtual hub - Bicep
+    displayName: Resource Manager, ARM, Template
+    href: quick-secure-virtual-hub-bicep.md
   - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
+  - name: Deploy firewall with policy - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quick-firewall-policy-bicep.md
   - name: Deploy firewall with policy - ARM template
     displayName: Resource Manager
     href: quick-firewall-policy.md
@@ -66,6 +72,8 @@
     href: rule-hierarchy.md
   - name: Configure DDoS Protection Plan
     href: configure-ddos.md
+  - name: Manage WAF policies
+    href: manage-web-application-firewall-policies.md
 - name: Reference
   items:
   - name: Azure CLI

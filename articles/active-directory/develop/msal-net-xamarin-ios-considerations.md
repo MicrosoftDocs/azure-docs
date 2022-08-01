@@ -1,6 +1,5 @@
 ---
-title: Xamarin iOS considerations (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Xamarin iOS considerations (MSAL.NET)
 description: Learn about considerations for using Xamarin iOS with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur

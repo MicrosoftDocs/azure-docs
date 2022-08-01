@@ -8,6 +8,7 @@ ms.contributor: cawa
 ms.date: 05/12/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
+ms.reviwer: cawa
 ---
 
 # Pin and share a Change Analysis query to the Azure dashboard

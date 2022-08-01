@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Azure VM replication in Azure Site Recovery
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
-author: rochakm
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2022
-ms.author: rochakm
+ms.author: v-pgaddala
 ---
 
 # Troubleshoot Azure-to-Azure VM replication errors
@@ -570,6 +570,12 @@ Perform the following steps to fix this issue.
 
     `./install -d /usr/local/ASR -r MS -q -v Azure`
 6. If the installer succeeds, retry the enable replication job.
+
+## Troubleshoot and handle time changes on replicated servers
+This error occurs when the source machine's time moves forward and then moves back in short time, to correct the change. You may not notice the change as the time is corrected very quickly.
+
+**How to fix**: 
+To resolve this issue, wait till system time crosses the skewed future time. Another option is to disable and enable replication once again, which is only feasible for forward replication (data replicated from primary to secondary region) and is not applicable for reverse replication (data replicated from secondary to primary region). 
 
 ## Next steps
 

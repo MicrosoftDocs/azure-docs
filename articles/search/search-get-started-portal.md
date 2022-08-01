@@ -14,7 +14,7 @@ ms.custom: mode-ui
 
 Create your first search index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
 
-Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [text translation and entity skillset](cognitive-search-quickstart-blob.md) or [OCR image skillset](cognitive-search-quickstart-ocr.md) quickstarts.
+Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see + [Quickstart: Create a skillset](cognitive-search-quickstart-blob.md).
 
 ## Prerequisites
 

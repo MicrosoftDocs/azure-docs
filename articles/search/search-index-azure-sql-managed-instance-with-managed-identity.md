@@ -29,7 +29,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 * Azure AD admin role on SQL Managed Instance:
 
-  To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Azure AD authentication with SQL Managed Instance](/azure/azure-sql/managed-instance/authentication-aad-configure) and follow the steps to provision an Azure AD admin (SQL Managed Instance). 
+  To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Azure AD authentication with SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin (SQL Managed Instance). 
 
 * [Configure public endpoint and NSG in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search.
 

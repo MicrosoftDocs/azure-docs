@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Virtual Network Manager?
     href: overview.md
+  - name: Common use cases for Azure Virtual Network Manager
+    href: concept-use-cases.md
 - name: Quickstarts
   items:
   - name: Create Virtual Network Manager - Portal
@@ -21,6 +23,8 @@
   items:
   - name: FAQ
     href: faq.md
+  - name: Use cases
+    href: concept-use-cases.md
   - name: Scope
     href: concept-network-manager-scope.md
   - name: Network groups
@@ -68,7 +72,7 @@
   - name: REST
     href: /rest/api/networkmanager/
   - name: .NET SDK
-    href: /dotnet/api/microsoft.azure.management.network?view=azure-dotnet
+    href: /dotnet/api/microsoft.azure.management.network
 - name: Resources
   items:
   - name: Azure roadmap

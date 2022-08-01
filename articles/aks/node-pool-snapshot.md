@@ -41,7 +41,7 @@ NODEPOOL_ID=$(az aks nodepool show --name nodepool1 --cluster-name myAKSCluster 
 Now, to take a snapshot from the previous node pool you'll use the `az aks snapshot` CLI command.
 
 ```azurecli-interactive
-az aks snapshot create --name MySnapshot --resource-group MyResourceGroup --nodepool-id $NODEPOOL_ID --location eastus
+az aks nodepool snapshot create --name MySnapshot --resource-group MyResourceGroup --nodepool-id $NODEPOOL_ID --location eastus
 ```
 
 ## Create a node pool from a snapshot
@@ -49,7 +49,7 @@ az aks snapshot create --name MySnapshot --resource-group MyResourceGroup --node
 First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
 
 ```azurecli-interactive
-SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
+SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
 Now, we can use the command below to add a new node pool based off of this snapshot.
@@ -65,7 +65,7 @@ You can upgrade a node pool to a snapshot configuration so long as the snapshot 
 First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
 
 ```azurecli-interactive
-SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
+SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
 Now, we can use this command to upgrade this node pool to this snapshot configuration.
@@ -84,7 +84,7 @@ When you create a cluster from a snapshot, the cluster original system pool will
 First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
 
 ```azurecli-interactive
-SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
+SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
 Now, we can use this command to create this cluster off of the snapshot configuration.

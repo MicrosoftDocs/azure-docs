@@ -63,7 +63,7 @@ az spring-cloud connection list-configuration -g {spring_cloud_rg} -n {spring_cl
 
 ## Configuration naming convention
 
-Service Connector sets the configuration (environment variables or Spring Boot configurations) when creating a connection. The environment variable key-value pair(s) are determined by your client type and authentication type. For example, using the Azure SDK with managed identity requires a client ID, client secret, etc. Using JDBC driver a requires database connection string. Follow this convention to name the configuration:
+Service Connector sets the configuration (environment variables or Spring Boot configurations) when creating a connection. The environment variable key-value pair(s) are determined by your client type and authentication type. For example, using the Azure SDK with managed identity requires a client ID, client secret, etc. Using JDBC driver requires a database connection string. Follow this convention to name the configuration:
 
 If you're using **Spring Boot** as the client type:
 

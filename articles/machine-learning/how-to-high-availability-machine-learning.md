@@ -138,7 +138,7 @@ By keeping your data storage isolated from the default storage the workspace use
 
 ### Manage machine learning artifacts as code
 
-Runs in Azure Machine Learning are defined by a run specification. This specification includes dependencies on input artifacts that are managed on a workspace-instance level, including environments, datasets, and compute. For multi-region run submission and deployments, we recommend the following practices:
+Jobs in Azure Machine Learning are defined by a job specification. This specification includes dependencies on input artifacts that are managed on a workspace-instance level, including environments, datasets, and compute. For multi-region job submission and deployments, we recommend the following practices:
 
 * Manage your code base locally, backed by a Git repository.
     * Export important notebooks from Azure Machine Learning studio.
@@ -149,8 +149,8 @@ Runs in Azure Machine Learning are defined by a run specification. This specific
 
 * Manage configurations as code.
 
-    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#ext_azure_cli_ml_az_ml_folder_attach).
-    * Use run submission helpers such as [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
+    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml(v1)-folder-attach).
+    * Use job submission helpers such as [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
     * Use [Environments.save_to_directory()](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) to save your environment definitions.
     * Use a Dockerfile if you use custom Docker images.
     * Use the [Dataset](/python/api/azureml-core/azureml.core.dataset(class)) class to define the collection of data [paths](/python/api/azureml-core/azureml.data.datapath) used by your solution.
@@ -160,9 +160,9 @@ Runs in Azure Machine Learning are defined by a run specification. This specific
 
 ### Continue work in the failover workspace
 
-When your primary workspace becomes unavailable, you can switch over the secondary workspace to continue experimentation and development. Azure Machine Learning does not automatically submit runs to the secondary workspace if there is an outage. Update your code configuration to point to the new workspace resource. We recommend to avoiding hardcoding workspace references. Instead, use a [workspace config file](how-to-configure-environment.md#workspace) to minimize manual user steps when changing workspaces. Make sure to also update any automation, such as continuous integration and deployment pipelines to the new workspace.
+When your primary workspace becomes unavailable, you can switch over the secondary workspace to continue experimentation and development. Azure Machine Learning does not automatically submit jobs to the secondary workspace if there is an outage. Update your code configuration to point to the new workspace resource. We recommend to avoiding hardcoding workspace references. Instead, use a [workspace config file](how-to-configure-environment.md#workspace) to minimize manual user steps when changing workspaces. Make sure to also update any automation, such as continuous integration and deployment pipelines to the new workspace.
 
-Azure Machine Learning cannot sync or recover artifacts or metadata between workspace instances. Dependent on your application deployment strategy, you might have to move artifacts or recreate experimentation inputs such as dataset objects in the failover workspace in order to continue run submission. In case you have configured your primary workspace and secondary workspace resources to share associated resources with geo-replication enabled, some objects might be directly available to the failover workspace. For example, if both workspaces share the same docker images, configured datastores, and Azure Key Vault resources. The following diagram shows a configuration where two workspaces share the same images (1), datastores (2), and Key Vault (3).
+Azure Machine Learning cannot sync or recover artifacts or metadata between workspace instances. Dependent on your application deployment strategy, you might have to move artifacts or recreate experimentation inputs such as dataset objects in the failover workspace in order to continue job submission. In case you have configured your primary workspace and secondary workspace resources to share associated resources with geo-replication enabled, some objects might be directly available to the failover workspace. For example, if both workspaces share the same docker images, configured datastores, and Azure Key Vault resources. The following diagram shows a configuration where two workspaces share the same images (1), datastores (2), and Key Vault (3).
 
 ![Reference resource configuration](./media/how-to-high-availability-machine-learning/bcdr-resource-configuration.png)
 
@@ -177,13 +177,13 @@ The following artifacts can be exported and imported between workspaces by using
 
 | Artifact | Export | Import |
 | ----- | ----- | ----- |
-| Models | [az ml model download --model-id {ID} --target-dir {PATH}](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download) | [az ml model register –name {NAME} --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/model) |
-| Environments | [az ml environment download -n {NAME} -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_download) | [az ml environment register -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_register) |
-| Azure ML pipelines (code-generated) | [az ml pipeline get --path {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
+| Models | [az ml model download --model-id {ID} --target-dir {PATH}](/cli/azure/ml/model#az-ml-model-download) | [az ml model register –name {NAME} --path {PATH}](/cli/azure/ml/model) |
+| Environments | [az ml environment download -n {NAME} -d {PATH}](/cli/azure/ml/environment#ml-az-ml-environment-download) | [az ml environment register -d {PATH}](/cli/azure/ml/environment#ml-az-ml-environment-register) |
+| Azure ML pipelines (code-generated) | [az ml pipeline get --path {PATH}](/cli/azure/ml(v1)/pipeline#az-ml(v1)-pipeline-get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ml(v1)/pipeline#az-ml(v1)-pipeline-create)
 
 > [!TIP]
-> * __Registered datasets__ cannot be downloaded or moved. This includes datasets generated by Azure ML, such as intermediate pipeline datasets. However datasets that refer to a shared file location that both workspaces can access, or where the underlying data storage is replicated, can be registered on both workspaces. Use the [az ml dataset register](/cli/azure/ml(v1)/dataset#ext_azure_cli_ml_az_ml_dataset_register) to register a dataset.
-> * __Run outputs__ are stored in the default storage account associated with a workspace. While run outputs might become inaccessible from the studio UI in the case of a service outage, you can directly access the data through the storage account. For more information on working with data stored in blobs, see [Create, download, and list blobs with Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md).
+> * __Registered datasets__ cannot be downloaded or moved. This includes datasets generated by Azure ML, such as intermediate pipeline datasets. However datasets that refer to a shared file location that both workspaces can access, or where the underlying data storage is replicated, can be registered on both workspaces. Use the [az ml dataset register](/cli/azure/ml(v1)/dataset#ml-az-ml-dataset-register) to register a dataset.
+> * __Job outputs__ are stored in the default storage account associated with a workspace. While job outputs might become inaccessible from the studio UI in the case of a service outage, you can directly access the data through the storage account. For more information on working with data stored in blobs, see [Create, download, and list blobs with Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## Recovery options
 

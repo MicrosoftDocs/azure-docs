@@ -7,11 +7,13 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.topic: how-to
-ms.date: 01/13/2020 
+ms.date: 06/24/2022
  
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Learn how to use the Azure portal to set up and manage data encryption for your Azure Database for PostgreSQL Single server.
 
@@ -43,7 +45,7 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Screenshot of Key Vault, with Access policies and Add Access Policy highlighted":::
 
-2. Select **Key permissions**, and select **Get**, **Wrap**, **Unwrap**, and the **Principal**, which is the name of the PostgreSQL server. If your server principal can't be found in the list of existing principals, you need to register it. You're prompted to register your server principal when you attempt to set up data encryption for the first time, and it fails.  
+2. Select **Key permissions**, and select **Get**, **Wrap**, **Unwrap**, and the **Principal**, which is the name of the PostgreSQL server. If your server principal can't be found in the list of existing principals, you need to register it. You're prompted to register your server principal when you attempt to set up data encryption for the first time, and it fails.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Access policy overview":::
 

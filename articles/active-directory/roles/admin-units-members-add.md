@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 06/30/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 > Administrative units support for devices is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In Azure Active Directory (Azure AD), you can add users, groups, or devices to an administrative unit to restrict the scope of role permissions. For additional details on what scoped administrators can do, see [Administrative units in Azure Active Directory](administrative-units.md).
+In Azure Active Directory (Azure AD), you can add users, groups, or devices to an administrative unit to restrict the scope of role permissions. Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. For additional details on what scoped administrators can do, see [Administrative units in Azure Active Directory](administrative-units.md).
 
 This article describes how to add users, groups, or devices to administrative units manually. For information about how to add users or devices to administrative units dynamically using rules, see [Manage users or devices for an administrative unit with dynamic membership rules](admin-units-members-dynamic.md).
 
@@ -39,7 +39,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
-You can add users, groups, or devices to administrative units using the Azure portal. You can also add users in a bulk operation.
+You can add users, groups, or devices to administrative units using the Azure portal. You can also add users in a bulk operation or create a new group in an administrative unit.
 
 ### Add a single user, group, or device to administrative units
 
@@ -69,7 +69,7 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 1. Select **Azure Active Directory**.
 
-1. Select **Administrative units** and then select the administrative unit that you want to add users, groups, or devices to.
+1. Select **Administrative units** and then select the administrative unit you want to add users, groups, or devices to.
 
 1. Select one of the following:
 
@@ -89,7 +89,7 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 1. Select **Azure Active Directory**.
 
-1. Select **Administrative units** and then select the administrative unit that you want to add users to.
+1. Select **Administrative units** and then select the administrative unit you want to add users to.
 
 1. Select the administrative unit to which you want to add users.
 
@@ -109,11 +109,27 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 1. Select **Submit**.
 
+### Create a new group in an administrative unit
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory**.
+
+1. Select **Administrative units** and then select the administrative unit you want to create a new group in.
+
+1. Select **Groups**.
+
+1. Select **New group** and complete the steps to create a new group.
+
+    ![Screenshot of the Administrative units page for creating a new group in an administrative unit.](./media/admin-units-members-add/admin-unit-create-group.png)
+
 ## PowerShell
 
 Use the [Add-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/add-azureadmsadministrativeunitmember) command to add users or groups to an administrative unit.
 
 Use the [Add-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/add-azureadmsadministrativeunitmember?view=azureadps-2.0-preview&preserve-view=true) command to add devices to an administrative unit.
+
+Use the [New-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/new-azureadmsadministrativeunitmember) to create a new group in an administrative unit. Currently, only group creation is supported with this command.
 
 ### Add users to an administrative unit
 
@@ -139,12 +155,17 @@ $deviceObj = Get-AzureADDevice -Filter "displayname eq 'TestDevice'"
 Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $deviceObj.ObjectId
 ```
 
+### Create a new group in an administrative unit
+
+```powershell
+$exampleGroup = New-AzureADMSAdministrativeUnitMember -Id "<admin unit object id>" -OdataType "Microsoft.Graph.Group" -DisplayName "<Example group name>" -Description "<Example group description>" -MailEnabled $True -MailNickname "<examplegroup>" -SecurityEnabled $False -GroupTypes @("Unified")
+```
+
 ## Microsoft Graph API
 
 Use the [Add a member](/graph/api/administrativeunit-post-members) API to add users or groups to an administrative unit.
 
-Use the [Add a member (Beta)](/graph/api/administrativeunit-post-members?view=graph-rest-beta&preserve-view=true) API to add devices to an administrative unit.
-
+Use the [Add a member (Beta)](/graph/api/administrativeunit-post-members?view=graph-rest-beta&preserve-view=true) API to add devices to an administrative unit or create a new group in an administrative unit.
 
 ### Add users to an administrative unit
 
@@ -207,6 +228,30 @@ Body
 ```http
 {
     "@odata.id":"https://graph.microsoft.com/beta/devices/{device-id}"
+}
+```
+
+### Create a new group in an administrative unit
+
+Request
+
+```http
+POST https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/members/
+```
+
+Body
+
+```http
+{
+    "@odata.type": "#Microsoft.Graph.Group",
+    "description": "{Example group description}",
+    "displayName": "{Example group name}",
+    "groupTypes": [
+        "Unified"
+    ],
+    "mailEnabled": true,
+    "mailNickname": "{examplegroup}",
+    "securityEnabled": false
 }
 ```
 

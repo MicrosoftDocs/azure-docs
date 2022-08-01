@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Accepted custom NER data formats
 
-If you are trying to [import your data](../how-to/create-project.md#import-project) into custom NER, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/tag-data.md).
+If you are trying to [import your data](../how-to/create-project.md#import-project) into custom NER, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use Language Studio to [label your documents](../how-to/tag-data.md).
 
 ## Labels file format
 
@@ -34,7 +34,6 @@ Your Labels file should be in the `json` format below to be used in [importing](
     "language": "en-us"
   },
   "assets": {
-    "projectKind": "CustomEntityRecognition",
     "entities": [
       {
         "category": "Entity1"

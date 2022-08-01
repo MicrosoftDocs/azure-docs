@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 07/19/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -51,11 +51,11 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. To learn about ways to work around a blocked 445 port, see the [Cause 1: Port 445 is blocked](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) section of our Windows troubleshooting guide.
 
 ## Using an Azure file share with Windows
-To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](/windows/win32/fileio/naming-a-file). 
+To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path).
 
 This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](../file-sync/file-sync-planning.md) may be used, or you may use [identity-based authentication over SMB](storage-files-active-directory-overview.md).
 
-A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
+A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
 ### Mount the Azure file share
 
@@ -68,7 +68,7 @@ To get this script:
 1. Select **File shares**.
 1. Select the file share you'd like to mount.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Screenshot of file shares blade, file share is highlighted.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Screenshot of file shares blade, file share is highlighted." lightbox="media/storage-how-to-use-files-windows/select-file-shares.png":::
 
 1. Select **Connect**.
 
@@ -85,30 +85,41 @@ You have now mounted your Azure file share.
 
 ### Mount the Azure file share with File Explorer
 > [!Note]  
-> Note that the following instructions are shown on Windows 10 and may differ slightly on older releases. 
+> Note that the following instructions are shown on Windows 10 and may differ slightly on older releases.
 
-1. Open File Explorer. This can be done by opening from the Start Menu, or by pressing Win+E shortcut.
+1. Open File Explorer by opening it from the Start Menu, or by pressing the Win+E shortcut.
 
 1. Navigate to **This PC** on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select **Map network drive**.
-    
-    ![A screenshot of the "Map network drive" drop-down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Select the drive letter and enter the UNC path, the UNC path format is `\\<storageAccountName>.file.core.windows.net\<fileShareName>`. For example: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
-    
-    ![A screenshot of the "Map Network Drive" dialog](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
+    :::image type="content" source="media/storage-how-to-use-files-windows/1_MountOnWindows10.png" alt-text="Screenshot of the Map network drive drop-down menu.":::
 
-1. Use the storage account name prepended with `AZURE\` as the username and a storage account key as the password.
-    
-    ![A screenshot of the network credential dialog](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
+1. Select the drive letter and enter the UNC path to your Azure file share. The UNC path format is `\\<storageAccountName>.file.core.windows.net\<fileShareName>`. For example: `\\anexampleaccountname.file.core.windows.net\file-share-name`. Check the **Connect using different credentials** checkbox. Select **Finish**.
+
+    :::image type="content" source="media/storage-how-to-use-files-windows/2_MountOnWindows10.png" alt-text="Screenshot of the Map Network Drive dialog.":::
+
+1. Select **More choices** > **Use a different account**. Under **Email address**, use the storage account name, and use a storage account key as the password. Select **OK**.
+
+    :::image type="content" source="media/storage-how-to-use-files-windows/credentials-use-a-different-account.png" alt-text="Screenshot of the network credential dialog selecting use a different account.":::
 
 1. Use Azure file share as desired.
-    
-    ![Azure file share is now mounted](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-1. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
+    :::image type="content" source="media/storage-how-to-use-files-windows/4_MountOnWindows10.png" alt-text="Screenshot showing that the Azure file share is now mounted.":::
+
+1. When you're ready to dismount the Azure file share, right-click on the entry for the share under the **Network locations** in File Explorer and select **Disconnect**.
+
+### Access an Azure file share via its UNC path
+You don't need to mount the Azure file share to a particular drive letter to use it. You can directly access your Azure file share using the [UNC path](/windows/win32/fileio/naming-a-file) by entering the following into File Explorer. Be sure to replace *storageaccountname* with your storage account name and *myfileshare* with your file share name:
+
+\\storageaccountname.file.core.windows.net\myfileshare
+
+You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share.
+
+For Azure Government Cloud, simply change the servername to:
+
+\\storageaccountname.file.core.usgovcloudapi.net\myfileshare
 
 ### Accessing share snapshots from Windows
-If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot using [Azure PowerShell](./storage-how-to-use-files-portal.md), [Azure CLI](./storage-how-to-use-files-portal.md), or the [Azure portal](storage-how-to-use-files-portal.md).
+If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from a file share on Windows. You can take a share snapshot using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare?view=azps-8.0.0), or [Azure CLI](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-snapshot).
 
 #### List previous versions
 Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.

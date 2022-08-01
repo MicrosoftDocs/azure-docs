@@ -2,7 +2,7 @@
 title: New AWS connector in Microsoft Defender for Cloud
 description: Learn all about the new AWS connector in Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 05/29/2022
 ---
 
 # New AWS connector in Microsoft Defender for Cloud
@@ -11,7 +11,7 @@ ms.date: 05/25/2022
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=26cbaec8-0f3f-4bb1-9918-1bf7d912db57" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=26cbaec8-0f3f-4bb1-9918-1bf7d912db57" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [00:00](/shows/mdc-in-the-field/aws-connector) - Introduction
 

@@ -143,7 +143,7 @@ See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
 
-Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clusters:
+Supported via Azure ML Kubernetes and Azure ML compute clusters:
 
 - PyTorch
 - TensorFlow
