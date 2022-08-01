@@ -35,7 +35,7 @@ Add a new step in your workflow by using the Azure Communication Services Identi
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user.png" alt-text="Screenshot that shows the Azure Communication Services Identity connector Create user action.":::
 
-1. Provide the Connection String. This can be found in the [Azure Portal](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
+1. Provide the Connection String. This can be found in [Microsoft Azure](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
 
     :::image type="content" source="./media/logic-app/azure-portal-connection-string.png#lightbox" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource.":::
 
@@ -62,7 +62,7 @@ Add a new step in your workflow by using the Azure Communication Services Identi
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-chat-thread.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Create a chat thread action.":::
  
-1.	Provide the Azure Communication Services endpoint URL. This can be found in the Azure Portal, within your Azure Communication Service Resource, on the Keys option from the left menu > Endpoint.
+1.	Provide the Azure Communication Services endpoint URL. This can be found in [Microsoft Azure](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Endpoint.
 
 1.	Provide a Connection Name
 

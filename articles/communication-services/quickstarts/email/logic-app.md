@@ -42,7 +42,7 @@ Add a new step in your workflow by using the Azure Communication Services Email 
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-send-email.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action."::: 
 
-1.	Provide the Connection String. This can be found in the [Azure Portal](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
+1.	Provide the Connection String. This can be found in the  [Microsoft Azure](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connection-string.png#lightbox" alt-text="Screenshot that shows the Azure Communication Services Connection String."::: 
  
