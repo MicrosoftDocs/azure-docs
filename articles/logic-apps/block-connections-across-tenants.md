@@ -85,3 +85,5 @@ After the policy takes effect in a region, test the policy. You can try immediat
    You get a message that the connection to your other tenant has failed authorization due to a tenant isolation configuration.
 
 ## Next steps
+
+[Block connections created by connections in Azure Logic Apps](block-connections-connectors.md)
