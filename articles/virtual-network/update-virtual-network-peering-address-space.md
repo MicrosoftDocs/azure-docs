@@ -31,9 +31,11 @@ In this section, you'll modify the address range prefix for an existing address 
 1. Select **Sync from the task bar.
 :::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="This is the Peerings page where you re-syncronize a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
 1. Select the name of the other peered virtual network under **Peer**.
-1. Under **Settings** of the peered virtual network, select **Address space** and verify that the Address space listed has been updated
+1. Under **Settings** of the peered virtual network, select **Address space** and verify that the Address space listed has been updated.
+
 :::image type="content" source="media/update-virtual-network-peering-address-space/verify-address-space-thumb.png" alt-text="This is the Address Space page where you verify the address space has changed." lightbox="media/update-virtual-network-peering-address-space/verify-address-space-full.png":::
-> [NOTE!]
+
+> [!NOTE]
 > When an update is made to the address space for a virtual network, you will need to sync the virtual network peer for each remote peered VNet to learn of the new address space updates.
 >
 > The following actions will require a sync:
