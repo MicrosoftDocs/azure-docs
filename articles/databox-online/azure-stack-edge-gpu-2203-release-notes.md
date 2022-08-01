@@ -38,7 +38,7 @@ The following table provides a summary of known issues in this release.
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
 |**2.**|HPN VMs |For this release, the Standard_F12_HPN can only support one network interface and can't be used for Multi-Access Edge Computing (MEC) deployments. | 
-|**3.**|Device capacity |If you update to this release from an older build, the device capacity doesn't show up in the Azure portal. If a VM is provisioned in the Azure portal, the capacity metrics are updated and displayed. |To sync the metrics on the Azure portal, create a VM and then delete it. | |
+|**3.**|Device capacity |If you update to this release from an older build, the device capacity doesn't show up in the Azure portal. If a VM is provisioned in the Azure portal, the capacity metrics are updated and displayed. |To sync the metrics on the Azure portal, create a VM and then delete it. |
 
 
 ## Known issues from previous releases
