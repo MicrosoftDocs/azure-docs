@@ -24,8 +24,8 @@ In the event when a zone is down, there's no action required by you to recover f
 
 - In all Availability zone supported regions, the zone redundancy for Automation accounts is enabled by default and it can't be disabled. It requires no action from your end as it's enabled and managed by the service.
 - All new Automation accounts with basic SKU are created with zone redundancy natively.
-- All exisiting Automation accounts would become zone redundant automatically. It requires no action from your end.
-- In a zone-down scenario, you might expect a brief peformance degradation until the service self-healing rebalances the underlying capacity to adjust to healthy zones. This isn't dependent on zone restoration; the service self-healing state will compensate for a lost zone, using the capacity from other zones.
+- All existing Automation accounts would become zone redundant automatically. It requires no action from your end.
+- In a zone-down scenario, you might expect a brief performance degradation until the service self-healing rebalances the underlying capacity to adjust to healthy zones. This isn't dependent on zone restoration; the service self-healing state will compensate for a lost zone, using the capacity from other zones.
 - In a zone-wide failure scenario, you must follow the guidance provided to set up a disaster recovery for Automation accounts in a secondary region.   
 - Availability zone support for Automation accounts supports only [Process Automation](/azure/automation/overview#process-automation) feature to provide an improved resiliency for runbook automation.   
 
