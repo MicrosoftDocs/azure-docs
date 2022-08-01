@@ -11,11 +11,11 @@ ms.author: danlep
 ---
 # How to save and configure your API Management service configuration using Git
 
-Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using Azure tools such as Azure PowerShell or the Azure CLI, or making a REST API call. In addition to these methods, you can manage your service instance configuration using Git, enabling service management scenarios such as:
+Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using Azure tools such as Azure PowerShell or the Azure CLI, or making a REST API call. In addition to these methods, you can manage your service instance configuration using Git, enabling scenarios such as:
 
 * **Configuration versioning** - Download and store different versions of your service configuration
 * **Bulk configuration changes** - Make changes to multiple parts of your service configuration in your local repository and integrate the changes back to the server with a single operation
-* **Familiar Git toolchain and workflow** - use the Git tooling and workflows that you are already familiar with
+* **Familiar Git toolchain and workflow** - Use the Git tooling and workflows that you are already familiar with
 
 The following diagram shows an overview of the different ways to configure your API Management service instance.
 
@@ -55,7 +55,7 @@ This article describes how to enable and use Git to manage your service configur
 >
 
 
-The first step before cloning the repository is to save the current state of the service configuration to the repository. 
+Before cloning the repository, save the current state of the service configuration to the repository. 
 
 1. On the **Repository** page, select **Save to repository**.
 
@@ -85,7 +85,7 @@ To clone a repository, in addition to the URL to your repository, your need a us
 
 The following examples use the Git Bash tool from [Git for Windows](https://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
 
-Open your Git tool in the desired folder and run the following command to clone the Git repository to your local machine, using the following command
+Open your Git tool in the desired folder and run the following command to clone the Git repository to your local machine, using the following command:
 
 ```
 git clone https://{name}.scm.azure-api.net/
@@ -117,7 +117,7 @@ After cloning completes, change the directory to your repo by running a command 
 cd {name}.scm.azure-api.net/
 ```
 
-If you saved the configuration to a branch other than `master`, check out the branch:
+If you saved the configuration to a branch other than the default branch (`master`), check out the branch:
 
 ```
 git checkout <branch_name>
@@ -127,7 +127,10 @@ Once the repository is cloned, you can view and work with it in your local file 
 
 ## Update your local repository with the most current service instance configuration
 
-If you make changes to your API Management service instance in the Azure portal or using other Azure tools, you must save these changes to the repository before you can update your local repository with the latest changes. To do this, select **Save to repository** on the **Repository** tab in the Azure portal, and then issue the following command in your local repository.
+If you make changes to your API Management service instance in the Azure portal or using other Azure tools, you must save these changes to the repository before you can update your local repository with the latest changes. To do this:
+
+1. In the Azure portal, select **Save to repository** on the **Repository** tab for your API Management instance.
+1. In the folder for your local repository, issue the following command.
 
 ```
 git pull
@@ -161,7 +164,7 @@ Once your local changes are committed and pushed to the server repository, you c
 
 1. In the left menu, under **Deployment and infrastructure**, select **Repository** > **Deploy to API Management**.
 
-1. On the **Deploy repository configuration** page, enter the branch containing the desired configuration changes, and optionally select **Remove subscriptions of deleted products**. Select **Save**.
+1. On the **Deploy repository configuration** page, enter the name of the branch containing the desired configuration changes, and optionally select **Remove subscriptions of deleted products**. Select **Save**.
 
 For information on performing this operation using the REST API, see [Tenant Configuration - Deploy](/rest/api/apimanagement/current-ga/tenant-configuration/deploy).
 
@@ -247,7 +250,7 @@ The final setting, `$ref-policy`, maps to the global policy statements file for 
 ### apiReleases folder
 The `apiReleases` folder contains a folder for each API release deployed to a production API, and contains the following items.
 
-* `apiReleases\<api release name>\configuration.json` - Configuration for the release, containing information about the release dates. This is the same information that would be returned if you were to call the [Get a specific release](/rest/api/apimanagement/current-ga/api-release/get) operation.
+* `apiReleases\<api release Id>\configuration.json` - Configuration for the release, containing information about the release dates. This is the same information that would be returned if you were to call the [Get a specific release](/rest/api/apimanagement/current-ga/api-release/get) operation.
 
 
 ### apis folder
@@ -260,8 +263,7 @@ The `apis` folder contains a folder for each API in the service instance, which 
 ### apiVersionSets folder
 The `apiVerionSets` folder contains a folder for each API version set created for an API, and contains the following items.
 
-* `apiVersionSets\<api version set name>\configuration.json` - Configuration for the configuration set. This is the same information that would be returned if you were to call the [Get a specific version set](/rest/api/apimanagement/current-ga/api-version-set/get) operation.
-
+* `apiVersionSets\<api version set Id>\configuration.json` - Configuration for the version set. This is the same information that would be returned if you were to call the [Get a specific version set](/rest/api/apimanagement/current-ga/api-version-set/get) operation.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
@@ -278,10 +280,16 @@ The `policies` folder contains the policy statements for your service instance.
 * `policies\products\` - If you have policies defined at product scope, they are contained in this folder, which contains `<product name>.xml` files that map to the policy statements for each product.
 
 ### portalStyles folder
-The `portalStyles` folder contains configuration and style sheets for developer portal customizations for the service instance.
+The `portalStyles` folder contains configuration and style sheets for customizing the deprecated developer portal of the service instance.
 
 * `portalStyles\configuration.json` - Contains the names of the style sheets used by the developer portal
-* `portalStyles\<style name>.css` - each `<style name>.css` file contains styles for the developer portal (`Preview.css` and `Production.css` by default).
+* `portalStyles\<style name>.css` - Each `<style name>.css` file contains styles for the developer portal (`Preview.css` and `Production.css` by default).
+
+### portalTemplates folder
+The `portalTemplates` folder contains templates for customizing the deprecated developer of the service instance.
+
+* `portalTemplates\<template name>\configuration.json` - Configuration of the template. 
+* `portalTemplates\<template name>\<page name>.html` - Original and modified HTML pages of the template. 
 
 ### products folder
 The `products` folder contains a folder for each product defined in the service instance.
@@ -298,23 +306,9 @@ The `templates` folder contains configuration for the [email templates](api-mana
 ## Next steps
 For information on other ways to manage your service instance, see:
 
-* Manage your service instance using the following PowerShell cmdlets
-  * [Service deployment PowerShell cmdlet reference](/powershell/module/wds)
-  * [Service management PowerShell cmdlet reference](/powershell/azure/servicemanagement/overview)
-* Manage your service instance using the REST API
-  * [API Management REST API reference](/rest/api/apimanagement/)
+* [Azure PowerShell cmdlet reference](/powershell/module/az.apimanagement)
+* [Azure CLI reference](/cli/azure/apim)
+* [API Management REST API reference](/rest/api/apimanagement/)
+* [Azure SDK releases](https://azure.github.io/azure-sdk/)
 
 
-[api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
-[api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
-[api-management-save-configuration]: ./media/api-management-configuration-repository-git/api-management-save-configuration.png
-[api-management-save-configuration-confirm]: ./media/api-management-configuration-repository-git/api-management-save-configuration-confirm.png
-[api-management-configuration-status]: ./media/api-management-configuration-repository-git/api-management-configuration-status.png
-[api-management-configuration-git-clone]: ./media/api-management-configuration-repository-git/api-management-configuration-git-clone.png
-[api-management-generate-password]: ./media/api-management-configuration-repository-git/api-management-generate-password.png
-[api-management-password]: ./media/api-management-configuration-repository-git/api-management-password.png
-
-[api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
-[api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
-[api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
-[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
