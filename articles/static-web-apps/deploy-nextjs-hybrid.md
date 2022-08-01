@@ -37,7 +37,7 @@ Begin by initializing a new Next.js application.
 1. Navigate to the folder containing the new app:
 
     ```bash
-    cd nexjs-app
+    cd nextjs-app
     ```
 
 1. Start Next.js app in development:
