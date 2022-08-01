@@ -75,9 +75,9 @@ To start using AHB for SLES Virtual Machines:
 
     | License Type  | Software Updates  | Allowed Virtual Machines|  
     |---|---|---|
-    | SLES  | Installs SLES standard repositories into your virtual machine. | SLES BYOS Virtual Machines, SLES custom image Virtual Machines|
-    | SLES_SAP | Installs SLES SAP repositories into your virtual machine. | SLES SAP BYOS Virtual Machines, SLES custom image Virtual Machines|
-    | SLES_HPC  | Installs SLES High Performance Compute related repositories  into your virtual machine. | SLES HPC BYOS Virtual Machines, SLES custom image Virtual Machines|
+    | SLES | Installs SLES repositories into your virtual machine. | SLES BYOS Virtual Machines, SLES custom image Virtual Machines|
+    | SLES_SAP | Installs SLES for SAP repositories into your virtual machine. | SLES for SAP BYOS Virtual Machines, SLES for SAP custom image Virtual Machines|
+    | SLES_HPC | Installs SLE High Performance Computing related repositories into your virtual machine. | SLE HPC BYOS Virtual Machines, SLE HPC custom image Virtual Machines|
 
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories.
 
@@ -137,7 +137,7 @@ You can install the `AHBForRHEL` extension. After successfully installing the ex
 ## How to enable and disable AHB for SLES
 
 You can install the `AHBForSLES` extension. After successfully installing the extension,
-you can use the `az vm update` command to update existing license type on running Virtual Machines. For SLES Virtual Machines, run the command and set `--license-type` parameter to one of the following license types: `SLES_STANDARD`, `SLES_SAP` or `SLES_HPC`.
+you can use the `az vm update` command to update existing license type on running Virtual Machines. For SLES Virtual Machines, run the command and set `--license-type` parameter to one of the following license types: `SLES`, `SLES_SAP` or `SLES_HPC`.
 
 ### How to enable AHB for SLES using a CLI
 1. Install the AHB extension on a Virtual Machine that is up and running, with the portal, or via Azure CLI using the command below:
@@ -147,13 +147,13 @@ you can use the `az vm update` command to update existing license type on runnin
 1. Once, the extension is installed successfully, change the license type based on what you require:
 
     ```azurecli
-    # This will enable AHB to fetch software updates for SLES STANDARD repositories
+    # This will enable AHB to fetch software updates for SLES repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES
 
-    # This will enable AHB to fetch software updates for SLES SAP repositories
+    # This will enable AHB to fetch software updates for SLES for SAP repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES_SAP
 
-    # This will enable AHB to fetch software updates for SLES HPC repositories
+    # This will enable AHB to fetch software updates for SLE HPC repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES_HPC
 
     ```
@@ -208,9 +208,9 @@ A: On using AHB for BYOS Virtual Machines, you'll essentially convert bring-your
 | RHEL_BASESAPAPPS | [RHEL for SAP Business Applications](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-business/) |
 | RHEL_BASESAPHA | [RHEL for SAP with HA](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-ha/) |
 | RHEL_EUS | [Red Hat Enterprise Linux](https://azure.microsoft.com/pricing/details/virtual-machines/red-hat/)  |
-| SLES | [SLES Standard](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
-| SLES_SAP | [SLES SAP](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  |
-| SLES_HPC | [SLES HPC](https://azure.microsoft.com/pricing/details/virtual-machines/sles-hpc-standard/) |
+| SLES | [SLES](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
+| SLES_SAP | [SLES for SAP](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  |
+| SLES_HPC | [SLE HPC](https://azure.microsoft.com/pricing/details/virtual-machines/sles-hpc-standard/) |
 
 *Q: Can I use a license type designated for RHEL (such as `RHEL_BASE`) with a SLES image, or vice versa?*
 
