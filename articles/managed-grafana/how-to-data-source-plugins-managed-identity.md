@@ -49,7 +49,7 @@ Other data sources include:
 
 You can find all available Grafana data sources by going to your resource and selecting **Configuration** > **Data sources** from the left menu. Search for the data source you need from the available list and select **Add data source**.
 
-   :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
+   :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page.":::
 
 > [!NOTE]
 > Installing Grafana plugins listed on the page **Configuration** > **Plugins** isn’t currently supported.
@@ -62,12 +62,12 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
 1. From the left menu, select **Configuration** > **Data sources**.
 
-   :::image type="content" source="media/managed-grafana-how-to-source-configuration.png" alt-text="Screenshot of the Add data sources page.":::
+   :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
 1. Azure Monitor is listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
 1. In **Settings**, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
 
-   :::image type="content" source="media/managed-grafana-how-to-source-configuration-Azure-Monitor-settings.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
+   :::image type="content" source="media/data-sources/configure-Azure-Monitor.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
 
 Authentication and authorization are then made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
 
@@ -75,4 +75,6 @@ Authentication and authorization are then made through the provided managed iden
 
 > [!div class="nextstepaction"]
 > [Modify access permissions to Azure Monitor](./how-to-permissions.md)
+
+> [!div class="nextstepaction"]
 > [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)

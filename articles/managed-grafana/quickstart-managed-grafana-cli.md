@@ -69,7 +69,7 @@ Now let's check if you can access your new Managed Grafana instance.
 
 1. Open a browser and enter the endpoint URL. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
 
-:::image type="content" source="media/managed-grafana-quickstart-portal-grafana-workspace.png" alt-text="Screenshot of the Azure Managed Grafana instance in the browser.":::
+:::image type="content" source="media/quickstart-cli/grafana-ui.png" alt-text="Screenshot of the Azure Managed Grafana instance in the browser.":::
 
 > [!NOTE]
 > If creating a Grafana instance fails the first time, please try again. The failure might be due to a limitation in our backend, and we are actively working to fix.
@@ -83,4 +83,4 @@ If you're not going to continue to use this instance, delete the Azure resources
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
+> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
