@@ -5,11 +5,10 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/19/2022
+ ms.date: 08/01/2022
  ms.author: rogarana
  ms.custom: include file
 ---
-
 
 Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 (preview), premium SSDs, and standard SSDs can enable shared disks. Each managed disk that has shared disks enabled are subject to the following limitations, organized by disk type:
 
