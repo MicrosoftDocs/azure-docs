@@ -260,7 +260,7 @@ You can verify the number of disks from **Review + create** tab, under **Cluster
 
 ### Add application
 
-HDInsight application is an application, that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or developed by you.. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
+HDInsight application is an application, that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or developed by you. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
 
 Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
