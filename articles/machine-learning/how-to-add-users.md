@@ -61,6 +61,8 @@ The following example custom roles are provided in the [Manage roles in your wor
 - Data labeler
 - Labeling team lead
 - Vendor account manager
+- Customer QA
+- Vendor QA
 
 For more information on how to create custom roles, see [Custom roles](how-to-assign-roles.md#create-custom-role).
 
