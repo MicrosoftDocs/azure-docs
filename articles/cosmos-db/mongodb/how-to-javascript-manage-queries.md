@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Use [queries](#query-for-documents) and [aggregation pipelines](#aggregation-pipelines) to find documents in a collection.
+Use [queries](#query-for-documents) and [aggregation pipelines](#aggregation-pipelines) to find and manipulate documents in a collection.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
@@ -39,7 +39,7 @@ The preceding code snippet displays the following example console output:
 
 ## Aggregation pipelines
 
-Aggregation pipelines are useful isolate expensive query, transformation, and processing to your Cosmos DB server, instead of performing transformation and processing once the query returns to the client application. 
+Aggregation pipelines are useful to isolate expensive query computation, transformations, and other processing on your Cosmos DB server, instead of performing these operations on the client. 
 
 For specific **aggregation pipeline support**, refer to the following: 
 
@@ -61,7 +61,7 @@ const pipeline = [
 
 ### Pipeline stage syntax
 
-A _stage_ is the property of the stage syntax, such as:
+A _stage_ defines the operation and the data it is applied to, such as:
 
 * $match - find documents
 * $addFields - add field to cursor, usually from previous stage
@@ -107,15 +107,13 @@ Use a pipeline to keep data processing on the server before returning to the cli
 
 ### Example 1: Product subcategories, count of products, and average price
 
-```javascript
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregate/average-price-in-each-product-subcategory.js" id="aggregation_1":::
-```
+
 
 ### Example 2: Bike types with price range
 
-```javascript
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregate/bike-types-and-price-ranges.js" id="aggregation_1":::
-```
+
 
 
 ## See also
