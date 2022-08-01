@@ -90,7 +90,7 @@ If Script Action is submitted but there are no changes in the log analytics work
 1. Check if the log analytics workspace is connected to the cluster and log analytics monitoring is turned on.
 1. Check if the script that you run from script action was checked as persisted.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/script-action-persisits.png" alt-text="Screenshot showing script action persisits.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/script-action-persists.png" alt-text="Screenshot showing script action persists.":::
 
 1. It's possible, that a new node has been added to the cluster recently.
   > [!NOTE]  
@@ -147,7 +147,7 @@ Different log types(sources) inside **HBase** tables
 | 1.  | HDInsightAmbariClusterAlerts   | No other log types  | This table contains Ambari Cluster Alerts from each node in the cluster (except for edge nodes). Each alert is a record in this table.
 | 2.  | HDInsightAmbariSystem Metrics  | No other log types  | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edge nodes) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record.  |
 | 3.  | HDInsightHadoopAndYarnLogs   | **Head Node** : MRJobSummary, Resource Manager, TimelineServer   **WorkerNode:** NodeManager  | This table contains all logs generated from the Hadoop and YARN frameworks.  |
-| 4.  | HDInsightSecurityLogs   | **Head Node:** AmbariAuditLog, AuthLog   **Worker Node:** AuthLog  **Zookeper Node:** AuthLog  | This table contains records from the Ambari Audit and Auth Logs.  |
+| 4.  | HDInsightSecurityLogs   | **Head Node:** AmbariAuditLog, AuthLog   **Worker Node:** AuthLog  **ZooKeper Node:** AuthLog  | This table contains records from the Ambari Audit and Auth Logs.  |
 | 5.  | HDInsightHBaseLogs   | **Head Node** : HDFSGarbageCollectorLog, HDFSNameNodeLog   **WorkerNode:** PhoenixServerLog, HBaseRegionServerLog, HBaseRestServerLog   **Zookeeper Node:** HBaseMasterLog   | This table contains logs from HBase and its related components: Phoenix and HDFS.  |
 | 6.  | HDInsightHBaseMetrics   | No log types  | This table contains JMX metrics from HBase. It contains all the same JMX metrics from the tables listed in the Old Schema column. In contrast from the old tables, each row contains one metric.  |
 | 7.  | HDInsightHadoopAndYarn Metrics  | No log types  | This table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we considered important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record.  |
