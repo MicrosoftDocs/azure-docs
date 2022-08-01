@@ -5,7 +5,7 @@ services: site-recovery
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 07/27/2022
 ms.author: v-pgaddala
 ---
 
@@ -265,22 +265,22 @@ Upgrade the server as follows:
 1. [Install](/powershell/azure/install-Az-ps) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Connect-AzAccount`
+    `Connect-AzAccount –UseDeviceAuthentication`
 3. Select the subscription under which the vault is present
 
-     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select–AzSubscription`
 3.  Now set up your vault context
     
     ```powershell
-    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
-    Set-AzRecoveryServicesVaultContext -Vault $Vault
+    $vault = Get–AzRecoveryServicesVault –Name <name of your vault>
+    Set-AzRecoveryServicesAsrVaultContext –Vault $vault
     ```
 4. Get select your configuration server
 
-    `$Fabric = Get-AzRecoveryServicesAsrFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get–AzRecoveryServicesAsrFabric –FriendlyName <name of your configuration server>`
 6. Delete the Configuration Server
 
-    `Remove-AzRecoveryServicesAsrFabric -Fabric $Fabric [-Force]`
+    `Remove–AzRecoveryServicesAsrFabric –Fabric $Fabric –Force`
 
 > [!NOTE]
 > The **-Force** option in the Remove-AzRecoveryServicesAsrFabric can be used to force the removal/deletion of the Configuration server.
