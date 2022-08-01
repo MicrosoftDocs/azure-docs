@@ -24,7 +24,7 @@ In addition to the hardened security profile, confidential node pools on AKS als
 - Lift and Shift with full AKS feature support - to enable a seamless lift-and-shift of Linux container workloads
 - Heterogenous Node Pools - to store sensitive data in a VM-level TEE node pool with memory encryption keys generated from the chipset itself
 
-:::image type="content" source="media/confidential-vm-node-pools-on-aks/snp-on-aks-architechture-image.png" alt-text="Graphic of VM nodes in AKS with encrypted code and data in confidential VM node pools 1 and 2, on top of the hypervisor":::
+:::image type="content" source="media/confidential-vm-node-pools-on-aks/snp-on-aks-architecture-image.png" alt-text="Graphic of VM nodes in AKS with encrypted code and data in confidential VM node pools 1 and 2, on top of the hypervisor":::
 
 Get started and add confidential node pools to existing AKS cluster with [this quick start guide](../aks/use-multiple-node-pools.md#add-a-confidential-vm-with-amd-sev-snp-support-node-pool-preview).
 

@@ -171,11 +171,11 @@ az aks nodepool add \
 ```
 
 ### Add a confidential VM (with AMD SEV-SNP support) node pool (preview)
-AKS node pools now support the generally available [confidential VM sizes (DCav5/ECav5)](https://aka.ms/AMD-ACC-VMs-GA-Inspire-2022) to create confidential VM node pools. Confidential VMs with AMD SEV-SNP support bring a new set of security features to protect date-in-use with full VM memory encryption. This enables confidential VM node pools to target the migration of highly sensitive container workloads to AKS without any code refactoring while benefiting from the full AKS feature support. To learn more, check out our [latest offering](../confidential-computing/confidential-node-pool-in-aks.md).
+AKS node pools now support the generally available [confidential VM sizes (DCav5/ECav5)](https://aka.ms/AMD-ACC-VMs-GA-Inspire-2022) to create confidential VM node pools. Confidential VMs with AMD SEV-SNP support bring a new set of security features to protect date-in-use with full VM memory encryption. This enables confidential VM node pools to target the migration of highly sensitive container workloads to AKS without any code refactoring while benefiting from the full AKS feature support. To learn more, check out our [latest offering](../confidential-computing/confidential-node-pool-aks.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Add a confidential node pool using the [az aks nodepool add][az-aks-nodepool-add] command. This time, specify the name *cvmnodepool*, and use the `--node-vm-size` parameter to specify the *Standard_DC2as_v5* size:
+Add a confidential node pool using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the name *cvmnodepool*, and use the `--node-vm-size` parameter to specify the *Standard_DC2as_v5* size:
 
 ```azurecli-interactive
 az aks nodepool add \
