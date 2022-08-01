@@ -93,7 +93,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `The size of data each logical partition can store is limited, current partitioning design and workload failed to store more than the allowed amount of data for a given partition key value.`
 
-- **Cause**: Each logical partition of data has a limited size, and the partition key reached the maximum size of your logical partition.
+- **Cause**: The data size of each logical partition is limited, and the partition key reached the maximum size of your logical partition.
 
 - **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](../cosmos-db/partitioning-overview.md#logical-partitions).
 
