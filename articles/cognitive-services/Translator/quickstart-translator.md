@@ -734,8 +734,6 @@ Once you've added a code sample to your application, build and run your program:
     python translator-app.py
     ```
 
----
-
 **Translation output**
 
 After a successful call, you should see the following response:
@@ -764,6 +762,8 @@ After a successful call, you should see the following response:
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
+---
+
 
 ## Next steps
 
