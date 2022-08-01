@@ -21,7 +21,7 @@ Prerequisites:
 - An entire subnet that can be dedicated to Orbital GSaaS in your virtual network in your resource group.
 
 Steps:
-1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](/azure/virtual-network/manage-subnet-delegation).
+1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](../virtual-network/manage-subnet-delegation.md).
 
 > [!NOTE]
 >  Address range needs to be at least /24 (example 10.0.0.0/23)

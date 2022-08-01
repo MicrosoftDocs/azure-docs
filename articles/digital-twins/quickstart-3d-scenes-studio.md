@@ -61,7 +61,7 @@ In this section, you'll use the *Azure Digital Twins data simulator* tool to gen
 
 This sample scenario represents a package distribution center that contains six robotic arms. Each arm has a digital twin with properties to track how many boxes the arm fails to pick up, along with the IDs of the missed boxes.
 
-1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher). 
+1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) in your web browser. 
 1. In the **Instance URL** space, enter the *host name* of your Azure Digital Twins instance from the [previous section](#collect-host-name). Set the **Simulation Type** to *Robot Arms*.
 1. Use the **Generate environment** button to create a sample environment with models and twins. (If you already have models and twins in your instance, this will not delete them, it will just add more.)
 

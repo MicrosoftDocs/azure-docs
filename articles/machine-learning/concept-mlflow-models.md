@@ -24,7 +24,9 @@ If you are not familiar with MLflow, you may not be aware of the difference betw
 
 Any file generated (and captured) from an experiment's run or job is an artifact. It may represent a model serialized as a Pickle file, the weights of a PyTorch or TensorFlow model, or even a text file containing the coefficients of a linear regression. Other artifacts can have nothing to do with the model itself, but they can contain configuration to run the model, pre-processing information, sample data, etc. As you can see, an artifact can come in any format. 
 
-You can log artifacts in MLflow in a similar way you log a file with Azure ML SDK v1:
+You may have been logging artifacts already:
+
+# [Using MLflow SDK](#tab/mlflow)
 
 ```python
 filename = 'model.pkl'
@@ -33,6 +35,32 @@ with open(filename, 'wb') as f:
 
 mlflow.log_artifact(filename)
 ```
+
+# [Using Azure ML SDK v1](#tab/sdkv1)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+filename = 'model.pkl'
+with open(filename, 'wb') as f:
+  pickle.dump(model, f)
+
+mlflow.log_file(filename)
+```
+
+# [Using the outputs folder](#tab/outputs)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+os.mkdirs("outputs", exists_ok=True)
+
+filename = 'outputs/model.pkl'
+with open(filename, 'wb') as f:
+  pickle.dump(model, f)
+```
+
+---
 
 ### Models
 
@@ -44,6 +72,32 @@ Logging models has the following advantages:
 > * Swagger is enabled in endpoints automatically and the __Test__ feature can be used in Azure ML studio.
 > * Models can be used as pipelines inputs directly.
 > * You can use the Responsable AI dashbord.
+
+Models can get logged by:
+
+# [Using MLflow SDK](#tab/mlflow)
+
+```python
+mlflow..sklearn.log_model(sklearn_estimator, "classifier")
+```
+
+# [Using Azure ML SDK v1](#tab/sdkv1)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+Logging models using Azure ML SDK v1 is not possible. We recommend to use MLflow SDK.
+
+# [Using the outputs folder](#tab/outputs)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+os.mkdirs("outputs/classifier", exists_ok=True)
+
+mlflow.sklearn.save_model(sklearn_estimator, "outputs/classifier")
+```
+
+---
 
 ## The MLModel format
 

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 07/06/2022
+ms.date: 07/26/2022
 ms.custom: devx-track-csharp
 ---
 

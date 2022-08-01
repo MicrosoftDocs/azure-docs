@@ -58,18 +58,6 @@ landingContent:
             url: supportability/how-to-manage-azure-support-request.md
 
   # Card
-  - title: Use accessibility options
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Keyboard shortcuts
-            url: azure-portal-keyboard-shortcuts.md
-      - linkListType: how-to-guide
-        links:
-          - text: Turn on high contrast
-            url: set-preferences.md#choose-a-theme-or-enable-high-contrast
-            
-  # Card
   - title: Manage access to the Azure portal
     linkLists:
       - linkListType: reference
@@ -84,21 +72,8 @@ landingContent:
             url: /learn/paths/manage-resources-in-azure/
           - text: Secure your resources with Azure role-based access control (Azure RBAC)
             url: /learn/modules/secure-azure-resources-with-rbac
-            
-  # Card
-  - title: View quotas and request increases
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View and increase quotas
-            url: supportability/view-quotas.md
-          - text: Increase VM-family vCPU quotas
-            url: supportability/per-vm-quota-requests.md
-          - text: Increase regional vCPU quotas
-            url: supportability/regional-quota-requests.md
-          - text: Increase spot vCPU quotas
-            url: supportability/spot-quota.md
 
+                        
   # Card
   - title: Customize the Azure portal
     linkLists:
@@ -112,3 +87,29 @@ landingContent:
             url: azure-portal-dashboards.md
           - text: Add, remove, and sort favorites
             url: azure-portal-add-remove-sort-favorites.md
+
+
+  # Card
+  - title: View and increase quotas
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure Quotas
+            url: /azure/quotas/quotas-overview
+      - linkListType: quickstart
+        links:
+          - text: Request a quota increase
+            url: /azure/quotas/quickstart-increase-quota-portal
+
+            
+  # Card
+  - title: Use accessibility options
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Keyboard shortcuts
+            url: azure-portal-keyboard-shortcuts.md
+      - linkListType: how-to-guide
+        links:
+          - text: Turn on high contrast
+            url: set-preferences.md#choose-a-theme-or-enable-high-contrast

@@ -1,7 +1,6 @@
 ---
 title: How to test and publish a SaaS offer to the Microsoft commercial marketplace
 description: Use Partner Center to submit your SaaS offer to preview, preview your offer, test, and then publish it to the Microsoft commercial marketplace.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
