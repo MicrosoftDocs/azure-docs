@@ -106,7 +106,7 @@ While you should avoid sending duplicate data to multiple workspaces because of 
 ### Data access control
 When you grant a user [access to a workspace](manage-access.md#azure-rbac), they have access to all data in that workspace. This is appropriate for a member of a central administration or security team who must access data for all resources. Access to the workspace is also determined by resource-context RBAC and table-level RBAC.
 
-Resource-context RBAC](manage-access.md#access-mode)
+[Resource-context RBAC](manage-access.md#access-mode)
 By default, if a user has read access to an Azure resource, they inherit permissions to any of that resource's monitoring data sent to the workspace. This allows users to access information about resources they manage without being granted explicit access to the workspace. If you need to block this access, you can change the [access control mode](manage-access.md#access-control-mode) to require explicit workspace permissions.
 
 - **If you want users to be able to access data for their resources**, keep the default access control mode of *Use resource or workspace permissions*.
@@ -179,7 +179,7 @@ In a hybrid model, each tenant has its own workspace, and some mechanism is used
 
 There are two options to implement logs in a central location:
 
-- Central workspace. The service provider creates a workspace in its tenant and use a script that utilizes the [Query API](api/overview.md) with the [custom logs API](custom-logs-overview.md) to bring the data from the tenant workspaces to this central location. Another option is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to copy data to the central workspace.
+- Central workspace. The service provider creates a workspace in its tenant and use a script that utilizes the [Query API](api/overview.md) with the [logs ingestion API](logs-ingestion-api-overview.md) to bring the data from the tenant workspaces to this central location. Another option is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to copy data to the central workspace.
 
 - Power BI. The tenant workspaces export data to Power BI using the integration between the [Log Analytics workspace and Power BI](log-powerbi.md). 
 

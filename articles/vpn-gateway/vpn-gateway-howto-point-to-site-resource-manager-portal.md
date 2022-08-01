@@ -166,7 +166,7 @@ From the Network dialog box, locate the client profile that you want to use, spe
 
 If you're having trouble connecting, verify that the virtual network gateway isn't using a Basic SKU. The Basic SKU isn't supported for Mac clients.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-cert-mac/select-connect.png":::
+   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/select-connect.png":::
 
 ## <a name="verify"></a>To verify your connection
 

@@ -268,9 +268,9 @@ SOC efficiency** webinar. [YouTube](https://youtu.be/148mr8anqtI), [Presentation
 
 Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
 
-* The first of these features is the [**custom logs API.**](../azure-monitor/logs/custom-logs-overview.md) It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You can use Log Analytics [data collection rules (DCRs)](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
+* The first of these features is the [**Logs ingestion API.**](../azure-monitor/logs/logs-ingestion-api-overview.md) It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You can use Log Analytics [data collection rules (DCRs)](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
 
-* The second feature is [**ingestion-time data transformation for standard logs**](../azure-monitor/logs/ingestion-time-transformations.md). It uses [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+* The second feature is [**workspace data transformations for standard logs**](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr). It uses [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
     * AMA-based data connectors (based on the new Azure Monitor Agent)
     * MMA-based data connectors (based on the legacy Log Analytics Agent)
     * Data connectors that use Diagnostic settings
@@ -348,6 +348,7 @@ The next section on writing rules explains how to use KQL in the specific contex
 
 #### Below is the recommended journey for learning Sentinel KQL:
 * [Pluralsight KQL course](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch) - the basics
+* [Must Learn KQL](https://aka.ms/MustLearnKQL) - A 20-part KQL series that walks through the basics to creating your first Analytics Rule. Includes an assessment and certificate.
 * The Microsoft Sentinel KQL Lab: An interactive lab teaching KQL focusing on what you need for Microsoft Sentinel:
     * [Learning module (SC-200 part 4)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
     * [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp), [Lab URL](https://aka.ms/lademo)

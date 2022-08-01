@@ -86,7 +86,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 
 For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
-This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there is to lower levels. Top-level scopes affect all Azure resources in the Azure AD tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](/security/business/identity-access/microsoft-entra-permissions-management?rtc=1) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
+This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there is to lower levels. Top-level scopes affect all Azure resources in the Azure AD tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](https://www.microsoft.com/security/business/identity-access/microsoft-entra-permissions-management) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
 
 * The root management group defines Azure Policies and RBAC role assignments that will be applied to all subscriptions and resources.
 

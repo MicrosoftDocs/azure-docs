@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: sgilley
-ms.author: copeters
-author: lostmygithubaccount
+ms.author: scottpolly
+author: s-polly
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: data4ml, sdkv1, event-tier1-build-2022

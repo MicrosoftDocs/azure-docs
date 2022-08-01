@@ -89,7 +89,7 @@ The following limits are observed for the custom named entity recognition.
 |Document length in characters | 1 | 128,000 characters; approximately 28,000 words or 56 pages. |
 |Count of entity types | 1 | 200 |
 |Entity length in characters | 1 | 500 |
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits
