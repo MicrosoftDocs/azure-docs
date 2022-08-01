@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 07/27/2022
+ms.date: 07/28/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -277,7 +277,7 @@ There are role assignments still using the custom role.
 
 **Solution**
 
-Remove those role assignments and try to delete the custom role again.
+Remove the role assignments that use the custom role and try to delete the custom role again. For more information, see [Find role assignments to delete a custom role](custom-roles.md#find-role-assignments-to-delete-a-custom-role).
 
 ### Symptom - Unable to add more than one management group as assignable scope
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: How to expose applications to internet using Application Gateway with TLS termination
 author: KarlErickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.custom: devx-track-java, event-tier1-build-2022
