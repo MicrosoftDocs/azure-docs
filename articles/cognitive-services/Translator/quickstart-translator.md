@@ -106,10 +106,8 @@ The core operation of the Translator service is translating text. In this quicks
 
     :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
 
-#### Feedback: Set up project (C#)
-
 > [!div class="nextstepaction"]
-> [I created a project](#build-your-c-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-set-up-project-c#)
+> [I created a project](#build-your-c-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=set-up-your-visual-stuido-project)
 
 ### Build your C# application
 
@@ -161,10 +159,8 @@ class Program
 
 ```
 
-#### Feedback: Build your application (C#)
-
 > [!div class="nextstepaction"]
-> [I built the application](#run-your-c-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-c#)
+> [I built the application](#run-your-c-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=build-your-c-application)
 
 ### Run your C# application
 
@@ -192,10 +188,8 @@ You can use any text editor to write Go applications. We recommend using the lat
           go version
         ```
 
-#### Feedback: Set up project (Go)
-
 > [!div class="nextstepaction"]
-> [I created a project](#build-your-go-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-feedback-set-up-project-go)
+> [I created a project](#build-your-go-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=set-up-your-go-environment)
 
 ### Build your Go application
 
@@ -266,10 +260,8 @@ func main() {
 }
 ```
 
-#### Feedback: Build your application (Go)
-
 > [!div class="nextstepaction"]
-> [I created a project](#run-your-go-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-go)
+> [I created a project](#run-your-go-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=build-your-go-application)
 
 ### Run your Go application
 
@@ -296,10 +288,8 @@ Once you've added a code sample to your application, your Go program can be exec
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
-#### Feedback: Set up environment (Java)
-
 > [!div class="nextstepaction"]
-> [I set up my environment](#create-a-new-gradle-project) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=feedback-set-up-environment-java)
+> [I set up my environment](#create-a-new-gradle-project) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=set-up-your-javanvironment)
 
 ### Create a new Gradle project
 
@@ -342,10 +332,8 @@ Once you've added a code sample to your application, your Go program can be exec
   }
   ```
 
-#### Feedback: Create a new Gradle project
-
 > [!div class="nextstepaction"]
-> [I created a Gradle project](#create-your-java-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=feedback-create-a-new-gradle-project)
+> [I created a Gradle project](#create-your-java-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-a-new-gradle-project)
 
 ### Create your Java Application
 
@@ -423,12 +411,10 @@ public class TranslatorText {
 }
 ```
 
-#### Feedback: Create your Java application
-
 > [!div class="nextstepaction"]
 > [I created a Java application](#build-and-run-your-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-your-java-application)
 
-### Build and run your application
+### Build and run your Java application
 
 Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
@@ -493,10 +479,9 @@ Once you've added a code sample to your application, navigate back to your main 
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-app` directory.
 
-#### Feedback: Set up your Node.js project
 
 > [!div class="nextstepaction"]
-> [I set up my Node.js project](#build-your-javascript-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=feedback-set-up-your-nodejs-project)
+> [I set up my Node.js project](#build-your-javascript-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-nodejs-express-project)
 
 ### Build your JavaScript application
 
@@ -533,12 +518,10 @@ Once you've added a code sample to your application, navigate back to your main 
 
 ```
 
-#### Feedback: Build your application (JavaScript)
-
 > [!div class="nextstepaction"]
-> [I built my application](#run-your-application-javascript) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-javascript)
+> [I built my application](#run-your-application-javascript) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-javascript-application)
 
-### Run your application (JavaScript)
+### Run your JavaScript application
 
 Once you've added the code sample to your application, run your program:
 
@@ -569,10 +552,9 @@ Once you've added the code sample to your application, run your program:
     > [!NOTE]
     > We will also use a Python built-in package called json. It's used to work with JSON data.
 
-#### Feedback: Set up your project (Python)
 
 > [!div class="nextstepaction"]
-> [I set up my project](#build-your-python-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=feedback-set-up-your-project-python)
+> [I set up my project](#build-your-python-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-python-project)
 
 ### Build your Python application
 
@@ -618,10 +600,8 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ```
 
-#### Feedback: Build your application (Python)
-
 > [!div class="nextstepaction"]
-> [I created a project](#run-your-python-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=feedback-build-your-application-python)
+> [I created a project](#run-your-python-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-python-application)
 
 ### Run your Python application
 
@@ -665,38 +645,31 @@ After a successful call, you should see the following response:
 
 ### [C#: Visual Studio](#tab/csharp)
 
-#### Feedback: Run your application (C#)
 
 > [!div class="nextstepaction"]
-> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=feedback-run-application-c)
+> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=run-your-c-application)
 
 ### [Go](#tab/go)
 
-#### Feedback: Run your application (Go)
-
 > [!div class="nextstepaction"]
-> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=feedback-run-your-application-go)
+> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=run-your-go-application)
 
 ### [Java: Gradle](#tab/java)
-
-#### Feedback: Build and run your Java application
 
 > [!div class="nextstepaction"]
 > [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=build-and-run-your-java-application)
 
 ### [JavaScript: Node.js](#tab/nodejs)
 
-#### Feedback: Run your application (JavaScript)
-
 > [!div class="nextstepaction"]
-> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=feedback-run-your-application-javascript)
+> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=run-your-javascript-application)
 
 ### [Python](#tab/python)
 
-#### Feedback: Run your application (Python)
+#### Feedback: Run your pyapplication (Python)
 
 > [!div class="nextstepaction"]
-> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=feedback-run-your-application-python)
+> [I translated text](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
 
 ---
 
