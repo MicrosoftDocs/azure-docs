@@ -113,7 +113,7 @@ When a guest signs in to a resource in a partner organization for the first time
 
 1. The guest reviews the **Review permissions** page describing the inviting organization's privacy statement. A user must **Accept** the use of their information in accordance to the inviting organization's privacy policies to continue.
 
-   ![Screenshot showing the Review permissions page](media/redemption-experience/new-review-permissions.png) 
+   ![Screenshot showing the Review permissions page.](media/redemption-experience/new-review-permissions.png) 
 
    > [!NOTE]
    > For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/active-directory-properties-area.md).
