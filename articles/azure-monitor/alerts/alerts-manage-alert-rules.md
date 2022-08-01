@@ -15,7 +15,7 @@ ms.reviewer: harelbr
 1. From the top command bar, select **Alert rules**. You will see all of your alert rules across subscriptions. You can filter the list of rules using the available filters: **Resource group**, **Resource type**, **Resource** and **Signal type**.
 1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
 1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, **Scope**, or **Signal type** of an existing alert rule.
-    - **Condition**. Learn more about conditions for [metric alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric#tabpanel_1_metric,  [log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log#tabpanel_1_log), and [activity log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=activity-log#tabpanel_1_activity-log)
+    - **Condition**. Learn more about conditions for [metric alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric#tabpanel_1_metric), [log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log#tabpanel_1_log), and [activity log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=activity-log#tabpanel_1_activity-log)
     - **Actions**
     - **Alert rule details**
 1. Select **Save** on the top command bar.
