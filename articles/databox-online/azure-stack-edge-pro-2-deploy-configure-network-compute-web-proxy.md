@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/29/2022
+ms.date: 08/01/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -552,8 +552,15 @@ Follow these steps to validate your network settings.
    
    ![Screenshot of the Diagnostic tests page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test.png)  
 
-1. Review test results to ensure that status shows "Healthy" for each test that was run. If a test fails, select **Recommended actions**, implement the recommended change, and then rerun the test.
-1. After network settings are validated and all tests return "Healthy" status, proceed to **Device** settings.
+1. Review test results to ensure that status shows **Healthy** for each test that was run.
+
+   ![Screenshot of the Diagnostic test results page in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/validate-network-settings-with-diagnostic-test-results.png)
+
+1. If a test fails, select **Recommended actions** on the test results page, implement the recommended change, and then rerun the test. For example, the dialog below shows recommended actions if the Azure Edge compute runtime test fails.
+
+   ![Screenshot of Recommended actions when the Azure Edge compute runtime test fails as shown in the local web UI of an Azure Stack Edge device.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/recommended-actions-ip-already-in-use.png)
+
+1. After network settings are validated and all tests return **Healthy** status, proceed to the device settings page.
 
 ## Next steps
 
