@@ -430,7 +430,7 @@ The workspace admin also cannot create a new role. It can only assign existing b
 
 ### Data labeling
 
-# [Data labeler](#tabs/labeler)
+# [Data labeler](#tab/labeler)
 
 Allows you to define a role scoped only to labeling data:
 
@@ -455,7 +455,7 @@ Allows you to define a role scoped only to labeling data:
 }
 ```
 
-# [Labeling team lead](#tabs/team-lead)
+# [Labeling team lead](#tab/team-lead)
 
 Allows you to review and reject the labeled dataset and view labeling insights. In addition to it, this role also allows you to perform the role of a labeler.
 
@@ -491,7 +491,7 @@ Allows you to review and reject the labeled dataset and view labeling insights. 
 }
 ```
 
-# [Customer QA](#tabs/customer-qa)
+# [Customer QA](#tab/customer-qa)
 
 A customer quality assurance role can view project dashboards, preview datasets, export a labeling project, and review submitted labels. This role can't submit labels.
 
@@ -524,7 +524,7 @@ A customer quality assurance role can view project dashboards, preview datasets,
 }
 ```
 
-# [Vendor account manager](#tabs/vendor-admin)
+# [Vendor account manager](#tab/vendor-admin)
 
 A vendor account manager can help manage all the vendor roles and perform any labeling action. They cannot modify projects or view MLAssist experiments.
 
@@ -558,7 +558,7 @@ A vendor account manager can help manage all the vendor roles and perform any la
 }
 ```
 
-# [Vendor QA](#tabs/vendor-qa)
+# [Vendor QA](#tab/vendor-qa)
 
 A vendor quality assurance role can perform a a customer quality assurance role, but cannot preview the dataset.
 
