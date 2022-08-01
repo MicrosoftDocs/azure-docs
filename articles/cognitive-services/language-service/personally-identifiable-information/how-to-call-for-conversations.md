@@ -39,7 +39,7 @@ You can submit the input to the API as list of conversation items. Analysis is p
 
 When using the async feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-When you submit data to conversational PII, we can send one conversation (chat or spoken) per request.
+When you submit data to conversational PII, you can send one conversation (chat or spoken) per request.
 
 The API will attempt to detect all the [defined entity categories](concepts/conversations-entity-categories.md) for a given conversation input. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories.
 
