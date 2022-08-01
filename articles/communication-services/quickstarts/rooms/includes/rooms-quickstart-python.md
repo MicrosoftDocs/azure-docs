@@ -53,8 +53,8 @@ if __name__ == '__main__':
 From a console prompt, navigate to the directory containing the rooms.py file, then execute the following command:
 
 ```console
-pip install azure_communication_rooms
-pip install azure.communication.identity
+pip install azure-communication-rooms
+pip install azure-communication-identity
 ```
 
 ### Initialize a room client
@@ -63,7 +63,7 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 
 ```python
 #Find your Communication Services resource in the Azure portal
-self.connection_string = os.getenv("COMMUNICATION_SAMPLES_CONNECTION_STRING")
+self.connection_string = <COMMUNICATION_SAMPLES_CONNECTION_STRING>
 self.rooms_client = RoomsClient.from_connection_string(self.connection_string)
 ```
 
@@ -100,7 +100,7 @@ except HttpResponseError as ex:
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```python
 # set attributes you want to change
@@ -121,16 +121,25 @@ To add new participants to a `room`, use the `add_participants` method exposed o
 ```python
 try:
     participants = []
-    for p in participants_list:
-        participants.append(RoomParticipant(CommunicationUserIdentifier(p), RoleType.ATTENDEE))
+    participants.append(RoomParticipant(CommunicationUserIdentifier("<ACS User MRI identity 1>"), RoleType.ATTENDEE))
     self.rooms_client.add_participants(room_id, participants)
 
-    print(str(len(participants)) + ' new participants added to the room : ' + str(room_id))
 except Exception as ex:
-    print('Error in adding participants to room.',ex)
+    print('Error in adding participants to room.', ex)
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
+
+### Get list of participants
+
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+
+```python
+try:
+    participants = self.rooms_client.get_participants(room_id)
+except HttpResponseError as ex:
+    print(ex)
+```
 
 ### Remove participants
 

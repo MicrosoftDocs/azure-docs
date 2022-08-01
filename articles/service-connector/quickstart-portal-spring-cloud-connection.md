@@ -19,7 +19,7 @@ This quickstart shows you how to create a new service connection with Service Co
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
-- A Spring Cloud application running on Azure. If you don't have one yet, [create a Spring Cloud application](../spring-cloud/quickstart.md).
+- A Spring Cloud application running on Azure. If you don't have one yet, [create a Spring Cloud application](../spring-apps/quickstart.md).
 
 ## Sign in to Azure
 

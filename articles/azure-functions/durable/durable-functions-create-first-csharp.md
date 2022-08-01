@@ -53,7 +53,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | C# | Create a local C# Functions project. |
-    | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 
