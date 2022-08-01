@@ -5,7 +5,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 07/04/2022
+ms.date: 08/01/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,23 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## July 2022
+
+### New articles
+
+- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
+
+### Updated articles
+
+- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
+- [Application configuration options](msal-client-application-configuration.md)
+- [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md)
+- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- [Microsoft identity platform access tokens](access-tokens.md)
+- [Single-page application: Sign-in and Sign-out](scenario-spa-sign-in.md)
+- [Tutorial: Add sign-in to Microsoft to an ASP.NET web app](tutorial-v2-asp-webapp.md)
 
 ## June 2022
 
