@@ -87,7 +87,7 @@ This Blob storage connector supports the following authentication types. See the
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
->- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
+>- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity). For more information about the Azure Storage firewalls settings, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 >- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Azure Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
