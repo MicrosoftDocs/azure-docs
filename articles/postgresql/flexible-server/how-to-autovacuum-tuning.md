@@ -13,7 +13,7 @@ ms.date: 7/28/2022
 
 ## What is Autovacuum 
 
-Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes. The downside of it is it need appropriate maintenance done by VACUUM and ANALYZE commands.  
+Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes. The downside of it is it needs appropriate maintenance done by VACUUM and ANALYZE commands.  
 
 For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, it marks the existing row as “dead” and inserts a new version of this row. These operations leave behind the dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, these dead tuples will stay, consuming disk space, increasing table and index bloat that results in slow query performance.   
 
@@ -21,7 +21,7 @@ The purpose of autovacuum process is to clean up dead tuples.
 
 ## Autovacuum Internals
 
-When a page is read by autovacuum, if no dead tuples are found autovacuum discards that page. If dead tuples are found, they are removed. The cost is based on:
+When a page is read by autovacuum, if no dead tuples are found autovacuum discards that page.If dead tuples are found, they are removed. The cost is based on:
 
 `vacuum_cost_page_hit`
 Cost of reading a page that is already in shared buffers and does not need a disk read. The default value is set to 1.
@@ -42,9 +42,9 @@ number of milliseconds.
 
 In postgres versions 9.6, 10 and 11 the default `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 20 milliseconds.
 
-Autovacuum wakes up 50 times (50*20 ms=1000 ms). Every time it wakes up, autovacuum reads 200 pages.
+Autovacuum wakes up 50 times (50*20 ms=1000ms). Every time it wakes up, autovacuum reads 200 pages.
 
-That means in 1-second autovacuum can do
+That means in 1 second autovacuum can do
 
 - ~80 MB/Sec [ (200 pages/`vacuum_cost_page_hit`) * 50 * 8 KB per page] if all pages with dead tuples are found in shared buffers.
 - ~8 MB/Sec [ (200 pages/`vacuum_cost_page_miss`) * 50 * 8 KB per page] if all pages with dead tuples are read from disk.
@@ -136,7 +136,7 @@ In case the autovacuum is not keeping up, the following parameters may be change
 Default: 0.2, range 0.05 - 0.1. The scale factor is workload-specific and should be set depending on the amount of data in the tables. Before changing the value, the workload and individual table volumes need to be investigated.
 
 ##### `autovacuum_vacuum_cost_limit`
-Default: 200. Cost limit may be increased. CPU and I/O utilization on the database should be monitored before and after making changes.
+Default: 200. Cost limit may be increased. CPU and I/O utilization on the database should be monitored before and after changing this.
 
 ##### `autovacuum_vacuum_cost_delay` 
 
@@ -152,7 +152,7 @@ Note that the autovacuum_vacuum_cost_limit value is distributed proportionally a
 
 ### Autovacuum Constantly Running
 
-Continuously running autovacuum may affect CPU and IO utilization on the server. The following might be possible reasons -
+Continuously running autovacuum may effect CPU and IO utilization on the server.The following might be possible reasons -
 
 
 ##### `maintenance_work_mem`     
@@ -180,7 +180,7 @@ Overly aggressive `maintenance_work_mem` values could periodically cause out
 If autovacuum is consuming a lot of resources, the following can be done:
 
 ##### Autovacuum Parameters   
-Evaluate the parameters `autovacuum_vacuum_cost_delay`, `autovacuum_vacuum_cost_limit`, `autovacuum_max_workers`. Improper setting of autovacuum parameters may lead to scenarios where autovacuum becomes too disruptive.
+Evaluate the parameters `autovacuum_vacuum_cost_delay`, `autovacuum_vacuum_cost_limit`, `autovacuum_max_workers`.Inproper setting of autovacuum parameters may lead to scenarios where autovacuum becomes too disruptive.
 
 - Increase `autovacuum_vacuum_cost_delay` and reduce `autovacuum_vacuum_cost_limit` if set higher than the default of 200.  
 - Reduce the number of `autovacuum_max_workers` if it is set higher than the default of 3.  
@@ -212,13 +212,13 @@ The wraparound problem occurs when the database is either not vacuumed or there 
  
 #### Heavy Workload 
 
-The workload could cause too many dead tuples in a brief period that makes it difficult for autovacuum to catch up. The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation.One reason for this situation to arise might be because autovacuum parameters aren't adequately set and it is not keeping up with a busy server.
+The workload could cause too many dead tuples in a brief period that makes it difficult for autovacuum to catch up.The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation.One reason for this situation to arise might be because autovacuum parameters are not adequately set and it is not keeping up with a busy server.
 
  
 #### Long Running Transactions 
 
 Any long-running transactions in the system will not allow dead tuples to be removed while autovacuum is running. 
-They're a blocker to vacuum process. Removing the long running transactions frees up dead tuples for deletion when autovacuum runs.    
+They are a blocker to vacuum process. Removing the long running transactions frees up dead tuples for deletion when autovacuum runs.    
 The long-running transactions can be detected using the following query: 
 
 ```
@@ -242,7 +242,7 @@ The following query helps to find the non-committed prepared statements:
     FROM pg_prepared_xacts 
     ORDER BY age(transaction) DESC; 
 ```
-Use COMMIT PREPARED or ROLLBACK PREPARED to commit or roll back these statements. 
+Use COMMIT PREPARED or ROLLBACK PREPARED to commit or rollback these statements. 
 
 #### Unused Replication Slots 
 
@@ -263,7 +263,7 @@ When the database runs into transaction ID wraparound protection one should chec
 
 ### Table-specific Requirements  
 
-Autovacuum parameters may be set for individual tables. It is especially important for small and big tables. For instance for a small table that contains only 100 rows autovacuum will trigger VACUUM operation when 70 rows will change (as calculated above). If this table is frequently updated, you might see hundreds of autovacuum operations a day. This will prevent autovacuum from maintaining other tables on which the percentage of changes isn’t that big. On the other hand for a table containing a billion of rows, 200 million of rows need to be changed until autovacuum operation will be triggered for it. Setting the autovacuum parameters prevents such scenarios.
+Autovacuum parameters may be set for individual tables.It is especially important for very small and very big tables. For instance for a very small table that contains only 100 rows autovacuum will trigger VACUUM operation when 70 rows will change (as calculated above). If this table is frequently updated you might see hundreds of autovacuum operations a day. This will prevent autovacuum from maintaining other tables on which the percentage of changes isn’t that big. On the other hand for a table containing billion of rows, 200 million of rows needs to be changed until autovacuum operation will be triggered for it.Setting the autovacuum parameters prevents such scenarios.
 
 To set autovacuum setting per table, change the server parameters as follows (values below are examples):
 ```
@@ -288,8 +288,8 @@ In versions of PostgreSQL prior to 13, autovacuum will not run on tables wit
 
 ##### Postgres Versions prior to 13  
 
-Using pg_cron extension a cron job can be set up to schedule a periodic vacuum analyze on the table. The frequency of the cron job would depend on the workload.   
-For step by step guidance for using pg_cron, follow [Extensions](./concepts-extensions.md).
+Using pg_cron extension a cron job can be setup to schedule a periodic vacuum analyze on the table. The frequency of the cron job would depend on the workload.   
+For step by step guidance for using pg_cron follow [Extensions](./concepts-extensions.md).
 
 ##### Postgres 13 and Higher Versions  
 
