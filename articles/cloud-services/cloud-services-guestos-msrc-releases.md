@@ -11,13 +11,66 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/11/2022
+ms.date: 7/29/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+>[!NOTE] 
+>
+>The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change. 
+
+## July 2022 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-07 |  [5015811]  |  Latest Cumulative Update(LCU) | 6.45 | Jul 12, 2022 |
+|  Rel 22-07 |  [5015827]  |  Latest Cumulative Update(LCU) | 7.13 | Jul 12, 2022 |
+|  Rel 22-07 |  [5015808]  |  Latest Cumulative Update(LCU) | 5.69 | Jul 12, 2022 |
+|  Rel 22-07 |  [5015805]  |  IE Cumulative Updates  | 2.124, 3.111, 4.104 | Jul 12, 2022 |
+|  Rel 22-07 |  [5013641]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | 6.46 | May 10, 2022 |
+|  Rel 22-07 |  [5013630]  |  .NET Framework 4.8 Security and Quality Rollup | 7.14 | May 10, 2022 |
+|  Rel 22-07 |  [5016058]  |  Servicing Stack update | 5.70 | Jul 12, 2022 |
+|  Rel 22-07 |  [4494175]  |  Microcode | 5.70 | Sep 1, 2020 |
+|  Rel 22-07 |  [4494174]  |  Microcode | 6.46 | Sep 1, 2020 |
+|  Rel 22-07 |  [5013637]  |  .NET Framework 3.5 Security and Quality Rollup LKG  | 2.126 | Jun 14, 2022 |
+|  Rel 22-07 |  [5013644]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG  | 2.126 | May 10, 2022 |
+|  Rel 22-07 |  [5013638]  |  .NET Framework 3.5 Security and Quality Rollup LKG 6B is a Non-Sec Release  | 4.106 | Jun 14, 2020 |
+|  Rel 22-07 |  [5013643]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG 6B is a Non-Sec Release  | 4.106 | May 10, 2022 |
+|  Rel 22-07 |  [5013635]  |  .NET Framework 3.5 Security  and Quality Rollup LKG  | 3.113 | Jun 14, 2022 |
+|  Rel 22-07 |  [5013642]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG  | 3.113 | May 10, 2022 |
+|  Rel 22-07 |  [5015861]  |  Monthly Rollup  | 2.126 | Jul 12, 2022 |
+|  Rel 22-07 |  [5015863]  |  Monthly Rollup  | 3.113 | Jul 12, 2022 |
+|  Rel 22-07 |  [5015874]  |  Monthly Rollup  | 4.106 | Jul 12, 2022 |
+|  Rel 22-07 |  [5016263]  |  Servicing Stack update  | 3.113 | Jul 12, 2022 |
+|  Rel 22-07 |  [5016264]  |  Servicing Stack update  | 4.106 | Jul 12, 2022 |
+|  Rel 22-07 |  [4578013]  |  OOB Standalone Security Update  | 4.106 | Aug 19, 2020 |
+|  Rel 22-07 |  [5016057]  |  Servicing Stack update  | 2.126 | Jul 12, 2022 |
+
+[5015811]: https://support.microsoft.com/kb/5015811
+[5015827]: https://support.microsoft.com/kb/5015827
+[5015808]: https://support.microsoft.com/kb/5015808
+[5015805]: https://support.microsoft.com/kb/5015805
+[5013641]: https://support.microsoft.com/kb/5013641
+[5013630]: https://support.microsoft.com/kb/5013630
+[5016058]: https://support.microsoft.com/kb/5016058
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[5013637]: https://support.microsoft.com/kb/5013637
+[5013644]: https://support.microsoft.com/kb/5013644
+[5013638]: https://support.microsoft.com/kb/5013638
+[5013643]: https://support.microsoft.com/kb/5013643
+[5013635]: https://support.microsoft.com/kb/5013635
+[5013642]: https://support.microsoft.com/kb/5013642
+[5015861]: https://support.microsoft.com/kb/5015861
+[5015863]: https://support.microsoft.com/kb/5015863
+[5015874]: https://support.microsoft.com/kb/5015874
+[5016263]: https://support.microsoft.com/kb/5016263
+[5016264]: https://support.microsoft.com/kb/5016264
+[4578013]: https://support.microsoft.com/kb/4578013
+[5016057]: https://support.microsoft.com/kb/5016057
 
 ## June 2022 Guest OS
 

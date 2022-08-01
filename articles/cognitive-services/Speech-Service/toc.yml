@@ -194,7 +194,7 @@ items:
         href: ingestion-client.md
     - name: Language learning
       items:
-        - name: Pronunciation Assessment
+        - name: Pronunciation Assessment with speech to text
           items:
             - name: Pronunciation Assessment in Speech Studio
               href: pronunciation-assessment-tool.md
