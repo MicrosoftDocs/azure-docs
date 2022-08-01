@@ -25,7 +25,7 @@ Here are some of the more relevant customization settings for the components.
 
 * Networking (public access): Configure internet access (for example, IP filters).
 * Networking(private endpoint connections): Create an endpoint that's inaccessible through the internet but that can be consumed internally by other Azure services or on-premises devices (for example, through a VPN connection).
-* IoT Edge: Manage the configuration of the edge devices that are connected to the OPC Unified Architecture (OPC UA) servers. 
+* Azure IoT Edge: Manage the configuration of the edge devices that are connected to the OPC Unified Architecture (OPC UA) servers. 
 
 ### Azure Cosmos DB
 
