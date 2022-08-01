@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 08/01/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -24,7 +24,7 @@ Your organization will need to enable Microsoft Authenticator push notifications
 
 ## Passwordless phone sign-in and multifactor authentication 
 
-When a user receives a Passwordless phone sign-in or MFA push notification in the Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
+When a user receives a passwordless phone sign-in or MFA push notification in the Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
@@ -34,16 +34,23 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 
 ## Enable additional context
 
-To enable additional context, complete the following steps:
+To enable application name or geographic location, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. Only users who are enabled for Microsoft Authenticator will see additional context. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
+1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
+   
+   Only users who are enabled for Microsoft Authenticator here can be included in the policy to show the application name or geographic location of the sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see them.
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-settings-additional-context.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Any authentication mode.":::
 
-1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)** and **Show geographic location in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**.
+1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**. 
 
-   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/additional-context.png" alt-text="Screenshot of how to enable additional context.":::
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-app-name.png" alt-text="Screenshot of how to enable additional context.":::
+
+   Then do the same for **Show geographic location in push and passwordless notifications (Preview)**.
+
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-geolocation.png" alt-text="Screenshot of how to enable additional context.":::
+
 
 ## Known issues
 
