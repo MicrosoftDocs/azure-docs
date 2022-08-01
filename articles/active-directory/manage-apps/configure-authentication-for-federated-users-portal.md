@@ -226,7 +226,7 @@ From the Microsoft Graph explorer window:
 
 1. Grant consent to the *Policy.ReadWrite.ApplicationConfiguration* permission.
 1. Use the URL https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies
-1. POST the new policy to this URL, or PATCH to https://graph.microsoft.com/v1.0/policies/homerealmdiscoveryPolicies/{policyID} if overwriting an existing one.
+1. POST the new policy to this URL, or PATCH to https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies/{policyID} if overwriting an existing one.
 1. POST or PATCH contents:
 
     ```json
