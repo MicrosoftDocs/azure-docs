@@ -5,30 +5,42 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/19/2022
+ms.date: 07/31/2022
 ms.author: v-smcevoy
 ms.custom: mode-api
 ---
 
 # Get started with the MedTech service in the Azure Health Data Services
 
-This article outlines the basic steps to get started with the Azure MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). The MedTech service ingests health data from a medical device using the Azure Event Hubs service. It then persists the data to the Azure Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources. This data processing procedure makes it possible to link FHIR service Observations to patient and device resources.
+This article outlines the basic steps to get started with the Azure MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). You will be show how to set up MedTech service to ingest health data from a medical device using Azure Event Hubs service, persisting the data to Azure Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources, making it possible to link FHIR service Observations to patient and device resources.
 
-The following diagram shows the four-step data flow that enables the MedTech service to receive data from a device and send it to the FHIR service.
+## MedTech service architectural overview diagram
+
+The following diagram shows the basic architectural path that enable the MedTech service to receive data from a medical device and send it to the FHIR service. This diagram outlines the three development stages you need to complete to implement MedTech service: deployment, post-deployment, and data processing. There are six steps required to complete all three stages.
+
+### Deployment
 
 - Step 1 introduces the subscription and permissions prerequisites needed.
 
 - Step 2 shows how Azure services are provisioned for the MedTech services.
 
-- Step 3 represents the flow of data sent from devices to the event hub and the MedTech service.
+- Step 3 presents the configuration process.
 
-- Step 4 demonstrates the path needed to verify data sent to the FHIR service.  
+### Post-deployment
+
+- Step 4 outlines how to connect to services.
+
+### Data processing
+
+- Step 5 represents the flow of data sent from devices to the event hub and the 5 parts of translating it through MedTech service.
+
+- Step 6 demonstrates the path needed to verify data sent from MedTech service to the FHIR service.
 
 [![MedTech service data flow diagram.](media/iot-get-started/get-started-with-iot.png)](media/iot-get-started/get-started-with-iot.png#lightbox)
 
-Follow these four steps and you'll be able to deploy the MedTech service effectively:
+The next three steps will show you the procedures needed to deploy MedTech service so it is ready to receive data from a medical device.
 
-## Step 1: Prerequisites for using the Azure Health Data Services
+## Step 1: Prerequisites for using the MedTech service
 
 Before you can begin sending data from a device, you need to determine if you have the appropriate Azure subscription and Azure RBAC (Role-Based Access Control) roles. If you already have the appropriate subscription and roles, you can skip this step.
 
