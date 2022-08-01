@@ -26,3 +26,5 @@ items:
       href: how-to-cross-platform-tests.md
     - name: Run Playwright tests in the cloud
       href: how-to-run-with-playwright-testing.md
+    - name: Test private endpoints
+      href: how-to-test-private-endpoints.md

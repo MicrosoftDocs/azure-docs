@@ -47,3 +47,5 @@ landingContent:
             url: how-to-cross-platform-tests.md
           - text: Run Playwright tests in the cloud
             url: how-to-run-with-playwright-testing.md
+          - text: Test private endpoints
+            url: how-to-test-private-endpoints.md
