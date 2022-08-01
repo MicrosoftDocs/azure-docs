@@ -5,7 +5,7 @@ ms.date: 07/26/2022
 ms.topic: reference
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.custom: subject-policy-reference, devx-track-java, event-tier1-build-2022
 ---
 
