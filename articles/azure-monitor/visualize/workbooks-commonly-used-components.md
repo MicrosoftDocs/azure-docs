@@ -15,7 +15,7 @@ This article includes commonly used Azure Workbooks components and instructions 
 
 ## Traffic light icons
 
-You might want to summarize status by using a simple visual indication instead of presenting the full range of data values. For example, you might want to categorize your computers by CPU utilization as cold, warm, or hot and categorize performance as satisfied, tolerated, or frustrated. You can use an indicator or icon that represents the status next to the underlying metric.
+You can summarize status by using a simple visual indication instead of presenting the full range of data values. For example, you can categorize your computers by CPU utilization as cold, warm, or hot and categorize performance as satisfied, tolerated, or frustrated. You can use an indicator or icon that represents the status next to the underlying metric.
 
 :::image type="content" source="media/workbooks-commonly-used-components/workbooks-traffic-light-sample.png" alt-text="Screenshot that shows a grid with traffic light status by using thresholds.":::
 
@@ -65,7 +65,7 @@ You can also pin this grid to a dashboard by using **Pin to dashboard**. The pin
 
 ## Capture user input to use in a query
 
-You might want to capture user input by using dropdown lists and use the selections in your queries. For example, you can have a dropdown list to accept a set of virtual machines and then filter your KQL to include just the selected machines. In most cases, this step is as simple as including the parameter's value in the query:
+You can capture user input by using dropdown lists and use the selections in your queries. For example, you can have a dropdown list to accept a set of virtual machines and then filter your KQL to include just the selected machines. In most cases, this step is as simple as including the parameter's value in the query:
 
 ```sql
     Perf
