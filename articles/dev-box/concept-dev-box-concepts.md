@@ -19,17 +19,17 @@ ms.custom: template-concept
 
 This article describes the key concepts and components of Microsoft Dev Box preview. 
 
-## DevCenter
+## Dev center
 
-A DevCenter is a collection of projects that require similar settings. DevCenters enable dev infrastructure managers to manage the images and SKUs available to the projects using [dev box definitions](concept-dev-box-concepts.md#dev-box-definition), and configure the networks the development teams consume using [network connections](./concept-dev-box-concepts.md#network-connection).  
+A dev center is a collection of projects that require similar settings. Dev centers enable dev infrastructure managers to manage the images and SKUs available to the projects using [dev box definitions](concept-dev-box-concepts.md#dev-box-definition), and configure the networks the development teams consume using [network connections](./concept-dev-box-concepts.md#network-connection).  
 
 ## Projects
 
-A project is the point of access for the development team members. When you associate a project with a DevCenter, all the settings at the DevCenter level will be applied to the project automatically. Each project can be associated with only one DevCenter. Dev managers can configure the dev boxes available for the project by  specifying the [dev box definitions](./concept-dev-box-concepts.md#dev-box-definition) appropriate for their workloads.
+A project is the point of access for the development team members. When you associate a project with a dev center, all the settings at the dev center level will be applied to the project automatically. Each project can be associated with only one dev center. Dev managers can configure the dev boxes available for the project by  specifying the [dev box definitions](./concept-dev-box-concepts.md#dev-box-definition) appropriate for their workloads.
 
 ## Dev box definition
 
-A dev box definition specifies a source image and size, including compute size and storage size. You can use a source image from the marketplace, or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). You can use dev box definitions across multiple projects in a DevCenter. 
+A dev box definition specifies a source image and size, including compute size and storage size. You can use a source image from the marketplace, or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). You can use dev box definitions across multiple projects in a dev center. 
 
 ## Network connection 
 
