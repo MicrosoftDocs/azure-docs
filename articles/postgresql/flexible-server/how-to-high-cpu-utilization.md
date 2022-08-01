@@ -109,9 +109,7 @@ GROUP BY 1 ORDER BY 1;
 
 ### Using Explain Analyze 
 
-Once you know the query, which is running for long time one can use “EXPLAIN” to further investigate the query and tune it. 
-
-For more information on EXPLAIN command [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html) 
+Once you know the query, which is running for long time one can use “EXPLAIN” to further investigate the query and tune it. For more information on EXPLAIN command see [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html) 
 
  
 ### PGBouncer And Connection Pooling 
