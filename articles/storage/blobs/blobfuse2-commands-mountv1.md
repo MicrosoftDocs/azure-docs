@@ -1,5 +1,6 @@
 ---
 title: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file | Microsoft Docs
+titleSuffix: Azure Blob Storage
 description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
 author: jimmart-dev
 ms.service: storage
