@@ -197,7 +197,7 @@ sections:
         - question: |
           Can I attach a disk to a VM in another region?
         answer: |
-          No, all managed disks, even shared disks, must be in the same region as the VM they are attaching to.
+          No. All managed disks, even shared disks, must be in the same region as the VM they are attaching to.
 
   - name: Snapshots
     questions:
