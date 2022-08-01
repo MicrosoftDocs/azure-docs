@@ -45,7 +45,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 - Enable outbound access for Batch node management. A pool with no public IP addresses doesn't have internet outbound access enabled by default. To allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)) either:
 
-  - Use [**nodeManagement** private endpoint](private-connectivity.md) with Batch accounts. This is the preferred method.
+  - Use [**nodeManagement** private endpoint](private-connectivity.md) with Batch accounts, which provides private access to Batch node management service from the virtual network. This is the preferred method.
 
   - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)).
 
@@ -67,7 +67,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
 1. Select the correct **Publisher/Offer/Sku** of your image.
 1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Target Spot/low-priority nodes**, as well as any desired optional settings.
-1. Select a virtual network and subnet you wish to use. This virtual network must be in the same location as the pool you are creating.
+1. Select a virtual network and subnet you wish to use. This virtual network must be in the same location as the pool you're creating.
 1. In **IP address provisioning type**, select **NoPublicIPAddresses**.
 
 ![Screenshot of the Add pool screen with NoPublicIPAddresses selected.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
