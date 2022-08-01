@@ -13,6 +13,10 @@ ms.reviewer: tamram
 
 # Troubleshooting BlobFuse2
 
+This articles provides references to assist in troubleshooting BlobFuse2 issues during the public preview.
+
+## The troubleshooting guide
+
 During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshoot Guide (TSG) on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/TSG.md)
 
 > [!IMPORTANT]
