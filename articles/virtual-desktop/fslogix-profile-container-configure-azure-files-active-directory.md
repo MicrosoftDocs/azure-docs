@@ -150,15 +150,6 @@ To use Active Directory accounts for the share permissions of your file share, y
 
 1. Tick the box to **Enable Azure Active Directory Domain Services (Azure AD DS) for this file share**, then select **Save**. An Organizational Unit (OU) called **AzureFilesConfig** will be created at the root of your domain and a computer account named the same as the storage account will be created in that OU. 
 
-1. To verify the storage account has joined your domain, run the commands below and review the output, replacing the values for `$resourceGroupName` and `$storageAccountName` with your values:
-
-   ```powershell
-   $resourceGroupName = "resource-group-name"
-   $storageAccountName = "storage-account-name"
-
-   (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.DirectoryServiceOptions; (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
-   ```
-
 ---
 
 ## Assign RBAC role to users
