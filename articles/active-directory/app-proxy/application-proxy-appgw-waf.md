@@ -23,6 +23,8 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 ## Deployment steps
 
+![Diagram](https://github.com/BeatrizSilv/azure-docs-pr/blob/patch-2/media/appproxy-waf.png?raw=true)
+
 1. [Add an application for remote access through Application Proxy in Azure Active Directory][appproxy-create], ideally with the connectors in an Azure VNet (not strictly required, but it will improve latency)
 1. [Create an Azure Application Gateway with WAF enabled][waf-create] in prevention mode
 1. Configure Azure Application Gateway to send traffic to your internal application
