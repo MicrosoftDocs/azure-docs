@@ -56,7 +56,7 @@ Azure role-based access controls are used to grant access to data and operations
 
 To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).. If you do not have this level of permissions, contact your administrator and have them create the custom roles for you.
 
-The following example custom roles are provided in the [Manage roles in your workspace](how-to-assign-roles.md#data-labeling) article:
+The following example custom roles are provided in the [Data labeling](how-to-assign-roles.md#data-labeling) section of the [Manage roles in your workspace](how-to-assign-roles.md) article:
 
 - Data labeler
 - Labeling team lead
