@@ -184,6 +184,8 @@ The September Guest OS has released.
 ## Family 7 releases
 **Windows Server 2022**
 
+.NET Framework installed: 4.8
+
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
 |  WA-GUEST-OS-7.13_202206-01 |  July 11, 2022  |  Post 7.15  |

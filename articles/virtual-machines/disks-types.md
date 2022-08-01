@@ -130,9 +130,9 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 The following table provides a comparison of disk capacities and performance maximums to help you decide which to use.
 
-|Disk Size (GiB)  |Maximum available IOPS  |Maximum available throughput (MB/s)  |
+|Disk Size  |Maximum available IOPS  |Maximum available throughput (MB/s)  |
 |---------|---------|---------|
-|1-64    |3,000-80,000 (Increases by 500 IOPS per GiB)        |125-1,200 (increases by 0.25 MB/s per set IOPS)         |
+|1 GiB-64 TiB    |3,000-80,000 (Increases by 500 IOPS per GiB)        |125-1,200 (increases by 0.25 MB/s per set IOPS)         |
 
 To deploy a Premium SSD v2, see [Deploy a Premium SSD v2 (preview)](disks-deploy-premium-v2.md).
 
