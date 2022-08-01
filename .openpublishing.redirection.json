@@ -7642,6 +7642,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "/articles/azure-monitor/agents/azure-monitor-agent-overview.md",
+      "redirect_url": "azure/azure-monitor/agents/agents-overview.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/deploy-computer-vision-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": true
