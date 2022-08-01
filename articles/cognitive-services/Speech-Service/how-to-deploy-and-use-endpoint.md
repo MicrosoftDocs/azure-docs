@@ -8,7 +8,7 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: caoling
 ms.custom: references_regions
 ---

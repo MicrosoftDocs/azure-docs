@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -38,7 +38,7 @@ The following steps assume that you've prepared the voice talent verbal consent 
 
 1. Next, to define voice characteristics, select **Target scenario**. Then describe your **Voice characteristics**. The scenarios you provide must be consistent with what you've applied for in the application form.
 
-1. Then, go to **Upload voice talent statement**, and follow the instruction to upload the voice talent statement you've prepared beforehand. Make sure the verbal statement is recorded in the same settings as your training data, including the recording environment and speaking style.
+1. Go to **Upload voice talent statement**, and follow the instruction to upload the voice talent statement you've prepared beforehand. Make sure the verbal statement is recorded in the same settings as your training data, including the recording environment and speaking style.
 
 1. Go to **Review and create**, review the settings, and select **Submit**.
 
@@ -176,7 +176,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
    >[!NOTE]
    >- To create a custom neural voice, select at least 300 utterances.
-   >- To train a neural voice, you must specify a voice talent profile. This profile must provide the audio consent file of the voice talent, acknowledging to use his or her speech data to train a custom neural voice model.
+   >- To train a neural voice, you must specify a voice talent profile. This profile must provide the audio consent file of the voice talent, acknowledging to use their speech data to train a custom neural voice model.
 
 1. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script, including up to 100 utterances. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
 

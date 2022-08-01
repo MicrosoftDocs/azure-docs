@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: eur
 ---
 
@@ -51,7 +51,7 @@ Files should be grouped by type into a dataset and uploaded as a zip file. Each 
 >
 > For the two beta options, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
-## Individual utterances and matching transcript
+## Individual utterances + matching transcript
 
 You can prepare recordings of individual utterances and the matching transcript in two ways. Either [write a script and have it read by a voice talent](/speech-service/record-custom-voice-samples.md) or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 

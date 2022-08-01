@@ -124,7 +124,7 @@ items:
       items:
         - name: What is custom neural voice?
           href: custom-neural-voice.md
-        - name: Get started with custom neural voice
+        - name: Create a Project
           displayName: 'custom voice, neural voice'
           href: how-to-custom-voice.md
         - name: Prepare data for training

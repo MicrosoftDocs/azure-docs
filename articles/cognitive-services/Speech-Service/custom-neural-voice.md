@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: eur
 ---
 
@@ -132,4 +132,4 @@ To learn how to use Custom Neural Voice responsibly, check the following article
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Custom Neural Voice](how-to-custom-voice.md)
+> [Create a Project](how-to-custom-voice.md)
