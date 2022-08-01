@@ -64,7 +64,7 @@ Create the application using following steps:
 
 
     * **Application name**: you can use default suggested name or enter your friendly application name.
-    * **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, the default setting is recommended if you already have an Azure Subscription.
+    * **URL**: you can use suggested default URL or enter your friendly unique memorable URL.
     * **Billing Info**: The directory, Azure subscription, and region details are required to provision the resources.
     * **Create**: Select create at the bottom of the page to deploy your application.
 

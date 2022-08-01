@@ -42,7 +42,7 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 
 In this tutorial, you learn how to:
 
-- Create the Smart Meter App
+- Create the smart meter app
 - Application walk-through
 - Clean up resources
 
