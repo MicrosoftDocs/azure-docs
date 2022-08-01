@@ -1,5 +1,5 @@
 ---
-title: Microsoft commercial marketplace transact capabilities
+title: Microsoft commercial marketplace transact capabilities | Azure Marketplace
 description: This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace transact option.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

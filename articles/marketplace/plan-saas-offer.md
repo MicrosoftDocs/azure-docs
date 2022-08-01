@@ -1,5 +1,5 @@
 ---
-title: Plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
+title: Plan a SaaS offer for the Microsoft commercial marketplace | Azure Marketplace
 description: Plan a new software as a service (SaaS) offer for selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
@@ -76,7 +76,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
   > [!NOTE]
   > Inside the Azure portal, we require that you create a single-tenant [Azure Active Directory (Azure AD) app registration](../active-directory/develop/howto-create-service-principal-portal.md). Use the app registration details to authenticate your solution when calling the marketplace APIs. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the Directory ID number that’s listed. For example, `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require you to [register an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can add it to the access control list (ACL) of the API to make sure you are authorized to call it. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require you to [register an Azure Active Directory (Azure AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can add it to the access control list (ACL) of the API to make sure you are authorized to call it. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
 - **Azure Active Directory application ID**: You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). To get its value, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the Application (client) ID number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
@@ -134,9 +134,9 @@ If you choose to use the standard contract, you have the option to add universal
 ## Microsoft 365 integration
 
 Integration with Microsoft 365 allows your SaaS offer to provide connected experience across multiple Microsoft 365 App surfaces through related free add-ins like Teams apps, Office add-ins, and SharePoint Framework solutions. You can help your customers easily discover all facets of your E2E solution (web service + related add-ins) and deploy them within one process by providing the following information. 
-  - If your SaaS offer integrates with Microsoft Graph, then provide the Azure Active Directory (AAD) App ID used by your SaaS offer for the integration. Administrators can review access permissions required for the proper functioning of your SaaS offer as set on the AAD App ID and grant access if advanced admin permission is needed at deployment time. 
+  - If your SaaS offer integrates with Microsoft Graph, then provide the Azure Active Directory (Azure AD) App ID used by your SaaS offer for the integration. Administrators can review access permissions required for the proper functioning of your SaaS offer as set on the Azure AD App ID and grant access if advanced admin permission is needed at deployment time. 
     
-     If you choose to sell your offer through Microsoft, then this is the same AAD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
+     If you choose to sell your offer through Microsoft, then this is the same Azure AD App ID that you have registered to use on your landing page to get basic user information needed to complete customer subscription activation. For detailed guidance, see [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md). 
 	
    -	Provide a list of related add-ins that work with your SaaS offer you want to link. Customers will be able to discover your E2E solution on Microsoft AppSource and administrators can deploy both the SaaS and all the related add-ins you have linked in the same process via Microsoft 365 admin center.
     
@@ -149,11 +149,11 @@ IT admins can review and deploy both the SaaS and linked add-ins within the same
 
 Discovery as a single E2E solution is supported on AppSource for all cases, however, simplified deployment of the E2E solution as described above via the Microsoft 365 admin center is not supported for the following scenarios:
 
-   - “Contact me” list-only offers. 
+   - “Contact me” list-only offers.
    - The same add-in is linked to more than one SaaS offer.
-   - The SaaS offer is linked to add-ins, but it does not integrate with Microsoft Graph and no AAD App ID is provided.
-  - The SaaS offer is linked to add-ins, but AAD App ID provided for Microsoft Graph integration is shared across multiple SaaS offers.
- 
+   - The SaaS offer is linked to add-ins, but it does not integrate with Microsoft Graph and no Azure AD App ID is provided.
+  - The SaaS offer is linked to add-ins, but Azure AD App ID provided for Microsoft Graph integration is shared across multiple SaaS offers.
+
 ## Offer listing details
 
 When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace, as shown in the following example.

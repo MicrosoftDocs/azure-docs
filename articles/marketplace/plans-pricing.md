@@ -1,5 +1,5 @@
 ---
-title: Plans and pricing for commercial marketplace offers 
+title: Plans and pricing for commercial marketplace offers | Azure Marketplace
 description: Learn about plans for Microsoft commercial marketplace offers in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -81,7 +81,7 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 
 ### Pricing models
 
-You must associate a pricing model with each plan for the following offer types. Each of these offer types have different available pricing models:
+You must associate a pricing model with each plan for the following offer types. Each of these offer types has different available pricing models:
 
 - **Azure managed application**: flat rate (monthly) and usage-based pricing (metering service dimensions).
 - **Software as a service**: flat rate (1-month to 3-year terms), per user (1-month to 3-year terms), and usage-based pricing (metering service dimensions).

@@ -1,5 +1,5 @@
 ---
-title: Create plans for a SaaS offer in Azure Marketplace 
+title: Create plans for a SaaS offer in Azure Marketplace | Azure Marketplace
 description: Create plans for a new software as a service (SaaS) offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
