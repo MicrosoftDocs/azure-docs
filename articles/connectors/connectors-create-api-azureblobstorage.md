@@ -345,7 +345,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
   You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account. 
 
-### Access Blob Storage in same region with system managed identities
+### Access Blob Storage in same region with system-managed identities
 
 To connect to Azure Blob Storage in any region, you can use [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md). You can create an exception that gives Microsoft trusted services, such as a managed identity, access to your storage account through a firewall.
 
