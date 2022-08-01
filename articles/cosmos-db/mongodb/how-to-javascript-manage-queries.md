@@ -61,7 +61,7 @@ const pipeline = [
 
 ### Pipeline stage syntax
 
-A _stage_ defines the operation and the data it is applied to, such as:
+A _stage_ defines the operation and the data it's applied to, such as:
 
 * $match - find documents
 * $addFields - add field to cursor, usually from previous stage
@@ -101,7 +101,7 @@ await aggCursor.forEach(product => {
 });
 ```
 
-## Use a aggregation pipeline in JavaScript
+## Use an aggregation pipeline in JavaScript
 
 Use a pipeline to keep data processing on the server before returning to the client. 
 
@@ -151,14 +151,14 @@ The aggregations below use the [sample products collection](https://github.com/A
 
 Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/average-price-in-each-product-subcategory.js) to report on average price in each product subcategory. 
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/average-price-in-each-product-subcategory.js" id="aggregation_1" highlight="31, 48, 58, 61, 71":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/average-price-in-each-product-subcategory.js" id="aggregation_1" highlight="36, 53, 63, 66, 76":::
 
 
 ### Example 2: Bike types with price range
 
 Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/bike-types-and-price-ranges.js) to report on the `Bikes` subcategory. 
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/bike-types-and-price-ranges.js" id="aggregation_1" highlight="28, 35, 43, 50, 73, 85, 90, 103":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/bike-types-and-price-ranges.js" id="aggregation_1" highlight="33, 40, 48, 55, 78, 90, 95, 108":::
 
 
 
