@@ -5,14 +5,14 @@ author: ju-shim
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 08/01/2022
 ms.author: jushiman
 ---
 
 
 # Create a custom profile in Azure Automanage for VMs
 
-Azure Automanage for machine best practices has default best practice profiles that cannot be edited. However, if you need more flexibility, you can pick and choose the set of services and settings by creating a custom profile.
+Azure Automanage for Virtual Machines includes default best practice profiles that can't be edited. However, if you need more flexibility, you can pick and choose the set of services and settings by creating a custom profile.
 
 Automanage supports toggling services ON and OFF. It also currently supports customizing settings on [Azure Backup](..\backup\backup-azure-arm-vms-prepare.md#create-a-custom-policy) and [Microsoft Antimalware](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration). You can also specify an existing log analytics workspace. Also, for Windows machines only, you can modify the audit modes for the [Azure security baselines in Guest Configuration](../governance/machine-configuration/overview.md).
 
@@ -151,14 +151,14 @@ The `location` value is the region where you would like to store this custom con
 
 The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose for the Azure server security baseline. Your options are
 
-* ApplyAndAutoCorrect : This will apply the Azure security baseline through the Guest Configuration extention, and if any setting within the baseline drifts, we will auto-remediate the setting so it stays compliant.
-* ApplyAndMonitor : This will apply the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it is applied, the Guest Configuration service will monitor the sever baseline and report any drift from the desired state. However, it will not auto-remdiate.
-* Audit : This will install the Azure security baseline using the Guest Configuration extension. You will be able to see where your machine is out of compliance with the baseline, but noncompliance won't be automatically remediated.
+* ApplyAndAutoCorrect : This setting will apply the Azure security baseline through the Guest Configuration extension, and if any setting within the baseline drifts, we'll auto-remediate the setting so it stays compliant.
+* ApplyAndMonitor : This setting will apply the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it's applied, the Guest Configuration service will monitor the server baseline and report any drift from the desired state. However, it will not auto-remdiate.
+* Audit : This setting will install the Azure security baseline using the Guest Configuration extension. You'll be able to see where your machine is out of compliance with the baseline, but noncompliance won't be automatically remediated.
 
 You can also specify an existing log analytics workspace by adding this setting to the configuration section of properties below:
 * "LogAnalytics/Workspace": "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"
 * "LogAnalytics/Reprovision": false
-Specify your existing workspace in the `LogAnalytics/Workspace` line. Set the `LogAnalytics/Reprovision` setting to true if you would like this log analytics workspace to be used in all cases. This means that any machine with this custom profile will use this workspace, even it is already connected to one. By default, the `LogAnalytics/Reprovision` is set to false. If your machine is already connected to a workspace, then that workspace will continue to be used. If it is not connected to a workspace, then the workspace specified in `LogAnalytics\Workspace` will be used.
+Specify your existing workspace in the `LogAnalytics/Workspace` line. Set the `LogAnalytics/Reprovision` setting to true if you would like this log analytics workspace to be used in all cases. This means that any machine with this custom profile will use this workspace, even it is already connected to one. By default, the `LogAnalytics/Reprovision` is set to false. If your machine is already connected to a workspace, then that workspace will continue to be used. If it's not connected to a workspace, then the workspace specified in `LogAnalytics\Workspace` will be used.
 
 Also, you can add tags to resources specified in the custom profile like below:
 
@@ -180,13 +180,13 @@ Also, you can add tags to resources specified in the custom profile like below:
 },
 "Tags/RecoveryVault/Behavior": "Preserve"
 ```
-The `Tags/Behavior` can either be set to Preserve or Replace. If the resource you are tagging already has the same tag key in the key/value pair, you can choose if you would like to replace that key with the specified value in the configuration profile by using the *Replace* behavior. By default, the behavior is set to *Preserve*, meaning that the tag key that is already associated with that resource will be kept and not overwritten by the key/value pair specified in the configuration profile.
+The `Tags/Behavior` can be set either to Preserve or Replace. If the resource you are tagging already has the same tag key in the key/value pair, you can replace that key with the specified value in the configuration profile by using the *Replace* behavior. By default, the behavior is set to *Preserve*, meaning that the tag key that is already associated with that resource will be retained and not overwritten by the key/value pair specified in the configuration profile.
 
 Follow these steps to deploy the ARM template:
 1. Save this ARM template as `azuredeploy.json`
-1. Run this ARM template deployment with `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`
-1. Provide the values for customProfileName, location, and azureSecurityBaselineAssignmentType when prompted
-1. You're ready to deploy
+2. Run this ARM template deployment with `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`
+3. Provide the values for customProfileName, location, and azureSecurityBaselineAssignmentType when prompted
+4. You're ready to deploy
 
 As with any ARM template, it's possible to factor out the parameters into a separate `azuredeploy.parameters.json` file and use that as an argument when deploying.
 
