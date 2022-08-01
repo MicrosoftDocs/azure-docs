@@ -194,6 +194,11 @@ sections:
         answer: |
           Yes, all disk types support single instance VM SLA.
 
+        - question: |
+          Can I attach a disk to a VM in another region?
+        answer: |
+          No, all managed disks, even shared disks, must be in the same region as a VM.
+
   - name: Snapshots
     questions:
       - question: |
