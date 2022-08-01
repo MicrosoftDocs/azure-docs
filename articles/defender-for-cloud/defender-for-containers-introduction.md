@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 07/19/2022
+ms.date: 08/01/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -72,7 +72,7 @@ The recommendation [Running container images should have vulnerability findings 
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
-For Windows containers, the vulnerability scan is performed in the ACR registry and doesn't require an agent. Information for images that are actively running is retrieved via the agent. The Defender agent must be enabled on the cluster that the Windows containers are running on. Enabling the agent will deploy it on the same cluster and allows the agent to provide the relevant information for the Windows images that are running. Currently, there's no agent for Windows.
+For Windows containers, the vulnerability scan is performed on the ACR using the Defender agent which is installed on the linux node within the container that contains the Windows cluster. The agent retrieves the information for images that are actively running. When you enable the agent, it deploys it on the same cluster and allows the agent to provide the relevant information for the Windows images that are actively running. Currently, there's no agent for Windows.
 
 ## Run-time protection for Kubernetes nodes and clusters
 
