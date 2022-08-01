@@ -41,12 +41,16 @@
     href: location-condition.md
   - name: Workload identities
     href: workload-identity.md
+  - name: Continuous access evaluation
+    items:
+    - name: CAE for users
+      href: concept-continuous-access-evaluation.md
+    - name: CAE for workload identities
+      href: concept-continuous-access-evaluation-workload.md
   - name: Filter for devices
     href: concept-condition-filters-for-devices.md
   - name: What if tool
     href: what-if-tool.md
-  - name: Continuous access evaluation
-    href: concept-continuous-access-evaluation.md
 - name: How-to guides
   expanded: true
   items:

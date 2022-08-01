@@ -3,7 +3,6 @@ title: Plan a SaaS offer for the Microsoft commercial marketplace - Azure Market
 description: Plan a new software as a service (SaaS) offer for selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

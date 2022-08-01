@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 07/05/2022
+ms.date: 07/25/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,6 +21,9 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
+- [Defender for Container's VA adds support for the detection of language specific packages (Preview)](#defender-for-containers-va-adds-support-for-the-detection-of-language-specific-packages-preview)
+- [Protect against the Operations Management Suite vulnerability CVE-2022-29149](#protect-against-the-operations-management-suite-vulnerability-cve-2022-29149)
+
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
 We're excited to share that the Cloud-native security agent for Kubernetes runtime protection is now generally available (GA)!
@@ -40,6 +43,22 @@ Learn more about the Defender for Container's [feature availability](supported-m
 You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
+
+### Defender for Container's VA adds support for the detection of language specific packages (Preview)
+
+Defender for Container's vulnerability assessment (VA) is able to detect vulnerabilities in OS packages deployed via the OS package manager. We have now extended VA's abilities to detect vulnerabilities included in language specific packages.
+
+This feature is in `preview` and is only available for Linux images.
+
+To see all of the included language specific packages that have been added, check out Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md#registries-and-images).
+
+### Protect against the Operations Management Suite vulnerability CVE-2022-29149
+
+Operations Management Suite (OMS) is a collection of cloud-based services for managing on-premises and cloud environments from one single place. Rather than deploying and managing on-premises resources, OMS components are entirely hosted in Azure.
+
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires a patch to remediate [CVE-2022-29149](https://nvd.nist.gov/vuln/detail/CVE-2022-29149). Review the report about this vulnerability in the [Microsoft Security Update guide](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-29149) for information about how to identify resources that are affected by this vulnerability and remediation steps.
+
+If you have Defender for Servers enabled with Vulnerability Assessment, you can use [this workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/OMI%20Vulnerability%20Dashboard) to identify affected resources.
 
 ## June 2022
 
@@ -90,11 +109,13 @@ Today's increasing threats to organizations stretch the limits of security perso
 
 Now with the governance experience, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
 
+This feature is free while it is in the preview phase.
+
 Learn more about the governance experience in [Driving your organization to remediate security issues with recommendation governance](governance-rules.md).
 
 ### Filter security alerts by IP address
 
-In many cases of attacks, you want to track alerts based on the IP address of the entity involved in the attack. Up until now, the IP appeared only in the "Related Entities" section in the single alert blade. Now, you can filter the alerts in the security alerts blade to see the alerts related to the IP address, and you can search for a specific IP address.
+In many cases of attacks, you want to track alerts based on the IP address of the entity involved in the attack. Up until now, the IP appeared only in the "Related Entities" section in the single alert pane. Now, you can filter the alerts in the security alerts page to see the alerts related to the IP address, and you can search for a specific IP address.
 
 :::image type="content" source="media/release-notes/ip-address-filter-for-alerts.png" alt-text="Screenshot of filter for I P address in Defender for Cloud alerts." lightbox="media/release-notes/ip-address-filter-for-alerts.png":::
 

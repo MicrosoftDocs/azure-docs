@@ -66,9 +66,12 @@ To create an endpoint and deploy a model, use the `spx csr endpoint create` comm
 
 Here's an example Speech CLI command to create an endpoint and deploy a model:
 
-```azurecli
+```azurecli-interactive
 spx csr endpoint create --project YourProjectId --model YourModelId --name "My Endpoint" --description "My Endpoint Description" --language "en-US"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -106,7 +109,7 @@ The top-level `self` property in the response body is the endpoint's URI. Use th
 
 For Speech CLI help with endpoints, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr endpoint
 ```
 
@@ -140,6 +143,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -202,9 +208,12 @@ To redeploy the custom endpoint with a new model, use the `spx csr model update`
 
 Here's an example Speech CLI command that redeploys the custom endpoint with a new model:
 
-```azurecli
+```azurecli-interactive
 spx csr endpoint update --endpoint YourEndpointId --model YourModelId
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Add-a-deployment-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -240,7 +249,7 @@ You should receive a response body in the following format:
 
 For Speech CLI help with endpoints, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr endpoint
 ```
 
@@ -261,6 +270,9 @@ curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content
   }
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/YourEndpointId"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -321,9 +333,12 @@ To gets logs for an endpoint, use the `spx csr endpoint list` command. Construct
 
 Here's an example Speech CLI command that gets logs for an endpoint:
 
-```azurecli
+```azurecli-interactive
 spx csr endpoint list --endpoint YourEndpointId
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 The location of each log file with more details are returned in the response body.
 
@@ -338,6 +353,9 @@ Make an HTTP GET request using the URI as shown in the following example. Replac
 ```azurecli-interactive
 curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/YourEndpointId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Deploy-a-model&Section=Change-model-and-redeploy-endpoint" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

@@ -73,9 +73,9 @@ To start using Azure Hybrid Benefit for SLES virtual machines:
 
     | License type  | Software updates  | Allowed virtual machines|  
     |---|---|---|
-    | SLES  | Installs SLES Standard repositories on your virtual machine. | SLES BYOS virtual machines, SLES custom image virtual machines|
+    | SLES | Installs SLES Standard repositories on your virtual machine. | SLES BYOS virtual machines, SLES custom image virtual machines|
     | SLES_SAP | Installs SLES SAP repositories on your virtual machine. | SLES SAP BYOS virtual machines, SLES custom image virtual machines|
-    | SLES_HPC  | Installs SLES High Performance Compute repositories on your virtual machine. | SLES HPC BYOS virtual machines, SLES custom image virtual machines|
+    | SLES_HPC | Installs SLES High Performance Computing repositories on your virtual machine. | SLES HPC BYOS virtual machines, SLES custom image virtual machines|
 
 1. Wait five minutes for the extension to read the license type value and install the repositories.
 
@@ -153,7 +153,6 @@ After you successfully install the `AHBForSLES` extension, you can use the `az v
 
     # This will enable Azure Hybrid Benefit to fetch software updates for SLES HPC repositories
     az vm update -g myResourceGroup -n myVmName --license-type SLES_HPC
-
     ```
 1. Wait five minutes for the extension to read the license type value and install the repositories.
 
@@ -209,9 +208,9 @@ The following table maps the pay-as-you-go options on Azure and links to pricing
 | RHEL_BASESAPAPPS | [RHEL for SAP Business Applications](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-business/) |
 | RHEL_BASESAPHA | [RHEL for SAP with HA](https://azure.microsoft.com/pricing/details/virtual-machines/rhel-sap-ha/) |
 | RHEL_EUS | [Red Hat Enterprise Linux](https://azure.microsoft.com/pricing/details/virtual-machines/red-hat/)  |
-| SLES | [SLES Standard](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
-| SLES_SAP | [SLES SAP](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  |
-| SLES_HPC | [SLES HPC](https://azure.microsoft.com/pricing/details/virtual-machines/sles-hpc-standard/) |
+| SLES | [SLES](https://azure.microsoft.com/pricing/details/virtual-machines/sles-standard/) |
+| SLES_SAP | [SLES for SAP](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  |
+| SLES_HPC | [SLE HPC](https://azure.microsoft.com/pricing/details/virtual-machines/sles-hpc-standard/) |
 
 *Q: Can I use a license type designated for RHEL (such as `RHEL_BASE`) with a SLES image, or vice versa?*
 

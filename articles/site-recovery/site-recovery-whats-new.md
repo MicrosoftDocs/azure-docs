@@ -33,6 +33,9 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 [Update rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) provides the following updates:
 
+> [!Note]
+> - The 9.49 version has not been released for VMware replications to Azure preview experience. 
+
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.

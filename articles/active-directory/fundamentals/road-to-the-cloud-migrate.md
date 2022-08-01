@@ -100,15 +100,15 @@ Non-Windows workstations can be integrated with Azure AD to enhance user experie
 
 * macOS
 
-    * [Set up enrollment for macOS devices - Microsoft Intune](/mem/intune/enrollment/macos-enroll)
+    * Register macOS to Azure AD and [enroll/manage them with MDM solution](/mem/intune/enrollment/macos-enroll)
 
-    * Deploy [Microsoft Enterprise SSO plug-in for Apple devices - Microsoft identity platform | Azure](../develop/apple-sso-plugin.md)
+    * Deploy [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md)
+
+    * Plan to deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319)
 
 * Linux
 
-    * Consider Linux on Azure VM where possible
-
-    * [Sign in to a Linux VM with Azure Active Directory credentials - Azure Virtual Machines](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
+    * [Sign in to a Linux VM with Azure Active Directory credentials](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md) is available on Linux on Azure VM
 
 ### Replace Other Windows versions as Workstation use
 
@@ -263,7 +263,7 @@ Based on the app dependencies, you have three migration options:
 >[!NOTE]
 >* Utilize Azure AD Domain Services if the dependencies are aligned with [Common deployment scenarios for Azure AD Domain Services](../../active-directory-domain-services/scenarios.md). 
 >* To validate if Azure AD DS is a good fit, you might use tools like Service Map [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [Automatic Dependency Mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
->* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
+>* Validate your SQL server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 
 #### Implement approach #2
 

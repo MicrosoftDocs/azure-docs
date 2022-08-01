@@ -102,7 +102,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Studio overview
-            url: concept-form-recognizer-studio.md
+            url: form-recognizer-studio-overview.md
       - linkListType: get-started
         links:
           - text: 🆕Read model (preview)

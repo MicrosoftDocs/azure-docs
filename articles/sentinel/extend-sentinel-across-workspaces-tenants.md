@@ -99,7 +99,8 @@ Alerts and incidents created by cross-workspace analytics rules contain all the 
 
 #### Cross-workspace workbooks<a name="using-cross-workspace-workbooks"></a>
 <!-- Bookmark added for backward compatibility with old heading -->
-[Workbooks](./overview.md#workbooks) provide dashboards and apps to Microsoft Sentinel. When working with multiple workspaces, workbooks provide monitoring and actions across workspaces.
+
+Workbooks provide dashboards and apps to Microsoft Sentinel. When working with multiple workspaces, workbooks provide monitoring and actions across workspaces.
 
 Workbooks can provide cross-workspace queries in one of three methods, suitable for different levels of end-user expertise:
 
