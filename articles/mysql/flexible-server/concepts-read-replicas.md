@@ -1,12 +1,12 @@
 ---
 title: Read replicas - Azure Database for MySQL - Flexible Server
 description: 'Learn about read replicas in Azure Database for MySQL Flexible Server: creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
+author: VandhanaMehta
+ms.author: vamehta
+ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 

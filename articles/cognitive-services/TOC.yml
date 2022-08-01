@@ -29,6 +29,8 @@
   items:
   - name: Plan and manage costs 
     href: plan-manage-costs.md
+  - name: Increase rate limit
+    href: autoscale.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
   - name: Manage resources

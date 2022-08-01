@@ -3,7 +3,7 @@ title: Create and manage a catalog of resources in entitlement management - Azur
 description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: HANKI
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 8/31/2021
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 
@@ -26,7 +26,7 @@ This article shows you how to create and manage a catalog of resources and acces
 
 ## Create a catalog
 
-A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. A user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more catalog owners.
+A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. A user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more users, groups of users, or application service principals as catalog owners.
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 

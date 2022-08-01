@@ -1,5 +1,5 @@
 ---
-title: Track, monitor, and analyze jobs in studio
+title: Monitor and analyze jobs in studio
 titleSuffix: Azure Machine Learning 
 description: Learn how to start, monitor, and track your machine learning experiment jobs with the Azure Machine Learning studio. 
 services: machine-learning
@@ -13,7 +13,8 @@ ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Start, monitor, and track job history in studio
+# Monitor and analyze jobs in studio
+
 
 You can use [Azure Machine Learning studio](https://ml.azure.com) to monitor, organize, and track your jobs for training and experimentation. Your ML job history is an important part of an explainable and repeatable ML development process.
 
@@ -80,6 +81,7 @@ Navigate to the **Job Details** page for your job and select the edit or pencil 
 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot of how to create a job description."::: 
 
+
 ## Tag and find jobs
 
 In Azure Machine Learning, you can use properties and tags to help organize and query your jobs for important information.
@@ -137,13 +139,6 @@ To cancel a job in the studio, using the following steps:
 
 1. See [how to create and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
-## Example notebooks
-
-The following notebooks demonstrate the concepts in this article:
-
-* To learn more about the logging APIs, see the [logging API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
-
-* For more information about managing jobs with the Azure Machine Learning SDK, see the [manage jobs notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
 ## Next steps
 

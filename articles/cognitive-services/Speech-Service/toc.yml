@@ -151,12 +151,10 @@ items:
       href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
-    - name: Intent recognition quickstart
-      href: get-started-intent-recognition.md
     - name: Pattern matching overview
       href: pattern-matching-overview.md
     - name: Recognize speech intents with LUIS
-      href: how-to-recognize-intents-from-speech-csharp.md
+      href: get-started-intent-recognition.md
     - name: Recognize speech intents with simple pattern matching
       href: how-to-use-simple-language-pattern-matching.md
     - name: Recognize speech intents with custom entity pattern matching
@@ -425,6 +423,9 @@ items:
           displayName: reference 
         - name: Speech-to-text REST API v3.0
           href: rest-speech-to-text.md
+          displayName: reference 
+        - name: Speech-to-text REST API v3.1 (preview) 
+          href: rest-speech-to-text-v3-1.md
           displayName: reference 
         - name: Speech-to-text REST API for short audio
           href: rest-speech-to-text-short.md    

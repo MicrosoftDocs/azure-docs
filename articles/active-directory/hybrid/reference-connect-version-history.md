@@ -6,7 +6,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 3/25/2022
+ms.date: 7/6/2022
 ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
@@ -76,6 +76,41 @@ Auto-upgrade is meant to push all important updates and critical fixes to you. I
 If you want all the latest features and updates, check this page and install what you need.
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
+
+## 2.1.15.0
+
+### Release status
+7/6/2022: Released for download, will be made available for auto-upgrade soon.
+
+> [!IMPORTANT] 
+> We have discovered a security vulnerability in the Azure AD Connect Admin Agent. If you have installed the Admin Agent previously it is important that you update your Azure AD Connect server(s) to this version to mitigate the vulnerability.
+
+### Functional changes
+ - We have removed the public preview functionality for the Admin Agent from Azure AD Connect. We will not provide this functionality going forward.
+ - We added support for two new attributes: employeeOrgDataCostCenter and employeeOrgDataDivision.
+ - We added CerificateUserIds attribute to AAD Connector static schema.
+ - The AAD Connect wizard will now abort if write event logs permission is missing.
+ - We updated the AADConnect health endpoints to support the US government clouds.
+ - We added new cmdlets “Get-ADSyncToolsDuplicateUsersSourceAnchor and Set-ADSyncToolsDuplicateUsersSourceAnchor“ to fix bulk "source anchor has changed" errors. When a new forest is added to AADConnect with duplicate user objects, the objects are running into bulk "source anchor has changed" errors. This is happening due to the mismatch between msDsConsistencyGuid & ImmutableId. More information about this module and the new cmdlets can be found in [this article](./reference-connect-adsynctools.md).
+
+### Bug fixes
+ - We fixed a bug that prevented localDB upgrades in some Locales.
+ - We fixed a bug to prevent database corruption when using localDB.
+ - We added timeout and size limit errors to the connection log.
+ - We fixed a bug where, if child domain has a user with same name as parent domain user that happens to be an enterprise admin, the group membership failed.
+ - We updated the expressions used in the "In from AAD - Group SOAInAAD" rule to limit the description attribute to 448 characters.
+ - We made a change to set extended rights for "Unexpire Password" for Password Reset.
+ - We modified the AD connector upgrade to refresh the schema – we no longer show constructed and non-replicated attributes in the Wizard during upgrade.
+ - We fixed a bug in ADSyncConfig functions ConvertFQDNtoDN and ConvertDNtoFQDN - If a user decides to set variables called '$dn' or '$fqdn', these variables will no longer be used inside the script scope.
+ - We made the following Accessibility fixes:
+   - Fixed a bug where Focus is lost during keyboard navigation on Domain and OU Filtering page.
+   - We updated the accessible name of Clear Runs drop down.
+   - We fixed a bug where the tooltip of the "Help" button is not accessible through keyboard if navigated with arrow keys. 
+   - We fixed a bug where the underline of hyperlinks was missing on the Welcome page of the wizard.
+   - We fixed a bug in Sync Service Manager's About dialog where the Screen reader is not announcing the information about the data appearing under the "About" dialog box.
+   - We fixed a bug where the Management Agent Name was not mentioned in logs when an error occurred while validating MA Name.
+   - We fixed several accessibility issues with the keyboard navigation and custom control type fixes. The Tooltip of the "help" button is not collapsing by pressing "Esc" key. There was an Illogical keyboard focus on the User Sign In radio buttons and there was an invalid control type on the help popups.
+   - We fixed a bug where an empty label was causing an accessibility error.
 
 ## 2.1.1.0
 

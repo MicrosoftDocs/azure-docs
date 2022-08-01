@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 07/20/2022
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -20,21 +20,21 @@ The procedure described in this article was performed using a different version 
 
 ## About latest update
 
-The current update is Update 2205. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
+The current update is Update 2207. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
-- Device software version - **2.2.1983.5094**
-- Kubernetes server version - **v1.21.7**
+- Device software version - **2.2.2026.5318**
+- Kubernetes server version - **v1.22.6**
 - IoT Edge version: **0.1.0-beta15**
 - Azure Arc version: **1.6.6**
-- GPU driver version: **510.47.03**
-- CUDA version: **11.6**
+- GPU driver version: **515.48.07**
+- CUDA version: **11.7**
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2205-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2207-release-notes.md).
 
-**To apply 2205 update, your device must be running 2106 or later.** 
+**To apply 2207 update, your device must be running 2106 or later.** 
 
 - If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
-- You can update to 2106 from an older version and then install 2205.
+- You can update to 2106 from an older version and then install 2207.
 
 
 ### Updates for a single-node vs two-node
@@ -189,7 +189,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2205**.
+    The update listing appears as **Azure Stack Edge Update 2207**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 

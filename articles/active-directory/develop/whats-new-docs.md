@@ -5,7 +5,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 06/02/2022
+ms.date: 07/04/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,6 +18,16 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## June 2022
+
+### Updated articles
+
+- [Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)
+- [Azure AD Authentication and authorization error codes](reference-aadsts-error-codes.md)
+- [Microsoft identity platform refresh tokens](refresh-tokens.md)
+- [Single-page application: Acquire a token to call an API](scenario-spa-acquire-token.md)
+- [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
+
 ## May 2022
 
 ### Updated articles
@@ -28,7 +38,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
 - [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
 - [Set up your application's Azure AD test environment](test-setup-environment.md)
-- [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md)
+- [Single sign-on SAML protocol](single-sign-on-saml-protocol.md)
 - [Single sign-on with MSAL.js](msal-js-sso.md)
 - [Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
 - [What's new for authentication?](reference-breaking-changes.md)
@@ -47,9 +57,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [OAuth 2.0 and OpenID Connect in the Microsoft identity platform](active-directory-v2-protocols.md)
 - [Signing key rollover in the Microsoft identity platform](active-directory-signing-key-rollover.md)
 - [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
-
-## February 2022
-
-### Updated articles
-
-- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)

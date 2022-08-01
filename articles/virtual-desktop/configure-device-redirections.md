@@ -68,6 +68,9 @@ Set the following RDP property to configure COM port redirection:
 
 ### USB redirection
 
+>[!IMPORTANT]
+>To redirect a mass storage USB device connected to your local computer to the remote session host, you'll need to configure the **Drive/storage redirection** RDP property. Enabling the **USB redirection** RDP property by itself won't work. For more information, see [Local drive redirection](#local-drive-redirection).
+
 First, set the following RDP property to enable USB device redirection:
 
 - `usbdevicestoredirect:s:*` enables USB device redirection.

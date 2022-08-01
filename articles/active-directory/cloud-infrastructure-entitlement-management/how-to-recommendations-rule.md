@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Generate, view, and apply rule recommendations in the Autopilot dashboard
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how to generate and view rule recommendations in the Permissions Management **Autopilot** dashboard.
 
 > [!NOTE]

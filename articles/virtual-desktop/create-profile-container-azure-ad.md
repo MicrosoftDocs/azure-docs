@@ -4,7 +4,6 @@ description: Set up an FSLogix profile container on an Azure file share in an ex
 services: virtual-desktop
 author: Heidilohr
 manager: femila
-
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/13/2022
@@ -13,11 +12,11 @@ ms.author: helohr
 # Create a profile container with Azure Files and Azure Active Directory (preview)
 
 > [!IMPORTANT]
-> Storing FSLogix profiles on Azure Files for Azure Active Directory (AD)-joined VMs is currently in public preview.
+> Storing FSLogix profiles on Azure Files for Azure Active Directory-joined VMs is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
+In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (Azure AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
 In this article, you'll learn how to:
 
@@ -262,7 +261,7 @@ To configure your storage account:
     $domainName = $domainInformation.DnsRoot
     $domainSid = $domainInformation.DomainSID.Value
     $forestName = $domainInformation.Forest
-    $netBiosDomainName = $domainInformation.DnsRoot
+    $netBiosDomainName = $domainInformation.netBiosName
     $azureStorageSid = $domainSid + "-123454321";
 
     Write-Verbose "Setting AD properties on $storageAccountName in $resourceGroupName : `
@@ -502,5 +501,3 @@ If you need to disable Azure AD authentication on your storage account:
 ## Next steps
 
 - To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
-- To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-- To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).

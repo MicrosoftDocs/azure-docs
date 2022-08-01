@@ -70,6 +70,23 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
+### Pricing example: Outbound Call from a Dynamics 365 Omnichannel (D365 OC) agent application via Azure Communication Services direct routing
+
+Alice is a D365 contact center agent, who makes an outbound call from D365 OC to a telephone number (Bob) via Azure Communication Services direct routing.
+- Alice uses D365 OC client application 
+- D365 OC bot starts new outgoing call via direct routing
+- Call goes to a Session Border Controller (SBC) connected via Communication Services direct routing
+- D365 OC bot adds Alice to a call by escalating the direct routing call to a group call
+- The call lasts a total of 10 minutes. 
+
+**Cost calculations**
+
+- One participant on the VoIP leg (Alice) from D365 OC client application x 10 minutes x $0.004 per participant leg per minute = $0.04
+- One participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
+- D365 OC bot does not introduce additional ACS charges.
+
+**Total cost for the call**: $0.04 + $0.04 = $0.08
+
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
 Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.

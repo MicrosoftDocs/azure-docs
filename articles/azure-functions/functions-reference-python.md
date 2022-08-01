@@ -524,19 +524,13 @@ Azure Functions supports the following Python versions. These are official Pytho
 | 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
-To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The `--functions-version` option sets the Azure Functions runtime version. The Python version is set when the function app is created and can't be changed.
-
-The runtime uses the available Python version, when you run it locally.
+To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The `--functions-version` option sets the Azure Functions runtime version. 
 
 ### Changing Python version
 
 To set a Python function app to a specific language version, you need to specify the language and the version of the language in `linuxFxVersion` field in site configuration. For example, to change Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
 
 To learn more about the Azure Functions runtime support policy, see [Language runtime support policy](./language-support-policy.md).
-
-To see the full list of supported Python versions for function apps, see [Supported languages in Azure Functions](./supported-languages.md).
-
-# [Azure CLI](#tab/azurecli-linux)
 
 You can view and set `linuxFxVersion` from the Azure CLI by using the [az functionapp config show](/cli/azure/functionapp/config) command. Replace `<function_app>` with the name of your function app. Replace `<my_resource_group>` with the name of the resource group for your function app.
 
@@ -577,8 +571,9 @@ You can run the command from [Azure Cloud Shell](../cloud-shell/overview.md) by 
 
 The function app restarts after you change the site configuration.
 
---- 
+### Local Python version 
 
+When running locally, the Azure Functions Core Tools uses the available Python version.
 
 ## Package management
 
@@ -817,7 +812,7 @@ The following table lists preinstalled system libraries in Docker images for the
 
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
-| Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Version 2.x | Stretch  | [Python 3.7](https://github.com/Azure/azure-functions-docker/blob/dev/host/4/bullseye/amd64/python/python37/python37.Dockerfile) |
 | Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## Python worker extensions  

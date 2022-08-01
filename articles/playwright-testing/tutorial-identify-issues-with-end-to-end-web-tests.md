@@ -1,245 +1,401 @@
 ---
-title: 'Tutorial: Identify web app issues with end-to-end tests'
+title: 'Tutorial: Identify app issues with end-to-end tests'
 titleSuffix: Microsoft Playwright Testing
 description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser end-to-end tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
 services: playwright-testing
 ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 06/08/2022
+ms.date: 06/21/2022
 ms.topic: tutorial
-#Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---
 
-# Tutorial: Identify issues with end-to-end web tests in Microsoft Playwright Testing Preview
+# Tutorial: Identify app issues with end-to-end tests in Microsoft Playwright Testing Preview
 
-In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Microsoft Playwright Testing Preview. You'll create a load test for a sample Node.js application.
+In this tutorial, learn how to identify application issues by running end-to-end tests at scale with Microsoft Playwright Testing Preview. You'll use the Playwright Visual Studio Code extension to run your tests.
 
-The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
+You'll run a series of Playwright end-to-end tests in the cloud to validate the correctness of your application across multiple browsers and devices. Use the Microsoft Playwright Testing dashboard to diagnose failing tests using traces and other test artifacts. Finally, speed up the test execution by scaling out the number of workers.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Deploy the sample app.
-> * Create and run a load test.
-> * Identify performance bottlenecks in the app.
-> * Remove a bottleneck.
-> * Rerun the load test to check performance improvements.
+> * Create an access token.
+> * Connect tests to Microsoft Playwright Testing.
+> * Run cross-browser & cross-device tests.
+> * Diagnose test failures in the portal.
+> * Speed up tests by scaling out.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Azure CLI version 2.2.0 or later. Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Access to Microsoft Playwright Testing preview.
 * Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
 * Git. If you don't have it, [download and install it](https://git-scm.com/download).
 
-## Deploy the sample app
+## Download the sample repository
 
-Before you can load test the sample app, you have to get it deployed and running. Use Azure CLI commands, Git commands, and PowerShell commands to make that happen.
+In this tutorial, you'll use a sample Playwright end-to-end test suite that is configured to connect to Microsoft Playwright Testing. The test suite validates a sample React web application.
 
-1. Open Windows PowerShell, sign in to Azure, and set the subscription:
+Clone the sample repository to your workstation:
 
-   ```azurecli
-   az login
-   az account set --subscription <your-Azure-Subscription-ID>
+1. Open your favorite terminal.
+1. Navigate to the directory in which you'd like to download the sample repository.
+1. Clone the sample repository:
+
+    ```bash
+    git clone https://github.com/microsoft/playwright-service-preview
+    ```
+
+1. Navigate to the sample directory:
+
+    ```bash
+    cd playwright-service-preview/samples/PlaywrightTestRunner
+    ```
+
+## Authenticate with private npm repository
+
+To run tests with Microsoft Playwright Testing, you use the `@microsoft/playwright-service` npm package. This package resides in a private package registry.
+
+To authenticate your GitHub user account with the private repository, follow these steps:
+
+1. Create a [GitHub personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your account.
+
+    The token should have the `read:packages` permission.
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/access-token-permissions.png" alt-text="Screenshot that shows the access token permissions.":::
+
+    > [!IMPORTANT]
+    > After generating the token, make sure to copy the token value, as you won't see it again.
+
+1. If your organization requires SAML SSO for GitHub, authorize your personal access token to use SSO.
+
+    1. Go to your [Personal access tokens](https://github.com/settings/tokens) page.
+    1. Select **[Configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)** to the right of the token.
+    1. Select your organization from the list to authorize SSO.
+
+1. Authenticate with the private npm registry to enable you to download the latest `@microsoft/playwright-service` package when you run `npm install`:
+
+   ```bash
+   npm login --scope=@microsoft --registry=https://npm.pkg.github.com
    ```
 
-1. Clone the sample application's source repo:
+   Provide your GitHub username, password and email address. For the password, paste the value of the token you created in the earlier step.
 
-   ```powershell
-   git clone https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git
-   ```
+You can now install all the package dependencies in your local directory:
 
-   The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database. The repo includes a PowerShell script that deploys the sample app to your Azure subscription. It also has an Apache JMeter script that you'll use in later steps.
-
-1. Go to the Node.js app's directory and deploy the sample app by using this PowerShell script:
-
-   ```powershell
-   cd nodejs-appsvc-cosmosdb-bottleneck
-   .\deploymentscript.ps1
-   ```
-
-   > [!TIP]
-   > You can install PowerShell on [Linux/WSL](/powershell/scripting/install/installing-powershell-on-linux) or [macOS](/powershell/scripting/install/installing-powershell-on-macos).
-   >
-   > After you install it, you can run the previous command as `pwsh ./deploymentscript.ps1`.
-
-1. At the prompt, provide:
-
-   * Your Azure subscription ID.
-   * A unique name for your web app.
-   * A location. By default, the location is `eastus`. You can get region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
-
-   > [!IMPORTANT]
-   > For your web app's name, use only lowercase letters and numbers. Don't use spaces or special characters.
-
-1. After deployment finishes, go to the running sample application by opening `https://<yourappname>.azurewebsites.net` in a browser window.
-
-1. To see the application's components, sign in to the [Azure portal](https://portal.azure.com) and go to the resource group that you created.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/resource-group.png" alt-text="Screenshot that shows the list of Azure resource groups.":::
-
-Now that you have the application deployed and running, you can run your first load test against it.
-
-## Configure and create the load test
-
-In this section, you'll create a load test by using a sample Apache JMeter test script.
-
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls to the web app on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
+  ```bash
+  npm install
+  ```
 
 > [!NOTE]
-> The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
+> If you get an **E403 Forbidden** error, this means that the token is not authorized or has expired.
+> Verify that your [personal access token](https://github.com/settings/tokens) has not expired. Validate also that you have authorized SSO, as described earlier.
 
-### Create the Azure Load Testing resource
+## Create an access token
 
-The Load Testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
+Set up an access key to authenticate with Playwright Service.
 
-If you don't yet have a Load Testing resource, create one now.
+1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your GitHub username and password.
 
-### Create a load test
+    1. Access the **Settings > Access Token** menu in the top-right of the screen.
 
-To create a load test in the Load Testing resource for the sample app:
+        :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
+        
+    1. Select **Generate a new token**.
 
-1. Go to the Load Testing resource and select **Create new test** on the command bar.
+    1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-test.png" alt-text="Screenshot that shows the button for creating a new test." :::
+        :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
 
-1. On the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can select the **Run test after creation** checkbox to automatically start the load test after creating it.
+1. In the list of access tokens, select **Copy** to copy the generated token value.
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/copy-access-token-value.png" alt-text="Screenshot that shows how to copy the access token functionality in the Playwright portal.":::
+    
+    > [!NOTE]
+    > You can't retrieve the token value afterwards. If you didn't copy the value after the token was created, you'll have to create a new token.
 
-1. On the **Test plan** tab, select the **JMeter script** test method, and then select the *SampleApp.jmx* test script from the cloned sample application directory. Next, select **Upload** to upload the file to Azure and configure the load test.
+## Configure Playwright for Microsoft Playwright Testing
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache J Meter script." :::
+The `playwright.config.ts` file contains the Playwright configuration settings. The `@microsoft/playwright-service` npm package contains the `PlaywrightService` class to connect Playwright to Microsoft Playwright Testing. The tests in the sample repository are already preconfigured to use Microsoft Playwright Testing.
 
-    Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
+Microsoft Playwright Testing uses an access token as an authorization mechanism. Specify the access token you created earlier to connect to your account.
 
-1. On the **Parameters** tab, add a new environment variable. Enter *webapp* for the **Name** and *`<yourappname>.azurewebsites.net`* for the **Value**. Replace the placeholder text `<yourappname>` with the name of the newly deployed sample application. Don't include the `https://` prefix.
+Optionally, you can also set a dashboard name to group your test runs in the Microsoft Playwright Testing portal. By default, all test runs are grouped in the `Default Group` dashboard.
 
-    The Apache JMeter test script uses the environment variable to retrieve the web application URL. The script then invokes the three APIs in the web application.
+If you run your tests from the command-line, create environment variables on your machine to set the access token and dashboard name.
 
-    :::image type="content" source="media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable.":::
+* Bash:
 
-1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
+    ```bash
+    export ACCESS_KEY='<my-token-value>'
+    export DASHBOARD='<my-dashboard-name>'
+    ```
 
-    |Setting  |Value  |Description  |
-    |---------|---------|---------|
-    |**Engine instances**     |**1**         |The number of parallel test engines that run the Apache JMeter script. |
+* PowerShell:
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-load.png" alt-text="Screenshot that shows the Load tab for creating a test." :::
+    ```Powershell
+    $env:ACCESS_KEY = '<my-token-value>'
+    $env:DASHBOARD = '<my-dashboard-name>'
+    ```
 
-1. On the **Monitoring** tab, specify the application components that you want to monitor with the resource metrics. Select **Add/modify** to manage the list of application components.
+Alternately, you can set the values of the `accessKey` and `dashboard` properties directly in `playwright.config.ts`:
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-monitoring.png" alt-text="Screenshot that shows the Monitoring tab for creating a test." :::
+```typescript
+var playwrightServiceConfig = new PlaywrightService({
+  accessKey: "<my-token-value>"
+  dashboard: "<my-dashboard-name>"
+});
+```
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
+## Run tests across multiple browsers
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-added-resources.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
+In the Playwright configuration file, you can specify the different [browser configurations](https://playwright.dev/docs/test-configuration#multiple-browsers) and operating systems to run your tests for. Microsoft Playwright Testing enables you to run your tests across multiple browsers, device configurations, and operating systems. 
 
-1. Select **Review + create**, review all settings, and select **Create**.
+Use the `projects` node in the Playwright configuration file to provide the list of browser configurations. The following code snippet shows the browser configurations in the sample tests.
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
+```typescript
+// playwright.config.ts
 
-> [!NOTE]
-> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
+const config: PlaywrightTestConfig = {
+  ...
 
-## Run the load test in the Azure portal
+  projects: [
+    {
+      name: 'chromium-on-ubuntu',
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+    },
 
-In this section, you'll use the Azure portal to manually start the load test that you created previously. If you checked the **Run test after creation** checkbox, the test will already be running.
+    {
+      name: 'firefox-on-ubuntu',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+    },
 
-1. Select **Tests** to view the list of tests, and then select the test that you created.
+    {
+      name: 'webkit-on-ubuntu',
+      use: {
+        ...devices['Desktop Safari'],
+      },
+    },
+    {
+      name: "iPhone 13 Pro Max landscape",
+      use: {
+        ...devices['iPhone 13 Pro Max landscape'],
+        browserName: "chromium",
+      },
+    },
+    {
+      name: "Galaxy S9+",
+      use: {
+        ...devices["Galaxy S9+"],
+      },
+    },
+  ],
+};
+```
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/test-list.png" alt-text="Screenshot that shows the list of tests." :::
+## Run tests
 
-   >[!TIP]
-   > You can use the search box and the **Time range** filter to limit the number of tests.
+Now that you've configured your Playwright tests to connect to Microsoft Playwright Testing, you can run the tests. You can start the test in either of two ways:
 
-1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
+- Use Visual Studio Code and the Playwright Test extension.
+- Use the Playwright command-line interface (CLI).
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/test-runs-run.png" alt-text="Screenshot that shows selections for running a test." :::
+### Run tests in Visual Studio Code
 
-    Azure Load Testing begins to monitor and display the application's server metrics on the dashboard.
+To use Visual Studio Code for running Playwright tests in an interactive way:
 
-    You can see the streaming client-side metrics while the test is running. By default, the results refresh automatically every five seconds.
+1. Start Visual Studio Code and open the `playwright-service-preview/samples/PlaywrightTestRunner` folder.
+1. Install the [Playwright Test for VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) from the Visual Studio Code marketplace.
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/aggregated-by-percentile.png" alt-text="Screenshot that shows the dashboard with test results.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/playwright-extension-install.png" alt-text="Screenshot that shows how to install the Playwright Visual Studio Code extension.":::
 
-    You can apply multiple filters or aggregate the results to different percentiles to customize the charts.
+1. Open the command palette (press F1 or Ctrl+Shift+P), enter *Playwright*, and then select **Test: Refresh Playwright tests**.
 
-   > [!TIP]
-   > You can stop a load test at any time from the Azure portal by selecting **Stop**.
+    The **Testing** view now lists all Playwright tests and enables you to run all tests or specify individual tests.
 
-Wait until the load test finishes fully before you proceed to the next section.
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/refresh-playwright-tests.png" alt-text="Screenshot that shows how to refresh Playwright tests using the command palette in Visual Studio Code.":::
 
-## Identify performance bottlenecks
+    > [!NOTE]
+    > If the tests are not showing up, verify that you have set the `accessKey` property in the `playwright.config.ts` file. For more information, see [Configure playwright for Microsoft Playwright Testing](#configure-playwright-for-microsoft-playwright-testing).
 
-In this section, you'll analyze the results of the load test to identify performance bottlenecks in the application. Examine both the client-side and server-side metrics to determine the root cause of the problem.
+1. Open the **Testing** view from the side bar, and then select **Run Tests** to run all tests.
 
-1. First, look at the client-side metrics. You'll notice that the 90th percentile for the **Response time** metric for the `add` and `get` API requests is higher than it is for the `lasttimestamp` API.
+    Playwright will now connect to Microsoft Playwright Testing to run the tests across all browser configurations.
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/client-side-metrics.png" alt-text="Screenshot that shows the client-side metrics.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/playwright-run-all-tests.png" alt-text="Screenshot that shows the Playwrights tests in the Testing view in Visual Studio Code and how to run all tests.":::
 
-    You can see a similar pattern for **Errors**, where the `lasttimestamp` API has fewer errors than the other APIs.
+    When the tests finish, you'll see a checkmark or cross next to indicate whether the test passed or failed.
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/client-side-metrics-errors.png" alt-text="Screenshot that shows the error chart.":::
+1. Select **Show Output** to view the test output log.
 
-    The results of the `add` and `get` APIs are similar, whereas the `lasttimestamp` API behaves differently. The cause might be database related, because both the `add` and `get` APIs involve database access.
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/show-test-output.png" alt-text="Screenshot that shows the test management buttons in the Testing view in Visual Studio Code, highlighting the Show output button.":::
 
-1. To investigate this bottleneck in more detail, scroll down to the **Server-side metrics** dashboard section.
+    At the end of the output, there's a link to the Microsoft Playwright Testing dashboard for this test run.
 
-    The server-side metrics show detailed information about your Azure application components: Azure App Service plan, Azure App Service web app, and Azure Cosmos DB.
+    ```bash
+    ...
+    5 failed
+      [chromium-on-ubuntu] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data ===
+      [firefox-on-ubuntu] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data ====
+      [webkit-on-ubuntu] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data =====
+      [iPhone 13 Pro Max landscape] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data 
+      [Galaxy S9+] › todo-persistence.spec.ts:16:3 › Persistence › should persist its data ===========
+  
+      145 passed (2m)
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792    
+    ```
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/app-service-metrics-for-load-testing.png" alt-text="Screenshot that shows the Azure App Service plan metrics.":::
+### Run tests in the CLI
 
-    In the metrics for the Azure App Service plan, you can see that the **CPU Percentage** and **Memory Percentage** metrics are within an acceptable range.
+To run your tests from the command-line with [Playwright Test](https://playwright.dev/docs/intro#command-line):
 
-1. Now, look at the Azure Cosmos DB server-side metrics.
+1. Open a terminal window of your choice.
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos D B metrics.":::
+1. Navigate to the sample directory, and then run all tests with Playwright Test:
 
-    Notice that the **Normalized RU Consumption** metric shows that the database was quickly running at 100% resource utilization. The high resource usage might have caused database throttling errors. It also might have increased response times for the `add` and `get` web APIs.
+    ```bash
+    cd playwright-service-preview/samples/PlaywrightTestRunner
+    npx playwright test
+    ```
 
-    You can also see that the **Provisioned Throughput** metric for the Azure Cosmos DB instance has a maximum throughput of 400 RUs. Increasing the provisioned throughput of the database might resolve the performance problem.
+    You should see a similar output when the tests complete:
 
-## Validate the performance improvements
+    ```bash
+    Running in non CI mode
+    
+    Running 150 tests using 10 workers
+    
+      ✓  [chromium-on-ubuntu] › todo-new.spec.ts:16:3 › New Todo › should allow me to add todo items (7s)
+      ✓  [firefox-on-ubuntu] › todo-item.spec.ts:17:3 › Item › should allow me to mark items as complete (8s)
+      ✓  [firefox-on-ubuntu] › todo-new.spec.ts:39:3 › New Todo › should clear text input field when an item is added (5s)
+      ✓  [webkit-on-ubuntu] › todo-clear.spec.ts:25:3 › Clear completed button › should remove completed items when clicked (7s)
+    ...
 
-Now that you've increased the database throughput, rerun the load test and verify that the performance results have improved:
+      145 passed (2m)
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792
+    ```
 
-1. On the test run dashboard, select **Rerun**, and then select **Rerun** on the **Rerun test** pane.
+## Analyze test results and diagnose failures
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/rerun-test.png" alt-text="Screenshot that shows selections for running the load test.":::
+After the tests finish, you can analyze the test results in the Microsoft Playwright Testing dashboard. The dashboard enables you to view the historical results of your test runs. For each test run, you have the results for each test and project combination. For tests that failed, diagnose the root cause by using the trace viewer, screenshots, and test recording videos.
 
-   You'll see a new test run entry with a status column that cycles through the **Provisioning**, **Executing**, and **Done** states. At any time, select the test run to monitor how the load test is progressing.
+You can find a direct link to the test run results in the output log of the test run in Visual Studio Code or the command-line. Alternately, you can navigate to the dashboard home page and select your test run.
 
-1. After the load test finishes, check the **Response time** results and the **Errors** results of the client-side metrics.
+1. Open the Microsoft Playwright Testing dashboard link in the test output.
 
-1. Check the server-side metrics for Azure Cosmos DB and ensure that the performance has improved.
+1. Sign in with your GitHub credentials.
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos D B client-side metrics after update of the scale settings.":::
+1. View the test run details.
 
-   The Azure Cosmos DB **Normalized RU Consumption** value is now well below 100%.
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/playwright-testing-run-details.png" alt-text="Screenshot that shows test run details in the Microsoft Playwright Testing dashboard.":::
 
-Now that you've changed the scale settings of the database, you see that:
+    The dashboard shows the results for each test, for each browser configuration, grouped by the test specification file. 
 
-* The response time for the `add` and `get` APIs has improved.
-* The normalized RU consumption remains well under the limit.
+1. Optionally, filter the test list by using the search field.
 
-As a result, the overall performance of your application has improved.
+    You can quickly filter tests based on their test description or the browser configuration. For example, to show only tests that ran on Firefox, enter *Firefox* in the search field.
 
-## Clean up resources
+### Diagnose failed tests
 
-[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
+You notice that some tests failed. Microsoft Playwright Testing provides rich information as part of the test results.
+
+| Artifact | Description |
+| -------- | ----------- |
+| Errors | Information about where in the source code the test failed and what the actual and expected values are. |
+| Test steps | Sequence of Playwright test steps and their status. |
+| Screenshots | Screenshot of the application at the end of the test. |
+| Videos | End-to-end video of the application user interface during the test. |
+| Traces | Interactive historical log of the application state and visual representation over time. Allows you to step through the timeline of the test run and view the application state. |
+
+To diagnose the failing tests in the Microsoft Playwright Testing dashboard, perform the following steps:
+
+1. Select the **Failed** filter to view only the failed tests.
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-filter-failed-tests.png" alt-text="Screenshot that shows how to filter the test list to only show failed tests in the Microsoft Playwright Testing dashboard.":::
+
+1. Select one of the failed tests in `todo-persistence.spec.ts` to view the test details.
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-failed-test-details.png" alt-text="Screenshot that shows the details of a failed test in the Microsoft Playwright Testing dashboard.":::
+
+    In the example, you notice that there was an unexpected `something` value when running line 32.
+
+1. Select the trace file image in the **Traces** section, to open the web-based Trace Viewer. 
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-view-traces.png" alt-text="Screenshot that shows test run details in the Microsoft Playwright Testing dashboard, highlighting the traces image.":::
+
+    > [!NOTE]
+    > Optionally, select the download link to download the trace file, and then use the [Playwright Test Viewer](https://playwright.dev/docs/trace-viewer) application on your local machine.
+
+    The trace viewer uses the test traces to enable you to step through the test run timeline. Hover over the timeline at the top to evaluate the application state over time.
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-web-trace-viewer.png" alt-text="Screenshot that shows the web-based Playwright Trace Viewer in the Microsoft Playwright Testing dashboard.":::
+
+    In the **Calls** pane on the right, you can see the details of why the test failed. The test expected a value of *Something* as the second item in the todo list after the page reload. However, the application contains *feed the cat*, as you can see from the application visualization in the center of the screen.
+
+1. Open the `todo.persistence.spec.ts` file in your editor to fix the failing test specification.
+
+1. Replace lines 32 and 33 with the following text:
+
+    ```typescript
+    await expect(todoItems).toHaveText([TODO_ITEMS[0], TODO_ITEMS[1]]);
+    await expect(todoItems).toHaveClass(['completed', '']);
+    ```
+
+    The test now correctly validates that the values in the todo list before and after the page reload match.
+
+## Scale out your tests
+
+Microsoft Playwright Testing abstracts the infrastructure to scale out your tests. Previously, you ran your tests across different browsers and devices. You'll now speed up your test run by using the scale of the cloud.
+
+Playwright enables you to run your tests in parallel. In Playwright, the number of workers determines the maximum number of tests that can run in parallel.
+
+1. Increase the number of workers to speed up your test in Microsoft Playwright Testing using either of two ways:
+
+    - Update the `workers` property in the `playwright.config.ts` file to 20, and then rerun your tests.
+
+        ```typescript
+        // playwright.config.ts
+        
+        const config: PlaywrightTestConfig = {
+          ...
+          workers: 20,
+          ...
+        };
+        ```
+        
+    - If you run your tests from the command-line, specify the number of workers with the `workers` command-line parameter:
+
+        ```bash
+        npx playwright test --workers=20
+        ```
+
+1. After the test finishes, open the Microsoft Playwright Testing dashboard link in the test output.
+
+1. To view all your tests, select your dashboard name, or **Default Group** if you didn't override the name, from the breadcrumb.
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-breadcrumb.png" alt-text="Screenshot that shows breadcrumb navigation in the Microsoft Playwright Testing dashboard.":::
+
+1. View the full history of tests.
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-test-result-list.png" alt-text="Screenshot that shows the list of test results in the Microsoft Playwright Testing dashboard.":::
+
+    You notice that the test run completes much faster in Microsoft Playwright Testing, because of the increased parallelism and number of workers.
+
+<!-- ## Clean up resources
+
+[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)] -->
 
 ## Next steps
 
-Advance to the next tutorial to learn how to set up an automated regression testing workflow by using Azure Pipelines or GitHub Actions.
+You've now created a Microsoft Playwright Testing account and configured your Playwright tests to run at high scale. You used the dashboard to view test runs over time and analyze individual results by using the rich test artifacts.
+
+Advance to the next tutorial to learn how to set up automated end-to-end testing.
 
 > [!div class="nextstepaction"]
-> [What is Microsoft Playwright Testing](./overview-what-is-microsoft-playwright-testing.md)
+> [Automate tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)

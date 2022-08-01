@@ -1,64 +1,171 @@
 ---
 title: 'Quickstart: Run an end-to-end test with Microsoft Playwright Testing'
-description: 'This quickstart shows how to run cross-browser, cross-platform end-to-end tests with Microsoft Playwright Testing.'
+description: 'This quickstart shows how to run cross-browser, cross-platform end-to-end tests at scale with Microsoft Playwright Testing.'
 services: playwright-testing
 ms.service: playwright-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 06/08/2022
+ms.date: 07/01/2022
 ---
 
-# Quickstart: Run end-to-end tests with Microsoft Playwright Testing Preview
+# Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview
 
-This quickstart describes how to load test a web application with Microsoft Playwright Testing Preview from the Azure portal without prior knowledge about load testing tools. You'll first create an Azure Load Testing resource, and then create a load test by using the web application URL.
+In this quickstart, you'll set up end-to-end web tests and run them at cloud-scale with Microsoft Playwright Testing Preview. Use cloud infrastructure to validate your application across multiple browsers, devices, and operating systems.
 
-After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials.
+After you complete this quickstart, you'll have a test suite and a Microsoft Playwright Testing resource that you can use for other tutorials.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Access to Microsoft Playwright Testing Preview.
+- Git. If you don't have it, [download and install it](https://git-scm.com/download).
+- [Node](https://nodejs.org/en/download)
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-## Create an Azure Load Testing resource
+## Download the sample repository
 
-First, you'll create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
+In this quickstart, you'll use a sample Playwright end-to-end test suite that is configured to connect to Microsoft Playwright Testing. The test suite validates a sample React web application.
 
-## Create a load test
+Clone the sample repository to your workstation:
 
-Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
+1. Open your favorite terminal.
+1. Navigate to the directory in which you'd like to download the sample repository.
+1. Clone the sample repository:
 
-1. Go to the **Overview** page of your Azure Load Testing resource.
+    ```bash
+    git clone https://github.com/microsoft/playwright-service-preview
+    ```
 
-1. On the **Get started** tab, select **Quick test**.
+1. Navigate to the sample directory:
 
-1. On the **Quickstart test** page, enter the **Test URL**.
+    ```bash
+    cd playwright-service-preview/samples/PlaywrightTestRunner
+    ```
 
-1. (Optional) Update the **Number of virtual users** to the total number of virtual users. 
+## Authenticate with the private npm repository
 
-1. (Optional) Update the **Test duration** and **Ramp up time** for the test.
+To run tests with Microsoft Playwright Testing, you use the `@microsoft/playwright-service` npm package. This package resides in a private package registry.
 
-1. Select **Run test** to create and start the load test.
+To authenticate your GitHub user account with the private repository, follow these steps:
 
-## View the test results
+1. Create a [GitHub personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your account.
 
-Once the load test starts, you'll be redirected to the test run dashboard. While the load test is running, Azure Load Testing captures both client-side metrics and server-side metrics. In this section, you'll use the dashboard to monitor the client-side metrics.
+    The token should have the `read:packages` permission.
 
-* On the test run dashboard, you can see the streaming client-side metrics while the test is running. By default, the data refreshes every five seconds.
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-token-permissions.png" alt-text="Screenshot that shows the access token permissions.":::
 
-* Optionally, change the display filters to view a specific time range, result percentile, or error type.
+    > [!IMPORTANT]
+    > After generating the token, make sure to copy the token value, as you won't see it again.
 
-## Clean up resources
+1. If your organization requires SAML SSO for GitHub, authorize your personal access token to use SSO.
 
-[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
+    1. Go to your [Personal access tokens](https://github.com/settings/tokens) page.
+    1. Select **[Configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)** to the right of the token.
+    1. Select your organization from the list to authorize SSO.
+
+1. Authenticate with the private npm registry to enable you to download the latest `@microsoft/playwright-service` package when you run `npm install`:
+
+    ```bash
+    npm login --scope=@microsoft --registry=https://npm.pkg.github.com
+    ```
+
+    Provide your GitHub username, password and email address. For the password, paste the value of the token you created in the earlier step.
+    
+1. You can now install all the package dependencies in your local directory:
+
+    ```bash
+    npm install
+    ```
+
+    > [!NOTE]
+    > If you get an **E403 Forbidden** error, this means that the token is not authorized or has expired.
+    > Verify that your [personal access token](https://github.com/settings/tokens) has not expired. Validate also that you have authorized SSO, as described earlier.
+    
+## Create a Microsoft Playwright Testing access token
+
+Set up an access token to authenticate with Microsoft Playwright Testing.
+
+1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your GitHub username and password.
+
+    1. Access the **Settings > Access Token** menu in the top-right of the screen.
+
+        :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
+        
+    1. Select **Generate a new token**.
+
+    1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
+
+        :::image type="content" source="./media/quickstart-run-end-to-end-tests/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
+
+1. In the list of access tokens, select **Copy** to copy the generated token value.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/copy-access-token-value.png" alt-text="Screenshot that shows how to copy the access token functionality in the Playwright portal.":::
+    
+    > [!NOTE]
+    > You can't retrieve the token value afterwards. If you didn't copy the value after the token was created, you'll have to create a new token.
+
+## Configure Playwright for Microsoft Playwright Testing
+
+The `playwright.config.ts` file contains the Playwright configuration settings and is already preconfigured to use Microsoft Playwright Testing.
+
+On your machine, create an environment variable `ACCESS_KEY`, and set its value to the access token you created earlier:
+
+* Bash:
+
+    ```bash
+    export ACCESS_KEY='<my-token-value>'
+    ```
+
+* PowerShell:
+
+    ```Powershell
+    $env:ACCESS_KEY = '<my-token-value>'
+    ```
+
+## Run tests
+
+You've now configured your Playwright tests to run in the cloud with Microsoft Playwright Testing. The sample test configuration specifies multiple browser and device configurations.
+
+1. Run this command to run Playwright tests against browsers managed by the service:
+
+    ```bash
+    npx playwright test 
+    ```
+
+    You should see a similar output when the tests complete:
+
+    ```bash
+    Running in non CI mode
+    
+    Running 150 tests using 10 workers
+    
+      ✓  [chromium-on-ubuntu] › todo-new.spec.ts:16:3 › New Todo › should allow me to add todo items (7s)
+      ✓  [firefox-on-ubuntu] › todo-item.spec.ts:17:3 › Item › should allow me to mark items as complete (8s)
+      ✓  [firefox-on-ubuntu] › todo-new.spec.ts:39:3 › New Todo › should clear text input field when an item is added (5s)
+      ✓  [webkit-on-ubuntu] › todo-clear.spec.ts:25:3 › Clear completed button › should remove completed items when clicked (7s)
+    ...
+
+      145 passed (2m)
+    Test report: https://dashboard.playwright-ppe.io/playwright-service/Default%20Group/987351621824417792
+    ```
+
+    > [!NOTE]
+    > You'll notice several tests failing - this is expected since some errors were intentionally introduced in the sample. Learn more about diagnosing test failures in the tutorial.
+
+1. Select the URL in the test output to view the test results in the Microsoft Playwright Testing portal.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-run-details.png" alt-text="Screenshot that shows test run details in the Microsoft Playwright Testing dashboard.":::
+    
+    The dashboard shows the results for each test, for each browser configuration, grouped by the test specification file. You can use the rich test artifacts to diagnose failing tests.
 
 ## Next steps
 
-You now have an Azure Load Testing resource, which you used to load test an external website.
+You've now created a Microsoft Playwright Testing account and configured your Playwright tests to run in the cloud.
 
-You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using server-side metrics.
+Advance to the next tutorial to learn how to identify application issues in the Microsoft Playwright Testing portal.
 
 > [!div class="nextstepaction"]
-> [Identify web app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)
+> [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)

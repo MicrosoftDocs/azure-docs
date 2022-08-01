@@ -2,9 +2,9 @@
 title: Optimize costs by automatically managing the data lifecycle
 titleSuffix: Azure Storage
 description: Use Azure Storage lifecycle management policies to create automated rules for moving data between hot, cool, and archive tiers.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 05/09/2022
 ms.service: storage
 ms.subservice: common
@@ -292,7 +292,7 @@ Some data is expected to expire days or months after creation. You can configure
 
 ### Delete data with blob index tags
 
-Some data should only be expired if explicitly marked for deletion. You can configure a lifecycle management policy to expire data that are tagged with blob index key/value attributes. The following example shows a policy that deletes all block blobs tagged with `Project = Contoso`. To learn more about blob index, see [Manage and find data on Azure Blob Storage with blob index (Preview)](storage-manage-find-blobs.md).
+Some data should only be expired if explicitly marked for deletion. You can configure a lifecycle management policy to expire data that are tagged with blob index key/value attributes. The following example shows a policy that deletes all block blobs tagged with `Project = Contoso`. To learn more about blob index, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
 
 ```json
 {

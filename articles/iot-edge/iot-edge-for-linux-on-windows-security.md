@@ -30,7 +30,7 @@ The EFLOW virtual machine is built on a three-point comprehensive security platf
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 The EFLOW virtual machine is built on a four-point comprehensive security platform:
 1. Servicing updates
@@ -38,7 +38,7 @@ The EFLOW virtual machine is built on a four-point comprehensive security platfo
 1. Firewall lockdown
 1. DM-Verity
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ### Servicing updates
 When security vulnerabilities arise, CBL-Mariner makes the latest security patches and fixes available for being serviced through ELOW monthly updates. The virtual machine has no package manager, so it's not possible to manually download and install RPM packages. All updates to the virtual machine are installed using EFLOW A/B update mechanism. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md)
@@ -64,7 +64,7 @@ Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specif
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 ![EFLOW CR partition layout](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png)
@@ -72,17 +72,17 @@ Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specif
 | Partition | Size | Description | 
 | --------- |---------- |------------ |
 | BootEFIA | 8 MB | Firmware partition A for future GRUBless boot |
-| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
 | BootA | 192 MB | Contains the bootloader for A partition |
-| BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS A | 4 GB | One of two active/passive partitions holding the root file system |
+| BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
+| BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS B | 4 GB | One of two active/passive partitions holding the root file system |
 | Unused | 4 GB | This partition is reserved for future use |
 | Log | 1 GB or 6 GB | Logs specific partition mounted under /logs |
 | Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 >[!NOTE]
 >The partition layout represents the logical disk size and does not indicate the physical space the virtual machine will occupy on the host OS disk.​
@@ -103,7 +103,7 @@ By default, the EFLOW virtual machine uses [*iptables*](https://git.netfilter.or
 
     ![EFLOW iptables default](./media/iot-edge-for-linux-on-windows-security/default-iptables-output.png)
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 ### Verified boot
 
@@ -112,7 +112,7 @@ The EFLOW virtual machine supports **Verified boot** through the included *devic
 By default, this feature is enabled in the virtual machine, and can't be turned off. For more information, see [dm-verity](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/verity.html#).
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Trusted platform module (TPM)
 [Trusted platform module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-top-node) technology is designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The chip includes multiple physical security mechanisms to make it tamper resistant, and malicious software is unable to tamper with the security functions of the TPM.
@@ -127,12 +127,12 @@ EFLOW provides multiple ways to interact with the virtual machine by exposing a 
 
 All communications between the Windows host operating system and the EFLOW virtual machine required by the PowerShell cmdlets are done using an SSH channel. By default, the virtual machine SSH service won't allow authentication via username and password, and it's limited to certificate authentication. The certificate is created during EFLOW deployment process, and is unique for each EFLOW installation. Furthermore, to prevent SSH brute force attacks, the virtual machine will block an IP address if it attempts more than three connections per minute to SSH service. 
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 In the EFLOW Continuous Release (CR) version, we introduced a change in the transport channel used to establish the SSH connection. Originally, SSH service runs on TCP port 22, which can be accessed by all external devices in the same network using a TCP socket to that specific port. For security reasons, EFLOW CR runs the SSH service over Hyper-V sockets instead of normal TCP sockets. All communication over Hyper-V sockets runs between the Windows host OS and the EFLOW virtual machine, without using networking. This limits the access of the SSH service, restricting connections to only the Windows host OS. For more information, see [Hyper-V sockets](/virtualization/hyper-v-on-windows/user-guide/make-integration-service).
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 
 ## Next steps

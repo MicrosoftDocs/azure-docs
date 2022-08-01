@@ -32,7 +32,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 ## Prerequisites
 
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
 ## Create an environment
 

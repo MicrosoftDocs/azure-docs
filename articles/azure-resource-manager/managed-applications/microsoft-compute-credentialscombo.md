@@ -1,30 +1,29 @@
 ---
 title: CredentialsCombo UI element
 description: Describes the Microsoft.Compute.CredentialsCombo UI element for Azure portal.
-author: tfitzmac
-
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.topic: conceptual
-ms.date: 09/29/2018
-ms.author: tomfitz
-
+ms.date: 07/18/2022
 ---
+
 # Microsoft.Compute.CredentialsCombo UI element
 
-A group of controls with built-in validation for Windows and Linux passwords and SSH public keys.
+A group of controls with built-in validation for Windows passwords, and Linux passwords or SSH public keys.
 
 ## UI sample
 
 For Windows, users see:
 
-![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft-compute-credentialscombo-windows.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-compute-credentialscombo-windows.png" alt-text="Screenshot of the credentials combo user-interface element for a Windows password.":::
 
 For Linux with password selected, users see:
 
-![Microsoft.Compute.CredentialsCombo Linux password](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-password.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-compute-credentialscombo-linux-password.png" alt-text="Screenshot of the credentials combo user-interface element for a Linux password.":::
 
 For Linux with SSH public key selected, users see:
 
-![Microsoft.Compute.CredentialsCombo Linux key](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key.png" alt-text="Screenshot of the credentials combo user-interface element for a Linux SSH public key.":::
 
 ## Schema
 
@@ -111,7 +110,7 @@ If `osPlatform` is **Linux** and the user provided an SSH public key, the contro
 - If `constraints.required` is set to **true**, then the password or SSH public key text boxes must have values to validate successfully. The default value is **true**.
 - If `options.hideConfirmation` is set to **true**, then the second text box for confirming the user's password is hidden. The default value is **false**.
 - If `options.hidePassword` is set to **true**, then the option to use password authentication is hidden. It can be used only when `osPlatform` is **Linux**. The default value is **false**.
-- Additional constraints on the allowed passwords can be implemented by using the `customPasswordRegex` property. The string in `customValidationMessage` is displayed when a password fails custom validation. The default value for both properties is **null**.
+- More constraints on the allowed passwords can be implemented by using the `customPasswordRegex` property. The string in `customValidationMessage` is displayed when a password fails custom validation. The default value for both properties is **null**. The schema shows an example of each property.
 
 ## Next steps
 

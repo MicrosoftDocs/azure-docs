@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 03/29/2022
+ms.date: 07/28/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -15,7 +15,6 @@ An App Service Environment is an Azure App Service feature that provides a fully
 > [!NOTE]
 > This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
 > 
-
 An App Service Environment can host your:
 
 - Windows web apps
@@ -79,10 +78,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
 
-- Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
 - Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
-- Configure individual custom domain [IP SSL bindings](..\configure-ssl-bindings.md#create-binding) with your apps.
-- Configure a custom domain suffix.
 - Perform a backup and restore operation on a storage account behind a firewall.
 
 ## Pricing
@@ -99,40 +95,47 @@ Reserved Instance pricing for Isolated v2 is available and is described in [How 
 
 App Service Environment v3 is available in the following regions:
 
-| Normal and dedicated host regions | Availability zone regions |
-|---|---|
-| Australia East | Australia East |
-| Australia Southeast | Brazil South |
-| Brazil South | Canada Central |
-| Canada Central | Central India |
-| Canada East | Central US |
-| Central India | East Asia |
-| Central US | East US |
-| East Asia | East US 2 |
-| East US | France Central |
-| East US 2 | Germany West Central |
-| France Central | Japan East |
-| Germany West Central | Korea Central |
-| Japan East | North Europe |
-| Korea Central | Norway East |
-| North Central US | South Africa North |
-| North Europe | South Central US |
-| Norway East | Southeast Asia |
-| South Africa North | UK South |
-| South Central US | West Europe |
-| Southeast Asia | West US 2 |
-| Switzerland North | West US 3 |
-| UAE North |  |
-| UK South |  |
-| UK West |  |
-| West Central US |  |
-| West Europe |  |
-| West US |  |
-| West US 2 |  |
-| West US 3 |  |
-| US Gov Texas |  |
-| US Gov Arizona |  |
-| US Gov Virginia |  |
+### Azure Public:
+
+| Region               | Normal and dedicated host   | Availability zone support   |
+| -------------------- | :-------------------------: | :-------------------------: |
+| Australia East       | x                         | x                         |
+| Australia Southeast  | x                         |                           |
+| Brazil South         | x                         | x                         |
+| Canada Central       | x                         | x                         |
+| Canada East          | x                         |                           |
+| Central India        | x                         | x                         |
+| Central US           | x                         | x                         |
+| East Asia            | x                         | x                         |
+| East US              | x                         | x                         |
+| East US 2            | x                         | x                         |
+| France Central       | x                         | x                         |
+| Germany West Central | x                         | x                         |
+| Japan East           | x                         | x                         |
+| Korea Central        | x                         | x                         |
+| North Central US     | x                         |                           |
+| North Europe         | x                         | x                         |
+| Norway East          | x                         | x                         |
+| South Africa North   | x                         | x                         |
+| South Central US     | x                         | x                         |
+| Southeast Asia       | x                         | x                         |
+| Switzerland North    | x                         |                           |
+| UAE North            | x                         |                           |
+| UK South             | x                         | x                         |
+| UK West              | x                         |                           |
+| West Central US      | x                         |                           |
+| West Europe          | x                         | x                         |
+| West US              | x                         |                           |
+| West US 2            | x                         | x                         |
+| West US 3            | x                         | x                         |
+
+### Azure Government:
+
+| Region               | Normal and dedicated host   | Availability zone support   |
+| -------------------- | :-------------------------: | :-------------------------: |
+| US Gov Texas         | x                           |                             |
+| US Gov Arizona       | x                           |                             |
+| US Gov Virginia      | x                           |                             |
 
 ## App Service Environment v2
 

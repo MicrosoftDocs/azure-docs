@@ -17,8 +17,14 @@ items:
   items: 
     - name: Identify issues with end-to-end web tests
       href: tutorial-identify-issues-with-end-to-end-web-tests.md
+    - name: Automate end-to-end testing with GitHub Actions
+      href: tutorial-automate-end-to-end-testing-with-github-actions.md
 - name: How-to guides
   expanded: true
   items:
+    - name: Run tests across multiple operating systems
+      href: how-to-cross-platform-tests.md
+    - name: Run Playwright tests in the cloud
+      href: how-to-run-with-playwright-testing.md
     - name: Test private endpoints
       href: how-to-test-private-endpoints.md

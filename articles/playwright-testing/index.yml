@@ -36,10 +36,16 @@ landingContent:
         links:
           - text: Identify issues with end-to-end web tests
             url: tutorial-identify-issues-with-end-to-end-web-tests.md
+          - text: Automate end-to-end testing with GitHub Actions
+            url: tutorial-automate-end-to-end-testing-with-github-actions.md
 
   - title: Run tests
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Run tests across multiple operating systems
+            url: how-to-cross-platform-tests.md
+          - text: Run Playwright tests in the cloud
+            url: how-to-run-with-playwright-testing.md
           - text: Test private endpoints
             url: how-to-test-private-endpoints.md

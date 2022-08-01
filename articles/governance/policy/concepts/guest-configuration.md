@@ -1,10 +1,14 @@
 ---
 title: Understand the guest configuration feature of Azure Policy
 description: Learn how Azure Policy uses the guest configuration feature to audit or configure settings inside virtual machines.
-ms.date: 07/15/2021
+author: timwarner-msft
+ms.date: 07/15/2022
 ms.topic: conceptual
+ms.author: timwarner
 ---
 # Understand the guest configuration feature of Azure Policy
+
+[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
 
 Azure Policy's guest configuration feature provides native capability
 to audit or configure operating system settings as code,
@@ -341,6 +345,7 @@ locations:
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+- [Sample DSC resource modules](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules)
 
 ## Next steps
 

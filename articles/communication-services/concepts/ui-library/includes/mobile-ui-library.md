@@ -1,7 +1,7 @@
 ---
-title: Mobile UI Library
-titleSuffix: An Azure Communication Services - Mobile UI Library
-description: In this document, introduce the Mobile UI Library
+title: UI Library for Mobile native platforms
+titleSuffix: An Azure Communication Services - UI Library for Mobile native platforms
+description: In this document, introduce the UI Library for Mobile native platforms
 author: jorgegarc
 
 ms.author: jorgegarc

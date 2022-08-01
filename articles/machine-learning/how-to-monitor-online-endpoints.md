@@ -30,7 +30,7 @@ In this article you learn how to:
 
 ## View metrics
 
-Use the following steps to view metrics for a managed endpoint or deployment:
+Use the following steps to view metrics for an online endpoint or deployment:
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Navigate to the online endpoint or deployment resource.
 

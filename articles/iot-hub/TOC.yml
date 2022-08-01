@@ -95,6 +95,8 @@
         href: iot-hub-devguide-messaging.md
       - name: Create and read IoT Hub messages
         href: iot-hub-devguide-messages-construct.md
+      - name: Non-telemetry event schemas
+        href: iot-hub-non-telemetry-event-schema.md
       - name: Send cloud-to-device messages from IoT Hub
         href: iot-hub-devguide-messages-c2d.md
       - name: Choose a device communication protocol
@@ -223,34 +225,34 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
-            - name: Java
-              href: iot-hub-java-java-c2d.md
-            - name: Node.js
-              href: iot-hub-node-node-c2d.md
             - name: Python
               href: iot-hub-python-python-c2d.md
+            - name: Node.js
+              href: iot-hub-node-node-c2d.md
+            - name: Java
+              href: iot-hub-java-java-c2d.md
             - name: iOS
               href: iot-hub-ios-swift-c2d.md
         - name: Upload files from devices
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-file-upload.md
-            - name: Java
-              href: iot-hub-java-java-file-upload.md
-            - name: Node.js
-              href: iot-hub-node-node-file-upload.md
             - name: Python
               href: iot-hub-python-python-file-upload.md
+            - name: Node.js
+              href: iot-hub-node-node-file-upload.md
+            - name: Java
+              href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
-            - name: Node.js
-              href: iot-hub-node-node-twin-getstarted.md
             - name: .NET
               href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: Java
-              href: iot-hub-java-java-twin-getstarted.md
             - name: Python
               href: iot-hub-python-twin-getstarted.md
+            - name: Node.js
+              href: iot-hub-node-node-twin-getstarted.md
+            - name: Java
+              href: iot-hub-java-java-twin-getstarted.md
         - name: Get started with module twins
           items:
             - name: Portal
@@ -259,30 +261,30 @@
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
             - name: Python
               href: iot-hub-python-python-module-twin-getstarted.md
-            - name: C
-              href: iot-hub-c-c-module-twin-getstarted.md
             - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
+            - name: C
+              href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
-            - name: Node.js
-              href: iot-hub-node-node-device-management-get-started.md
             - name: .NET
               href: iot-hub-csharp-csharp-device-management-get-started.md
-            - name: Java
-              href: iot-hub-java-java-device-management-getstarted.md
             - name: Python
               href: iot-hub-python-python-device-management-get-started.md
+            - name: Node.js
+              href: iot-hub-node-node-device-management-get-started.md
+            - name: Java
+              href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
-            - name: Node.js
-              href: iot-hub-node-node-schedule-jobs.md
             - name: .NET
               href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: Java
-              href: iot-hub-java-java-schedule-jobs.md
             - name: Python
               href: iot-hub-python-python-schedule-jobs.md
+            - name: Node.js
+              href: iot-hub-node-node-schedule-jobs.md
+            - name: Java
+              href: iot-hub-java-java-schedule-jobs.md
     - name: Manage
       items:
         - name: Create an IoT hub

@@ -4,7 +4,7 @@ description: Learn how to use a Marketo CRM system to manage leads from Microsof
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: durior1
+author: urimsft
 ms.author: uridor
 ms.date: 06/08/2022
 ---

@@ -35,19 +35,19 @@ The typical process for establishing identity lifecycle management in an organiz
 
 2. Connect those systems of record with one or more directories and databases used by applications, and resolve any inconsistencies between the directories and the systems of record. For example, a directory may have obsolete data, such as an account for a former employee, that is no longer needed. 
 
-3. Determine what processes can be used to supply authoritative information in the absence of a system of record.  For example, if there are digital identities but visitors, but the organization has no database for visitors, then it may be necessary to find an alternate way to determine when an digital identity for a visitor is no longer needed.
+3. Determine what processes can be used to supply authoritative information in the absence of a system of record.  For example, if there are digital identities for visitors, but the organization has no database for visitors, then it may be necessary to find an alternate way to determine when an digital identity for a visitor is no longer needed.
 
-4. Configure that changes from the system of record or other processes are replicated to each of the directories or databases that require an update.
+4. Ensure that changes from the system of record or other processes are replicated to each of the directories or databases that require an update.
 
 ## Identity lifecycle management for representing employees and other individuals with an organizational relationship
 
 When planning identity lifecycle management for employees, or other individuals with an organizational relationship such as a contractor or student, many organizations model the "join, move, and leave" process.  These are:
    
    - Join - when an individual comes into scope of needing access, an identity is needed by those applications, so a new digital identity may need to be created if one is not already available
-   - Move - when an individual moves between boundaries, that require additional access authorizations to be added or removed to their digital identity
-   - Leave- when an individual leaves the scope of needing access, access may need to be removed, and subsequently the identity may no longer by required by applications other than for audit or forensics purposes
+   - Move - when an individual moves between boundaries that require additional access authorizations to be added or removed to their digital identity
+   - Leave- when an individual leaves the scope of needing access, access may need to be removed, and subsequently the identity may no longer be required by applications other than for audit or forensics purposes
 
-So for example, if a new employee joins your organization, who has never been affiliated with your organization before, that employee will require a new digital identity, represented as a user account in Azure AD.  The creation of this account would fall into a "Joiner" process, which could be automated if there was a system of record such as Workday that could indicate when the new employee starts work.  Later, if your organization has an employee move from say, Sales to Marketing, they would fall into a "Mover" process.  This would require removing the access rights they had in the Sales organization which they no longer require, and granting them rights in the Marketing organization that they new require.
+So for example, if a new employee joins your organization and that employee has never been affiliated with your organization before, that employee will require a new digital identity, represented as a user account in Azure AD.  The creation of this account would fall into a "Joiner" process, which could be automated if there was a system of record such as Workday that could indicate when the new employee starts work.  Later, if your organization has an employee move from say, Sales to Marketing, they would fall into a "Mover" process.  This would require removing the access rights they had in the Sales organization which they no longer require, and granting them rights in the Marketing organization that they new require.
 
 ## Identity lifecycle management for guests
 
