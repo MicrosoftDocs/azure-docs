@@ -491,39 +491,6 @@ Allows you to review and reject the labeled dataset and view labeling insights. 
 }
 ```
 
-# [Customer QA](#tab/customer-qa)
-
-A customer quality assurance role can view project dashboards, preview datasets, export a labeling project, and review submitted labels. This role can't submit labels.
-
-`customer_qa_role.json`:
-```json
-{
-    "properties": {
-        "roleName": "Customer QA",
-        "description": "Customer QA for Labeling Projects",
-        "assignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.MachineLearningServices/workspaces/read", 
-                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
-                    "Microsoft.MachineLearningServices/workspaces/datasets/registered/read”,
-                ],
-                "notActions": [
-                ]
-            }
-        ]
-    }
-}
-```
-
 # [Vendor account manager](#tab/vendor-admin)
 
 A vendor account manager can help manage all the vendor roles and perform any labeling action. They cannot modify projects or view MLAssist experiments.
@@ -549,6 +516,39 @@ A vendor account manager can help manage all the vendor roles and perform any la
                     "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
                     "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
                     "Microsoft.MachineLearningServices/workspaces/datasets/registered/read
+                ],
+                "notActions": [
+                ]
+            }
+        ]
+    }
+}
+```
+
+# [Customer QA](#tab/customer-qa)
+
+A customer quality assurance role can view project dashboards, preview datasets, export a labeling project, and review submitted labels. This role can't submit labels.
+
+`customer_qa_role.json`:
+```json
+{
+    "properties": {
+        "roleName": "Customer QA",
+        "description": "Customer QA for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read", 
+                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
+                    "Microsoft.MachineLearningServices/workspaces/datasets/registered/read”,
                 ],
                 "notActions": [
                 ]
