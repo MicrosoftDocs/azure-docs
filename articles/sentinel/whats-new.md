@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # What's new in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
 If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
@@ -30,6 +28,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## July 2022
 
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
+- [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
 - [Automation rules for alerts (Preview)](#automation-rules-for-alerts-preview)
 
 ### Azure resource entity page (Preview)
@@ -40,6 +39,20 @@ You can now gain a 360-degree view of your resource security with the new entity
 
 First, it provides some basic details about the resource: where it is located, when it was created, to which resource group it belongs, the Azure tags it contains, etc. Further, it surfaces information about access management: how many owners, contributors, and other roles are authorized to access the resource, and what networks are allowed access to it; what is the permission model of the key vault, is public access to blobs allowed in the storage account, and more. Finally, the page also includes some integrations, such as Microsoft Defender for Cloud, Defender for Endpoint, and Purview, that enrich the information about the resource.
 
+### New data sources for User and entity behavior analytics (UEBA) (Preview)
+
+The [Security Events data source](ueba-reference.md#ueba-data-sources) for UEBA, which until now included only event ID 4624 (An account was successfully logged on), now includes four more event IDs and types, currently in **PREVIEW**:
+
+   - 4625: An account failed to log on.
+   - 4648: A logon was attempted using explicit credentials.
+   - 4672: Special privileges assigned to new logon.
+   - 4688: A new process has been created.
+
+Having user data for these new event types in your workspace will provide you with much more and greater insight into user activities, further enabling your incident investigations to piece together the attack story.
+
+If you have enabled the Security Events data source for UEBA, you will automatically begin receiving these new event types without having to take any additional action.
+
+It's likely that the inclusion of these new event types will result in the ingestion of somewhat more *Security Events* data, billed accordingly. Individual event IDs cannot be enabled or disabled independently; only the whole Security Events data set together.
 
 ### Automation rules for alerts (Preview)
 
