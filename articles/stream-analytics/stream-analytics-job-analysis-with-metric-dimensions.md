@@ -14,7 +14,7 @@ To understand an Azure Stream Analytics job's health, it's important to know how
 
 This article demonstrates how to use Stream Analytics job metrics and dimensions to analyze a job's performance through the Azure portal.
 
-Watermark delay and backlogged input events are the main metrics to determine the performance of your Streaming analytics job. If your job's watermark delay is continuously increasing and input events are backlogged, your job can't keep up with the rate of input events and produce outputs in a timely manner. 
+Watermark delay and backlogged input events are the main metrics to determine the performance of your Stream Analytics job. If your job's watermark delay is continuously increasing and input events are backlogged, your job can't keep up with the rate of input events and produce outputs in a timely manner. 
 
 Let's look at several examples to analyze a job's performance through the **Watermark Delay** metric data as a starting point.
 
@@ -39,7 +39,7 @@ For example, if your late arrival window is 6 hours and input data isn't flowing
 
 ## Input data skew causes a high watermark delay
 
-As mentioned in the preceding case, when your embarrassingly parallel job has a high watermark delay, the first thing to do is to split the **Watermark Delay*** metric by the **Partition ID** dimension. You can then identify whether all the partitions have high watermark delay, or just a few of them. 
+As mentioned in the preceding case, when your embarrassingly parallel job has a high watermark delay, the first thing to do is to split the **Watermark Delay** metric by the **Partition ID** dimension. You can then identify whether all the partitions have high watermark delay, or just a few of them. 
 
 In the following example, partitions 0 and 1 have higher watermark delay (about 20 to 30 seconds) than the other eight partitions have. The other partitions' watermark delays are always steady at about 8 to 10 seconds.
 
