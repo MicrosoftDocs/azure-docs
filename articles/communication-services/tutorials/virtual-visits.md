@@ -69,7 +69,7 @@ Make sure online meeting is enable for the calendar by going to https://outlook.
 
 ![Screenshot of Booking services configuration experience](./media/virtual-visits/bookings-services.png)
 
-And then make sure "Add online meeting" is enable.
+And then make sure "Add online meeting" is enabled.
 
 ![Screenshot of Booking services online meeting configuration experience](./media/virtual-visits/bookings-services-online-meeting.png)
 
@@ -89,7 +89,7 @@ The deployment launches an Azure Resource Manager (ARM) template that deploys th
 
 ![Screenshot of Sample builder arm template](./media/virtual-visits/sample-builder-arm.png)
 
-After walking through the ARM template you can **Go to resource group**
+After walking through the ARM template you can **Go to resource group**.
 
 ![Screenshot of a completed Azure Resource Manager Template](./media/virtual-visits/azure-complete-deployment.png)
 
