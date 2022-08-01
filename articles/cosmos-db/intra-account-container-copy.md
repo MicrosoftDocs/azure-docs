@@ -26,11 +26,11 @@ Intra-account container copy jobs can be [created and managed using CLI commands
 
 ## Get started
 
-To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal.
+To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview will be effective for all Cassandra and SQL API accounts in the subscription.
 
 ## Overview of steps needed to do container copy
 
-1. Create the target Cosmos DB container with the required settings (partition key, throughput granularity, RUs, unique key, etc.).
+1. Create the target Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
 2. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
 3. [Create the container copy job](how-to-container-copy.md).
 4. [Monitor the progress of the container copy job](how-to-container-copy.md#monitor-the-progress-of-a-container-copy-job) and wait until it's completed.
@@ -40,15 +40,16 @@ To get started using container copy jobs, register for "Intra-account offline co
 
 Intra-account container copy jobs perform offline data copy using the source container's incremental change feed log.
 
-* Within the platform, we allocate server-side compute instances for the Azure Cosmos DB account.
+* Within the platform, the platform allocates server-side compute instances for the Azure Cosmos DB account.
 * The instances are allocated when one or more container copy jobs are created within the account.
 * The container copy jobs run on these instances.
+* A single job is executed across all instances at any time.
 * The instances are shared by all the container copy jobs running within the same account.
 * The platform may de-allocate the instances if they're idle for >15 mins.
 
 > [!NOTE]
-> We currently only support offline container copy. So, we strongly recommend to stop performing any operations on the source container prior to beginning the container copy.\
-> Item deletions and updates done on the source container after beginning the copy job may not be captured. Hence, continuing to perform operations on the source container while the container job is in progress may result in data missing on the target container.
+> We currently only support offline container copy jobs. So, we strongly recommend to stop performing any operations on the source container prior to beginning the container copy.\
+> Item deletions and updates done on the source container after beginning the copy job may not be captured. Hence, continuing to perform operations on the source container while the container job is in progress may result in additional or missing data on the target container.
 
 
 ## Factors affecting the rate of a container copy job
@@ -87,9 +88,9 @@ The container copy job will run in the write region. If there are accounts confi
 The account's write region may change in the rare scenario of a region outage or due to manual failover. In such a scenario, incomplete container copy jobs created within the account would fail. You would need to recreate these failed jobs. Recreated jobs would then run in the new (current) write region.
 
 ### Why is a new database '_datatransferstate' created in the account when I run container copy jobs? Am I being charged for this database?
-* '_datatransferstate' is a temporary database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job. 
+* '_datatransferstate' is a database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job. 
 * The database uses manual provisioned throughput of 800 RUs. You'll be charged for this database.
-* Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history.
+* Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform will not clean up the '_datatransferstate' database automatically.
 
 ## Supported Regions
 

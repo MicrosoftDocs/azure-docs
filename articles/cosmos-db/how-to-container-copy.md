@@ -18,7 +18,7 @@ This article describes how to create, monitor, and manage intra-account containe
 ## Pre-requisites
 
 * You may use the portal [Cloud Shell](../cloud-shell/quickstart-powershell#start-cloud-shell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps-msi) downloaded and installed on your machine.
-* Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account belongs to one of these regions.
+* Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
 
 
 ## Install the Cosmos DB preview extension
@@ -68,6 +68,7 @@ az cosmosdb dts copy `
     --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable `
     --dest-cassandra-table keyspace=$destinationKeySpace table=$destinationTable
 ```
+**Note**: *'--job-name'* should be unique for each job within an account.
 
 ## Monitor the progress of a container copy job
 
@@ -111,6 +112,10 @@ az cosmosdb dts resume `
     --account-name $accountName `
     --job-name $jobName
 ```
+
+## Get support for container copy issues
+For issues related to intra-account container copy, please raise a New Support Request from the Azure Portal with the Problem Type as 'Data Migration' and Problem subtype as 'Intra-account container copy'.
+
 
 ## Next steps
 
