@@ -25,7 +25,7 @@ The error codes listed in the following table may be returned by an operation on
 | VaultNameNotValid |  The vault name should be string of 3 to 24 characters and can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-) |
 | AccessDenied |  You may be missing permissions in access policy to do that operation. |
 | ForbiddenByFirewall |  Client address is not authorized and caller is not a trusted service. |
-| ConflictError |  You're requesting multiple operations on same item.  |
+| ConflictError |  You're requesting multiple operations on same item like key vault, secret, key, certificate, or common components within Key Vault like VNET. It is recommended to sequence operations or implement retry logic. |
 | RegionNotSupported |  Specified azure region is not supported for this resource. |
 | SkuNotSupported |  Specified SKU type is not supported for this resource. |
 | ResourceNotFound |  Specified azure resource is not found. |
