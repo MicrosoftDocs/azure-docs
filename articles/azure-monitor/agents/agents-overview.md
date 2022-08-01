@@ -1,4 +1,4 @@
-----
+---
 title: Azure Monitor agent overview
 description: Overview of the Azure Monitor agent, which collects monitoring data from the guest operating system of virtual machines.
 ms.topic: conceptual
@@ -8,6 +8,7 @@ ms.date: 7/21/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 ---
+
 # Azure Monitor Agent overview
 
 [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). This article provides an overview of the Azure Monitor agent.
