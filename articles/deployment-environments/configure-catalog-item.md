@@ -5,7 +5,7 @@ services: Azure Deployment Environments
 author: anandmeg
 ms.service: deployment-environments
 ms.topic: tutorial
-ms.date: 07/30/2022
+ms.date: 08/01/2022
 ms.custom: devdivchpfy22
 ms.author: meghaanand
 ---
