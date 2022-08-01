@@ -10,7 +10,12 @@
  ms.custom: include file
 ---
 
-Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 (preview), premium SSDs, and standard SSDs can enable shared disks. Each managed disk that has shared disks enabled are subject to the following limitations, organized by disk type:
+Shared disks have the following general limitations:
+- Only Ultra disks, Premium SSD v2 (preview), Premium SSD, and Standard SSDs can be shared.
+- Can only be shared by VMs in the same region.
+- Can only be shared across availability zones if using [Zone-redundant storage for managed disks](../articles/virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+
+Each managed disk type that has shared disks enabled are subject to the following additional limitations, organized by disk type:
 
 ### Ultra disks
 
