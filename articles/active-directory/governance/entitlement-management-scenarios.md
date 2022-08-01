@@ -47,6 +47,12 @@ There are several ways that you can configure entitlement management for your or
 
 ## Govern access for users in your organization
 
+### Administrator: Assign employees access automatically (preview)
+
+1. [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package)
+1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#resource-roles)
+1. [Add an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md)
+
 ### Access package manager: Allow employees in your organization to request access to resources
 
 1. [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package)
