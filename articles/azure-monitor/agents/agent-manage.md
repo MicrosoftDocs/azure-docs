@@ -9,289 +9,358 @@ ms.reviewer: luki
 
 ---
 
-# Managing and maintaining the Log Analytics agent for Windows and Linux
+# Azure Monitor Agent overview
 
-After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+[Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). This article provides an overview of the Azure Monitor agent.
 
-[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
-## Upgrading agent
+## Can I use the new agent?
 
-The Log Analytics agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on the deployment scenario and environment the VM is running in. The following methods can be used to upgrade the agent.
+Azure Monitor Agent replaces all legacy monitoring agents currently used by Azure Monitor:
 
-| Environment | Installation Method | Upgrade method |
-|--------|----------|-------------|
-| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property _autoUpgradeMinorVersion_ to **false**. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Major version upgrade is always manual. See [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet). |
-| Custom Azure VM images | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
-| Non-Azure VMs | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
+- [Log Analytics agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.
+- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
+- [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
-### Upgrade Windows agent 
+Currently, Azure Monitor agent consolidates features from the Telegraf agent and Log Analytics agent, but does not support all Log Analytics solutions. For more information, see [supported features and services](#supported-services-and-features).
 
-To update the agent on a Windows VM to the latest version not installed using the Log Analytics VM extension, you either run from the Command Prompt, script or other automation solution, or by using the MMASetup-\<platform\>.msi Setup Wizard.  
+In the future, Azure Monitor agent will also consolidate features from the Diagnostic extensions.
 
-You can download the latest version of the Windows agent from your Log Analytics workspace, by performing the following steps.
+## Benefits
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+The Azure Monitor Agent provides the following benefits over the existing agents:
 
-2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
+- **A single agent** that collects all telemetry data across servers and client devices running Windows 10, 11. This is goal, though AMA is currently converging with the Log Analytics agents.
+- **Cost savings:**
+  -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports.
+  -	Use XPath queries to filter out Windows events you don't need. This helps further reduce ingestion and storage costs.
+- **Simplified management of data collection:** 
+    - Send data from Windows and Linux VMs to multiple Log Analytics workspaces ("multi-homing") and other [supported destinations](#data-sources-and-destinations). 
+    - Every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, more scalable, and centralized using data collection rules.
+- **Manage dependent solutions and services:** Azure Monitor Agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics agents. This management experience is identical for machines in Azure, on-premises, and in other clouds using Azure Arc, at no added cost.
+- **Security and performance:** For authentication and security, Azure Monitor Agent uses a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) (for virtual machines) and AAD device tokens (for clients), which are both much more secure and ‘hack proof’ than certificates or workspace keys that legacy agents use. This agent performs better at a higher EPS (events per second) upload rate compared to legacy agents. 
 
-3. In your list of Log Analytics workspaces, select the workspace.
+### Changes in data collection
 
-4. In your Log Analytics workspace, select **Agents Management** tile, and then **Windows Servers**.
+The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent:
 
-5. From the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
+- The Log Analytics agent gets its configuration from a Log Analytics workspace. It's easy to centrally configure but difficult to define independent definitions for different virtual machines. It can only send data to a Log Analytics workspace.
+- Diagnostic extension has a configuration for each virtual machine. It's easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open-source Telegraf agent is required to send data to Azure Monitor Metrics.
 
->[!NOTE]
->During the upgrade of the Log Analytics agent for Windows, it does not support configuring or reconfiguring a workspace to report to. To configure the agent, you need to follow one of the supported methods listed under [Adding or removing a workspace](#adding-or-removing-a-workspace).
->
+The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They're independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. 
 
-#### To upgrade using the Setup Wizard
+## Use Azure Monitor Agent now or install together with legacy agents
 
-1. Sign on to the computer with an account that has administrative rights.
+### Should I switch to the Azure Monitor agent?
+To start transitioning your VMs off the current agents to the new agent, consider the following factors:
 
-2. Execute **MMASetup-\<platform\>.exe** to start the Setup Wizard.
+- **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will only be provided in this new agent. If the Azure Monitor agent supports your current environment, start transitioning to it.
 
-3. On the first page of the Setup Wizard, click **Next**.
+- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality. View [current limitations](#current-limitations) and [supported solutions](#supported-services-and-features).
 
-4. In the **Microsoft Monitoring Agent Setup** dialog box, click **I agree** to accept the license agreement.
+  That said, most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Review whether the Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent.
 
-5. In the **Microsoft Monitoring Agent Setup** dialog box, click **Upgrade**. The status page displays the progress of the upgrade.
+  If the Azure Monitor agent has all the core capabilities you require, start transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.
+- **Tolerance for rework:** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If the setup will take a significant amount of work, consider setting up your new environment with the new agent as it's now generally available.
 
-6. When the **Microsoft Monitoring Agent configuration completed successfully.** page appears, click **Finish**.
+  Azure Monitor's Log Analytics agent is retiring on 31 August 2024. The current agents will be supported until the retirement date.
 
-#### To upgrade from the command line
+### Install together with legacy agents 
 
-1. Sign on to the computer with an account that has administrative rights.
+The Azure Monitor agent can coexist (run side by side on the same machine) with the legacy Log Analytics agents so that you can continue to use their existing functionality during evaluation or migration. While this allows you to begin transition given the limitations, you must review the below points carefully:
+- Be careful in collecting duplicate data because it could skew query results and affect downstream features like alerts, dashboards or workbooks. For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data. As such, ensure you're not collecting the same data from both agents. If you are, ensure they're **collecting from different machines** or **going to separate destinations**.
+- Besides data duplication, this would also generate more charges for data ingestion and retention.
+- Running two telemetry agents on the same machine would result in double the resource consumption, including but not limited to CPU, memory, storage space and network bandwidth.
 
-2. To extract the agent installation files, from an elevated command prompt run `MMASetup-<platform>.exe /c` and it will prompt you for the path to extract files to. Alternatively, you can specify the path by passing the arguments `MMASetup-<platform>.exe /c /t:<Full Path>`.
+> [!NOTE]
+> When you use both agents during evaluation or migration, you can use the **Category** column of the [Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat) table in your Log Analytics workspace, and filter for **Azure Monitor Agent**.
 
-3. Run the following command, where D:\ is the location for the upgrade log file.
+## Supported resource types
 
-    ```dos
-    setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1
-    ```
+| Resource type | Installation method | More information |
+|:---|:---|:---|
+| Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent by using Azure extension framework. |
+| On-premises servers (Azure Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing the [Azure Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent by using Azure extension framework, provided for on-premises by first installing [Azure Arc agent](../../azure-arc/servers/deployment-options.md). |
+| Windows 10, 11 desktops, workstations | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
+| Windows 10, 11 laptops | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent is *not optimized yet* for battery or network consumption. |
 
-### Upgrade Linux agent 
+## Supported regions
 
-Upgrade from prior versions (>1.0.0-47) is supported. Performing the installation with the `--upgrade` command will upgrade all components of the agent to the latest version.
+Azure Monitor agent is available in all public regions and Azure Government clouds. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
 
-Run the following command to upgrade the agent.
+## Supported operating systems
 
-`sudo sh ./omsagent-*.universal.x64.sh --upgrade`
+For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
 
-## Adding or removing a workspace
+## Data sources and destinations
 
-### Windows agent
-The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or to remove a workspace from its configuration, but also when you want to configure the agent to report to more than one workspace (commonly referred to as multi-homing). Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and using the methods described below.    
+The following table lists the types of data you can currently collect with the Azure Monitor agent by using data collection rules and where you can send that data. For a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
 
-#### Update settings from Control Panel
+The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.
 
-1. Sign on to the computer with an account that has administrative rights.
+| Data source | Destinations | Description |
+|:---|:---|:---|
+| Performance        | Azure Monitor Metrics (preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+| Windows event logs | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
+| Syslog             | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
+| Text logs | Log Analytics workspace - custom table | Events sent to log file on agent machine |
 
-2. Open **Control Panel**.
+<sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [Quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
+<sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
 
-3. Select **Microsoft Monitoring Agent** and then click the **Azure Log Analytics** tab.
+## Supported services and features
 
-4. If removing a workspace, select it and then click **Remove**. Repeat this step for any other workspace you want the agent to stop reporting to.
+The following table shows the current support for the Azure Monitor agent with other Azure services.
 
-5. If adding a workspace, click **Add** and on the **Add a Log Analytics Workspace** dialog box, paste the Workspace ID and Workspace Key (Primary Key). If the computer should report to a Log Analytics workspace in Azure Government cloud, select Azure US Government from the Azure Cloud drop-down list.
+| Azure service | Current support | More information |
+|:---|:---|:---|
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
+| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows DNS logs: Private preview</li><li>Linux Syslog CEF: Private preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
 
-6. Click **OK** to save your changes.
+The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 
-#### Remove a workspace using PowerShell
+| Azure Monitor feature | Current support | More information |
+|:---|:---|:---|
+| Text logs and Windows IIS logs | Public preview | [Collect text logs with Azure Monitor agent (preview)](data-collection-text-log.md) |
+| Windows client installer | Public preview | [Set up Azure Monitor agent on Windows client devices](azure-monitor-agent-windows-client.md) |
+| [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+
+The following table shows the current support for the Azure Monitor agent with Azure solutions.
+
+| Solution | Current support | More information |
+|:---|:---|:---|
+| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview.  | [Sign-up link](https://aka.ms/AMAgent) |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 - Public preview | [Update management center (preview) documentation](/azure/update-center/) |
+
+## Costs
+
+There's no cost for the Azure Monitor agent, but you might incur charges for the data ingested. For information on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+## Networking
+
+The Azure Monitor agent supports Azure service tags. Both *AzureMonitor* and *AzureResourceManager* tags are required. It supports connecting via *direct proxies, Log Analytics gateway, and private links* as described in the following sections.
+
+### Firewall requirements
+
+| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
+|------|------|------|---------|--------|--------|
+| Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |
+| Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
+| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |
+| Azure Commercial | management.azure.com | Only needed if sending timeseries data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes |
+| Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
+| Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
+
+If you use private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).
+
+### Proxy configuration
+
+If the machine connects through a proxy server to communicate over the internet, review the following requirements to understand the network configuration required.
+
+The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or a [Log Analytics gateway](./gateway.md) to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
+
+> [!IMPORTANT]
+> Proxy configuration is not supported for [Azure Monitor Metrics (preview)](../essentials/metrics-custom-overview.md) as a destination. If you're sending metrics to this destination, it will use the public internet without any proxy.
+
+1. Use this flowchart to determine the values of the *settings* and *protectedSettings* parameters first.
+
+    ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
+
+1. After the values for the *settings* and *protectedSettings* parameters are determined, *provide these additional parameters* when you deploy the Azure Monitor agent by using PowerShell commands. Refer to the following examples.
+
+# [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-$workspaceId = "<Your workspace Id>"
-$mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
-$mma.RemoveCloudWorkspace($workspaceId)
-$mma.ReloadConfiguration()
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
-#### Add a workspace in Azure commercial using PowerShell
+# [Linux VM](#tab/PowerShellLinux)
 
 ```powershell
-$workspaceId = "<Your workspace Id>"
-$workspaceKey = "<Your workspace Key>"
-$mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
-$mma.AddCloudWorkspace($workspaceId, $workspaceKey)
-$mma.ReloadConfiguration()
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
-#### Add a workspace in Azure for US Government using PowerShell
+# [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
 
 ```powershell
-$workspaceId = "<Your workspace Id>"
-$workspaceKey = "<Your workspace Key>"
-$mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
-$mma.AddCloudWorkspace($workspaceId, $workspaceKey, 1)
-$mma.ReloadConfiguration()
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
 ```
 
->[!NOTE]
->If you've used the command line or script previously to install or configure the agent, `EnableAzureOperationalInsights` was replaced by `AddCloudWorkspace` and `RemoveCloudWorkspace`.
->
-
-### Linux agent
-The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or to remove a workspace from its configuration.
-
-1. To verify it is registered to a workspace, run the following command:
-
-    `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
-
-    It should return a status similar to the following example:
-
-    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
-
-    It is important that the status also shows the agent is running, otherwise the following steps to reconfigure the agent will not complete successfully.
-
-2. If it is already registered with a workspace, remove the registered workspace by running the following command. Otherwise if it is not registered, proceed to the next step.
-
-    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`
-
-3. To register with a different workspace, run the following command:
-
-    `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
-    
-4. To verify your changes took effect, run the following command:
-
-    `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
-
-    It should return a status similar to the following example:
-
-    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
-
-The agent service does not need to be restarted in order for the changes to take effect.
-
-## Update proxy settings
-Log Analytics Agent (MMA) does not use the system proxy settings. Hence, user has to pass proxy setting while installing MMA and these settings will be stored under MMA configuration(registry) on VM. To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](./gateway.md) after deployment, use one of the following methods to complete this task.
-
-### Windows agent
-
-#### Update settings using Control Panel
-
-1. Sign on to the computer with an account that has administrative rights.
-
-2. Open **Control Panel**.
-
-3. Select **Microsoft Monitoring Agent** and then click the **Proxy Settings** tab.
-
-4. Click **Use a proxy server** and provide the URL and port number of the proxy server or gateway. If your proxy server or Log Analytics gateway requires authentication, type the username and password to authenticate and then click **OK**.
-
-
-#### Update settings using PowerShell
-
-Copy the following sample PowerShell code, update it with information specific to your environment, and save it with a PS1 file name extension. Run the script on each computer that connects directly to the Log Analytics workspace in Azure Monitor.
+# [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
 
 ```powershell
-param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 
-# First we get the Health Service configuration object. We need to determine if we
-#have the right update rollup with the API we need. If not, no need to run the rest of the script.
-$healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
-
-$proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
-
-if (!$proxyMethod)
-{
-    Write-Output 'Health Service proxy API not present, will not update settings.'
-    return
-}
-
-Write-Output "Clearing proxy settings."
-$healthServiceSettings.SetProxyInfo('', '', '')
-
-$ProxyUserName = $cred.username
-
-Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
-$healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
 ```
 
-### Linux agent
-Perform the following steps if your Linux computers need to communicate through a proxy server or Log Analytics gateway. The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`. The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.
+---
 
-1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` by running the following commands and change the values to your specific settings.
+### Log Analytics gateway configuration
 
-    ```
-    proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
-    sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
-    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
-    ```
+1. Follow the preceding instructions to configure proxy settings on the agent and provide the IP address and port number that corresponds to the gateway server. If you've deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.
+1. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway
+   `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`
+   `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`.
+   (If you're using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).)
+1. Add the **data ingestion endpoint URL** to the allowlist for the gateway
+   `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`.
+1. Restart the **OMS Gateway** service to apply the changes
+   `Stop-Service -Name <gateway-name>`
+   `Start-Service -Name <gateway-name>`.
 
-2. Restart the agent by running the following command:
+### Private link configuration
 
-    ```
-    sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
-    ```
+To configure the agent to use private links for network communications with Azure Monitor, follow instructions to [enable network isolation](./azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) by using [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md).
 
-## Uninstall agent
-Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard.
+## Summary of agents
 
-### Windows agent
+The following tables provide a quick comparison of the telemetry agents for Windows and Linux. More information on each agent is provided in the following sections.
 
-#### Uninstall from Control Panel
-1. Sign on to the computer with an account that has administrative rights.
+### Windows agents
 
-2. In **Control Panel**, click **Programs and Features**.
+|		|		|	Azure Monitor agent	|	Log Analytics agent	|	Diagnostics extension (WAD)	|
+|	-	|	-	|	-	|	-	|	-	|
+|	**Environments supported**	|		|		|		|		|
+|		|	Azure	|	X	|	X	|	X	|
+|		|	Other cloud (Azure Arc)	|	X	|	X	|		|
+|		|	On-premises (Azure Arc)	|	X	|	X	|		|
+|		|	Windows Client OS	|	X (Preview)	|		|		|
+|	**Data collected**	|		|		|		|		|
+|		|	Event Logs	|	X	|	X	|	X	|
+|		|	Performance	|	X	|	X	|	X	|
+|		|	File based logs	|	X (Preview)	|	X	|	X	|
+|		|	IIS logs	|	X (Preview)	|	X	|	X	|
+|		|	Insights and solutions	|		|	X	|	X	|
+|		|	Other services	|		|	X	|	X	|
+|		|	ETW events	|		|		|	X	|
+|		|	.NET app logs	|		|		|	X	|
+|		|	Crash dumps	|		|		|	X	|
+|		|	Agent diagnostics logs	|		|		|	X	|
+|	**Data sent to**	|		|		|		|		|
+|		|	Azure Monitor Logs	|	X	|	X	|		|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|	X	|
+|		|	Azure Storage	|		|		|	X	|
+|		|	Event Hub	|		|		|	X	|
+|	**Services and features supported**	|		|		|		|		|
+|		|	Log Analytics	|	X	|	X	|		|
+|		|	Metrics Explorer	|	X	|		|	X	|
+|		|	Microsoft Sentinel 	|	X (View scope)	|	X	|		|
+|		|	VM Insights	|		|	X	|		|
+|		|	Azure Automation	|		|	X	|		|
+|		|	Microsoft Defender for Cloud	|		|	X	|		|
 
-3. In **Programs and Features**, click **Microsoft Monitoring Agent**, click **Uninstall**, and then click **Yes**.
+### Linux agents
 
->[!NOTE]
->The Agent Setup Wizard can also be run by double-clicking **MMASetup-\<platform\>.exe**, which is available for download from a workspace in the Azure portal.
+|		|		|	Azure Monitor agent	|	Log Analytics agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
+|	-	|	-	|	-	|	-	|	-	|	-	|
+|	**Environments supported**	|		|		|		|		|		|
+|		|	Azure	|	X	|	X	|	X	|	X	|
+|		|	Other cloud (Azure Arc)	|	X	|	X	|		|	X	|
+|		|	On-premises (Azure Arc)	|	X	|	X	|		|	X	|
+|	**Data collected**	|		|		|		|		|		|
+|		|	Syslog	|	X	|	X	|	X	|		|
+|		|	Performance	|	X	|	X	|	X	|	X	|
+|		|	File based logs	|	X (Preview)	|		|		|		|
+|	**Data sent to**	|		|		|		|		|		|
+|		|	Azure Monitor Logs	|	X	|	X	|		|		|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|		|	X	|
+|		|	Azure Storage	|		|		|	X	|		|
+|		|	Event Hub	|		|		|	X	|		|
+|	**Services and features supported**	|		|		|		|		|		|
+|		|	Log Analytics	|	X	|	X	|		|		|
+|		|	Metrics Explorer	|	X	|		|		|	X	|
+|		|	Microsoft Sentinel 	|	X (View scope)	|	X	|		|		|
+|		|	VM Insights	|		|	X	|		|		|
+|		|	Azure Automation	|		|	X	|		|		|
+|		|	Microsoft Defender for Cloud	|		|	X	|		|		|
 
-#### Uninstall from the command line
-The downloaded file for the agent is a self-contained installation package created with IExpress. The setup program for the agent and supporting files are contained in the package and need to be extracted in order to properly uninstall using the command line shown in the following example.
+<sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
-1. Sign on to the computer with an account that has administrative rights.
+## Supported operating systems
 
-2. To extract the agent installation files, from an elevated command prompt run `extract MMASetup-<platform>.exe` and it will prompt you for the path to extract files to. Alternatively, you can specify the path by passing the arguments `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. For more information on the command-line switches supported by IExpress, see [Command-line switches for IExpress](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/197147) and then update the example to suit your needs.
+The following tables list the operating systems that are supported by the Azure Monitor agents. See the documentation for each agent for unique considerations and for the installation process. See Telegraf documentation for its supported operating systems. All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
-3. At the prompt, type `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
+### Windows
 
-### Linux agent
-To remove the agent, run the following command on the Linux computer. The *--purge* argument completely removes the agent and its configuration.
+| Operating system | Azure Monitor agent | Log Analytics agent | Diagnostics extension | 
+|:---|:---:|:---:|:---:|:---:|
+| Windows Server 2022                                      | X |   |   |
+| Windows Server 2022 Core                                 | X |   |   |
+| Windows Server 2019                                      | X | X | X |
+| Windows Server 2019 Core                                 | X |   |   |
+| Windows Server 2016                                      | X | X | X |
+| Windows Server 2016 Core                                 | X |   | X |
+| Windows Server 2012 R2                                   | X | X | X |
+| Windows Server 2012                                      | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X |
+| Windows Server 2008 R2                                   |   |   | X |
+| Windows Server 2008 SP2                                  |   | X |   |
+| Windows 11 client OS                                     | X<sup>2</sup> |  |  |
+| Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
+| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
+| Azure Stack HCI                                          |   | X |   |
 
-   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
+<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
 
-## Configure agent to report to an Operations Manager management group
+### Linux
 
-### Windows agent
-Perform the following steps to configure the Log Analytics agent for Windows to report to a System Center Operations Manager management group.
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
+|:---|:---:|:---:|:---:|:---:
+| AlmaLinux                                                   | X | X |   |
+| Amazon Linux 2017.09                                        |   | X |   |
+| Amazon Linux 2                                              |   | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X |   |
+| CentOS Linux 7                                              | X | X | X |
+| CentOS Linux 6                                              |   | X |   |
+| CentOS Linux 6.5+                                           |   | X | X |
+| Debian 11 <sup>1</sup>                                      | X |   |   |
+| Debian 10 <sup>1</sup>                                      | X |   |   |
+| Debian 9                                                    | X | X | X |
+| Debian 8                                                    |   | X |   |
+| Debian 7                                                    |   |   | X |
+| OpenSUSE 13.1+                                              |   |   | X |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |
+| Oracle Linux 7                                              | X | X | X |
+| Oracle Linux 6                                              |   | X |   |
+| Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |   |
+| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X |   |
+| Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
+| Rocky Linux                                                 | X | X |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
+| SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
+| SUSE Linux Enterprise Server 15                             | X | X |   |
+| SUSE Linux Enterprise Server 12 SP5                         | X | X | X |
+| SUSE Linux Enterprise Server 12                             | X | X | X |
+| Ubuntu 22.04 LTS                                            | X |   |   |
+| Ubuntu 20.04 LTS                                            | X | X | X <sup>4</sup> |
+| Ubuntu 18.04 LTS                                            | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X |
+| Ubuntu 14.04 LTS                                            |   | X | X |
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-
-1. Sign on to the computer with an account that has administrative rights.
-
-2. Open **Control Panel**.
-
-3. Click **Microsoft Monitoring Agent** and then click the **Operations Manager** tab.
-
-4. If your Operations Manager servers have integration with Active Directory, click **Automatically update management group assignments from AD DS**.
-
-5. Click **Add** to open the **Add a Management Group** dialog box.
-
-6. In **Management group name** field, type the name of your management group.
-
-7. In the **Primary management server** field, type the computer name of the primary management server.
-
-8. In the **Management server port** field, type the TCP port number.
-
-9. Under **Agent Action Account**, choose either the Local System account or a local domain account.
-
-10. Click **OK** to close the **Add a Management Group** dialog box and then click **OK** to close the **Microsoft Monitoring Agent Properties** dialog box.
-
-### Linux agent
-Perform the following steps to configure the Log Analytics agent for Linux to report to a System Center Operations Manager management group.
-
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-
-1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
-
-2. Ensure that the line beginning with `httpsport=` defines the port 1270. Such as: `httpsport=1270`
-
-3. Restart the OMI server: `sudo /opt/omi/bin/service_control restart`
+<sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
+<sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
+<sup>3</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
 
 ## Next steps
 
-- Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the Linux agent.
-
-- Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while installing or managing the Windows agent.
+- [Install the Azure Monitor agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
+- [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
