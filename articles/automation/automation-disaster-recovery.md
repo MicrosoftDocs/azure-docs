@@ -40,6 +40,8 @@ If the Windows or Linux Hybrid Runbook worker is deployed using the extension-ba
 
 ### Deploy the Windows/Linux Hybrid Runbook worked using the agent-based approach
 
+Choose the Hybrid Runbook worker
+
 #### [Windows Hybrid Runbook worker](#tab/win-hrw)
 
 If the Windows Hybrid Runbook worker is deployed using agent-based approach in a region different from the primary region of failure, follow the steps to continue executing Hybrid jobs: 
