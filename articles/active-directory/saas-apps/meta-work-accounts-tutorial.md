@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Facebook Work Accounts | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Facebook Work Accounts.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Meta Work Accounts | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Meta Work Accounts.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Facebook Work Accounts
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Meta Work Accounts
 
-In this tutorial, you'll learn how to integrate Facebook Work Accounts with Azure Active Directory (Azure AD). When you integrate Facebook Work Accounts with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Meta Work Accounts with Azure Active Directory (Azure AD). When you integrate Meta Work Accounts with Azure AD, you can:
 
-* Control in Azure AD who has access to Facebook Work Accounts.
-* Enable your users to be automatically signed-in to Facebook Work Accounts with their Azure AD accounts.
+* Control in Azure AD who has access to Meta Work Accounts.
+* Enable your users to be automatically signed-in to Meta Work Accounts with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -27,43 +27,43 @@ In this tutorial, you'll learn how to integrate Facebook Work Accounts with Azur
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Facebook Work Accounts single sign-on (SSO) enabled subscription.
+* Meta Work Accounts single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Facebook Work Accounts supports **SP and IDP** initiated SSO.
+* Meta Work Accounts supports **SP and IDP** initiated SSO.
 
-## Add Facebook Work Accounts from the gallery
+## Add Meta Work Accounts from the gallery
 
-To configure the integration of Facebook Work Accounts into Azure AD, you need to add Facebook Work Accounts from the gallery to your list of managed SaaS apps.
+To configure the integration of Meta Work Accounts into Azure AD, you need to add Meta Work Accounts from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Facebook Work Accounts** in the search box.
-1. Select **Facebook Work Accounts** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **Meta Work Accounts** in the search box.
+1. Select **Meta Work Accounts** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for Facebook Work Accounts
+## Configure and test Azure AD SSO for Meta Work Accounts
 
-Configure and test Azure AD SSO with Facebook Work Accounts using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Facebook Work Accounts.
+Configure and test Azure AD SSO with Meta Work Accounts using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Meta Work Accounts.
 
-To configure and test Azure AD SSO with Facebook Work Accounts, perform the following steps:
+To configure and test Azure AD SSO with Meta Work Accounts, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Facebook Work Accounts SSO](#configure-facebook-work-accounts-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Facebook Work Accounts test user](#create-facebook-work-accounts-test-user)** - to have a counterpart of B.Simon in Facebook Work Accounts that is linked to the Azure AD representation of user.
+1. **[Configure Meta Work Accounts SSO](#configure-meta-work-accounts-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Meta Work Accounts test user](#create-meta-work-accounts-test-user)** - to have a counterpart of B.Simon in Meta Work Accounts that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Facebook Work Accounts** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Meta Work Accounts** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Facebook Work Accounts** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Meta Work Accounts** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -107,29 +107,29 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Facebook Work Accounts.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Meta Work Accounts.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Facebook Work Accounts**.
+1. In the applications list, select **Meta Work Accounts**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Facebook Work Accounts SSO
+## Configure Meta Work Accounts SSO
 
-1. Log in to your Facebook Work Accounts company site as an administrator.
+1. Log in to your Meta Work Accounts company site as an administrator.
 
 1. Go to **Security** > **Single Sign-On**.
 
 1. Enable **Single-sign on(SSO)** checkbox and click **+Add new SSO Provider**.
 
-    ![Screenshot shows the SSO Account.](./media/facebook-work-accounts-tutorial/security.png "SSO Account")
+    ![Screenshot shows the SSO Account.](./media/meta-work-accounts-tutorial/security.png "SSO Account")
 
 1. On the **Single Sign-On (SSO) Setup** page, perform the following steps:
 
-    ![Screenshot shows the SSO Configuration.](./media/facebook-work-accounts-tutorial/certificate.png "Configuration")
+    ![Screenshot shows the SSO Configuration.](./media/meta-work-accounts-tutorial/certificate.png "Configuration")
 
     1. Enter a valid **Name of the SSO Provider**.
 
@@ -149,9 +149,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. Click **Save Changes**.
 
-### Create Facebook Work Accounts test user
+### Create Meta Work Accounts test user
 
-In this section, you create a user called Britta Simon in Facebook Work Accounts. Work with the [Work Accounts team](https://www.workplace.com/help/work) to add the users in the Facebook Work Accounts platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Meta Work Accounts. Work with the [Work Accounts team](https://www.workplace.com/help/work) to add the users in the Meta Work Accounts platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -159,16 +159,16 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Facebook Work Accounts Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Meta Work Accounts Sign on URL where you can initiate the login flow.  
 
-* Go to Facebook Work Accounts Sign-on URL directly and initiate the login flow from there.
+* Go to Meta Work Accounts Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Facebook Work Accounts for which you set up the SSO. 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Meta Work Accounts for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Facebook Work Accounts tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Facebook Work Accounts for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Meta Work Accounts tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Meta Work Accounts for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Facebook Work Accounts you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Meta Work Accounts you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
