@@ -40,14 +40,14 @@ param mypassword string
 
 ## Silencing false positives
 
-Sometimes this rule alerts on parameters that do not actually contain secrets. In these cases, you can disable the warning for this line by adding `#disable-next-line secure-secrets-in-params` before the line with the warning. For example:
+Sometimes this rule alerts on parameters that don't actually contain secrets. In these cases, you can disable the warning for this line by adding `#disable-next-line secure-secrets-in-params` before the line with the warning. For example:
 
 ```bicep
-#disable-next-line secure-secrets-in-params   // Does not contain a secret
+#disable-next-line secure-secrets-in-params   // Doesn't contain a secret
 param mypassword string
 ```
 
-It is good practice to add a comment explaining why the rule does not apply to this line.
+It's good practice to add a comment explaining why the rule doesn't apply to this line.
 
 ## Next steps
 
