@@ -156,13 +156,13 @@ Azure Machine Learning tracks your data throughout your experiment as input and 
 
 The following are scenarios where your data is tracked as an **input dataset**. 
 
-* As a `DatasetConsumptionConfig` object through either the `inputs` or `arguments` parameter of your `ScriptRunConfig` object when submitting the experiment run. 
+* As a `DatasetConsumptionConfig` object through either the `inputs` or `arguments` parameter of your `ScriptRunConfig` object when submitting the experiment job. 
 
 * When methods like, get_by_name() or get_by_id() are called in your script. For this scenario, the name assigned to the dataset when you registered it to the workspace is the name displayed. 
 
 The following are scenarios where your data is tracked as an **output dataset**.  
 
-* Pass an `OutputFileDatasetConfig` object through either the `outputs` or `arguments` parameter when submitting an experiment run. `OutputFileDatasetConfig` objects can also be used to persist data between pipeline steps. See [Move data between ML pipeline steps.](how-to-move-data-in-out-of-pipelines.md)
+* Pass an `OutputFileDatasetConfig` object through either the `outputs` or `arguments` parameter when submitting an experiment job. `OutputFileDatasetConfig` objects can also be used to persist data between pipeline steps. See [Move data between ML pipeline steps.](how-to-move-data-in-out-of-pipelines.md)
   
 * Register a dataset in your script. For this scenario, the name assigned to the dataset when you registered it to the workspace is the name displayed. In the following example, `training_ds` is the name that would be displayed.
 
@@ -173,11 +173,11 @@ The following are scenarios where your data is tracked as an **output dataset**.
                                      )
     ```
 
-* Submit child run with an unregistered dataset in script. This results in an anonymous saved dataset.
+* Submit child job with an unregistered dataset in script. This results in an anonymous saved dataset.
 
-### Trace datasets in experiment runs
+### Trace datasets in experiment jobs
 
-For each Machine Learning experiment, you can easily trace the datasets used as input with the experiment `Run` object.
+For each Machine Learning experiment, you can easily trace the datasets used as input with the experiment `Job` object.
 
 The following code uses the [`get_details()`](/python/api/azureml-core/azureml.core.run.run#get-details--) method to track which input datasets were used with the experiment run:
 

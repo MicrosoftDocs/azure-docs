@@ -76,7 +76,7 @@ For more information about authentication to Key Vault, see [Authenticate to Azu
 
 ## Conditional access 
 
-Key Vault provides support for Azure Azure Active Directory Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
+Key Vault provides support for Azure Active Directory Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
 
 For more information, see [Conditional Access overview](../../active-directory/conditional-access/overview.md)
 

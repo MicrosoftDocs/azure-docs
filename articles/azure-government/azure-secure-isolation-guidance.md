@@ -146,7 +146,7 @@ You control access permissions and can extract detailed activity logs from the A
 > - **[Enable logging for Azure Key Vault](../key-vault/general/logging.md)**
 > - **[How to secure storage account for Azure Key Vault logs](../storage/blobs/security-recommendations.md)**
 
-You can also use the [Azure Key Vault solution in Azure Monitor](../azure-monitor/insights/key-vault-insights-overview.md) to review Key Vault logs. To use this solution, you need to enable logging of Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. With this solution, it isn't necessary to write logs to Azure Blob storage.
+You can also use the [Azure Key Vault solution in Azure Monitor](../key-vault/key-vault-insights-overview.md) to review Key Vault logs. To use this solution, you need to enable logging of Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. With this solution, it isn't necessary to write logs to Azure Blob storage.
 
 > [!NOTE]
 > For a comprehensive list of Azure Key Vault security recommendations, see **[Azure security baseline for Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)**.
