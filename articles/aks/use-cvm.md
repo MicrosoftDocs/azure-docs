@@ -1,6 +1,6 @@
 ---
 title: Use Confidential Virtual Machines (CVM) in Azure Kubernetes Service (AKS) (Preview)
-description: Learn how to create a Confidential Virtual Machines (CVM) node pools with Azure Kubernetes Service (AKS)
+description: Learn how to create Confidential Virtual Machines (CVM) node pools with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 08/01/2022
