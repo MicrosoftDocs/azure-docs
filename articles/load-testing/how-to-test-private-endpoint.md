@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 05/18/2022
+ms.date: 08/01/2022
 ms.topic: how-to
 
 ---
