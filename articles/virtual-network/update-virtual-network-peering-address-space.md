@@ -11,8 +11,6 @@ ms.custom: template-how-to
 ---
 # Updating the address space for a peered virtual network - Portal
 
-[Reference](https://microsoft-my.sharepoint.com/:w:/p/lijay/EWehkqRi0uBFiV7VbEHwgH0BQjvKtNOCSHHlYrsjawEiUg?e=v58JPe&CID=1c6ffccd-0fc1-8e93-bd77-68287c61ceef)
-
 In this article, you'll learn how to update a peered virtual network by adding or deleting an address space without incurring downtime interruptions using the Azure portal. This feature is useful when you need to grow or resize the virtual networks in Azure after scaling your workloads.
 
 ## Prerequisites
@@ -32,7 +30,6 @@ In this section, you'll modify the address range prefix for an existing address 
 :::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="This is the Peerings page where you re-syncronize a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
 1. Select the name of the other peered virtual network under **Peer**.
 1. Under **Settings** of the peered virtual network, select **Address space** and verify that the Address space listed has been updated.
-
 :::image type="content" source="media/update-virtual-network-peering-address-space/verify-address-space-thumb.png" alt-text="This is the Address Space page where you verify the address space has changed." lightbox="media/update-virtual-network-peering-address-space/verify-address-space-full.png":::
 
 > [!NOTE]
