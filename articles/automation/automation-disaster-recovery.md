@@ -19,24 +19,25 @@ Customers must have a strategy to reduce the impact and effects arising from unp
 
 ## Enable disaster recovery
 
-When you [create](./quickstarts/create-account-portal.md#create-automation-account) an Automation account, it requires a location that you must use for deployment. This will be the primary region for the Automation account. Assets and runbooks created for the Automation account, job execution data and log would exist in the primary region.
-For disaster recovery, the replica of your Automation account must be already deployed and ready in the secondary region. Begin by [creating a replica of the Automation account](./quickstarts/create-account-portal.md#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
+When you [create](./quickstarts/create-account-portal.md#create-automation-account) an Automation account, it requires a location that you must use for deployment. This will be the primary region for the Automation account. Assets and runbooks created for the Automation account, job execution data and log would exist in the primary region. For disaster recovery, the replica of your Automation account must be already deployed and ready in the secondary region. 
+
+Begin by [creating a replica of the Automation account](./quickstarts/create-account-portal.md#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 You can select the secondary region of your choice - paired region or any other region where Azure Automation is available.
-Apart from creating a replica of the Automation account, you must replicate the dependent resources such as Runbooks, Modules, Connections, Credentials, Certificates, Variables, Schedules and permissions assigned for Run As account and Managed Identities in the Automation account.
-If you are already using [ARM templates](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all) to define and deploy Automation runbooks, you can use the same templates deploy the same runbooks in any other Azure region where the replica of the Automation account exists. In case of a region-wide service outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that if the primary regions has a disruption or failure, the secondary region steps up to continue the work. 
+Apart from creating a replica of the Automation account, you must replicate the dependent resources such as Runbooks, Modules, Connections, Credentials, Certificates, Variables, Schedules and permissions assigned for the Run As account and Managed Identities in the Automation account.
+If you are already using [ARM templates](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all) to define and deploy Automation runbooks, you can use the same templates to deploy the same runbooks in any other Azure region where the replica of the Automation account exists. In case of a region-wide service outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that if the primary regions have a disruption or failure, the secondary region steps up to continue the work. 
 
 >[!NOTE]
-> Due to data residency requirements, jobs data and logs present in the primary region will not be present in the secondary region.
+> Due to data residency requirements, jobs data and logs present in the primary region will not be available in the secondary region.
 
 ## Scenario: Execute Cloud jobs
-For Cloud jobs, there will be a negligible downtime only if the replica of the Automation account and all the dependent resources and runbooks are already deployed and available in the secondary region. You can then use the replica account to execute jobs and business continuity.
+For Cloud jobs, ensure that the replica of the Automation account and all the dependent resources and runbooks are already deployed and available in the secondary region to result in a negligible downtime. You can then use the replica account to execute jobs and business continuity.
 
 ## Scenario: Execute jobs on Hybrid Runbook Worker deployed in a region different from primary region of failure
 If the Windows or Linux Hybrid Runbook worker is deployed using the extension-based approach in a region *different* from the primary region of failure, follow the steps to continue executing the Hybrid jobs:
 
-1. [Delete](extension-based-hybrid-runbook-worker-install.md?tabs=windows#delete-a-hybrid-runbook-worker) the extension installed on Hybrid Runbook worker present in Automation account in the primary region. 
-1. [Add](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group) the same Hybrid Runbook worker to a Hybrid Worker group present in Automation account in the secondary region. The Hybrid worker extension is installed on the machine in the replica of the Automation account.
-1. Execute the jobs on Hybrid Runbook worker created in Step 2.
+1. [Delete](extension-based-hybrid-runbook-worker-install.md?tabs=windows#delete-a-hybrid-runbook-worker) the extension installed on Hybrid Runbook worker in the Automation account in the primary region. 
+1. [Add](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group) the same Hybrid Runbook worker to a Hybrid Worker group in the Automation account in the secondary region. The Hybrid worker extension is installed on the machine in the replica of the Automation account.
+1. Execute the jobs on the Hybrid Runbook worker created in Step 2.
 
 ### Deploy the Windows/Linux Hybrid Runbook worked using the agent-based approach
 
@@ -44,8 +45,8 @@ Choose the Hybrid Runbook worker
 
 #### [Windows Hybrid Runbook worker](#tab/win-hrw)
 
-If the Windows Hybrid Runbook worker is deployed using agent-based approach in a region different from the primary region of failure, follow the steps to continue executing Hybrid jobs: 
-1. [Uninstall](automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) the agent from the Hybrid Runbook worker present in Automation account in the primary region. 
+If the Windows Hybrid Runbook worker is deployed using an agent-based approach in a region different from the primary region of failure, follow the steps to continue executing Hybrid jobs: 
+1. [Uninstall](automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) the agent from the Hybrid Runbook worker present in the Automation account in the primary region. 
 1. [Re-install](automation-windows-hrw-install.md#installation-options) the agent on the same machine in the replica Automation account in the secondary region. 
 1. You can now execute jobs on the Hybrid Runbook worker created in Step 2. 
 
@@ -59,7 +60,7 @@ If the Linux Hybrid Runbook worker is deployed using agent-based approach in a r
 ---
 
 ## Scenario: Execute jobs on Hybrid Runbook Worker deployed in the primary region of failure
-If the Hybrid Runbook worker is deployed in the primary region, and there is compute failure in that region, the machine would not be available for executing Automation jobs. You must provision a new virtual machine in an alternate region and deploy it as Hybrid Runbook Worker in Automation account in the secondary region.  
+If the Hybrid Runbook worker is deployed in the primary region, and there is a computing failure in that region, the machine will not be available for executing Automation jobs. You must provision a new virtual machine in an alternate region and deploy it as Hybrid Runbook Worker in Automation account in the secondary region.  
 - For information on how to deploy an extension-based Windows or Linux User Hybrid Runbook Worker, see the [installation steps](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group).
 - For information on how to deploy an agent-based Windows Hybrid Worker, see the [installation steps](automation-windows-hrw-install.md#installation-options).
 - For information on how to deploy an agent-based Linux Hybrid Worker, see the [installation steps](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker).
