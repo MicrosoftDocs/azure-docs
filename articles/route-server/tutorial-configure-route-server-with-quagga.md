@@ -92,7 +92,7 @@ The Route Server is used to communicate with your NVA and exchange virtual netwo
     | Virtual Network | Select **myVirtualNetwork**. |
     | Subnet | Select **RouteServerSubnet (10.1.0.0/25)**. This subnet is a dedicated Route Server subnet. |
     | **Public IP address** |  |
-    | Public IP address | Select **Create new**, and then enter **myRouteServer-ip**. This Standard IP address ensures connectivity to the backend service that manages the Route Server configuration. |
+    | Public IP address | Select **Create new**, and then enter *myRouteServer-ip*. This Standard IP address ensures connectivity to the backend service that manages the Route Server configuration. |
 
     :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/route-server-basics-tab.png" alt-text="Screenshot of basics tab for Route Server creation.":::
 
@@ -100,11 +100,11 @@ The Route Server is used to communicate with your NVA and exchange virtual netwo
 
 ## Create Quagga network virtual appliance
 
-To configure the Quagga network virtual appliance, you'll need to deploy a Linux virtual machine and then configure it with this [script](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server-quagga/scripts/quaggadeploy.sh).
+To configure the Quagga network virtual appliance, you'll need to deploy a Linux virtual machine, and then configure it with this [script](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server-quagga/scripts/quaggadeploy.sh).
 
 ### Create Quagga virtual machine
 
-1. On the Azure portal, search for *virtual machine*, and select **Virtual machine** from the search results.
+1. On the Azure portal, search for *virtual machine*, and select **Virtual machines** from the search results.
 
 1. Select **Create**, then select **Azure virtual machine**.
 
@@ -156,7 +156,7 @@ To configure the Quagga network virtual appliance, you'll need to deploy a Linux
 
     :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/quagga-ip-configuration.png" alt-text="Screenshot of IP configurations page of the Quagga VM.":::
 
-1. Under **Private IP address Settings**, change the **Assignment**  from **Dynamic** to **Static**, and then change the **IP address** from **10.1.4.4** to **10.1.4.10**. This IP address is used in this [script](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server-quagga/scripts/quaggadeploy.sh) which will be run in a later step. If you want to use a different IP address ensure to update the IP in the script.
+1. Under **Private IP address Settings**, change the **Assignment**  from **Dynamic** to **Static**, and then change the **IP address** from **10.1.4.4** to **10.1.4.10**. This IP address is used in this [script](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server-quagga/scripts/quaggadeploy.sh), which will be run in a later step. If you want to use a different IP address, ensure to update the IP in the script.
 
 1. Take note of the public IP, and select **Save** to update the IP configurations of the VM. 
 
@@ -190,7 +190,7 @@ ssh azureuser@52.240.57.121
     | ------- | ----- |
     | Name | Enter *Quagga*. This name is used to identify the peer. |
     | ASN | Enter *65001*. This ASN is defined in the script for Quagga NVA. |
-    | IPv4 Address | Enter *10.1.4.10*. This is the private IP of the Quagga NVA. |
+    | IPv4 Address | Enter *10.1.4.10*. This IPv4 is the private IP of the Quagga NVA. |
 
     :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/add-peer.png" alt-text="Screenshot of add peer page.":::
 
