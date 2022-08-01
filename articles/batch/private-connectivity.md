@@ -28,6 +28,8 @@ Batch account resource has two endpoints supported to access with private endpoi
 > - This preview sub-resource is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+:::image type="content" source="media/private-connectivity/private-endpoint-sub-resources.png" alt-text="Sub-resources for Batch private endpoints.":::
+
 ## Azure portal
 
 Use the following steps to create a private endpoint with your Batch account using the Azure portal:
@@ -82,11 +84,30 @@ When you're creating the private endpoint, you can integrate it with a [private 
 
 ## Migration with existing Batch account private endpoints
 
-With the introduction of the new private endpoint sub-resource `nodeManagement` for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. The existing private endpoints for sub-resource `batchAccount` will continue to work, and no action is needed.
+With the introduction of the new private endpoint sub-resource **nodeManagement** for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. To keep backward compatibility with the previously used private DNS zone, the DNS CNAME mappings for private endpoint enabled Batch accounts contain both zones, for example:
 
-However, if you have existing `batchAccount` private endpoints that are enabled with automatic private DNS integration using previous private DNS zone, extra configuration is needed for the new `batchAccount` private endpoint to create in the same virtual network:
+```
+myaccount.east.batch.azure.com CNAME myaccount.privatelink.east.batch.azure.com
+myaccount.privatelink.east.batch.azure.com CNAME myaccount.east.privatelink.batch.azure.com
+myaccount.east.privatelink.batch.azure.com CNAME <Batch API public FQDN>
+```
 
-- If you don't need the previous private endpoint anymore, delete the private endpoint. Also unlink the previous private DNS zone from your virtual network. No more configuration is needed for the new private endpoint.
+### Continue to use previous private DNS zone
+
+If you have already used the previous DNS zone `privatelink.<region>.batch.azure.com` with your virtual network, you should continue to use it for existing and new **batchAccount** private endpoints, and no action is needed.
+
+> [!IMPORTANT]
+> With existing usage of previous private DNS zone, please keep using it even with newly created private endpoints. Do not use the new zone with your DNS integration solution until you can [migrate to the new zone](#migrating-privious-private-dns-zone-to-the-new-zone).
+
+### Manually created new private endpoints with DNS integration in Azure Portal
+
+If you manually create a new **batchAccount** private endpoint using Azure Portal with automatic DNS integration enabled, it will use the new private DNS zone `privatelink.batch.azure.com` for the DNS integration: create private DNS zone, link it to your virtual network, and configure DNS A record in the zone for your private endpoint.
+
+However, if your virtual network has already been linked to the previoud private DNS zone `privatelink.<region>.batch.azure.com`, this will break the DNS resolution for your batch account in your virtual network, because the DNS A record for your new private endpoint is registed into the new zone but DNS resolution checks the previous zone first for backward-compatibility support.
+
+You can mitigate this issue with following options:
+
+- If you don't need the previous private DNS zone anymore, unlink it from your virtual network. No further action is needed.
 
 - Otherwise, after the new private endpoint is created:
 
@@ -97,7 +118,36 @@ However, if you have existing `batchAccount` private endpoints that are enabled 
   1. Manually add a DNS CNAME record. For example, `myaccount     CNAME => myaccount.<region>.privatelink.batch.azure.com`.
 
 > [!IMPORTANT]
-> This manual mitigation is only needed when you create a new **batchAccount** private endpoint with private DNS integration in the same virtual network which has existing private endpoints.
+> This manual mitigation is only needed when you create a new **batchAccount** private endpoint with private DNS integration in the same virtual network which has already been linked to the previous private DNS zone.
+
+### Migrating privious private DNS zone to the new zone
+
+Although you can continue to use the previous private DNS zone with your existing environment and deployment process, it's recommended to migrate your existing private DNS zone to the new zone for simplicity of DNS configuration management:
+
+- With the new private DNS zone `privatelink.batch.azure.com`, you will not need to configure and manage different zones for each region with your Batch accounts.
+- When you start to use the new [**nodeManagement** private endpoint](./private-connectivity.md) which also use the new zone, you only need to manage one private DNS zone for both type of private endpoints.
+
+You can migrate the previous private DNS zone with following steps:
+
+1) Create and link the new private DNS zone `privatelink.batch.azure.com` to your virtual network.
+2) Copy all DNS A records from the previous private DNS zone to the new zone:
+
+```
+From zone "privatelink.<region>.batch.azure.com":
+    myaccount  A <ip>
+To zone "privatelink.batch.azure.com":
+    myaccount.<region>  A <ip>
+```
+
+3) Unlink the previous private DNS zone from your virtual network.
+4) Verify DNS resolution within your virtual network, and the Batch account DNS name should continue to be resolved to the private endpoint IP address: 
+
+```
+nslookup myaccount.<region>.batch.azure.com
+```
+
+5) Start to use the new private DNS zone with your deployment process for new private endpoints.
+6) Delete the previous private DNS zone after the migration is completed.
 
 ## Pricing
 
