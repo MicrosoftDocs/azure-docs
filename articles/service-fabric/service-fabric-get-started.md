@@ -35,7 +35,7 @@ WebPI may already be installed on your computer. Search for it by using the Wind
 
 ### To use Visual Studio 2017 or 2019
 
-The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2019 and 2017. Enable this workload as part of your Visual Studio installation. In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime
+The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2019 and 2017. Enable this workload as part of your Visual Studio installation. In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime.
 
 For latest Runtime and SDK you can download from below:
 | Package |Version|
