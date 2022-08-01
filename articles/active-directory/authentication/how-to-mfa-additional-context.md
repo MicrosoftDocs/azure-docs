@@ -407,14 +407,16 @@ To turn off additional context, you'll need to PATCH **displayAppInformationRequ
 
 ## Enable additional context in the portal
 
-To enable additional context in the Azure AD portal, complete the following steps:
+To enable application name or geographic location in the Azure AD portal, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. Only users who are enabled for Microsoft Authenticator will see additional context. Anyone who isn't enabled for Microsoft Authenticator is unaffected.
+1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
+   
+   Only users who are enabled for Microsoft Authenticator here can be included in or excluded from the policy to show the application name or geographic location of the sign-in. Users who aren't enabled for Microsoft Authenticator won't see them.
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-settings-additional-context.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Any authentication mode.":::
 
-1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)** and **Show geographic location in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**.
+1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**. Then do the same for **Show geographic location in push and passwordless notifications (Preview)**.
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/additional-context.png" alt-text="Screenshot of how to enable additional context.":::
 
