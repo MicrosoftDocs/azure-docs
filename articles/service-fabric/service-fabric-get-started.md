@@ -30,21 +30,20 @@ Web Platform Installer (WebPI) is the recommended way to install the SDK and too
 
 WebPI may already be installed on your computer. Search for it by using the Windows key. If it's not present, you can [download it here](https://www.microsoft.com/web/downloads/platform.aspx).WebPI can be used to download Service Fabric SDK releases prior to July 2022 until December 31st, 2022 after which the WebPI feed and installer will be pulled from the Microsoft download center.
 
-For latest Runtime and SDK you can dowload from below.
-
-9.0CU2 RunTime - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.9.0.1048.9590.exe
-9.0CU2 SDK - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.6.0.1048.msi
-
-8.2CU4 RunTime - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.8.2.1659.9590.exe
-8.2CU4 SDK - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.5.2.1659.msi
-
 > [!NOTE]
 > Local Service Fabric development cluster upgrades are not supported.
 
 ### To use Visual Studio 2017 or 2019
 
 The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2019 and 2017. Enable this workload as part of your Visual Studio installation.
-In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime using Web Platform Installer.
+
+For latest Runtime and SDK you can download from below:
+| Package |Version|
+| --- | --- |
+|[Install Service fabric runtime for Windows](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.9.0.1048.9590.exe) | 9.0.1048 |
+|[Install Service Fabric SDK](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.6.0.1048.msi) | 6.0.1048 |
+
+For a list of supported versions, see [Service Fabric versions](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-versions)
 
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
