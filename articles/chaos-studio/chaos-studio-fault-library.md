@@ -1012,8 +1012,8 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that will be created. The fault will fail if another rule already exists on the NSG with the same name. Must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a service tag name for an inbound rule, for example, "AppService". Asterisk '*' can also be used to match all source IPs. |
-| destinationAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, for example, "AppService". Asterisk '*' can also be used to match all destination IPs. |
+| sourceAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a [service tag name](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) for an inbound rule, for example, "AppService". Asterisk '*' can also be used to match all source IPs. |
+| destinationAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a [service tag name](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) for an outbound rule, for example, "AppService". Asterisk '*' can also be used to match all destination IPs. |
 | action | Security group access type. Must be either Allow or Deny |
 | destinationPortRanges | A string representing a json-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
 | sourcePortRanges | A string representing a json-delimited array single ports and/or port ranges, such as 80 or 1024-65535. |
