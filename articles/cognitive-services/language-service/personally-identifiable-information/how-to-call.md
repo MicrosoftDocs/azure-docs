@@ -43,7 +43,8 @@ The API will attempt to detect the [defined entity categories](concepts/entity-c
 
 **Input:**
 
-In this example, it will return only person entity type:
+> [!NOTE]
+> In this example, it will return only **person** entity type:
 
 `https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01`
 
