@@ -26,7 +26,7 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure WAF on Application Gateway. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
 
-![Diagram](media/appproxy-waf.png)
+
 
 1. [Add an application for remote access through Application Proxy in Azure Active Directory][appproxy-create], ideally with the connectors in an Azure VNet (not strictly required, but it will improve latency)
 1. [Create an Azure Application Gateway with WAF enabled][waf-create] in prevention mode
