@@ -88,4 +88,4 @@ After the policy takes effect in a region, test the policy. You can try immediat
 
 ## Next steps
 
-[Block connections created by connections in Azure Logic Apps](block-connections-connectors.md)
+[Block connector usage in Azure Logic Apps](block-connections-connectors.md)
