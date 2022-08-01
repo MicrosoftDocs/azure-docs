@@ -159,10 +159,10 @@ There are several options that you can use to configure your automated ML experi
 The following example shows the required parameters for a classification task that specifies accuracy as the [primary metric](#primary-metric) and 5 cross-validation folds.
 
 ```python
-
+# note that the below is a code snippet -- you might have to modify the variable values to run it successfully
 classification_job = automl.classification(
-    compute=compute_name,
-    experiment_name=exp_name,
+    compute=my_compute_name,
+    experiment_name=my_exp_name,
     training_data=my_training_data_input,
     target_column_name="y",
     primary_metric="accuracy",
