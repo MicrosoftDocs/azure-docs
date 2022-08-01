@@ -21,7 +21,7 @@ The article shows you how to use mount/unmount APIs in your workspace. You'll le
 + How to mount Data Lake Storage Gen2 or Blob Storage.
 + How to access files under the mount point via the local file system API. 
 + How to access files under the mount point by using the `mssparktuils fs` API. 
-+ How to access files under the mount point by using the Spark Read API.
++ How to access files under the mount point by using the Spark read API.
 + How to unmount the mount point.
  
 > [!WARNING]
@@ -176,9 +176,9 @@ The following three examples show how to access a file with a mount point path b
     mssparkutils.fs.mkdirs("synfs:/49/test/newdir") 
     ``` 
 
-## Access files under the mount point by using the Spark Read API 
+## Access files under the mount point by using the Spark read API 
 
-You can provide a parameter to access the data through the Spark Read API. The path format here is the same when you use the `mssparkutils fs` API: 
+You can provide a parameter to access the data through the Spark read API. The path format here is the same when you use the `mssparkutils fs` API: 
 
 `synfs:/{jobId}/test/{filename}`
 
@@ -225,7 +225,7 @@ If you mounted a Blob Storage account and want to access it by using `mssparkuti
         print(f.read())
     ```
 
-4. Read the data from the mounted Blob Storage container through the Spark Read API:
+4. Read the data from the mounted Blob Storage container through the Spark read API:
 
     ```python
     %%spark
