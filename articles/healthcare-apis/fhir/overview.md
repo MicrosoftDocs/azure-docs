@@ -56,7 +56,7 @@ As part of the Azure family of services, the FHIR service protects your organiza
 
 FHIR servers are essential for interoperability of health data. The FHIR service is designed as a managed FHIR server with a RESTful API for connecting to a broad range of client systems and applications. Some of the key use cases for the FHIR service are listed below: 
 
-- **Startup App Development:** Customers developing a patient- or provider-centric app (mobile or web) can leverage FHIR service as a fully managed backend for their health data transactions. The FHIR service enables secure transfer of PHI, and with SMART on FHIR, app developers can take advantage of the robust identities management in AAD for fine-grained authorization of FHIR RESTful API actions. 
+- **Startup App Development:** Customers developing a patient- or provider-centric app (mobile or web) can leverage FHIR service as a fully managed backend for their health data transactions. The FHIR service enables secure transfer of PHI, and with SMART on FHIR, app developers can take advantage of the robust identities management in AAD for authorization of FHIR RESTful API actions. 
 
 - **Healthcare Ecosystems:** While EHRs exist as the primary ‘source of truth’ in many clinical settings, it isn't uncommon for providers to have multiple databases that aren’t connected to one another (often because the data is stored in different formats). Utilizing the FHIR service as a conversion layer between these systems allows organizations to standardize data in the FHIR format. Ingesting and persisting in FHIR enables health data querying and exchange across multiple disparate systems. 
 
