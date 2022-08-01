@@ -57,7 +57,7 @@ To enable application name or geographic location, complete the following steps:
 
 ## Known issues
 
-Additional context is not supported for Network Policy Server (NPS). 
+Additional context is not supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
 
 ## Next steps
 
