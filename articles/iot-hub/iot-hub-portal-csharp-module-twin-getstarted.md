@@ -33,15 +33,17 @@ In this article, you will learn:
 
 * Visual Studio.
 
+* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
 ## Create a module identity in the portal
 
 Within one device identity, you can create up to 20 module identities. To add an identity, follow these steps:
 
-1. For the device you created in the previous section, choose **Add Module Identity** to create your first module identity.
+1. From your existing device in the Azure portal, choose **Add Module Identity** to create your first module identity.
 
 1. Enter the name *myFirstModule*. Save your module identity.
 

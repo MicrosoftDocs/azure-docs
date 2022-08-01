@@ -19,7 +19,7 @@ To get the IoT Hub connection string for the **registryReadWrite** policy, follo
 
 3. From the list of policies, select the **registryReadWrite** policy.
 
-4. Under **Shared access keys**, select the copy icon for the **Primary connection string** and save the value.
+4. Copy the **Primary connection string** and save the value.
 
     :::image type="content" source="./media/iot-hub-include-find-registryrw-connection-string/iot-hub-get-connection-vs2019.png" alt-text="Screen capture that shows how to retrieve the connection string" border="true":::
 
