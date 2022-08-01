@@ -4,7 +4,7 @@ description: Learn how to use Azure Monitor logs to monitor jobs running in an H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
-ms.date: 09/21/2021
+ms.date: 08/01/2021
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -285,7 +285,7 @@ az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
 ## <a name="oms-with-firewall"></a>Prerequisites for clusters behind a firewall
 
-To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
+To be able to successfully set up Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
 
 |Agent Resource | Ports | Direction | Bypass HTTPS inspection |
 |---|---|---|---|
