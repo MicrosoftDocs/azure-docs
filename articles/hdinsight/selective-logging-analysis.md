@@ -3,7 +3,7 @@ title: Use Selective logging feature using script action in Azure HDInsight clus
 description: Learn how to use Selective logging feature using script action to monitor logs.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
+ms.custom: seoapr2020, devx-track-azurepowershell, references-regions, devx-track-azurecli
 ms.date: 07/31/2022
 ---
 
@@ -42,9 +42,9 @@ Selective logging allows you to enable/disable all the tables or enable selectiv
 
 1. Go to script action in your cluster and create a new Script Action for disabling/enabling table and log type.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select_submit_script_action.png" alt-text="Screenshot showing select submit script action.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select-submit-script-action.png" alt-text="Screenshot showing select submit script action.":::
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/submit_script_action_window.png" alt-text="Screenshot showing submit script action window.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/submit-script-action-window.png" alt-text="Screenshot showing submit script action window.":::
 
 1. In the script type we can select **custom**.
 1. Name the script. For example, Disable two tables and two sources.
@@ -61,7 +61,7 @@ For more details, see [Parameters](#parameters-syntax) section.
 1. Select Create.
 1. After 1-2 minutes you'll see a green tick next to your script action history, which means script has successfully run.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/enable_table_and_log_types.png" alt-text="Screenshot showing enable table and log types.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/enable-table-and-log-types.png" alt-text="Screenshot showing enable table and log types.":::
 
 1. You will see the desired changes in the log analytics workspace.
 
@@ -72,32 +72,32 @@ If Script Action is submitted but there are no changes in the log analytics work
 
 1. Go to Ambari Home and check debug information.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select_dashboard_ambari_home.png" alt-text="Screenshot showing select dashboard ambari home.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select-dashboard-ambari-home.png" alt-text="Screenshot showing select dashboard ambari home.":::
 
 1. Select settings button.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/ambari_dash_board.png" alt-text="Screenshot showing ambari dash_board.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/ambari-dash-board.png" alt-text="Screenshot showing ambari dash board.":::
 
 1. You will get your latest script run at the top of the list.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/background_operations.png" alt-text="Screenshot showing background operations.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/background-operations.png" alt-text="Screenshot showing background operations.":::
 
 1. Verify the script run status in all the nodes individually.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/background_operations_all.png" alt-text="Screenshot showing background operations all.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/background-operations-all.png" alt-text="Screenshot showing background operations all.":::
 
 1. Check if the parameter syntax from the parameter syntax section is correct.
 1. Check if the log analytics workspace is connected to the cluster and log analytics monitoring is turned on.
 1. Check if the script that you run from script action was checked as persisted.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/script_action_persisits.png" alt-text="Screenshot showing script action persisits.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/script-action-persisits.png" alt-text="Screenshot showing script action persisits.":::
 
 1. It's possible, that a new node has been added to the cluster recently.
   > [!NOTE]  
   > For the script to run in the latest cluster,  and  the script must persist the script.
 1. Make sure all the node types are selected while running  the script action.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select_node_types.png" alt-text="Screenshot showing select node types.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select-node-types.png" alt-text="Screenshot showing select node types.":::
 
 ### Scenario 2
 
@@ -170,7 +170,7 @@ Different log types(sources) inside **Hadoop** tables
 
 Parameters define the cluster type, table names, source names and the action.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/Parameter-syntax-box.png" alt-text="Screenshot showing parameter syntax box.":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/parameter-syntax-box.png" alt-text="Screenshot showing parameter syntax box.":::
 
 Parameter contains three parts
 1. Cluster type
