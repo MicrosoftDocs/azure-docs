@@ -45,12 +45,15 @@ To enable application name or geographic location, complete the following steps:
 
 1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**. 
 
-   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-app-name.png" alt-text="Screenshot of how to enable additional context.":::
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-app-name.png" alt-text="Screenshot of how to enable application name.":::
 
    Then do the same for **Show geographic location in push and passwordless notifications (Preview)**.
 
-   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-geolocation.png" alt-text="Screenshot of how to enable additional context.":::
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-geolocation.png" alt-text="Screenshot of how to enable geographic location.":::
 
+   For example, the following policy enables application name and geographic location for all users but excludes the Operations group from seeing geographic location. 
+
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/exclude.png" alt-text="Screenshot of how to enable application name and geographic location separately.":::
 
 ## Known issues
 
