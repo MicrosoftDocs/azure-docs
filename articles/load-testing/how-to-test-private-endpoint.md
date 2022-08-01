@@ -19,7 +19,7 @@ This functionality enables the following usage scenarios:
 
 - Generate load to a web service exposed to an Azure Virtual Network.
 - Generate load to an Azure-hosted public endpoint with access restrictions, such as restricting client IP addresses.
-- Generate load to an on-premise service, not publicly accessible, that is connected to Azure via ExpressRoute.
+- Generate load to an on-premises service, not publicly accessible, that is connected to Azure via ExpressRoute.
 
 Learn more about the scenarios for [deploying Azure Load Testing in your virtual network](./concept-azure-load-testing-vnet-injection.md).
 
@@ -150,7 +150,7 @@ If you're using the Azure Load Testing REST API to start a load test, check that
         1. Select **Service Tag** for the **Source type**, and then select **BatchNodeManagement** for the **Service tag**.
         1. The **Destination IP address** is the IP address of the VM you created in previous step.
         1. For **Destination port**, you have to validate two ports: **29876** and **29877**. Enter one value at a time and move to the next step.
-        1. Press **Check** to verify that the network security group is not blocking traffic.
+        1. Press **Check** to verify that the network security group isn't blocking traffic.
 
             :::image type="content" source="media/how-to-test-private-endpoint/test-nsg-connectivity.png" alt-text="Screenshot that shows the N S G Diagnotic page to test network connectivity.":::
 
@@ -164,7 +164,7 @@ If you're using the Azure Load Testing REST API to start a load test, check that
         1. For **IPv4 address/CIDR**, enter the [IP address of the Azure Load Testing](#azure-load-testing-outbound-ip-addresses-per-region) service region you're using.
         1. For **Destination IP address**, enter the IP address of the VM you created in previous step.
         1. For **Destination port**, enter **8080**.
-        1. Press **Check** to verify that the network security group is not blocking traffic.
+        1. Press **Check** to verify that the network security group isn't blocking traffic.
 
     1. Delete the temporary VM you created earlier.
 
@@ -178,7 +178,7 @@ Possible cause: there are connectivity issues between the subnet in which you de
 
     |Response message  | Action  |
     |---------|---------|
-    | **Non http response code java.net.unknownhostexception** | Possible cause is a DNS resolution issue. If you’re using Azure Private DNS, verify that the DNS is set up correctly for both the subnet in which Azure Load Testing instances are injected, as well as the application subnet. |
+    | **Non http response code java.net.unknownhostexception** | Possible cause is a DNS resolution issue. If you’re using Azure Private DNS, verify that the DNS is set up correctly for the subnet in which Azure Load Testing instances are injected, and for the application subnet. |
     | **Non http response code SocketTimeout**     | Possible cause is when there’s a firewall blocking connections from the subnet in which Azure Load Testing instances are injected to your application subnet.  |
 
 ## Next steps
