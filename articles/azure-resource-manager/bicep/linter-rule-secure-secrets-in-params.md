@@ -2,12 +2,12 @@
 title: Linter rule - secure secrets in parameters
 description: Linter rule - secure secrets in parameters
 ms.topic: conceptual
-ms.date: 07/29/2022
+ms.date: 08/01/2022
 ---
 
 # Linter rule - secure secrets in parameters
 
-This rule finds parameters whose names look like secrets but without the [secure decorator](./parameters.md#decorators), for example:
+This rule finds parameters whose names look like secrets but without the [secure decorator](./parameters.md#decorators), for example: a parameter name contains the following keywords:
 
 - password
 - pwd
@@ -23,17 +23,24 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Use the secure decorator for the parameters that contains secrets. The secure decorator marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged.
+Use the [secure decorator](./parameters.md#decorators) for the parameters that contain secrets. The secure decorator marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged.
 
-The following example fails this test because the parameter name might contain secrets.
+The following example fails this test because the parameter name may contain secrets.
 
 ```bicep
 param mypassword string
 ```
 
+You can fix it by adding the secure decorator:
+
+```bicep
+@secure()
+param mypassword string
+```
+
 ## Silencing false positives
 
-Sometimes this rule alerts on parameters that do not actually contain secrets. In these cases, you can disable the warning for this line by adding `#disable-next-line secure-secrets-in-params` before the line with the warning.
+Sometimes this rule alerts on parameters that do not actually contain secrets. In these cases, you can disable the warning for this line by adding `#disable-next-line secure-secrets-in-params` before the line with the warning. For example:
 
 ```bicep
 #disable-next-line secure-secrets-in-params   // Does not contain a secret
