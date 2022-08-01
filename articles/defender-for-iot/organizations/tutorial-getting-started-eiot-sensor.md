@@ -104,7 +104,7 @@ This procedure describes how to prepare your physical appliance or VM to install
     | Protocol | Transport | In/Out | Port  | Purpose |
     |--|--|--|--|--|
     | HTTPS | TCP | In/Out | 443 | Cloud connection |
-    | DNS | TCP/UDP | In/Out | 53 | DNS | Address resolution |
+    | DNS | TCP/UDP | In/Out | 53  | Address resolution |
 
 
 1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
@@ -178,7 +178,7 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
 
 1. Copy the command to a safe location, where you'll be able to copy it to your sensor, either using your physical appliance or VM.
 
-**To install Enterprise IoT sensor software**:
+<a name="install"></a>**To install Enterprise IoT sensor software**:
 
 1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm, and run the command that you'd saved from the Azure portal. For example:
 
@@ -273,6 +273,6 @@ If you want to cancel your plan for Enterprise IoT networks only, do so from [De
 
 For more information, see:
 
-[Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration?view=o365-worldwide)
+- [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
