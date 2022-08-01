@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Configure peering between Azure Route Server and Quagga network virtual appliance
 
-This tutorial shows you how to deploy an Azure Route Server into a virtual network and establish a BGP peering connection with a Quagga network virtual appliance. You'll deploy a virtual network with five subnets. One subnet will be dedicated to the Azure Route Server and another subnet dedicated to the Quagga NVA. The Quagga NVA will be configured to exchange routes with the Route Server. Lastly, you'll test to make sure routes are properly exchanged on the Azure Route Server and Quagga NVA.
+This tutorial shows you how to deploy an Azure Route Server into a virtual network and establish a BGP peering connection with a Quagga network virtual appliance. You'll deploy a virtual network with four subnets. One subnet will be dedicated to the Azure Route Server and another subnet dedicated to the Quagga NVA. The Quagga NVA will be configured to exchange routes with the Route Server. Lastly, you'll test to make sure routes are properly exchanged on the Azure Route Server and Quagga NVA.
 
 In this tutorial, you learn how to:
 
