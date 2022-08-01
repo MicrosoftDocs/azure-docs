@@ -116,6 +116,14 @@ dpkg -i <filename.deb>
 Once the installer has finished running, you will be provided a link to complete the installation from your browser. Copy the link provided into your web browser and follow the configuration steps.
 ::: moniker-end
 
+### Insider Builds
+
+CycleCloud insider builds are available for pre-release feature testing. Insider builds may contain unresolved issues.
+
+Enterprise Linux (RHEL) insider builds are located at: [https://packages.microsoft.com/yumrepos/cyclecloud-insiders/](https://packages.microsoft.com/yumrepos/cyclecloud-insiders/)
+
+Debian/Ubuntu insider builds are located at: [https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/](https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/)
+
 ### Notes on Security
 
 The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend [configuring SSL](ssl-configuration.md) for all installations.
