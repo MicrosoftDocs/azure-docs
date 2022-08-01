@@ -419,7 +419,7 @@ items:
           href: ./spark/apache-spark-structured-streaming-overview.md
         - name: Create highly available Apache Spark streaming jobs in Apache Hadoop YARN
           href: ./spark/apache-spark-streaming-high-availability.md
-        - name: Create Apache Spark streaming jobs with exactly-once event processing
+        - name: Create Apache Spark streaming jobs with exactly once event processing
           href: ./spark/apache-spark-streaming-exactly-once.md
       - name: Apache Spark and Machine Learning
         items:
@@ -897,7 +897,7 @@ items:
         href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
       - name: Apache Hive gateway timeout
         href: ./interactive-query/troubleshoot-gateway-timeout.md
-      - name: Apache Hive View time out
+      - name: Apache Hive View time-out
         href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
       - name: Permission error creating table
         href: ./interactive-query/interactive-query-troubleshoot-permission-error-create-table.md
@@ -961,7 +961,7 @@ items:
           href: ./storm/apache-storm-example-topology.md
       - name: Streaming pipelines
         items:
-        - name: Event Hub and Apache Storm (C# & Java)
+        - name: Event Hubs and Apache Storm (C# & Java)
           href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
     - name: Manage
       items:
@@ -1057,3 +1057,4 @@ items:
   items:
   - name: Share Hive metastore with Synapse Spark
     href: share-hive-metastore-with-synapse.md
+    
