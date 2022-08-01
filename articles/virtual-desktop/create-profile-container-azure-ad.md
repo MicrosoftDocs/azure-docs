@@ -4,7 +4,6 @@ description: Set up an FSLogix profile container on an Azure file share in an ex
 services: virtual-desktop
 author: Heidilohr
 manager: femila
-
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/13/2022
@@ -502,5 +501,3 @@ If you need to disable Azure AD authentication on your storage account:
 ## Next steps
 
 - To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
-- To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-- To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).
