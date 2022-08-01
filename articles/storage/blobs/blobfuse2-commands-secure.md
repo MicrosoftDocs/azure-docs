@@ -1,5 +1,6 @@
 ---
 title: How to use the BlobFuse2 secure command to encrypt, decrypt, or access settings in a BlobFuse2 configuration file | Microsoft Docs
+titleSuffix: Azure Blob Storage
 description: Learn how to use the BlobFuse2 secure command to encrypt, decrypt, or access settings in a BlobFuse2 configuration file.
 author: jimmart-dev
 ms.service: storage

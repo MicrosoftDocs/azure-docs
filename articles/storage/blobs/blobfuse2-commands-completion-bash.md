@@ -1,5 +1,6 @@
 ---
-title: How to use the completion bash command to generate the autocompletion script for BlobFuse2 | Microsoft Docs
+title: How to use the 'blobfuse2 completion bash' command to generate the autocompletion script for BlobFuse2 | Microsoft Docs
+titleSuffix: Azure Blob Storage
 description: Learn how to use the completion bash command to generate the autocompletion script for BlobFuse2.
 author: jimmart-dev
 ms.service: storage
