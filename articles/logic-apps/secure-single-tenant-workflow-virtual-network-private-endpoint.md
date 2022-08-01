@@ -163,6 +163,8 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 > |-------------|-----------|----------|----------------------|---------|
 > | 443 | Outbound | TCP | Private endpoint / Storage account | Storage account |
 > | 445 | Outbound | TCP | Private endpoint / Subnet integrated with Standard logic app | Server Message Block (SMB) File Share |
+> ||||||
+> 
 > 
 > For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service.
 > With VNet integration, you need to make sure no firewall or network security policy is blocking these connections. 
