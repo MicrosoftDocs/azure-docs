@@ -59,11 +59,13 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
     :::image type="content" source="./media/quickstart-wordpress/09-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button":::
 
     > [!NOTE]
-    > App Service creates environment variables and application settings needed for WordPress/PHP configuration. Two of these [Application Settings](configure-common?tabs=portal#configure-app-settings) include WordPress credentials such as **Admin Username** and **Admin Password**. These  settings are only intended for deployment purposes and modifying the values has no effect on the WordPress installation. To change the WordPress password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).
+    > App Service creates environment variables and [Application Settings](reference-app-settings.md#wordpress) needed for WordPress/PHP configuration. The Application Settings include WordPress admin and MySQL database credentials.
     >
-    > MySQL database credentials are also saved as [Application Settings](configure-common?tabs=portal#configure-app-settings). These settings are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password).
+    > The Application Settings for WordPress admin credentials are **WORDPRESS_ADMIN_USER** and **WORDPRESS_ADMIN_PASSWORD**. These variables are only for deployment purposes and modifying these values has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).
     >
-    > For more information on customizing environment variables, see the WordPress section in [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress).
+    > The Application Settings for MySQL database credentials are **DATABASE_USERNAME** and **DATABASE_PASSWORD**. These variables are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated.
+    >
+    > For more information on WordPress Application Settings, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html#known-limitations).
 
 1. Browse to your site URL and verify the app is running properly. The site may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser.
 
