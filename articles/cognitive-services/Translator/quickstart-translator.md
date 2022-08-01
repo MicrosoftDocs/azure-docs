@@ -412,7 +412,7 @@ public class TranslatorText {
 ```
 
 > [!div class="nextstepaction"]
-> [I created a Java application](#build-and-run-your-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-your-java-application)
+> [I created a Java application](#build-and-run-your-java-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-your-java-application)
 
 ### Build and run your Java application
 
@@ -519,7 +519,7 @@ Once you've added a code sample to your application, navigate back to your main 
 ```
 
 > [!div class="nextstepaction"]
-> [I built my application](#run-your-application-javascript) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-javascript-application)
+> [I built my application](#run-your-javascript-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-javascript-application)
 
 ### Run your JavaScript application
 
