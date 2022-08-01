@@ -52,6 +52,8 @@ In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, 
  
 Billing for the commitment tiers is done per workspace on a daily basis. If the workspace is part of a [dedicated cluster](#dedicated-clusters), the billing is done for the cluster (see below). See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
 
+Azure Commitment Discounts such as those received from [Microsoft Enterprise Agreements](https://www.microsoft.com/licensing/licensing-programs/enterprise) are applied to Azure Monitor Logs Commitment Tier pricing just as they are to Pay-As-You-Go pricing (whether the usage is being billed per workspace or per dedicated cluster). 
+
 > [!TIP]
 > The **Usage and estimated costs** menu item for each Log Analytics workspace hows an estimate of your monthly charges at each commitment level. You should periodically review this information to determine if you can reduce your charges by moving to another tier. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) for information on this view.
 
