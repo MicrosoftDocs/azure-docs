@@ -29,18 +29,18 @@ Here are some of the more relevant customization settings for the components.
 
 ### Azure Cosmos DB
 
-* Replicate data globally: Configure data-redundancy.
+* Replicate data globally: Configure data redundancy.
 * Firewall and virtual networks: Configure internet and virtual network access, and IP filters.
 * Private endpoint connections: Create an endpoint that's inaccessible through the internet. 
 
 ### Azure Key Vault
 
-* Secrets: Manage platform settings,
+* Secrets: Manage platform settings.
 * Access policies: Manage which applications and users may access the data in the key vault and which operations (for example, read, write, list, delete) they are allowed to perform on the network, firewall, virtual network, and private endpoints.
 
-### Azure Active Directory (Azure AD) app registrations
+### Azure Active Directory app registrations
 
-* <APP_NAME>-web (authentication): Manage reply URIs, which is the list of URIs that can be used as landing pages after authentication succeeds. The deployment script might be unable to configure this automatically under certain scenarios, such as lack of Azure AD administrator rights. You might want to add or modify URIs when you're changing the hostname of the web app (for example, the port number that's used by the localhost for debugging).
+* <APP_NAME>-web (authentication): Manage reply URIs, which are the lists of URIs that can be used as landing pages after authentication succeeds. The deployment script might be unable to configure this automatically under certain scenarios, such as lack of Azure Active Directory (Azure AD) administrator rights. You might want to add or modify URIs when you're changing the hostname of the web app (for example, the port number that's used by the localhost for debugging).
 
 ### Azure App Service
 
