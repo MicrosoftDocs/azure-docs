@@ -22,9 +22,9 @@ To access App Service diagnostics, navigate to your App Service web app or App S
 
 For Azure Functions, navigate to your function app, and in the top navigation, click on **Platform features**, and select **Diagnose and solve problems** from the **Resource management** section.
 
-In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools**. See [Diagnostic tools](#diagnostic-tools).
+In the App Service diagnostics homepage, you can peform a search for a symptom with your app, or choose a diagnostic category that best describes the issue with your app. Next, there is a new feature called Risk Alerts that provides an actionable report to improve your App.  Finally, this page is where you can find **Diagnostic Tools**. See [Diagnostic tools](#diagnostic-tools).
 
-![Homepage](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![App Service Diagnose and solve problems homepage with diagnostic search box, Risk Alerts assessments, and Troubleshooting categories for discovering diagnostics for the selected Azure Resource.](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 > [!NOTE]
 > If your app is down or performing slow, you can [collect a profiling trace](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) to identify the root cause of the issue. Profiling is light weight and is designed for production scenarios.
@@ -43,18 +43,18 @@ The homepage for App Service diagnostics offers streamlined diagnostics access u
 
 The Genie search box is a quick way to find a diagnostic. The same diagnostic can be found through Troubleshooting categories.
 
-![Genie Search ](./media/app-service-diagnostics/app-service-diagnostics-genie-alerts-search-1.png)
+![App Service Diagnose and solve problems Genie search box with a search for availability app issues and a dropdown of diagnostics that match the availability search term, such as Best Practices for Availability and Performance, Web App Down, Web App Slow, High CPU Analysis, Web App Restarted.](./media/app-service-diagnostics/app-service-diagnostics-genie-alerts-search-1.png)
 
 
 ## Risk Alerts
 
 The App Service diagnostics homepage performs a series of configuration checks and offers recommendations based on your unique application's configuration.
 
-![Risk Alerts](./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-1.png)
+![App Service Diagnose and solve problems Risk Alerts displays proactive App checks in a tile with a count of problems found and a link to view more details.](./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-1.png)
 
 Recommendations and checks performed can be reviewed by clicking "View more details" link.
 
-![RiskAlertsDetails](./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png)
+![App Service Diagnose and solve problems Risk Alerts right hand panel, with actionable insights tailored for the current Azure Resource App, after clicking View more details hyperlink on the homepage.](./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png)
 
 ## Troubleshooting categories
 
@@ -68,7 +68,7 @@ Troubleshooting categories group diagnostics for ease of discovery. The followin
 - **Diagnostic Tools**
 
 
-![Diagnostic troubleshooting list](./media/app-service-diagnostics/app-service-diagnostics-troubleshooting-categories-1.png)
+![App Service Diagnose and solve problems Troubleshooting categories list displaying Availability and Performance, Configuration and Management, SSL and Domains, Risk Assessments, Navigator (Preview) and Diagnostic Tools.](./media/app-service-diagnostics/app-service-diagnostics-troubleshooting-categories-1.png)
 
 
 The tiles or the Troubleshoot link show the available diagnostics for the category. If you were interested in investigating Availability and performance the following diagnostics are offered:
@@ -89,19 +89,19 @@ The tiles or the Troubleshoot link show the available diagnostics for the catego
 - **WebJob Details**
 
 
-![Availability and Performance list](./media/app-service-diagnostics/app-service-diagnostics-availability-and-performance-1.png)
+![App Service Diagnose and solve problems Availability and Performance category homepage, with left hand navigation containing Overview, Web App Down, Web App Slow, High CPU Analysis, Memory Analysis, Web App Restarted, Application Change (Preview), Application Crashes, HTTP 4xx Errors, SNAT Failed connection Endpoint, SNAT Port Exhaustion, Swap Effects on Availability, TCP Connections, Testing in Production, WebJob Details and the default availability dashboard for the last 24 hours of App usage, with a date and time selection interface.](./media/app-service-diagnostics/app-service-diagnostics-availability-and-performance-1.png)
 
 ## Diagnostic report
 
 After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. The following is the Overview for Availability and Performance:
 
-![Diagnostic report](./media/app-service-diagnostics/full-diagnostic-report-5.png)
+![App Service Diagnose and solve problems Availability and Performance category homepage with Web App Down diagnostic selected, which displays an availability chart, Organic SLA percentage and Observations and Solutions for problems that were detected.](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
 ## Resiliency Score
 
 If you don't know what’s wrong with your app or don’t know where to start troubleshooting your issues, the Get Resiliency Score report is a good place to start. Once a Troubleshooting category has been selected the Get Resilience Score report link is available and clicking it produces a PDF document with actionable insights.
 
-![Resiliency Score report](./media/app-service-diagnostics/app-service-diagnostics-resiliency-report-1.png)
+![App Service Diagnose and solve problems Resiliency Score report, with a gauge indicating App's resilience score and what App Developer can do to improve resilience of the App.](./media/app-service-diagnostics/app-service-diagnostics-resiliency-report-1.png)
 
 ### Investigate application code issues (only for Windows app)
 
