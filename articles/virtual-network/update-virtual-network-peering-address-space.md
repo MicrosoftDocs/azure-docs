@@ -27,10 +27,10 @@ In this section, you'll modify the address range prefix for an existing address 
 :::image type="content" source="media/update-virtual-network-peering-address-space/update-address-prefix-thumb.png" alt-text="Image of the Address Space page for changing a sugnet's prefix" lightbox="media/update-virtual-network-peering-address-space/update-address-prefix-full.png":::
 1. Select **Peerings** under Settings and select the checkbox for the peering requiring synchronization.
 1. Select **Sync from the task bar.
-:::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="This is the Peerings page where you re-syncronize a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
+:::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="Image of the Peerings page where you re-syncronize a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
 1. Select the name of the other peered virtual network under **Peer**.
 1. Under **Settings** of the peered virtual network, select **Address space** and verify that the Address space listed has been updated.
-:::image type="content" source="media/update-virtual-network-peering-address-space/verify-address-space-thumb.png" alt-text="This is the Address Space page where you verify the address space has changed." lightbox="media/update-virtual-network-peering-address-space/verify-address-space-full.png":::
+:::image type="content" source="media/update-virtual-network-peering-address-space/verify-address-space-thumb.png" alt-text="Image the Address Space page where you verify the address space has changed." lightbox="media/update-virtual-network-peering-address-space/verify-address-space-full.png":::
 
 > [!NOTE]
 > When an update is made to the address space for a virtual network, you will need to sync the virtual network peer for each remote peered VNet to learn of the new address space updates.
@@ -46,6 +46,7 @@ In this section, you'll add an IP address range to the IP address space of a pee
 2. From the list of virtual networks, select the virtual network where you're adding an address range.
 3. Select **Address space**, under **Settings**.
 4. On the **Address space** page, add the address range per your requirements, and select **Save** when finished.
+:::image type="content" source="media/update-virtual-network-peering-address-space/add-address-range-thumb.png" alt-text="Image of the Address Space page used to add an IP address range." lightbox="media/update-virtual-network-peering-address-space/add-address-range-full.png":::
 1. Select **Peering**, under **Settings** and **Sync** the peering connection.
 1. As previously done, verify the address space is updated on the remote virtual network.
 ## Delete an address range
@@ -57,7 +58,8 @@ In this task, you'll delete an IP address range from an address space. First, yo
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it.
 2. From the list of virtual networks, select the virtual network where you're removing an address range.
 1. Select **Subnets**, under **settings**
-1. On the right of the address range you want to remove, select **...** and select **Delete** from the dropdown list. Choose **Yes** to confirm deletion
+1. On the right of the address range you want to remove, select **...** and select **Delete** from the dropdown list. Choose **Yes** to confirm deletion.
+:::image type="content" source="media/update-virtual-network-peering-address-space/delete-subnet.png" alt-text="Image of Subnet page and menu for deleting a subnet.":::
 1. Select **Save** when you've completed all changes.
 1. 1. Select **Peering**, under **Settings** and **Sync** the peering connection.
 1. As previously done, verify the address space is updated on the remote virtual network.
