@@ -111,7 +111,7 @@
         href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/microsoft-introduces-preview-of-confidential-containers-on-azure/ba-p/3410394
     - name: Confidential node pools on AKS
       items: 
-      - name: Confidential node pools on AKS (preview)
+      - name: Confidential node pools in AKS (preview)
         href: confidential-node-pool-aks.md
 - name: How To
   expanded: true
