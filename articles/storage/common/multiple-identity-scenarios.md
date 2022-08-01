@@ -41,7 +41,7 @@ For example, when working locally, `DefaultAzureCredential` will generally authe
 
 ## Connect Azure hosted apps to multiple Azure services using credential-free connections
 
-You have been tasked with configuring two existing apps to use credential-free connections to different Azure sources. The applications are two different ASP.NET Core Web APIs hosted on Azure App Service. Both APIs must connect to two different storage accounts and retrieve secrets from an instance of Azure Key Vault. 
+You have been tasked with configuring two existing apps to use credential-free connections to different Azure services. The applications are two different ASP.NET Core Web APIs hosted on Azure App Service. Both APIs must connect to two different storage accounts and retrieve secrets from an instance of Azure Key Vault. 
 
 You plan to share a user-assigned identity between both applications, since they have the same access requirements to the services. When the app is deployed to Azure it will use a user-assigned managed identity to achieve this configuration. During local development it will use your local sign-in credentials through the Azure CLI or Visual Studio. Both scenarios in this overall strategy can be accomplished using `DefaultAzureCredential`.
 
@@ -59,9 +59,9 @@ The following steps demonstrate how to create and configure a user-assigned mana
 
 3) On the **Create User Assigned Managed Identity** page, select the subscription, resource group, and region that should contain your new managed identity. Enter a meaningful name for the identity as well. 
 
-4) Select **Review + create** and then select **Create** after Azure has validated your inputs.
-
     :::image type="content" source="media/create-managed-identity.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-add-role.png":::
+
+4) Select **Review + create** and then select **Create** after Azure has validated your inputs.
 
 5) Once the resource has been created, select **Go to resource** to view the details of the user-assigned managed identity.
 
@@ -81,11 +81,11 @@ The following steps demonstrate how to create and configure a user-assigned mana
 
 7) In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-    :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
+    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
 
 8) Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
-9) Repeat steps the preceding steps in this section for any additional storage accounts you would like to grant your identity access to.
+9) Repeat the preceding role assignment steps for any additional storage accounts you would like to grant your identity access to.
 
 #### Local development considerations
 
@@ -95,7 +95,7 @@ You can also enable access to Azure resources for local development by assigning
 
 2) Search for the user account or Azure AD security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
 
-    :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/local-dev-assign-user.png":::
+    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/local-dev-assign-user.png":::
 
 > [!NOTE]
 > You can also assign these roles to an Azure Active Directory security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
