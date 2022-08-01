@@ -138,7 +138,7 @@ To successfully deploy Azure Virtual Desktop, you'll need to meet the following 
 
 - Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Azure AD DS, since you'll need to join session hosts to the domain.
 
-- Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. This connection also uses TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported. If your users need to access Microsoft 365, make sure your session hosts can connect to [Microsoft 365 endpoints](/microsoft-365/enterprise/microsoft-365-endpoints).
+- Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. These connections also use TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported. If your users need to access Microsoft 365, make sure your session hosts can connect to [Microsoft 365 endpoints](/microsoft-365/enterprise/microsoft-365-endpoints).
 
 Also consider the following:
 
