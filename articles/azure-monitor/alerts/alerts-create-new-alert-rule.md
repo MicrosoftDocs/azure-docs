@@ -181,6 +181,8 @@ And then defining these elements for the resulting alert actions using:
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
         |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+    1. (Optional) If you have configured action rules for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+         
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Details tab.":::
 
@@ -198,6 +200,8 @@ And then defining these elements for the resulting alert actions using:
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
+    1. (Optional) If you have configured action rules for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Details tab.":::
 
     ### [Activity log alert](#tab/activity-log)
@@ -207,6 +211,8 @@ And then defining these elements for the resulting alert actions using:
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Details tab.":::
+
+    1. (Optional) If you have configured action rules for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
     ---
 
