@@ -361,7 +361,7 @@ To use managed identities in your logic app to access Blob Storage, follow these
 > Limitations for this solution:
 >
 > - To authenticate your storage account connection, you have to set up a system-assigned managed identity. 
-> identity will not work.
+> A user-assigned managed identity won't work.
 > 
 
 #### Configure storage account access
