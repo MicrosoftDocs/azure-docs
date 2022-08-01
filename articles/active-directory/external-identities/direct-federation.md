@@ -7,6 +7,7 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
 ms.date: 05/13/2022
+
 ms.author: mimart
 author: msmimart
 manager: celestedg
