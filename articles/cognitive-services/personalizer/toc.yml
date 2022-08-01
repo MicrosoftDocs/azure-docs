@@ -107,6 +107,8 @@
   items:
   - name: Personalizer REST API
     href: https://go.microsoft.com/fwlink/?linkid=2092082
+  - name: Personalizer REST API (v1.1 Preview)
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-3/operations/Rank
   - name: .NET
     items:
     - name: Reference

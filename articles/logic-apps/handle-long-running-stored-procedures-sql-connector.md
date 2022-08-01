@@ -108,7 +108,7 @@ Here are the steps to add:
       @step_timeout_seconds = 30,
       @command= N'
          IF NOT EXISTS(SELECT [jobid] FROM [dbo].[LongRunningState]
-            WHERE jobid = $(job_execution_id))
+            WHERE jobid = $(job_execution_id)
             THROW 50400, ''Failed to locate call parameters (Step1)'', 1',
       @credential_name='JobRun',
       @target_group_name='DatabaseGroupLongRunning'

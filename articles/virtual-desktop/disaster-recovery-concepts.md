@@ -136,7 +136,7 @@ When using this disaster recovery strategy, it's important to keep the following
 - There may be requirements that the host pool VMs need to function in the secondary site, such as virtual networks, subnets, network security, or VPNs to access a directory such as on-premises Active Directory.
 
     >[!NOTE]
-    > Using an [Azure Active Directory (AD)-joined VM](deploy-azure-ad-joined-vm.md) fulfills some of these requirements automatically.
+    > Using an [Azure Active Directory-joined VM](deploy-azure-ad-joined-vm.md) fulfills some of these requirements automatically.
 
 - You may experience integration, performance, or contention issues for resources if a large-scale disaster affects multiple customers or tenants.
 

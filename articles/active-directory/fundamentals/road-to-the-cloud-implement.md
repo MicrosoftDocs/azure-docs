@@ -70,7 +70,7 @@ Client workstations are traditionally joined to AD and managed via group policy 
 
 [Windows Autopilot](/mem/autopilot/windows-autopilot) is highly recommended to establish a streamlined onboarding and device provisioning, which can enforce these directives.
 
-For more information, see [Get started with cloud native Windows endpoints - Microsoft Endpoint Manager](/mem/cloud-native-windows-endpoints)
+For more information, see [Learn more about cloud-native endpoints](/mem/cloud-native-endpoints-overview)
 
 ## Applications
 
@@ -91,7 +91,7 @@ The organization has a process to evaluate Azure AD alternatives when considerin
 
      * [Azure Files](../../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB or NFS protocol. Customers can use native [Azure AD authentication to Azure Files](../../virtual-desktop/create-profile-container-azure-ad.md) over the internet without line of sight to a DC.
 
-     * Azure AD also works with third party applications in our [Application Gallery](/security/business/identity-access-management/integrated-apps-azure-ad)
+     * Azure AD also works with third party applications in our [Application Gallery](/microsoft-365/enterprise/integrated-apps-and-azure-ads)
 
    * Print Servers
 

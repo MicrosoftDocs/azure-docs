@@ -50,13 +50,13 @@ Tabular fields are also useful when extracting repeating information within a do
 
 ## Supported regions
 
-As of August 01 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
+Starting August 01, 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
 
 * Brazil South
 * Canada Central
 * Central India
 * Japan East
-* North Europe
+* West Europe
 * South Central US
 * Southeast Asia
 
@@ -133,4 +133,4 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
 * View the REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

@@ -1,9 +1,14 @@
 ---
 title: Create a standalone Azure Service Fabric cluster 
 description: Create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
-ms.topic: conceptual
-ms.date: 2/21/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Create a standalone cluster running on Windows Server
 You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package. Traditional Service Fabric clusters on Azure are available as a managed service, while standalone Service Fabric clusters are self-service. For more on the differences, see [Comparing Azure and standalone Service Fabric clusters](./service-fabric-deploy-anywhere.md).
 

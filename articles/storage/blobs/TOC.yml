@@ -279,8 +279,6 @@ items:
           href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Logs
           href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Monitor, diagnose, and troubleshoot
-          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Protocol support
       items:
       - name: NFS 3.0
@@ -328,6 +326,8 @@ items:
           href: upgrade-to-data-lake-storage-gen2-how-to.md
       - name: Create and manage containers
         items:
+        - name: Manage containers (Azure portal)
+          href: blob-containers-portal.md
         - name: Manage containers (CLI)
           href: blob-containers-cli.md
         - name: Manage containers (PowerShell)
@@ -522,10 +522,14 @@ items:
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Synchronize'
           href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Properties and metadata'
+          href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Google Cloud Storage buckets'
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Troubleshoot AzCopy issues
+          href: ../common/storage-use-azcopy-troubleshoot.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transfer data by using SFTP
@@ -587,7 +591,11 @@ items:
           - name: Get started
             href: storage-blob-javascript-get-started.md
           - name: Work with SAS tokens
-            href: storage-blob-account-delegation-sas-create-javascript.md
+            items: 
+            - name: Account SAS
+              href: storage-blob-account-delegation-sas-create-javascript.md
+            - name: User SAS
+              href: storage-blob-create-user-delegation-sas-javascript.md
           - name: Work with containers
             items:
             - name: Create a container
@@ -628,24 +636,26 @@ items:
         href: blob-storage-monitoring-scenarios.md
       - name: Use Storage insights
         href: ../common/storage-insights-overview.md
+      - name: Troubleshoot
+        items:
+        - name: Performance
+          href: ../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Availability
+          href: ../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Client errors
+          href: ../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitor (classic)
         items:
         - name: Enable and manage metrics (classic)
           href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Enable and manage logs (classic)
           href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Troubleshoot
-      items:
-      - name: Performance
-        href: ../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Availability
-        href: ../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Client errors
-        href: ../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Latency issues
-        href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy issues
-        href: ../common/storage-use-azcopy-troubleshoot.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Troubleshoot
+          items:
+          - name: Monitor, diagnose, and troubleshoot
+            href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Troubleshoot Latency issues
+            href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: Blob Storage API reference
@@ -690,6 +700,54 @@ items:
         href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy set-properties
+        href: ../common/storage-ref-azcopy-set-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: BlobFuse2
+      items:
+      - name: Commands
+        items:
+        - name: The BlobFuse2 command set
+          href: blobfuse2-commands.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 mount
+          href: blobfuse2-commands-mount.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 mount all
+            href: blobfuse2-commands-mount-all.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 mount list
+            href: blobfuse2-commands-mount-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 mountv1
+          href: blobfuse2-commands-mountv1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 unmount
+          href: blobfuse2-commands-unmount.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 unmount all
+            href: blobfuse2-commands-unmount-all.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 completion
+          href: blobfuse2-commands-completion.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 completion bash
+            href: blobfuse2-commands-completion-bash.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion fish
+            href: blobfuse2-commands-completion-fish.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion PowerShell
+            href: blobfuse2-commands-completion-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion zsh
+            href: blobfuse2-commands-completion-zsh.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 secure
+          href: blobfuse2-commands-secure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 secure encrypt
+            href: blobfuse2-commands-secure-encrypt.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure decrypt
+            href: blobfuse2-commands-secure-decrypt.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure get
+            href: blobfuse2-commands-secure-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure set
+            href: blobfuse2-commands-secure-set.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 version
+          href: blobfuse2-commands-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 help
+          href: blobfuse2-commands-help.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -912,6 +970,8 @@ items:
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Synchronize'
           href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Properties and metadata'
+          href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Google Cloud Storage buckets'
@@ -1016,6 +1076,8 @@ items:
         href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy set-properties
+        href: ../common/storage-ref-azcopy-set-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions

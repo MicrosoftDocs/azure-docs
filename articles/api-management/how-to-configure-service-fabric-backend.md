@@ -106,7 +106,7 @@ To test the integration of API Management with the cluster, add the correspondin
     
     :::image type="content" source="media/backends/configure-get-operation.png" alt-text="Add GET operation to API":::
 
-### Configure `set-backend` policy
+### Configure `set-backend-service` policy
 
 Add the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to the test API.
 

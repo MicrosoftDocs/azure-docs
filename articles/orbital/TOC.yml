@@ -15,28 +15,26 @@ items:
     href: contact-profile.md
   - name: Schedule a contact
     href: schedule-contact.md
-- name: Tutorials
+- name: How-to guides
   items:
   - name: Prepare network to send and receive data
     href: prepare-network.md
   - name: License your spacecraft
     href: license-spacecraft.md
+  - name: Integrate partner network ground stations
+    href: partner-network-integration.md 
   - name: Receive real-time telemetry
     href: receive-real-time-telemetry.md
   - name: Update the spacecraft TLE
     href: update-tle.md
   - name: Cancel a contact
     href: delete-contact.md
-- name: How-to guides
+- name: Tutorials
   items:
-  - name: Earth Observation
-    items:
-    - name: Schedule a contact with NASA's AQUA public satellite
-      href: downlink-aqua.md 
-    - name: Collect and process AQUA satellite payload
-      href: satellite-imagery-with-orbital-ground-station.md
-    - name: Integrate partner network ground stations
-      href: partner-network-integration.md     
+  - name: Schedule a contact with NASA's AQUA public satellite
+    href: downlink-aqua.md 
+  - name: Collect and process AQUA satellite payload
+    href: satellite-imagery-with-orbital-ground-station.md    
 - name: Concepts
   items:
   - name: Contact

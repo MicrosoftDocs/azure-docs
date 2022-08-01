@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 07/06/2022
+ms.date: 07/20/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -26,7 +26,7 @@ In this article, we will provide an overview and introduction to core concepts o
 
 ## Overview
 
-Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, and 13. The service is currently available in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of [PostgreSQL 11, 12, 13, and 14](./concepts-supported-versions.md). The service is currently available in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 ![Flexible Server - Overview](./media/overview/overview-flexible-server.png)
 
@@ -93,40 +93,40 @@ One advantage of running your workload in Azure is global reach. The flexible se
 
 | Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup (Preview) |
 | --- | --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Australia Southeast | :heavy_check_mark: | :x: | :x: |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
-| Canada East | :heavy_check_mark: | :x: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
+| Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
-| East US | :heavy_check_mark: | :x: $ | :x: |
+| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Germany West Central | :x: $$ | :x: $ | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: (v3 only)| :x: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | Korea South | :heavy_check_mark: | :x: | :x: |
-| North Central US | :heavy_check_mark: | :x: | :x: |
+| North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | South India | :x: $$ | :x: | :heavy_check_mark: |
-| Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
+| Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
 | Switzerland North | :heavy_check_mark: | :x: $ ** | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
 | US Gov Arizona | :heavy_check_mark: | :x: | :x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| UK West | :heavy_check_mark: | :x: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UK West | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Central US | :heavy_check_mark: | :x: | :x: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :x: | :x: |
+| West US | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 2 | :x: $$ | :x: $ | :x: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 

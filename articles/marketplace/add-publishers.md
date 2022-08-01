@@ -4,8 +4,8 @@ description: How to add new publishers to the commercial marketplace program for
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: varsha-sarah
-ms.author: vavargh
+author: sharath-satish-msft
+ms.author: shsatish
 ms.custom: contperf-fy21q2
 ms.date: 01/20/2022
 ---

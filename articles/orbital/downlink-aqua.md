@@ -1,9 +1,9 @@
 ---
-title: Schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service
-description: How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Earth Observation Service
+title: Schedule a contact with NASA's AQUA public satellite using Azure Orbital Ground Station service
+description: How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Ground Station service
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022
 ms.author: wamota
@@ -12,7 +12,7 @@ ms.author: wamota
 
 # Tutorial: Downlink data from NASA's AQUA public satellite
 
-You can communicate with satellites directly from Azure using Azure Orbital's ground station service. Once downlinked, this data can be processed and analyzed in Azure. In this guide you'll learn how to:
+You can communicate with satellites directly from Azure using Azure Orbital's Ground Station (AOGS) service. Once downlinked, this data can be processed and analyzed in Azure. In this guide you'll learn how to:
 
 > [!div class="checklist"]
 > * Create & authorize a spacecraft for AQUA
@@ -24,7 +24,6 @@ You can communicate with satellites directly from Azure using Azure Orbital's gr
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Complete the onboarding process for the preview. [Onboard to the Azure Orbital Preview](orbital-preview.md).
 
 ## Sign in to Azure
 
@@ -34,8 +33,9 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 > These steps must be followed as is or you won't be able to find the resources. Please use the specific link above to sign in directly to the Azure Orbital Preview page.
 
 ## Create & authorize a spacecraft for AQUA
-1. In the Azure portal search box, enter **Spacecrafts*. Select **Spacecrafts** in the search results.
-2. In the **Spacecrafts** page, select Create.
+
+1. In the Azure portal search box, enter **Spacecraft*. Select **Spacecraft** in the search results.
+2. In the **Spacecraft** page, select Create.
 3. Learn an up-to-date Two-Line Element (TLE) for AQUA by checking celestrak at https://celestrak.com/NORAD/elements/active.txt
    > [!NOTE]
    > You will want to periodically update this TLE value to ensure that it is up-to-date prior to scheduling a contact. A TLE that is more than one or two weeks old may result in an unsuccessful downlink.
@@ -79,7 +79,8 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    > You can confirm that your spacecraft resource for AQUA is authorized by checking that the **Authorization status** shows **Allowed** in the spacecraft's overiew page.
 
 
-## Prepare a virtual machine (VM) to receive the downlinked AQUA data
+## Prepare your virtual machine (VM) and network to receive AQUA data
+
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM)
 2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network above. Ensure that this VM has the following specifications:
 - Operation System: Linux (Ubuntu 18.04 or higher)
@@ -87,19 +88,14 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 - Ensure that the VM has at least one standard public IP
 3. Create a tmpfs on the virtual machine. This virtual machine is where the data will be written to in order to avoid slow writes to disk:
 ```console
+sudo mkdir /media/aqua
 sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
 ```
 4. Ensure that SOCAT is installed on the machine:
 ```console
 sudo apt install socat
 ```
-5. Edit the [Network Security Group](../virtual-network/network-security-groups-overview.md) for the subnet that your virtual machine is using to allow inbound connections from the following IPs over TCP port 56001:
-- 20.47.120.4
-- 20.47.120.38
-- 20.72.252.246
-- 20.94.235.188
-- 20.69.186.50
-- 20.47.120.177
+5. [Prepare the network for Azure Orbital Ground Station integration](prepare-network.md) to configure your network.
 
 ## Configure a contact profile for an AQUA downlink mission
 1. In the Azure portal search box, enter **Contact profile**. Select **Contact profile** in the search results. 
@@ -131,7 +127,7 @@ sudo apt install socat
    | Bandwidth MHz | **15.0** |
    | Polarization | **RHCP** |
    | Endpoint name | Enter the name of the virtual machine (VM) you created above |
-   | IP Address | Enter the Public IP address of the virtual machine you created above (VM) |
+   | IP Address | Enter the Private IP address of the virtual machine you created above (VM) |
    | Port | **56001** |
    | Protocol | **TCP** |
    | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](mailto:msazureorbital@microsoft.com) to use a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|
@@ -143,8 +139,9 @@ sudo apt install socat
 9. Select the **Create** button
 
 ## Schedule a contact with AQUA using Azure Orbital and save the downlinked data
-1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
-2. In the **Spacecrafts** page, select **AQUA**.
+
+1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+2. In the **Spacecraft** page, select **AQUA**.
 3. Select **Schedule contact** on the top bar of the spacecraft’s overview.
 4. In the **Schedule contact** page, specify this information from the top of the page:
 
@@ -162,16 +159,15 @@ sudo apt install socat
 ```console
 socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
 ```
-9. Once your contact has executed, copy the output file, 
+9. Once your contact has executed, copy the output file from the tmpfs into your home directory to avoid being overwritten when another contact is executed.
 ```console
-/media/aqua/out.bin out
+mkdir ~/aquadata
+cp /media/aqua/out.bin ~/aquadata/raw-$(date +"%FT%H%M%z").bin
 ```
- of the tmpfs and into your home directory to avoid being overwritten when another contact is executed.
 
  > [!NOTE]
-   > For a 10 minute long contact with AQUA while it is transmitting with 15MHz of bandwidth, you should expect to receive somewhere in the order of 450MB of data.
+ > For a 10 minute long contact with AQUA while it is transmitting with 15MHz of bandwidth, you should expect to receive somewhere in the order of 450MB of data.
    
 ## Next steps
 
-- [Quickstart: Configure a contact profile](contact-profile.md)
-- [Quickstart: Schedule a contact](schedule-contact.md)
+- [Collect and process Aqua satellite payload](satellite-imagery-with-orbital-ground-station.md)

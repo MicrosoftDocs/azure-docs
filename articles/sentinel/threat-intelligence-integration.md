@@ -59,6 +59,11 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn more about the IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
 - To connect Microsoft Sentinel to the IntSights TAXII Server, obtain the API Root, Collection ID, Username and Password from the IntSights portal after you configure a policy of the data you wish to send to Microsoft Sentinel.
 
+### Kaspersky
+
+- [Learn about Kaspersky integration with Microsoft Sentinel](https://support.kaspersky.com/15908)
+
+
 ### Pulsedive
 
 - [Learn about Pulsedive integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-pulsedive-feed-into-microsoft-sentinel/ba-p/3478953)

@@ -46,10 +46,10 @@ You can save on data ingestion costs by configuring [certain tables](logs/basic-
 
 The decision whether to configure a table for Basic Logs is based on the following criteria:
 
-- The table currently support Basic Logs.
+- The table currently supports Basic Logs.
 - You don't require more than eight days of data retention for the table.
 - You only require basic queries of the data using a limited version of the query language.
-- The cost savings for data ingestion over a month exceeds the expected cost for any expected queries
+- The cost savings for data ingestion over a month exceed the expected cost for any expected queries
 
 See [Query Basic Logs in Azure Monitor (Preview)](.//logs/basic-logs-query.md) for details on query limitations and [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more details about them.
 
@@ -70,14 +70,14 @@ Virtual machines can vary significantly in the amount of data they collect, depe
 
 
 ### Use transformations to filter events
-The bulk of data collection from virtual machines will be from Windows or Syslog events. While you can provide more filtering with the Azure Monitor agent, you still may be collecting records that provide little value. Use [transformations](essentials/data-collection-rule-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
+The bulk of data collection from virtual machines will be from Windows or Syslog events. While you can provide more filtering with the Azure Monitor agent, you still may be collecting records that provide little value. Use [transformations](essentials//data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
 
 See the section below on filtering data with transformations for a summary on where to implement filtering and transformations for different data sources.
 
 ### Multi-homing agents
 You should be cautious with any configuration using multi-homed agents where a single virtual machine sends data to multiple workspaces since you may be incurring charges for the same data multiple times. If you do multi-home agents, ensure that you're sending unique data to each workspace.
 
-You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](./agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each are collecting unique data.
+You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](./agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each is collecting unique data.
 
 See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for guidance on analyzing your collected data to ensure that you aren't collecting duplicate data for the same machine.
 
@@ -98,7 +98,7 @@ There are multiple methods that you can use to limit the amount of data collecte
 ## Resource logs
 The data volume for [resource logs](essentials/resource-logs.md) varies significantly between services, so you should only collect the categories that are required. You may also not want to collect platform metrics from Azure resources since this data is already being collected in Metrics. Only configured your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries.
 
-Diagnostic settings do not allow granular filtering of resource logs. You may require certain logs in a particular category but not others. In this case, use [ingestion-time transformations](logs/ingestion-time-transformations.md) on the workspace to filter logs that you don't require. You can also filter out the value of certain columns that you don't require to save additional cost. 
+Diagnostic settings do not allow granular filtering of resource logs. You may require certain logs in a particular category but not others. In this case, use [transformations](essentials/data-collection-transformations.md) on the workspace to filter logs that you don't require. You can also filter out the value of certain columns that you don't require to save additional cost. 
 
 ## Other insights and services
 See the documentation for other services that store their data in a Log Analytics workspace for recommendations on optimizing their data usage. Following 
@@ -110,7 +110,7 @@ See the documentation for other services that store their data in a Log Analytic
 
 
 ## Filter data with transformations (preview)
-[Data collection rule transformations in Azure Monitor](essentials/data-collection-rule-transformations.md) allow you to filter incoming data to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its billable size as described in [Data size calculation](logs/cost-logs.md#data-size-calculation).
+[Data collection rule transformations in Azure Monitor](essentials//data-collection-transformations.md) allow you to filter incoming data to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its billable size as described in [Data size calculation](logs/cost-logs.md#data-size-calculation).
 
 Use ingestion-time transformations on the workspace to further filter data for workflows where you don't have granular control. For example, you can select categories in a [diagnostic setting](essentials/diagnostic-settings.md) to collect resource logs for a particular service, but that category might send a variety of records that you don't need. Create a transformation for the table that service uses to filter out records you don't want.
 
@@ -126,9 +126,9 @@ The following table for methods to apply transformations to different workflows.
 | Azure Monitor agent | Azure tables | Collect data from standard sources such as Windows events, syslog, and performance data and send to Azure tables in Log Analytics workspace. | Use XPath in DCR to collect specific data from client machine. Ingestion-time transformations in agent DCR are not yet supported. |
 | Azure Monitor agent | Custom tables | Collecting data outside of standard data sources is not yet supported. | |
 | Log Analytics agent | Azure tables | Collect data from standard sources such as Windows events, syslog, and performance data and send to Azure tables in Log Analytics workspace. | Configure data collection on the workspace. Optionally, create ingestion-time transformation in the workspace DCR to filter records and columns. |
-| Log Analytics agent | Custom tables | Configure [custom logs](agents/data-sources-custom-logs.md) on the workspace to collect file based text logs. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. |
-| Data Collector API | Custom tables | Use [Data Collector API](logs/data-collector-api.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new custom logs API. |
-| Custom Logs API | Custom tables<br>Azure tables | Use [Custom Logs API](logs/custom-logs-overview.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the DCR for the custom log. |
+| Log Analytics agent | Custom tables | Configure [custom logs](agents/data-sources-custom-logs.md) on the workspace to collect file based text logs. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new logs ingestion API. |
+| Data Collector API | Custom tables | Use [Data Collector API](logs/data-collector-api.md) to send data to custom tables in the workspace using REST API. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new logs ingestion API. |
+| Logs ingestion API | Custom tables<br>Azure tables | Use [Logs ingestion API](logs/logs-ingestion-api-overview.md) to send data to the workspace using REST API. | Configure ingestion-time transformation in the DCR for the custom log. |
 | Other data sources | Azure tables | Includes resource logs from diagnostic settings and other Azure Monitor features such as Application insights, Container insights and VM insights. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. |
 
 
@@ -139,11 +139,11 @@ Once you've configured your environment and data collection for cost optimizatio
 ### Set a daily cap
 A [daily cap](logs/daily-cap.md) disables data collection in a Log Analytics workspace for the rest of the day once your configured limit is reached. This should not be used as a method to reduce costs, but rather as a preventative measure to ensure that you don't exceed a particular budget. Daily caps are typically used by organizations that are particularly cost conscious. 
 
-When data collection stops, you effectively have no monitoring of features and resources relying on that workspace. Rather than just relying on the daily cap alone, you can configure an alert rule to notify you when data collection reaches some level before the daily cap. This allows you address any increases before data collection shuts down, or even to temporarily disable collection for less critical resources.
+When data collection stops, you effectively have no monitoring of features and resources relying on that workspace. Rather than just relying on the daily cap alone, you can configure an alert rule to notify you when data collection reaches some level before the daily cap. This allows you to address any increases before data collection shuts down, or even to temporarily disable collection for less critical resources.
 
 See [Set daily cap on Log Analytics workspace](logs/daily-cap.md) for details on how the daily cap works and how to configure one.
 ### Send alert when data collection is high
-In order to avoid unexpected bills, you should be proactively notified any time you experience excessive usage. This allows you to address any potential anomalies before the end of your billing period.
+In order to avoid unexpected bills, you should be proactively notified anytime you experience excessive usage. This allows you to address any potential anomalies before the end of your billing period.
 
 The following example is a [log alert rule](alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** to use a different threshold based on expected usage in your environment. You can also increase the frequency to check usage multiple times every day, but this will result in a higher charge for the alert rule.
 
