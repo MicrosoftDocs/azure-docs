@@ -116,4 +116,5 @@ The following flags apply only to command `blobfuse2 mountv1` command:
 ## See also
 
 - [The Blobfuse2 mount command](blobfuse2-commands-mount.md)
+- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)
 - [The Blobfuse2 command set](blobfuse2-commands.md)

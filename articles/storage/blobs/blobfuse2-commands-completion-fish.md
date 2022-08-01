@@ -6,7 +6,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -31,11 +31,11 @@ Use the `blobfuse2 completion fish` command to generate the autocompletion scrip
 
 ## Flags (options)
 
-Flags that apply to `blobfuse2 completion fish` are inherited from the grandparent command, `blobfuse2`, or apply only to the [`blobfuse2 completion`](blobfuse2-commands-completion.md) subcommands.
+Flags that apply to `blobfuse2 completion fish` are inherited from the grandparent command, [`blobfuse2`](blobfuse2-commands.md), or apply only to the `blobfuse2 completion` subcommands.
 
 ### Flags inherited from the BlobFuse2 command
 
-The following flags are inherited from grandparent command `blobfuse2`:
+The following flags are inherited from grandparent command [`blobfuse2`](blobfuse2-commands.md):
 
 | Flag | Short version | Value type | Default value | Description |
 |--|--|--|--|--|
