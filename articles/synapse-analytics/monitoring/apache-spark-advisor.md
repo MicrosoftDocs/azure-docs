@@ -13,7 +13,7 @@ ms.date: 06/23/2022
 
 # Spark Advisor
 
-Spark Advisor is a system to automatically analyze commands/queries, and show the appropriate advise when customer executes code or query. After applying the advice, you would have chance to improve your execution performance, decrease cost and fix the execution failures.
+Spark Advisor is a system to automatically analyze commands/queries, and show the appropriate advice when customer executes code or query. After applying the advice, you would have chance to improve your execution performance, decrease cost and fix the execution failures.
 
 
 ## Advice provided
