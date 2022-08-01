@@ -775,9 +775,9 @@ items:
       - name: Navigate the Apache Spark pool history server
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
-        href: monitoring/apache-spark-applications.md
+        href: ./monitoring/apache-spark-applications.md
       - name: Monitor Apache Spark pools
-        href: monitoring/how-to-monitor-spark-pools.md
+        href: ./monitoring/how-to-monitor-spark-pools.md
       - name: Collect Apache Spark applications metrics using APIs
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
       - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
@@ -789,7 +789,9 @@ items:
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
       - name: Manage Apache Spark configuration
-        href: ./spark/apache-spark-azure-create-spark-configuration.md          
+        href: ./spark/apache-spark-azure-create-spark-configuration.md
+      - name: Apache Spark Advisor
+        href: ./monitoring/apache-spark-advisor.md          
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
