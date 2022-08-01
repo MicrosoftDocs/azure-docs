@@ -160,7 +160,7 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 > If the backend storage is exposed to the virtual network through a private endpoint, make sure that the following port is open:
 >
 > | Source port | Direction | Protocol | Source / Destination | Purpose |
-> |--------------|------------|----------|------------------------|-----------|
+> |-------------|-----------|----------|----------------------|---------|
 > | 443 | Outbound | TCP | Private endpoint / Storage account | Storage account |
 > | 445 | Outbound | TCP | Private endpoint / Subnet integrated with Standard logic app | Server Message Block (SMB) File Share |
 > 
