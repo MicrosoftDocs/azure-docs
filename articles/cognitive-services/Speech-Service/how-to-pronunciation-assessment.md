@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 # Use pronunciation assessment
 
-In this article, you'll learn how to use pronunciation assessment through the Speech SDK.
+In this article, you'll learn how to evaluate pronunciation with the Speech-to-Text capability through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you'll apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 ::: zone pivot="programming-language-go"
 > [!NOTE]
