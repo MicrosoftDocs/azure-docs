@@ -12,21 +12,36 @@ This tutorial describes how to get started with your Enterprise IoT monitoring d
 
 Defender for IoT supports the entire breadth of IoT devices in your environment, including everything from corporate printers and cameras, to purpose-built, proprietary, and unique devices.
 
-Integrate with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration) for analytics features that include alerts, vulnerabilities, and recommendations for your enterprise devices.
-
-In this tutorial, you learn how to:
+In this tutorial, you learn about:
 
 > [!div class="checklist"]
-> * Set up a server or Virtual Machine (VM)
-> * Prepare your networking requirements
-> * Set up an Enterprise IoT sensor in the Azure portal
-> * Install the sensor software
-> * Validate your setup
-> * View detected Enterprise IoT devices in the Azure portal
-> * View devices, alerts, vulnerabilities, and recommendations in Defender for Endpoint
+> * Integrating with Microsoft Defender for Endpoint
+> * Prerequisites for Enterprise IoT network monitoring with Defender for IoT
+> * How to prepare a physical appliance or VM as a network sensor
+> * How to onboard an Enterprise IoT sensor and install software
+> * How to validate your setup
+> * How to view detected Enterprise IoT devices in the Azure portal
+> * How to view devices, alerts, vulnerabilities, and recommendations in Defender for Endpoint
 
 > [!IMPORTANT]
 > The **Enterprise IoT network sensor** is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## Microsoft Defender for Endpoint integration
+
+Integrate with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration) to extend your security analytics capabilities, providing complete coverage across your Enterprise IoT devices. Defender for Endpoint analytics features include alerts, vulnerabilities, and recommendations for your enterprise devices.
+
+After onboarding a plan for Enterprise IoT and set up your Enterprise IoT network sensor, your device data integrates automatically with Microsoft Defender for Endpoint.
+
+- Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals.
+- In Defender for Endpoint, view discovered IoT devices and related alerts, vulnerabilities, and recommendations.
+
+For more information, see:
+
+- [Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
+- [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
+- [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
+- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/)
+- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 
 ## Prerequisites
 
@@ -34,21 +49,21 @@ Before starting this tutorial, make sure that you have the following prerequisit
 
 ### Azure subscription prerequisites
 
-- Make sure that you've added a Defender for IoT plan for Enterprise IoT networks to your Azure subscription from the Microsoft Defender for Endpoint portal.
+- Make sure that you've added a Defender for IoT plan for Enterprise IoT networks to your Azure subscription from Microsoft Defender for Endpoint.
 For more information, see [Onboard with Microsoft Defender for IoT](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-- Azure access as a **Security admin**, subscription **Contributor**, or subscription **Owner** user. For more information, see [Permissions](getting-started.md#permissions).
+- Make sure that you can access the Azure portal as a **Security admin**, subscription **Contributor**, or subscription **Owner** user. For more information, see [Required permissions](getting-started.md#permissions).
 
 ### Physical appliance or VM requirements
 
-You must have a physical appliance or a VM to use as your network sensor, with the following specifications:
+You can use a physical appliance or a virtual machine as your network sensor. In either case, make sure that your machine has the following specifications:
 
 | Tier | Requirements |
 |--|--|
 | **Minimum** | To support up to 1 Gbps: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
 | **Recommended** | To support up to 15 Gbps: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
 
-Make sure that your appliance or VM also has:
+Make sure that your physical appliance or VM also has:
 
 - [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
 
@@ -58,34 +73,41 @@ Make sure that your appliance or VM also has:
 
 This procedure describes how to prepare your physical appliance or VM to install the Enterprise IoT network sensor software.
 
+**To prepare your appliance**:
+
 1. Connect a network interface (NIC) from your physical appliance or VM to a switch as follows:
 
     - **Physical appliance** - Connect a monitoring NIC to a SPAN port directly by a copper or fiber cable.
 
-    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For more information, see [(Example) Configure a monitoring interface (SPAN)](#example-configure-a-monitoring-interface-span).
+    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For more information, see [(Example) Configure a monitoring interface (SPAN)](#example-configure-a-span-monitoring-interface).
 
-1. <a name="sign-in"></a>Sign in to your physical appliance or VM, and run the following command to validate incoming traffic to the monitoring port.
+1. <a name="sign-in"></a>Sign in to your physical appliance or VM and run the following command to validate incoming traffic to the monitoring port:
 
     ```bash
     ifconfig
     ```
 
-    The system displays a list of all monitored interfaces. Identify the interfaces that you want to monitor, which are usually the interfaces with no IP address listed. Interfaces with incoming traffic will show an increasing number of RX packets.
+    The system displays a list of all monitored interfaces.
 
-1. For each interface you want to monitor, run the following command to enable promiscuous mode in the network adapter.
+    Identify the interfaces that you want to monitor, which are usually the interfaces with no IP address listed. Interfaces with incoming traffic will show an increasing number of RX packets.
+
+1. For each interface you want to monitor, run the following command to enable Promiscuous mode in the network adapter:
 
     ```bash
     ifconfig <monitoring port> up promisc
     ```
 
-    where *monitoring port* is an interface you want to monitor. Repeat this step for each interface you want to monitor.
+    Where `<monitoring port>` is an interface you want to monitor. Repeat this step for each interface you want to monitor.
 
 1. Ensure network connectivity by opening the following ports in your firewall:
 
-    - **HTTPS** - 443 TCP, for cloud connection
-    - **DNS** - 53 TCP, for address resolution
+    | Protocol | Transport | In/Out | Port  | Purpose |
+    |--|--|--|--|--|
+    | HTTPS | TCP | In/Out | 443 | Cloud connection |
+    | DNS | TCP/UDP | In/Out | 53 | DNS | Address resolution |
 
-1. Make sure that your server or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
+
+1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
     - **EventHub**: `*.servicebus.windows.net`
     - **Storage**: `*.blob.core.windows.net`
@@ -94,13 +116,13 @@ This procedure describes how to prepare your physical appliance or VM to install
 
     For more information, see [(Optional) Download Azure public IP ranges](#optional-download-azure-public-ip-ranges).
 
-When you're ready continue with [Install the Enterprise IoT monitoring software](#install-the-enterprise-iot-monitoring-software).
+When you're ready, continue with [Register an Enterprise IoT sensor and install sensor software](#register-an-enterprise-iot-sensor-and-install-sensor-software).
 
-### (Example) Configure a monitoring interface (SPAN)
+### (Example) Configure a SPAN monitoring interface
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 
-*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
+*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When Promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, Promiscuous mode is turned off.
 
 This procedure describes an example of how to configure a SPAN port on your vSwitch with ESXi.
 
@@ -131,13 +153,13 @@ You can also download and add the [Azure public IP ranges](https://www.microsoft
 > [!Note]
 > The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
-## Install the Enterprise IoT monitoring software
+## Register an Enterprise IoT sensor and install sensor software
 
-This procedure describes how to download and install Defender for IoT's Enterprise IoT monitoring software on the physical appliance or VM that you're using as your network sensor.
+This procedure describes how to register your Enterprise IoT sensor with Defender for IoT and then install the sensor software on the physical appliance or VM that you're using as your network sensor.
 
 **Prerequisites**: Make sure that you have all [Prerequisites](#prerequisites) satisfied and have completed [Prepare a physical appliance or VM](#prepare-a-physical-appliance-or-vm).
 
-**To install Enterprise IoT monitoring software**
+**To register your Enterprise IoT sensor**:
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Set up Enterprise IoT Security**.
 
@@ -156,6 +178,8 @@ This procedure describes how to download and install Defender for IoT's Enterpri
 
 1. Copy the command to a safe location, where you'll be able to copy it to your sensor, either using your physical appliance or VM.
 
+**To install Enterprise IoT sensor software**:
+
 1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm, and run the command that you'd saved from the Azure portal. For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/enter-command.png" alt-text="Screenshot of running the command to install the Enterprise IoT sensor monitoring software.":::
@@ -170,13 +194,15 @@ This procedure describes how to download and install Defender for IoT's Enterpri
 
     :::image type="content" source="media/tutorial-get-started-eiot/install-monitored-interface.png" alt-text="Screenshot of the Configuring microsoft-eiot-sensor screen.":::
 
-1. In the **Set up proxy server?** screen, select whether to set up a proxy server for your sensor (**Yes** / **No**). For example:
+1. In the **Set up proxy server?** screen, select whether to set up a proxy server for your sensor. For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/proxy.png" alt-text="Screenshot of the Set up a proxy server? screen.":::
 
     If you're setting up a proxy server, select **Yes**, and then define the proxy server host, port, username, and password, selecting **Ok** after each option.
 
 The installation takes a few minutes to complete.
+
+<!--tbd installation complete image-->
 
 ## Validate your setup
 
@@ -201,7 +227,7 @@ Wait 1 minute after your sensor installation has completed before starting to va
 
     For example:
 
-    :::image type="content" source="media/tutorial-get-started-eiot/validate-setup.png" alt-text="Screenshot of the validated containers listed.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/validate-setup.png" alt-text="Screenshot of the validated containers listed." lightbox="media/tutorial-get-started-eiot/validate-setup.png":::
 
 1. Check your port validation to see which interface is defined to handle port mirroring. Run:
 
@@ -219,36 +245,18 @@ Wait 1 minute after your sensor installation has completed before starting to va
 
     Check the results to ensure that packets are being sent as expected.
 
+<!--for example?-->
+
 ## View detected Enterprise IoT devices in Azure
 
 Once you've validated your setup, the **Device inventory** page will start to populate with all of your devices after 15 minutes.
 
-- View your devices and network information in the Defender for IoT **Device inventory** page on the Azure portal.
+- View your devices and network information in the Defender for IoT **Device inventory** page on the Azure portal. For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
 
-    To view your device inventory, go to **Defender for IoT** > **Device inventory**.
-
-- You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**.
-
-For more information, see:
-
-- [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md)
-- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**. For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
 > [!TIP]
 > If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
-
-## Microsoft Defender for Endpoint integration
-
-Once you’ve onboarded a plan and set up your sensor, your device data integrates automatically with Microsoft Defender for Endpoint. Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals. Use this integration to extend security analytics capabilities for your Enterprise IoT devices and providing complete coverage.
-
-In Defender for Endpoint, you can view discovered IoT devices and related alerts, vulnerabilities, and recommendations. For more information, see:
-
-- [Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
-- [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
-- [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
-- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/)
-- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
-
 
 ## Remove an Enterprise IoT network sensor (optional)
 
@@ -260,9 +268,11 @@ Remove a sensor if it's no longer in use with Defender for IoT.
 sudo apt purge -y microsoft-eiot-sensor
 ```
 
+If you want to cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
 ## Next steps
 
 For more information, see:
 
+[Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration?view=o365-worldwide)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
