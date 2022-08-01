@@ -215,7 +215,7 @@ items:
   - name: Azure Monitor Metrics
     items:
     - name: Overview
-      displayname: Metrics, Azure Monitor Metrics
+      displayName: Metrics, Azure Monitor Metrics
       href: essentials/data-platform-metrics.md
     - name: Metrics explorer
       items:
@@ -423,14 +423,14 @@ items:
   - name: Data collection
     items:
     - name: Overview
-      displayname: data collection, data collection rules
+      displayName: data collection, data collection rules
       href: essentials/data-collection.md
     - name: Data sources
       href: data-sources.md
     - name: Data collection rules
       items:
       - name: Overview
-        displayname: Data collection rules
+        displayName: Data collection rules
         href: essentials/data-collection-rule-overview.md
       - name: Edit
         displayName: Data collection rules
@@ -443,10 +443,10 @@ items:
     - name: Transformations
       items:
       - name: Overview
-        displayname: Transformations
+        displayName: Transformations
         href: essentials/data-collection-transformations.md
       - name: Structure
-        displayname: Transformations
+        displayName: Transformations
         href: essentials/data-collection-transformations-structure.md
       - name: Tutorial (portal)
         href: logs/tutorial-workspace-transformations-portal.md
@@ -464,9 +464,9 @@ items:
       href: logs/data-collection-troubleshoot.md
   - name: Agents
     items:
-    - name: Azure Monitor Agent
+    - name: Azure Monitor Agent overview
       href: agents/agents-overview.md
-    - name: Installation options
+    - name: Install Azure Monitor Agent
       displayName: Azure Monitor agent
       items:
       - name: Using extension
