@@ -63,7 +63,7 @@ With temporal tags that are provided in a viseme event, these well-designed SVGs
 
 ## 3D blendshapes animation
 
-For 3D characters, you can design a character that suits your scenario and use blendshapes to drive the facial movement of your character.
+You can use blend shapes to drive the facial movements of a 3D character that you designed.
 
 The blendshapes is two dimension D matrix, and each row represents a blendshapes facial status of a frame (in 60 Hz).
 
