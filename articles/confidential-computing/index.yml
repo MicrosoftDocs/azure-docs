@@ -92,6 +92,8 @@ landingContent:
           url: confidential-containers.md
         - text: App enclave nodes in AKS
           url: confidential-nodes-aks-overview.md
+        - text: Confidential VM node pool in AKS
+          url: confidential-node-pool-aks.md
       - linkListType: quickstart
         links:
           - text: CLI based provisioning with a hello from enclave container app on AKS
