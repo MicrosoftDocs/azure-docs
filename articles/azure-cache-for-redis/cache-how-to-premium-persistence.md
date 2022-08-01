@@ -26,11 +26,9 @@ To generate backup of data that can be added to a new cache, you can write autom
 > [!NOTE]
 > Persistence features are intended to be used to restore data to the same cache after data loss.
 >
-> RDB/AOF persisted data files cannot be imported to a new cache.
->
-> Use the Import/Export feature to move data across caches.
->
-> Write automated scripts using PowerShell or CLI to create a backup of data that can be added to a new cache.
+> - RDB/AOF persisted data files cannot be imported to a new cache.
+> - Use the Import/Export feature to move data across caches.
+> - Write automated scripts using PowerShell or CLI to create a backup of data that can be added to a new cache.
 
 Persistence writes Redis data into an Azure Storage account that you own and manage. You configure the **New Azure Cache for Redis** on the left during cache creation. For existing premium caches, use the **Resource menu**.
 
