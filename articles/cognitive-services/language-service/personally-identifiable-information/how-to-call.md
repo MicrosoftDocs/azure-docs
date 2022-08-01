@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 07/27/2022
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
 ---
@@ -16,7 +16,7 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 # How to detect and redact Personally Identifying Information (PII)
 
-The PII feature can evaluate unstructured text, extract extract sensitive information (PII) and health information (PHI) in text across several pre-defined categories.
+The PII feature can evaluate unstructured text, extract sensitive information (PII) and health information (PHI) in text across several pre-defined categories.
 
 ## Determine how to process the data (optional)
 
@@ -43,7 +43,7 @@ The API will attempt to detect the [defined entity categories](concepts/entity-c
 
 ## Getting PII results
 
-When you get results from PII detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/entity-categories.md), including their categories and sub-categories, and confidence scores. The text string with the PII entities redacted will also be returned.
+When you get results from PII detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/entity-categories.md), including their categories and subcategories, and confidence scores. The text string with the PII entities redacted will also be returned.
 
 ## Service and data limits
 

@@ -200,7 +200,7 @@ The copy operation is synchronous so when the command returns, it indicates that
 
 #### Rehydrate from a secondary region
 
-If you've configured your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS), then you can copy an archived blob that is located in a secondary region to an online tier in a different storage account that is located in that same secondary region. 
+If you've configured your storage account to use read-access geo-redundant storage (RA-GRS), then you can copy an archived blob that is located in a secondary region to an online tier in a different storage account that is located in that same secondary region. 
 
 To rehydrate from a secondary region, use the same guidance that is presented in the previous section ([Rehydrate a blob to a different storage account in the same region](#rehydrate-a-blob-to-a-different-storage-account-in-the-same-region). Append the suffix `–secondary` to the account name of the source endpoint. For example, if your primary endpoint for Blob storage is `myaccount.blob.core.windows.net`, then the secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The account access keys for your storage account are the same for both the primary and secondary endpoints.
 

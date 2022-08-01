@@ -22,7 +22,7 @@ This is the basic template format:
 ```json
 {
   "type": "Microsoft.VirtualMachineImages/imageTemplates",
-  "apiVersion": "2021-10-01",
+  "apiVersion": "2022-02-14",
   "location": "<region>",
   "tags": {
     "<name>": "<value>",
@@ -56,11 +56,11 @@ This is the basic template format:
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2021-10-01"` for now.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2022-02-14"` for now.
 
 ```json
 "type": "Microsoft.VirtualMachineImages/imageTemplates",
-"apiVersion": "2021-10-01",
+"apiVersion": "2022-02-14",
 ```
 
 ## Location
@@ -104,9 +104,19 @@ The location is the region where the custom image will be created. The following
 
 Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name FairfaxPublicPreview
+```
+
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
 ```
+
+---
 
 ```json
 "location": "<region>",
@@ -243,7 +253,7 @@ If Image Builder did not create the staging resource group, but it did create re
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Compute Gallery (SIG) or managed image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a managed image from the VHD, and inject it into the SIG as a Gen2 image.
+The `source` section contains information about the source image that will be used by Image Builder.
 
 The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 

@@ -1169,6 +1169,8 @@ The Intent Recognizer Pattern Matcher supports the following locales:
 | Locale                            | Locale (BCP-47) |
 |-----------------------------------|-----------------|
 | English (United States)           | `en-US`         |
+| Chinese (Cantonese, Traditional)  | `zh-HK`         |
+| Chinese (Mandarin, Simplified)    | `zh-CN`         |
 
 ## Next steps
 
