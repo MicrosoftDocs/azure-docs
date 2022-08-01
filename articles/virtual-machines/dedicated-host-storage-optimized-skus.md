@@ -71,4 +71,4 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There's a sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There's a sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.

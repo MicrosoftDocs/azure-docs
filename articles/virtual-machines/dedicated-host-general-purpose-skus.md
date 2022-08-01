@@ -22,7 +22,7 @@ The sizes and hardware types available for dedicated hosts vary by region. Refer
 ## Dadsv5
 ### Dadsv5-Type1
 
-The Dadsv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dadsv5-Type1 runs [Dadsv5-series](dasv5-dadsv5-series.md#dadsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+The Dadsv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dadsv5-Type1 runs [Dadsv5-series](dasv5-dadsv5-series.md#dadsv5-series) VMs. Refer to the VM size documentation to better understand specific VM performance information.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dadsv5-Type1 host.
 
@@ -41,7 +41,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Dasv5
 ### Dasv5-Type1
 
-The Dasv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dasv5-Type1 runs [Dasv5-series](dasv5-dadsv5-series.md#dasv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+The Dasv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dasv5-Type1 runs [Dasv5-series](dasv5-dadsv5-series.md#dasv5-series) VMs. Refer to the VM size documentation to better understand specific VM performance information.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dasv5-Type1 host.
 
@@ -58,7 +58,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ## Dasv4
 ### Dasv4-Type1
-The Dasv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Dasv4-Type1 runs [Dasv4-series](dav4-dasv4-series.md#dasv4-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+The Dasv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Dasv4-Type1 runs [Dasv4-series](dav4-dasv4-series.md#dasv4-series) VMs. Refer to the VM size documentation to better understand specific VM performance information.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dasv4-Type1 host.
 
@@ -79,7 +79,7 @@ You can also mix multiple VM sizes on the Dasv4-Type1. The following are sample 
 - 20 D4asv4 + 8 D2asv4
 
 ### Dasv4-Type2
-The Dasv4-Type2 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dasv4-Type2 runs [Dasv4-series](dav4-dasv4-series.md#dasv4-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+The Dasv4-Type2 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dasv4-Type2 runs [Dasv4-series](dav4-dasv4-series.md#dasv4-series) VMs. Refer to the VM size documentation to better understand specific VM performance information.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dasv4-Type2 host.
 
@@ -144,7 +144,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Ddsv5
 ### Ddsv5-Type1
 
-The Ddsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ddsv5-Type1 runs [Ddsv5-series](ddv5-ddsv5-series.md#ddsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+The Ddsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ddsv5-Type1 runs [Ddsv5-series](ddv5-ddsv5-series.md#ddsv5-series) VMs. Refer to the VM size documentation to better understand specific VM performance information.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Ddsv5-Type1 host.
 
@@ -198,7 +198,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Dsv5
 ### Dsv5-Type1
 
-The Dsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Dsv5-Type1 runs [Dsv5-series](dv5-dsv5-series.md#dsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+The Dsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Dsv5-Type1 runs [Dsv5-series](dv5-dsv5-series.md#dsv5-series) VMs. Refer to the VM size documentation to better understand specific VM performance information.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv5-Type1 host.
 
@@ -341,4 +341,4 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
