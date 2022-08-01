@@ -989,26 +989,26 @@ items:
     - name: Transaction search
       href: app/diagnostic-search.md
     - name: Smart Detection
-      href: app/proactive-diagnostics.md
+      href: alerts/proactive-diagnostics.md
       items:
       - name: Upgrade to alerts
         href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
-        href: app/proactive-failure-diagnostics.md
+        href: alerts/proactive-failure-diagnostics.md
       - name: Performance anomalies
-        href: app/proactive-performance-diagnostics.md
+        href: alerts/proactive-performance-diagnostics.md
       - name: Trace degradation
-        href: app/proactive-trace-severity.md
+        href: alerts/proactive-trace-severity.md
       - name: Exception volume
-        href: app/proactive-exception-volume.md
+        href: alerts/proactive-exception-volume.md
       - name: Memory leak
-        href: app/proactive-potential-memory-leak.md
+        href: alerts/proactive-potential-memory-leak.md
       - name: Security detection
-        href: app/proactive-application-security-detection-pack.md
+        href: alerts/proactive-application-security-detection-pack.md
       - name: Manage smart detection rules
-        href: app/proactive-arm-config.md
+        href: alerts/proactive-arm-config.md
       - name: E-mail notification
-        href: app/proactive-email-notification.md
+        href: alerts/proactive-email-notification.md
     - name: Usage (user behavior analytics)
       items:
       - name: Overview
