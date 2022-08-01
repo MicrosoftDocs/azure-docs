@@ -76,7 +76,7 @@ If Script Action is submitted but there are no changes in the log analytics work
 
 1. Select settings button.
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/ambari_dash_board.png" alt-text="Screenshot showing ambari dash_board":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/ambari_dash_board.png" alt-text="Screenshot showing ambari dash_board.":::
 
 1. You will get your latest script run at the top of the list.
 
