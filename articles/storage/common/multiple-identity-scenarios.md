@@ -111,7 +111,7 @@ The preceding setup can also be used to enable access to Azure resources during 
 
 ### 4) Add the client libraries to your app
 
-Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`.
+Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -121,7 +121,7 @@ dotnet add package Azure.KeyVault.Keys
 
 ### 5) Implement DefaultAzureCredential in your code
 
-At the top of your `Program.cs` file, add the following using statement:
+At the top of your `Program.cs` file, add the following using statements:
 
 ```csharp
 using Azure.Identity;
@@ -129,7 +129,7 @@ using Azure.Storage.Blobs;
 using Azure.Security.KeyVault.Keys;
 ```
 
-In the `Program.cs` file of your project code, retrieve the `Managed_Identity_Client_ID` environment variable. Create an instance of `DefaultAzureCredentialOptions` and assign the client ID you  to the `ManagedIdentityClientId` property. 
+In the `Program.cs` file of your project code, retrieve the `Managed_Identity_Client_ID` environment variable. Create an instance of `DefaultAzureCredentialOptions` and assign the `clientID` to the `ManagedIdentityClientId` property. 
 
 ```csharp
 var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
@@ -151,7 +151,7 @@ var keyVaultClient = new KeyClient(
     new DefaultAzureCredential(credOptions));
 ```
 
-When this application code runs locally, `DefaultAzureCredential` will search down a credential chain to retrieve credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in.
+When this application code runs locally, `DefaultAzureCredential` will search down a credential chain to retrieve credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
 
 When the application is deployed to Azure, `DefaultAzureCredential` will automatically retrieve the `Managed_Identity_Client_ID` variable from the app service environment. That value becomes available when a managed identity is associated with your app.
 
