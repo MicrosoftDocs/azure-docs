@@ -49,23 +49,6 @@ Azure Load Testing requires both inbound and outbound access to the public inter
 |Inbound     | 8080         | AzureLoadTestingInstanceManagement   | Create, update, and delete of Azure Load Testing compute instances. |
 |Outbound     | *        | *        | Used for various operations involved in orchestrating a load tests |
 
-## Prepare your subscription
-
-You first need to register your subscription with the Azure Batch resource provider.
-
-1. Open Windows PowerShell, sign in to Azure, and set the subscription:
-
-    ```azurecli
-    az login
-    az account set --subscription <your-Azure-Subscription-ID>
-    ```
-
-1. Register the Azure Batch resource provider for your subscription:
-
-    ```azurecli
-    az provider register --namespace "Microsoft.Batch" 
-    ```
-
 ## Configure your load test script
 
 The test engines, which run the Apache JMeter script, are attached to the virtual network that contains the application endpoint. To load test the application endpoint, you can refer to it in the JMX file by using the private IP address or [name resolution in your network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
