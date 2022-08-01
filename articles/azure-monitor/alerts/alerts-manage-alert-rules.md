@@ -14,8 +14,11 @@ ms.reviewer: harelbr
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
 1. From the top command bar, select **Alert rules**. You will see all of your alert rules across subscriptions. You can filter the list of rules using the available filters: **Resource group**, **Resource type**, **Resource** and **Signal type**.
 1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
-1. Edit any fields necessary. You can't edit the **Alert Rule Name** of an existing alert rule.
-1. Select **Save** on the top command bar
+1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, **Scope**, or **Signal type** of an existing alert rule.
+    - **Condition**. Learn more about conditions for [metric alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric),  [log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log), and [activity log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=activity-log)
+    - **Actions**
+    - **Alert rule details**
+1. Select **Save** on the top command bar.
 
 > [!NOTE]
 > This section describes how to manage alert rules created in the latest UI or using an API version later than `2018-04-16`. See [View and manage log alert rules created in previous versions](alerts-manage-alerts-previous-version.md) for information about how to view and manage log alert rules created in the previous UI.

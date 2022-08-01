@@ -78,7 +78,9 @@ And then defining these elements for the resulting alert actions using:
 
     1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert.
 
-        You can use the [alert query examples article](../logs/queries.md#query-sidebar) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-query-pane.png" alt-text="Conditions Tab.":::    
+
+        [Get started on writing your own query](../logs/log-analytics-tutorial.md), [learn how to create optimized alert queries](alerts-log-query.md), and [see alert query examples](../logs/queries.md#query-sidebar). 
     1. Select **Run** to run the alert.
     1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
     1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last 5 minutes. If the system detects summarized query results, the rule is automatically updated with that information.
@@ -109,7 +111,8 @@ And then defining these elements for the resulting alert actions using:
 
         |Field  |Description  |
         |---------|---------|
-        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource the target of the alert. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
+        |Resource ID column|Splitting on the **Azure Resource ID** column makes the specified resource the target of the alert. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource. |
+        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.|
         |Operator|The operator used on the dimension name and value.  |
         |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
         |Include all future values| Select this field to include any future values added to the selected dimension.  |
@@ -145,7 +148,7 @@ And then defining these elements for the resulting alert actions using:
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
 
-    ### [Activity log](#tab/activity-log)
+    ### [Activity log alert](#tab/activity-log)
 
     1. In the **Conditions** pane, select the **Chart period**.
     1. The **Preview** chart shows you the results of your selection.
@@ -198,7 +201,7 @@ And then defining these elements for the resulting alert actions using:
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Details tab.":::
 
-    ### [Activity log](#tab/activity-log)
+    ### [Activity log alert](#tab/activity-log)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
