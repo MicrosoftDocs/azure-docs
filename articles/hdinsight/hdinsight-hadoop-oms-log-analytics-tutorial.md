@@ -305,7 +305,7 @@ Once the setup is successful, enabling necessary endpoints for data ingestion is
 
 ## Install HDInsight cluster management solutions
 
-HDInsight provides cluster-specific management solutions that you can add for Azure Monitor logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
+HDInsight provides cluster-specific management solutions that you can add for Azure Monitor Logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor Logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
 
 Available HDInsight solutions:
 
