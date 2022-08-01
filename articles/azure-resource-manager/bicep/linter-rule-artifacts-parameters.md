@@ -14,7 +14,7 @@ This rule verifies the artifacts parameters are defined correctly. The following
 - If `_artifactsLocation` has a default value, it must be either `'[deployment().properties.templateLink.uri]'` or a raw URL for its default value.
 - `_artifactsLocationSasToken` must be a secure string.
 - If `_artifactsLocationSasToken` has a default value, it must be an empty string
-- When referencing a module, if that module has an `_artifactsLocation` or `_artifactsLocationSasToken` parameter, a value must be passed in for those parameters, even if they have default values in the module.
+- If referenced module has an `_artifactsLocation` or `_artifactsLocationSasToken` parameter, a value must be passed in for those parameters, even if they have default values in the module.
 
 ## Linter rule code
 
