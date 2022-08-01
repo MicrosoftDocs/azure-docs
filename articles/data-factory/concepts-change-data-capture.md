@@ -28,26 +28,17 @@ When performing data integration and ETL processes, your jobs can often perform 
 
 | Connector   | Full CDC | Incremental CDC | Incremental pipeline pattern |
 | :-------------------- | :--------------------------- | :--------------------------------- | :--------------------------- |
-| [Azure Blob Storage](connector-azure-blob-storage.md) | &nbsp;    | ✓    | &nbsp;     |   
-| [Azure Cosmos DB (SQL API)](../connector-azure-cosmos-db.md) | &nbsp; | ✓ | @nbsp; |
 | [ADLS Gen1](load-azure-data-lake-store.md) | &nbsp; | ✓    | &nbsp;     |
 | [ADLS Gen2](load-azure-data-lake-storage-gen2.md) | &nbsp; | ✓    | &nbsp;     |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | &nbsp;    | ✓    | &nbsp;     |   
+| [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md) | &nbsp; | ✓ | @nbsp; |
+| [Azure Database for MySQL](connector-azure-database-for-mysql.md) | &nbsp; | ✓ | @nbsp; |
+| [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md) | &nbsp; | ✓ | @nbsp; |
+| [Azure SQL Database](connector-azure-sql-database.md) | &nbsp; | ✓ | @nbsp; |
+| [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md) | &nbsp; | ✓ | @nbsp; |
+| [Common data model](format-common-data-model.md) | &nbsp; | ✓    | &nbsp;     |
 
-
-Native connectors:
-SAP CDC connectors
-SQL connectors (MDF connectors watermark, CDC coming soon)
-Blob store/ADLS
-Cosmos DB
-PostgresSQL
-MySQL
-CDM
-
-ADF handles the checkpoint automatically for you
-
-Add a section on how to reset and manage pipelines with change data
-
-
+The "Full CDC" and "Incremental CDC" features are available in ADF and Synapse data flows. In each of those options, ADF handles the checkpoint automatically for you. You can turn on the change data capture in the data flow source and reset the checkpoint in the data flow activity.
 
 ## Next steps
 
