@@ -35,6 +35,9 @@ The appliance can be deployed using a couple of methods:
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 - Download links are available in the tables below.
 
+> [!Note]
+> Do not Install on the Appliance VM the **Microsoft Monitoring Agent** (MMA). In you install the MMA agent you can face with problem like this "**Multiple custom attributes of the same type found**". The correct approach is to have a dedicated clean VM for this role followuing the prerequisites.
+
 ## Appliance services
 
 The appliance has the following services:
