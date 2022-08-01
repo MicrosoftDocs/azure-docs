@@ -26,71 +26,6 @@ You'll need certain permission levels to follow the steps in this article. If yo
 * To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
 * To add users to your workspace, you must be an **Owner** of the workspace.
 
-## Add custom role
-
-To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md).
-
-1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
-1. Open the menu on the top right and select **View all properties in Azure Portal**.  You'll use Azure portal for all the rest of the steps in this article.
-1. Select the **Subscription** link in the middle of the page.
-1. On the left, select **Access control (IAM)**.
-1. At the top, select **+ Add > Add custom role**.
-1. For the **Custom role name**, type **Labeler**.
-1. In the **Description** box, add **Labeler access for data labeling projects**.
-1. Select **Start from JSON**.
-1. At the bottom of the page, select **Next**.
-1. Don't do anything for the **Permissions** tab, you'll add permissions in a later step.  Select **Next**.
-1. The **Assignable scopes** tab shows your subscription information.  Select **Next**.
-1. In the **JSON** tab, above the edit box, select **Edit**.
-1. Select lines starting with **"actions:"** and **"notActions:"**.
-
-    :::image type="content" source="media/how-to-add-users/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
-
-1. Replace these two lines with:
-    
-    ```json
-                        "actions": [
-                            "Microsoft.MachineLearningServices/workspaces/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
-                        ],
-                        "notActions": [        
-                        ],
-    ```
-
-1. Select **Save** at the top of the edit box to save your changes.
-
-    > [!IMPORTANT]
-    > Don't select **Next** until you've saved your edits.
-
-1. After you save your edits, select **Next**.
-1. Select **Create** to create the custom role.
-1. Select **OK**.
-
-### Labeling team lead
-
-You may want to create a second role for a labeling team lead.  A labeling team lead can reject the labeled dataset and view labeling insights. In addition, this role also allows you to perform the role of a labeler. 
-
-To add this custom role, repeat the above steps. Use the name **Labeling Team Lead** and replace the two lines with:
-
-```json
-                "actions": [
-                    "Microsoft.MachineLearningServices/workspaces/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
-                ],
-                "notActions": [
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
-                ],
-```
-
 ## Add guest user
 
 If your labelers are outside of your organization, you'll now add them so that they can access your workspace.  If labelers are already inside your organization, skip this step.  
@@ -114,6 +49,20 @@ Repeat for each of your labelers.  Or use the link at the bottom of the **Invite
 
 > [!TIP]
 > Inform your labelers that they'll be receiving this email.  They need to accept the invitation in order to gain access to your project.
+
+## Add custom role
+
+Azure role-based access controls are used to grant access to data and operations in Azure Machine Learning. You can create custom roles that restrict a labeler to only being able to label the data. You can also create additional custom roles, such as one that can review labeled data.
+
+To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).. If you do not have this level of permissions, contact your administrator and have them create the custom roles for you.
+
+The following example custom roles are provided in the [Manage roles in your workspace](how-to-assign-roles.md#data-labeling) article:
+
+- Data labeler
+- Labeling team lead
+- Vendor account manager
+
+For more information on how to create custom roles, see [Custom roles](how-to-assign-roles.md#create-custom-role).
 
 ## Add users to your workspace
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: johwu
 author: johnwu0604
-ms.date: 03/23/2022
+ms.date: 08/01/2022
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022
 ---
 
@@ -428,8 +428,9 @@ The workspace admin also cannot create a new role. It can only assign existing b
 }
 ```
 
-<a name="labeler"></a>
-### Data labeler
+### Data labeling
+
+# [Data labeler](#tabs/labeler)
 
 Allows you to define a role scoped only to labeling data:
 
@@ -454,7 +455,7 @@ Allows you to define a role scoped only to labeling data:
 }
 ```
 
-### Labeling Team Lead
+# [Labeling team lead](#tabs/team-lead)
 
 Allows you to review and reject the labeled dataset and view labeling insights. In addition to it, this role also allows you to perform the role of a labeler.
 
@@ -490,6 +491,106 @@ Allows you to review and reject the labeled dataset and view labeling insights. 
 }
 ```
 
+# [Customer QA](#tabs/customer-qa)
+
+A customer quality assurance role can view project dashboards, preview datasets, export a labeling project, and review submitted labels. This role can't submit labels.
+
+`customer_qa_role.json`:
+```json
+{
+    "properties": {
+        "roleName": "Customer QA",
+        "description": "Customer QA for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read", 
+                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
+                    "Microsoft.MachineLearningServices/workspaces/datasets/registered/read”,
+                ],
+                "notActions": [
+                ]
+            }
+        ]
+    }
+}
+```
+
+# [Vendor account manager](#tabs/vendor-admin)
+
+A vendor account manager can help manage all the vendor roles and perform any labeling action. They cannot modify projects or view MLAssist experiments.
+
+`Vendor_admin_role.json`:
+```json
+{
+    "properties": {
+        "roleName": "Vendor account admin",
+        "description": "Vendor account admin for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read", 
+                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
+                    "Microsoft.MachineLearningServices/workspaces/datasets/registered/read
+                ],
+                "notActions": [
+                ]
+            }
+        ]
+    }
+}
+```
+
+# [Vendor QA](#tabs/vendor-qa)
+
+A vendor quality assurance role can perform a a customer quality assurance role, but cannot preview the dataset.
+
+`vendor_qa_role.json`:
+```json
+{
+    "properties": {
+        "roleName": "Vendor QA",
+        "description": "Vendor QA for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read", 
+                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+                "notActions": [
+                ]
+            }
+        ]
+    }
+}
+```
+
+---
 ## Troubleshooting
 
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
