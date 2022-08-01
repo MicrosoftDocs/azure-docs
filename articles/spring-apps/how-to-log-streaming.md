@@ -3,7 +3,7 @@ title:  Stream Azure Spring Apps app logs in real-time
 description: How to use log streaming to view application logs instantly
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
