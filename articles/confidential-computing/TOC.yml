@@ -112,7 +112,7 @@
     - name: Confidential node pools on AKS
       items: 
       - name: Confidential node pools on AKS (preview)
-        href: confidential-node-pool-in-aks.md
+        href: confidential-node-pool-aks.md
 - name: How To
   expanded: true
   items:
