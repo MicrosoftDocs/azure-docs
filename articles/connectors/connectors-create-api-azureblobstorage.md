@@ -293,7 +293,7 @@ You can add network security to an Azure storage account by [restricting access 
 
 - To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption, Standard, and ISE-based logic apps, review the following documentation:
 
-  - [Access storage accounts in same region with system managed identities](#access-blob-storage-in-same-region-with-system-managed-identities)
+  - [Access storage accounts in same region with system-managed identities](#access-blob-storage-in-same-region-with-system--managed-identities)
 
   - [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
 
