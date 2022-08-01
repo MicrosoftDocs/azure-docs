@@ -7,7 +7,7 @@ ms.date: 08/01/2022
 
 # Linter rule - artifacts parameters
 
-This rule verifies the artifacts parameters are defined correctly. The following conditions must be met to pass the test:
+This rule verifies whether the artifacts parameters are defined correctly. The following conditions must be met to pass the test:
 
 - If you provide one parameter (either `_artifactsLocation` or `_artifactsLocationSasToken`), you must provide the other.
 - `_artifactsLocation` must be a string.
