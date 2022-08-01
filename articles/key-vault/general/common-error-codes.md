@@ -2,7 +2,7 @@
 title: Common error codes for Azure Key Vault | Microsoft Docs
 description: Common error codes for Azure Key Vault
 services: key-vault
-author: sebansal
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
