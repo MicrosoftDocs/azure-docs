@@ -166,6 +166,7 @@ Install IoT Edge for Linux on Windows on your target device.
          ```powershell
          $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
          $ProgressPreference = 'SilentlyContinue'
+         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
          Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
          ```
 

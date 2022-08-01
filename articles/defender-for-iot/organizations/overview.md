@@ -24,7 +24,7 @@ Many legacy IoT and OT devices don't support agents, and can therefore remain un
 
 Traditional network security monitoring tools may lack understanding of networks containing specialized protocols, devices, and relevant machine-to-machine (M2M) behaviors. Agentless monitoring in Defender for IoT provides visibility and security into those networks.
 
-- **Discover IoT/OT devices** in your network, their details, and how they communicate. Gather data from network sensors, Microsoft Defender for end-point, and third-party sources.
+- **Discover IoT/OT devices** in your network, their details, and how they communicate. Gather data from network sensors, Microsoft Defender for Endpoint, and third-party sources.
 
 - **Assess risks and manage vulnerabilities** using machine learning, threat intelligence, and behavioral analytics. For example:
 
