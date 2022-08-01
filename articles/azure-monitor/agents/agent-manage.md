@@ -1,12 +1,11 @@
 ---
-title: Azure Monitor agent overview
-description: Overview of the Azure Monitor agent, which collects monitoring data from the guest operating system of virtual machines.
+title: Managing the Azure Log Analytics agent 
+description: This article describes the different management tasks that you will typically perform during the lifecycle of the Log Analytics Windows or Linux agent deployed on a machine.
 ms.topic: conceptual
-author: guywild
-ms.author: guywild
-ms.date: 7/21/2022
-ms.reviewer: shseth
-
+author: bwren
+ms.author: bwren
+ms.date: 04/06/2022
+ms.reviewer: luki
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux

@@ -196,7 +196,7 @@ To configure the agent to use private links for network communications with Azur
 
 ## Summary of agents
 
-The following tables provide a quick comparison of the telemetry agents for Windows and Linux. More information on each agent is provided in the following sections.
+The tables below provide a quick comparison of the telemetry agents for Windows and Linux. 
 
 ### Windows agents
 
