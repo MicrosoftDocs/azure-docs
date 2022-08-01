@@ -354,6 +354,6 @@ If you have Azure Monitor Integration enabled on a cluster, updating the OMS age
 ```
 
 ## Next steps
-
+* [Selective logging analysis](selective-logging-analysis.md)
 * [Query Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [How to monitor cluster availability with Apache Ambari and Azure Monitor logs](./hdinsight-cluster-availability.md)
