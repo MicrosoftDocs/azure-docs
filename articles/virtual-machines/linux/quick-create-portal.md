@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 03/29/2022
+ms.date: 08/01/2022
 ms.author: cynthn
 ms.custom: mvc, mode-ui
 ---
@@ -72,12 +72,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Create an SSH connection with the VM.
 
-1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt. 
+1. If you are on a Mac or Linux machine, open a Bash prompt and set read-only permission on the .pem file using `chmod 400 ~/Downloads/myKey.pem`. If you are on a Windows machine, open a PowerShell prompt. 
 
 1. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
 ```console
-ssh -i .\Downloads\myKey.pem azureuser@10.111.12.123
+ssh -i ~/Downloads/myKey.pem azureuser@10.111.12.123
 ```
 
 > [!TIP]
