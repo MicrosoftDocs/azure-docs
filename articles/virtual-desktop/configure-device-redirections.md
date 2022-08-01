@@ -3,7 +3,7 @@ title: Configure device redirections - Azure
 description: How to configure device redirections for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 08/01/2022
 ms.author: helohr
 manager: femila
 ---
@@ -102,6 +102,15 @@ Set the following RDP property to configure local drive redirection:
 You can also select specific drives using a semicolon-delimited list, such as `drivestoredirect:s:C:;E:;`.
 
 To enable web client file transfer, set `drivestoredirect:s:*`. If you set any other value for this RDP property, web client file transfer will be disabled.
+
+### Location redirection
+
+Set the following RDP property to configure location redirection:
+
+- `redirectlocation:i:1` enables location redirection.
+- `redirectlocation:i:0` disables location redirection.
+
+When enabled, the location of the local device is sent to the session host and set as it's location. This enables applications like maps or printer search to use your physical location. When disabled, these applications will use the location of the session host instead.
 
 ### Printer redirection
 
