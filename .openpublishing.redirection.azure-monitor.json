@@ -347,6 +347,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-cloud-services.md" ,
+            "redirect_url": "https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/vm/vminsights-log-search.md" ,
             "redirect_url": "/azure/azure-monitor/alerts/vminsights-log-query",
             "redirect_document_id": false
@@ -414,6 +419,21 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/cosmosdb-insights-overview.md" ,
             "redirect_url": "/azure/cosmos-db/cosmosdb-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-insights-overview.md" ,
+            "redirect_url": "/azure/network-watcher/network-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/key-vault-insights-overview.md" ,
+            "redirect_url": "/azure/key-vault/key-vault-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/cloudservices.md" ,
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net-core",
             "redirect_document_id": false
         }
     ]

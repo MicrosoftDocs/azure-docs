@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 07/28/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -249,9 +249,8 @@ An indexer creates, uses, and remembers the container used for the cached enrich
 
 ```json
 "cache": {
-  "id": "{object-id}",
   "enableReprocessing": true,
-  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};"
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
 },
 ```
 

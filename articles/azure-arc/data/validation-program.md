@@ -92,7 +92,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-|WindRiver| v1.22.5|v1.1.0_2021-11-02 |15.0.2195.191|postgres 12.3 (Ubuntu 12.3-1) |
+|WindRiver| v1.23.1|v1.9.0_2022-07-12 |16.0.312.4243|postgres 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process
 

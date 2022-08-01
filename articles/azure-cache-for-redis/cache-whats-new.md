@@ -5,11 +5,35 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 04/22/2022
+ms.date: 07/27/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## July 2022
+
+### Redis 6 becomes default for new cache instances
+
+On November 1, 2022, all the versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
+
+>[!NOTE]
+> This change does not affect any existing instances. It is only applicable to new instances created from November 1, 2022, and onward.
+>
+> The default Redis version that is used when creating a cache instance can vary because it is  based on the latest stable version offered in Azure Cache for Redis.
+
+If you need a specific version of Redis for your application, we recommend using latest artifact versions as shown in the table below. Then, choose the Redis version explicitly when you create the cache.
+
+| Artifact | Version that  supports specifying Redis version  |
+|---------|---------|
+| REST API              | 2020-06-01 and newer |
+| PowerShell            | 6.3.0 and newer |
+| Azure CLI             | 2.27.0 and newer |
+| Azure SDK for .NET  | 7.0.0 and newer |
+| Azure SDK for Python | 13.0.0 and newer |
+| Azure SDK  for Java  | 2.2.0 and newer |
+| Azure SDK for JavaScript| 6.0.0 and newer |
+| Azure SDK for Go    | v49.1.0 and newer |
 
 ## April 2022
 
@@ -20,7 +44,7 @@ These two new metrics can help identify whether Azure Cache for Redis clients ar
 - Connections Created Per Second
 - Connections Closed Per Second
 
-For more information, see [View cache metrics ](cache-how-to-monitor.md#view-cache-metrics).
+For more information, see [View cache metrics](cache-how-to-monitor.md#view-cache-metrics).
 
 ### Default cache change
 

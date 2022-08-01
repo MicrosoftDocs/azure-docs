@@ -71,7 +71,7 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Add Teams video calling to your client app
+    - name: Add video calling as Teams user to your client app
       href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -83,6 +83,12 @@ items:
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
+  - name: Rooms
+    items:
+      - name: Create and manage a room resource
+        href: quickstarts/rooms/get-started-rooms.md  
+      - name: Join a room call
+        href: quickstarts/rooms/join-rooms-call.md
   - name: UI Library
     items:
     - name: Get started with UI Library
@@ -159,6 +165,8 @@ items:
         href: concepts/telephony/direct-routing-provisioning.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
+      - name: Inbound telephony calling capabilities
+        href: concepts/telephony/inbound-calling-capabilities.md
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -236,9 +244,21 @@ items:
     items:
       - name: Overview
         href: concepts/teams-interop.md
-      - name: Join a Teams meeting
-        href: concepts/join-teams-meeting.md
-      - name: Communication for Teams identities
+      - name: Communication as Teams guest
+        items:        
+          - name: Overview
+            href: concepts/join-teams-meeting.md
+          - name: Capabilities
+            href: concepts/interop/guest/capabilities.md
+          - name: Teams client experience
+            href: concepts/interop/guest/teams-client-experience.md
+          - name: Teams controls
+            href: concepts/interop/guest/teams-administration.md
+          - name: User privacy
+            href: concepts/interop/guest/privacy.md
+          - name: Known issues
+            href: concepts/interop/guest/limitations.md            
+      - name: Communication as Teams user
         items:
           - name: Overview
             href: concepts/teams-endpoint.md

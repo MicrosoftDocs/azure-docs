@@ -39,14 +39,16 @@
     href: service-dependencies.md
   - name: Location conditions
     href: location-condition.md
+  - name: Continuous access evaluation
+    href: concept-continuous-access-evaluation.md
   - name: Workload identities
     href: workload-identity.md
+  - name: CAE for workload identities
+    href: concept-continuous-access-evaluation-workload.md
   - name: Filter for devices
     href: concept-condition-filters-for-devices.md
   - name: What if tool
     href: what-if-tool.md
-  - name: Continuous access evaluation
-    href: concept-continuous-access-evaluation.md
 - name: How-to guides
   expanded: true
   items:
