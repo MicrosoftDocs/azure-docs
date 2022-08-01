@@ -7,7 +7,7 @@ ms.service: playwright-testing
 ms.topic: how-to
 ms.author: nicktrog
 author: ntrogh
-ms.date: 06/30/2022
+ms.date: 08/01/2022
 ---
 
 # Test private endpoints with Microsoft Playwright Testing Preview
@@ -16,7 +16,7 @@ Learn how to configure Microsoft Playwright Testing Preview to test application 
 
 This functionality enables the following usage scenarios:
 
-* Test an on-premise application that isn't publicly accessible.
+* Test an on-premises application that isn't publicly accessible.
 * Test an application that is publicly accessible with access restrictions, such as client IP addresses.
 * Test an application that is hosted on a development server, on localhost.
 
