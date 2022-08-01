@@ -358,7 +358,7 @@ To learn more, see [Dependency management](functions-reference-powershell.md#dep
 
 ## PIP\_INDEX\_URL
 
-The value for this setting allows customer to override the base URL of the Python Package Index (default https://pypi.org/simple). Use this setting when you need to run a remote build using custom dependencies that are found in package index repository compliant with PEP 503 (the simple repository API) or a local directory laid out in the same format.
+This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies that are found in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
 
 |Key|Sample value|
 |---|------------|
