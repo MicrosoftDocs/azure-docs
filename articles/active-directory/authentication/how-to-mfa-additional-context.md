@@ -421,13 +421,13 @@ To enable application name or geographic location in the Azure AD portal, comple
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-geolocation.png" alt-text="Screenshot of how to enable geographic location.":::
 
-   For example, the following policy enables application name and geographic location for all users but excludes the Operations group from seeing geographic location. 
+   You can configure application name and geographic location separately. For example, the following policy enables application name and geographic location for all users but excludes the Operations group from seeing geographic location. 
 
    :::image type="content" border="true" source="./media/how-to-mfa-additional-context/exclude.png" alt-text="Screenshot of how to enable application name and geographic location separately.":::
 
 ## Known issues
 
-Additional context is not supported for Network Policy Server (NPS). 
+Additional context is not supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
 
 ## Next steps
 
