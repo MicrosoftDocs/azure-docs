@@ -25,7 +25,7 @@ These are the data sources from which the UEBA engine collects and analyzes data
 
 ## UEBA enrichments
 
-This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
+This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](entity-pages.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
 
 - The **BehaviorAnalytics** table is where UEBA's output information is stored.
 
