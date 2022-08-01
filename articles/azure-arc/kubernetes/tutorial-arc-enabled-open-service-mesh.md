@@ -60,7 +60,7 @@ export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
 
-If you are using an  cluster, skip to the OpenShift installation steps [below](#install-osm-on-an-openshift-cluster).
+If you are using an OpenShift cluster, skip to the OpenShift installation steps [below](#install-osm-on-an-openshift-cluster).
 
 Create the extension:
 > [!NOTE]
