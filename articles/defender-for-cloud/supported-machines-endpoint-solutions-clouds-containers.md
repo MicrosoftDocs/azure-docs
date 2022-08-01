@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 07/31/2022
+ms.date: 08/01/2022
 ms.custom: references_regions
 ---
 
@@ -16,7 +16,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
-| Compliance | Docker CIS | VM, VMSS | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Compliance | Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment <sup>[2](#footnote2)</sup> | Registry scan - OS packages | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment <sup>[3](#footnote3)</sup> | Registry scan - language specific packages | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds |
 | Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | Preview | Defender profile | Defender for Containers | Commercial clouds |
