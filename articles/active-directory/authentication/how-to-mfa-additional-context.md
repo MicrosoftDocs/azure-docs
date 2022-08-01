@@ -430,7 +430,7 @@ To enable application name or geographic location in the Azure AD portal, comple
 
 ## Known issues
 
-Additional context is not supported for Network Policy Server (NPS). 
+Additional context is not supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
 
 ## Next steps
 
