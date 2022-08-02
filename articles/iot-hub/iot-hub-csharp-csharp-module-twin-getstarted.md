@@ -55,7 +55,7 @@ Here's how to get your module connection string from the Azure portal. Sign in t
 
 1. In **Configure your new project**, name the project *UpdateModuleTwinReportedProperties*, then select **Next**.
 
-    ![Create a Visual Studio project](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png" alt-text="Screenshot that shows the 'Configure your new project' popup.":::
 
 1. Keep the default .NET Framework option and select **Create** to create your project.
 

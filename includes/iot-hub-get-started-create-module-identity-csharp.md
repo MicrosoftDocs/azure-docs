@@ -22,7 +22,7 @@ When you run this console app, it generates a unique ID and key for both device 
 
 1. Select **Next** to open **Configure your new project**. Name the project *CreateIdentities*, then select **Next**. 
 
-    ![Enter name and framework for your Visual Studio solution](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
+   :::image type="content" source="./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png" alt-text="Screenshot that shows the 'Configure your new project' popup with 'CreateIdentities'.":::
 
 1. Keep the default .NET Framework option and select **Create** to create your project.
 
