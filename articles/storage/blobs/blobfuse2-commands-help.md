@@ -44,8 +44,8 @@ You can get help information for any of the specific BlobFuse2 commands. The sup
 | [mount](blobfuse2-commands-mount.md)             | Mounts blob storage containers and displays existing mount points                         |
 | [unmount](blobfuse2-commands-unmount.md)         | Unmounts previously mounted blob storage containers                                       |
 | [mountv1](blobfuse2-commands-mountv1.md)         | Generates a configuration file for BlobFuse2 from a BlobFuse v1 configuration file        |
-| completion   | Generates the autocompletion script for BlobFuse2 for a specified shell                   |
-| secure           | Encrypts, decrypts, or accesses settings in a BlobFuse2 configuration file                |
+| [completion](blobfuse2-commands-completion.md)   | Generates the autocompletion script for BlobFuse2 for a specified shell                   |
+| [secure](blobfuse2-commands-secure.md)           | Encrypts, decrypts, or accesses settings in a BlobFuse2 configuration file                |
 | [version](blobfuse2-commands-version.md)         | Displays the current version of BlobFuse2, and optionally checks for the latest version   |
 
 Select one of the command links in the table above to view the documentation for the individual commands, including the arguments and flags they support.
@@ -76,3 +76,8 @@ Get help for the `blobfuse2 mount` command:
 Get help for the `blobfuse2 secure encrypt` subcommand:
 
 `blobfuse2 help secure encrypt`
+
+## See also
+
+- [What is Blobfuse2?](blobfuse2-what-is.md)
+- [The Blobfuse2 command set](blobfuse2-commands.md)
