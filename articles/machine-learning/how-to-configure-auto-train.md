@@ -132,7 +132,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 
 Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on Azure ML remote compute (cluster or compute instance).
 
-[Learn more about creating compute with the Python SDKv2 (or CLIv2).](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-sdk#2-create-compute).
+[Learn more about creating compute with the Python SDKv2 (or CLIv2).](./how-to-train-sdk.md#2-create-compute).
  
 <a name='configure-experiment'></a>
 
@@ -389,7 +389,7 @@ After you test a model and confirm you want to use it in production, you can reg
 
 ## AutoML in pipelines
 
-To leverage AutoML in your MLOps workflows, you can add AutoML Job steps to your [AzureML Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-component-pipeline-python). This allows you to automate your entire workflow by hooking up your data prep scripts to AutoML and then registering and validating the resulting best model.
+To leverage AutoML in your MLOps workflows, you can add AutoML Job steps to your [AzureML Pipelines](./how-to-create-component-pipeline-python.md). This allows you to automate your entire workflow by hooking up your data prep scripts to AutoML and then registering and validating the resulting best model.
 
 Below is a [sample pipeline](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline) with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
 
