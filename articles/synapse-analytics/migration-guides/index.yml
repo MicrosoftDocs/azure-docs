@@ -69,6 +69,8 @@ landingContent:
             url: netezza/6-microsoft-third-party-migration-tools.md
           - text: 7. Beyond migration implementation 
             url: netezza/7-beyond-data-warehouse-migration.md
+          - text: Cloud adoption framework: Migration solutions
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza
   - title: From Teradata
     linkLists: 
       - linkListType: overview
@@ -87,6 +89,8 @@ landingContent:
             url: teradata/6-microsoft-third-party-migration-tools.md
           - text: 7. Beyond migration implementation 
             url: teradata/7-beyond-data-warehouse-migration.md
+          - text: Cloud adoption framework: Migration solutions
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-teradata            
   - title: From Oracle
     linkLists: 
       - linkListType: overview
@@ -105,3 +109,5 @@ landingContent:
             url: oracle/6-microsoft-third-party-migration-tools.md
           - text: 7. Beyond migration implementation 
             url: oracle/7-beyond-data-warehouse-migration.md
+          - text: Cloud adoption framework: Migration solutions
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata            
