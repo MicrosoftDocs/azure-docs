@@ -39,7 +39,7 @@ To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedul
 
 :::code language="yaml" source="~/azureml-examples-schedule-pup-main/cli/schedules/recurrence-schedule.yml":::
 
-This schedule refer existing pipeline job in workspace. Customer also can refer a pipeline job yaml in local.
+This schedule refer a pipeline job yaml in local. Customer also can refer a existing pipeline job in workspace.
 
 The `trigger` section contains following properties:
 
