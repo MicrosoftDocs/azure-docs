@@ -23,6 +23,9 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 > [!WARNING]
 > AKS Chaos Mesh faults are only supported on Linux node pools.
 
+## Limitations
+- At present Chaos Mesh faults don’t work with private clusters.
+
 ## Set up Chaos Mesh on your AKS cluster
 
 Before you can run Chaos Mesh faults in Chaos Studio, you need to install Chaos Mesh on your AKS cluster.

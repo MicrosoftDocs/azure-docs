@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Issue Azure AD Verifiable Credentials from an application (preview)
+title: Tutorial - Issue Microsoft Entra Verified ID credentials from an application (preview)
 description: In this tutorial, you learn how to issue verifiable credentials by using a sample app.
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.date: 06/16/2022
 ---
 
 
-# Issue Azure AD Verifiable Credentials from an application (preview)
+# Issue Microsoft Entra Verified ID credentials from an application (preview)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
@@ -30,13 +30,13 @@ In this article, you learn how to:
 > - Run the sample application and issue your first verified credential expert card.
 > - Verify your verified credential expert card.
 
-The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
+The following diagram illustrates the Microsoft Entra Verified ID architecture and the component you configure.
 
 ![Diagram that illustrates the Azure A D Verifiable Credentials architecture.](media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png)
 
 ## Prerequisites
 
-- [Set up a tenant for Azure AD Verifiable Credentials](./verifiable-credentials-configure-tenant.md).
+- [Set up a tenant for Microsoft Entra Verified ID](./verifiable-credentials-configure-tenant.md).
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
@@ -47,7 +47,7 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ## Create the verified credential expert card in Azure
 
-In this step, you create the verified credential expert card by using Azure AD Verifiable Credentials. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
+In this step, you create the verified credential expert card by using Microsoft Entra Verified ID. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
 
 1. Using the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then select **Verifiable Credentials (Preview)**.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
@@ -111,13 +111,13 @@ In this step, you create the verified credential expert card by using Azure AD V
             ],
             "required": false
           }
-        ]
-      },
-      "validityInterval": 2592000,
-      "vc": {
-        "type": [
-        "VerifiedCredentialExpert"
-        ]
+        ],
+        "validityInterval": 2592000,
+        "vc": {
+          "type": [
+            "VerifiedCredentialExpert"
+          ]
+        }
       }
     }
     ```
@@ -183,7 +183,7 @@ Now you'll make modifications to the sample app's issuer code to update it with 
 
 1. Under the *active-directory-verifiable-credentials-dotnet-main* folder, open Visual Studio Code, and select the project inside the *1-asp-net-core-api-idtokenhint* folder.
 
-1. Under the project root folder, open the *appsettings.json* file. This file contains information about your Azure AD Verifiable Credentials. Update the following properties with the information that you recorded in earlier steps:
+1. Under the project root folder, open the *appsettings.json* file. This file contains information about your Microsoft Entra Verified ID environment. Update the following properties with the information that you recorded in earlier steps:
 
     1. **Tenant ID:** your tenant ID
     1. **Client ID:** your client ID
@@ -199,7 +199,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
 ```json
 {
   "AppSettings": {
-    "Endpoint": "https://beta.did.msidentity.com/v1.0/{0}/verifiablecredentials/request",
+    "Endpoint": "https://verifiedid.did.msidentity.com/v1.0",
     "VCServiceScope": "3db474b9-6a0c-4840-96ac-1fceb342124f/.default",
     "Instance": "https://login.microsoftonline.com/{0}",
     "TenantId": "12345678-0000-0000-0000-000000000000",
@@ -208,7 +208,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
     "CertificateName": "[Or instead of client secret: Enter here the name of a certificate (from the user cert store) as registered with your application]",
     "IssuerAuthority": "did:web:example.com...",
     "VerifierAuthority": "did:web:example.com...",
-    "CredentialManifest":  "https://beta.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
   }
 }
 ```
@@ -220,7 +220,9 @@ Now you're ready to issue your first verified credential expert card by running 
 1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from your operating system's command line, run:
 
     ```
-    cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
+    cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint
+    dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.
+    dotnet run
     ```
 
 1. In another command prompt window, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 5000, and make it publicly available on the internet.
@@ -326,4 +328,3 @@ public async Task<ActionResult> issuanceRequest()
 ## Next steps
 
 In the [next step](verifiable-credentials-configure-verifier.md), learn how a third-party application, also known as a relying party application, can verify your credentials with its own Azure AD tenant verifiable credentials API service.
-

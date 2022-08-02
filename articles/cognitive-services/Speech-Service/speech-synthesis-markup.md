@@ -489,6 +489,8 @@ The custom lexicon currently supports UTF-8 encoding.
 
 > [!NOTE]
 > Custom lexicon feature may not work for some new locales.
+> 
+> The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -598,7 +600,7 @@ It's easy to make mistakes in the custom lexicon, so Microsoft provides a [valid
 
 In the preceding sample, we're using the IPA, which is also known as the IPA phone set. We suggest that you use the IPA because it's the international standard. For some IPA characters, they're the "precomposed" and "decomposed" version when they're being represented with Unicode. The custom lexicon only supports the decomposed Unicode.
 
-The IPA isn't easy to remember, so the Speech service defines a phonetic set for seven languages: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
+The IPA isn't easy to remember, so the Speech service defines a phonetic set for these locales: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, `zh-HK`, and `zh-TW`.
 
 You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated here:
 
@@ -804,7 +806,7 @@ Any audio included in the SSML document must meet these requirements:
 * The audio must not contain any customer-specific or other sensitive information.
 
 > [!NOTE]
-> The 'audio' element is not supported by the Long Audio API.
+> The 'audio' element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -843,10 +845,9 @@ If the background audio provided is shorter than the text-to-speech or the fade 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
 
 > [!NOTE]
-> The `mstts:backgroundaudio` element is not supported by the Long Audio API.
-
-> [!NOTE]
 > The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
+> 
+> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 

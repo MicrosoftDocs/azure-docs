@@ -3,7 +3,6 @@ title: Create an Azure application offer in Azure Marketplace
 description: Create an Azure application offer for listing or selling in Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal.
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
