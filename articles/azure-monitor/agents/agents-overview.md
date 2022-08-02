@@ -15,7 +15,7 @@ ms.reviewer: shseth
 
 Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
-## Can I use the new agent?
+## Can I deploy the new agent?
 
 Azure Monitor Agent replaces all of the Azure Monitor legacy monitoring agents:
 
@@ -85,25 +85,29 @@ The Azure Monitor Agent sends data to Azure Monitor Metrics (preview) or a Log A
 
 The following table shows the current support for the Azure Monitor Agent with other Azure services.
 
-| Azure service | Current support | More information |
-|:---|:---|:---|
-| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows DNS logs: Private preview</li><li>Linux Syslog CEF: Private preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
+|	 Azure service	|	 Current support	|	Additional extensions installed	|	 More information	|
+|	:---	|	:---	|	:---	|	:---	|
+|	 [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	|	 Private preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul>	|	[Sign-up link](https://aka.ms/AMAgent)	|
+|	 [Microsoft Sentinel](../../sentinel/overview.md)	|	 <ul><li>Windows DNS logs: Private preview</li><li>Linux Syslog CEF: Private preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul> 	|	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension.	|	<ul><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>No sign-up needed </li><li>No sign-up needed</li></ul>	|
+
+
 
 The following table shows the current support for the Azure Monitor Agent with Azure Monitor features.
 
-| Azure Monitor feature | Current support | More information |
-|:---|:---|:---|
-| Text logs and Windows IIS logs | Public preview | [Collect text logs with Azure Monitor Agent (preview)](data-collection-text-log.md) |
-| Windows client installer | Public preview | [Set up Azure Monitor Agent on Windows client devices](azure-monitor-agent-windows-client.md) |
-| [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+|	Azure Monitor feature	|	Current support	|	Additional extensions installed	|	More information	|
+|	:---	|	:---	|	:---	|	:---	|
+|	Text logs and Windows IIS logs	|	Public preview	|	None	|	[Collect text logs with Azure Monitor Agent (preview)](data-collection-text-log.md)	|
+|	Windows client installer	|	Public preview	|	None	|	[Set up Azure Monitor Agent on Windows client devices](azure-monitor-agent-windows-client.md)	|
+|	[VM insights](../vm/vminsights-overview.md)	|	Private preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
+
 
 The following table shows the current support for the Azure Monitor Agent with Azure solutions.
 
-| Solution | Current support | More information |
-|:---|:---|:---|
-| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview.  | [Sign-up link](https://aka.ms/AMAgent) |
-| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 - Public preview | [Update management center (preview) documentation](/azure/update-center/) |
+|	Solution	|	Current support	|	Additional extensions installed	|	More information	|
+|	:---	|	:---	|	:---	|	:---	|
+|	 [Change Tracking](../../automation/change-tracking/overview.md) (part of Defender)	|	 Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/AMAgent)	|
+|	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (preview) documentation](/azure/update-center/)	|
+|	Connection Monitor	|	Private preview	|	Azure NetworkWatcher extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
 
 ## Costs
 
