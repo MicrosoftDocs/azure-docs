@@ -117,9 +117,12 @@ DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connect
 
 #### citus.show\_shards\_for\_app\_name\_prefixes (text)
 
-By default, Citus hides shards from the list of tables PostgreSQL gives to SQL clients. It does this because there are multiple shards per distributed table, and the shards can be distracting to the SQL client.
+By default, Citus hides shards from the list of tables PostgreSQL gives to SQL
+clients. It does this because there are multiple shards per distributed table,
+and the shards can be distracting to the SQL client.
 
-The `citus.show_shards_for_app_name_prefixes` GUC allows shards to be displayed for selected clients that want to see them. Its default value is ''.
+The `citus.show_shards_for_app_name_prefixes` GUC allows shards to be displayed
+for selected clients that want to see them. Its default value is ''.
 
 ```postgresql
 -- show shards to psql only (hide in other clients, like pgAdmin)
