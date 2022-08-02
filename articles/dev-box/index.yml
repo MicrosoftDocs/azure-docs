@@ -62,7 +62,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Connect to a Microsoft Dev Box by using a Remote Desktop app
+          - text: Use the Remote Desktop client to connect to a dev box
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 
  # <!-- Adding later 
