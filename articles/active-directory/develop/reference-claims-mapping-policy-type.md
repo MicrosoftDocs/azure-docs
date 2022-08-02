@@ -266,7 +266,7 @@ For each claim schema entry defined in this property, certain information is req
 
 **Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.
 
-**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
+**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory extension attribute where the data in the claim is sourced from. For more information, see [Using directory extension attributes in claims](active-directory-schema-extensions.md).
 
 Set the Source element to one of the following values:
 
@@ -404,7 +404,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions, which are storing a UPN or email address value for the user for example, johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
+|ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other directory extensions, which are storing a UPN or email address value for the user for example, johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue** (Preview)
 
@@ -475,4 +475,4 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 - To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
+- To learn more about extension attributes, see [Using directory extension attributes in claims](active-directory-schema-extensions.md).
