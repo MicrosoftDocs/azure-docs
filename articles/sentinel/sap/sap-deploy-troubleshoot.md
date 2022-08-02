@@ -305,8 +305,7 @@ While your system should automatically switch to compatibility mode if needed, y
 
 1. save the file.
 
-The change takes effect two minutes after you save the file. You don't need to restart the Docker container.r restart sapcon-[SID]
-    ```
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
 ### SAPCONTROL or JAVA subsystems unable to connect
 
