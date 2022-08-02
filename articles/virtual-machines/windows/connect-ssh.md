@@ -26,7 +26,7 @@ The examples below use variables. You can set variables in your environment as f
 | Bash/ZSH | myResourceGroup='resGroup10'
 | PowerShell | $myResourceGroup='resGroup10'
 
-## Install SSH
+## Enable SSH
 
 First, you will need to enable SSH in your Windows machine.
 

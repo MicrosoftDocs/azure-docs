@@ -75,10 +75,6 @@
           href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
-    - name: Create a secure workspace
-      href: tutorial-create-secure-workspace.md
-    - name: Create a secure workspace with templates
-      href: tutorial-create-secure-workspace-template.md
     - name: Build a training pipeline (Python SDK V2)(preview)
       href: tutorial-pipeline-python-sdk.md
 - name: Samples
@@ -142,8 +138,6 @@
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: concept-model-management-and-deployment.md
-        - name: Open-source integrations
-          href: concept-open-source.md
         - name: ML pipelines
           href: concept-ml-pipelines.md
         - name: ML components
@@ -227,6 +221,10 @@
           href: how-to-use-managed-identities.md
     - name: Network security
       items: 
+        - name: "Tutorial: Create a secure workspace in Azure portal"
+          href: tutorial-create-secure-workspace.md
+        - name: "Tutorial: Create a secure workspace with templates"
+          href: tutorial-create-secure-workspace-template.md
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md

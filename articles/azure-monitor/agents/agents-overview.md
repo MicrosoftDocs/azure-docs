@@ -22,23 +22,23 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 
 ### Windows agents
 
-| | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
-|:---|:----|:---|:---|:---|
-| **Environments supported** | Azure<br><br>Other cloud (Azure Arc)<br><br>On-premises (Azure Arc)<br><br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br><br>Other cloud<br><br>On-premises | Azure<br><br>Other cloud<br><br>On-premises | 
-| **Agent requirements**  | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Event logs<br><br>Performance<br><br>File-based logs (preview)<br> | Event logs<br><br>ETW events<br><br>Performance<br><br>File-based logs<br><br>IIS logs<br><br>.NET app logs<br><br>Crash dumps<br><br>Agent diagnostics logs | Event logs<br><br>Performance<br><br>File-based logs<br><br>IIS logs<br><br>Insights and solutions<br><br>Other services | Process dependencies<br><br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br><br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br><br>Azure Monitor Metrics<br><br>Event hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br><br>Metrics Explorer<br><br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | Metrics Explorer | VM insights<br><br>Log Analytics<br><br>Azure Automation<br><br>Microsoft Defender for Cloud<br><br>Microsoft Sentinel | VM insights<br><br>Service Map |
+| | Azure Monitor agent | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | 
+|:---|:----|:---|:---|
+| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)<br>[Windows Client OS (preview)](./azure-monitor-agent-windows-client.md)  | Azure | Azure<br>Other cloud<br>On-premises |  
+| **Agent requirements**  | None | None | None | 
+| **Data collected** | Event Logs<br>Performance<br>File based logs (preview)<br> | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services |
+| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | 
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel |
 
 ### Linux agents
 
-| | Azure Monitor agent | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
-|:---|:----|:---|:---|:---|:---|
-| **Environments supported** | Azure<br><br>Other cloud (Azure Arc)<br><br>On-premises (Azure Arc) | Azure | Azure<br><br>Other cloud<br><br>On-premises | Azure<br><br>Other cloud<br><br>On-premises | Azure<br><br>Other cloud<br><br>On-premises |
-| **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Syslog<br><br>Performance<br><br>File-based logs (preview)<br> | Syslog<br><br>Performance | Performance | Syslog<br><br>Performance| Process dependencies<br><br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br><br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br><br>Event hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br><br>Metrics Explorer<br><br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) | | Metrics Explorer | VM insights<br><br>Log Analytics<br><br>Azure Automation<br><br>Microsoft Defender for Cloud<br><br>Microsoft Sentinel | VM insights<br><br>Service Map |
+|                                                   | Azure Monitor agent                                                                                                                       | Diagnostics<br>extension (LAD) | Telegraf<br>agent                   | Log Analytics<br>agent                                                                                 | 
+| :------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- | :---------------------------------- | :----------------------------------------------------------------------------------------------------- | 
+| **Environments supported**                        | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)                                                                               | Azure                          | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises                                                                    |
+| **Agent requirements**                            | None                                                                                                                                      | None                           | None                                | None                                                                                                   | 
+| **Data collected**                                | Syslog<br>Performance<br>File based logs (preview)<br>                                                                                    | Syslog<br>Performance          | Performance                         | Syslog<br>Performance                                                                                  | 
+| **Data sent to**                                  | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup>                                                                                   | Azure Storage<br>Event Hub     | Azure Monitor Metrics               | Azure Monitor Logs                                                                                     | 
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer<br>Microsoft Sentinel ([view scope](./azure-monitor-agent-overview.md#supported-services-and-features)) |                                | Metrics explorer                    | VM insights<br>Log Analytics<br>Azure Automation<br>Microsoft Defender for Cloud<br>Microsoft Sentinel | 
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
@@ -118,23 +118,9 @@ Use the Telegraf agent if you need to:
 
 * Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [Metrics Explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near-real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Linux only).
 
-## Dependency agent
-
-The Dependency agent collects discovered data about processes running on the machine and external process dependencies.
-
-Use the Dependency agent if you need to:
-
-* Use the Map feature [VM insights](../vm/vminsights-overview.md) or the [Service Map](../vm/service-map.md) solution.
-
-Consider the following factors when you use the Dependency agent:
-
-- The Dependency agent requires the Log Analytics agent to be installed on the same machine.
-- On Linux computers, the Log Analytics agent must be installed before the Azure Diagnostics extension.
-- On both the Windows and Linux versions of the Dependency agent, data collection is done by using a user-space service and a kernel driver.
-
 ## Virtual machine extensions
 
-The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) installs the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) installs the Dependency agent on Azure virtual machines. These are the same agents previously described, but they allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
+The [Azure Monitor agent](./azure-monitor-agent-manage.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
 
 On hybrid machines, use [Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md) to deploy the Azure Monitor agent, Log Analytics, and Azure Monitor Dependency VM extensions.
 
@@ -144,117 +130,71 @@ The following tables list the operating systems that are supported by the Azure 
 
 ### Windows
 
-| Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
+| Operating system | Azure Monitor agent | Log Analytics agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
-| Windows Server 2022                                      | X |   |   |   |
-| Windows Server 2022 Core                                 | X |   |   |   |
-| Windows Server 2019                                      | X | X | X | X |
-| Windows Server 2019 Core                                 | X |   |   |   |
-| Windows Server 2016                                      | X | X | X | X |
-| Windows Server 2016 Core                                 | X |   |   | X |
-| Windows Server 2012 R2                                   | X | X | X | X |
-| Windows Server 2012                                      | X | X | X | X |
-| Windows Server 2008 R2 SP1                               | X | X | X | X |
-| Windows Server 2008 R2                                   |   |   |   | X |
-| Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 11 client OS                                     | X<sup>2</sup> |  |  |  |
-| Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | X | 
-| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X | X |   |
-| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X | X |   |
-| Azure Stack HCI                                          |   | X |   |   |
+| Windows Server 2022                                      | X |   |   |
+| Windows Server 2022 Core                                 | X |   |   |
+| Windows Server 2019                                      | X | X | X |
+| Windows Server 2019 Core                                 | X |   |   |
+| Windows Server 2016                                      | X | X | X |
+| Windows Server 2016 Core                                 | X |   | X |
+| Windows Server 2012 R2                                   | X | X | X |
+| Windows Server 2012                                      | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X |
+| Windows Server 2008 R2                                   |   |   | X |
+| Windows Server 2008 SP2                                  |   | X |   |
+| Windows 11 client OS                                     | X<sup>2</sup> |  |  |
+| Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
+| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
+| Azure Stack HCI                                          |   | X |   |
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
 <sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
 
 ### Linux
 
-> [!NOTE]
-> For Dependency agent, check for supported kernel versions. For more information, see the "Dependency agent Linux kernel support" table.
-
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup></sup>| 
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux                                                   | X | X |   |   |
-| Amazon Linux 2017.09                                        |   | X |   |   |
-| Amazon Linux 2                                              |   | X |   |   |
-| CentOS Linux 8                                              | X <sup>2</sup> | X | X |   |
-| CentOS Linux 7                                              | X | X | X | X |
-| CentOS Linux 6                                              |   | X |   |   |
-| CentOS Linux 6.5+                                           |   | X | X | X |
-| Debian 11 <sup>1</sup>                                      | X |   |   |   |
-| Debian 10 <sup>1</sup>                                      | X |   |   |   |
-| Debian 9                                                    | X | X | X | X |
-| Debian 8                                                    |   | X | X |   |
-| Debian 7                                                    |   |   |   | X |
-| OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8                                              | X <sup>2</sup> | X |   |   |
-| Oracle Linux 7                                              | X | X |   | X |
-| Oracle Linux 6                                              |   | X |   |   |
-| Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |  |   |
-| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>2</sup> | X | X |   |
-| Red Hat Enterprise Linux Server 7                           | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                           |   | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
-| Rocky Linux                                                 | X | X |   |   |
-| SUSE Linux Enterprise Server 15.2                           | X <sup>2</sup> |   |   |   |
-| SUSE Linux Enterprise Server 15.1                           | X <sup>2</sup> | X |   |   |
-| SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
-| SUSE Linux Enterprise Server 15                             | X | X | X |   |
-| SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
-| SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 22.04 LTS                                            | X |   |   |   |
-| Ubuntu 20.04 LTS                                            | X | X | X | X <sup>3</sup> |
-| Ubuntu 18.04 LTS                                            | X | X | X | X |
-| Ubuntu 16.04 LTS                                            | X | X | X | X |
-| Ubuntu 14.04 LTS                                            |   | X |   | X |
+| AlmaLinux 8.*                                               | X | X |   |
+| Amazon Linux 2017.09                                        |   | X |   |
+| Amazon Linux 2                                              |   | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X |   |
+| CentOS Linux 7                                              | X | X | X |
+| CentOS Linux 6                                              |   | X |   |
+| CentOS Linux 6.5+                                           |   | X | X |
+| Debian 11 <sup>1</sup>                                      | X |   |   |
+| Debian 10 <sup>1</sup>                                      | X |   |   |
+| Debian 9                                                    | X | X | X |
+| Debian 8                                                    |   | X |   |
+| Debian 7                                                    |   |   | X |
+| OpenSUSE 13.1+                                              |   |   | X |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |
+| Oracle Linux 7                                              | X | X | X |
+| Oracle Linux 6                                              |   | X |   |
+| Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |   |
+| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X |   |
+| Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
+| Rocky Linux 8.*                                             | X | X |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
+| SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
+| SUSE Linux Enterprise Server 15                             | X | X |   |
+| SUSE Linux Enterprise Server 12 SP5                         | X | X | X |
+| SUSE Linux Enterprise Server 12                             | X | X | X |
+| Ubuntu 22.04 LTS                                            | X |   |   |
+| Ubuntu 20.04 LTS                                            | X | X | X <sup>4</sup> |
+| Ubuntu 18.04 LTS                                            | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X |
+| Ubuntu 14.04 LTS                                            |   | X | X |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
 <sup>3</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
-
-#### Dependency agent Linux kernel support
-
-Because the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.*, the agent supports * kernels. The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
-
-| Distribution | OS version | Kernel version |
-|:---|:---|:---|
-|  Red Hat Linux 8   | 8.5     | 4.18.0-348.\*el8_5.x86_644.18.0-348.\*el8.x86_64 |
-|                    | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
-|                    | 8.3     |  4.18.0-240.\*el8_3.x86_64 |
-|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
-|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
-|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
-|  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
-|                    | 7.8     | 3.10.0-1136 |
-|                    | 7.7     | 3.10.0-1062 |
-|                    | 7.6     | 3.10.0-957  |
-|                    | 7.5     | 3.10.0-862  |
-|                    | 7.4     | 3.10.0-693  |
-| Red Hat Linux 6    | 6.10    | 2.6.32-754 |
-|                    | 6.9     | 2.6.32-696  |
-| CentOS Linux 8     | 8.5     | 4.18.0-348.\*el8_5.x86_644.18.0-348.\*el8.x86_64  |
-|                    | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
-|                    | 8.3     | 4.18.0-240.\*el8_3.x86_64 |
-|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
-|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
-|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
-| CentOS Linux 7     | 7.9     | 3.10.0-1160 |
-|                    | 7.8     | 3.10.0-1136 |
-|                    | 7.7     | 3.10.0-1062 |
-| CentOS Linux 6     | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-|                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 20.04   | 5.8<br>5.4\* |
-|                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
-|                    | 16.04.3 | 4.15.\* |
-|                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122.\*-default, 4.12.14-16.\*-azure|
-|                                 | 12 SP4 | 4.12.\* (includes Azure-tuned kernel) |
-|                                 | 12 SP3 | 4.4.\* |
-|                                 | 12 SP2 | 4.4.\* |
-| SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197.\*-default, 4.12.14-8.\*-azure |
-|                                 | 15     | 4.12.14-150.\*-default |
-| Debian                          | 9      | 4.9  | 
 
 ## Next steps
 

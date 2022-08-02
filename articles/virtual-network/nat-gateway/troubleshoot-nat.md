@@ -70,7 +70,7 @@ NAT gateway is not compatible with basic resources, such as Basic Load Balancer 
 
 ### NAT gateway cannot be attached to a gateway subnet
 
-NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used.
+NAT gateway cannot be deployed in a gateway subnet. A gateway subnet is used by Virtual network (VPN) gateway for sending encrypted traffic over the internet between an Azure virtual network and on-premises location or between Azure virtual networks over the Microsoft network. See [VPN gateway overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway.
 
 ### IPv6 coexistence
 
@@ -148,15 +148,6 @@ To see step-by-step instructions on how to configure NAT gateway with virtual ne
 A couple important notes about the NAT gateway and Azure App Services integration: 
 * Virtual network integration does not provide inbound private access to your app from the virtual network. 
 * Because of the nature of how virtual network integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
-
-### Port 25 cannot be used for regional VNet integration with NAT gateway
-
-Port 25 is an SMTP port that is used to send email. Azure app services regional Virtual network integration cannot use port 25 by design. While it is possible to have the block on port 25 removed, having this block removed will still not allow you to use port 25 with your Azure App services. Azure App services regional virtual network integration cannot use port 25 by design.  
-
-If NAT gateway is enabled on the integration subnet with your Azure App services, NAT gateway can still be used to connect outbound to the internet on other ports except port 25.  
-
-**Work around solution:**
-* Set up port forwarding to a Windows VM to route traffic to Port 25. 
 
 ## NAT gateway public IP not being used for outbound traffic
 
