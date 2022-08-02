@@ -72,14 +72,16 @@ There are two ways that you can approve or deny access:
 1. Select one or more users by selecting the circle next to their names.
 
 1. Select **Approve** or **Deny** on the bar.
-    - If you're unsure if a user should continue to have access, you can select **Don't know**. The user gets to keep their access, and your choice is recorded in the audit logs. Keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
+
+   If you're unsure if a user should continue to have access, you can select **Don't know**. The user gets to keep their access, and your choice is recorded in the audit logs. Keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
 
     ![Screenshot of open access review listing the users who need review.](./media/perform-access-review/user-list-preview.png)
 
 1. The administrator of the access review may require you to supply a reason for your decision in the **Reason** box, even when a reason is not required. You can still provide a reason for your decision. The information that you include will be available to other approvers for review.
 
 1. Select **Submit**.
-    - You can change your response at any time until the access review has ended. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
+
+   You can change your response at any time until the access review has ended. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
 
  > [!IMPORTANT]
  > - If a user is denied access, they aren't removed immediately. The user is removed when the review period has ended or when an administrator stops the review.
@@ -97,7 +99,7 @@ If you have **No sign-in within 30 days** or **Peer outlier** enabled, follow th
 
     ![Screenshot of open access review listing showing the Accept recommendations button.](./media/perform-access-review/accept-recommendations-preview.png)
 
-1. Or to accept recommendations for all unreviewed users, make sure that no users are selected and click the **Accept recommendations** button on the top bar.
+   Or to accept recommendations for all unreviewed users, make sure that no users are selected and click the **Accept recommendations** button on the top bar.
 
 1. Select **Submit** to accept the recommendations.
 
