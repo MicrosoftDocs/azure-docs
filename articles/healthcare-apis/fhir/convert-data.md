@@ -85,7 +85,8 @@ A `$convert-data` API call packages the legacy health data inside a JSON-formatt
         "resourceType": "Patient",
         "id": "9d697ec3-48c3-3e17-db6a-29a1765e22c6",
         ...
-        ...}
+        ...
+            }
       "request": {
         "method": "PUT",
         "url": "Location/50becdb5-ff56-56c6-40a1-6d554dca80f0"
