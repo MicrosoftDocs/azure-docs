@@ -79,7 +79,7 @@ When no longer needed, you can delete the resource group, App service, and all r
     :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group":::
 ## MySQL password
 
-The [Application Settings](reference-app-settings.md#wordpress) for MySQL database credentials are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated.
+The [Application Settings](reference-app-settings.md#wordpress) for MySQL database credentials are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database credentials are changed, the Application Settings also need to be updated.
 
 | Application Settings | Description |
 |-----------------------|-------------|
