@@ -17,7 +17,7 @@ The following are the Advanced Security Information Model (ASIM) known issues an
 
 When using ASIM parsers in the log screen, the time picker will change automatically to "set in query", which will result in querying over all data in the relevant tables. The query results may not be the expected results and performance may be slow.
 
-:::image type="content" source="media/normalization/asim-custom-time-picker.png" alt-text="Custom time picker when using ASIM":::
+:::image type="content" source="media/normalization/asim-custom-time-picker.png" alt-text="Screenshot of custom time picker when using ASIM.":::
 
 To ensure correct and timely results, set the time range to your preferred range after it changes to "set in query".
 
@@ -37,7 +37,7 @@ The `ingest_time()` function reports the time at which a record was ingested int
 
 In some cases when using ASIM parser functions, usually when there are no results to the query, the following information message is displayed. 
 
-:::image type="content" source="media/normalization/asim-error-message.png" alt-text="ASIM related misleading informational message":::
+:::image type="content" source="media/normalization/asim-error-message.png" alt-text="Screenshot of ASIM-related misleading informational message.":::
 
 While the message is alarming, it is informational only, and the system behaved as expected. ASIM functions combine data from many sources, regardless of whether they are available in your environment or not. The message suggests that some of the sources are not available in your environment.
 
