@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -13,7 +13,7 @@ ms.collection: M365-identity-device-management
 ---
 # How to use additional context in Microsoft Authenticator app notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications.  
+This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications. The schema for the API to enable application name and geographic location is currently being updated. While the API is updated over the next two weeks, you should only use the Azure AD portal to enable application name and geographic location. 
 
 ## Prerequisites
 
