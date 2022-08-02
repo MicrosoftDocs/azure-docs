@@ -14,7 +14,7 @@ ms.custom: subject-rbac-steps
 
 # Converting your data to FHIR
 
-The `$convert-data` custom endpoint in the FHIR service is meant for converting health data from different legacy formats to FHIR. The `$convert-data` operation uses Liquid templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project as the default FHIR data mapping templates. You can customize these conversion templates as needed. Currently the `$convert-data` operation supports three types of data conversion: **HL7v2 to FHIR**, **C-CDA to FHIR**, and **JSON to FHIR** (JSON to FHIR templates are intended for custom conversion mapping).
+The `$convert-data` custom endpoint in the FHIR service is meant for converting health data from different legacy formats to FHIR. The `$convert-data` operation uses Liquid templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for the default FHIR data conversion mappings. You can customize these conversion templates as needed. Currently the `$convert-data` operation supports three types of data conversion: **HL7v2 to FHIR**, **C-CDA to FHIR**, and **JSON to FHIR** (JSON to FHIR templates are intended for custom conversion mapping).
 
 > [!NOTE]
 > The `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of legacy health data formats into the FHIR format. However, the `$convert-data` operation is not an ETL pipeline in itself. We recommend you use an ETL engine based on Azure Logic Apps or Azure Data Factory for a complete workflow in preparing your legacy data to be converted for persistance in the FHIR service. The workflow might include: data reading and ingestion, data validation, making `$convert-data` API calls, data pre/post-processing, data enrichment, and data de-duplication.
@@ -29,7 +29,7 @@ The legacy health data is delivered to the FHIR service inside a `Parameter` res
 
 ### Parameter Resource
 
-A `$convert-data` API call has a JSON-formatted [Parameter](http://hl7.org/fhir/parameters.html) resource in the request body as described in the table below. The Parameter resource defines the following parameters:
+A `$convert-data` API call has a JSON-formatted [Parameter resource](http://hl7.org/fhir/parameters.html) in the request body as described in the table below. The Parameter resource defines the following elements:
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
@@ -85,7 +85,7 @@ A `$convert-data` API call has a JSON-formatted [Parameter](http://hl7.org/fhir/
         "resourceType": "Patient",
         "id": "9d697ec3-48c3-3e17-db6a-29a1765e22c6",
         ...
-        ...
+        ...}
       "request": {
         "method": "PUT",
         "url": "Location/50becdb5-ff56-56c6-40a1-6d554dca80f0"
