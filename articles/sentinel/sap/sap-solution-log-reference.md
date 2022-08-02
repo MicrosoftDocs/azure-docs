@@ -8,12 +8,12 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 02/22/2022
 ---
 
-# Microsoft Sentinel Threat Monitoring for SAP solution data reference (public preview)
+# Microsoft Sentinel Threat Monitoring for SAP solution data reference
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 > [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Some components of the Microsoft Sentinel Threat Monitoring for SAP solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 >
@@ -397,9 +397,9 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 - [ABAP Application log](#abap-application-log)
 - [ABAP Change Documents log](#abap-change-documents-log)
 - [ABAP CR log](#abap-cr-log)
-- [ABAP DB table data log](#abap-db-table-data-log)
-- [ABAP Gateway log](#abap-gateway-log)
-- [ABAP ICM log](#abap-icm-log)
+- [ABAP DB table data log PREVIEW](#abap-db-table-data-log-preview)
+- [ABAP Gateway log PREVIEW](#abap-gateway-log-preview)
+- [ABAP ICM log PREVIEW](#abap-icm-log-preview)
 - [ABAP Job log](#abap-job-log)
 - [ABAP Security Audit log](#abap-security-audit-log)
 - [ABAP Spool log](#abap-spool-log)
@@ -542,7 +542,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 | ViewName     | View name                         |
 
 
-### ABAP DB table data log (Preview)
+### ABAP DB table data log PREVIEW
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -576,7 +576,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | VersionNumber    | Version number                        |
 
 
-### ABAP Gateway log (Preview)
+### ABAP Gateway log PREVIEW
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -598,7 +598,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | SystemNumber | System number    |
 
 
-### ABAP ICM log (Preview)
+### ABAP ICM log PREVIEW
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
