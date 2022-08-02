@@ -66,7 +66,7 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login":::
 
-## Updating passwords
+## Update passwords
 
 App Service creates [Application Settings](reference-app-settings.md#wordpress) needed for WordPress/PHP configuration. These include WordPress admin and MySQL database credentials.
 
