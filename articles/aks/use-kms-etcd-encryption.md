@@ -162,7 +162,7 @@ If you enable KMS with private key vault, AKS will create a private endpoint and
 Use `az keyvault create` to create a priate KeyVault.
 
 ```azurecli
-az keyvault create --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disable
+az keyvault create --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disabled
 ```
 
 Without private endpoint, it's not supported to create or update keys in private key vault. To manage private key vault, you could refer to [Integrate Key Vault with Azure Private Link](../key-vault/general/private-link-service.md).
@@ -271,7 +271,7 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azu
 Update the key vault from public to private.
 
 ```azurecli-interactive
-az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access "Disabled"
+az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disabled
 ```
 
 ### Enable KMS on the cluster with updated key vault
