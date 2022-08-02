@@ -462,32 +462,25 @@ Allows you to review and reject the labeled dataset and view labeling insights. 
 `labeling_team_lead_custom_role.json` :
 ```json
 {
-    "properties": {
-        "roleName": "Labeling Team Lead",
-        "description": "Team lead for Labeling Projects",
-        "assignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.MachineLearningServices/workspaces/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
-                ],
-                "notActions": [
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
-                ],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-    }
+    "Name": "Labeling Team Lead",
+    "IsCustom": true,
+    "Description": "Team lead for Labeling Projects",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+    ],
+    "NotActions": [
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+        "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
 }
 ```
 
@@ -498,30 +491,23 @@ A vendor account manager can help manage all the vendor roles and perform any la
 `Vendor_admin_role.json`:
 ```json
 {
-    "properties": {
-        "roleName": "Vendor account admin",
-        "description": "Vendor account admin for Labeling Projects",
-        "assignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.MachineLearningServices/workspaces/read", 
-                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
-                    "Microsoft.MachineLearningServices/workspaces/datasets/registered/read
-                ],
-                "notActions": [
-                ]
-            }
-        ]
-    }
+    "Name": "Vendor account admin",
+    "IsCustom": true,
+    "Description": "Vendor account admin for Labeling Projects",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read", 
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
 }
 ```
 
@@ -532,29 +518,22 @@ A customer quality assurance role can view project dashboards, preview datasets,
 `customer_qa_role.json`:
 ```json
 {
-    "properties": {
-        "roleName": "Customer QA",
-        "description": "Customer QA for Labeling Projects",
-        "assignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.MachineLearningServices/workspaces/read", 
-                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
-                    "Microsoft.MachineLearningServices/workspaces/datasets/registered/read”,
-                ],
-                "notActions": [
-                ]
-            }
-        ]
-    }
+    "Name": "Customer QA",
+    "IsCustom": true,
+    "Description": "Customer QA for Labeling Projects",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read", 
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read”,
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
 }
 ```
 
@@ -565,28 +544,21 @@ A vendor quality assurance role can perform a a customer quality assurance role,
 `vendor_qa_role.json`:
 ```json
 {
-    "properties": {
-        "roleName": "Vendor QA",
-        "description": "Vendor QA for Labeling Projects",
-        "assignableScopes": [
-            "/subscriptions/<subscription_id>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.MachineLearningServices/workspaces/read", 
-                    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
-                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
-                ],
-                "notActions": [
-                ]
-            }
-        ]
-    }
+    "Name": "Vendor QA",
+    "IsCustom": true,
+    "Description": "Vendor QA for Labeling Projects",
+    "Actions": [
+        "Microsoft.MachineLearningServices/workspaces/read", 
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
+        "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<subscription_id>"
+    ]
 }
 ```
 
