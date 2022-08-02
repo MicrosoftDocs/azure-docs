@@ -227,8 +227,8 @@ The tables below provide a quick comparison of the telemetry agents for Windows 
 |	**Services and features supported**	|		|		|		|		|
 |		|	Log Analytics	|	X	|	X	|		|
 |		|	Metrics Explorer	|	X	|		|	X	|
-|		|	Microsoft Sentinel 	|	X (View scope)(#supported-services-and-features)	|	X	|		|
-|		|	VM Insights	|		|	X	|		|
+|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
+|		|	VM Insights	|		|	X (Preview)	|		|
 |		|	Azure Automation	|		|	X	|		|
 |		|	Microsoft Defender for Cloud	|		|	X	|		|
 
@@ -252,8 +252,9 @@ The tables below provide a quick comparison of the telemetry agents for Windows 
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Log Analytics	|	X	|	X	|		|		|
 |		|	Metrics Explorer	|	X	|		|		|	X	|
-|		|	Microsoft Sentinel 	|	X (View scope)(#supported-services-and-features)	|	X	|		|		|
-|		|	VM Insights	|		|	X	|		|		|
+|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|		|
+|		|	VM Insights	|	X (Preview)	|	X	|		|		|
+|		|	Container Insights	|	X (Preview)	|	X	|		|		|
 |		|	Azure Automation	|		|	X	|		|		|
 |		|	Microsoft Defender for Cloud	|		|	X	|		|		|
 
