@@ -7,11 +7,13 @@ ms.author: guywild
 ms.date: 7/21/2022
 ms.custom: references_regions
 ms.reviewer: shseth
+
+#customer-intent: As a IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems on my virtual machines. 
 ---
 
 # Azure Monitor Agent overview
 
-[Azure Monitor Agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). This article provides an overview of the Azure Monitor Agent.
+Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). Azure Monitor Agent replaces all of Azure Monitor's legacy monitoring agents. This article provides an overview of Azure Monitor Agent's capabilities and supported use cases.
 
 Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
@@ -45,7 +47,7 @@ The Azure Monitor Agent provides the following benefits over the existing agents
 
 ### Data collection
 
-Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), which let you define which data you want each agent to collect. Data collection rules enable managing data collection settings at scale and defining unique, scoped configurations for subsets of machines. The rules are independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. 
+Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), using which you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. The rules are independent of the workspace and the virtual machine, which means you can define a rule once and reuse it across machines and environments. 
 
 ## Supported resource types
 
