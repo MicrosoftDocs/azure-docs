@@ -57,7 +57,7 @@ items:
     href: concepts-x509-attestation.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
-  - name: Custom allocation
+  - name: Custom allocation policies
     href: concepts-custom-allocation.md
   - name: Control access to DPS
     items:
