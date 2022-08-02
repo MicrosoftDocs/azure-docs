@@ -70,10 +70,10 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 
 App Service creates [Application Settings](reference-app-settings.md#wordpress) needed for WordPress/PHP configuration. These include WordPress admin and MySQL database credentials.
 
-| Application Settings | Description |
-|----------|-----------------------|
-| WordPress | The [Application Settings](reference-app-settings.md#wordpress) for WordPress admin credentials are only for deployment purposes. Modifying these values has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).  |
-| MySQL | The [Application Settings](reference-app-settings.md#wordpress) for MySQL database credentials are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+| Scope    | Application Settings | Description |
+|----------|-----------------------|-------------|
+| WordPress | WORDPRESS_ADMIN_USER <BR/> WORDPRESS_ADMIN_PASSWORD | The [Application Settings](reference-app-settings.md#wordpress) for WordPress admin credentials are only for deployment purposes. Modifying these values has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).  |
+| MySQL | DATABASE_HOST <BR/> DATABASE_NAME <BR/> DATABASE_USERNAME <BR/> DATABASE_PASSWORD |The [Application Settings](reference-app-settings.md#wordpress) for MySQL database credentials are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
 
 For more information on updating WordPress or MySQL passwords, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html#known-limitations).
 ## Clean up resources
