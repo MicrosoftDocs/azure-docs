@@ -17,17 +17,17 @@ Here's an **introductory video** explaining all about this new agent, including 
 
 ## Can I deploy the new agent?
 
-Azure Monitor Agent replaces all of the Azure Monitor legacy monitoring agents:
+Deploy Azure Monitor Agent on all new virtual machines to collect data for [supported services and features](#supported-services-and-features).
 
-- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.
+If you have virtual machines already deployed with legacy agents, we recommend you [check whether Azure Monitor Agent supports your monitoring needs](#summary-of-agents) and [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible.
+
+Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
+
+- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions. We're **deprecating** Log Analytics Agent and will stop supporting the agent **as of August 31, 2024**. 
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
 Currently, Azure Monitor Agent consolidates features from the Telegraf agent and Log Analytics Agent, but does not support all Log Analytics solutions. In the future, Azure Monitor Agent will also consolidate features from the Diagnostic extensions.
-
-Use Azure Monitor Agent on all newly deployed virtual machines for all [supported services and features](#supported-services-and-features).
-
-If you have virtual machines already deployed with legacy agents, we recommend you [check whether Azure Monitor Agent supports your monitoring needs](#summary-of-agents) and [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible.
 
 ## Benefits
 
