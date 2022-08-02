@@ -66,6 +66,17 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login":::
 
+## Clean up resources
+
+When no longer needed, you can delete the resource group, App service, and all related resources.
+
+1. From your App Service *overview* page, click the *resource group* you created in the [Create WordPress site using Azure portal](#create-wordpress-site-using-azure-portal) step.
+
+    :::image type="content" source="./media/quickstart-wordpress/resource-group.png" alt-text="Resource group in App Service overview page":::
+
+1. From the *resource group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
+
+    :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group":::
 ## MySQL password
 
 The [Application Settings](reference-app-settings.md#wordpress) for MySQL database credentials are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated.
@@ -85,17 +96,6 @@ The [Application Settings](reference-app-settings.md#wordpress) for WordPress ad
 | WORDPRESS_ADMIN_USER <BR/> WORDPRESS_ADMIN_PASSWORD | WordPress admin credentials created during deployment. |
 
 For more information on updating the WordPress admin password, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html#known-limitations).
-## Clean up resources
-
-When no longer needed, you can delete the resource group, App service, and all related resources.
-
-1. From your App Service *overview* page, click the *resource group* you created in the [Create WordPress site using Azure portal](#create-wordpress-site-using-azure-portal) step.
-
-    :::image type="content" source="./media/quickstart-wordpress/resource-group.png" alt-text="Resource group in App Service overview page":::
-
-1. From the *resource group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
-
-    :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group":::
 
 ## Next steps
 
