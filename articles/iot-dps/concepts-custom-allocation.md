@@ -198,4 +198,21 @@ The following JSON shows a webhook response that includes a payload:
 
 ### DPS sends data payload to device
 
-If DPS receives a payload in the webhook response, it passes this data back to the device in the `RegistrationOperationStatus.registrationState.payload` property in the response on a successful registration.
+If DPS receives a payload in the webhook response, it passes this data back to the device in the `RegistrationOperationStatus.registrationState.payload` property in the response on a successful registration. `registrationState` property is of type [DeviceRegistrationResult](/rest/api/iot-dps/device/runtime-registration/register-device#deviceregistrationresult).
+
+The following JSON shows a successful registration response for a TPM device that includes the payload property:
+
+```json
+{
+    "assignedHub":"myIotHub",
+    "createdDateTimeUtc" : "2022-08-01T22:57:47Z",	
+    "deviceId" : "myDeviceId",
+    "etag" : "xxxx-etag-value-xxxxx",
+    "lastUpdatedDateTimeUtc" : "2022-08-01T22:57:47Z",
+    "payload": { "property1": "value1" },
+    "registrationId": "mydevice", 
+    "status": assigned,
+    "substatus": initialAssignment,
+    "tpm": {"authenticationKey": "xxxx-encrypted-authentication-key-xxxxx"}
+}
+```
