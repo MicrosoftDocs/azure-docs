@@ -966,6 +966,7 @@ A _viseme_ is the visual description of a phoneme in spoken language. It defines
 > Viseme ID supports [neural voices](#text-to-speech) in the locales listed below. SVG only supports neural voices in the `en-US` locale, and blend shapes supports neural voices in the `en-US` and `zh-CN` locales. 
 
 The following table lists the languages supported by viseme ID.
+
 | Language | Locale |
 |---|---|
 | Arabic (Algeria) | `ar-DZ` |
