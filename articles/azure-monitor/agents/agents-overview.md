@@ -84,8 +84,8 @@ The following table shows the current support for the Azure Monitor Agent with o
 
 |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
 |	:---	|	:---	|	:---	|	:---	|
-|	 [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	|	 Private preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul>	|	[Sign-up link](https://aka.ms/AMAgent)	|
-|	 [Microsoft Sentinel](../../sentinel/overview.md)	|	 <ul><li>Windows DNS logs: Private preview</li><li>Linux Syslog CEF: Private preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul> 	|	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension.	|	<ul><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>[Sign-up link](https://aka.ms/AMAgent)</li><li>No sign-up needed </li><li>No sign-up needed</li></ul>	|
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Private preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Sign-up link](https://aka.ms/AMAgent)	|
+| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows DNS logs: Private preview</li><li>Linux Syslog CEF: Private preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Windows DNS logs](https://aka.ms/AMAgent)</li><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/AMAgent)</li><li>No sign-up needed for Windows Forwarding Event (WEF) and Windows Security Events</li></ul> |
 
 
 
@@ -140,7 +140,7 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 
     ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
-1. After determining the the `Settings` and `ProtectedSettings` parameter values, *provide these other parameters* when you deploy Azure Monitor Agent, using PowerShell commands, as shown in the following examples:
+1. After determining the `Settings` and `ProtectedSettings` parameter values, *provide these other parameters* when you deploy Azure Monitor Agent, using PowerShell commands, as shown in the following examples:
 
 # [Windows VM](#tab/PowerShellWindows)
 
