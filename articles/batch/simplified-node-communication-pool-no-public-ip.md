@@ -139,7 +139,7 @@ If compute nodes run into unusable state in a Batch pool without public IP addre
 If you're using **nodeManagement** private endpoint:
 
 - Check if the private endpoint is in provisioning succeeded state, and also in **Approved** status.
-- Check if the DNS configuration is set up correctly with the node management endpoint. You can confirm it by running `nslookup` from within your virtual network, and the Batch account's node management endpoint should be resolved to the private endpoint IP address.
+- Check if the DNS configuration is set up correctly with the node management endpoint. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the Batch account's node management endpoint should be resolved to the private endpoint IP address.
 - Run TCP ping with the node management endpoint using default HTTPS port (443). This probe can tell if the private link connection is working as expected.
 
 ```
@@ -152,7 +152,7 @@ nc -v <nodeManegementEndpoint> 443
 > [!TIPS]
 > You can get the node management endpoint from your [Batch account's properties](batch-account-create-portal.md#view-batch-account-properties).
 
-If the TCP ping fails (for example, timed out), it's typically an issue with the private link connection, and you can raise Azure support ticket with this private endpoint resource. Otherwise, this node unusable issue can be troubleshoot as normal Batch pools, and you can raise support ticket with your Batch account.
+If the TCP ping fails (for example, timed out), it's typically an issue with the private link connection, and you can raise Azure support ticket with this private endpoint resource. Otherwise, this node unusable issue can be troubleshot as normal Batch pools, and you can raise support ticket with your Batch account.
 
 If you're using your own internet outbound solution instead of private endpoint, run the same TCP ping with node management endpoint as shown above. If it's not working, check if your outbound access is configured correctly by following detailed requirements for [simplified compute node communication](simplified-compute-node-communication.md).
 
