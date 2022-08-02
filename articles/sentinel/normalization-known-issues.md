@@ -31,7 +31,7 @@ If you encounter performance issues:
 
 ## The ingest_time() function is not supported
 
-The `ingest_time()` function reports the time at which a record was ingested into Microsoft Sentinel, which may be different then `TimeGenerated`. This information is commonly used in queries that take into account ingestion delays. The `ingest_time()` has to be used in the context of a specific table and does not work with ASIM functions, which unify many different tables. 
+The `ingest_time()` function reports the time at which a record was ingested into Microsoft Sentinel, which may be different from `TimeGenerated`. This information is commonly used in queries that take into account ingestion delays. The `ingest_time()` has to be used in the context of a specific table and does not work with ASIM functions, which unify many different tables. 
 
 ## Misleading informational message
 
