@@ -8,7 +8,7 @@ ms.date: 02/15/2022
 
 # Azure HDInsight versions
 
-HDInsight bundles Apache Hadoop environment components and HDInsight platform into a package that is deployed on a cluster. For more information, see see [how HDInsight versioning works](hdinsight-overview-versioning.md).
+HDInsight bundles Apache Hadoop environment components and HDInsight platform into a package that is deployed on a cluster. For more information, see [how HDInsight versioning works](hdinsight-overview-versioning.md).
 
 ## Supported HDInsight versions
 
