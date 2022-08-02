@@ -12,7 +12,6 @@ ms.author: erjosito
 ms.reviewer: ashishj
 ---
 
-
 # Using Application Gateway WAF to protect your application
 
 When using Azure Active Directory (Azure AD) Application Proxy to expose applications deployed on-premises, on sealed Azure Virtual Networks, or in other public clouds, you can integrate a Web Application Firewall (WAF) in the data flow in order to protect your application from malicious attacks.
@@ -23,22 +22,71 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 ## Deployment steps
 
-
 This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure WAF on Application Gateway. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
 
+![diagram](/media/application-proxy-waf/appproxy-waf.png)
 
+### Configure Azure Application Gateway to send traffic to your internal application.
 
-1. [Add an application for remote access through Application Proxy in Azure Active Directory][appproxy-create], ideally with the connectors in an Azure VNet (not strictly required, but it will improve latency)
-1. [Create an Azure Application Gateway with WAF enabled][waf-create] in prevention mode
-1. Configure Azure Application Gateway to send traffic to your internal application
-  1.1. Create frontend
-  1.1. Create backend
-  1.1. Create rule
-1. Configure your AAD application to use an FQDN that the connector will resolve to the private IP address of Application Gateway
+Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-## Verification
+1. Create a private-facing HTTPS listener.
 
-You can send an attack like for example `https://api-appgw.fabrikam.one/api/sqlquery?query=x%22%20or%201%3D1%20--`. `x%22%20or%201%3D1%20--` is the HTTP-encoded representation for `x" or 1=1 --`, a basic SQL injection signature, and Azure WAF will drop that request.
+This will allow users to access the web application privately when connected to the corporate network.
+
+![Add Listener](/media/application-proxy-waf/appgw_listener.png)
+
+2. Create a backend pool with the web servers.
+
+In this example, the backend servers have Internet Information Services (IIS) installed. 
+
+![Add backend](/media/application-proxy-waf/appgw_backend.png)
+
+3. Create a backend setting. 
+
+This will determine how requests will reach the backend pool servers.
+
+![Add backend setting](/media/application-proxy-waf/appgw_backendsettings.png)
+ 
+ 4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
+ 
+ ![Add rule1](/media/application-proxy-waf/appgw_addrule1.png)
+ ![Add rule2](/media/application-proxy-waf/appgw_addrule2.png)
+ 
+ 5. Enable the WAF in the Application Gateway and set it to Prevention mode.
+ 
+ ![enable waf](/media/application-proxy-waf/appgw_enablewaf.png)
+ 
+ ### Configure your application to be remotely accessed through Application Proxy in Azure AD.
+ 
+As represented in the diagram above, both connector VMs, the Application Gateway, and the backend servers were deployed in the same VNET in Azure. This setup also applies to applications and connectors deployed on-premises. 
+
+For a detailed guide on how to add your application to Application Proxy in Azure AD, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application). For more information about performance considerations concerning the Application Proxy connectors, see [Optimize traffic flow with Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-network-topology). 
+ 
+![App proxy config](/media/application-proxy-waf/appproxyconfig.png)
+
+In this example, the same URL was configured as the internal and external URL. Remote clients will access the application over the Internet on port 443, through the Application Proxy, whereas clients connected to the corporate network will access the application privately through the Application Gateway directly, also on port 443. For a detailed step on how to configure custom domains in Application Proxy, see [Configure custom domains with Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-configure-custom-domain).
+
+To ensure the connector VMs send requests to the Application Gateway, an [Azure Private DNS zone](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) was created with an A record pointing www.fabrikam.one to the private frontend IP of the Application Gateway.
+
+### Test the application.
+
+After [adding a user for testing](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one.
+
+![add authentication image]
+![add server response image]
+
+### Simulate an attack.
+
+To test if the WAF is blocking malicious requests, you can simulate an attack by using a basic SQL injection signature. For example, "https://www.fabrikam.one/api/sqlquery?query=x%22%20or%201%3D1%20--".
+
+![waf403 image]
+
+An HTTP 403 response confirms that the request was blocked by the WAF.
+
+The Application Gateway [Firewall logs](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#firewall-log) provide more details about the request and why it was blocked by the WAF.
+
+![waflog image]
 
 ## Next steps
 
