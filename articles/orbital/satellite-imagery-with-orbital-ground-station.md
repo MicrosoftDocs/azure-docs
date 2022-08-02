@@ -32,7 +32,7 @@ Optional setup steps for capturing the ground station telemetry are included in 
 You must first follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](downlink-aqua.md). 
 
 > [!NOTE]
-> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-vm-and-network-to-receive-aqua-data), use the following values:
 >
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)
@@ -48,8 +48,8 @@ Register with the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/) to downlo
 Transfer the installation binaries to the receiver-vm:
 
 ```console
-mkdir ~/software/
-scp RT-STPS_6.0*.tar.gz azureuser@receiver-vm:~/software/rt-stps/.
+ssh azureuser@receiver-vm 'mkdir -p ~/software'
+scp RT-STPS_6.0*.tar.gz azureuser@receiver-vm:~/software/.
 ```
 
 Alternatively, you can upload your installation binaries to a container in Azure Storage and download them to the receiver-vm using [AzCopy](../storage/common/storage-use-azcopy-v10.md)
@@ -57,7 +57,7 @@ Alternatively, you can upload your installation binaries to a container in Azure
 ### Install rt-stps
 
 ```console
-sudo yum install java (find version of java)
+sudo yum install java-11-openjdk
 cd ~/software
 tar -xzvf RT-STPS_6.0.tar.gz
 cd ./rt-stps
@@ -83,7 +83,7 @@ tar -xzvf RT-STPS_6.0_testdata.tar.gz
 cd ~/software/rt-stps
 rm ./data/*
 ./bin/batch.sh config/npp.xml ./testdata/input/rt-stps_npp_testdata.dat
-#Verify that files exist
+# Verify that files exist
 ls -la ./data
 ```
 
@@ -266,52 +266,7 @@ IPOPP will produce output products in the following directories:
 
 ### Capture ground station telemetry
 
-An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during the contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps below describe how to create Event Hubs and grant Azure Orbital access to send events to it. 
-
-1. In your subscription, go to **Resource Provider** settings and register Microsoft.Orbital as a provider.  
-2. [Create Azure Event Hubs](../event-hubs/event-hubs-create.md) in your subscription. 
-3. From the left menu, select **Access Control (IAM)**. Under **Grant Access to this Resource**, select **Add Role Assignment**.
-4. Select **Azure Event Hubs Data Sender**.  
-5. Assign access to '**User, group, or service principal**'.
-6. Click '**+ Select members**'. 
-7. Search for '**Azure Orbital Resource Provider**' and press **Select**. 
-8. Press **Review + Assign** to grant Azure Orbital the rights to send telemetry into your event hub.
-9. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select **View access to this resource**.
-
-Congrats! Orbital can now communicate with your hub. 
-
-### Enable telemetry for a contact profile in the Azure portal 
-
-1. Go to **Contact Profile** resource, and click **Create**. 
-2. Choose a namespace using the **Event Hubs Namespace** dropdown. 
-3. Choose an instance using the **Event Hubs Instance** dropdown that appears after namespace selection. 
-
-### Test telemetry on a contact 
-
-1. Schedule a contact using the Contact Profile that you previously configured for Telemetry. 
-2. Once the contact begins, you should begin to see data in your Event Hubs soon after. 
-
-To verify that events are being received in your Event Hubs, you can check the graphs present on the Event Hubs namespace **Overview** page. The graphs show data across all Event Hubs instances within a namespace. You can navigate to the Overview page of a specific instance to see the graphs for that instance. 
-
-You can enable an Event Hubs [Capture feature](../event-hubs/event-hubs-capture-enable-through-portal.md) that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing. 
-
-Once enabled, you can check your container and view or download the data. 
- 
-The Event Hubs documentation provides a great deal of guidance on how to write simple consumer apps to receive events from Event Hubs: 
-
-- [Python](../event-hubs/event-hubs-python-get-started-send.md)
-
-- [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 
-
-- [Java](../event-hubs/event-hubs-java-get-started-send.md) 
-
-- [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)  
-
-Other helpful resources: 
-
-- [Event Hubs using Python Getting Started](../event-hubs/event-hubs-python-get-started-send.md) 
-
-- [Azure Event Hubs client library for Python code samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples) 
+Follow steps here to [receive real-time telemetry from the ground stations](receive-real-time-telemetry.md).
 
 ## Next steps
 

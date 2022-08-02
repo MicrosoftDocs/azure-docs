@@ -195,6 +195,18 @@ Grant Azure image builder permissions to create images in the specified resource
 
 1. Create a VM Image Builder distributor object.
 
+   ```azurepowershell-interactive
+   $disObjParams = @{
+     SharedImageDistributor = $true
+     ArtifactTag = @{tag='dis-share'}
+     GalleryImageId = "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup/providers/Microsoft.Compute/galleries/$myGalleryName/images/$imageDefName"
+     ReplicationRegion = $location
+     RunOutputName = $runOutputName
+     ExcludeFromLatest = $false
+   }
+   $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
+   ```
+
 1. Create a VM Image Builder customization object.
 
    ```azurepowershell-interactive

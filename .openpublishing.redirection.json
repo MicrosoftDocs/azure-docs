@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/api-management/zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-api-mgt",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/find-unattached-nics.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/find-unattached-nics",
       "redirect_document_id": false
@@ -10383,8 +10388,8 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/classic-deployment-model-quota-increase-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/classic-deployment-model-quota-increase-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/how-to-create-azure-support-request.md",
@@ -10428,43 +10433,78 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/spot-quota",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/networking-quota-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/networking-quota-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/networking-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/per-vm-quota-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/per-vm-quota-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/per-vm-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/regional-quota-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/regional-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/resource-manager-core-quotas-request.md",
-      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_url": "/azure/quotas/regional-quota-requests",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-portal/supportability/resource-manager-core-quotas-request.md",
-      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_url": "/azure/quotas/regional-quota-requests",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
-      "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md", 
+      "redirect_url": "/troubleshoot/azure/general/region-access-request-process",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-portal/supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
+      "redirect_url": "/azure/quotas/spot-quota",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/quotas-overview.md",
+      "redirect_url": "/azure/quotas/quotas-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/view-quotas.md",
+      "redirect_url": "/azure/quotas/view-quotas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/per-vm-quota-requests.md",
+      "redirect_url": "/azure/quotas/per-vm-quota-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/regional-quota-requests.md",
+      "redirect_url": "/azure/quotas/regional-quota-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/spot-quota.md",
+      "redirect_url": "/azure/quotas/spot-quota",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/classic-deployment-model-quota-increase-requests.md",
+      "redirect_url": "/azure/quotas/classic-deployment-model-quota-increase-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/networking-quota-requests.md",
+      "redirect_url": "/azure/quotas/networking-quota-requests",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/managed-applications/concepts-custom-providers-built-in-policy.md",
@@ -24687,11 +24727,6 @@
       "source_path_from_root": "/articles/traffic-manager/disable-enable-or-delete-a-profile.md",
       "redirect_url": "/azure/traffic-manager/traffic-manager-manage-profiles",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-windows-7-and-10.md",
-      "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/troubleshoot-client-connection.md",
@@ -40271,6 +40306,11 @@
     {
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
       "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+      "redirect_url": "https://docs.microsoft.com/ai-builder/create-form-processing-model",
       "redirect_document_id": false
     }
   ]

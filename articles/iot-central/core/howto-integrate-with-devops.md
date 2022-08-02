@@ -52,7 +52,7 @@ You need the following prerequisites to complete the steps in this guide:
 
 To get started, fork the IoT Central CI/CD GitHub repository and then clone your fork to your local machine:
 
-1. To fork the Git Hub repository, open the [IoT Central CI/CD GitHub repository](https://github.com/Azure/iot-central-CICD-sample) and select **Fork**.
+1. To fork the GitHub repository, open the [IoT Central CI/CD GitHub repository](https://github.com/Azure/iot-central-CICD-sample) and select **Fork**.
 
 1. Clone your fork of the repository to your local machine by opening a console or bash window and running the following command.
 
@@ -338,7 +338,7 @@ Now configure the pipeline to push configuration changes to your IoT Central app
     ```
 
 1. Select **Save and run**.
-1. The YAML file is saved to your Git Hub repository, so you need to provide a commit message and then select **Save and run** again.
+1. The YAML file is saved to your GitHub repository, so you need to provide a commit message and then select **Save and run** again.
 
 Your pipeline is queued. It may take a few minutes before it runs.
 

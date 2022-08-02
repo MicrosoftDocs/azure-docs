@@ -6,7 +6,7 @@ author: JennyLawrance
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  reference
-ms.date: 4/15/2022
+ms.date: 07/15/2022
 ms.author: jennylaw
 ---
 
@@ -43,4 +43,11 @@ The following tables describe how to configure a collection of NSG allow rules.
 |--|--|--|--|
 | TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. |
 | UDP | `123` | \* | NTP server. |
+| TCP | `5671` | \* | Container Apps control plane. |
+| TCP | `5672` | \* | Container Apps control plane. |
 | Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+
+#### Considerations
+
+- If you are running HTTP servers, you might need to add ports `80` and `443`.
+- Adding deny rules for some ports and protocols with lower priority than `65000` may cause service interruption and unexpected behavior.

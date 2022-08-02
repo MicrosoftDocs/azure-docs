@@ -45,7 +45,7 @@ To get started, you'll need an active Azure subscription. If you don't have an A
 
 To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to include the following headers with each request. Don't worry, we'll include the headers for you in the sample code for each programming language.
 
-For more information on Translator authentication options, *see* the [Translator v3 reference](/azure/cognitive-services/translator/reference/v3-0-reference#authentication) guide.
+For more information on Translator authentication options, *see* the [Translator v3 reference](./reference/v3-0-reference.md#authentication) guide.
 
 |Header|Value| Condition  |
 |--- |:--- |:---|
@@ -56,8 +56,7 @@ For more information on Translator authentication options, *see* the [Translator
 |||
 
 > [!IMPORTANT]
->
-> Remember to remove the key from your code when you're done, and **never** post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../cognitive-services/cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
 
 ## Translate text
 
@@ -616,4 +615,3 @@ That's it, congratulations! You have learned to use the Translator service to tr
 * [**Get sentence length**](translator-text-apis.md#get-sentence-length)
 
 * [**Dictionary lookup and alternate translations**](translator-text-apis.md#dictionary-examples-translations-in-context)
-

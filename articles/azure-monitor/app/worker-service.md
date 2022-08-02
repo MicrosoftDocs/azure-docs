@@ -529,6 +529,18 @@ If you want to disable telemetry conditionally and dynamically, you may resolve 
 
 ## Frequently asked questions
 
+### Which package should I use?
+
+| .Net Core app scenario | Package  |
+|---------|---------|
+| Without HostedServices                              | AspNetCore                     |
+| With HostedServices                                 | AspNetCore (not WorkerService) |
+| With HostedServices, monitoring only HostedServices | WorkerService (rare scenario)  |
+
+### Can HostedServices inside a .NET Core app using the AspNetCore package have TelemetryClient injected to it?
+
+* Yes. The config will be shared with the rest of the web application.
+
 ### How can I track telemetry that's not automatically collected?
 
 Get an instance of `TelemetryClient` by using constructor injection, and call the required `TrackXXX()` method on it. We don't recommend creating new `TelemetryClient` instances. A singleton instance of `TelemetryClient` is already registered in the `DependencyInjection` container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it needs a configuration that's separate from the rest of the telemetry.
@@ -584,6 +596,6 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 ## Next steps
 
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* [Track additional dependencies not automatically tracked](./auto-collect-dependencies.md).
+* [Track more dependencies not automatically tracked](./auto-collect-dependencies.md).
 * [Enrich or Filter auto collected telemetry](./api-filtering-sampling.md).
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).

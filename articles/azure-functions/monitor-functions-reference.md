@@ -67,7 +67,7 @@ The following table lists the operations related to Azure Functions that may be 
 |Microsoft.Web/sites/stop/action| Function app stopped.|
 |Microsoft.Web/sites/write| Change a function app setting, such as runtime version or enable remote debugging.|
 
-You may also find logged operations that relate to the underlying App Service behaviors. For a more complete list, see [Resource Provider Operations](/azure/role-based-access-control/resource-provider-operations#microsoftweb).
+You may also find logged operations that relate to the underlying App Service behaviors. For a more complete list, see [Resource Provider Operations](../role-based-access-control/resource-provider-operations.md#microsoftweb).
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 

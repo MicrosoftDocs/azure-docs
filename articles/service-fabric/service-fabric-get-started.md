@@ -28,7 +28,15 @@ Ensure you are using a supported [Windows version](service-fabric-versions.md#su
 
 Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
-WebPI may already be installed on your computer. Search for it by using the Windows key. If it's not present, you can [download it here](https://www.microsoft.com/web/downloads/platform.aspx). **NB** The page mentions that the tool will be retired fairly soon (July 1, 2022), so you may need to look for alternative ways to install this after that date. Stay tuned!
+WebPI may already be installed on your computer. Search for it by using the Windows key. If it's not present, you can [download it here](https://www.microsoft.com/web/downloads/platform.aspx).WebPI can be used to download Service Fabric SDK releases prior to July 2022 until December 31st, 2022 after which the WebPI feed and installer will be pulled from the Microsoft download center.
+
+For latest Runtime and SDK you can dowload from below.
+
+9.0CU2 RunTime - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.9.0.1048.9590.exe
+9.0CU2 SDK - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.6.0.1048.msi
+
+8.2CU4 RunTime - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.8.2.1659.9590.exe
+8.2CU4 SDK - https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.5.2.1659.msi
 
 > [!NOTE]
 > Local Service Fabric development cluster upgrades are not supported.

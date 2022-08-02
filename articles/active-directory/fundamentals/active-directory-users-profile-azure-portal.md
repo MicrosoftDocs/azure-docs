@@ -54,6 +54,8 @@ As you'll see, there's more information available in a user's profile than what 
 
     >[!Note]
     >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
+    >
+    > If you're having issues updating a user's Profile picture, please ensure that your Office 365 Exchange Online Enterprise App is Enabled for users to sign-in.
 
 ## Next steps
 After you've updated your users' profiles, you can perform the following basic processes:

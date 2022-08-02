@@ -84,6 +84,9 @@ Before you run the cURL command, make the following changes:
 
 1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the table below for each feature.
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+
 #### POST request
 
 ```bash
@@ -175,7 +178,10 @@ The prebuilt models extract pre-defined sets of document fields. See [Model data
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, further explore the latest reference documentation to learn more about the Form Recognizer API.
+In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, further explore the Form Recognizer Studio and latest reference documentation to learn more about the Form Recognizer API.
+
+>[!div class="nextstepaction"]
+> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

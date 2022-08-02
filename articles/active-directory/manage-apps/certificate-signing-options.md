@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 07/21/2022
 ms.author: jomondi
 ms.reviewer: saumadan
 ms.custom: aaddev
@@ -54,10 +54,10 @@ To change an application's SAML certificate signing options and the certificate 
 Next, change the certificate signing options in the SAML token for that application:
 
 1. In the left pane of the application overview page, select **Single sign-on**.
-1. If the **Set up Single Sign-On with SAML - Preview** page appears, go to step 5.
-1. If the **Select a single sign-on method** page doesn't appear, select **Change single sign-on modes** to display that page.
-1. In the **Select a single sign-on method** page, select **SAML** if available. (If **SAML** isn't available, the application doesn't support SAML, and you may ignore the rest of this procedure and article.)
-1. In the **Set up Single Sign-On with SAML - Preview** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears.
+1. If the **Set up Single Sign-On with SAML** page appears, go to step 5.
+1. If the **Set up Single Sign-On with SAML** page doesn't appear, select **Change single sign-on modes**.
+1. In the **Select a single sign-on method** page, select **SAML**. If **SAML** isn't available, the application doesn't support SAML, and you may ignore the rest of this procedure and article.
+1. In the **Set up Single Sign-On with SAML** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears.
 
    ![Example: SAML signing certificate page](./media/certificate-signing-options/saml-signing-page.png)
 

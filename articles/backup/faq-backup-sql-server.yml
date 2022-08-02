@@ -5,7 +5,7 @@ metadata:
   ms.reviewer: vijayts
   ms.topic: faq
   ms.service: backup
-  ms.date: 05/16/2022
+  ms.date: 07/15/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -123,6 +123,17 @@ sections:
           A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours, and the actual protection of the system can take additional time as it depends on the size of the VM. However, you can discover new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
           
             :::image type="content" source="./media/backup-azure-sql-database/view-newly-added-database.png" alt-text="Screenshot of manually discover a newly added database."
+
+  - name: Restore
+    questions:
+      - question: |
+          Can I download only a subset of files during restore as files?
+        answer: |
+          Yes, you can download files partially as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).
+      - question: |
+          Can I download files to an unregistered during restore as files during restore as files?
+        answer: |
+          Yes, you need a file path in a registered VM to download files. That path can be a network share too. Configure a network share from the unregistered VM to the registered VM and then choose the registered VM as target and the network share as the target file path. Once files are downloaded, you could simply unmount the network share from the registered VM and the files are now available in the unregistered VM.
 
 
 additionalContent: |
