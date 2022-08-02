@@ -35,7 +35,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Using more than 2000 secrets in a cluster.
 * Bring your own (BYO) Azure Key Vault from another tenant.
 * Change associated Azure Key Vault model (public, private) if KMS is enabled. For [changing associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
-* Stop/satrt cluster which is enabled KMS with private key vault.
+* Stop/start cluster which is enabled KMS with private key vault.
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault] now. 
 
@@ -111,7 +111,7 @@ Create an AKS cluster using the [az aks create][az-aks-create] command with the 
 az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $KEY_ID
 ```
 
-### Update an exiting AKS cluster to enable KMS etcd encryption
+### Update an existing AKS cluster to enable KMS etcd encryption
 
 Use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-id` parameters to enable KMS etcd encryption on an existing cluster.
 
@@ -132,7 +132,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 After changing the key ID (including key name and key version), you could use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-id` parameters to rotate the exitsing keys of KMS.
 
 > [!WARNING]
-> Remember to update all secrets after key rotation. Otheriwse, the secrets will be unaccessable if the old keys are not existing or working.
+> Remember to update all secrets after key rotation. Otherwise, the secrets will be unaccessable if the old keys are not existing or working.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NEW_KEY_ID 
@@ -215,7 +215,7 @@ Create an AKS cluster using the [az aks create][az-aks-create] command with the 
 az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
 ```
 
-### Update an exiting AKS cluster to enable KMS etcd encryption with private key vault
+### Update an existing AKS cluster to enable KMS etcd encryption with private key vault
 
 Use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-id`, `--azure-keyvault-kms-key-vault-network-access` and `--azure-keyvault-kms-key-vault-resource-id` parameters to enable KMS etcd encryption on an existing cluster with private key vault.
 
