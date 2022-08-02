@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 08/02/2022
 
 ms.author: mimart
 author: msmimart
@@ -118,7 +118,7 @@ With inbound settings, you select which external users and groups will be able t
 1. Under **Applies to**, select one of the following:
 
    - **All external users and groups**: Applies the action you chose under **Access status** to all users and groups from external Azure AD organizations.
-   - **Select external users and groups** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific users and groups within the external organization.
+   - **Select external users and groups**: Lets you apply the action you chose under **Access status** to specific users and groups within the external organization. This feature requires an Azure AD premium P1 subscription on the tenant that you configure.
 
    ![Screenshot showing selecting the target users for b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/generic-inbound-external-users-groups-target.png)
 

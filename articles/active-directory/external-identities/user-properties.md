@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 08/02/2022
 
 ms.author: mimart
 author: msmimart
@@ -60,6 +60,7 @@ For external users who are using internal credentials, the **Issuer** property i
 ### User Principal Name
 
 The user principal name for a B2B collaboration user object contains an #EXT# identifier.
+
 ### User type
 
 This property indicates the relationship of the user to the host tenancy. This property can have two values:
@@ -107,13 +108,14 @@ It's possible to convert UserType from Member to Guest and vice-versa by editing
 
 ## Remove guest user limitations
 
-There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members.
+Guest users have [default restricted directory permissions](../fundamentals/users-default-permissions.md). They can manage their own profile, change their own password, and retrieve some information about other users, groups, and apps. However, they can't read all directory information. There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members.
 
-It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user.
+It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md) article.
 
 ![Screenshot showing the External users option in the user settings](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
+
 Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see "Add guests to the global address list" in the [Microsoft 365 per-group guest access article](/microsoft-365/solutions/per-group-guest-access).
 
 ## Can I update a guest user's email address?

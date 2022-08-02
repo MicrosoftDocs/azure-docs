@@ -19,10 +19,12 @@ ms.collection: M365-identity-device-management
 Azure AD organizations can use External Identities cross-tenant access settings to manage how they collaborate with other Azure AD organizations and other Microsoft Azure clouds through B2B collaboration and [B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md). [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) give you granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access). These settings also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
 
 This article describes cross-tenant access settings, which are used to manage B2B collaboration and B2B direct connect with external Azure AD organizations, including across Microsoft clouds. Additional settings are available for B2B collaboration with non-Azure AD identities (for example, social identities or non-IT managed external accounts). These [external collaboration settings](external-collaboration-settings-configure.md) include options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
-
-![Overview diagram of cross-tenant access settings.](media/cross-tenant-access-overview/cross-tenant-access-settings-overview.png)
  
 ## Manage external access with inbound and outbound settings
+
+The external identities cross-tenant access settings manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of inbound access users in external Azure AD organizations have to your resources, as well as the level of outbound access your users have to external organizations. The following diagram shows the cross-tenant access inbound and outbound settings. 
+
+![Overview diagram of cross-tenant access settings.](media/cross-tenant-access-overview/cross-tenant-access-settings-overview.png)
 
 By default, B2B collaboration with other Azure AD organizations is enabled, and B2B direct connect is blocked. But the following comprehensive admin settings let you manage both of these features.
 
@@ -92,7 +94,7 @@ To collaborate with a partner tenant in a different Microsoft Azure cloud, both 
 
 - To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator or Security administrator role.
 
-- To configure trust settings or apply access settings to specific users, groups, or applications, you'll need an Azure AD Premium P1 license.
+- To configure trust settings or apply access settings to specific users, groups, or applications, you'll need an Azure AD Premium P1 license. The license is required on the tenant that you configure. For B2B direct connect, where mutual trust relationship with another Azure AD organization is required, you'll need an Azure AD Premium P1 license in both tenants. 
 
 - Cross-tenant access settings are used to manage B2B collaboration and B2B direct connect with other Azure AD organizations. For B2B collaboration with non-Azure AD identities (for example, social identities or non-IT managed external accounts), use [external collaboration settings](external-collaboration-settings-configure.md). External collaboration settings include B2B collaboration options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
 
