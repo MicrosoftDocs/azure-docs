@@ -1,17 +1,17 @@
 ---
-title: How you can use BlobFuse2 (preview) to mount an Azure Blob storage container on Linux. | Microsoft Docs
+title: Use BlobFuse2 (preview) to mount and manage Azure Blob storage containers on Linux. | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how you can use BlobFuse2 (preview) to mount an Azure Blob storage container on Linux.
+description: Use BlobFuse2 (preview) to mount and manage Azure Blob storage containers on Linux.
 author: jammart
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# What is BlobFuse2 (preview)?
+# What is BlobFuse2? (preview)
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.

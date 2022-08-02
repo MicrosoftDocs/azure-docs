@@ -73,5 +73,5 @@ For more information about the complete BlobFuse2 command set, including the `bl
 
 ## See also
 
-- [What is BlobFuse2?](blobfuse2-what-is.md)
-- [How to mount an Azure blob storage container on Linux with BlobFuse2](blobfuse2-how-to-deploy.md)
+- [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
+- [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
