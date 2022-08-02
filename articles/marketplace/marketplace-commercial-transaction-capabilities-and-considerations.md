@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/03/2022
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -87,7 +87,8 @@ Virtual Machine and Azure Application offers are a good fit if you want customer
 [![Illustration showing a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
 &nbsp;&nbsp;&nbsp;<sup>(1)</sup> Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).<br>
 &nbsp;&nbsp;&nbsp;<sup>(2)</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.<br>
-&nbsp;&nbsp;&nbsp;<sup>(3)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
+&nbsp;&nbsp;&nbsp;<sup>(3)</sup> This can include your own VM solutions.
+&nbsp;&nbsp;&nbsp;<sup>(4)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
 ### Usage-based and subscription pricing
 
