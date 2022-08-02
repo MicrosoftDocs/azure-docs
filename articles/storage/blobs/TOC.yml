@@ -530,6 +530,16 @@ items:
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Troubleshoot AzCopy issues
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: BlobFuse
+        items:
+        - name: What is BlobFuse2?
+          href: blobfuse2-what-is.md
+        - name: Deploy BlobFuse2 on Linux
+          href: blobfuse2-how-to-deploy.md
+        - name: Deploy BlobFuse v1 on Linux
+          href: storage-how-to-mount-container-linux.md
+        - name: Troubleshooting
+          href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transfer data by using SFTP
@@ -702,6 +712,54 @@ items:
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy set-properties
         href: ../common/storage-ref-azcopy-set-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: BlobFuse2
+      items:
+      - name: Configuration settings
+        href: blobfuse2-configuration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Commands
+        items:
+        - name: The BlobFuse2 command set
+          href: blobfuse2-commands.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 mount
+          href: blobfuse2-commands-mount.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 mount all
+            href: blobfuse2-commands-mount-all.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 mount list
+            href: blobfuse2-commands-mount-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 mountv1
+          href: blobfuse2-commands-mountv1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 unmount
+          href: blobfuse2-commands-unmount.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 unmount all
+            href: blobfuse2-commands-unmount-all.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 completion
+          href: blobfuse2-commands-completion.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 completion bash
+            href: blobfuse2-commands-completion-bash.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion fish
+            href: blobfuse2-commands-completion-fish.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion PowerShell
+            href: blobfuse2-commands-completion-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion zsh
+            href: blobfuse2-commands-completion-zsh.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 secure
+          href: blobfuse2-commands-secure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 secure encrypt
+            href: blobfuse2-commands-secure-encrypt.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure decrypt
+            href: blobfuse2-commands-secure-decrypt.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure get
+            href: blobfuse2-commands-secure-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure set
+            href: blobfuse2-commands-secure-set.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 version
+          href: blobfuse2-commands-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 help
+          href: blobfuse2-commands-help.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions

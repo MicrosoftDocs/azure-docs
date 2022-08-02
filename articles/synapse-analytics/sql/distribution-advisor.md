@@ -33,12 +33,14 @@ Distribution Advisor only analyzes queries run on user tables.
 
 ### 1. Create Distribution Advisor stored procedures
 
-To run the advisor easily, create two new stored procedures in the database. Run [the CreateDistributionAdvisor_T62.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql):
+To run the advisor easily, create two new stored procedures in the database. Run [the CreateDistributionAdvisor_PublicPreview script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/CreateDistributionAdvisor_PublicPreview.sql):
 
 | Command                       | Description                                                                                           |
 |-------------------------------|-------------------------------------------------------------------------------------------------------|
 | `dbo.write_dist_recommendation` | Defines queries that DA will analyze on. You can provide queries manually, or read from up to 100 past queries from the actual workloads in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql). |   
 | `dbo.read_dist_recommendation`  | Runs the advisor and generates recommendations.                                                       |  
+
+Here is an example of how you could [run the advisor](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/RunDistributionAdvisor.sql).
 
 ### 2a. Run the advisor on past workload in DMV
 
@@ -137,7 +139,7 @@ Ensure that you have the most up to date version of the stored procedure from Gi
 
  - [e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
 
- - [CreateDistributionAdvisor_T62.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/CreateDistributionAdvisor_T62.sql)
+ - [CreateDistributionAdvisor_PublicPreview.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/CreateDistributionAdvisor_PublicPreview.sql)
 
 
 ## Azure Synapse product group feedback

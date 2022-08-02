@@ -31,13 +31,13 @@ Learn more about each of these capabilities in these articles:
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial shows you how to:
+This article shows you how to:
 
 * Create a Python simulated device app that has a direct method, which enables **lockDoor**, which can be called by the solution back end.
 
 * Create a Python console app that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
 
-At the end of this tutorial, you have two Python apps:
+At the end of this article, you have two Python apps:
 
 **simDevice.py**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
@@ -47,15 +47,11 @@ At the end of this tutorial, you have two Python apps:
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Create a simulated device app
 
@@ -143,7 +139,7 @@ In this section, you create a Python console app that responds to a direct metho
 6. Save and close the **simDevice.py** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this article does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 >
 
 ## Get the IoT hub connection string
@@ -182,7 +178,7 @@ In this section, you create a Python console app that initiates a remote **lockD
 
 2. Using a text editor, create a new **scheduleJobService.py** file in your working directory.
 
-3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file. Replace the `{IoTHubConnectionString}` placeholder with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub):
+3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file. Replace the `{IoTHubConnectionString}` placeholder with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder with the device ID (the name) from your registered device:
 
     ```python
     import os
@@ -318,6 +314,6 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
+In this article, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
 To continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in  [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
