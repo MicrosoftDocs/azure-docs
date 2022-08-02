@@ -1,5 +1,5 @@
 ---
-title: What is Azure Form Recognizer? (updated)
+title: What is Azure Form Recognizer? 
 titleSuffix: Azure Applied AI Services
 description: The Azure Form Recognizer service allows you to identify and extract key/value pairs and table data from your form documents, as well as extract major information from sales receipts and business cards.
 author: laujan
@@ -10,7 +10,10 @@ ms.topic: overview
 ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
-keywords: automated data processing, document processing, automated data entry, forms processing
+adobe-target: true
+adobe-target-activity: DocsExp–463504–A/B–Docs/FormRecognizer–DecisionTree–FY23Q1
+adobe-target-experience: Experience B
+adobe-target-content: ./overview-experiment
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 <!-- markdownlint-disable MD033 -->
