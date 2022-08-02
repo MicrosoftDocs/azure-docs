@@ -1059,7 +1059,7 @@ The MathML entities are not supported by XML syntax, so you must use the their c
 
 ## Viseme element
 
-A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. You can use the `mstts:viseme` element in SSML to request viseme output.
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. You can use the `mstts:viseme` element in SSML to request viseme output. 
 
 **Syntax**
 
@@ -1071,7 +1071,7 @@ A _viseme_ is the visual description of a phoneme in spoken language. It defines
 
 | Attribute | Description                                                                                                                                                              | Required or optional |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `type`    | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blendshapes output</li></ul> | Required             |
+| `type`    | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blend shapes output</li></ul> | Required             |
 
 > [!NOTE]
 > Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales. 
