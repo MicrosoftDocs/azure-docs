@@ -50,7 +50,7 @@ After discovery of dependency data begins, polling begins:
 
 ## Agent-based analysis
 
-For agent-based analysis, Azure Migrate: Discovery and assessment uses the [Service Map](../azure-monitor/vm/service-map.md) solution in Azure Monitor. You install the [Microsoft Monitoring Agent/Log Analytics agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent) and the [Dependency agent](../azure-monitor/agents/agents-overview.md#dependency-agent), on each server you want to analyze.
+For agent-based analysis, Azure Migrate: Discovery and assessment uses the [Service Map](../azure-monitor/vm/service-map.md) solution in Azure Monitor. You install the [Microsoft Monitoring Agent/Log Analytics agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent) and the [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md), on each server you want to analyze.
 
 ### Dependency data
 

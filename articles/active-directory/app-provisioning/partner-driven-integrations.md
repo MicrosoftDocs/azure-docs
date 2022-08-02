@@ -80,7 +80,7 @@ If you have built a SCIM Gateway and would like to add it to this list, follow t
 1. Review the Azure AD SCIM [documentation](use-scim-to-provision-users-and-groups.md) to understand the Azure AD SCIM implementation.
 1. Test compatibility between the Azure AD SCIM client and your SCIM gateway.
 1. Click the pencil at the top of this document to edit the article
-1. Once you're redirected to Github, click the pencil at the top of the article to start making changes
+1. Once you're redirected to GitHub, click the pencil at the top of the article to start making changes
 1. Make changes in the article using the Markdown language and create a pull request. Make sure to provide a description for the pull request.  
 1. An admin of the repository will review and merge your changes so that others can view them.
 

@@ -68,6 +68,9 @@ Create a new python file called quickstart.py. Then open it up in your preferred
     print(formatted_response)
     ```
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials. For example, [Azure Key Vault](../../../key-vault/general/overview.md).
+
 1. Run the application with the `python` command on your quickstart file
 
     ```console

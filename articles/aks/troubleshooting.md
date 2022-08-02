@@ -89,6 +89,10 @@ Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whet
 
 The minimum supported TLS version in AKS is TLS 1.2.
 
+## I'm using Alias minor version, but I can't seem to upgrade in the same minor version? Why?
+
+When upgrading by alias minor version, only a higher minor version is supported. For example, upgrading from 1.14.x to 1.14 will not trigger an upgrade to the latest GA 1.14 patch, but upgrading to 1.15 will trigger an upgrade to the latest GA 1.15 patch.
+
 ## My application is failing with `argument list too long`
 
 You may receive an error message similar to:
@@ -329,6 +333,17 @@ If your node is in a failed state, you can mitigate by manually updating the VM 
     ```
 
 ## Azure Files and AKS Troubleshooting
+
+### Azure Files CSI storage driver fails to mount a volume with a secret not in default namespace
+
+If you have configured an Azure Files CSI driver persistent volume or storage class with a storage
+access secrete in a namespace other than *default*, the pod does not search in its own namespace 
+and returns an error when trying to mount the volume.
+
+This issue has been fixed in the 2022041 release. To mitigate this issue, you have two options:
+
+1. Upgrade the agent node image to the latest release.
+1. Specify the *secretNamespace* setting when configuring the persistent volume configuration.
 
 ### What are the default mountOptions when using Azure Files?
 

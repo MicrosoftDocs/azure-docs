@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/18/2022
+ms.date: 08/02/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -13,6 +13,10 @@ ms.custom: mode-api
 # Deploy the MedTech service using the Azure portal
 
 In this quickstart, you'll learn how to deploy the MedTech service in the Azure portal using two different methods: with a [quickstart template](#deploy-the-medtech-service-with-a-quickstart-template) or [manually](#deploy-the-medtech-service-manually). The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+
+> [!IMPORTANT]
+>
+> You'll want to confirm that the **Microsoft.HealthcareApis** and **Microsoft.EventHub** resource providers have been registered with your Azure subscription for a successful deployment. To learn more about registering resource providers, see [Azure resource providers and types](/azure-resource-manager/management/resource-providers-and-types) 
 
 ## Deploy the MedTech service with a quickstart template
 
@@ -23,14 +27,14 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
  * An Azure Health Data Services FHIR service.
- * An Azure Health Data Services MedTech service including the necessary system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
+ * An Azure Health Data Services MedTech service including the necessary [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles to the device message event hub (**Azure Events Hubs Receiver**) and FHIR service (**FHIR Data Writer**).
 
 > [!TIP]
 > 
 > By using the drop down menus, you can find all the values that can be selected. You can also begin to type the value to begin the search for the resource, however, selecting the resource from the drop down menu will ensure that there are no typos.
 >
 > :::image type="content" source="media\iot-deploy-quickstart-in-portal\display-drop-down-box.png" alt-text="Screenshot of Azure portal page displaying drop down menu example." lightbox="media\iot-deploy-quickstart-in-portal\display-drop-down-box.png"::: 
->
+
 
 1. When the Azure portal launches, the following fields must be filled out:
 
@@ -55,14 +59,15 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
    * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
    * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
 
-  > [!IMPORTANT]
-  > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group. 
-  >
-  > Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
-  >
-  > **Examples:** 
-  > * Two MedTech services accessing the same device message event hub.
-  > * A MedTech service and a storage writer application accessing the same device message event hub. 
+   > [!IMPORTANT]
+   >
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has  its own event hub consumer group. 
+   >
+   > Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups). 
+   >
+   > **Examples:** 
+   > * Two MedTech services accessing the same device message event hub.
+   > * A MedTech service and a storage writer application accessing the same device message event hub. 
 
 ## Deploy the MedTech service manually
 
@@ -110,6 +115,7 @@ It's important that you have the following prerequisites completed before you be
       The Event Hubs Namespace is the name of the **Event Hubs Namespace** that you've previously deployed. For this example, we'll use `eh-azuredocsdemo` for use with our MedTech service device messages. 
 
       > [!TIP]
+      >
       > For information about deploying an Azure Event Hubs Namespace, see [Create an Event Hubs Namespace](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
       >
       > For more information about Azure Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
@@ -191,6 +197,7 @@ It's important that you have the following prerequisites completed before you be
    3. Select **Create** or **Lookup** for the **Resolution Type**.
 
     > [!NOTE]
+    >
     > For the MedTech service destination to create a valid observation resource in the FHIR service, a device resource and patient resource **must** exist in the FHIR service, so the observation can properly reference the device that created the data, and the patient the data was measured from. There are two modes the MedTech service can use to resolve the device and patient resources.
 
     **Create**
@@ -291,6 +298,7 @@ To ensure that your MedTech service works properly, it's system-assigned managed
    The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive device message data from this event hub.
 
    > [!TIP]
+   >
    > For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
 
 7. Select the **Select role** button.

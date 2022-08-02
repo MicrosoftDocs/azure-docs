@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent network requirements
 description: Learn about the networking requirements for using the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 06/09/2022
+ms.date: 07/26/2022
 ms.topic: conceptual 
 ---
 
@@ -39,7 +39,7 @@ For more information, see [Virtual network service tags](../../virtual-network/s
 
 The table below lists the URLs that must be available in order to install and use the Connected Machine agent.
 
-# [Azure Cloud](#tab/azure-cloud)
+### [Azure Cloud](#tab/azure-cloud)
 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
@@ -58,7 +58,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
-# [Azure Government](#tab/azure-government)
+### [Azure Government](#tab/azure-government)
 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
@@ -72,6 +72,30 @@ The table below lists the URLs that must be available in order to install and us
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional| Public |
+
+### [Azure China](#tab/azure-china)
+
+> [!NOTE]
+> Private link is not available for Azure Arc-enabled servers in Azure China regions.
+
+| Agent resource | Description | When required|
+|---------|---------|--------|
+|`aka.ms`|Used to resolve the download script during installation|At installation time, only|
+|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only|
+|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only|
+|`login.chinacloudapi.cn`|Azure Active Directory|Always|
+|`login.partner.chinacloudapi.cn`|Azure Active Directory|Always|
+|`pas.chinacloudapi.cn`|Azure Active Directory|Always|
+|`management.chinacloudapi.cn`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only|
+|`*.his.arc.azure.cn`|Metadata and hybrid identity services|Always|
+|`*.guestconfiguration.azure.cn`| Extension management and guest configuration services |Always|
+|`guestnotificationservice.azure.cn`, `*.guestnotificationservice.azure.cn`|Notification service for extension and connectivity scenarios|Always|
+|`azgn*.servicebus.chinacloudapi.cn`|Notification service for extension and connectivity scenarios|Always|
+|`*.servicebus.chinacloudapi.cn`|For Windows Admin Center and SSH scenarios|If using SSH or Windows Admin Center from Azure|
+|`*.blob.core.chinacloudapi.cn`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints|
+|`dc.applicationinsights.azure.cn`|Agent telemetry|Optional|
+
+---
 
 ## Transport Layer Security 1.2 protocol
 

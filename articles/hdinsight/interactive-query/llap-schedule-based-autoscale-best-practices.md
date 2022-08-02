@@ -5,7 +5,6 @@ ms.service: hdinsight
 ms.topic: quickstart
 author: yeturis
 ms.author: sairamyeturi
-ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/25/2022
 ---
 
@@ -53,7 +52,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 
 
 > [!NOTE]  
-> It's recommended to have sufficient gap between two schedules so that data cache is efficiently utilized i.e schedule scale up’s when there is peak usage and scale down’s when there is no usage. 
+> It's recommended to have sufficient gap between two schedules so that data cache is efficiently utilized i.e schedule scale up's when there is peak usage and scale down's when there is no usage. 
 
 ### **Interactive Query Autoscale FAQs**
 

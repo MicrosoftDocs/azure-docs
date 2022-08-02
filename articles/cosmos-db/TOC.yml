@@ -161,6 +161,8 @@
         href: data-residency.md
   - name: Automatic recommendations
     href: automated-recommendations.md
+  - name: Move data within Azure Cosmos DB
+    href: intra-account-container-copy.md
 - name: SQL/Core API
   href: sql/index.yml
 - name: Cassandra API
@@ -177,32 +179,34 @@
        href: ./resource-graph-samples.md
      - name: Azure CLI
        items:
-         - name: Overview common API samples
-           href: common-cli-samples.md
-         - name: Add or fail over regions
-           href: scripts/cli/common/regions.md
-         - name: Perform account key operations
-           href: scripts/cli/common/keys.md
-         - name: Secure with IP firewall
-           href: scripts/cli/common/ipfirewall.md
-         - name: Secure new account with service endpoints
-           href: scripts/cli/common/service-endpoints.md
-         - name: Secure existing account with service endpoints
-           href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Overview common API samples
+          href: common-cli-samples.md
+        - name: Add or fail over regions
+          href: scripts/cli/common/regions.md
+        - name: Perform account key operations
+          href: scripts/cli/common/keys.md
+        - name: Secure with IP firewall
+          href: scripts/cli/common/ipfirewall.md
+        - name: Secure new account with service endpoints
+          href: scripts/cli/common/service-endpoints.md
+        - name: Secure existing account with service endpoints
+          href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Find existing free-tier accounts
+          href: scripts/cli/common/free-tier.md
      - name: Azure PowerShell
        items:
-         - name: Overview common API samples
-           href: common-powershell-samples.md
-         - name: Account keys or connection strings
-           href: scripts/powershell/common/keys-connection-strings.md
-         - name: Change failover priority or trigger failover
-           href: scripts/powershell/common/failover-priority-update.md
-         - name: Create an account with IP Firewall
-           href: scripts/powershell/common/firewall-create.md
-         - name: Update account
-           href: scripts/powershell/common/account-update.md
-         - name: Update an account's regions
-           href: scripts/powershell/common/update-region.md
+        - name: Overview common API samples
+          href: common-powershell-samples.md
+        - name: Account keys or connection strings
+          href: scripts/powershell/common/keys-connection-strings.md
+        - name: Change failover priority or trigger failover
+          href: scripts/powershell/common/failover-priority-update.md
+        - name: Create an account with IP Firewall
+          href: scripts/powershell/common/firewall-create.md
+        - name: Update account
+          href: scripts/powershell/common/account-update.md
+        - name: Update an account's regions
+          href: scripts/powershell/common/update-region.md
 - name: How to
   items:
     - name: Free tier
@@ -329,7 +333,7 @@
         - name: Use Azure monitor metrics
           items:
             - name: Azure Monitor for Cosmos DB
-              href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+              href: cosmosdb-insights-overview.md
             - name: Scenarios to monitor
               href: use-metrics.md
             - name: Monitor server-side latency
@@ -360,6 +364,9 @@
           href: monitor-cosmos-db-reference.md
         - name: Third-party monitoring solutions
           href: monitoring-solutions.md
+    - name: Move data within Cosmos DB
+      displayName: Move data within Cosmos DB
+      href: how-to-container-copy.md
     - name: Migrate data to Cosmos DB
       items:
         - name: Options to migrate data into Cosmos DB

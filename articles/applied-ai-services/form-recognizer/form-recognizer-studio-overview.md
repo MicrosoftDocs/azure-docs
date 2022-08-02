@@ -18,7 +18,7 @@ recommendations: false
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
-Form Recognizer Studio is an online tool to visually explore, understand, and integrate features from the Form Recognizer service into your applications. The studio provides a platform for you to experiment with the different Form Recognizer models and sample their returned data in an interactive manner without the need to write code.
+Form Recognizer Studio is an online tool to visually explore, understand, train, and integrate features from the Form Recognizer service into your applications. The studio provides a platform for you to experiment with the different Form Recognizer models and sample their returned data in an interactive manner without the need to write code.
 
 The studio supports all Form Recognizer v3.0 models and v2.1 models with labeled data. Refer to the [REST API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 
@@ -53,13 +53,13 @@ The studio supports all Form Recognizer v3.0 models and v2.1 models with labeled
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio. From the front page, select any Form Recognizer model to try using a no-code approach.
+1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio. From the front page, select any Form Recognizer model to try using with a no-code approach.
 
     :::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
 
 1. After you've tried Form Recognizer Studio, use the [**C#**](quickstarts/try-v3-csharp-sdk.md), [**Java**](quickstarts/try-v3-java-sdk.md), [**JavaScript**](quickstarts/try-v3-javascript-sdk.md) or [**Python**](quickstarts/try-v3-python-sdk.md) client libraries or the [**REST API**](quickstarts/try-v3-rest-api.md) to get started incorporating Form Recognizer models into your own applications.
 
-   To learn more about each model, *see* the concepts pages.
+   To learn more about each model, *see* concepts pages.
 
    | Model type| Models |
    |-----|-----|
