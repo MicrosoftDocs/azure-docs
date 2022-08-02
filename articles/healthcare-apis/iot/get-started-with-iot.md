@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/31/2022
+ms.date: 08/02/2022
 ms.author: v-smcevoy
 ms.custom: mode-api
 ---
@@ -36,7 +36,7 @@ The following diagram shows the basic architectural path that enable the MedTech
 
 - Step 6 demonstrates the path needed to verify data sent from MedTech service to the FHIR service.
 
-[![MedTech service data flow diagram.](media/iot-get-started/get-started-with-iot.png)](media/iot-get-started/get-started-with-iot.png#lightbox)
+[![MedTech service architectural overview diagram.](media/iot-get-started/get-started-with-iot.png)](media/iot-get-started/get-started-with-iot.png#lightbox)
 
 The next three steps will show you the procedures needed to deploy MedTech service so it is ready to receive data from a medical device.
 
