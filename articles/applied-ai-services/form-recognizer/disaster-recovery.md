@@ -53,7 +53,7 @@ Request body
 }
 ```
 
-You'll get a `200` response code with response body thhat contains the JSON payload required to initiate the copy.
+You'll get a `200` response code with response body that contains the JSON payload required to initiate the copy.
 
 ```
 {
