@@ -23,11 +23,11 @@ This article provides suggestions to troubleshoot common problems with the SAP T
 
 - **Cause**: Unable to connect to SAP server, which may be caused by the connection issue between the machine with an integration runtime installed and SAP server, or wrong credentials.  
 
-- **Recommendation**: If the error messages are like `'&lt;serverName&lt;:3300' not reached`, test connection in the machine with an integration runtime installed first by following the PowerShell command below:
+- **Recommendation**: If the error messages are like `'<serverName>:3300' not reached`, test connection in the machine with an integration runtime installed first by following the PowerShell command below:
 
     ```powershell
     
-    Test-NetConnection &lt;sap server&lt; -port 3300  
+    Test-NetConnection <sap server> -port 3300  
     
     ```
 
