@@ -542,7 +542,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 | ViewName     | View name                         |
 
 
-### ABAP DB table data log
+### ABAP DB table data log (Preview)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -576,7 +576,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | VersionNumber    | Version number                        |
 
 
-### ABAP Gateway log
+### ABAP Gateway log (Preview)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -586,7 +586,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Monitors Gateway activities. Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-#### ABAPOS_GW_CL log schema
+#### ABAPOS_GW_CL log schema 
 
 | Field        | Description      |
 | ------------ | ---------------- |
@@ -598,7 +598,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | SystemNumber | System number    |
 
 
-### ABAP ICM log
+### ABAP ICM log (Preview)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
