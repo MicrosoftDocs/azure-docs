@@ -17,7 +17,7 @@ ms.custom: subject-rbac-steps
 The `$convert-data` custom endpoint in the FHIR service is meant for converting health data from different legacy formats to FHIR. The `$convert-data` operation uses Liquid templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for the default FHIR data conversion mappings. You can customize these conversion templates as needed. Currently the `$convert-data` operation supports three types of data conversion: **HL7v2 to FHIR**, **C-CDA to FHIR**, and **JSON to FHIR** (JSON to FHIR templates are intended for custom conversion mapping).
 
 > [!NOTE]
-> The `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of legacy health data formats into the FHIR format. However, the `$convert-data` operation is not an ETL pipeline in itself. We recommend you use an ETL engine based on Azure Logic Apps or Azure Data Factory for a complete workflow in preparing your legacy data to be converted for persistance in the FHIR service. The workflow might include: data reading and ingestion, data validation, making `$convert-data` API calls, data pre/post-processing, data enrichment, and data de-duplication.
+> The `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of legacy health data formats into the FHIR format. However, the `$convert-data` operation is not an ETL pipeline in itself. We recommend you use an ETL engine based on Azure Logic Apps or Azure Data Factory for a complete workflow in preparing your legacy data for persistence in FHIR. The workflow might include: data reading and ingestion, data validation, making `$convert-data` API calls, data pre/post-processing, data enrichment, and data de-duplication.
 
 ## Using the `$convert-data` endpoint
 
@@ -29,12 +29,12 @@ The legacy health data is delivered to the FHIR service inside a `Parameter` res
 
 ### Parameter Resource
 
-A `$convert-data` API call has a JSON-formatted [Parameter resource](http://hl7.org/fhir/parameters.html) in the request body as described in the table below. The Parameter resource defines the following elements:
+A `$convert-data` API call has a JSON-formatted [Parameter resource](http://hl7.org/fhir/parameters.html) in the request body as described in the table below. The Parameter resource contains the following elements:
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
-| `inputData`      | Data to be converted. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON |
-| `inputDataType`   | Data type of input. | ```HL7v2```, ``Ccda``, ``Json`` |
+| `inputData`      | Data payload to be converted to FHIR. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON |
+| `inputDataType`   | Type of data input. | ```HL7v2```, ``Ccda``, ``Json`` |
 | `templateCollectionReference` | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection in [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). The reference is to an image containing Liquid templates to use for conversion. It can be a reference either to default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting them on ACR, and registering to the FHIR service. | For ***default/sample*** templates: <br> **HL7v2** templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br><br> For ***custom*** templates: <br> `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>` |
 | `rootTemplate` | The root template to use while transforming the data. | For **HL7v2**:<br> "ADT_A01", "ADT_A02", "ADT_A03", "ADT_A04", "ADT_A05", "ADT_A08", "ADT_A11",  "ADT_A13", "ADT_A14", "ADT_A15", "ADT_A16", "ADT_A25", "ADT_A26", "ADT_A27", "ADT_A28", "ADT_A29", "ADT_A31", "ADT_A47", "ADT_A60", "OML_O21", "ORU_R01", "ORM_O01", "VXU_V04", "SIU_S12", "SIU_S13", "SIU_S14", "SIU_S15", "SIU_S16", "SIU_S17", "SIU_S26", "MDM_T01", "MDM_T02"<br><br> For **C-CDA**:<br> "CCD", "ConsultationNote", "DischargeSummary", "HistoryandPhysical", "OperativeNote", "ProcedureNote", "ProgressNote", "ReferralNote", "TransferSummary" <br><br> For **JSON**: <br> "ExamplePatient", "Stu3ChargeItem" <br> |
 
