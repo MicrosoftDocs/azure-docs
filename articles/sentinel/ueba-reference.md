@@ -37,7 +37,7 @@ This section describes the enrichments UEBA adds to Microsoft Sentinel entities,
 
         <a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
-- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory is stored.
+- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory (and from on-premises Active Directory via Microsoft Defender for Identity) is stored.
 
 ### BehaviorAnalytics table
 
