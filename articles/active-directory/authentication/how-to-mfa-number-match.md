@@ -13,7 +13,7 @@ ms.collection: M365-identity-device-management
 ---
 # How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security. The schema for the API to enable number match is currently being updated. While the API is updated over the next two weeks, you should only use the Azure AD portal to enable number match.   
+This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security. The schema for the API to enable number match is currently being updated. **While the API is updated over the next two weeks, you should only use the Azure AD portal to enable number match.**   
 
 >[!NOTE]
 >Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will be enabled by default for all tenants a few months after general availability (GA).<br> 
