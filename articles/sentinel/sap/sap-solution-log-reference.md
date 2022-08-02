@@ -72,7 +72,7 @@ Users are considered privileged when they are listed in the *SAP - Privileged Us
 **Parameters:**
 - TimeAgo
     - Optional
-    - Default value: 7 days
+    - Default value: Seven days
     - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
 The **SAPUsersGetPrivileged** function returns the following data:
@@ -91,7 +91,7 @@ The **SAPUsersAuthorizations** function brings together data from several tables
 **Parameters:**
 - TimeAgo
     - Optional
-    - Default value: 7 days
+    - Default value: Seven days
     - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
 The **SAPUsersAuthorizations** function returns the following data:
@@ -127,7 +127,7 @@ The **SAPConnectorOverview** function shows row counts of each SAP table per Sys
 
 - TimeAgo
   - Optional
-  - Default value: 7 days
+  - Default value: Seven days
   - Determines that the function seeks User master data from the time defined by the `TimeAgo` value until the time defined by the `now()` value.
 
 | Field           | Description |
@@ -145,7 +145,7 @@ SAPConnectorOverview(7d)
 ### SAPUsersEmail
 
 The **SAPUsersEmail** function allows for a performance oriented lookup of an SAP user's email address per SAP system and client, normally used to associate it with an active directory account. 
-Using data extracted from SAP tables USR21 (User Name/Address Key Assignment) and ADR6 (E-Mail Addresses), and it looks for an Email address. In case one is not found, the user ID is returned instead of an Email address. This behavior ensures that SAP service accounts (such as DDIC), that often are not associated with an email addresses, will be logged as psuedo AD accounts, enabling some UEBA features, aiding in the investigation of incidents and hunting activities.
+Using data extracted from SAP tables USR21 (User Name/Address Key Assignment) and ADR6 (E-Mail Addresses), the SAPUsersEmail function looks for an Email address. In case one is not found, the user ID is returned instead of an Email address. This behavior ensures that SAP service accounts (such as DDIC), that often are not associated with an email addresses, will be logged as pseudo AD accounts, enabling some UEBA features, aiding in the investigation of incidents and hunting activities.
 
 | Field           | Description |
 | --------------- | ----------- |
@@ -179,7 +179,7 @@ The **SAPSystems** function is used to centrally present the per-system configur
 
 ### SAPAuditLogConfiguration
 
-The **SAPAuditLogConfiguration** function returns the local configuration of the SAP audit log alerting of the Sentinel workspace, to be used for the different SAP audt log related alerts.
+The **SAPAuditLogConfiguration** function returns the local configuration of the SAP audit log alerting of the Sentinel workspace, to be used for the different SAP audit log related alerts.
 It joins the data in the 'SAP Dynamic Audit Log Monitor Configuration' and 'SAP - Systems' watchlists to provide a per-system configuration at a per-system-role effort.
 
 **Parameters:**
@@ -205,7 +205,7 @@ It joins the data in the 'SAP Dynamic Audit Log Monitor Configuration' and 'SAP 
 | ------------- | ------------- | -------------  
 | CategoryName | SAP given event category | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
 | DestinationEmail | Email address of the Assigned Team | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
-| DetailedDescription | A mardown formatted text to be displayed on alerts | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
+| DetailedDescription | A markdown formatted text to be displayed on alerts | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
 | MessageID | The SAP audit log message ID | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
 | MessageText | A sample message text | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
 | RolesTagsToExclude | an ABAP Role, Profile or free text tag | 'SAP Dynamic Audit Log Monitor Configuration' watchlist  
@@ -224,7 +224,7 @@ It joins the data in the 'SAP Dynamic Audit Log Monitor Configuration' and 'SAP 
 ### SAPAuditLogAnomalies
 
 The **SAPAuditLogAnomalies** uses Sentinel's underlying Kusto database's built-in machine learning capabilities to help detect anomalous events observed on the SAP audit log.
-Initially developed for the “SAP - (Experimental) Dynamic Anomaly-based Audit Log Monitor Alerts” alert rule, designed to alert on recent anomalies, this function can also help to highlight historical anomalies (see examples below).
+Developed for the “SAP - (Experimental) Dynamic Anomaly based Audit Log Monitor Alerts” alert rule, this function was initially designed to alert on recent anomalies but it can also help to highlight historical anomalies (see examples below).
 
 **Parameters:**
 
@@ -234,7 +234,7 @@ Initially developed for the “SAP - (Experimental) Dynamic Anomaly-based Audit 
   - Determines the timespan used for the model learning
 - DetectingTime
   - Optional
-  - Default value: 1 hour
+  - Default value: One hour
   - Determines the timespan to be looked at for detecting anomalies. Calling this function with DetectingTime = 0h will highlight anomalies across the entire LearningTime timespan
 - SelectedSystems
   - Optional
@@ -264,9 +264,9 @@ The function learns the slice of the history defined by the different input para
 #### Additional notes
 
 As with any machine learning solution, this function performs better with time. Further adjustments can be made using local configuration.
-It is adviseable to restrict the size of the learned database to be under 100 million records using the many available input parameters.
+It is advisable to restrict the size of the learned database to be under 100 million records using the many available input parameters.
 
-Example: looking for anomalies for events of high severity that occured within the past hour on production systems for event types which are marked as "AnomaliesOnly" in the "SAP_Dynamic_Audit_Log_Monitor_Configuration"
+Example: looking for anomalies for events of high severity that occurred within the past hour on production systems for event types which are marked as "AnomaliesOnly" in the "SAP_Dynamic_Audit_Log_Monitor_Configuration"
 
 ```kusto
 SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=1h, SelectedSystemRoles= dynamic(["Production"]), 
@@ -288,7 +288,7 @@ SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dyna
 | AnomalCount | Number of events observed within relevant sliding window|
 | MinTime | Time of first event observed |
 | MaxTime | Time of last event observed|
-| Score | the anomaly score as produced by the anomaly model|
+| Score | the anomaly scores as produced by the anomaly model|
 
 ### SAPUsersGetVIP
 
@@ -319,7 +319,7 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 - SearchForTags
   - Optional
   - Default value: dynamic('All Tags')
-  - When SearchForTags equals 'All Tags', all users are returned along with their tags, else, only users bearing the tags specified in SearchForTags are returned. TagsIntersect will show which tags where found, and IntersectionSize will produce the count of those.
+  - When SearchForTags equals 'All Tags', all users are returned along with their tags, else, only users bearing the tags specified in SearchForTags are returned. TagsIntersect will show which tags were found, and IntersectionSize will hold the count of those.
 - SpecialFocusTags
   - Optional
   - Default value: "Do not return any in-focus users"
@@ -341,7 +341,7 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 
 ### SAPUsersHeader
 
-The **SAPUsersHeader** function is designed to provide a high-level view of the SAP user. It uses data extracted from oth the SAP user master data tables and recent activity on the SAP audit log to gather Email and IP addresses. It then returns last known email and IP adresses along with primary email and IP addresses.
+The **SAPUsersHeader** function is designed to provide a high-level view of the SAP user. It uses data extracted from both the SAP user master data tables and recent activity on the SAP audit log to gather Email and IP addresses. It then returns last known email and IP addresses along with primary email and IP addresses.
 **Parameters:**
 SelectedSystemRoles:dynamic = dynamic(["All System Roles"]) SelectedSystems:dynamic = dynamic(["All Systems"]) SelectedUsers:dynamic = dynamic(["All Users"]) SelectedUser:string = "All Users"
 
@@ -363,7 +363,7 @@ SelectedSystemRoles:dynamic = dynamic(["All System Roles"]) SelectedSystems:dyna
   - Accepts a single user only
 
 #### Additional notes
-For performance considerations, only a few days of audit activity is onsidered.
+For performance considerations, only a few recent days of audit activity are considered.
 For a full history of user activity, run a custom KQL query against the SAPAuditLog function.
 
 | Source | Field | Description | Notes  
@@ -375,7 +375,7 @@ For a full history of user activity, run a custom KQL query against the SAPAudit
 | SAP table USR02 | LockedStatus | AD User Identifier |
 | SAP audit log | LastSeen | A timestamp | last audit event observed for the user  
 | SAP audit log | LastSeenDaysAgo | days passed since LastSeen |
-| SAP audit log | PrimaryIP | Most frequently used IP adress | ChangeUserMasterDataOK;RunObsoleteProgOK  
+| SAP audit log | PrimaryIP | Most frequently used IP address | ChangeUserMasterDataOK;RunObsoleteProgOK  
 | SAP audit log | LastKnownIP | Most recently used IP address | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
 | SAP audit log | PrimaryEmail | Most frequently used Email address | True, False  
 | SAP audit log | KnownIPs | List of known IP addresses | sorted by most frequent first  
