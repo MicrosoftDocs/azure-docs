@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government)
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -181,9 +181,9 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
-### Ensure ASC Default policy setting "Monitor Endpoint Protection" is not "Disabled"
+### Ensure ASC Default policy setting "Monitor Disk Encryption" is not "Disabled"
 
-**ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.5
+**ID**: CIS Microsoft Azure Foundations Benchmark recommendation 2.6
 **Ownership**: Customer
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |

@@ -1,11 +1,12 @@
 ---
 title: How to use the BlobFuse2 secure command to encrypt, decrypt, or access settings in a BlobFuse2 configuration file | Microsoft Docs
+titleSuffix: Azure Blob Storage
 description: Learn how to use the BlobFuse2 secure command to encrypt, decrypt, or access settings in a BlobFuse2 configuration file.
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -45,11 +46,11 @@ Select one of the command links in the table above to view the documentation for
 
 ## Flags (options)
 
-Some flags are inherited from the parent command, `blobfuse2`, and others only apply to the `blobfuse2 secure` command.
+Flags that apply to `blobfuse2 secure` are inherited from the parent command, [`blobfuse2`](blobfuse2-commands.md), or apply only to the `blobfuse2 secure` subcommands.
 
 ### Flags inherited from the BlobFuse2 command
 
-The following flags are inherited from parent command `blobfuse2`:
+The following flags are inherited from parent command [`blobfuse2`](blobfuse2-commands.md):
 
 | Flag | Short version | Value type | Default value | Description |
 |--|--|--|--|--|
