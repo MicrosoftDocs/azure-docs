@@ -29,7 +29,7 @@ The legacy health data is delivered to the FHIR service inside a `Parameter` res
 
 ### Parameter Resource
 
-A `$convert-data` API call has a JSON-formatted [Parameter](http://hl7.org/fhir/parameters.html) resource in the request body as described in the table below. In the API call request body, you would include the following parameters:
+A `$convert-data` API call has a JSON-formatted [Parameter](http://hl7.org/fhir/parameters.html) resource in the request body as described in the table below. The Parameter resource in the body of the request defines the following parameters:
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
