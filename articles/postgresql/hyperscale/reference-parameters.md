@@ -115,6 +115,38 @@ DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connect
 ... etc, one for each of the 32 shards
 ```
 
+#### citus.show\_shards\_for\_app\_name\_prefixes (text)
+
+By default, Citus hides shards from the list of tables PostgreSQL gives to SQL clients. It does this because there are multiple shards per distributed table, and the shards can be distracting to the SQL client.
+
+The `citus.show_shards_for_app_name_prefixes` GUC allows shards to be displayed for selected clients that want to see them. Its default value is ''.
+
+```postgresql
+-- show shards to psql only (hide in other clients, like pgAdmin)
+
+SET citus.show_shards_for_app_name_prefixes TO 'psql';
+
+-- also accepts a comma separated list
+
+SET citus.show_shards_for_app_name_prefixes TO 'psql,pg_dump';
+```
+
+Shard hiding can be totally disabled using
+[citus.override_table_visibility](#citusoverride_table_visibility-boolean).
+
+#### citus.override\_table\_visibility (boolean)
+
+Determines whether
+[citus.show_shards_for_app_name_prefixes](#citusshow_shards_for_app_name_prefixes-text)
+is active. The default value is 'true'. When set to 'false', shards are visible
+to all client applications.
+
+#### citus.use\_citus\_managed\_tables (boolean)
+
+Allow new [local tables](concepts-nodes.md#type-3-local-tables) to be accessed
+by queries on worker nodes. Adds all newly created tables to Citus metadata
+when enabled. The default value is 'false'.
+
 ### Query Statistics
 
 #### citus.stat\_statements\_purge\_interval (integer)
@@ -389,6 +421,31 @@ The supported values are:
 
 * **none:** no SET commands are propagated.
 * **local:** only SET LOCAL commands are propagated.
+
+##### citus.create\_object\_propagation (enum)
+
+Controls the behavior of CREATE statements in transactions for supported
+objects.
+
+When objects are created in a multi-statement transaction block, Citus switches
+sequential mode to ensure created objects are visible to later statements on
+shards. However, the switch to sequential mode is not always desirable. By
+overriding this behavior, the user can trade off performance for full
+transactional consistency in the creation of new objects.
+
+The default value for this parameter is 'immediate'.
+
+The supported values are:
+
+* **immediate:** raises error in transactions where parallel operations like
+  create\_distributed\_table happen before an attempted CREATE TYPE.
+* **deferred:** return to the old object propagation behavior, in which case
+  there may be some inconsistency between which database objects exist on
+  different nodes.
+* **automatic:** TODO: talk to Marco.
+
+For an example of this GUC in action, see [type
+propagation](howto-modify-distributed-tables.md#types-and-functions).
 
 ##### citus.enable\_repartition\_joins (boolean)
 
