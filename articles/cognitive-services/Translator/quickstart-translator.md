@@ -57,7 +57,7 @@ For more information on Translator authentication options, *see* the [Translator
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and **never** post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../cognitive-services/cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and **never** post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ Cognitive Services [security](../../cognitive-services/cognitive-services-security.md).
 
 ## Translate text
 
