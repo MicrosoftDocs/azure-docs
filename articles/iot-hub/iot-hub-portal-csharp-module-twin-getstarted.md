@@ -53,7 +53,7 @@ Within one device identity, you can create up to 20 module identities. To add an
 
     ![See module identity details](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
-Save the **Connect string - primary key**. You use it in the next section to you set up your module on the device.
+Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
 ## Update the module twin using .NET device SDK
 
@@ -65,9 +65,11 @@ To create an app that updates the module twin reported properties, follow these 
 
 1. In Visual Studio, select **Create a new project**, then choose **Console App (.NET Framework)**, and select **Next**.
 
-1. In **Configure your new project**, enter *UpdateModuleTwinReportedProperties* as the **Project name**. Select **Create** to continue.
+1. In **Configure your new project**, enter *UpdateModuleTwinReportedProperties* as the **Project name**. Select **Next** to continue.
 
     ![Configure your a visual studio project](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
+
+1. Keep the default .NET framework, then select **Create**.
 
 ### Install the latest Azure IoT Hub .NET device SDK
 
@@ -81,18 +83,6 @@ Module identity and module twin is in public preview. It's only available in the
 
     Now you have access to all the module features.
 
-### Get your module connection string
-
-You need the module connection string for your console app. Follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to your IoT hub and select **IoT Devices**. Open **myFirstDevice** and you see that **myFirstModule** was successfully created.
-
-1. Select **myFirstModule** under **Module Identities**. In **Module Identity Details**, copy the **Connection string (primary key)**.
-
-    ![Azure portal module detail](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
-
 ### Create UpdateModuleTwinReportedProperties console app
 
 To create your app, follow these steps:
@@ -105,7 +95,7 @@ To create your app, follow these steps:
   using Newtonsoft.Json;
   ```
 
-2. Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
+2. Add the following fields to the **Program** class. Replace the placeholder value with the module connection string you saved previously.
 
   ```csharp
   private const string ModuleConnectionString = "<Your module connection string>";
