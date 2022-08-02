@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-share
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 08/22/2022
 ms.custom: mode-api
 ---
 # Quickstart: Share and receive data with the Microsoft Purview Data Sharing .NET SDK
@@ -52,7 +52,7 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.DataShare NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataShare).
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Analytics.Purview.Share NuGet package](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/1.0.3-beta.20).
 
     ```powershell
     Install-Package Microsoft.Azure.Purview.Share.ManagementClient
