@@ -5,9 +5,9 @@ description: Authenticate to Azure App Configuration using managed identities
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps
+ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 08/02/2022
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration
@@ -64,21 +64,21 @@ To complete this tutorial, you must have:
 
 To set up a managed identity in the portal, you first create an application and then enable the feature.
 
-1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to work with, create one. 
+1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to work with, create one.
 
 1. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 
 1. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
 
-1. Answer **Yes** when prompted to enable system assigned managed identity.
+1. When prompted, answer **Yes**  to enable system assigned managed identity.
 
-    ![Set managed identity in App Service](./media/set-managed-identity-app-service.png)
+    :::image type="content" source="./media/set-managed-identity-app-service.png" alt-text="Screenshot of how to add a managed identity in App Service.":::
 
 ## Grant access to App Configuration
 
 The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the quickstart.
+1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the [quickstart](../azure-app-configuration/quickstart-azure-functions-csharp.md).
 
 1. Select **Access control (IAM)**.
 
@@ -86,11 +86,13 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
     :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
+   If you don't have permissions to assign roles, the **Add role assignment** option will be disabled. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+
 1. On the **Role** tab, select the **App Configuration Data Reader** role.
 
     :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 
-1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+1. On the **Members** tab, select **Managed identity** and then select **Select members**.
 
 1. Select your Azure subscription, for Managed Identity select **App Service**, then select your App Service name.
 
@@ -122,10 +124,10 @@ The following steps describe how to assign the App Configuration Data Reader rol
     using Azure.Identity;
     ```
 
-1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method (this is found in the `Microsoft.Azure.AppConfiguration.AspNetCore` package).
+1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method (this method is found in the `Microsoft.Azure.AppConfiguration.AspNetCore` package).
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0. Select the correct syntax based on your environment.
 
     ### [.NET Core 5.x](#tab/core5x)
 
@@ -174,7 +176,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     ---
 
     > [!NOTE]
-    > If you want to use a **user-assigned managed identity**, be sure to specify the clientId when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
+    > If you want to use a **user-assigned managed identity**, ensure that you specify the clientId when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
     >```csharp
     >config.AddAzureAppConfiguration(options =>
     >       {
@@ -196,7 +198,7 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 ```
 
 > [!NOTE]
-> If you want to use **user-assigned managed identity** the property `spring.cloud.azure.appconfiguration.stores[0].managed-identity.client-id`, be sure to specify the clientId when creating the [ManagedIdentityCredential](/java/api/com.azure.identity.managedidentitycredential).
+> If you want to use **user-assigned managed identity** the property `spring.cloud.azure.appconfiguration.stores[0].managed-identity.client-id`, ensure that you specify the clientId when creating the [ManagedIdentityCredential](/java/api/com.azure.identity.managedidentitycredential).
 
 :::zone-end
 
@@ -204,13 +206,13 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 
 :::zone target="docs" pivot="framework-dotnet"
 
-Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
+Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
 
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
 
-Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux).
+Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux).
 
 :::zone-end
 
