@@ -50,6 +50,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Import/Export             | [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)
 | Azure IoT Hub                   | [IoT Hub support for virtual networks with Private Link and Managed Identity](../../iot-hub/virtual-network-support.md)                                                                               |
 | Azure Kubernetes Service (AKS)  | [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md)                                                                                                                           |
+| Azure Load Testing                | [Use managed identities for Azure Load Testing](../../load-testing/how-to-use-a-managed-identity.md)  |
 | Azure Logic Apps                | [Authenticate access to Azure resources using managed identities in Azure Logic Apps](../../logic-apps/create-managed-service-identity.md)                                                                                                       |
 | Azure Log Analytics cluster     | [Azure Monitor customer-managed key](../../azure-monitor/logs/customer-managed-keys.md)
 | Azure Machine Learning Services | [Use Managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md?tabs=python)                                                                                         |
