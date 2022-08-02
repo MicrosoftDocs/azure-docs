@@ -109,11 +109,25 @@ Because Functions use Azure Files during parts of the the dynamic scale-out proc
 
 _This functionality is current only available when running on Linux._ 
 
-You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. You can use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command to mount an existing share to your Linux function app. 
+You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. You can use the following command to mount an existing share to your Linux function app. 
+
+# [Azure CLI](#tab/azure-cli)
+
+[`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add)
 
 In this command, `share-name` is the name of the existing Azure Files share, and `custom-id` can be any string that uniquely defines the share when mounted to the function app. Also, `mount-path` is the path from which the share is accessed in your function app. `mount-path` must be in the format `/dir-name`, and it can't start with `/home`.
 
 For a complete example, see the scripts in [Create a Python function app and mount a Azure Files share](scripts/functions-cli-mount-files-storage-linux.md). 
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+[`New-AzWebAppAzureStoragePath`](/powershell/module/az.websites/new-azwebappazurestoragepath)
+
+In this command, `-ShareName` is the name of the existing Azure Files share, and `-MountPath` is the path from which the share is accessed in your function app. `-MountPath` must be in the format `/dir-name`, and it can't start with `/home`. After you create the path, use the `-AzureStoragePath` parameter of [`Set-AzWebApp`](/powershell/module/az.websites/set-azwebapp) to add the share to the app.
+
+For a complete example, see the script in [Create a serverless Python function app and mount file share](create-resources-azure-powershell.md#create-a-serverless-python-function-app-and-mount-file-share). 
+
+---
 
 Currently, only a `storage-type` of `AzureFiles` is supported. You can only mount five shares to a given function app. Mounting a file share may increase the cold start time by at least 200-300ms, or even more when the storage account is in a different region.
 

@@ -76,14 +76,7 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
-* The total size of the training data is 500 pages or less.
-* If your PDFs are password-locked, you must remove the lock before submission.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
@@ -156,7 +149,7 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
 ## Next steps
 

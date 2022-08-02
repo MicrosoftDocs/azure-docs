@@ -14,19 +14,25 @@ ms.custom: subject-rbac-steps
 # Authorize access to a search apps using Azure Active Directory
 
 > [!IMPORTANT]
-> Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public cloud regions and may impact the latency of your operations while the functionality is in preview. For more information on preview limitations, see [RBAC preview limitations](search-security-rbac.md#preview-limitations).
+> Role-based access control for data plane operations, such as creating or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public cloud regions and may impact the latency of your operations while the functionality is in preview. For more information on preview limitations, see [RBAC preview limitations](search-security-rbac.md#preview-limitations).
 
-Search applications that are built on Azure Cognitive Search can now use Azure Active Directory (Azure AD) and Azure role-based access (Azure RBAC) for authenticated and authorized access. A key advantage of using Azure AD is that your credentials and API keys no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search. To learn more about the advantages of using Azure AD in your applications, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration).
+Search applications that are built on Azure Cognitive Search can now use the [Microsoft identity platform](../active-directory/develop/v2-overview.md) for authenticated and authorized access. On Azure, the identity provider is Azure Active Directory (Azure AD). A key [benefit of using Azure AD](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration) is that your credentials and API keys no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search.
 
-This article will show you how to configure your application for authentication with the [Microsoft identity platform](../active-directory/develop/v2-overview.md) using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). To learn more about the OAuth 2.0 code grant flow used by Azure AD, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
+This article shows you how to configure your client for Azure AD:
+
++ For authentication, you'll create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the security principle. You could also use a different type of service principal object, but this article uses managed identities because they eliminate the need to manage credentials.
+
++ For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
+
++ Update your client code to call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential)
 
 ## Prepare your search service
 
-As a first step, [create a search service](search-create-service-portal.md) and configure it to use Azure role-based access control (RBAC).
+As a first step, sign up for the preview and enable role-based access control (RBAC) on your [search service](search-create-service-portal.md).
 
 ### Sign up for the preview
 
-The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD for querying the search service are still in preview. To use these capabilities, you'll need to add the preview feature to your Azure subscription.
+RBAC for data plane operations is in preview. In this step, add the preview feature to your Azure subscription.
 
 1. Open [Azure portal](https://portal.azure.com/) and find your search service
 
@@ -39,7 +45,7 @@ The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD
 You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
 > [!NOTE]
-> Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in a later step.
+> Once you add the preview to your subscription, all search services in the subscription are permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in a later step.
 
 ### Enable RBAC for data plane operations
 
@@ -49,7 +55,7 @@ Once your subscription is added to the preview, you'll still need to enable RBAC
 
 1. On the left navigation pane, select **Keys**.
 
-1. Determine if you'd like to allow both key-based and role-based access control, or only role-based access control.
+1. Choose whether to allow both key-based and role-based access control, or only role-based access control.
 
    :::image type="content" source="media/search-howto-aad/portal-api-access-control.png" alt-text="Screenshot of authentication options for azure cognitive search in the portal" border="true" :::
 
@@ -57,9 +63,7 @@ You can also change these settings programatically as described in the [Azure Co
 
 ## Create a managed identity
 
-The next step to using Azure AD for authentication is to create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) if you don't have one already. You can also use a different type of service principal object, but this article will focus on managed identities because they eliminate the need to manage credentials.
-
-To create a manged identity:
+In this step, create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your client application. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -69,15 +73,15 @@ To create a manged identity:
 
 1. Give your managed identity a name and select a region. Then, select **Create**.
 
-   :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the create managed identity wizard." border="true" :::
+   :::image type="content" source="media/search-howto-aad/create-managed-identity.png" alt-text="Screenshot of the Create Managed Identity wizard." border="true" :::
 
 ## Assign a role to the managed identity
 
 Next, you need to grant your managed identity access to your search service. Azure Cognitive Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
 
-In general, it's best to give your application only the access required. For example, if your application only needs to be able to query the search index, you could grant it the [Search Index Data Reader (preview)](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs to be able to read and write to a search index, you could use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
+It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader (preview)](../role based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -99,21 +103,24 @@ In general, it's best to give your application only the access required. For exa
    For more information on the available roles, see [Built-in roles used in Search](search-security-rbac.md#built-in-roles-used-in-search).
 
    > [!NOTE]
-   > The Owner, Contributor, Reader, and Search Service Contributor roles don't give you access to the data within a search index so you can't query a search index or index data. To get access to the data within a search index, you need either the Search Index Data Contributor or Search Index Data Reader role.
+   > The Owner, Contributor, Reader, and Search Service Contributor roles don't give you access to the data within a search index, so you can't query a search index or index data using those roles. For data access to a search index, you need either the Search Index Data Contributor or Search Index Data Reader role.
 
 1. On the **Members** tab, select the managed identity that you want to give access to your search service.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-You may want to give your managed identity multiple roles such as Search Service Contributor and Search Index Data Contributor if your application needs to both create indexes and query them.
+You can assign multiple roles, such as Search Service Contributor and Search Index Data Contributor, if your application needs comprehensive access to the search services, objects, and content.
 
 You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#step-3-assign-roles).
 
 ## Set up Azure AD authentication in your client
 
-Once you have a managed identity created and you've granted it permissions to access your search service, you're ready to add code to your application to authenticate the security principal and acquire an OAuth 2.0 token.
+Once you have a managed identity and a role assignment on the search service, you're ready to add code to your application to authenticate the security principal and acquire an OAuth 2.0 token.
 
 Azure AD authentication is also supported in the preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.5.0-beta.3/jar), [Python](https://pypi.org/project/azure-search-documents/11.3.0b3/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3).
+
+> [!NOTE]
+> To learn more about the OAuth 2.0 code grant flow used by Azure AD, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ### [**.NET SDK**](#tab/aad-dotnet)
 
@@ -139,7 +146,7 @@ The following instructions reference an existing C# sample to demonstrate the co
 > [!NOTE]
 > User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` will fall back to authenticating with your credentials. Make sure you've also given yourself the required access to the search service if you plan to run the code locally. 
 
-The Azure.Identity documentation also has more details on using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme), which gives more details on how `DefaultAzureCredential` works as well as other authentication techniques available. `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
+The Azure.Identity documentation has more details about `DefaultAzureCredential` and using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme). `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
 
 ### [**REST API**](#tab/aad-rest)
 

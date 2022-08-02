@@ -6,7 +6,6 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.date: 06/23/2022
 ---
 

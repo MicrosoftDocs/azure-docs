@@ -17,6 +17,7 @@ To complete this procedure, you need the following:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac) .
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - An agent with supported log file as described in the next section.
+- Azure Monitor collects entries from log files created by IIS, so you must configure IIS for logging. Azure Monitor only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging. It does not collect logs in NCSA or IIS native format. Configure IIS logs in Azure Monitor from the Agent configuration menu for the Log Analytics agent. There is no configuration required other than selecting Collect W3C format IIS log files.
 
 ## Log files supported
 IIS logs must be in W3C format. Other log files must meet the following criteria to be collected:

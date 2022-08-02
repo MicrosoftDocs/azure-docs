@@ -193,7 +193,7 @@ Use other package configuration types. XML configuration file is recommended.
 
 Additional Information
 
-[Package Configurations](/sql/integration-services/package-configurations)
+[Package Configurations](/sql/integration-services/packages/legacy-package-deployment-ssis)
 
 ### [4003]Package encrypted with user key isn't supported
 

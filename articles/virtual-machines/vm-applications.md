@@ -18,7 +18,7 @@ ms.custom:
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
 > [!IMPORTANT]
-> Deploying **VM applications in Azure Compute Gallery** do not currently support using Azure policies.
+> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
@@ -249,7 +249,7 @@ rmdir /S /Q C:\\myapp
 ```
 ## Treat failure as deployment failure
 
-The VM application extension always returns a *success* regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. This is triggered by the "treat failure as deployment failure" flag which is set to `$false` by default and can be changed to `$true`. The failure flag can be configured in [PowerShell](/powershell/module/az.compute/add-azvmgalleryapplication#-treatfailureasdeploymentfailure) or [CLI](/cli/azure/vm/application#-treat-deployment-as-failure).
+The VM application extension always returns a *success* regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. This is triggered by the "treat failure as deployment failure" flag which is set to `$false` by default and can be changed to `$true`. The failure flag can be configured in [PowerShell](/powershell/module/az.compute/add-azvmgalleryapplication#parameters) or [CLI](/cli/azure/vm/application#az-vm-application-set).
 
 ## Troubleshooting VM Applications
 
