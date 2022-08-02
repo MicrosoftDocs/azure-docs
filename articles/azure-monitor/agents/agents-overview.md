@@ -43,14 +43,9 @@ The Azure Monitor Agent provides the following benefits over the existing agents
 - **Manage dependent solutions and services:** Azure Monitor Agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics Agent. This management experience is identical for machines in Azure, on-premises, and in other clouds using Azure Arc, at no added cost.
 - **Security and performance:** For authentication and security, Azure Monitor Agent uses a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) (for virtual machines) and AAD device tokens (for clients), which are both much more secure and ‘hack proof’ than certificates or workspace keys that legacy agents use. This agent performs better at a higher EPS (events per second) upload rate compared to legacy agents. 
 
-### Changes in data collection
+### Data collection
 
-The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor Agent:
-
-- The Log Analytics Agent gets its configuration from a Log Analytics workspace. It's easy to centrally configure but difficult to define independent definitions for different virtual machines. It can only send data to a Log Analytics workspace.
-- Diagnostic extension has a configuration for each virtual machine. It's easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open-source Telegraf agent is required to send data to Azure Monitor Metrics.
-
-The Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They're independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. 
+Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), which let you define which data you want each agent to collect. Data collection rules enable managing data collection settings at scale and defining unique, scoped configurations for subsets of machines. The rules are independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. 
 
 ## Supported resource types
 
