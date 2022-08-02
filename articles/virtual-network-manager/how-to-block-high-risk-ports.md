@@ -1,5 +1,5 @@
 ---
-title: 'How to block high-risk network ports with SecurityAdmin Rules in Azure Virtual Network Manager.'
+title: 'Protect high-risk network ports with SecurityAdmin Rules in Azure Virtual Network Manager.'
 description: #Required; In this article, you will deploy Security admin rules to block high-risk security ports with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
@@ -14,10 +14,10 @@ Remove all the comments in this template before you sign-off or merge to the
 main branch.
 -->
 
-# How to block high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
+# Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
 
 
-In this article, you'll learn to block high risk network ports using Azure Virtual Network Manager and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with network groups, and create & deploy security admin configurations for your organization. You'll deploy a general block rule for high risk ports. Then you'll create an exception for managing a specific application's VNet. This allows you to manage access to the application VNets using network security groups.
+In this article, you'll learn to block high risk network ports using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create & deploy security admin configurations for your organization. You'll deploy a general block rule for high risk ports. Then you'll create an exception for managing a specific application's VNet. This allows you to manage access to the application VNets using network security groups.
 
 ### Describe Scenario
 
@@ -46,7 +46,7 @@ For this How-to, you'll need a virtual network environment that includes product
 * Place all virtual networks in the subscription, region, and resource group
 
 
-Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](quick-create-portal.md).
+Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal).
 
 ## Create a Virtual Network Manager
 In this section, you'll deploy a Virtual Network Manager instance with the Security admin feature in your organization.
@@ -186,9 +186,9 @@ We’re at the final step, which is to redeploy OurSecurityConfig since we’ve 
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+- Learn how to [create a mesh network topology with Azure Virtual Network Manager using the Azure portal](how-to-create-mesh-network.md)
 
+- Checkout the [Azure Virtual Network Manager FAQ](faq.md)
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
 main branch.

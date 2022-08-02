@@ -37,12 +37,14 @@
     href: concept-remove-components-checklist.md
 - name: How-to guides
   items:
-  - name: Block network traffic
+  - name: Secure network traffic
     items:
-    - name: Portal
+    - name: Block network traffic - Portal
       href: how-to-block-network-traffic-portal.md
-    - name: PowerShell
+    - name: Block network traffic -PowerShell
       href: how-to-block-network-traffic-powershell.md
+    - name: Protect high-risk network ports
+      href: how-to-block-high-risk-ports.md
   - name: Create a network topology
     items:
     - name: Mesh

@@ -1,5 +1,5 @@
 ---
-title: 'Why Security Admin Rules?'
+title: 'Virtual network enforcement with Security Admin Rules?'
 description: #Required; You'll learn why you should use Security Admin Rules and how they differ from NSGs. 
 author: mbender-ms
 ms.author: mbender
@@ -8,16 +8,11 @@ ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 06/28/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
+# Virtual network enforcement with Security Admin Rules?
 
-<!-- reference of WHY doc: https://docs.microsoft.com/en-us/azure/applied-ai-services/why-applied-ai-services -->
+In this article, you'll learn how Security Admins Rules provide flexible and scalable enforcement of security policies over tools like network security groups. First, you learn the different models of virtual network enforcement. Then, you'll learn the general steps for enforcing security with security admin rules.
 
-<!-- reference of WHAT doc: https://docs.microsoft.com/en-us/azure/applied-ai-services/what-are-applied-ai-services -->
-
-# Why Security Admin Rules?
-
-[add your introductory paragraph]
-
-### Virtual network enforcement
+### Virtual network enforcement models
 
 With NSGs alone, widespread enforcement on VNets across several applications, teams, or even entire organizations can be tricky. Often there’s a balancing act between attempts at centralized enforcement across an organization and handing over granular, flexible control to teams. Let’s look at a few common models of security management without security admin rules, and their pros and cons:
 
@@ -57,10 +52,6 @@ After the deployment of the security admin configuration, all VNets in the compa
 
 ## When to use Security Admin Rules
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
