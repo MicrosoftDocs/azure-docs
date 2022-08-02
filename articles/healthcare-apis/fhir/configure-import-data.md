@@ -63,6 +63,10 @@ Copy the URL as request URL and do following changes of the JSON as body:
 
 After you've completed this final step, you're ready to import data using $import.
 
+You can also use the **Deploy to Azure** button below to open custom Resource Manager template to update the configuration for $import.
+
+ [![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
+
 ## Next steps
 
 In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service account from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
