@@ -79,10 +79,9 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
     Whether the status of the volume replication is ‘transferring’. 
 
 - *Volume replication lag time* 
-    The amount of time 
-    If the lag time is greater than the replication schedule, 
-    The relationship can be health w/o replication
-    The 
+    The amount of time the replica lags behind the source during a transfer. The source has newer updates; the time it takes to replicate the source. The amount of data to be replicated / the replication speed. 
+
+    If the lag time is greater than the replication schedule, won't catch up. Replication speeds needs to be improved or schedule adjusted. 
 
 - *Volume replication last transfer duration*   
     The amount of time in seconds it took for the last transfer to complete. 
