@@ -327,14 +327,14 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 
 | Source | Field | Description | Notes  
 | ------------- | ------------- | ------------- | -------------  
-| The "SAP User Config" watch list | SearchKey | Search Key |
-| The "SAP User Config" watch list | SAPUser | The SAP User | OSS, DDIC  
-| The "SAP User Config" watch list | Tags | string of tags assigned to user | RunObsoleteProgOK  
-| The "SAP User Config" watch list | User AAD Object Id | Azure AD Object ID |   
-| The "SAP User Config" watch list | User Identifier | AD User Identifier |
-| The "SAP User Config" watch list | User On-Prem Sid |  |
-| The "SAP User Config" watch list | User Principal Name |  |
-| The "SAP User Config" watch list | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK  
+| The "SAP User Config" watchlist | SearchKey | Search Key |
+| The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
+| The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
+| The "SAP User Config" watchlist | User AAD Object Id | Azure AD Object ID |   
+| The "SAP User Config" watchlist | User Identifier | AD User Identifier |
+| The "SAP User Config" watchlist | User On-Prem Sid |  |
+| The "SAP User Config" watchlist | User Principal Name |  |
+| The "SAP User Config" watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK  
 | Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
 | Logic | SpecialFocusTagged | Special focus indication | True, False  
 | Logic | IntersectionSize | The number of intersected Tags |
@@ -363,7 +363,7 @@ SelectedSystemRoles:dynamic = dynamic(["All System Roles"]) SelectedSystems:dyna
   - Accepts a single user only
 
 #### Additional notes
-For performance considerations, only a few recent days of audit activity are considered.
+For performance considerations, only a few days of audit activity are considered.
 For a full history of user activity, run a custom KQL query against the SAPAuditLog function.
 
 | Source | Field | Description | Notes  
