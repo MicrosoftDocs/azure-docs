@@ -42,8 +42,8 @@ To get started using container copy jobs, register for "Intra-account offline co
 
 Intra-account container copy jobs perform offline data copy using the source container's incremental change feed log.
 
-* Within the platform, the platform allocates server-side compute instances for the Azure Cosmos DB account.
-* The instances are allocated when one or more container copy jobs are created within the account.
+* The platform allocates server-side compute instances for the Azure Cosmos DB account.
+* These instances are allocated when one or more container copy jobs are created within the account.
 * The container copy jobs run on these instances.
 * A single job is executed across all instances at any time.
 * The instances are shared by all the container copy jobs running within the same account.
