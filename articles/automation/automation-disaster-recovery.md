@@ -27,7 +27,7 @@ When you [create](./quickstarts/create-account-portal.md#create-automation-accou
 - If you are using [ARM templates](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all) to define and deploy Automation runbooks, you can use the same templates to deploy the same runbooks in any other Azure region where the replica of the Automation account exists. In case of a region-wide outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary regions have a disruption or failure. 
 
 >[!NOTE]
-> Due to data residency requirements, jobs data and logs present in the primary region are not be available in the secondary region.
+> Due to data residency requirements, jobs data and logs present in the primary region are not available in the secondary region.
 
 ## Scenario: Execute Cloud jobs
 For Cloud jobs, ensure that the replica of the Automation account and all the dependent resources and runbooks are deployed and available in the secondary region to result in a negligible downtime. You can then use the replica account to execute jobs and business continuity.
