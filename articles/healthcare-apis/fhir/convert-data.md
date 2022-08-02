@@ -225,7 +225,7 @@ Make a call to the `$convert-data` API specifying your template reference in the
 
 ## Next steps
 
-In this article, you've learned about the `$convert-data` endpoint and converter templates to convert data in the FHIR service in Azure Health Data Services. For information about how to export FHIR data from the FHIR service, see
+In this article, you've learned about the `$convert-data` endpoint for converting health data to FHIR using the FHIR service in Azure Health Data Services. For information about how to export FHIR data from the FHIR service, see
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
