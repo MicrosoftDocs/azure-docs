@@ -464,7 +464,7 @@ items:
       href: logs/data-collection-troubleshoot.md
   - name: Azure Monitor Agent
     items:
-    - name: Azure Monitor Agent overview
+    - name: Overview
       href: agents/agents-overview.md
     - name: Install Azure Monitor Agent
       displayName: Azure Monitor agent
