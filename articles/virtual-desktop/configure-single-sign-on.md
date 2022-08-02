@@ -44,7 +44,7 @@ This feature is currently supported in the Azure Public, Azure Government and Az
 
 If your host pool contains Hybrid Azure AD-joined session hosts, you must first enable Azure AD Kerberos in your environment by creating a Kerberos Server object. This enables the authentication needed with the domain controller. It is also recommended to enable Azure AD Kerberos for Azure AD-joined session hosts if you plan to access legacy kerberos based applications or network shares and want a single sign-on experience. To enable Azure AD Kerberos in your environment, follow the steps to [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object).
 
-To enable SSO on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **Azure AD Authentication** property under the **Connection information** tab in the Azure Portal.
+To enable SSO on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **Azure AD Authentication** property under the **Connection information** tab in the Azure Portal or set the **enablerdsaadauth:i:1** property using PowerShell.
 
 > [!IMPORTANT]
 > If you enable SSO on your Hybrid Azure AD-joined VMs before you create the Kerberos server object, you won't be able to connect to the VMs, and you'll see an error message saying the specific log on session doesn't exist.
