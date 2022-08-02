@@ -102,7 +102,7 @@
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
       href: how-to-analyze-programming-details-changes.md
-  - name: Integrate with OT security partners
+  - name: Integrate with security partners
     items:
     - name: Overview
       href: integrate-overview.md
