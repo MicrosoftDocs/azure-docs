@@ -14,4 +14,11 @@ items:
     - name: Create and configure DevCenter
       href: tutorial-create-and-configure-devcenter.md
     - name: Create and configure a DevCenter Project
-      href: tutorial-create-and-configure-projects.md  
+      href: tutorial-create-and-configure-projects.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Key concepts
+      href: concept-environments-key-concepts.md
+    - name: Usage scenarios
+      href: concept-environments-scenarios.md
