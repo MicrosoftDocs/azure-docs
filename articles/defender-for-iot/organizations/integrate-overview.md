@@ -57,15 +57,14 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|Row1     |         |         |         |    |
-|Row2     |         |         |         |    |
+|**Microsoft Defender for Endpoint**     | Integrates Defender for IoT data in Defender for Endpoint's device inventory, alerts, recommendations, and vulnerabilities. Displays device data about Defender for Endpoint endpoints in the Defender for IoT **Device inventory** page on the Azure portal.        | - Enterprise IoT networks and sensors only        |  Microsoft       |  [Onboard with Microsoft Defender for IoT](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration?view=o365-worldwide)  |
 
 ## Microsoft Sentinel
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|Row1     |         |         |         |    |
-|Row2     |         |         |         |    |
+|**Defender for IoT data connector**     |  Displays Defender for IoT data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.   |    - OT networks only <br>- Cloud-connected sensors only       |    Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)  |
+|**IoT/OT Threat Monitoring with Defender for IoT**     |  Provides additional security content for Defender for IoT data in Microsoft Sentinel       |  - OT networks only <br>- Cloud-connected sensors only      |  Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)  |
 
 
 ## Palo Alto
