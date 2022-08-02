@@ -29,6 +29,7 @@ Ensure you are using a supported [Windows version](service-fabric-versions.md#su
 > WebPI used previously for SDK/Tools installation was deprecated on July 1 2022 
 
 For latest Runtime and SDK you can download from below:
+
 | Package |Version|
 | --- | --- |
 |[Install Service fabric runtime for Windows](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.9.0.1048.9590.exe) | 9.0.1048 |
