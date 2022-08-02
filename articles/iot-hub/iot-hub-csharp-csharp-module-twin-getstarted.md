@@ -49,13 +49,13 @@ In this section, you create a .NET console app on your simulated device that upd
 
 Here's how to get your module connection string from the Azure portal. Sign in to the [Azure portal](https://portal.azure.com/). Navigate to your hub and select **Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** to save it for the console app.
 
-   ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
+:::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png":::
 
 1. In Visual Studio, add a new project to your solution by selecting **File** > **New** > **Project**. In **Create a new project**, select **Console App (.NET Framework)**, and select **Next**.
 
 1. In **Configure your new project**, name the project *UpdateModuleTwinReportedProperties*, then select **Next**.
 
-   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png" alt-text="Screenshot that shows the 'Configure your new project' popup.":::
+   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png" alt-text="Screenshot that shows the 'Configure your new project' popup." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png":::
 
 1. Keep the default .NET Framework option and select **Create** to create your project.
 
@@ -63,7 +63,7 @@ Here's how to get your module connection string from the Azure portal. Sign in t
 
 1. Search for and select **Microsoft.Azure.Devices.Client**, and then select **Install**.
 
-    ![Screenshot that shows the "Microsoft.Azure.Devices.Client" selected and the "Install" button highlighted.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png" alt-text="Screenshot that shows the "Microsoft.Azure.Devices.Client" selected and the "Install" button highlighted." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png":::
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 
