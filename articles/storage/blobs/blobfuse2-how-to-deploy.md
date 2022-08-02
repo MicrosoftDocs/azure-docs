@@ -1,19 +1,19 @@
 ---
-title: How to mount an Azure blob storage container on Linux with BlobFuse2 | Microsoft Docs
+title: How to mount an Azure blob storage container on Linux with BlobFuse2 (preview) | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: How to mount an Azure blob storage container on Linux with BlobFuse2.
+description: How to mount an Azure blob storage container on Linux with BlobFuse2 (preview).
 author: jammart
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to mount an Azure blob storage container on Linux with BlobFuse2
+# How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)
 
-[BlobFuse2](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more details see [What is BlobFuse2?](blobfuse2-what-is.md).
+[BlobFuse2](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more details see [What is BlobFuse2? (preview)](blobfuse2-what-is.md).
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
@@ -117,10 +117,10 @@ The settings can be configured in a yaml configuration file, using environment v
 
 For details about all of the configuration parameters for BlobFuse2, consult the complete reference material for each:
 
-- [Complete BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [Configuration file reference](blobfuse2-configuration.md#configuration-file)
-- [Environment variable reference](blobfuse2-configuration.md#environment-variables)
-- [Mount command reference](blobfuse2-commands-mount.md)
+- [Complete BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
+- [Configuration file reference (preview)](blobfuse2-configuration.md#configuration-file)
+- [Environment variable reference (preview)](blobfuse2-configuration.md#environment-variables)
+- [Mount command reference (preview)](blobfuse2-commands-mount.md)
 
 The basic steps for configuring BlobFuse2 in preparation for mounting are:
 
@@ -185,7 +185,7 @@ You must grant the user mounting the container access to the storage account. Th
 - A managed identity
 - A Service Principal
 
-Authorization information can be provided in a configuration file or in environment variables. For details, see [How to configure Blobfuse2](blobfuse2-configuration.md).
+Authorization information can be provided in a configuration file or in environment variables. For details, see [How to configure Blobfuse2 (preview)](blobfuse2-configuration.md).
 
 ## Mount blob container
 
@@ -201,7 +201,7 @@ blobfuse2 mount ~/mycontainer --config-file=./config.yaml
 ```
 
 > [!NOTE]
-> For a full list of mount options, check [the BlobFuse2 mount command reference](blobfuse2-commands-mount.md).
+> For a full list of mount options, check [the BlobFuse2 mount command reference (preview)](blobfuse2-commands-mount.md).
 
 You should now have access to your block blobs through the Linux file system and related APIs. To test your deployment try creating a new directory and file:
 
@@ -235,6 +235,6 @@ This table shows how this feature is supported in your account and the impact on
 ## See also
 
 - [Blobfuse2 Migration Guide (from BlobFuse v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
-- [BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [BlobFuse2 command reference](blobfuse2-commands.md)
-- [How to troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
+- [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
+- [BlobFuse2 command reference (preview)](blobfuse2-commands.md)
+- [How to troubleshoot BlobFuse2 issues (preview)](blobfuse2-troubleshooting.md)
