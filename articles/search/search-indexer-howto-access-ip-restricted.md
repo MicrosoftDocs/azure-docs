@@ -82,9 +82,7 @@ An IP address range is defined for each region that supports Azure Cognitive Sea
 
 You can get this IP address range from the `AzureCognitiveSearch` service tag.
 
-1. Use either the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
-
-  If the search service is the Azure Public cloud, download the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
+1. Use either the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). If the search service is the Azure Public cloud, download the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
 
 1. Open the JSON file and search for "AzureCognitiveSearch". For a search service in WestUS2, the IP addresses for the multi-tenant indexer execution environment are:
 
