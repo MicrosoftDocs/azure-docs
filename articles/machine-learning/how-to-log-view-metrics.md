@@ -1,5 +1,5 @@
 ---
-title: Log & view parameters, metrics and files
+title: Log & view parameters, metrics and files with MLflow
 titleSuffix: Azure Machine Learning
 description: Enable logging on your ML training runs to monitor real-time run metrics with MLflow, and to help diagnose errors and warnings.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-# Log & view metrics and log files
+# Log & view metrics and log files with MLflow
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](./v1/how-to-log-view-metrics.md)

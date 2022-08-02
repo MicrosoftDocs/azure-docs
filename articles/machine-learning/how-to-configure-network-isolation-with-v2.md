@@ -115,6 +115,9 @@ The return value of the `az ml workspace update` command may not show the update
 az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
 ```
 
+> [!IMPORTANT]
+> Note that it takes about 30 minutes to an hour or more for changing v1_legacy_mode parameter from __true__ to __false__ to be reflected in the workspace. Therefore, if you set the parameter to __false__ but receive an error that the parameter is __true__ in a subsequent operation, please try after a few more minutes.
+
 ---
 
 ## Next steps
