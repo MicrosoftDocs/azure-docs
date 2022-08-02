@@ -55,12 +55,13 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 
 ### Scanning images in ACR registries
 
-Defender for Containers includes an integrated vulnerability scanner for scanning images in Azure Container Registry registries. The vulnerability scanner runs on an image:
+Defender for Containers offers vulnerability scanning for images in Azure Container Registries (ACRs). Triggers for scanning an image include:
 
-  - When you push the image to your registry
-  - Weekly on any image that was pulled within the last 30
-  - When you import the image to your Azure Container Registry
-  - Continuously in specific situations
+- **On push**: When an image is pushed to the registry, Defender for Containers automatically scans the image.
+
+- **Recently pulled**: Weekly scans of images that have been pulled in the last 30 days.
+
+- **On import**: When you import images into an ACR, Defender for Containers scans any supported images.
 
 Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
@@ -68,11 +69,15 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 ### View vulnerabilities for running images
 
-The recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) shows vulnerabilities for running images by using the scan results from ACR registries and information on running images from the Defender security profile/extension. Images that are deployed from a non-ACR registry, will appear under the Not applicable tab.
+Defender for Cloud provides runtime vulnerability scanning, powered by Qualys. The ability to scan running images helps you to prioritize and focus on vulnerabilities that present higher levels of risk.
+
+When misconfigurations are detected, Defender for Cloud shows detected issues, and generates the security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation shows vulnerabilities for running images by using the scan results of your ACR. Images that are deployed on any other registry, will appear under the Not applicable tab.
+
+- For Linux images, you are required to deploy the Defender agent, which is supported on Linux containers only and must be running on the cluster in which the image is located.
+
+- For Windows images, each AKS cluster runs with at least one Linux node. The Linux node is utilized to run the Defender agent in order to retrieve the pod inventory for Windows images on that AKS clusters. This method allows Defender for Cloud to provide the same functionality for Windows containers on AKS clusters.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
-
-For Windows containers, the vulnerability scan is performed on the ACR using the Defender agent which is installed on the linux node within the container that contains the Windows cluster. The agent retrieves the information for images that are actively running. When you enable the agent, it deploys it on the same cluster and allows the agent to provide the relevant information for the Windows images that are actively running. Currently, there's no agent for Windows.
 
 ## Run-time protection for Kubernetes nodes and clusters
 
