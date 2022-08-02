@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 08/02/2022
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -61,7 +61,9 @@ Starting August 01, 2022, Form Recognizer custom neural model training will only
 * Southeast Asia
 
 > [!TIP]
-> You can [copy a model](disaster-recovery.md) trained in one of the select regions listed above to **any other region** and use it accordingly.
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed above to **any other region** and use it accordingly.
+>
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/CopyDocumentModelTo) or [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
 
 ## Best practices
 
