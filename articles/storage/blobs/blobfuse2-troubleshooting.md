@@ -1,17 +1,17 @@
 ---
-title: How to troubleshoot Blobfuse2 issues | Microsoft Docs
+title: How to troubleshoot BlobFuse2 issues (preview) | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how to troubleshoot Blobfuse2 issues.
+description: Learn how to troubleshoot BlobFuse2 issues (preview).
 author: jammart
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# Troubleshooting BlobFuse2
+# Troubleshooting BlobFuse2 (preview)
 
 This articles provides references to assist in troubleshooting BlobFuse2 issues during the public preview.
 
@@ -31,7 +31,7 @@ During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshoot Guide (TSG
 
 ## See also
 
-- [What is BlobFuse2?](blobfuse2-what-is.md)
-- [How to mount an Azure blob storage container on Linux with BlobFuse2](blobfuse2-how-to-deploy.md)
-- [BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [BlobFuse2 command reference](blobfuse2-commands.md)
+- [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
+- [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
+- [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
+- [BlobFuse2 command reference (preview)](blobfuse2-commands.md)

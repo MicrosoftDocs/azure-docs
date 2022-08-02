@@ -143,11 +143,11 @@ This table shows how this feature is supported in your account and the impact on
 
 ## Next steps
 
-- [How to mount an Azure blob storage container on Linux with BlobFuse2](blobfuse2-how-to-deploy.md)
+- [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
 - [The BlobFuse2 Migration Guide (from v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
 
 ## See also
 
-- [BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [BlobFuse2 command reference](blobfuse2-commands.md)
-- [How to troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
+- [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
+- [BlobFuse2 command reference (preview)](blobfuse2-commands.md)
+- [How to troubleshoot BlobFuse2 issues (preview)](blobfuse2-troubleshooting.md)
