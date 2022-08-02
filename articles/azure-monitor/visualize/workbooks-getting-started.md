@@ -8,7 +8,7 @@ ms.date: 05/30/2022
 ms.reviewer: gardnerjr 
 ---
 
-# Getting started with Azure Workbooks
+# Get started with Azure Workbooks
 
 This article describes how to access Azure Workbooks and the common tasks used to work with Workbooks.
 

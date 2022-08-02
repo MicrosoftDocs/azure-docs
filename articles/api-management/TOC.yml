@@ -108,7 +108,7 @@
               href: api-management-howto-deploy-multi-region.md
             - name: Enable zone redundancy
               displayName: Availability zones
-              href: zone-redundancy.md
+              href: ../availability-zones/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: Compute platform
               href: compute-infrastructure.md
             - name: Set up DR using backup/restore

@@ -1,3 +1,4 @@
+  items:
   - name: SaaS application tutorials
     href: tutorial-list.md
   - name: Single sign-on tutorials
@@ -994,6 +995,8 @@
         href: harness-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
+      - name: Headspace
+        href: headspace-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
@@ -1168,8 +1171,6 @@
         href: ipasssmartconnect-tutorial.md
       - name: iPoint Service Provider
         href: ipoint-service-provider-tutorial.md
-      - name: Zenya
-        href: iprova-tutorial.md
       - name: IQNavigator VMS
         href: iqnavigatorvms-tutorial.md
       - name: iQualify LMS
@@ -1716,6 +1717,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
+      - name: Planview ID
+        href: planview-id-tutorial.md
       - name: Planview LeanKit
         href: planview-leankit-tutorial.md
       - name: Pluralsight
@@ -1944,7 +1947,7 @@
         href: sap-customer-cloud-tutorial.md
       - name: SAP Cloud Platform
         href: sap-hana-cloud-platform-tutorial.md
-      - name: SAP Cloud Platform Identity Authentication
+      - name: SAP Cloud Identity Services
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
       - name: SAP Fiori
         href: sap-fiori-tutorial.md
@@ -1996,6 +1999,8 @@
         href: securitystudio-tutorial.md  
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: SeekOut
+        href: seekout-tutorial.md
       - name: Segment
         href: segment-tutorial.md
       - name: Seismic
@@ -2154,6 +2159,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Stackby
+        href: stackby-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
       - name: Standard for Success K-12
@@ -2548,6 +2555,8 @@
         href: zengine-tutorial.md  
       - name: ZenQMS
         href: zenqms-tutorial.md
+      - name: Zenya
+        href: zenya-tutorial.md
       - name: ZephyrSSO
         href: zephyrsso-tutorial.md
       - name: zeroheight
@@ -2811,8 +2820,6 @@
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
-      - name: iProva
-        href: iprova-provisioning-tutorial.md
       - name: Iris Intranet
         href: iris-intranet-provisioning-tutorial.md
       - name: Insight4GRC
@@ -3087,6 +3094,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zenya
+        href: zenya-provisioning-tutorial.md
       - name: Zero
         href: zero-provisioning-tutorial.md
       - name: Zip

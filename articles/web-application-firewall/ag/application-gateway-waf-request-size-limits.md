@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall reque
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/08/2022
+ms.date: 07/25/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -29,12 +29,14 @@ The following two size limits configurations are available:
 
 The default value for file upload limit is 100 MB.
 
-For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF policy for Appplication Gateway:
+For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF policy for Application Gateway:
    
-   - 2MB request body size limit
-   - 4GB file upload limit 
+   - 2 MB request body size limit
+   - 4 GB file upload limit 
 
-To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page:
+Only requests with Content-Type of multipart/form-data are considered file uploads. The file part of the body content is evaluated against the file upload limit. For all other content types, the request body size limit applies.
+
+Only requests with Content-Type of multipart/form-data are considered as file upload and the file part of the body content evaluated versus the file upload limits. For all other content types, request body size limit applies. To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page:
 
 :::image type="content" source="../media/application-gateway-waf-request-size-limits/waf-policy-limits.png" alt-text="Screenshot of the Azure portal that shows the request size limits configuration for the W A F policy.":::
 

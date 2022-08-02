@@ -22,6 +22,8 @@ Creating the data controller has the following high level steps:
 
 > [!NOTE]
 > For simplicity, the steps below assume that you are a Kubernetes cluster administrator. For production deployments or more secure environments, it is recommended to follow the security best practices of "least privilege" when deploying the data controller by granting only specific permissions to users and service accounts involved in the deployment process. 
+>
+> See the topic [Operate Arc-enabled data services with least privileges](least-privilege.md) for detailed instructions.
 
 
 ## Prerequisites
@@ -36,7 +38,7 @@ To create the data controller using Kubernetes tools you will need to have the K
 
 The bootstrapper service handles incoming requests for creating, editing, and deleting custom resources such as a data controller.
 
-Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper-unified.yaml), and replace the placeholder `{{NAMESPACE}}` in *all the places* in the file with the desired namespace name, for example: `arc`.
+Save a copy of [bootstrapper-unified.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper-unified.yaml), and replace the placeholder `{{NAMESPACE}}` in *all the places* in the file with the desired namespace name, for example: `arc`.
 
 > [!IMPORTANT]
 > The bootstrapper-unified.yaml template file defaults to pulling the bootstrapper container image from the Microsoft Container Registry (MCR). If your environment can't directly access the Microsoft Container Registry, you can do the following:

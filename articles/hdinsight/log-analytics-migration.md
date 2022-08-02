@@ -3,9 +3,9 @@ title: Migrate Log Analytics data for Azure HDInsight
 description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
 ms.service: hdinsight
 ms.topic: how-to
-ms.author: ali
-author: AliciaLiMicrosoft
-ms.date: 04/19/2021
+ms.author: sairamyeturi
+author: yeturis
+ms.date: 07/21/2022
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters

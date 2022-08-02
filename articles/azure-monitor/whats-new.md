@@ -10,6 +10,41 @@ ms.reviewer: bwren
 
 This article lists significant changes to Azure Monitor documentation.
 
+## June, 2022
+
+### General
+
+| Article | Description |
+|:---|:---|
+| [Tutorial - Editing Data Collection Rules](essentials/data-collection-rule-edit.md) | New article|
+
+
+### Application Insights
+
+| Article | Description |
+|:---|:---|
+| [Application Insights logging with .NET](app/ilogger.md) | Connection string sample code has been added.|
+| [Application Insights SDK support guidance](app/sdk-support-guidance.md) | Updated SDK supportability guidance. |
+| [Azure AD authentication for Application Insights](app/azure-ad-authentication.md) | Azure AD authenticated telemetry ingestion has been reached general availability.|
+| [Azure Application Insights for JavaScript web apps](app/javascript.md) | Our Java on-premises page has been retired and redirected to [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md).|
+| [Azure Application Insights Telemetry Data Model - Telemetry Context](app/data-model-context.md) | Clarified that Anonymous User ID is simply User.Id for easy selection in Intellisense.|
+| [Continuous export of telemetry from Application Insights](app/export-telemetry.md) | On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.|
+| [Dependency Tracking in Azure Application Insights](app/asp-net-dependencies.md) | The EventHub Client SDK and ServiceBus Client SDK information has been updated.|
+| [Monitor Azure app services performance .NET Core](app/azure-web-apps-net-core.md) | Updated Linux troubleshooting guidance. |
+| [Performance counters in Application Insights](app/performance-counters.md) | A prerequisite section has been added to ensure performance counter data is accessible.|
+
+### Agents
+
+| Article | Description |
+|:---|:---|
+| [Collect text and IIS logs with Azure Monitor agent (preview)](agents/data-collection-text-log.md) | Added troubleshooting section.|
+| [Tools for migrating to Azure Monitor Agent from legacy agents](agents/azure-monitor-agent-migration-tools.md) | New article that explains how to install and use tools for migrating from legacy agents to the new Azure Monitor agent (AMA).|
+
+### Visualizations
+Azure Monitor Workbooks documentation previously resided on an external GitHub repository. We have migrated all Azure Workbooks content to the same repo as all other Azure Monitor content. 
+
+
+
 ## May, 2022
 
 ### General

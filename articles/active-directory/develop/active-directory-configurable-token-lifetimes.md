@@ -99,6 +99,8 @@ Refresh and session token configuration are affected by the following properties
 |Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
 |Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |Until-revoked |
 
+Non-persistent session tokens have a Max Inactive Time of 24 hours whereas persistent session tokens have a Max Inactive Time of 180 days. Any time the SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days. If the SSO session token is not used within its Max Inactive Time period, it is considered expired and will no longer be accepted. Any changes to this default periods should be change using [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+
 You can use PowerShell to find the policies that will be affected by the retirement.  Use the [PowerShell cmdlets](configure-token-lifetimes.md#get-started) to see the all policies created in your organization, or to find which apps and service principals are linked to a specific policy.
 
 ## Policy evaluation and prioritization

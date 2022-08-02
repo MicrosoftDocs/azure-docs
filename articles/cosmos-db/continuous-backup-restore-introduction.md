@@ -107,7 +107,7 @@ For example, if you have 1 TB of data in two regions then:
 * Restore cost is calculated as (1000 \* 0.15) = $150 per restore
 
 > [!TIP]
-> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continous 7-day tier does not incur charges for backup of the data.
+> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continous 7-day tier does not incur charges for backup of the data.
 
 ## Continuous 30-day tier vs Continuous 7-day tier
 

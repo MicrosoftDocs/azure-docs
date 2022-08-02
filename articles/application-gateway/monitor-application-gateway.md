@@ -46,11 +46,6 @@ This is just a subset of the metrics available for Application Gateway. For more
 
 ## Azure Monitor Network Insights
 
-<!-- OPTIONAL SECTION.  Only include if your service has an "insight" associated with it. Examples of insights include
-  - CosmosDB https://docs.microsoft.com/azure/azure-monitor/insights/cosmosdb-insights-overview
-  - If you still aren't sure, contact azmondocs@microsoft.com.>
--->
-
 Some services in Azure have a special focused pre-built monitoring dashboard in the Azure portal that provides a starting point for monitoring your service. These special dashboards are called "insights".
 
 <!-- Give a quick outline of what your "insight page" provides and refer to another article that gives details -->

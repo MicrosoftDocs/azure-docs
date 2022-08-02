@@ -1,11 +1,11 @@
 ---
 title: "Quickstart - Set up Azure Spring Apps Config Server"
-description: Describes the set up of Azure Spring Apps Config Server for app deployment.
+description: Describes the setup of Azure Spring Apps Config Server for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 7/19/2022
 ms.custom: devx-track-java, fasttrack-edit, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -43,10 +43,10 @@ Azure Spring Apps Config Server is centralized configuration service for distrib
 
 ## Prerequisites
 
-* [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
-* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Apps extension with command: `az extension add --name spring`
-* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
+* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* Optionally, [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+* Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
 
 ## Azure Spring Apps Config Server procedures
 
@@ -56,21 +56,17 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-2. In the **Default repository** section, set **URI** to `https://github.com/azure-samples/spring-petclinic-microservices-config`.
+1. In the **Default repository** section, set **URI** to `https://github.com/azure-samples/spring-petclinic-microservices-config`.
 
-3. Select **Validate**.
+1. Select **Validate**.
 
-    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/portal-config.png" alt-text="Screenshot of Azure portal showing Config Server page.":::
+    :::image type="content" source="media/quickstart-setup-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing Config Server page." lightbox="media/quickstart-setup-config-server/portal-config.png":::
 
-4. When validation is complete, select **Apply** to save your changes.
+1. When validation is complete, select **Apply** to save your changes.
 
-    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted.":::
+    :::image type="content" source="media/quickstart-setup-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted." lightbox="media/quickstart-setup-config-server/validate-complete.png":::
 
-5. Updating the configuration can take a few minutes.
-
-    :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/updating-config.png" alt-text="Screenshot of Azure portal showing Config Server page with Updating status message.":::
-
-6. You should get a notification when the configuration is complete.
+Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
 #### [CLI](#tab/Azure-CLI)
 
@@ -85,36 +81,34 @@ az spring config-server git set -n <service instance name> --uri https://github.
 ::: zone-end
 
 > [!TIP]
-> If you are using a private repository for Config Server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](./how-to-config-server.md).
 
 ## Troubleshooting of Azure Spring Apps Config Server
 
-The following procedure explains how to troubleshoot config server settings.
+The following procedure explains how to troubleshoot Config Server settings.
 
 1. In the Azure portal, go to the service **Overview** page and select **Logs**.
-1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**.
-1. Select **Run**.
-1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
 
-    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps query." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png":::
+1. In the **Queries** pane under **Show the application logs that contain the "error" or "exception" terms**,
+   select **Run**.
+
+   :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-query.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps query." lightbox="media/quickstart-setup-config-server/setup-config-server-query.png":::
+
+   The following error in the logs indicates that the Spring Apps service can't locate properties from Config Server: `java.lang.illegalStateException`
 
 1. Go to the service **Overview** page.
+
 1. Select **Diagnose and solve problems**.
-1. Select **Config Server** detector.
 
-    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page with Config Server button highlighted." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png":::
+1. Under **Availability and Performance**, select **Troubleshoot**.
 
-1. Select **Config Server Health Check**.
+   :::image type="content" source="media/quickstart-setup-config-server/setup-config-server-diagnose.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page." lightbox="media/quickstart-setup-config-server/setup-config-server-diagnose.png":::
 
-    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page and the Availability and Performance tab." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png":::
-
-1. Select **Config Server Status** to see more details from the detector.
-
-    :::image type="content" source="media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png" alt-text="Screenshot of Azure portal showing Diagnose and solve problems page with Config Server Health Status highlighted." lightbox="media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png":::
+   Azure portal displays the **Availability and Performance** page, which provides various information about Config Server health status.
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need it, delete the resource group, which deletes the resources in the resource group. To delete the resource group, enter the following commands in the Azure CLI:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&

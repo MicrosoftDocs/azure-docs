@@ -4,7 +4,7 @@ description: Relevant to collecting perf counters in Azure Virtual Machines, VM 
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.date: 01/29/2020
+ms.date: 07/12/2022
 ms.reviewer: luki
 
 ---

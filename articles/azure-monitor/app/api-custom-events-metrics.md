@@ -150,6 +150,9 @@ The telemetry is available in the `customEvents` table on the [Application Insig
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackEvent()`, the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
 
+> [!NOTE]
+> itemCount has a minimum value of one; the record itself represents an entry.
+
 ## GetMetric
 
 To learn how to effectively use the `GetMetric()` call to capture locally pre-aggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
@@ -211,6 +214,9 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 
 * `valueSum`: The sum of the measurements. To get the mean value, divide by `valueCount`.
 * `valueCount`: The number of measurements that were aggregated into this `trackMetric(..)` call.
+
+> [!NOTE]
+> valueCount has a minimum value of one; the record itself represents an entry.
 
 ## Page views
 

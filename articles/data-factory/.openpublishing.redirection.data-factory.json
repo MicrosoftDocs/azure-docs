@@ -555,6 +555,11 @@
             "source_path": "articles/data-factory/wrangling-data-flow-tutorial.md",
             "redirect_url": "/azure/data-factory/wrangling-tutorial",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/scenario-ssis-migration-ssisdb-mi.md",
+            "redirect_url": "/azure/data-factory/scenario-ssis-migration-overview",
+            "redirect_document_id": false
           }
     ]
 }

@@ -53,7 +53,7 @@ In enterprise-sized organizations, IAM transformation, or even transformation fr
 [ ![Diagram that shows five elements, each depicting a possible network architecture. Options include cloud attached, hybrid, cloud first, AD minimized, and 100% cloud.](media/road-to-cloud-posture/road-to-the-cloud-five-states.png) ](media/road-to-cloud-posture/road-to-the-cloud-five-states.png#lightbox)
 
 >[!NOTE]
-> The states in this diagram represent a logical progression of cloud transformation.
+> The states in this diagram represent a logical progression of cloud transformation. Your ability to move from one state to the next is dependent on the functionality that you have implemented and the capabilities within that functionality to move to the cloud.
 
 **State 1 Cloud attached** - In this state, organizations have created an Azure AD tenant to enable user productivity and collaboration tools and the tenant is fully operational. Most companies that use Microsoft products and services in their IT environment are already in or beyond this state. In this state operational costs may be higher because there's an on-premises environment and cloud environment to maintain and make interactive. Also, people must have expertise in both environments to support their users and the organization. In this state:
 

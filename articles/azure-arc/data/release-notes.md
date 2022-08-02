@@ -44,6 +44,7 @@ For complete release version information, see [Version log](version-log.md#july-
 
 - Permissions required to deploy the Arc data controller have been reduced to a least-privilege level.
 - When deployed via the Azure CLI, the Arc data controller is now installed via a K8s job that uses a helm chart to do the installation. There's no change to the user experience.
+- Resource Sync rule is created automatically when Data Controller is deployed in Direct connected mode. This enables customers to deploy an Azure Arc enabled SQL Managed Instance by directly talking to the kubernetes APIs.
 
 ## June 14, 2022
 

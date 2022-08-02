@@ -947,7 +947,7 @@
     {
       "path_to_root": "azure-cosmos-mongodb-dotnet",
       "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
-      "branch": "quickstart-test",
+      "branch": "main",
       "branch_mapping": {}
     }
   ],

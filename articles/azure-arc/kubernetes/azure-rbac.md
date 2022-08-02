@@ -57,7 +57,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ```
 
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster.
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). Please refer to [this](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset) to set a custom expiry duration.
 
     ```azurecli
     az ad sp create --id "${SERVER_APP_ID}"
@@ -529,6 +529,19 @@ NAME      STATUS   ROLES    AGE      VERSION
 node-1    Ready    agent    6m36s    v1.18.14
 node-2    Ready    agent    6m42s    v1.18.14
 node-3    Ready    agent    6m33s    v1.18.14
+```
+
+## Refresh the secret of the server application
+
+If the secret for the server application's service principal has expired, you will need to rotate it.
+
+```azurecli
+SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
+```
+
+Update the secret on the cluster. Please add any optional parameters you configured when this command was originally run.
+```azurecli
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
 
 ## Next steps

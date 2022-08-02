@@ -6,7 +6,7 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 02/24/2022
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
 ---
 # Azure Functions JavaScript developer guide
 

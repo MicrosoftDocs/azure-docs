@@ -7,7 +7,7 @@ ms.date: 06/15/2022
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
-ms.custom: mode-other, devdivchpfy22
+ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete
 ---
 
 # Create your first durable function in C#

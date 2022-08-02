@@ -242,11 +242,15 @@ tags = finished_mlflow_run.data.tags
 
 You can browse completed job records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar.
+Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar. Click on the job of interest to enter the details view, and then select the **Metrics** tab.
 
-For the individual Experiment view, select the **All experiments** tab. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
+Select the logged metrics to render charts on the right side.
 
-You can also edit the job list table to select multiple jobs and display either the last, minimum, or maximum logged value for your jobs. Customize your charts to compare the logged metrics values and aggregates across multiple jobs. You can plot multiple metrics on the y-axis of your chart and customize your x-axis to plot your logged metrics. 
+:::image type="content" source="media/how-to-log-view-metrics/metrics-old.png" alt-text="Screenshot of the current metrics view.":::
+
+For a customizable view of your job metrics (preview), use the preview panel to enable the feature. Once enabled, you can add/remove charts and customize them by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
+
+:::image type="content" source="media/how-to-log-view-metrics/metrics-new.png" alt-text="Screenshot of the new metrics view.":::
 
 
 ### View and download log files for a job 

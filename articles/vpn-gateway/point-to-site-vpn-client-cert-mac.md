@@ -158,11 +158,13 @@ Configure authentication settings. There are two sets of instructions. Choose th
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-cert-mac/expanded/connected.png":::
 
-##  <a name="openvpn-macOS"></a>OpenVPN - macOS steps
+##  <a name="openvpn-macOS"></a>OpenVPN Client - macOS steps
 
 >[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
-##  <a name="OpenVPN-iOS"></a>OpenVPN - iOS steps
+##  <a name="OpenVPN-iOS"></a>OpenVPN Client - iOS steps
+
+The following steps use **OpenVPN Connect** from the App store.
 
 >[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 

@@ -132,7 +132,7 @@ To submit the training job:
 1. Open the *job.yml* file.
 1. Right-click the file in the text editor and select **Azure ML: Execute YAML**.
 
-At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
+At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Job in Azure portal**.
 
 When the dialog requesting to open an external website appears, select **Open**.
 

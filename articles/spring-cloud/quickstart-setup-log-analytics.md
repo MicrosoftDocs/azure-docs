@@ -37,23 +37,23 @@ To create a workspace, follow the steps in [Create a Log Analytics workspace in 
 
 In the wizard for creating an Azure Spring Apps service instance, you can configure the **Log Analytics workspace** field with an existing workspace or create one.
 
-:::image type="content" source="media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png" alt-text="Screenshot that shows where to configure diagnostic settings during provisioning." lightbox="media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png":::
+:::image type="content" source="media/quickstart-setup-log-analytics/setup-diagnostics-setting.png" alt-text="Screenshot that shows where to configure diagnostic settings during provisioning." lightbox="media/quickstart-setup-log-analytics/setup-diagnostics-setting.png":::
 
 ## Set up Log Analytics for an existing service
 
 1. In the Azure portal, go to the **Diagnostic settings** section under **Monitoring**.
 
-    [![Screenshot that shows the location of diagnostic settings.](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png)](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png#lightbox) 
+   :::image type="content" source="media/quickstart-setup-log-analytics/diagnostic-settings-entry.png" alt-text="Screenshot that shows the location of diagnostic settings." lightbox="media/quickstart-setup-log-analytics/diagnostic-settings-entry.png":::
 
 1. If no settings exist, select **Add diagnostic setting**. You can also select **Edit setting** to update existing settings.
 
 1. Fill out the form on the **Diagnostic setting** page:
 
-    * **Diagnostic setting name**: Set a unique name for the configuration.
-    * **Logs** > **Categories**: Select **ApplicationConsole** and **SystemLogs**. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
-    * **Destination details**: Select **Send to Log Analytics workspace** and specify the Log Analytics workspace that you created previously.
+   - **Diagnostic setting name**: Set a unique name for the configuration.
+   - **Logs** > **Categories**: Select **ApplicationConsole** and **SystemLogs**. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
+   - **Destination details**: Select **Send to Log Analytics workspace** and specify the Log Analytics workspace that you created previously.
 
-    [![Screenshot that shows an example of set-up diagnostic settings.](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png)](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png#lightbox)
+   :::image type="content" source="media/quickstart-setup-log-analytics/diagnostic-settings-edit-form.png" alt-text="Screenshot that shows an example of set-up diagnostic settings." lightbox="media/quickstart-setup-log-analytics/diagnostic-settings-edit-form.png":::
 
 1. Select **Save**.
 

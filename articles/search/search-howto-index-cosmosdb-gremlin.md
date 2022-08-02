@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 07/12/2022
 ---
 
 # Index data from Azure Cosmos DB using the Gremlin API
@@ -17,7 +17,7 @@ ms.date: 02/28/2022
 > [!IMPORTANT]
 > The Gremlin API indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content using the Gremlin API from Azure Cosmos DB. 
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [Gremlin API](../cosmos-db/choose-api.md#gremlin-api). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 

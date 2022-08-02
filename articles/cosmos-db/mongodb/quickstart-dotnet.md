@@ -74,7 +74,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 ### Create a new .NET app
 
-Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-newt) to create a new console app.
+Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-new) to create a new console app.
 
 ```console
 dotnet new console -o <app-name>
@@ -115,7 +115,7 @@ You'll use the following MongoDB classes to interact with these resources:
 * [Get an item](#get-an-item)
 * [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code demonstrated in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 ### Authenticate the client
 

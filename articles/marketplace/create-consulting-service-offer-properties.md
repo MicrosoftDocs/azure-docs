@@ -1,9 +1,8 @@
 ---
 title: Configure consulting service offer properties for the commercial marketplace
 description: Configure consulting service offer properties in the commercial marketplace using Partner Center.
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: emuench
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

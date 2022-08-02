@@ -147,7 +147,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/enable-data-collection.md)                                                                  | GA             | GA                             |
 | <li> [Asset inventory](../../defender-for-cloud/asset-inventory.md)                                                                                                                     | GA             | GA                             |
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../defender-for-cloud/custom-dashboards-azure-workbooks.md)                               | GA             | GA                             |
-| <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps-)                                       | GA             | Not Available                  |
+| <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                                       | GA             | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             |
 | <li> [Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  |
@@ -215,7 +215,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - [Incident advanced search](../../sentinel/investigate-cases.md#search-for-incidents) |GA |GA |
-| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md#incident-integration) |Public Preview |Public Preview|
+| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md) |Public Preview |Public Preview|
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 |- [Search large datasets](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |

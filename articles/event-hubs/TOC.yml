@@ -35,6 +35,8 @@
           href: event-hubs-java-get-started-send.md
         - name: Java (azure-eventhubs - legacy)
           href: event-hubs-java-get-started-send-legacy.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
         - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs)
@@ -325,6 +327,12 @@
               href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy&preserve-view=true
         - name: Management library
           href: /java/api/com.microsoft.azure.management.eventhub
+    - name: Spring
+      items:
+        - name: Spring integration
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-event-hubs?toc=/azure/event-hubs/TOC.json
+        - name: Spring Cloud Stream
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-event-hubs?toc=/azure/event-hubs/TOC.json
     - name: Python
       items:
         - name: Client library

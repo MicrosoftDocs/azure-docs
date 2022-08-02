@@ -2,9 +2,10 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 07/22/2022
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
@@ -29,11 +30,11 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.0/applicationinsights-agent-3.3.0.jar) file.
+Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.1/applicationinsights-agent-3.3.1.jar) file.
 
 > [!WARNING]
 > 
-> If you're upgrading from 3.2.x to 3.3.0:
+> If you're upgrading from 3.2.x:
 > 
 >    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
@@ -55,7 +56,7 @@ Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -73,7 +74,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.3.0.jar` to your application
         APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.0.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.1.jar` with the following content:
 
         ```json
         {
@@ -242,10 +243,20 @@ You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/doc
 1. Add spans in your code:
 
    ```java
+    import io.opentelemetry.api.trace.Tracer;
     import io.opentelemetry.api.trace.Span;
 
+    Tracer tracer = GlobalOpenTelemetry.getTracer("myApp");
     Span span = tracer.spanBuilder("mySpan").startSpan();
    ```
+
+> [!TIP]
+> The tracer name ideally describes the source of the telemetry, in this case your application,
+> but currently Application Insights Java is not reporting this name to the backend.
+
+> [!TIP]
+> Tracers are thread-safe, so it's generally best to store them into static fields in order to
+> avoid the performance overhead of creating lots of new tracer objects.
 
 ### Add span events
 
