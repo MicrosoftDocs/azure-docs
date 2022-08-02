@@ -60,332 +60,243 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
-## Create a Microsoft Purview client
+## Create Sent Share
 
-1. Open **Program.cs**, include the following statements to add references to namespaces.
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
+using Azure.Core;
+using Azure.Identity;
 
-    ```csharp
-    using Microsoft.Rest;
-    using Purview.Share;
-    using Purview.Share.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    ```
-
-1. Add the following code to the **Main** method that will run our share code and catch any errors.
-
-   ```csharp
-   try
-   {
-       RunShareLifeCycle().Wait();
-   }
-   catch (AggregateException ex)
-   {
-       var purviewException = ex.InnerExceptions.FirstOrDefault() as PurviewShareErrorException;
-       if (purviewException != null)
-       {
-           Console.WriteLine(purviewException.Body.Error.Message);
-       }
-       else
-       {
-           Console.WriteLine(ex.ToString());
-       }
-   }
-   catch (Exception ex)
-   {
-       Console.WriteLine(ex.ToString());
-   }
-   ```
-
-1. Add a new method that we'll use to house all our activities. For now, we'll just add the code to authenticate and create a share client. You'll always need this piece in your RunShareLifeCycle() method. Fill in the authToken and purviewAccountName with your own information:
-
-   ```csharp
-   static async Task RunShareLifeCycle()
-   {
-       // Create client
-       string authToken = "<token with resource set to https://purview.azure.net>";
-       string purviewAccountName = "<purivewAccountName>";
-
-       ServiceClientCredentials cred = new TokenCredentials(authToken);
-       var client = new PurviewShareClient(cred)
-       {
-           Endpoint = $"https://{purviewAccountName}.purview.azure.com/share"
-       };
-
-       // Use purviewAccountName if caller has Data Share Contributor role on the root collection of Purview account else use name of a collection on which caller has Data Share Contributor role.
-       var rootCollection = new Collection
-       {
-           ReferenceName = purviewAccountName,
-           Type = "CollectionReference"
-       };
-   }
-   ```
-
-## Create a data share
-
-You can add the following code to the **RunShareLifeCycle** method to create a data share. Be sure to fill in these values with your own information:
-  
-- sentShareName
-- assetName
-- assetNameforReceiver
-- senderStorageResourceId
-- senderStorageContainer
-- senderPathtoShare
-- pathNameForReceiver
-- invitationName
-- invitationDto
-
-```csharp
-var sentShareName = "<NAME OF YOUR SHARE>";
-var assetName = "<NAME OF YOUR STORAGE ACCOUNT>";
-var assetNameForReceiver = "receiver-visible-asset-name";
-var senderStorageResourceId = "<YOUR_STORAGE_ACCOUNT_RESOURCE_ID>";
-var senderStorageContainer = "<CONTAINER IN YOUR STORAGE ACCOUNT>";
-var senderPathToShare = "folder/sample.txt";
-var pathNameForReceiver = "<FILE PATH FOR RECEIVED SHARE>";
-var invitationName = "<NAME FOR RECEIVED SHARE>";
-
-var invitationDto = new UserInvitation("user@domain.com");
-// Instead of sending invitation to Azure login email of the user, you can send invitation to object ID of a service principal and tenant ID.
-// Tenant ID is optional. To use this method, comment out the previous line, and uncomment the next line.
-//var invitationDto = new ApplicationInvitation("<tenantId>", "<principalId>");
-
-
-// Create share
-var inPlaceSentShareDto = new InPlaceSentShare
-
-{ Collection = rootCollection, Description = "demo share" };
-HttpOperationResponse<SentShare> sentShare = await client.SentShares.CreateOrUpdateWithHttpMessagesAsync(sentShareName, inPlaceSentShareDto);
-
-// Add asset to sent share
-var pathsToShare = new List<BlobAccountPath> { new BlobAccountPath(senderStorageContainer, pathNameForReceiver, senderPathToShare) };
-var assetDto = new BlobAccountAsset(pathsToShare, assetNameForReceiver, senderStorageResourceId);
-HttpOperationResponse<Asset> asset = await client.Assets.CreateWithHttpMessagesAsync(sentShareName, assetName, assetDto);
-
-// Send invitation
-HttpOperationResponse<SentShareInvitation> invitation =
-    await client.SentShareInvitations
-        .CreateOrUpdateWithHttpMessagesAsync(sentShareName, invitationName, invitationDto);
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
+var sentShareClient = new SentSharesClient(endPoint, credential);
+// Create sent share
+var sentShareName = "sample-Share";
+var inPlaceSentShareDto = new
+{
+    shareKind = "InPlace",
+    properties = new
+    {
+        description = "demo share",
+        collection = new
+        {
+            // for root collection else name of any accessible child collection in the Purview account.
+            referenceName = "<reference>",
+            type = "CollectionReference"
+        }
+    }
+};
+var sentShare = await sentShareClient.CreateOrUpdateAsync(sentShareName, RequestContent.Create(inPlaceSentShareDto));
 ```
 
-## View shared or received invitations
+## Add an asset to a sent share
 
-You can add the following code to the **RunShareLifeCycle** to review sent or received invitations.
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_02_Namespaces
+using Azure.Core;
+using Azure.Identity;
 
-```csharp
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
+// Add asset to sent share
+var sentShareName = "sample-Share";
+var assetName = "fabrikam-blob-asset";
+var assetNameForReceiver = "receiver-visible-asset-name";
+var senderStorageResourceId = "<SENDER_STORAGE_ACCOUNT_RESOURCE_ID>";
+var senderStorageContainer = "fabrikamcontainer";
+var senderPathToShare = "folder/sample.txt";
+var pathNameForReceiver = "from-fabrikam";
+var assetData = new
+{
+    // For Adls Gen2 asset use "AdlsGen2Account"
+    kind = "blobAccount",
+    properties = new
+    {
+        storageAccountResourceId = senderStorageResourceId,
+        receiverAssetName = assetNameForReceiver,
+        paths = new[]
+        {
+            new
+            {
+                containerName = senderStorageContainer,
+                senderPath = senderPathToShare,
+                receiverPath = pathNameForReceiver
+            }
+        }
+    }
+};
+var assetsClient = new AssetsClient(endPoint, credential);
+await assetsClient.CreateAsync(WaitUntil.Started, sentShareName, assetName, RequestContent.Create(assetData));
+```
+
+## Send invitation
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_03_Namespaces
+using Azure.Core;
+using Azure.Identity;
+
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
+// Send invitation
+var sentShareName = "sample-Share";
+var invitationName = "invitation-to-fabrikam";
+var invitationData = new
+{
+    invitationKind = "User",
+    properties = new
+    {
+        targetEmail = "user@domain.com"
+    }
+};
+// Instead of sending invitation to Azure login email of the user, you can send invitation to object ID of a service principal and tenant ID.
+// Tenant ID is optional. To use this method, comment out the previous declaration, and uncomment the next one.
+//var invitationData = new
+//{
+//    invitationKind = "Application",
+//    properties = new
+//    {
+//        targetActiveDirectoryId = "<targetActieDirectoryId>",
+//        targetObjectId = "<targetObjectId>"
+//    }
+//};
+var sentShareInvitationsClient = new SentShareInvitationsClient(endPoint, credential);
+await sentShareInvitationsClient.CreateOrUpdateAsync(sentShareName, invitationName, RequestContent.Create(invitationData));
+```
+
+## View sent share invitations
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_04_Namespaces
+using System.Linq;
+using System.Text.Json;
+using Azure.Identity;
+
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
+var sentShareName = "sample-Share";
 // View sent share invitations. (Pending/Rejected)
-HttpOperationResponse<SentShareInvitationList> sentShareInvitations = await client.SentShareInvitations.ListWithHttpMessagesAsync(sentShare.Body.Name);
-var targetEmail = ((UserInvitation)sentShareInvitations.Body.Value.First()).TargetEmail;
+var sentShareInvitationsClient = new SentShareInvitationsClient(endPoint, credential);
+var sentShareInvitations = sentShareInvitationsClient.GetSentShareInvitations(sentShareName);
+var responseInvitation = sentShareInvitations.FirstOrDefault();
+if (responseInvitation == null)
+{
+    //No invitations
+    return;
+}
+var responseInvitationDocument = JsonDocument.Parse(responseInvitation);
+var targetEmail = responseInvitationDocument.RootElement.GetProperty("name");
+```
 
+## View received invitations
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_05_Namespaces
+using Azure.Identity;
+
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
 // View received invitations
-HttpOperationResponse<ReceivedInvitationList> receivedInvitations =
-await client.ReceivedInvitations.ListWithHttpMessagesAsync();
+var receivedInvitationsClient = new ReceivedInvitationsClient(endPoint, credential);
+var receivedInvitations = receivedInvitationsClient.GetReceivedInvitations();
 ```
 
 ## Create a received share
 
-You can add the following code to the **RunShareLifeCycle** method to create a received share from an invitation. Be sure to fill in these values with your own information:
-  
-- receivedShareName
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_06_Namespaces
+using System.Linq;
+using System.Text.Json;
+using Azure.Core;
+using Azure.Identity;
 
-```csharp
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
 // Create received share
-string receivedShareName = "fabrikam-received-share";
-UserReceivedInvitation receivedInvitation = (UserReceivedInvitation)receivedInvitations.Body.Value.Last();
-
-var receivedShareDto = new InPlaceReceivedShare(
-    rootCollection,
-    receivedInvitation.Name,
-    receivedInvitation.Location);
-
-HttpOperationResponse<ReceivedShare> receivedShare =
-    await client.ReceivedShares.CreateWithHttpMessagesAsync(receivedShareName, receivedShareDto);
+var receivedInvitationsClient = new ReceivedInvitationsClient(endPoint, credential);
+var receivedInvitations = receivedInvitationsClient.GetReceivedInvitations();
+var receivedShareName = "fabrikam-received-share";
+var receivedInvitation = receivedInvitations.LastOrDefault();
+if (receivedInvitation == null)
+{
+    //No received invitations
+    return;
+}
+var receivedInvitationDocument = JsonDocument.Parse(receivedInvitation).RootElement;
+var receivedInvitationId = receivedInvitationDocument.GetProperty("name");
+var receivedShareData = new
+{
+    shareKind = "InPlace",
+    properties = new
+    {
+        invitationId = receivedInvitationId,
+        sentShareLocation = "eastus",
+        collection = new
+        {
+            // for root collection else name of any accessible child collection in the Purview account.
+            referenceName = "<purivewAccountName>",
+            type = "CollectionReference"
+        }
+    }
+};
+var receivedShareClient = new ReceivedSharesClient(endPoint, credential);
+var receivedShare = await receivedShareClient.CreateAsync(receivedShareName, RequestContent.Create(receivedShareData));
 ```
 
-## View accepted shares and received assets
+## View accepted shares
 
-You can add the following code to the **RunShareLifeCycle** method to see shares you've accepted and assets you've received from those shares. Be sure to fill in these values with your own information:
-  
-- assetMappingName
-- receiverContainerName
-- receiverFolderName
-- receiverMountPath
-- receiverStorageResourceId
+## Import the namespaces
 
-```csharp
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_07_Namespaces
+using System.Linq;
+using System.Text.Json;
+using Azure.Identity;
+
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
+var sentShareName = "sample-Share";
+// View accepted shares
+var acceptedSentSharesClient = new AcceptedSentSharesClient(endPoint, credential);
+var acceptedSentShares = acceptedSentSharesClient.GetAcceptedSentShares(sentShareName);
+var acceptedSentShare = acceptedSentShares.FirstOrDefault();
+if (acceptedSentShare == null)
+{
+    //No accepted sent shares
+    return;
+}
+var receiverEmail = JsonDocument.Parse(acceptedSentShare).RootElement.GetProperty("properties").GetProperty("receiverEmail").GetString();
+```
+
+## Get received assets
+
+```C# Snippet:Azure_Analytics_Purview_Share_Samples_08_Namespaces
+using System;
+using System.Linq;
+using System.Text.Json;
+using Azure.Core;
+using Azure.Identity;
+
+var credential = new DefaultAzureCredential();
+var endPoint = "https://<my-account-name>.purview.azure.com/share";
+// Get received assets
+var receivedShareName = "fabrikam-received-share";
+var receivedAssetsClient = new ReceivedAssetsClient(endPoint, credential);
+var receivedAssets = receivedAssetsClient.GetReceivedAssets(receivedShareName);
+var receivedAssetName = JsonDocument.Parse(receivedAssets.First()).RootElement.GetProperty("name").GetString();
 string assetMappingName = "receiver-asset-mapping";
 string receiverContainerName = "receivedcontainer";
 string receiverFolderName = "receivedfolder";
 string receiverMountPath = "receivedmountpath";
-var receiverStorageResourceId = "<RECEIVER_STORAGE_ACCOUNT_RESOURCE_ID>";
-
-
-// View accepted shares
-HttpOperationResponse<AcceptedSentShareList> acceptedSentShares = await client.AcceptedSentShares.ListWithHttpMessagesAsync(sentShare.Body.Name);
-var receiverEmail = ((InPlaceAcceptedSentShare)acceptedSentShares.Body.Value.First()).ReceiverEmail;
-
-// Get received assets
-HttpOperationResponse<ReceivedAssetList> receivedAssets =
-    await client.ReceivedAssets.ListWithHttpMessagesAsync(receivedShareName);
-var assetMappingDto = new BlobAccountAssetMapping
+string receiverStorageResourceId = "<RECEIVER_STORAGE_ACCOUNT_RESOURCE_ID>";
+var assetMappingData = new
 {
-    AssetId = Guid.Parse(receivedAssets.Body.Value.First().Name),
-    ContainerName = receiverContainerName,
-    Folder = receiverFolderName,
-    MountPath = receiverMountPath,
-    StorageAccountResourceId = receiverStorageResourceId
-};
-HttpOperationResponse<AssetMapping> assetMapping =
-    await client.AssetMappings.CreateWithHttpMessagesAsync(
-        receivedShareName,
-        assetMappingName,
-        assetMappingDto);
-```
-
-## Full Code
-
-Here's the full .NET code that contains all the aspects we discussed in the last several sections.
-
-```csharp
-using Microsoft.Rest;
-using Purview.Share;
-using Purview.Share.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ShareNetSample
-{
-    internal class Program
+    // For Adls Gen2 asset use "AdlsGen2Account"
+    kind = "BlobAccount",
+    properties = new
     {
-        static void Main(string[] args)
-        {
-            try
-            {
-                RunShareLifeCycle().Wait();
-            }
-            catch (AggregateException ex)
-            {
-                var purviewException = ex.InnerExceptions.FirstOrDefault() as PurviewShareErrorException;
-                if (purviewException != null)
-                {
-                    Console.WriteLine(purviewException.Body.Error.Message);
-                }
-                else
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
-        static async Task RunShareLifeCycle()
-        {
-            // Create client
-            string authToken = "<token with resource set to https://purview.azure.net>";
-            ServiceClientCredentials cred = new TokenCredentials(authToken);
-
-            string purviewAccountName = "<purivewAccountName>";
-            var client = new PurviewShareClient(cred)
-            {
-                Endpoint = $"https://{purviewAccountName}.purview.azure.com/share"
-            };
-
-            // Use purviewAccountName if caller has Data Share Contributor role on the root collection of Purview account else use name of a collection on which caller has Data Share Contributor role.
-            var rootCollection = new Collection
-            {
-                ReferenceName = purviewAccountName,
-                Type = "CollectionReference"
-            };
-
-            // Create sent share
-            var sentShareName = "fabrikam-sent-share";
-            var inPlaceSentShareDto = new InPlaceSentShare
-            { Collection = rootCollection, Description = "demo share" };
-
-            HttpOperationResponse<SentShare> sentShare = await client.SentShares.CreateOrUpdateWithHttpMessagesAsync(sentShareName, inPlaceSentShareDto);
-
-            // Add asset to sent share
-            var assetName = "fabrikam-blob-asset";
-            var assetNameForReceiver = "receiver-visible-asset-name";
-            var senderStorageResourceId = "<SENDER_STORAGE_ACCOUNT_RESOURCE_ID>";
-            var senderStorageContainer = "fabrikamcontainer";
-            var senderPathToShare = "folder/sample.txt";
-            var pathNameForReceiver = "from-fabrikam";
-
-            var pathsToShare = new List<BlobAccountPath> { new BlobAccountPath(senderStorageContainer, pathNameForReceiver, senderPathToShare) };
-            var assetDto = new BlobAccountAsset(pathsToShare, assetNameForReceiver, senderStorageResourceId);
-            HttpOperationResponse<Asset> asset = await client.Assets.CreateWithHttpMessagesAsync(sentShareName, assetName, assetDto);
-
-            // Send invitation
-            var invitationName = "invitation-to-fabrikam";
-            var invitationDto = new UserInvitation("user@domain.com");
-
-            // Instead of sending invitation to Azure login email of the user, you can send invitation to object ID of a service principal and tenant ID.
-            // Tenant ID is optional. To use this method, comment out the previous line, and uncomment the next line.
-            //var invitationDto = new ApplicationInvitation("<tenantId>", "<principalId>");
-
-            HttpOperationResponse<SentShareInvitation> invitation =
-                await client.SentShareInvitations
-                    .CreateOrUpdateWithHttpMessagesAsync(sentShareName, invitationName, invitationDto);
-
-            // View sent share invitations. (Pending/Rejected)
-            HttpOperationResponse<SentShareInvitationList> sentShareInvitations = await client.SentShareInvitations.ListWithHttpMessagesAsync(sentShare.Body.Name);
-            var targetEmail = ((UserInvitation)sentShareInvitations.Body.Value.First()).TargetEmail;
-
-            // View received invitations
-            HttpOperationResponse<ReceivedInvitationList> receivedInvitations =
-                await client.ReceivedInvitations.ListWithHttpMessagesAsync();
-
-            // Create received share
-            string receivedShareName = "fabrikam-received-share";
-            UserReceivedInvitation receivedInvitation = (UserReceivedInvitation)receivedInvitations.Body.Value.Last();
-
-            var receivedShareDto = new InPlaceReceivedShare(
-                rootCollection,
-                receivedInvitation.Name,
-                receivedInvitation.Location);
-
-            HttpOperationResponse<ReceivedShare> receivedShare =
-                await client.ReceivedShares.CreateWithHttpMessagesAsync(receivedShareName, receivedShareDto);
-
-            // View accepted shares
-            HttpOperationResponse<AcceptedSentShareList> acceptedSentShares = await client.AcceptedSentShares.ListWithHttpMessagesAsync(sentShare.Body.Name);
-            var receiverEmail = ((InPlaceAcceptedSentShare)acceptedSentShares.Body.Value.First()).ReceiverEmail;
-
-            // Get received assets
-            HttpOperationResponse<ReceivedAssetList> receivedAssets =
-                await client.ReceivedAssets.ListWithHttpMessagesAsync(receivedShareName);
-
-            string assetMappingName = "receiver-asset-mapping";
-            string receiverContainerName = "receivedcontainer";
-            string receiverFolderName = "receivedfolder";
-            string receiverMountPath = "receivedmountpath";
-            var receiverStorageResourceId = "<RECEIVER_STORAGE_ACCOUNT_RESOURCE_ID>";
-
-            var assetMappingDto = new BlobAccountAssetMapping
-            {
-                AssetId = Guid.Parse(receivedAssets.Body.Value.First().Name),
-                ContainerName = receiverContainerName,
-                Folder = receiverFolderName,
-                MountPath = receiverMountPath,
-                StorageAccountResourceId = receiverStorageResourceId
-            };
-
-            HttpOperationResponse<AssetMapping> assetMapping =
-                await client.AssetMappings.CreateWithHttpMessagesAsync(
-                    receivedShareName,
-                    assetMappingName,
-                    assetMappingDto);
-        }
+        assetId = Guid.Parse(receivedAssetName),
+        storageAccountResourceId = receiverStorageResourceId,
+        containerName = receiverContainerName,
+        folder = receiverFolderName,
+        mountPath = receiverMountPath
     }
-}
+};
+var assetMappingsClient = new AssetMappingsClient(endPoint, credential);
+var assetMapping = await assetMappingsClient.CreateAsync(WaitUntil.Completed, receivedShareName, assetMappingName, RequestContent.Create(assetMappingData));
 ```
 
 ## Clean up resources
