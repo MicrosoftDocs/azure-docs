@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for HIPAA HITRUST 9.2
 description: Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/26/2022
+ms.date: 08/01/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -138,7 +138,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[There should be more than one owner assigned to your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F09024ccc-0c5f-475e-9457-b7c0d9ed487b) |It is recommended to designate more than one subscription owner in order to have administrator access redundancy. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateMoreThanOneOwner_Audit.json) |
 
-### All file system access not explicitly required is disabled, and only authorized users are permitted access to only that which is expressly required for the performance of the users' job duties.
+### All file system access not explicitly required is and only authorized users are permitted access to only that which is expressly required for the performance of the users' job duties.
 
 **ID**: 1153.01c3System.35 - 01.c
 **Ownership**: Customer
