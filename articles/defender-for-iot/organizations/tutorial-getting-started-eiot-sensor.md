@@ -136,7 +136,7 @@ This procedure describes an example of how to configure a SPAN port on your vSwi
 
 1. Select **OK**, and then select **Close** to close the vSwitch properties.
 
-1. Open the **OT Sensor VM** properties.
+1. Open the **IoT Sensor VM** properties.
 
 1. For **Network Adapter 2**, select the **SPAN** network.
 
@@ -176,7 +176,7 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
-1. Copy the command to a safe location, where you'll be able to copy it to your sensor, either using your physical appliance or VM.
+1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to install the sensor.
 
 <a name="install"></a>**To install Enterprise IoT sensor software**:
 
@@ -188,7 +188,7 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
 
     When the command process completes, the Ubuntu **Configure microsoft-eiot-sensor** wizard appears. In this wizard, use the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
 
-1. In the **Configure microsoft-eiot-sensor** wizard, in the **What is the name of the monitored interface?** screen, select the interfaces you want to monitor with your sensor, and then select OK.
+1. In the **Configure microsoft-eiot-sensor** wizard, in the **What is the name of the monitored interface?** screen, select one or more interfaces that you want to monitor with your sensor, and then select OK.
 
     For example:
 
@@ -216,7 +216,7 @@ Wait 1 minute after your sensor installation has completed before starting to va
     sudo docker ps
     ```
 
-1. In the results that display, ensure that the following containers are up:
+1. In the results that display, ensure that the following containers are up and listed as healthy.
 
     - `compose_attributes-collector_1`
     - `compose_cloud-communication_1`
