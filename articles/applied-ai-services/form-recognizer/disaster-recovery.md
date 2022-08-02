@@ -91,7 +91,7 @@ The body of your request is the response from the previous step.
 
 You'll get a `202\Accepted` response with an Operation-Location header. This value is the URL that you'll use to track the progress of the operation. Copy it to a temporary location for the next step.
 
-```HTTP
+```http
 HTTP/1.1 202 Accepted
 Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
 ```
