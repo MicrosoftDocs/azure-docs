@@ -149,7 +149,7 @@ Test-TcpConnection -ComputeName <nodeManegementEndpoint> -Port 443
 nc -v <nodeManegementEndpoint> 443
 ```
 
-> [!TIPS]
+> [!TIP]
 > You can get the node management endpoint from your [Batch account's properties](batch-account-create-portal.md#view-batch-account-properties).
 
 If the TCP ping fails (for example, timed out), it's typically an issue with the private link connection, and you can raise Azure support ticket with this private endpoint resource. Otherwise, this node unusable issue can be troubleshot as normal Batch pools, and you can raise support ticket with your Batch account.
