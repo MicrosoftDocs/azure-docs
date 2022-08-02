@@ -7,7 +7,7 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 11/09/2021
+ms.date: 08/02/2022
 ms.topic: conceptual
 ---
 
@@ -42,9 +42,9 @@ Use the following table to determine access needs for your LUIS application.
 
 These custom roles only apply to authoring (Language Understanding Authoring) and not prediction resources (Language Understanding).
 
->[!Note]
-> 'Owner' and 'Contibutor' roles take priority over the custom LUIS roles
-> AAD is only used in case of custom LUIS roles
+> [!NOTE]
+> * "Owner" and "Contributor" roles take priority over the custom LUIS roles.
+> * Azure Active Directory (AAD) is only used with custom LUIS roles.
 
 
 ### Cognitive Services LUIS reader
