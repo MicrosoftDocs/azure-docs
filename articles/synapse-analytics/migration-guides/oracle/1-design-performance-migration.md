@@ -420,6 +420,9 @@ For performance, Azure Synapse was designed with multi-node architecture and use
 
 Unlike Oracle, Azure Synapse supports local joins between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information on data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
+>[!TIP]
+>Hash-distribution improves query performance on large fact tables. Round-robin distribution is useful for improving loading speed.
+
 #### Data indexing
 
 Azure Synapse supports several user-definable indexing options that have a different operation and usage compared to system-managed zone maps in Oracle. For more information about the different indexing options in Azure Synapse, see [Indexes on dedicated SQL pool tables](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
@@ -448,6 +451,9 @@ You can only use one field per table for partitioning. That field is frequently 
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
 - [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
 - CSV, PARQUET, and ORC file formats.
+
+>[!TIP]
+> The recommended method for data loading is to use COPY INTO along with PARQUET file format.
 
 #### Use resource classes for workload management
 
