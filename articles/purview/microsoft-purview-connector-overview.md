@@ -120,7 +120,7 @@ For all [system supported file types](#file-types-supported-for-scanning), if th
 
 Nested data, or nested schema parsing, isn't supported in SQL. A column with nested data will be reported and classified as is, and subdata won't be parsed.
 
-## Sampling within a file
+## Sampling data for classification
 
 In Microsoft Purview Data Map terminology,
 - L1 scan: Extracts basic information and meta data like file name, size and fully qualified name
