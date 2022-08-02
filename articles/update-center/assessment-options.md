@@ -1,8 +1,8 @@
 ---
 title: Assessment options in update management center (preview).
 description: The article describes the assessment options available in Update management center (preview).
-ms.service: automation
-ms.subservice: update-management
+ms.service: Update-management-center
+ms.subservice: update-management-center
 ms.date: 04/21/2022
 ms.topic: conceptual
 author: snehasudhirG
