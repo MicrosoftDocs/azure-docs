@@ -200,7 +200,17 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
 
     If you're setting up a proxy server, select **Yes**, and then define the proxy server host, port, username, and password, selecting **Ok** after each option.
 
-The installation takes a few minutes to complete.
+    The installation takes a few minutes to complete.
+
+1. To confirm that the sensor can send data to the cloud, run:
+
+    ```bash
+    sudo docker logs -f compose_cloud-communication_1
+    ```
+
+    Wait for a message that confirms that the **NetworkDataEventHub** connection string has been updated. This message indicates that the sensor can send data to the cloud. For example:
+
+    :::image type="content" source="media/tutorial-get-started-eiot/network-data-event-hub-message.png" alt-text="Screenshot of the NetworkDataEventHub confirmation messages.":::
 
 <!--tbd installation complete image-->
 
