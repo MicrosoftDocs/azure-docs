@@ -62,8 +62,8 @@ When you get results from PII detection, you can stream the results to an applic
     
     |Language  |Package version  |
     |---------|---------|
-    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
-    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    |.NET     | [1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0)        |
+    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.0.0)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
@@ -72,8 +72,8 @@ When you get results from PII detection, you can stream the results to an applic
     
 5. See the following reference documentation for more information on the client, and return object:
     
-    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
-    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    * [C#](/dotnet/api/azure.ai.language.conversations)
+    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations.aio)
     
 # [REST API](#tab/rest-api)
 
