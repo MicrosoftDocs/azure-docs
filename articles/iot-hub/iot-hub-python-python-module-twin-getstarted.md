@@ -180,7 +180,7 @@ In this section, you create a Python service app that updates the module twin de
 
 In this section, you create a Python app to get the module twin desired properties update on your device.
 
-1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** in the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities**, select **myFirstModule**. Copy the module connection string. You need it in a following step.
+1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **Devices** in the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities**, select **myFirstModule**. Select the copy icon for **Connection string (primary key)**. You need this connection string in a following step.
 
    ![Azure portal module detail](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
