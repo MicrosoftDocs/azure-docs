@@ -8,36 +8,33 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 07/22/2022
+ms.date: 08/01/2022
 ms.author: amsliu
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 # Post off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)
 
-This tutorial provides a step-by-step guide on how to execute a real-time employee termination with Lifecycle workflows using the GRAPH API.
+This tutorial provides a step-by-step guide on how to configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the GRAPH API.
 
-This off-boarding scenario will run a workflow on-demand and accomplish the following tasks:
-
-1. Remove user from all groups
+This post off-boarding scenario will run a scheduled workflow and accomplish the following tasks:
+ 
+1. Remove all licenses for user
 2. Remove user from all Teams
 3. Delete user account
 
-You may learn more about running a workflow on-demand [here](on-demand-workflow.md).
-
 ##  Before you begin
 
-As part of the prerequisites for completing this tutorial, you will need an account that has group and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azuread-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you will need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azuread-user-accounts.md).
 
-The leaver scenario can be broken down into the following:
--	**Prerequisite:** Create a user account that represents an employee leaving your organization
--	**Prerequisite:** Prepare the user account with groups and Teams memberships
--	Create the lifecycle management workflow
--	Run the workflow on-demand
--	Verify that the workflow was successfully executed
+The scheduled leaver scenario can be broken down into the following:
+- **Prerequisite:** Create a user account that represents an employee leaving your organization
+- **Prerequisite:** Prepare the user account with licenses and Teams memberships
+- Create the lifecycle management workflow
+- Run the scheduled workflow after last day of work
+- Verify that the workflow was successfully executed
 
-
-## Create a leaver workflow on-demand using Graph API
+## Create a scheduled leaver workflow using Graph API
 
 Before introducing the API call to create this workflow, you may want to review some of the parameters that are required for this workflow creation.
 
@@ -53,17 +50,17 @@ Before introducing the API call to create this workflow, you may want to review 
 
 For the purpose of this tutorial, there are three tasks that will be introduced in this workflow:
 
-#### Remove user from all groups task
+#### Remove all licenses for user
 
 ```msgraph-interactive
 "tasks":[
        {
-            "continueOnError": true,
-            "displayName": "Remove user from all groups",
-            "description": "Remove user from all Azure AD groups memberships",
-            "isEnabled": true,
-            "taskDefinitionId": "b3a31406-2a15-4c9a-b25b-a658fa5f07fc",
-            "arguments": []
+            "category": "leaver",
+            "description": "Remove all licenses assigned to the user",
+            "displayName": "Remove all licenses for user",
+            "id": "8fa97d28-3e52-4985-b3a9-a1126f9b8b4e",
+            "version": 1,
+            "parameters": []
         }
    ]
 ```
@@ -72,97 +69,94 @@ For the purpose of this tutorial, there are three tasks that will be introduced 
 ```msgraph-interactive
 "tasks":[
        {
-            "continueOnError": true,
-            "description": "Remove user from all Teams",
-            "displayName": "Remove user from all Teams memberships",
-            "isEnabled": true,
-            "taskDefinitionId": "81f7b200-2816-4b3b-8c5d-dc556f07b024",
-            "arguments": []
+            "category": "leaver",
+            "description": "Remove user from all Teams memberships",
+            "displayName": "Remove user from all Teams",
+            "id": "81f7b200-2816-4b3b-8c5d-dc556f07b024",
+            "version": 1,
+            "parameters": []
         }
    ]
 ```
-#### Delete user task
+#### Delete user account
 
 ```msgraph-interactive
 "tasks":[
-       {
-            "continueOnError": true,
-            "displayName": "Delete user account",
+        {
+            "category": "leaver",
             "description": "Delete user account in Azure AD",
-            "isEnabled": true,
-            "taskDefinitionId": "8d18588d-9ad3-4c0f-99d0-ec215f0e3dff",
-            "arguments": []
+            "displayName": "Delete User Account",
+            "id": "8d18588d-9ad3-4c0f-99d0-ec215f0e3dff",
+            "version": 1,
+            "parameters": []
         }
    ]
 ```
-#### Leaver workflow on-demand
+#### Scheduled leaver workflow
 
-The following POST API call will create a leaver workflow that can be executed on-demand for real-time employee terminations.
+The following POST API call will create a scheduled leaver workflow to configure off-boarding tasks for employees after their last day of work.
 
 ```http
  POST https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows
  ```
 
 ```msgraph-interactive
-{
-    "category": "Leaver",
-    "description": "Execute real-time termination tasks for employees on their last day of work",
-    "displayName": "Real-time employee termination",
-    "isEnabled": true,
-    "isSchedulingEnabled": false,
-    "executionConditions":{
-        "@odata.type":"#microsoft.graph.identityGovernance.onDemandExecutionOnly"
-    },
-    "tasks@odata.context": "https://graph.microsoft-ppe.com/beta/$metadata#identityGovernance/lifecycleManagement/workflowTemplates('')/tasks",
-    "tasks": [
         {
-            "continueOnError": false,
-            "description": "Remove user from all Azure AD groups memberships",
-            "displayName": "Remove user from all groups",
-            "isEnabled": true,
-            "taskDefinitionId": "b3a31406-2a15-4c9a-b25b-a658fa5f07fc",
-            "arguments": []
-        },
-        {
-            "continueOnError": false,
-            "description": "Remove user from all Teams memberships",
-            "displayName": "Remove user from all Teams",
-            "isEnabled": true,
-            "taskDefinitionId": "81f7b200-2816-4b3b-8c5d-dc556f07b024",
-            "arguments": []
-        },
-        {
-            "continueOnError": false,
-            "description": "Delete user account in Azure AD",
-            "displayName": "Delete User Account",
-            "isEnabled": true,
-            "taskDefinitionId": "8d18588d-9ad3-4c0f-99d0-ec215f0e3dff",
-            "arguments": []
+            "category": "leaver",
+            "description": "Configure offboarding tasks for employees after their last day of work",
+            "displayName": "Post-Offboarding of an employee",
+            "id": "50149a4a-7c2d-4fd8-8018-761f4eb915cb",
+            "executionConditions": {
+                "@odata.type": "#microsoft.graph.identityGovernance.triggerAndScopeBasedConditions",
+                "scope": {
+                    "@odata.type": "#microsoft.graph.identityGovernance.ruleBasedSubjectSet",
+                    "rule": "department eq 'Marketing'"
+                },
+                "trigger": {
+                    "@odata.type": "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger",
+                    "timeBasedAttribute": "employeeLeaveDateTime",
+                    "offsetInDays": 7
+                }
+            },
+            "tasks@odata.context": "https://graph.microsoft-ppe.com/beta/$metadata#identityGovernance/lifecycleWorkflows/workflowTemplates('50149a4a-7c2d-4fd8-8018-761f4eb915cb')/tasks",
+            "tasks": [
+                {
+                    "category": "leaver",
+                    "continueOnError": false,
+                    "description": "Remove all licenses assigned to the user",
+                    "displayName": "Remove all licenses for user",
+                    "executionSequence": 1,
+                    "id": "760ab754-8249-4bce-9315-1ad06488e434",
+                    "isEnabled": true,
+                    "taskDefinitionId": "8fa97d28-3e52-4985-b3a9-a1126f9b8b4e",
+                    "arguments": []
+                },
+                {
+                    "category": "leaver",
+                    "continueOnError": false,
+                    "description": "Remove user from all Teams memberships",
+                    "displayName": "Remove user from all Teams",
+                    "executionSequence": 2,
+                    "id": "17b4e37b-c50b-4e04-a11c-93479f487d1d",
+                    "isEnabled": true,
+                    "taskDefinitionId": "81f7b200-2816-4b3b-8c5d-dc556f07b024",
+                    "arguments": []
+                },
+                {
+                    "category": "leaver",
+                    "continueOnError": false,
+                    "description": "Delete user account in Azure AD",
+                    "displayName": "Delete User Account",
+                    "executionSequence": 3,
+                    "id": "46849618-30e7-4b67-abf0-f8c7f0d54b95",
+                    "isEnabled": true,
+                    "taskDefinitionId": "8d18588d-9ad3-4c0f-99d0-ec215f0e3dff",
+                    "arguments": []
+                }
+            ]
         }
     ]
 }
-```
-## Run the workflow 
-Now that the workflow is created, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
-
->[!NOTE]
->Be aware that you currently cannot run a workflow on-demand if it is set to disabled.  You need to set the workflow to enabled to use the on-demand feature.
-
-To run a workflow on-demand for users using the GRAPH API do the following steps:
-
-1.  Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-2. Make sure the top is still set to **POST**, and **beta** and `https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/activate` is in the box.  Change `<id>` to the ID of workflows. 
- 3. Copy the code below in to the **Request body** 
- 4. Replace `<userid>` in the code below with the value of Melva Prince's ID.
- 5. Select **Run query**
-   ```msgraph-interactive
- {
-   "subjects":[
-      {"id":"<userid>"}
-      
-   ]
-}
-
 ```
 
 ## Check tasks and workflow status
