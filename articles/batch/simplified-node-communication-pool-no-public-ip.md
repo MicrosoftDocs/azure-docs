@@ -130,6 +130,41 @@ Another way to provide outbound connectivity is to use a user-defined route (UDR
 > [!IMPORTANT]
 > There is no extra network resource (load balancer, network security group) created for simplified node communication pools without public IP addresses. Since the compute nodes in the pool are not bound to any load balancer, Azure may provide [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md). However, Default Outbound Access is not suitable for production workloads, so it is strongly recommended to bring your own Internet outbound access.
 
+## Troubleshooting
+
+### Unusable compute nodes in a Batch pool
+
+If your compute nodes run into unusable state in a Batch pool without public IP addresses, the first and most important check is to verify that the access to Batch node management service is set up correctly from within your virtual network.
+
+If you're using **nodeManagement** private endpoint:
+
+- Check if the private endpoint is in provisioning succeeded state, and also in **Approved** status.
+- Check if the DNS configuration is set up correctly with the node management endpoint. You can confirm this by running `nslookup` from within your virtual network, and the Batch account's node management endpoint should be resolved to the private endpoint IP address.
+- TCP ping the node management endpoint with HTTPS port 443. This probe can tell if the private link connection is working as expected.
+
+```
+# Windows
+Test-TcpConnection -ComputeName <nodeManegementEndpoint> -Port 443
+# Linux
+nc -v <nodeManegementEndpoint> 443
+```
+
+> [!TIPS]
+> You can get the node management endpoint from your [Batch account's properties](batch-account-create-portal.md#view-batch-account-properties).
+
+If the TCP ping fails (e.g. timed out), it's typically an issue with the private endpoint and you can raise Azure support ticket with this resource. Otherwise, this node unusable issue can be troubleshooted as normal Batch pools, and you can raise support ticket with your Batch account.
+
+If you're using your own inernet outbound solution instead of private endpoint, run the same TCP ping with node management endpoint as shown above. If it's not working, check if your outbound access is configured correctly by following detailed requirements for [simplified compute node communication](simplified-compute-node-communication.md).
+
+### Connect to compute nodes
+
+There is no internet inbound access to compute nodes in the Batch pool without public IP addresses. To access your compute nodes for debugging, you'll need to find solution to connect from with the virtual network:
+
+- Use jumpbox machine inside the virtual network, then connect to your compute nodes from there.
+- Or, try using other remote connection solutions like [Azure Bastion](../bastion/bastion-overview.md). Note you'll need to use **Standard** SKU to allow [IP based connection](../bastion/connect-ip-address.md).
+
+You can follow the guide [Connect to compute nodes](error-handling.md#connect-to-compute-nodes) to get user credential and IP address for the target compute node.
+
 ## Migration from previous preview version of No Public IP pools
 
 For existing pools that use the [previous preview version of Azure Batch No Public IP pool](batch-pool-no-public-ip-address.md), it's only possible to migrate pools created in a [virtual network](batch-virtual-network.md). To migrate the pool, follow the [opt-in process for simplified node communication](simplified-compute-node-communication.md):
