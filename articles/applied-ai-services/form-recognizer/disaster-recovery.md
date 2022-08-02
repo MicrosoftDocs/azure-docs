@@ -159,6 +159,15 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ## Track Copy progress
 
+# [Form Recognizer v3.0 (Preview)](#tab/v30)
+
+```
+GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
+Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
+```
+
+# [Form Recognizer v2.1 (GA)](#tab/v21)
+
 Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 
 ```
@@ -173,6 +182,10 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
+
+-----
+
+
 
 ### Common errors
 
