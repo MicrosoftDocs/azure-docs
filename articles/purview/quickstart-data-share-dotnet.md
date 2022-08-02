@@ -14,7 +14,7 @@ ms.custom: mode-api
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In this quickstart, you'll use the .NET SDK provides to share data and receive shares from Azure Data Lake Storage (ADLS Gen2) or Blob storage accounts.
+In this quickstart, you'll use the .NET SDK provides to share data and receive shares from Azure Data Lake Storage (ADLS Gen2) or Blob storage accounts. The article includes code snippets that will allow you to share and receive data using Microsoft Purview Data Sharing.
 
 For an overview of how data sharing works, watch this short [demo](https://aka.ms/purview-data-share/overview-demo).
 
@@ -60,7 +60,13 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
-## Create Sent Share
+## Create a sent share
+
+The below code will create a data share that you can send to internal or external users.
+To use it, be sure to fill out these variables:
+- **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance.
+- **sentShareName** - a name for your new data share.
+- **description** - an optional description for your data share.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure.Core;
@@ -238,8 +244,6 @@ var receivedShare = await receivedShareClient.CreateAsync(receivedShareName, Req
 ```
 
 ## View accepted shares
-
-## Import the namespaces
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_07_Namespaces
 using System.Linq;
