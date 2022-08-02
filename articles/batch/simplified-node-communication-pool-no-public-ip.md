@@ -139,14 +139,14 @@ If compute nodes run into unusable state in a Batch pool without public IP addre
 If you're using **nodeManagement** private endpoint:
 
 - Check if the private endpoint is in provisioning succeeded state, and also in **Approved** status.
-- Check if the DNS configuration is set up correctly with the node management endpoint. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the Batch account's node management endpoint should be resolved to the private endpoint IP address.
+- Check if the DNS configuration is set up correctly for the node management endpoint of your Batch account. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the DNS name should be resolved to the private endpoint IP address.
 - Run TCP ping with the node management endpoint using default HTTPS port (443). This probe can tell if the private link connection is working as expected.
 
 ```
 # Windows
-Test-TcpConnection -ComputeName <nodeManegementEndpoint> -Port 443
+Test-TcpConnection -ComputeName <nodeManagementEndpoint> -Port 443
 # Linux
-nc -v <nodeManegementEndpoint> 443
+nc -v <nodeManagementEndpoint> 443
 ```
 
 > [!TIP]
@@ -158,12 +158,12 @@ If you're using your own internet outbound solution instead of private endpoint,
 
 ### Connect to compute nodes
 
-There's no internet inbound access to compute nodes in the Batch pool without public IP addresses. To access your compute nodes for debugging, you'll need to find solution to connect from within the virtual network:
+There's no internet inbound access to compute nodes in the Batch pool without public IP addresses. To access your compute nodes for debugging, you'll need to connect from within the virtual network:
 
 - Use jumpbox machine inside the virtual network, then connect to your compute nodes from there.
 - Or, try using other remote connection solutions like [Azure Bastion](../bastion/bastion-overview.md). Note you'll need to use **Standard** SKU to allow [IP based connection](../bastion/connect-ip-address.md).
 
-You can follow the guide [Connect to compute nodes](error-handling.md#connect-to-compute-nodes) to get user credential and IP address for the target compute node.
+You can follow the guide [Connect to compute nodes](error-handling.md#connect-to-compute-nodes) to get user credential and IP address for the target compute node in your Batch pool.
 
 ## Migration from previous preview version of No Public IP pools
 

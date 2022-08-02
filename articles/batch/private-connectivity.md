@@ -49,12 +49,13 @@ Use the following steps to create a private endpoint with your Batch account usi
    - For **Private DNS Zone**, select **privatelink.batch.azure.com**. The private DNS zone is determined automatically. You can't change this setting by using the Azure portal.
 
 > [!IMPORTANT]
-> If you've existing private endpoints created with previous private DNS zone `privatelink.<region>.batch.azure.com`, please follow [Migration with existing Batch account private endpoints](#migration-with-existing-batch-account-private-endpoints).
+> - If you have existing private endpoints created with previous private DNS zone `privatelink.<region>.batch.azure.com`, please follow [Migration with existing Batch account private endpoints](#migration-with-existing-batch-account-private-endpoints).
+> - If you've selected private DNS zone integration, make sure the private DNS zone is linked to your virtual network successfully. It's possible that Azure portal let you choose an existing private DNS zone, which might not be linked to your virtual network and you'll need to manually add the [virtual network link](../dns/private-dns-virtual-network-links.md).
 
 6. Select **Review + create**, then wait for Azure to validate your configuration.
 7. When you see the **Validation passed** message, select **Create**.
 
-> [!NOTE]
+> [!TIP]
 > You can also create the private endpoint from **Private Link Center** in Azure portal, or create a new resource by searching **private endpoint**.
 
 ## Use the private endpoint
@@ -140,7 +141,7 @@ To zone "privatelink.batch.azure.com":
 ```
 
 3) Unlink the previous private DNS zone from your virtual network.
-4) Verify DNS resolution within your virtual network, and the Batch account DNS name should continue to be resolved to the private endpoint IP address: 
+4) Verify DNS resolution within your virtual network, and the Batch account DNS name should continue to be resolved to the private endpoint IP address:
 
 ```
 nslookup myaccount.<region>.batch.azure.com
