@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a Microsoft Purview account using an ARM Template'
-description: This Quickstart describes how to create a Microsoft Purview account using an ARM Template.
+title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using an ARM Template'
+description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account using an ARM Template.
 author: whhender
 ms.author: whhender
 ms.date: 04/05/2022
@@ -9,13 +9,13 @@ ms.service: purview
 ms.custom: mode-arm
 ---
 
-# Quickstart: Create a Microsoft Purview account using an ARM template
+# Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using an ARM template
 
-This quickstart describes the steps to deploy a Microsoft Purview account using an Azure Resource Manager (ARM) template. 
+This quickstart describes the steps to deploy a Microsoft Purview (formerly Azure Purview) account using an Azure Resource Manager (ARM) template. 
 
-After you have created a Microsoft Purview account you can begin registering your data sources and using Microsoft Purview to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Microsoft Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
+After you've created the account, you can begin registering your data sources and using the Microsoft Purview governance portal to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
 
-For more information about Microsoft Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
+For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md)
 
 To deploy a Microsoft Purview account to your subscription using an ARM template, follow the guide below.
 
@@ -76,7 +76,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you learned how to create a Microsoft Purview account and how to access it through the Microsoft Purview governance portal.
+In this quickstart, you learned how to create a Microsoft Purview (formerly Azure Purview) account and how to access the Microsoft Purview governance portal.
 
 Next, you can create a user-assigned managed identity (UAMI) that will enable your new Microsoft Purview account to authenticate directly with resources using Azure Active Directory (Azure AD) authentication.
 

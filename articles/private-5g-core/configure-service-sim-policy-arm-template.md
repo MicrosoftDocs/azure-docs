@@ -51,7 +51,7 @@ Two Azure resources are defined in the template.
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
     - **Region:** select **East US**.
-    - **Location:** leave this field unchanged.
+    - **Location:** enter *eastus*.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **Existing Slice Name:** enter **slice-1**.
     - **Existing Data Network Name:** enter the name of the data network to which your private mobile network connects. 
@@ -78,4 +78,4 @@ Two Azure resources are defined in the template.
 
 You can now assign the SIM policy to your SIMs to bring them into service.
 
-- [Assign a SIM policy to a SIM](provision-sims-azure-portal.md#assign-sim-policies)
+- [Assign a SIM policy to a SIM](manage-existing-sims.md#assign-sim-policies)

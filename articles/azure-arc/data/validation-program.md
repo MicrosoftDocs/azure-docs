@@ -3,7 +3,7 @@ title: "Azure Arc-enabled data services validation"
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/30/2021
+ms.date: 06/14/2022
 ms.topic: conceptual
 author: MikeRayMSFT
 ms.author: mikeray
@@ -28,35 +28,53 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-|Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |v1.19.5|v1.0.0_2021-07-30|15.0.2148.140| Not validated |
+|Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |v1.20.14|v1.4.1_2022-03-08|15.0.2255.119| PostgreSQL 12.3 (Ubuntu 12.3-1) |
 
 ### Dell
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Dell EMC PowerFlex |1.19.7|v1.0.0_2021-07-30|15.0.2148.140 | Not validated |
-| PowerFlex version 3.6 |1.19.7|v1.0.0_2021-07-30|15.0.2148.140 | Not validated |
-| PowerFlex CSI version 1.4 |1.19.7|v1.0.0_2021-07-30|15.0.2148.140 | Not validated |
+| Dell EMC PowerFlex |1.21.5|v1.4.1_2022-03-08|15.0.2255.119 | Not validated |
+| PowerFlex version 3.6 |1.21.5|v1.4.1_2022-03-08|15.0.2255.119 | Not validated |
+| PowerFlex CSI version 1.4 |1.21.5|v1.4.1_2022-03-08 | Not validated |
 | PowerStore X|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1) |
-| Powerstore T|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1)|
+| PowerStore T|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1)|
+
+### HPE
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+|HPE Superdome Flex 280|1.20.0|v1.8.0_2022-06-14|16.0.41.7339|12.3 (Ubuntu 12.3-1)
+
+### Kublr
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+|Kublr |1.22.3 / 1.22.10 | v1.9.0_2022-07-12 |15.0.2195.191 |PostgreSQL 12.3 (Ubuntu 12.3-1) |
+
+### Lenovo
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+|Lenovo ThinkAgile MX3520 |AKS on Azure Stack HCI 21H2|v1.0.0_2021-07-30 |15.0.2148.140|Not validated|
 
 ### Nutanix
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV:20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | v1.0.0_2021-07-30 | 15.0.2148.140|postgres 12.3 (Ubuntu 12.3-1)|
+| Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV: 20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | v1.0.0_2021-07-30 | 15.0.2148.140|postgres 12.3 (Ubuntu 12.3-1)|
 
 ### Platform 9
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Platform9  Managed Kubernetes v5.3.0 | 1.20.5 | v1.0.0_2021-07-30| 15.0.2148.140 | Not validated |
+| Platform9  Managed Kubernetes v5.3.0 | 1.20.5 | v1.0.0_2021-07-30| 15.0.2195.191 | PostgreSQL 12.3 (Ubuntu 12.3-1) |
 
 ### PureStorage
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Portworx Enterprise 2.7 | 1.20.7 | v1.0.0_2021-07-30 | 15.0.2148.140 | Not validated |
+| Portworx Enterprise 2.7	1.22.5 | 1.20.7 | v1.1.0_2021-11-02 | 15.0.2148.140 | Not validated |
 
 ### Red Hat
 
@@ -68,15 +86,20 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| TKGm v1.3.1 | 1.20.5 | v1.0.0_2021-07-30 | 15.0.2148.140|postgres 12.3 (Ubuntu 12.3-1)|
+| TKGm v1.5.1 | 1.20.5 | v1.4.1_2022-03-08 |15.0.2255.119|postgres 12.3 (Ubuntu 12.3-1)|
+
+### Wind River
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+|Wind River Cloud Platform 22.06 | v1.23.1|v1.9.0_2022-07-12 |16.0.312.4243|postgres 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process
 
 The Sonobuoy Azure Arc-enabled data services plug-in automates the provisioning and testing of Azure Arc-enabled data services on a Kubernetes cluster.
 
 ### Prerequisites
-
-Install tools: 
+v1.22.5+vmware.1
 
 - [Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata)
 - [kubectl](https://kubernetes.io/docs/home/)

@@ -4,15 +4,14 @@ description: Tutorial showing how to use a Linux VM system-assigned managed iden
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
-editor: daveba
+manager: rkarlin
 ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2022
+ms.date: 06/24/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -225,7 +224,7 @@ Response:
 
 ## Next steps
 
-In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS, see:
 
 > [!div class="nextstepaction"]
 >[Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)

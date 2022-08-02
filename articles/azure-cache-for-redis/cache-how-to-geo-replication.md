@@ -39,6 +39,7 @@ Some features aren't supported with geo-replication:
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
 - Caches in the same Virtual Network (VNet) are supported.
 - Caches in different VNets are supported with caveats. See [Can I use geo-replication with my caches in a VNet?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) for more information.
+- Caches with more than one replica can't be geo-replicated.
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
@@ -52,6 +53,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - You can't delete either linked cache, or the resource group that contains them, until you unlink the caches. For more information, see [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - If the caches are in different regions, network egress costs apply to the data moved across regions. For more information, see [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - Automatic failover doesn't occur between the primary and secondary linked cache. For more information and information on how to failover a client application, see [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
 ## Add a geo-replication link
 

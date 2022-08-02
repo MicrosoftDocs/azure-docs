@@ -4,94 +4,6 @@
     href: get-started.md
   - name: Certifications
     href: sap-certifications.md    
-- name: SAP on Azure Large Instances
-  items:
-  - name: Overview
-    items:
-    - name: What is SAP HANA on Azure (Large Instances)?
-      href: hana-overview-architecture.md
-    - name: Know the terms
-      href: hana-know-terms.md
-    - name: Certification
-      href: hana-certification.md
-    - name: Available SKUs for HLI
-      href: hana-available-skus.md
-    - name: Sizing
-      href: hana-sizing.md
-    - name: Onboarding requirements
-      href: hana-onboarding-requirements.md
-    - name: SAP HANA data tiering and extension nodes
-      href: hana-data-tiering-extension-nodes.md
-    - name: Operations model and responsibilities
-      href: hana-operations-model.md
-    - name: Compatible Operating Systems
-      href: os-compatibility-matrix-hana-large-instance.md
-  - name: Architecture
-    items:
-    - name: General architecture
-      href: hana-architecture.md
-    - name: Network architecture
-      href: hana-network-architecture.md
-    - name: Storage architecture
-      href: hana-storage-architecture.md
-    - name: HLI supported scenarios
-      href: hana-supported-scenario.md
-  - name: Infrastructure and connectivity
-    items:
-    - name: HLI deployment
-      href: hana-overview-infrastructure-connectivity.md
-    - name: Connecting Azure VMs to HANA Large Instances
-      href: hana-connect-azure-vm-large-instances.md
-    - name: Connecting a VNet to HANA Large Instance ExpressRoute
-      href: hana-connect-vnet-express-route.md
-    - name: Additional network requirements
-      href: hana-additional-network-requirements.md
-  - name: Install SAP HANA
-    items:
-    - name: Validate the configuration
-      href: hana-installation.md
-    - name: Sample HANA Installation
-      href: hana-example-installation.md
-  - name: High availability and disaster recovery
-    items:
-    - name: Options and considerations
-      href: hana-overview-high-availability-disaster-recovery.md
-    - name: Backup and restore
-      href: hana-backup-restore.md
-    - name: Principles and preparation
-      href: hana-concept-preparation.md
-    - name: Disaster recovery failover procedure
-      href: hana-failover-procedure.md
-    - name: Large instances HA for SAP on RHEL
-      href: large-instance-high-availability-rhel.md
-  - name: Troubleshoot and monitor
-    items:
-    - name: Monitoring HLI
-      href: troubleshooting-monitoring.md
-    - name: Monitoring and troubleshooting from HANA side
-      href: hana-monitor-troubleshoot.md
-  - name: How to
-    items:
-    - name: Azure HANA Large Instances control through Azure portal
-      href: hana-li-portal.md
-    - name: HA Setup with STONITH
-      href: ha-setup-with-stonith.md
-    - name: OS Backup
-      href: large-instance-os-backup.md
-    - name: OS Backup HLI TYPE - 2
-      href: os-backup-hli-type-ii-skus.md
-    - name: Azure Large Instances high availability for SAP on RHEL
-      href: large-instance-high-availability-rhel.md
-    - name: Enable Kdump for HANA Large Instances
-      href: hana-large-instance-enable-kdump.md
-    - name: OS Upgrade for HANA Large Instances
-      href: os-upgrade-hana-large-instance.md
-    - name: Setting up SMT server for SUSE Linux
-      href: hana-setup-smt.md
-    - name: HLI to Azure VM migration
-      href: hana-large-instance-virtual-machine-migration.md
-    - name: Buy an SAP HANA Large Instances reservation
-      href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
 - name: Plan and Deploy (Azure VMs)
   items: 
   - name: Supported scenarios
@@ -402,26 +314,144 @@
       href: automation-bom-prepare.md
     - name: Create automation template files
       href: automation-bom-templates-db.md
-- name: Azure Monitor for SAP Solutions
+- name: Azure Center for SAP solutions
+  href: ../../../center-sap-solutions/toc.yml
+- name: Azure Monitor for SAP solutions
   items:
-  - name: Monitor SAP on Azure
-    href: monitor-sap-on-azure.md
-  - name: AMS providers
-    href: azure-monitor-providers.md
-  - name: Configure AMS - Portal
-    href: azure-monitor-sap-quickstart.md
-  - name: Configure Alerts in AMS - Portal
-    href: azure-monitor-alerts-portal.md
-  - name: Configure AMS - Azure PowerShell
-    href: azure-monitor-sap-quickstart-powershell.md
-  - name: Monitor data reference
-    href: monitor-sap-on-azure-reference.md
-  - name: AMS FAQ
-    href: azure-monitor-faq.yml
+  - name: Overview
+    items:
+    - name: What is Azure Monitor for SAP solutions?
+      href: monitor-sap-on-azure.md
+    - name: Frequently asked questions (FAQ)
+      href: azure-monitor-faq.yml
+  - name: Concepts
+    items:
+    - name: Providers in AMS
+      href: azure-monitor-providers.md
+  - name: Quickstarts
+    items:
+    - name: Get started with AMS - Azure portal
+      href: azure-monitor-sap-quickstart.md
+    - name: Get started with AMS - PowerShell
+      href: azure-monitor-sap-quickstart-powershell.md
+  - name: How-to guides
+    items:
+    - name: Set up network for AMS
+      href: create-network-azure-monitor-sap-solutions.md
+    - name: Configure AMS alerts in Azure portal
+      href: azure-monitor-alerts-portal.md
+    - name: Provider configuration
+      items:
+      - name: Configure NetWeaver provider
+        href: configure-netweaver-azure-monitor-sap-solutions.md
+      - name: Configure SAP HANA provider
+        href: configure-hana-azure-monitor-sap-solutions.md
+      - name: Configure Microsoft SQL Server pProvider
+        href: configure-sql-server-azure-monitor-sap-solutions.md
+      - name: Configure High-availability cluster (Pacemaker) provider
+        href: configure-ha-cluster-azure-monitor-sap-solutions.md
+      - name: Configure OS (Linux) provider
+        href: configure-linux-os-azure-monitor-sap-solutions.md
+      - name: Configure IBM Db2 provider
+        href: configure-db-2-azure-monitor-sap-solutions.md
+  - name: Reference
+    items:
+    - name: Data reference for AMS
+      href: monitor-sap-on-azure-reference.md
 - name: Integration with Microsoft Services
   items:
   - name: Outbound E-Mail from SAP to Exchange Online
     href: exchange-online-integration-sap-email-outbound.md
+  - name: Expose SAP Process Orchestration on Azure securely 
+    href: expose-sap-process-orchestration-on-azure.md    
+- name: SAP on Azure Large Instances
+  items:
+  - name: Overview
+    items:
+    - name: What is SAP HANA on Azure (Large Instances)?
+      href: hana-overview-architecture.md
+    - name: Know the terms
+      href: hana-know-terms.md
+    - name: Certification
+      href: hana-certification.md
+    - name: Available SKUs for HLI
+      href: hana-available-skus.md
+    - name: Sizing
+      href: hana-sizing.md
+    - name: Onboarding requirements
+      href: hana-onboarding-requirements.md
+    - name: SAP HANA data tiering and extension nodes
+      href: hana-data-tiering-extension-nodes.md
+    - name: Operations model and responsibilities
+      href: hana-operations-model.md
+    - name: Compatible Operating Systems
+      href: os-compatibility-matrix-hana-large-instance.md
+  - name: Architecture
+    items:
+    - name: General architecture
+      href: hana-architecture.md
+    - name: Network architecture
+      href: hana-network-architecture.md
+    - name: Storage architecture
+      href: hana-storage-architecture.md
+    - name: HLI supported scenarios
+      href: hana-supported-scenario.md
+  - name: Infrastructure and connectivity
+    items:
+    - name: HLI deployment
+      href: hana-overview-infrastructure-connectivity.md
+    - name: Connecting Azure VMs to HANA Large Instances
+      href: hana-connect-azure-vm-large-instances.md
+    - name: Connecting a VNet to HANA Large Instance ExpressRoute
+      href: hana-connect-vnet-express-route.md
+    - name: Additional network requirements
+      href: hana-additional-network-requirements.md
+  - name: Install SAP HANA
+    items:
+    - name: Validate the configuration
+      href: hana-installation.md
+    - name: Sample HANA Installation
+      href: hana-example-installation.md
+  - name: High availability and disaster recovery
+    items:
+    - name: Options and considerations
+      href: hana-overview-high-availability-disaster-recovery.md
+    - name: Backup and restore
+      href: hana-backup-restore.md
+    - name: Principles and preparation
+      href: hana-concept-preparation.md
+    - name: Disaster recovery failover procedure
+      href: hana-failover-procedure.md
+    - name: Large instances HA for SAP on RHEL
+      href: large-instance-high-availability-rhel.md
+  - name: Troubleshoot and monitor
+    items:
+    - name: Monitoring HLI
+      href: troubleshooting-monitoring.md
+    - name: Monitoring and troubleshooting from HANA side
+      href: hana-monitor-troubleshoot.md
+  - name: How to
+    items:
+    - name: Azure HANA Large Instances control through Azure portal
+      href: hana-li-portal.md
+    - name: HA Setup with STONITH
+      href: ha-setup-with-stonith.md
+    - name: OS Backup
+      href: large-instance-os-backup.md
+    - name: OS Backup HLI TYPE - 2
+      href: os-backup-hli-type-ii-skus.md
+    - name: Azure Large Instances high availability for SAP on RHEL
+      href: large-instance-high-availability-rhel.md
+    - name: Enable Kdump for HANA Large Instances
+      href: hana-large-instance-enable-kdump.md
+    - name: OS Upgrade for HANA Large Instances
+      href: os-upgrade-hana-large-instance.md
+    - name: Setting up SMT server for SUSE Linux
+      href: hana-setup-smt.md
+    - name: HLI to Azure VM migration
+      href: hana-large-instance-virtual-machine-migration.md
+    - name: Buy an SAP HANA Large Instances reservation
+      href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
 - name: Reference
   items:
   - name: Azure CLI

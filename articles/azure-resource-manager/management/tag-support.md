@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 06/27/2022
 ---
 
 # Tag support for Azure resources
@@ -79,7 +79,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | alerts | No | No |
 > | alertsMetaData | No | No |
 > | migrateFromSmartDetection | No | No |
-> | prometheusRuleGroups | Yes | Yes |
 > | smartDetectorAlertRules | Yes | Yes |
 > | smartGroups | No | No |
 
@@ -3049,6 +3048,11 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / kustoPools / databases / dataconnections | No | No |
 > | workspaces / sqlDatabases | Yes | Yes |
 > | workspaces / sqlPools | Yes | Yes |
+
+<a id="synapsenote"></a>
+
+> [!NOTE]
+> The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
 ## Microsoft.TestBase
 

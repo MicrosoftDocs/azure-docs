@@ -13,7 +13,7 @@ ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
-# # Set up AutoML to train a natural language processing model (preview)
+# Set up AutoML to train a natural language processing model (preview)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
@@ -36,7 +36,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
 
     > [!WARNING]
     > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -51,7 +51,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
 
    > [!WARNING]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -130,7 +130,7 @@ text,labels
 
 ### Named entity recognition (NER)
 
-Unlike multi-class or multi-label, which takes `.csv` format datasets, named entity recognition requires [CoNLL](https://www.clips.uantwerpen.be/conll2003/ner/) format. The file must contain exactly two columns and in each row, the token and the label is separated by a single space. 
+Unlike multi-class or multi-label, which takes `.csv` format datasets, named entity recognition requires CoNLL format. The file must contain exactly two columns and in each row, the token and the label is separated by a single space. 
 
 For example,
 
@@ -175,8 +175,8 @@ Automated ML's NLP capability is triggered through task specific `automl` type j
 
 However, there are key differences: 
 * You can ignore `primary_metric`, as it is only for reporting purposes. Currently, automated ML only trains one model per run for NLP and there is no model selection.
-* The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
-* If the majority of the samples in your dataset contain more than 128 words, it's considered long range. For this scenario, you can enable the long range text option with the `enable_long_range_text=True` parameter in your task function. Doing so, helps improve model performance but requires longer training times.
+* The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks.
+* If the majority of the samples in your dataset contain more than 128 words, it's considered long range. By default, automated ML considers all samples long range text. To disable this feature, include the `enable_long_range_text=False`  parameter  in your `AutoMLConfig`.
    * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series.md)  series.
    * The `enable_long_range_text` parameter is only available for multi-class classification tasks.
 

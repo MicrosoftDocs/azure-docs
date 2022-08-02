@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: quickstart
-ms.date: 05/23/2022
+ms.date: 07/22/2022
 #Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
 
@@ -20,8 +20,8 @@ Get started with Service Connector by using the Azure portal to create a new ser
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](/azure/container-apps/quickstart-portal).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
 
 ## Sign in to Azure
 

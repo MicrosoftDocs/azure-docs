@@ -3,11 +3,11 @@ title: Create or modify an Exchange peering by using PowerShell
 titleSuffix: Azure
 description: Create or modify an Exchange peering by using PowerShell
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 11/27/2019
-ms.author: prmitiki 
+ms.author: halkazwini 
 ms.custom: devx-track-azurepowershell
 ---
 

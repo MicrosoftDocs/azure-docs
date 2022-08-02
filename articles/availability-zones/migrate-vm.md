@@ -2,7 +2,7 @@
 title: Migrate Azure Virtual Machines and Azure Virtual Machine Scale Sets to availability zone support 
 description: Learn how to migrate your Azure Virtual Machines and Virtual Machine Scale Sets to availability zone support.
 author: anaharris-ms
-ms.service: azure
+ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 04/21/2022
 ms.author: anaharris 

@@ -4,8 +4,7 @@ description: View integration information about an authorization system in Permi
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -13,10 +12,6 @@ ms.author: kenwith
 ---
 
 # View integration information about an authorization system 
-
-> [!IMPORTANT]
-> Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The **Integrations** dashboard in Permissions Management allows you to view all your authorization systems in one place, and to ensure all applications are functioning as one. This information helps improve quality and performance as a whole.
 

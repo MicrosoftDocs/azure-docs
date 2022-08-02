@@ -3,7 +3,7 @@ title: View personal and organization information in Permissions Management
 description: How to view personal and organization information in the Account settings dashboard in Permissions Management.
 services: active-directory
 manager: rkarlin
-ms.service: active-directory
+ms.service: ciem
 ms.topic: overview
 author: kenwith
 ms.date: 02/23/2022
@@ -11,10 +11,6 @@ ms.author: kenwith
 ---
 
 # View personal and organization information
-
-> [!IMPORTANT]
-> Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The **Account settings** dashboard in Permissions Management allows you to view personal information, passwords, and account preferences.
 This information can't be modified because the user information is pulled from Azure AD. Only **User Session Time(min)**

@@ -4,20 +4,19 @@ description: Set up an FSLogix profile container on an Azure file share in an ex
 services: virtual-desktop
 author: Heidilohr
 manager: femila
-
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 08/02/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
 
 > [!IMPORTANT]
-> Storing FSLogix profiles on Azure Files for Azure Active Directory (AD)-joined VMs is currently in public preview.
+> Storing FSLogix profiles on Azure Files for Azure Active Directory-joined VMs is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
+In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (Azure AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
 In this article, you'll learn how to:
 
@@ -36,6 +35,8 @@ The Azure AD Kerberos functionality is only available on the following operating
 The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need Active Directory Domain Services (AD DS) and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and optionally synced to Azure AD Directory Services.
 
 To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
+
+You must disable multi-factor authentication (MFA) on the Azure AD app representing the storage account.
 
 > [!IMPORTANT]
 > This feature is currently only supported in the Azure Public cloud.
@@ -103,7 +104,15 @@ Follow the instructions in the following sections to configure Azure AD authenti
 
 ### Configure the Azure AD service principal and application
 
-To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. This configuration won't be available in the Azure portal during public preview. To create the application using PowerShell, follow these steps:
+To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. This configuration won't be available in the Azure portal during public preview. If the cmdlets in the previous section auto-created the application on your behalf, you can skip this step. To verify if the application has already been created, run the following cmdlet:
+
+```powershell
+Get-AzureADServicePrincipal -Searchstring "[Storage Account] $storageAccountName.file.core.windows.net"
+```
+
+If you see an existing service principal with your storage account name, skip this section and proceed with [setting the API permissions on the application](#set-the-api-permissions-on-the-newly-created-application).
+
+If not, create the application using PowerShell, following these steps:
 
 - Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between Azure AD and Azure Storage. Kerberos derives the password's value from the first 32 bytes of the storage account’s kerb1 key. To set the password, run the following cmdlets:
 
@@ -179,7 +188,19 @@ To enable Azure AD authentication on a storage account, you need to create an Az
 
 ### Set the API permissions on the newly created application
 
-You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
+You can configure the API permissions from the [Azure portal](https://portal.azure.com).
+
+If the service principal was already created for you in the last section, follow these steps:
+
+1. Open **Azure Active Directory**.
+2. Select **App registrations** on the left pane.
+3. Select **All Applications**.
+4. Select the application with the name matching your storage account.
+5. Select **API permissions** in the left pane.
+6. Select **Add permissions** at the bottom of the page.
+7. Select **Grant admin consent for "DirectoryName"**.
+
+If you created the service principal in the last section, follow these steps:
 
 1. Open **Azure Active Directory**.
 2. Select **App registrations** on the left pane.
@@ -193,6 +214,13 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 10. Select **User.Read** under the **User** permission group.
 11. Select **Add permissions** at the bottom of the page.
 12. Select **Grant admin consent for "DirectoryName"**.
+
+### Disable multi-factor authentication on the storage account
+
+Azure AD Kerberos doesn't support using MFA to access Azure Files shares configured with Azure AD Kerberos. You must exclude the Azure AD app representing your storage account from your MFA conditional access policies if they apply to all apps. The storage account app should have the same name as the storage account in the conditional access exclusion list.
+
+> [!IMPORTANT]
+> If you don't exclude MFA policies from the storage account app, the FSLogix profiles won't be able to attach. Trying to map the file share using *net use* will result in an error message that says "System error 1327: Account restrictions are preventing this user from signing in. For example: blank passwords aren't allowed, sign-in times are limited, or a policy restriction has been enforced."
 
 ## Configure your Azure Files share
 
@@ -253,7 +281,7 @@ To configure your storage account:
     $domainName = $domainInformation.DnsRoot
     $domainSid = $domainInformation.DomainSID.Value
     $forestName = $domainInformation.Forest
-    $netBiosDomainName = $domainInformation.DnsRoot
+    $netBiosDomainName = $domainInformation.netBiosName
     $azureStorageSid = $domainSid + "-123454321";
 
     Write-Verbose "Setting AD properties on $storageAccountName in $resourceGroupName : `
@@ -493,5 +521,3 @@ If you need to disable Azure AD authentication on your storage account:
 ## Next steps
 
 - To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
-- To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-- To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).

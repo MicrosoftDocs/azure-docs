@@ -50,6 +50,9 @@ After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.
     > [!IMPORTANT]
     > Take note of the **Expiration** date. This is the last date that you can use your custom model for speech recognition. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -67,8 +70,12 @@ Here's an example Speech CLI command that creates a model with datasets for trai
 ```azurecli-interactive
 spx csr model create --project YourProjectId --name "My Model" --description "My Model Description" --dataset YourDatasetId --language "en-US"
 ```
+
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -152,6 +159,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
+
 You should receive a response body in the following format:
 
 ```json
@@ -216,6 +226,9 @@ Follow these instructions to copy a model to a project in another region:
 
 After the model is successfully copied, you'll be notified and can view it in the target project.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -226,7 +239,7 @@ Copying a model directly to a project in another region is not supported with th
 
 ::: zone pivot="rest-api"
 
-To copy a model to another Speech resource, use the [CopyModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModel) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To copy a model to another Speech resource, use the [CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `targetSubscriptionKey` property to the key of the destination Speech resource.
 
@@ -240,6 +253,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 > [!NOTE]
 > Only the `targetSubscriptionKey` property in the request body has information about the destination Speech resource.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -328,7 +344,7 @@ To connect a new model to a project of the Speech resource where the model was c
 
 - Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 
-Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [CopyModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModel) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{

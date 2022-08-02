@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ms.author: larryfr
 author: BlackMist
-ms.date: 03/05/2020
+ms.date: 07/01/2022
 ---
 # What happened to Azure Machine Learning Workbench?
 
@@ -33,7 +33,7 @@ The latest release of Azure Machine Learning includes the following features:
 + A new, more comprehensive Python <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>.
 + The new expanded [Azure CLI extension](v1/reference-azure-machine-learning-cli.md) for machine learning.
 
-The [architecture](v1/concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](how-to-manage-workspace.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](v1/concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](quickstart-create-resources.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure Machine Learning studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -43,7 +43,7 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI ended.
 
-All the latest capabilities are available by using this <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, the [CLI](v1/reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
+All the latest capabilities are available by using this <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, the [CLI](v1/reference-azure-machine-learning-cli.md), and the [Azure portal](quickstart-create-resources.md).
 
 ## What about run histories?
 
@@ -51,9 +51,9 @@ Older run histories are no longer accessible, how you can still see your runs in
 
 Run histories are now called **experiments**. You can collect your model's experiments and explore them by using the SDK, the CLI, or the Azure Machine Learning studio.
 
-The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only:
+The Azure Machine Learning studio is supported on Microsoft Edge, Chrome, and Firefox browsers only:
 
-[![Online portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Screenshot of Azure Machine Learning studio](./media/overview-what-happened-to-workbench/jobs-experiments.png)](./media/overview-what-happened-to-workbench/jobs-experiments.png#lightbox)
 
 Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](tutorial-train-deploy-notebook.md).
 

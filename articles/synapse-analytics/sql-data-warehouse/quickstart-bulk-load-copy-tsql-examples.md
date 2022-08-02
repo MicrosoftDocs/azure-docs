@@ -6,7 +6,7 @@ author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 03/07/2022
+ms.date: 06/15/2022
 ms.author: wiassaf
 ms.reviewer: sngun
 ms.custom: subject-rbac-steps, mode-other
@@ -85,15 +85,7 @@ Managed Identity authentication is required when your storage account is attache
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-   This step is not required for dedicated SQL pools within a Synapse workspace.
-
-1. If you have a Synapse workspace, register your workspace's system-managed identity:
-
-   1. Go to your Synapse workspace in the Azure portal.
-   2. Go to the **Managed identities** page.
-   3. Make sure the "Allow Pipelines" option is enabled.
-   
-   ![Register workspace system msi](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
+   This step is not required for dedicated SQL pools within a Synapse workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
 
 1. Create a **general-purpose v2 Storage Account**. For more information, see [Create a storage account](../../storage/common/storage-account-create.md).
 

@@ -13,13 +13,23 @@ ms.date: 05/09/2022
 # Merge partitions in Azure Cosmos DB (preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Merging partitions in Azure Cosmos DB (preview) allows you to reduce the number of physical partitions used for your container. With merge, containers that are fragmented in throughput (have low RU/s per partition) or storage (have low storage per partition) can have their physical partitions reworked. If a container's throughput has been scaled up and needs to be scaled back down, merge can help resolve throughput fragmentation issues. For the same amount of provisioned RU/s, having fewer physical partitions means each physical partition gets more of the overall RU/s. Minimizing partitions reduces the chance of rate limiting if a large quantity of data is removed from a container. Merge can help clear out unused or empty partitions, effectively resolving storage fragmentation problems.
+Merging partitions in Azure Cosmos DB (preview) allows you to reduce the number of physical partitions used for your container in place. With merge, containers that are fragmented in throughput (have low RU/s per partition) or storage (have low storage per partition) can have their physical partitions reworked. If a container's throughput has been scaled up and needs to be scaled back down, merge can help resolve throughput fragmentation issues. For the same amount of provisioned RU/s, having fewer physical partitions means each physical partition gets more of the overall RU/s. Minimizing partitions reduces the chance of rate limiting if a large quantity of data is removed from a container and RU/s per partition is low. Merge can help clear out unused or empty partitions, effectively resolving storage fragmentation problems.
 
 ## Getting started
 
-To get started using merge, enroll in the preview by submitting a request for the **Azure Cosmos DB Partition Merge** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
-- Before submitting your request, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
-- The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
+To get started using partition merge, enroll in the preview by submitting a request for the **Azure Cosmos DB Partition Merge** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. You can also select the **Register for preview** button in the eligibility check page to open the **Preview Features** page. 
+
+Before submitting your request:
+- Ensure that you have at least 1 Azure Cosmos DB account in the subscription. This may be an existing account or a new one you've created to try out the preview feature. If you have no accounts in the subscription when the Azure Cosmos DB team receives your request, it will be declined, as there are no accounts to apply the feature to.
+- Verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
+
+The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
+
+To check whether an Azure Cosmos DB account is eligible for the preview, you can use the built-in eligibility checker in the Azure portal. From your Azure Cosmos DB account overview page in the Azure portal, navigate to **Diagnose and solve problems** -> **Throughput and Scaling** ->  **Partition Merge**. Run the **Check eligibility for partition merge preview** diagnostic.
+
+:::image type="content" source="media/merge/throughput-and-scaling-category.png" alt-text="Throughput and Scaling topic in Diagnose and solve issues page":::
+
+:::image type="content" source="media/merge/merge-eligibility-check.png" alt-text="Merge eligibility check with table of all preview eligibility criteria":::
 
 ### Merging physical partitions
 
@@ -102,6 +112,9 @@ To enroll in the preview, your Cosmos account must meet all the following criter
     * Logic Apps
     * Azure Functions
     * Azure Search
+    * Azure Cosmos DB Spark connector
+    * Azure Cosmos DB data migration tool
+    * Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
 
 ### Account resources and configuration
 * Merge is only available for SQL API and API for MongoDB accounts. For API for MongoDB accounts, the MongoDB account version must be 3.6 or greater.
@@ -133,13 +146,16 @@ Support for other SDKs is planned for the future.
 
 If you enroll in the preview, the following connectors will fail.
 
-* Azure Data Factory
-* Azure Stream Analytics
-* Logic Apps
-* Azure Functions
-* Azure Search
+* Azure Data Factory<sup>1</sup>
+* Azure Stream Analytics<sup>1</sup>
+* Logic Apps<sup>1</sup>
+* Azure Functions<sup>1</sup>
+* Azure Search<sup>1</sup>
+* Azure Cosmos DB Spark connector<sup>1</sup>
+* Azure Cosmos DB data migration tool
+* Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
 
-Support for these connectors is planned for the future.
+<sup>1</sup>Support for these connectors is planned for the future.
 
 ## Next steps
 

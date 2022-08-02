@@ -18,7 +18,7 @@ sections:
       - question: |
           Can I get Azure Synapse link for SQL in my existing Azure Synapse workspace?
         answer: |
-          You can get Azure Synapse link for SQL when your Azure Synapse workspace is created after May 24th, 2022.  The support for Synapse workspaces created before May 24th, 2022 will be coming soon.
+          You can get Azure Synapse link for SQL when your Azure Synapse workspace is created after May 24th, 2022.  The support for Synapse workspaces created before May 24th, 2022 will be coming soon. When you see the error code: SynapseLinkStorageResourceNotProvisioned, it indicates that you are using the Synapse workspaces created before May 24th, 2022.
       - question: |
           Can I use Azure Synapse Link for SQL to replicate data to Azure Synapse SQL serverless pool as the destination store?
         answer: |
@@ -56,6 +56,7 @@ sections:
           Should I choose “enable transaction consistency across tables”?
         answer: |
           When this option is enabled, a transaction spanning across multiple tables on the source database is always replicated to the destination database in a single transaction. This, however, will create overhead on the overall replication throughput. When the option is disabled, each table will replicate changes in its own transaction boundary to the destination in parallel connections, thus improving overall replication throughput.
+          When you want to enable transaction consistency across tables, please also make sure the transaction isolation levels in your Synapse dedicated SQL pool is READ COMMITTED SNAPSHOT ISOLATION.
       - question: |
           How should I select the structure type of my destination table in the Synapse dedicated SQL pool?
         answer: |

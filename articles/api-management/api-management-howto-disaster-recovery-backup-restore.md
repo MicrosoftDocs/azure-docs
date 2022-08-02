@@ -317,7 +317,7 @@ Check out the following related resources for the backup/restore process:
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 - [How to move Azure API Management across regions](api-management-howto-migrate.md)
 
-API Management **Premium** tier also supports [zone redundancy](zone-redundancy.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
+API Management **Premium** tier also supports [zone redundancy](../availability-zones/migrate-api-mgt.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

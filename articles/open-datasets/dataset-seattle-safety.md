@@ -24,7 +24,7 @@ This dataset is stored in the East US Azure region. We recommend locating comput
 
 ## Additional information
 
-This dataset is sourced from city of Seattle government. For more information, see the [city of Seattle website](http://web5.seattle.gov/MNM/incidentresponse.aspx). View the [Licensing and Attribution for the terms of using this dataset](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Email open.data@seattle.gov if you have any questions about the data source.
+This dataset is sourced from city of Seattle government. For more information, see the [city of Seattle website](http://www.seattle.gov/). View the [Licensing and Attribution for the terms of using this dataset](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Email open.data@seattle.gov if you have any questions about the data source.
 
 ## Columns
 

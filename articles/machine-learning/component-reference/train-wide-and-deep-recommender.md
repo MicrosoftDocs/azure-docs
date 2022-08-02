@@ -141,11 +141,11 @@ In distributed training the workload to train a model is split up and shared amo
 
 ### How to enable distributed training
 
-To enable distributed training for **Train Wide & Deep Recommender** component, you can set in **Run settings** in the right pane of the component. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
+To enable distributed training for **Train Wide & Deep Recommender** component, you can set in **Job settings** in the right pane of the component. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
 
-1. Select the component and open the right panel. Expand the **Run settings** section.
+1. Select the component and open the right panel. Expand the **Job settings** section.
 
-    [![Screenshot showing how to set distributed training in run setting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
+    [![Screenshot showing how to set distributed training in job setting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
 
 1. Make sure you have select AML compute for the compute target.
 

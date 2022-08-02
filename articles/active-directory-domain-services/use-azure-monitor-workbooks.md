@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 06/16/2022
 ms.author: justinha
 
 ---

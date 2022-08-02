@@ -21,7 +21,7 @@ Once your configuration has been deployed by Virtual Network Manager, you can vi
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vnet-connectivity.png" alt-text="Screenshot of connectivity configuration associated to a virtual network.":::
 
-2. Select the **SecurityAdmin** tab to see all the security rules currently applied to your virtual network.
+2. Select the **Security admin configurations** tab to see all the security rules currently applied to your virtual network.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vnet-security.png" alt-text="Screenshot of security rules associated to a virtual network.":::
 
