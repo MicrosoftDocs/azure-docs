@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 08/02/2022
 ---
 
 # Create plans for a SaaS offer
@@ -167,3 +167,5 @@ If you haven't already done so, create a development and test (DEV) offer to tes
 **Video tutorials**
 
 - [Publishing a Private SaaS plan](https://go.microsoft.com/fwlink/?linkid=2196256)
+- [Configuring SaaS Pricing in Partner Center: Publisher Overview](https://go.microsoft.com/fwlink/?linkid=2201523)
+- [Configuring SaaS Pricing in Partner Center: Publisher Demo](https://go.microsoft.com/fwlink/?linkid=2201524)
