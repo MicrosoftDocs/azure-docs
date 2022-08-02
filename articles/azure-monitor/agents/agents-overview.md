@@ -8,7 +8,7 @@ ms.date: 7/21/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 
-#customer-intent: As a IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems on my virtual machines. 
+#customer-intent: As an IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems on my virtual machines. 
 ---
 
 # Azure Monitor Agent overview
