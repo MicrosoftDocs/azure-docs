@@ -21,7 +21,7 @@ This article describes low-level protocol details usually required only when man
 
 ## Applications that support the auth code flow
 
-Use the auth code flow paired with Proof Key for Code Exchange (PKCE) and OpenID Connect to get access tokens and ID tokens in these types of apps:
+Use the auth code flow paired with Proof Key for Code Exchange (PKCE) and OpenID Connect (OIDC) to get access tokens and ID tokens in these types of apps:
 
 - [Single-page web application (SPA)](v2-app-types.md#single-page-apps-javascript)
 - [Standard (server-based) web application](v2-app-types.md#web-apps)
