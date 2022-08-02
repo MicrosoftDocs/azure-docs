@@ -1,6 +1,6 @@
 ---
 title: 'Protect high-risk network ports with SecurityAdmin Rules in Azure Virtual Network Manager.'
-description: #Required; In this article, you will deploy Security admin rules to block high-risk security ports with Azure Virtual Network Manager.
+description: You will deploy Security admin rules to protect high-risk security ports with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
@@ -8,12 +8,6 @@ ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 06/28/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
 # Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
 
 

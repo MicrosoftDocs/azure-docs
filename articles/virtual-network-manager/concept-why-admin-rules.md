@@ -54,11 +54,6 @@ After the deployment of the security admin configuration, all VNets in the compa
 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- Learn how to [block high risk ports with security admin rules](how-to-block-high-risk-ports.md)
+
