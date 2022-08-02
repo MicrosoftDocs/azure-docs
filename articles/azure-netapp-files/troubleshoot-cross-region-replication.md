@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 06/09/2022
+ms.date: 08/02/2022
 ms.author: anfdocs
 ---
 # Troubleshoot cross-region replication errors
