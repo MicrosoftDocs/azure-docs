@@ -74,7 +74,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 |----------|------|-------------|
 | authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
 | id | String | Object ID of an Azure AD user or group. |
-| targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.<br>You can only set one group or user for additional context. |
+| targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.|
 
 #### MicrosoftAuthenticator featureSettings properties
  
@@ -92,8 +92,8 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Property | Type | Description |
 |----------|------|-------------|
-| excludeTarget | featureTarget | A single entity that is excluded from this feature. |
-| includeTarget | featureTarget | A single entity that is included in this feature. |
+| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group for each feature.|
+| includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for each feature.|
 | State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
 #### Feature Target properties
@@ -361,7 +361,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ### Turn off additional context
 
-To turn off additional context, you'll need to PATCH **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **enabled** to **disabled**/**default**.
+To turn off additional context, you'll need to PATCH **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **enabled** to **disabled**/**default**. You can also turn off just one of the features.
 
 ```json
 {
