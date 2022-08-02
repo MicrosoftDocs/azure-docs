@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 08/02/2022
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -77,6 +77,12 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 - *Is volume replication transferring*    
     Whether the status of the volume replication is ‘transferring’. 
+
+- *Volume replication lag time* 
+    The amount of time 
+    If the lag time is greater than the replication schedule, 
+    The relationship can be health w/o replication
+    The 
 
 - *Volume replication last transfer duration*   
     The amount of time in seconds it took for the last transfer to complete. 
