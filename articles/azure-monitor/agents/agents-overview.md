@@ -33,12 +33,12 @@ Currently, Azure Monitor Agent consolidates features from the Telegraf agent and
 
 ## Benefits
 
-The Azure Monitor Agent provides the following benefits over the existing agents:
+Azure Monitor Agent provides the following benefits over legacy agents:
 
-- **A single agent** that collects all telemetry data across servers and client devices running Windows 10, 11. This is goal, though AMA is currently converging with the Log Analytics Agent.
+- **A single agent** that collects all telemetry data across servers and client devices running Windows 10, 11. This is goal, though AMA currently converges with the Log Analytics Agent.
 - **Cost savings:**
   -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics Agent supports.
-  -	Use XPath queries to filter out Windows events you don't need. This helps further reduce ingestion and storage costs.
+  -	Use XPath queries to filter out Windows events you don't need and reduce ingestion and storage costs.
 - **Simplified management of data collection:** 
     - Send data from Windows and Linux VMs to multiple Log Analytics workspaces ("multi-homing") and other [supported destinations](#data-sources-and-destinations). 
     - Every action across the data collection lifecycle, from onboarding to deployment to updates, is easier, more scalable, and centralized using data collection rules.
@@ -136,11 +136,11 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 > [!IMPORTANT]
 > Proxy configuration is not supported for [Azure Monitor Metrics (preview)](../essentials/metrics-custom-overview.md) as a destination. If you're sending metrics to this destination, it will use the public internet without any proxy.
 
-1. Use this flowchart to determine the values of the *settings* and *protectedSettings* parameters first.
+1. Use this flowchart to determine the values of the *`Settings` and `ProtectedSettings` parameters first.
 
     ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
-1. After the values for the *settings* and *protectedSettings* parameters are determined, *provide these additional parameters* when you deploy the Azure Monitor Agent by using PowerShell commands. Refer to the following examples.
+1. After determining the the `Settings` and `ProtectedSettings` parameter values, *provide these other parameters* when you deploy Azure Monitor Agent, using PowerShell commands, as shown in the following examples:
 
 # [Windows VM](#tab/PowerShellWindows)
 
@@ -215,8 +215,6 @@ The tables below provide a quick comparison of the telemetry agents for Windows 
 |		|	Performance	|	X	|	X	|	X	|
 |		|	File based logs	|	X (Preview)	|	X	|	X	|
 |		|	IIS logs	|	X (Preview)	|	X	|	X	|
-|		|	Insights and solutions	|		|	X	|	X	|
-|		|	Other services	|		|	X	|	X	|
 |		|	ETW events	|		|		|	X	|
 |		|	.NET app logs	|		|		|	X	|
 |		|	Crash dumps	|		|		|	X	|
