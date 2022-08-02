@@ -4,7 +4,7 @@ description: This tutorial covers how to use the Azure portal to deploy a Linux 
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/24/2022
+ms.date: 08/02/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
@@ -61,7 +61,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. Select **Home**, and then select **Virtual machines** under **Azure services**.
 
-1. Select **+ Create** and then **+ Virtual machine**.
+1. Select **+ Create** and then **+ Azure virtual machine**.
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type *myVM* for the **Virtual machine name**, and select the same region as your storage account. Choose the default Ubuntu Server version for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing is dependent on your region and subscription.
 
@@ -120,7 +120,7 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
 
-1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the V M. When all the fields are complete, select **Next: Resource**.
+1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
 
@@ -128,9 +128,9 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
 
-1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Select the correct subscription and resource group, and then select **Next: Tags**.
+1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Select the correct subscription and resource group, and then select **Next: DNS**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" alt-text="Screenshot showing how to add virtual networking and D N S integration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" border="true":::
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private IP configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
 
 1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
