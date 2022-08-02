@@ -33,7 +33,7 @@ When you add an associated billing tenant, you can enable one or both of the fol
 
 ## Add an associated billing tenant
 
-Before you begin, make sure you have either the tenant ID or the primary domain name for the tenant you want to add. For more information, see [Find a tenant ID or domain name](finding-tenantid-domain.md).
+Before you begin, make sure you have either the tenant ID, or the primary domain name for the tenant you want to add. For more information, see [Find a tenant ID or domain name](finding-tenantid-domain.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
@@ -103,9 +103,16 @@ Choosing to assign roles to users from associated billing tenants might be the r
 
 ## Moving Microsoft 365 subscriptions to an associated billing tenant
 
-Before moving subscriptions, make sure you [add a tenant as an associated billing tenant and enable provisioning access setting](#add-an-associated-billing-tenant).
+Before moving subscriptions, make sure you [add a tenant as an associated billing tenant and enable provisioning access setting](#add-an-associated-billing-tenant). Also the global administrator of the associated billing tenant must accept the provisioning request from your billing account.
 
-To move Microsoft 365 subscriptions in the associated billing tenants, see [move subscriptions to an associated billing tenants](https://aka.ms/moveM365subscriptions).
+> [!IMPORTANT]
+> You can only move a subscription to an associated billing tenant if all licenses in the subscription are available. If any licenses are assigned, you can’t move the subscription.
+
+1. Go to the [Microsoft admin center](https://admin.microsoft.com).
+1. In the admin center, go to the **Billing > Your products page**.
+1. Select the name of the product that you want to move to the associated billing tenant. 
+1. On the product details page, in the **Licenses assigned from all subscriptions** section, select **Move to another tenant**.
+1. In the **Move subscription to a different tenant** pane, search for a tenant name or select a tenant from the list, then select **Move subscription**.
 
 ## Need help? contact support
 
