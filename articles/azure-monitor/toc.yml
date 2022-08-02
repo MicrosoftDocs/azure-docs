@@ -462,7 +462,7 @@ items:
         href: logs/private-link-configure.md
     - name: Troubleshoot
       href: logs/data-collection-troubleshoot.md
-  - name: Agents
+  - name: Azure Monitor Agent
     items:
     - name: Azure Monitor Agent overview
       href: agents/agents-overview.md
