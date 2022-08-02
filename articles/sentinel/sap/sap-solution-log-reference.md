@@ -597,7 +597,6 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 
 ### ABAP ICM log (PREVIEW)
-
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 - **Microsoft Sentinel function for querying this log**: SAPOS_ICM
