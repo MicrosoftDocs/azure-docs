@@ -1110,6 +1110,8 @@ items:
     href: concepts/migrate.md
   - name: Model lifecycle
     href: concepts/model-lifecycle.md
+  - name: Language Role-based access control
+    href: concepts/Language-RBAC.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
   - name: Enterprise readiness
