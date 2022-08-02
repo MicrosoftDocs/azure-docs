@@ -144,17 +144,13 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName $rgname -VirtualHubName "[H
 Get-AzVirtualHubVnetConnection -ResourceGroupName "[Resource group]" -VirtualHubName "[virtual hub name]" -Name "[Virtual hub connection name]"
    ```
 
-#### Expected output from the command above:
-
-
 >[!NOTE]
->- ### Please Note:
-    - In step 2.2 and 2.4 the route name should be same otherwise it will create two routes one without ip address one with ip address in the routing table.
-    - If you run 2.5 it will remove the previous manual config route in your routing table.
-    - Make sure you have access and are authorized to the remote subscription as well when running the above.
-    - Destination prefix can be one CIDR or multiple ones
-    - Please use this format @("10.19.2.0/24") or @("10.19.2.0/24", "10.40.0.0/16") for multiple CIDR
-
+>- In step 2.2 and 2.4 the route name should be same otherwise it will create two routes one without ip address one with ip address in the routing table.
+>- If you run 2.5 it will remove the previous manual config route in your routing table.
+>- Make sure you have access and are authorized to the remote subscription as well when running the above.
+>- Destination prefix can be one CIDR or multiple ones
+>- Please use this format @("10.19.2.0/24") or @("10.19.2.0/24", "10.40.0.0/16") for multiple CIDR
+>
 
    
 ## <a name="troubleshoot"></a>Troubleshooting
