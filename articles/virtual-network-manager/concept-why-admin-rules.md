@@ -35,11 +35,6 @@ Model 3: NSGs are managed by individual teams, but NSGs are created using Azure 
 Security admin rules aim to eliminate this sliding scale between enforcement and flexibility altogether by consolidating the pros of each of these models while reducing the cons of each. Central governance teams establish guard rails through security admin rules, while still leaving room for individual teams to flexibly pinpoint security as needed through NSG rules. Security admin rules aren't meant to override NSG rules, but rather interact in different ways depending on the type of action specified in the security admin rule. We’ll explore these interactions after we discuss the immense scaling benefits of security admin rules.
 
 
-
-
-
-
-
 ### Enforcement and flexibility in practice
 Let’s apply the concepts we’ve discussed so far to an example scenario. A company network administrator wants to enforce a security rule to block inbound SSH traffic for the whole company. As mentioned above, having such enforcement was difficult without AVNM’s security admin rule. If the administrator manages all the NSGs, then management overhead is high, and the administrator cannot rapidly respond to product teams’ needs to modify NSG rules. On the other hand, if the product teams manage their own NSGs without security admin rules, then the administrator cannot enforce critical security rules, leaving potential security risks open. Using both security admin rules and NSGs can solve this dilemma. In this case, the administrator wants to make an exception for Application 1 as the Application 1 team needs more time to make changes to not rely on SSH. The diagram below visualizes how the administrator can achieve the goal of enforcement with security admin rules, while leaving an exception open for the Application 1 team to handle SSH traffic through NSGs.
 
