@@ -36,7 +36,7 @@ Analysis is performed upon receipt of the request. Using the PII detection featu
 
 ## Select which entities to be returned
 
-The API will attempt to detect the [defined entity categories](concepts/entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following example would detect only `Person`. You can specify one or more entity types to be returned.
+The API will attempt to detect the [defined entity categories](concepts/entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following example would detect only `Person`. You can specify one or more [entity types](concepts/entity-categories.md) to be returned.
 
 > [!TIP]
 > If you don't include `default` when specifying entity categories, The API will only return the entity categories you specify.
