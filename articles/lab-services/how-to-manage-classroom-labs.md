@@ -48,7 +48,7 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
     4. Then, select **Next** on the **Virtual machine credentials** page.
 6. On the **Lab policies** page, do the following steps:
     1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab.
-    2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shutdown when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down.. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
+    2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shut down when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down.. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
     3. Then, select **Finish**.
 
         ![Quota for each user](./media/how-to-manage-classroom-labs/quota-for-each-user.png)
