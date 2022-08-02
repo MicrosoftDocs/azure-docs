@@ -1,22 +1,24 @@
 ---
-title: Enable sampled flow logging using Azure ExpressRoute Traffic Collector (Preview)
-description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature would be helpful.
+title: Enable flow logging using Azure ExpressRoute Traffic Collector (Preview)
+description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature will be helpful.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 08/02/2022
 ms.author: duau
 ms.custom: references_regions
 ---
 
 # Enable flow logging using ExpressRoute Traffic Collector (Preview)
 
-ExpressRoute Traffic Collector enables sampling for network flows sent over your ExpressRoute Direct circuits. The sampled flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can then create your own log queries for further analysis or export the data to any visualization tool or SIEM of your choice. Flow logging can be enabled for both Azure Private Peering and Microsoft Peering using ExpressRoute Traffic Collector.
+ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute Direct circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis, export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logging can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 
 > [!IMPORTANT]
 > ExpressRoute Traffic Collector is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+:::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 
 ## Use cases
 
@@ -31,18 +33,18 @@ Flow logs can help you derive various traffic insights. Most common use cases ar
 
 ### Monitor network usage and cost optimization
 
-- Analyze traffic trends by filtering sampled flows by IP, port or for an application
-- Top talkers for a source IP, destination IP or for an application
+- Analyze traffic trends by filtering sampled flows by IP, port or by applications
+- Top talkers for a source IP, destination IP or applications
 - Optimize network traffic expenses by analyzing traffic trends
 
 ### Network forensics analysis
 
-- Identify compromised IPs by analyzing all the associated network flows with it
-- Export sampled flow logs to a SIEM (Security Information and Event Management) tool to corelate events, generate security alerts and monitoring
+- Identify compromised IPs by analyzing all the associated network flows
+- Export flow logs to a SIEM (Security Information and Event Management) tool to monitor, correlate events, generate security alerts
 
 ## Flow log collection and sampling
 
-ExpressRoute Traffic Collector enables flow collection for Azure private peering and Microsoft peering. Flow logs are collected every minute and all packets collected for a given flow are then aggregated and imported into Log Analytics workspace for further analysis. During flow collection, not every packet is captured into its own flow record. ExpressRoute Traffic Collector uses a sampling rate of 1:4096, meaning 1 out of every 4096 packets is captured. Therefore, sampling rate short flows (in total bytes) may not get collected. This sampling size doesn't affect network traffic analysis when sampled data is aggregated over a longer time frame. Flow collection time and sampling rate are fixed and can't be changed.
+ExpressRoute Traffic Collector enables flow collection for Azure private peering and Microsoft peering. Flow logs are collected every minute. All packets collected for a given flow gets aggregated and imported into a Log Analytics workspace for further analysis. During flow collection, not every packet is captured into its own flow record. ExpressRoute Traffic Collector uses a sampling rate of 1:4096, meaning 1 out of every 4096 packets gets captured. Therefore, sampling rate short flows (in total bytes) may not get collected. This sampling size doesn't affect network traffic analysis when sampled data is aggregated over a longer period of time. Flow collection time and sampling rate are fixed and can't be changed.
 
 ## Flow log schema
 
@@ -106,4 +108,4 @@ ExpressRoute Traffic Collector is supported in the following regions:
 ## Next steps
 
 - Learn how to [set up ExpressRoute Traffic Collector](how-to-configure-traffic-collector.md).
-- [ExpressRoute Traffic Collector FAQ](../expressroute/expressroute-faqs.md#expressroute-traffic-collector)
+- [ExpressRoute Traffic Collector FAQ](../expressroute/expressroute-faqs.md#expressroute-traffic-collector).
