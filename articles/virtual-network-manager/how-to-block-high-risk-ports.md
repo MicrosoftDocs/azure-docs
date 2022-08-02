@@ -17,7 +17,7 @@ main branch.
 # How to block high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
 
 
-In this article, you will learn to block high risk network ports using Azure Virtual Network Manager and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with network groups, and create & deploy security admin configurations for your organization. You'll deploy an general block rule for high risk ports. Then you'll create an exception for managing a specific application's VNet. This is will allow you to manage access to the application VNets using network security groups.
+In this article, you'll learn to block high risk network ports using Azure Virtual Network Manager and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with network groups, and create & deploy security admin configurations for your organization. You'll deploy a general block rule for high risk ports. Then you'll create an exception for managing a specific application's VNet. This allows you to manage access to the application VNets using network security groups.
 
 ### Describe Scenario
 
@@ -33,8 +33,8 @@ In this article, you will learn to block high risk network ports using Azure Vir
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A group of virtual networks that can be split into
 
-## Deploy Virtual Network environment 5 VNETS (3 PROD, 2 APP)
-For this How-to, you will need a virtual network environment that includes production and test virtual networks. For the this, you may use the following table or your own configuration of virtual networks:
+## Deploy Virtual Network environment
+For this How-to, you'll need a virtual network environment that includes production and test virtual networks. You may use the following table or your own configuration of virtual networks:
 | Name | IPv4 address space | subnet |
 | ---- | ----| ---- |
 | vnetA-gen | 10.0.0.0/16 | default - 10.0.1.0/24 |
@@ -49,7 +49,7 @@ For this How-to, you will need a virtual network environment that includes produ
 Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](quick-create-portal.md).
 
 ## Create a Virtual Network Manager
-In this section, you will deploy a Virtual Network Manager instance with the Security admin feature in your organization.
+In this section, you'll deploy a Virtual Network Manager instance with the Security admin feature in your organization.
 
 1. Select **+ Create a resource** and search for **Network Manager**. Then select **Create** to begin setting up Azure Virtual Network Manager.
 
@@ -71,7 +71,7 @@ In this section, you will deploy a Virtual Network Manager instance with the Sec
 1. Select **Go to resource** when deployment is complete and review the virtual network manager configuration
 
 ## Create a Network Group
-With your virtual network manager created, you now create a network group to encapsulate the VNets you want to protect. This will include all of the VNets in the organization as a general all-encompassing rule to block high risk network ports is needed. You will manually add all of the VNets.
+With your virtual network manager created, you now create a network group to encapsulate the VNets you want to protect. This will include all of the VNets in the organization as a general all-encompassing rule to block high risk network ports is needed. You'll manually add all of the VNets.
 1. Select **Network Groups**, under **Settings**.
 1. Select **+ Create**, enter a *name* for the network group, and select **Add**.
 1. On the *Network groups* page, select the network group you created.
@@ -124,7 +124,7 @@ It’s time to construct our security admin rules within a configuration so that
     | Source IP addresses | This field will appear when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. Leave blank for this example.|
     | Source service tag | This field will appear when you select the source type of *Service tag*. Select service tag(s) for services you want to specify as the source. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
     | Source port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port, enter *. Leave blank for this example.|
-    |**Desination**| |
+    |**Destination**| |
     | Destination type | Select the destination type of either **IP address** or **Service tags**. |
     | Destination IP addresses | This field will appear when you select the destination type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. |
     | Destination service tag | This field will appear when you select the destination type of *Service tag*. Select service tag(s) for services you want to specify as the destination. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
@@ -152,13 +152,13 @@ If you just created a new security admin configuration, make sure to deploy this
 
 1. Select **Next** and **Deploy** to deploy the security admin configuration.
 ## Create a Network Group for exception virtual networks
-With traffic blocked across all of your VNets, you need an exception to allow traffic to your application virtual networks. To do this, you will create a network group specifically for the application VNets and deploy a security admin rule allowing SSH traffic to application resources. 
+With traffic blocked across all of your VNets, you need an exception to allow traffic to your application virtual networks. To do this, you'll create a network group specifically for the application VNets and deploy a security admin rule allowing SSH traffic to application resources. 
 
 1. From your virtual network manager, select **Network Groups**, under **Settings**.
 1. Select **+ Create**, enter a *name* for the application network group, and select **Add**.
 1. Under **Define Dynamic Membership**, select **Define**.
 1. Enter or select the values to allow traffic to your application virtual network. 
-1. Select **Preview Resources** to review the **Effective Virtuals Networks** included, and select **Close**.
+1. Select **Preview Resources** to review the **Effective Virtual Networks** included, and select **Close**.
 1. Select **Save**.
 
 ## Create a Security Admin Rule Collection for Application 1
@@ -175,8 +175,8 @@ We can now create an exception for Application 1’s VNets by adding a new rule 
 1. Enter or select the values to allow specific network traffic to your application network group, and select **add** when completed.
 
 1. Repeat the add rule process for all traffic needing an exception.
-1. Select **Save** when you are done.
-## Re-deploy the Security Admin Configuration
+1. Select **Save** when you're done.
+## Redeploy the Security Admin Configuration
 We’re at the final step, which is to redeploy OurSecurityConfig since we’ve modified this configuration by adding a rule collection.
 
 1. From your virtual network manager, select **Configurations**.
