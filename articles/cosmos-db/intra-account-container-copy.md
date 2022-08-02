@@ -94,7 +94,7 @@ The account's write region may change in the rare scenario of a region outage or
 * The database uses manual provisioned throughput of 800 RUs. You'll be charged for this database.
 * Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform will not clean up the *_datatransferstate* database automatically.
 
-## Supported Regions
+## Supported regions
 
 Currently, container copy is supported in the following regions:
 
@@ -114,7 +114,7 @@ Currently, container copy is supported in the following regions:
 | West US | West Europe |
 | West US 2 | |
 
-## Known/Common issues
+## Known/common issues
 
 * Error - Owner resource does not exist
 
@@ -135,6 +135,6 @@ As a work-around, create a database called *_datatransferstate* manually within 
 ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
 ```
 
-## Next Steps
+## Next steps
 
 - You can learn [how to create, monitor and manage container copy jobs within Azure Cosmos DB account using CLI commands](how-to-container-copy.md).
