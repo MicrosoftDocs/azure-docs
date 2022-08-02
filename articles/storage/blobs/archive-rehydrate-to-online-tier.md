@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 07/26/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -116,6 +116,8 @@ To copy an archived blob to a blob in an online tier in a different storage acco
 
 The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
 
+
+
 ```powershell
 $rgName = "<resource-group>"
 $srcAccount = "<source-account>"
@@ -195,6 +197,14 @@ azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFil
 The copy operation is synchronous so when the command returns, it indicates that all files have been copied.
 
 ---
+
+#### Rehydrate from a secondary region
+
+If you've configured your storage account to use read-access geo-redundant storage (RA-GRS), then you can copy an archived blob that is located in a secondary region to an online tier in a different storage account that is located in that same secondary region. 
+
+To rehydrate from a secondary region, use the same guidance that is presented in the previous section ([Rehydrate a blob to a different storage account in the same region](#rehydrate-a-blob-to-a-different-storage-account-in-the-same-region). Append the suffix `–secondary` to the account name of the source endpoint. For example, if your primary endpoint for Blob storage is `myaccount.blob.core.windows.net`, then the secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The account access keys for your storage account are the same for both the primary and secondary endpoints.
+
+To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#read-access-to-data-in-the-secondary-region).
 
 ## Rehydrate a blob by changing its tier
 

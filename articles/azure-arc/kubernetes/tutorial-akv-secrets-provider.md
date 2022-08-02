@@ -4,7 +4,7 @@ description: Learn how to set up the Azure Key Vault Provider for Secrets Store 
 services: azure-arc
 ms.service: azure-arc
 ms.date: 5/26/2022
-ms.topic: article
+ms.topic: tutorial
 author: mayurigupta13
 ms.author: mayg
 ---
