@@ -439,7 +439,7 @@ The entity in this category can have the following subcategories.
 
 ### Azure information
 
-These entity categories includes identifiable Azure information, including authentication information and connection strings. Not returned as PHI.
+These entity categories include identifiable Azure information like authentication information and connection strings. Not returned as PHI.
 
 :::row:::
     :::column span="":::
