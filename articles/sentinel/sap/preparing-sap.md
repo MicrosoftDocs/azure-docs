@@ -229,8 +229,7 @@ The required authorizations are listed here by log type. Only the authorizations
 
 > [!TIP]
 > To create a role with all the required authorizations, deploy the SAP change request *NPLK900271* on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
-> Alternatively, you can create a role that has minimal permissions by deploying change request *NPLK900268*, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file.
-> This change request or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
+> Alternatively, you can create a role that has minimal permissions by deploying change request *NPLK900268*, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This change request or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |
