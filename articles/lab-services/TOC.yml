@@ -273,6 +273,8 @@
         href: how-to-create-a-lab-with-shared-resource-1.md
       - name: Connect to a peer virtual network 
         href: how-to-connect-peer-virtual-network.md
+      - name: Configure firewall settings
+        href: how-to-configure-firewall-settings-1.md
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery-1.md
       - name: Specify Marketplace images for labs 
