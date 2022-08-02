@@ -3,7 +3,7 @@ title: Deploy Azure Virtual Desktop with the getting started feature
 description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's getting started feature.
 author: dknappettmsft
 ms.topic: quickstart
-ms.date: 06/14/2022
+ms.date: 08/02/2022
 ms.author: daknappe
 manager: femila
 ms.custom: mode-portal
@@ -13,7 +13,7 @@ ms.custom: mode-portal
 
 You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) deployments, or it can deploy Azure AD DS for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one app group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
 
-Using Azure Active Directory on its own with the getting started feature is not supported. If you want to want to deploy Azure Virtual Desktop with Azure Active Directory, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
+Joining session hosts to Azure Active Directory with the getting started feature is not supported. If you want to want to join session hosts to Azure Active Directory, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
 
 > [!TIP]
 > Enterprises should plan an Azure Virtual Desktop deployment using information from [Enterprise-scale support for Microsoft Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone). You can also find more a granular deployment process in a [series of tutorials](create-host-pools-azure-marketplace.md), which also cover programmatic methods and less permission.
