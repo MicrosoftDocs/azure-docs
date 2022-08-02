@@ -74,4 +74,4 @@ Once you delete a Catalog Item, development teams will no longer be able to use 
 
 * Create and Configure Environment Types <!---(https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-environment-types.md)--->. You can use them later to create new Environments.
 
-* Create and Configure Projects <!---(https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/tutorial-create-and-configure-projects.md)--->.
+[Create and Configure Projects](./tutorial-create-and-configure-projects.md)

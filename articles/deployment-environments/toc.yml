@@ -16,5 +16,4 @@ items:
     - name: Create and configure a DevCenter Project
       href: tutorial-create-and-configure-projects.md  
     - name: Configure a Catalog Item
-      href: configure-catalog-item.md   
-      
+      href: configure-catalog-item.md  
