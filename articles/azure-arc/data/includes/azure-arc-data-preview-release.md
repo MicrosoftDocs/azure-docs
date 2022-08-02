@@ -18,7 +18,7 @@ The current preview released on August 2, 2022.
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
 |`arcdata` Azure CLI extension version|1.4.5 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc enabled Kubernetes helm chart extension version|1.2.20381002|
-|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.4.2 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.4.2 ([Download](https://aka.ms/ads-azcli-ext))|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.4.3 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.4.3 ([Download](https://aka.ms/ads-azcli-ext))|
 
 New for this release:
 
