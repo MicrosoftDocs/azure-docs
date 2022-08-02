@@ -1074,11 +1074,11 @@ A _viseme_ is the visual description of a phoneme in spoken language. It defines
 | `type`    | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blendshapes output</li></ul> | Required             |
 
 > [!NOTE]
-> Currently, `redlips_front` only supports prebuilt neural voices in `en-US` locale, and `FacialExpression` supports prebuilt neural voices in `en-US` and `zh-CN` locales. 
+> Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales. 
 
 **Example**
 
-This SSML snippet illustrates how to request blendshapes with your synthesized speech.
+This SSML snippet illustrates how to request blend shapes with your synthesized speech.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
