@@ -50,7 +50,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
   - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)).
 
 > [!IMPORTANT]
-> Thre are two sub resources for private endpoints with Batch accounts. Please use the **nodeManagement** private endpoint for the Batch pool without public IP addresses.
+> There are two sub-resources for private endpoints with Batch accounts. Please use the **nodeManagement** private endpoint for the Batch pool without public IP addresses.
 
 ## Current limitations
 
