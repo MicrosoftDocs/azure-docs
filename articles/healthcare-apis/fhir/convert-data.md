@@ -210,7 +210,7 @@ In the table below, you'll find the IP address for the Azure region where the FH
 > [!NOTE]
 > The above steps are similar to the configuration steps described in the document **How to configure FHIR export settings**. For more information, see [Configure export settings](./configure-export-data.md).
 
-For a private network access (that is, a private link), you can also disable the public network access to ACR.
+For private network access (that is, a private link), you can also disable the public network access to ACR.
 * Select the Networking blade for the Container registry in the portal.
 * Select `Disabled`.
 * Select **Firewall exception: Allow trusted Microsoft services to access this container registry**.
