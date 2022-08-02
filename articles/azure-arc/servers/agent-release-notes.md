@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 07/05/2022
+ms.date: 07/26/2022
 ms.custom: references_regions
 ---
 
@@ -24,6 +24,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### New features
 
+- Added support for connecting the agent to the Azure China cloud
 - Added support for Debian 10
 - Updates to the [instance metadata](agent-overview.md#instance-metadata) collected on each machine:
   - GCP VM OS is no longer collected

@@ -95,6 +95,11 @@ ms.topic: conceptual
 
     No, this scenario isn't supported.
 
+* <a id="ad-file-mount-cname"></a>
+**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication (AD DS or Azure AD DS)?**
+
+    No, this scenario isn't supported.
+
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Azure AD credentials from a VM under a different subscription?**
 

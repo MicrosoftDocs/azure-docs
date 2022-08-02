@@ -50,7 +50,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-|Kublr |1.22.0 / 1.20.12 |v1.1.0_2021-11-02 |15.0.2195.191 |PostgreSQL 12.3 (Ubuntu 12.3-1) |
+|Kublr |1.22.3 / 1.22.10 | v1.9.0_2022-07-12 |15.0.2195.191 |PostgreSQL 12.3 (Ubuntu 12.3-1) |
 
 ### Lenovo
 
@@ -88,11 +88,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 | TKGm v1.5.1 | 1.20.5 | v1.4.1_2022-03-08 |15.0.2255.119|postgres 12.3 (Ubuntu 12.3-1)|
 
-### WindRiver
+### Wind River
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-|WindRiver| v1.22.5|v1.1.0_2021-11-02 |15.0.2195.191|postgres 12.3 (Ubuntu 12.3-1) |
+|Wind River Cloud Platform 22.06 | v1.23.1|v1.9.0_2022-07-12 |16.0.312.4243|postgres 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process
 

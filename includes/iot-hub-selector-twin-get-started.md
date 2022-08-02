@@ -45,7 +45,7 @@ Additionally, the solution back end can query device twins based on all the abov
 For more information about device twins, see [Understand device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md). For more information about querying, see [IoT Hub query language](../articles/iot-hub/iot-hub-devguide-query-language.md).
 
 
-This tutorial shows you how to:
+This article shows you how to:
 
 * Create a back-end app that adds tags to a device twin, and a simulated device app that reports its connectivity channel as a reported property on the device twin.
 

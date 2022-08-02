@@ -2496,7 +2496,7 @@ Azure service: [StorSimple](../storsimple/index.yml)
 
 ### Microsoft.AppPlatform
 
-Azure service: [Azure Spring Cloud](../spring-cloud/index.yml)
+Azure service: [Azure Spring Apps](../spring-apps/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

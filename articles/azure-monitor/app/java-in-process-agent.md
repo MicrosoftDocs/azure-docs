@@ -34,9 +34,9 @@ Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/
 
 > [!WARNING]
 > 
-> If you're upgrading from 3.2.x to 3.3.1:
+> If you're upgrading from 3.2.x:
 > 
->    -  Starting from 3.3.1, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
 > If you're upgrading from 3.1.x:
@@ -412,19 +412,19 @@ The following table represents currently supported custom telemetry types that y
 - Custom requests, dependencies, and exceptions are supported through `opentelemetry-api`.
 - Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
 
-| Custom telemetry type            | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
-|---------------------|------------|---------------------|---------|-------------------|
-| Custom events       |            |                     |  Yes    |                   |
-| Custom metrics      |  Yes       |                     |  Yes    |                   |
-| Dependencies        |            |                     |  Yes    |  Yes              |
-| Exceptions          |            |  Yes                |  Yes    |  Yes              |
-| Page views          |            |                     |  Yes    |                   |
-| Requests            |            |                     |  Yes    |  Yes              |
-| Traces              |            |  Yes                |  Yes    |  Yes              |
+| Custom telemetry type | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
+|-----------------------|------------|---------------------|---------|-------------------|
+| Custom events         |            |                     |  Yes    |                   |
+| Custom metrics        |  Yes       |                     |  Yes    |  Yes              |
+| Dependencies          |            |                     |  Yes    |  Yes              |
+| Exceptions            |            |  Yes                |  Yes    |  Yes              |
+| Page views            |            |                     |  Yes    |                   |
+| Requests              |            |                     |  Yes    |  Yes              |
+| Traces                |            |  Yes                |  Yes    |  Yes              |
 
 Currently, we're not planning to release an SDK with Application Insights 3.x.
 
-Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. And it fills an important gap in our custom telemetry support until the OpenTelemetry API is generally available.
+Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. And it fills an important gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
 
 ### Send custom metrics by using Micrometer
 

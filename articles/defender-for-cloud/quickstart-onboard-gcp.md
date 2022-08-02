@@ -67,7 +67,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
 
-1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
+    1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
 
 1. Select the **Next: Configure access**.
 
@@ -138,6 +138,8 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > <br><br> This can change the OS config agent from `inactive` to `active`, and will lead to additional costs.   
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
+
+- Ensure you've fulfilled the [network requirements for Azure Arc](/azure-arc/servers/network-requirements.md).
 
 - Additional extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint

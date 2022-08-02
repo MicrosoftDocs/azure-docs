@@ -109,7 +109,7 @@ See the following articles for details on installing and configuring the diagnos
 ###  Azure Cloud Service (classic) Web and Worker Roles
 - [Introduction to Cloud Service Monitoring](../../cloud-services/cloud-services-how-to-monitor.md)
 - [Enabling Azure Diagnostics in Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)
-- [Application Insights for Azure cloud services](../app/cloudservices.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md) 
+- [Application Insights for Azure cloud services](../app/azure-web-apps-net-core.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md) 
 
 ### Azure Service Fabric
 - [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)

@@ -7,7 +7,7 @@ ms.date: 07/22/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: RaniChegondi
+ms.reviewer: sapnakeshari
 ---
 
 # View your usage summary details and download reports for direct EA enrollments
@@ -130,19 +130,19 @@ If you want to update the PO number after your invoice is generated, then contac
 
 To update the PO number for a billing account:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **Cost Management + Billing** and then select **Billing scopes**.
-1. Select your billing scope, and then in the left menu under **Settings**, select **Properties**.
-1. Select **Update PO number**.
-1. Enter a PO number and then select **Update**.
+1. Sign in to the  [Azure portal](https://portal.azure.com).
+1. Search for  **Cost Management + Billing** and then select  **Billing scopes**.
+1. Select your billing scope, and then in the left menu under  **Settings**, select  **Properties**.
+1. Select  **Update PO number**.
+1. Enter a PO number and then select  **Update**.
 
-Or you can update the PO number from in the Invoices list for the upcoming invoice:
+Or you can update the PO number from Invoice blade for the upcoming invoice:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **Cost Management + Billing** and then select **Billing scopes**.
-1. Select your billing scope, then in the left menu under **Billing**, select **Invoices**.
-1. Select **Update PO number**.
-1. Enter a PO number and then select **Update**.
+1. Sign in to the  [Azure portal](https://portal.azure.com).
+1. Search for  **Cost Management + Billing** and then select  **Billing scopes**.
+1. Select your billing scope, then in the left menu under  **Billing**, select  **Invoices**.
+1. Select  **Update PO number**.
+1. Enter a PO number and then select  **Update**.
 
 ## Review credit charges
 
