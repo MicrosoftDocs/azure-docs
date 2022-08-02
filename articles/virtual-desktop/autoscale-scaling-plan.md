@@ -3,7 +3,7 @@ title: Create an autoscale scaling plan for Azure Virtual Desktop
 description: How to create an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 08/03/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions

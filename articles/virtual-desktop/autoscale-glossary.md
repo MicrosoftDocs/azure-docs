@@ -3,17 +3,13 @@ title: Azure Virtual Desktop autoscale glossary for Azure Virtual Desktop - Azur
 description: A glossary of terms and concepts for the Azure Virtual Desktop autoscale feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 04/29/2022
+ms.date: 08/03/2022
 ms.author: helohr
 manager: femila
 ---
 # Autoscale glossary for Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Autoscale is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This article is a list of definitions for key terms and concepts related to the autoscale (preview) feature for Azure Virtual Desktop.
+This article is a list of definitions for key terms and concepts related to the autoscale feature for Azure Virtual Desktop.
 
 ## Autoscale
 
