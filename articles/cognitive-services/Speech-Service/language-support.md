@@ -800,15 +800,19 @@ The following neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chinese (Mandarin, Simplified) | `zh-CN-liaoning` | Female | `zh-CN-liaoning-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
 | Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|
 | English (United States) | `en-US` | Male | `en-US-TonyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Italian (Italy) | `it-IT` | Female | `it-IT-FabiolaNeural` <sup>New</sup> | General |
 | Italian (Italy) | `it-IT` | Female | `it-IT-FiammaNeural` <sup>New</sup> | General |
@@ -875,17 +879,21 @@ Use the following table to determine supported styles and roles for each neural 
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
 |pt-BR-FranciscaNeural|`calm`|||
 |zh-CN-XiaohanNeural|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
+|zh-CN-XiaomengNeural <sup>Public preview</sup>|`chat`|Supported||
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
 |zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`|Supported||
 |zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
+|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
+|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
+|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunxiaNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `fearful`, `narration-relaxed`, `sad`|Supported||
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
-|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
-|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
-|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
+|zh-CN-YunzeNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|Supported|Supported|
+
 
 
 ### Custom Neural Voice
@@ -1020,7 +1028,11 @@ The following table lists the released languages and public preview languages.
 
 ## Speech translation
 
-The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
+Speech Translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
+
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](#speech-to-text) above. The default language is `en-US` if you don't specify a language.
+
+To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
 ### Text languages
 
@@ -1157,6 +1169,8 @@ The Intent Recognizer Pattern Matcher supports the following locales:
 | Locale                            | Locale (BCP-47) |
 |-----------------------------------|-----------------|
 | English (United States)           | `en-US`         |
+| Chinese (Cantonese, Traditional)  | `zh-HK`         |
+| Chinese (Mandarin, Simplified)    | `zh-CN`         |
 
 ## Next steps
 
