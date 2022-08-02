@@ -10,7 +10,7 @@ ms.topic: overview
 ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
-adobe-target-activity:
+adobe-target-activity: DocsExp–463504–A/B–Docs/FormRecognizer–DecisionTree–FY23Q1
 adobe-target-experience: Experience B
 adobe-target-content: overview-experiment
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
