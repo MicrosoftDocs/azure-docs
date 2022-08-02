@@ -14,4 +14,4 @@ ms.author: glenga
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools 4.x](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).

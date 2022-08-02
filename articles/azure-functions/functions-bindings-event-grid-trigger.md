@@ -11,10 +11,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Event Grid trigger for Azure Functions
 
-Use the function trigger to respond to an event sent to an event grid topic. To learn how to work with the Event Grid trigger.
-
-
-For information on setup and configuration details, see the [overview](./functions-bindings-event-grid.md).
+Use the function trigger to respond to an event sent by an [event grid source](../event-grid/overview.md). You must have an event subscription to the source to recieve events. To learn how to create an event subscription, see [Create a subscription](event-grid-how-tos.md#create-a-subscription). For information on binding setup and configuration, see the [overview](./functions-bindings-event-grid.md).
 
 > [!NOTE]
 > Event Grid triggers aren't natively supported in an internal load balancer App Service Environment (ASE). The trigger uses an HTTP request that can't reach the function app without a gateway into the virtual network.
