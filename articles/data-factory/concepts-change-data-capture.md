@@ -39,16 +39,9 @@ When performing data integration and ETL processes, your jobs can often perform 
 | [Azure SQL Server](connector-sql-server.md) | &nbsp; | ✓ | [✓](tutorial-incremental-copy-multiple-tables-portal.md) |
 | [Common data model](format-common-data-model.md) | &nbsp; | ✓    | &nbsp;     |
 
-The "Full CDC" and "Incremental CDC" features are available in ADF and Synapse data flows. In each of those options, ADF handles the checkpoint automatically for you. You can turn on the change data capture in the data flow source and reset the checkpoint in the data flow activity.
+The "Full CDC" and "Incremental CDC" features are available in ADF and Synapse data flows. In each of those options, ADF handles the checkpoint automatically for you. You can turn on the change data capture in the data flow source and reset the checkpoint in the data flow activity. To reset the checkpoint for your CDC pipeline, go into the data flow activity in your pipeline and override the checkpoint key.
 
 ## Next steps
 
-- [Learn how to use credentials from a user-assigned managed identity in a linked service](credentials.md).
-
-See the following tutorials for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
-
-- [Quickstart: create a Data Factory using .NET](quickstart-create-data-factory-dot-net.md)
-- [Quickstart: create a Data Factory using PowerShell](quickstart-create-data-factory-powershell.md)
-- [Quickstart: create a Data Factory using REST API](quickstart-create-data-factory-rest-api.md)
-- [Quickstart: create a Data Factory using Azure portal](quickstart-create-data-factory-portal.md)
+- [Learn how to use the checkpoint key in the data flow activity](control-flow-execute-data-flow-activity.md).
 
