@@ -37,7 +37,7 @@ Capturing and logging errors is critical to monitoring the health of your applic
 
 ### Plan your retry strategy
 
-Several Functions bindings extensions provide built-in support for retries. In addition, the runtime lets you define retry policies for Timer and Event Hubs triggered functions. To learn more, see [Retries](#retries). For triggers that don't provide retry behaviors, you may want to implement your own retry scheme.
+Several Functions bindings extensions provide built-in support for retries. In addition, the runtime lets you define retry policies for Timer, Kafka and Event Hubs triggered functions. To learn more, see [Retries](#retries). For triggers that don't provide retry behaviors, you may want to implement your own retry scheme.
 
 ### Design for idempotency
 
