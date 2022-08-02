@@ -2,7 +2,7 @@
 title: Linter rule - artifacts parameters
 description: Linter rule - artifacts parameters
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ---
 
 # Linter rule - artifacts parameters
@@ -14,7 +14,7 @@ This rule verifies whether the artifacts parameters are defined correctly. The f
 - If `_artifactsLocation` has a default value, it must be either `'[deployment().properties.templateLink.uri]'` or a raw URL for its default value.
 - `_artifactsLocationSasToken` must be a secure string.
 - If `_artifactsLocationSasToken` has a default value, it must be an empty string
-- If referenced module has an `_artifactsLocation` or `_artifactsLocationSasToken` parameter, a value must be passed in for those parameters, even if they have default values in the module.
+- If a referenced module has an `_artifactsLocation` or `_artifactsLocationSasToken` parameter, a value must be passed in for those parameters, even if they have default values in the module.
 
 ## Linter rule code
 
@@ -33,7 +33,7 @@ param _artifactsLocation string = deployment().properties.templateLink.uri
 ...
 ```
 
-The next example fails this test because `_artifactsLocation` must be either `'[deployment().properties.templateLink.uri]'` or a raw URL when the default value is provided.
+The next example fails this test because `_artifactsLocation` must be either `'[deployment().properties.templateLink.uri]'` or a raw URL when the default value is provided, and the defualt value of `_artifactsLocationSasToken` is not an empty string.
 
 ```bicep
 @description('The base URI where artifacts required by this template are located including a trailing \'/\'')
@@ -41,7 +41,7 @@ param _artifactsLocation string = 'something'
 
 @description('SAS Token for accessing script path')
 @secure()
-param _artifactsLocationSasToken string = ''
+param _artifactsLocationSasToken string = 'something'
 
 ...
 ````
