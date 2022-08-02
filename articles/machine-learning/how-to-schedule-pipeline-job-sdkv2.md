@@ -109,9 +109,11 @@ The `CronTrigger` section defines the schedule details and contains following pr
 #### Disable a schedule
 [!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=disable_schedule)]
 #### Enable a schedule
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=enable_schedule)]
 
 ### Delete a schedule
+
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=delete_schedule)]
 
     > [!IMPORTANT]
     > Please disable schedule first, only disabled schedule can be deleted.

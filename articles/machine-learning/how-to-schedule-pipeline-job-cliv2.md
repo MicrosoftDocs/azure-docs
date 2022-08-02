@@ -118,8 +118,8 @@ When define schedule, we support following expression that will be resolved to r
 
 | Expression | Description |Supported properties|
 |----------------|----------------|-------------|
-|${{create_context.trigger_time}}|The time when the schedule is triggered.|String type inputs of pipeline job|
-|${{name}}|The name of job.|outputs.path of pipeline job|
+|`${{create_context.trigger_time}}`|The time when the schedule is triggered.|String type inputs of pipeline job|
+|`${{name}}`|The name of job.|outputs.path of pipeline job|
 
 ### Manage schedule
 
