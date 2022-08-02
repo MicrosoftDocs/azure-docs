@@ -108,21 +108,21 @@
       href: integrate-overview.md
     - name: ArcSight
       href: integrations/arcsight.md
-    - name: ClearPass
+    - name: Integrate ClearPass
       href: tutorial-clearpass.md
-    - name: CyberArk
+    - name: Integrate CyberArk
       href: tutorial-cyberark.md
-    - name: Forescout
+    - name: Integrate Forescout
       href: tutorial-forescout.md
-    - name: Fortinet
+    - name: Integrate Fortinet
       href: tutorial-fortinet.md
-    - name: Palo Alto
+    - name: Integrate Palo Alto
       href: tutorial-palo-alto.md
-    - name: Qradar
+    - name: Integrate Qradar
       href: tutorial-qradar.md
-    - name: Splunk
+    - name: Integrate Splunk
       href: tutorial-splunk.md
-    - name: ServiceNow
+    - name: Integrate ServiceNow
       href: tutorial-servicenow.md
   - name: System deployment
     items:
