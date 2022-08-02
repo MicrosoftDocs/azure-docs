@@ -39,7 +39,7 @@ You can find direct links to the installers for previous releases on [Service Fa
 
 For supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
- [!NOTE]
+> [!NOTE]
 > Single machine clusters (OneBox) are not supported for Application or Cluster upgrades; delete the OneBox cluster and recreate it if you need to perform a Cluster upgrade, or have any issues performing an Application upgrade.
 
 ### To use Visual Studio 2017 or 2019 
