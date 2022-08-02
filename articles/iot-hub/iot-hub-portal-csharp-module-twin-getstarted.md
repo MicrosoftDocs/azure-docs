@@ -51,7 +51,7 @@ Within one device identity, you can create up to 20 module identities. To add an
 
     Your new module identity appears at the bottom of the screen. Select it to see module identity details.
 
-    ![See module identity details](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png" alt-text="Screenshot that shows the Module Identity Details menu.":::
 
 Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
@@ -67,7 +67,7 @@ To create an app that updates the module twin reported properties, follow these 
 
 1. In **Configure your new project**, enter *UpdateModuleTwinReportedProperties* as the **Project name**. Select **Next** to continue.
 
-    ![Configure your a visual studio project](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
+   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png" alt-text="Screenshot showing the 'Configure your new project' popup.":::
 
 1. Keep the default .NET framework, then select **Create**.
 
