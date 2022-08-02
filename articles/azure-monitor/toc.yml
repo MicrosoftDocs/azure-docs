@@ -686,7 +686,7 @@ items:
     - name: Notifications and actions
       items:
       - name: Alert processing rules
-        href: alerts/alerts-action-rules.md
+        href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: alerts/action-groups.md
@@ -1330,8 +1330,6 @@ items:
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
-    - name: Troubleshoot insights
-      href: insights/troubleshoot-workbooks.md
   - name: Logs ingestion API
     items:
     - name: Overview
