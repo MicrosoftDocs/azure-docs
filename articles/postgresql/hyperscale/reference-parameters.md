@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ---
 
 # Server parameters
