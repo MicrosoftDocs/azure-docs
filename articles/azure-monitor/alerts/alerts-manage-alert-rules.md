@@ -23,7 +23,7 @@ ms.reviewer: harelbr
 > [!NOTE]
 > This section describes how to manage alert rules created in the latest UI or using an API version later than `2018-04-16`. See [View and manage log alert rules created in previous versions](alerts-manage-alerts-previous-version.md) for information about how to view and manage log alert rules created in the previous UI.
 
-## Alert rule recommendations (preview)
+## Enable recommended alert rules in the Azure portal (preview)
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
@@ -44,7 +44,7 @@ To enable recommended alert rules:
 
 :::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-rule-pane.jpg" alt-text="Screenshot of recommended alert rules pane."::: 
 
-## Manage metric alerts with the Azure CLI
+## Manage metric alert rules with the Azure CLI
 
 This section describes how to do manage metric alert rules using the cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). The following examples use [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
@@ -94,7 +94,7 @@ Metric alert rules have these dedicated PowerShell cmdlets:
 - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Get one or more metric alert rules.
 - [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Delete a metric alert rule.
 
-## Manage metric alerts with REST API
+## Manage metric alert rules with REST API
 
 - [Create Or Update](/rest/api/monitor/metricalerts/createorupdate): Create a new metric alert rule or update an existing one.
 - [Get](/rest/api/monitor/metricalerts/get): Get a specific metric alert rule.
@@ -103,7 +103,7 @@ Metric alert rules have these dedicated PowerShell cmdlets:
 - [Update](/rest/api/monitor/metricalerts/update): Update a metric alert rule.
 - [Delete](/rest/api/monitor/metricalerts/delete): Delete a metric alert rule.
 
-## Manage log alerts using the CLI
+## Manage log alert rules using the CLI
 
 This section describes how to manage log alerts using the cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). The following examples use [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
@@ -119,13 +119,13 @@ You can use commands with ``--help`` option to learn more about the command and 
 az monitor scheduled-query --help
 ```
 
-### View all the log alerts in a resource group
+### View all the log alert rules in a resource group
 
 ```azurecli
 az monitor scheduled-query list -g {ResourceGroup}
 ```
 
-### See the details of a particular log alert rule
+### See the details of a log alert rule
 
 Use the name or the resource ID of the rule in the following command:
 
@@ -148,7 +148,7 @@ az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabl
 az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}
 ```
 
-### Use the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md) files
+### Manage log alert rules using the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md)
 
 ```azurecli
 az login
