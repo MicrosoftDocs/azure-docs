@@ -291,7 +291,7 @@
   items:
   - name: REST API
     href: /rest/api/labservices/
-  - name: Az.LabServices PowerShell module (preview)
+  - name: Az.LabServices PowerShell module
     href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack

@@ -120,7 +120,7 @@ To switch to another lab from the current, select the drop-down list of labs in 
 You can also create a new lab using the **New lab** in this drop-down list.
 
 > [!NOTE]
-> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
+> You can also use the Az.LabServices PowerShell module to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
 
 To switch to a different lab account, select the drop-down next to the lab account and select the other lab account.
 
