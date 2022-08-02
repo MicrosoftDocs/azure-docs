@@ -76,3 +76,7 @@ resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2019
   }
 }
 ```
+
+## Next steps
+
+For more information about the linter, see [Use Bicep linter](./linter.md).

@@ -28,6 +28,8 @@ items:
       href: storage-configuration.md
     - name: Sizing guidance
       href: sizing-guidance.md
+    - name: Operate with least privilege
+      href: least-privilege.md
 - name: How-to guides
   items:
     - name: Install tools

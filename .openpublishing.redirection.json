@@ -24729,11 +24729,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-desktop/connect-windows-7-and-10.md",
-      "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/troubleshoot-client-connection.md",
       "redirect_url": "/azure/virtual-desktop/troubleshoot-client",
       "redirect_document_id": false
@@ -40311,6 +40306,11 @@
     {
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
       "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+      "redirect_url": "https://docs.microsoft.com/ai-builder/create-form-processing-model",
       "redirect_document_id": false
     }
   ]

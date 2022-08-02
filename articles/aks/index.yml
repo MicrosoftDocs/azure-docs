@@ -24,6 +24,23 @@ landingContent:
         links:
           - text: What is AKS?
             url: intro-kubernetes.md
+      - linkListType: whats-new
+        links:
+          - text: Use CVM (Preview)
+            url: use-cvm.md
+          - text: Automatically upgrade an AKS cluster
+            url: auto-upgrade-cluster.md
+          - text: Start/stop node pools
+            url: start-stop-nodepools.md
+          - text: Default OS disk sizing
+            url: cluster-configuration.md#default-os-disk-sizing
+          - text: Bring your own CNI plugin (GA)
+            url: use-byo-cni.md
+          - text: Calico for Windows Server containers (GA)
+            url: use-network-policies.md#create-an-aks-cluster-for-calico-network-policies
+          - text: API Server VNet integration (preview)
+            url: api-server-vnet-integration.md
+            
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS
@@ -99,26 +116,6 @@ landingContent:
             - text: Other AKS solutions
               url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE   
 
-  # Card
-  - title: Deploy, manage, and update applications
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: 1. Prepare an application for AKS
-            url: tutorial-kubernetes-prepare-app.md
-          - text: 2. Deploy and use Azure Container Registry
-            url: tutorial-kubernetes-prepare-acr.md
-          - text: 3. Deploy an AKS cluster
-            url: tutorial-kubernetes-deploy-cluster.md
-          - text: 4. Run your application
-            url: tutorial-kubernetes-deploy-application.md
-          - text: 5. Scale applications
-            url: tutorial-kubernetes-scale.md
-          - text: 6. Update an application
-            url: tutorial-kubernetes-app-update.md
-          - text: 7. Upgrade Kubernetes in AKS
-            url: tutorial-kubernetes-upgrade-cluster.md
-
   - title: Configure your cluster for Windows containers
     linkLists:
       - linkListType: quickstart
@@ -155,6 +152,26 @@ landingContent:
             url: node-access.md#create-the-ssh-connection-to-a-windows-node
           - text: Windows Server containers FAQ
             url: windows-faq.md
+
+  # Card
+  - title: Deploy, manage, and update applications
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1. Prepare an application for AKS
+            url: tutorial-kubernetes-prepare-app.md
+          - text: 2. Deploy and use Azure Container Registry
+            url: tutorial-kubernetes-prepare-acr.md
+          - text: 3. Deploy an AKS cluster
+            url: tutorial-kubernetes-deploy-cluster.md
+          - text: 4. Run your application
+            url: tutorial-kubernetes-deploy-application.md
+          - text: 5. Scale applications
+            url: tutorial-kubernetes-scale.md
+          - text: 6. Update an application
+            url: tutorial-kubernetes-app-update.md
+          - text: 7. Upgrade Kubernetes in AKS
+            url: tutorial-kubernetes-upgrade-cluster.md
 
   - title: Extend the capabilities of your cluster
     linkLists:
