@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 08/02/2022
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -17,6 +17,8 @@ ExpressRoute Traffic Collector enables sampling for network flows sent over your
 > [!IMPORTANT]
 > ExpressRoute Traffic Collector is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+:::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 
 ## Use cases
 
