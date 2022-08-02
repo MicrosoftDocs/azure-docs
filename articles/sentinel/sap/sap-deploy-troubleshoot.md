@@ -45,7 +45,7 @@ docker logs -f sapcon-[SID]
 
 1. On your VM, edit the **sapcon/[SID]/systemconfig.ini** file.
 
-1. Define the **General** section if it was not previously defined. In this section, define `logging_debug = True`.
+1. Define the **General** section if it wasn't previously defined. In this section, define `logging_debug = True`.
 
     For example:
 
@@ -56,7 +56,7 @@ docker logs -f sapcon-[SID]
 
 1. Save the file.
 
-The change takes effect two minutes after you save the file. You do not need to restart the Docker container.
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
 **Disable debug mode printing**:
 
@@ -73,7 +73,7 @@ The change takes effect two minutes after you save the file. You do not need to 
 
 1. Save the file.
 
-The change takes effect two minutes after you save the file. You do not need to restart the Docker container.
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
 ## View all Docker execution logs
 
@@ -132,7 +132,7 @@ If you want to check the SAP data connector configuration file and make manual u
 
 1. Update the configuration if needed, and save the file.
 
-The change takes effect two minutes after you save the file. You do not need to restart the Docker container.
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
 ## Reset the SAP data connector
 
@@ -199,7 +199,7 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 
 1. save the file.
 
-The change takes effect two minutes after you save the file. You do not need to restart the Docker container.
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
 > [!NOTE]
 > The **timechunk** size is defined in minutes.
@@ -243,7 +243,7 @@ docker restart sapcon-[SID]
 
 ### Missing ABAP (SAP user) permissions
 
-If you get an error message similar to: **..Missing Backend RFC Authorization..**, your SAP authorizations and role were not applied properly.
+If you get an error message similar to: **..Missing Backend RFC Authorization..**, your SAP authorizations and role weren't applied properly.
 
 1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported as part of a [change request](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) transport, and applied to the connector user.
 
@@ -305,7 +305,7 @@ While your system should automatically switch to compatibility mode if needed, y
 
 1. save the file.
 
-The change takes effect two minutes after you save the file. You do not need to restart the Docker container.r restart sapcon-[SID]
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.r restart sapcon-[SID]
     ```
 
 ### SAPCONTROL or JAVA subsystems unable to connect
@@ -329,7 +329,7 @@ If you're not able to import the [required SAP log change requests](prerequisite
 
 ### Audit log data not ingested past initial load
 
-If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, is not ingested into Microsoft Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
+If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, isn't ingested into Microsoft Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
 
 - Initial loads are ingested after a fresh installation of the SAP data connector, or after the **metadata.db** file is deleted.
 - A sample misconfiguration might be when your SAP system timezone is set to **CET** in the **STZAC** transaction, but the SAP host operating system time zone is set to **UTC**.
