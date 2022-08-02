@@ -430,6 +430,56 @@
             "source_path_from_root": "/articles/azure-monitor/insights/key-vault-insights-overview.md" ,
             "redirect_url": "/azure/key-vault/key-vault-insights-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-diagnostics.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-failure-diagnostics.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-failure-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-performance-diagnostics.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-performance-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-trace-severity.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-trace-severity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-exception-volume.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-exception-volume",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-potential-memory-leak.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-potential-memory-leak",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-application-security-detection-pack.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-application-security-detection-pack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-arm-config.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-arm-config",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-email-notification.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-email-notification",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/cloudservices.md" ,
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net-core",
+            "redirect_document_id": false
         }
     ]
 }

@@ -287,6 +287,8 @@ You can view the CPU utilization of each ExpressRoute Traffic Collector instance
 
 **Guidance:** Set an alert for when avg CPU utilization exceeds a certain threshold.
 
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-usage.png" alt-text="Screenshot of CPU usage for ExpressRoute Traffic Collector." lightbox="./media/expressroute-monitoring-metrics-alerts/cpu-usage.png":::
+
 ### Memory Utilization - Split by instance 
 
 Aggregation type: *Avg* (of percentage of total utilized Memory) 
@@ -297,15 +299,19 @@ You can view the memory utilization of each ExpressRoute Traffic Collector insta
 
 **Guidance:** Set an alert for when avg memory utilization exceeds a certain threshold.  
 
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/memory-usage.png" alt-text="Screenshot of memory usage for ExpressRoute Traffic Collector." lightbox="./media/expressroute-monitoring-metrics-alerts/memory-usage.png":::
+
 ### Count of flow records processed - Split by instances or ExpressRoute circuit
 
 Aggregation type: *Count*  
 
 *Granularity: 5 min*  
 
-You can view the count of number of flow records processed by ExpressRoute Traffic Collector, aggregated across ExpressRoute Circuits. Customer can split the metrics across each ExpressRoute Traffic Collector instance or ExpressRoute circuit when multiple circuits are onboarded to the ExpressRoute Traffic Collector. Monitoring this metric will help customers understand if they need to deploy more ExpressRoute Traffic Collector instances or migrate ExpressRoute circuit association from one ExpressRoute Traffic Collector deployment to another.  
+You can view the count of number of flow records processed by ExpressRoute Traffic Collector, aggregated across ExpressRoute Circuits. Customer can split the metrics across each ExpressRoute Traffic Collector instance or ExpressRoute circuit when multiple circuits are associated to the ExpressRoute Traffic Collector. Monitoring this metric will help you understand if you need to deploy more ExpressRoute Traffic Collector instances or migrate ExpressRoute circuit association from one ExpressRoute Traffic Collector deployment to another.  
 
 **Guidance:** Splitting by circuits is recommended when multiple ExpressRoute circuits are associated with an ExpressRoute Traffic Collector deployment. This will help determine the flow count of each ExpressRoute circuit and ExpressRoute Traffic Collector utilization by each ExpressRoute circuit. 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/flow-records.png" alt-text="Screenshot of average flow records for an ExpressRoute circuit." lightbox="./media/expressroute-monitoring-metrics-alerts/flow-records.png":::
 
 ## Alerts for ExpressRoute gateway connections
 
