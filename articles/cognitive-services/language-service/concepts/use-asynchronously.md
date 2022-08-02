@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 08/02/2022
 ms.author: aahi
 ---
 
@@ -26,7 +26,7 @@ Currently, the following features are available to be used asynchronously:
 * Customer content detection
 * Sentiment analysis and opinion mining
 * Text Analytics for health
-* Personal Identifiable information(PII)
+* Personal Identifiable information (PII)
 
 When you send asynchronous requests, you will incur charges based on number of text records you include in your request, for each feature use. For example, if you send a text record for sentiment analysis and NER, it will be counted as sending two text records, and you will be charged for both according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/). 
 
