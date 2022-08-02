@@ -30,7 +30,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-This  new feature allows to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
 
 > [!NOTE]
 > The added disks are only configured for node manager local directories.
@@ -103,7 +103,7 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 |---|---|
 |Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
 |Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
-|TezUtils.createConfFromByteString on Configuration larger than 32MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
 |TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
 |Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
 
@@ -118,4 +118,4 @@ https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.
 
 ### Known issues
 
-HDInsight is compatible with Apache HIVE 3.1.2.  Due to a bug in in  this release the Hive version is shown as 3.1.0 in hive interfaces. However, there is no impact on the functionality.
+HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.
