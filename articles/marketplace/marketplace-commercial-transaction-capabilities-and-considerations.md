@@ -85,10 +85,14 @@ Generally, SaaS offers are a good fit if your customers just want to subscribe t
 Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own cloud infrastructure.
 
 [![Illustration showing a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).<br>
-&nbsp;&nbsp;&nbsp;<sup>(2)</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.<br>
-&nbsp;&nbsp;&nbsp;<sup>(3)</sup> This can include your own VM solutions.
-&nbsp;&nbsp;&nbsp;<sup>(4)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
+
+[1] Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).
+
+[2]</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.
+
+[3] This can include your own VM solutions.
+
+[4] Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
 ### Usage-based and subscription pricing
 
