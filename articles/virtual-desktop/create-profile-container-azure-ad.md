@@ -104,13 +104,13 @@ Follow the instructions in the following sections to configure Azure AD authenti
 
 ### Configure the Azure AD service principal and application
 
-To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. This configuration won't be available in the Azure portal during public preview. To verify if the application as already been created, run the following cmdlet:
+To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. This configuration won't be available in the Azure portal during public preview. If the cmdlets in the previous section auto-created the application on your behalf, you can skip this step. To verify if the application has already been created, run the following cmdlet:
 
 ```powershell
 Get-AzureADServicePrincipal -Searchstring "[Storage Account] $storageAccountName.file.core.windows.net"
 ```
 
-If you see an already created service principal with your storage account name, skip this section and proceed with [setting the API permissions on the application](#set-the-api-permissions-on-the-newly-created-application).
+If you see an existing service principal with your storage account name, skip this section and proceed with [setting the API permissions on the application](#set-the-api-permissions-on-the-newly-created-application).
 
 If not, create the application using PowerShell, following these steps:
 
