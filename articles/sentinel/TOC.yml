@@ -258,8 +258,6 @@
       href: create-codeless-connector.md
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md
-    - name: Monitor data connector health
-      href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
   - name: Normalize data
@@ -288,6 +286,10 @@
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
+    - name: Enable health monitoring
+      href: monitor-sentinel-health.md
+    - name: Monitor data connector health
+      href: monitor-data-connector-health.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage

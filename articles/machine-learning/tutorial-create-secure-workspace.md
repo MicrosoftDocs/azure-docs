@@ -39,7 +39,7 @@ In this tutorial, you accomplish the following tasks:
 
 ## Limitations
 
-The steps in this article put Azure Container Registry behind the VNet. In this configuration, you can't deploy models to Azure Container Instances inside the VNet. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
+The steps in this article put Azure Container Registry behind the VNet. In this configuration, you can't deploy models to Azure Container Instances inside the VNet. For more information, see [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md).
 
 > [!TIP]
 > As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints (preview)](how-to-secure-online-endpoint.md).
@@ -457,7 +457,7 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 ## Use the workspace
 
 > [!IMPORTANT]
-> The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot deploy a model to Azure Container Instances inside the VNet. We do not recommend using Azure Container Instances with Azure Machine Learning in a virtual network. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
+> The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot deploy a model to Azure Container Instances inside the VNet. We do not recommend using Azure Container Instances with Azure Machine Learning in a virtual network. For more information, see [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md).
 >
 > As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints (preview)](how-to-secure-online-endpoint.md).
 
