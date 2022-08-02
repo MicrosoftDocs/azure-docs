@@ -1,12 +1,12 @@
 ---
 title: Schedule Azure Machine Learning pipeline jobs (SDK preview)
 titleSuffix: Azure Machine Learning
-description: Schedule pipeline jobs allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
+description: Schedule pipeline jobs (SDK) allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: cloga
-author: lochen
+ms.author: lochen
+author: cloga
 ms.date: 07/30/2022
 ms.topic: how-to
 ms.custom: devx-track-python
@@ -39,7 +39,7 @@ To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedul
 
 ### Create pipeline in SDK
 
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_pipeline_job)]
+[!notebook-python[] (~/azureml-examples-anthu-schedule-pup-main/sdk/schedules/schedule.ipynb?name=create_pipeline_job)]
 
 ### Create a time-based schedule with recurrence pattern
 

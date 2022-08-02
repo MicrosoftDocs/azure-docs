@@ -1,12 +1,12 @@
 ---
 title: Schedule Azure Machine Learning pipeline jobs (CLI preview)
 titleSuffix: Azure Machine Learning
-description: Schedule pipeline jobs allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
+description: Schedule pipeline jobs (CLI) allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: cloga
-author: lochen
+ms.author: lochen
+author: cloga
 ms.date: 07/30/2022
 ms.topic: how-to
 ms.custom: devx-track-python
@@ -32,7 +32,7 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 Creating schedule in CLI v2, you need create schedule yaml first. Please check [CLI (v2) batch endpoint YAML schema](./reference-yaml-schedule.md) for detail. 
 ### Create a schedule yaml
 
-To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedule` associates a job, and a trigger. The trigger can either be `cron` that use cron expression to describes the wait between runs or `recurrence` that specify using what frequency to trigger job. In each case, you need define a pipeline job first, it can be existing pipeline jobs or pipeline job define in yaml, please refer to [Create a pipeline job](how-to-create-component-pipelines-cli).
+To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedule` associates a job, and a trigger. The trigger can either be `cron` that use cron expression to describes the wait between runs or `recurrence` that specify using what frequency to trigger job. In each case, you need define a pipeline job first, it can be existing pipeline jobs or pipeline job define in yaml, please refer to [Create a pipeline job](how-to-create-component-pipelines-cli.md).
 
 
 #### Create a time-based schedule yaml with recurrence pattern
@@ -59,7 +59,7 @@ The `trigger` section contains following properties:
 
 - (Optional) `start_time` describes the start date and time with timezone. If `start_time` is omitted, the first job will run instantly and the future jobs will be triggered based on the schedule, saying start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time. 
 - (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until ，manual disable this schedule.  
-- (Optional) `time_zone` specifies the time zone of the recurrence. If omitted, by default is UTC. See [appendix for timezone values](#appendix).
+- (Optional) `time_zone` specifies the time zone of the recurrence. If omitted, by default is UTC. See [appendix for timezone values](reference-yaml-schedule.md#appendix).
 
 #### Create a time-based schedule yaml with cron expression
 
@@ -146,7 +146,7 @@ All the display name of jobs triggered by schedule will have the display name as
 - named-schedule-20210102T060000Z
 - named-schedule-20210102T180000Z and so on
 
-You can leverage [azure cli JMESPath query](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
+You can leverage [azure cli JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
 :::code language="azurecli" source="~/azureml-examples-schedule-pup/CLI/schedules/schedule.sh" ID="query_triggered_jobs" :::   
 
 ### Delete a schedule
