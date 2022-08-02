@@ -71,6 +71,7 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 The [Application Settings](reference-app-settings.md#wordpress) for MySQL database credentials are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated.
 
 | Application Settings | Description |
+|-----------------------|-------------|
 | DATABASE_HOST <BR/> DATABASE_NAME <BR/> DATABASE_USERNAME <BR/> DATABASE_PASSWORD | MySQL database credentials created during deployment. |
 
 For more information on updating MySQL passwords, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html#known-limitations).
