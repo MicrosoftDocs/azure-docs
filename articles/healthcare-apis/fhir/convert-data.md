@@ -27,9 +27,9 @@ The `$convert-data` operation is integrated into the FHIR service as a RESTful A
 
 The legacy health data is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the legacy data converted into FHIR.
 
-### Parameter Resource
+### Parameters Resource
 
-A `$convert-data` API call packages the legacy health data inside a JSON-formatted [Parameter resource](http://hl7.org/fhir/parameters.html) in the body of the request – as described in the table below. 
+A `$convert-data` API call packages the legacy health data inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request – as described in the table below. 
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
