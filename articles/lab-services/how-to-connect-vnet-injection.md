@@ -64,7 +64,7 @@ Only one lab plan at a time can be delegated for use with one subnet.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Search for **lab plan**.  (**Lab plan (preview)** can also be found under the **DevOps** category.)
+1. Search for **lab plan**.  (**Lab plan** can also be found under the **DevOps** category.)
 1. Enter required information on the **Basics** tab of the **Create a lab plan** page.  For more information, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
 1. From the **Basics** tab of the **Create a lab plan** page, select **Next: Networking** at the bottom of the page.
 1. Select **Enable advanced networking**.
