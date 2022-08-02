@@ -61,7 +61,7 @@ Starting August 01, 2022, Form Recognizer custom neural model training will only
 * Southeast Asia
 
 > [!TIP]
-> You can [copy a model](disaster-recovery.md) trained in one of the select regions listed above to **any other region** and use it accordingly.
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed above to **any other region** and use it accordingly.
 
 ## Best practices
 
