@@ -16,7 +16,7 @@ In this quickstart, you'll learn how to deploy the MedTech service in the Azure 
 
 > [!IMPORTANT]
 >
-> You'll want to confirm that the **Microsoft.HealthcareApis** resource provider has been registered with your Azure subscription for a successful deployment. To learn more about registering resource providers, see [Azure resource providers and types](/azure-resource-manager/management/resource-providers-and-types) 
+> You'll want to confirm that the **Microsoft.HealthcareApis** and **Microsoft.EventHub** resource providers have been registered with your Azure subscription for a successful deployment. To learn more about registering resource providers, see [Azure resource providers and types](/azure-resource-manager/management/resource-providers-and-types) 
 
 ## Deploy the MedTech service with a quickstart template
 
