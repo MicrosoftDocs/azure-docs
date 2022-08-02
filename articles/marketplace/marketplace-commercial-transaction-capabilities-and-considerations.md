@@ -90,7 +90,7 @@ Virtual Machine and Azure Application offers are a good fit if you want customer
 
 [2]</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.
 
-[3] This can include your own VM solutions.
+[3] This can include your own VM offers.
 
 [4] Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
