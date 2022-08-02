@@ -18,12 +18,9 @@ With Microsoft Defender for Servers, you can deploy [Microsoft Defender for Endp
 - Automatic investigation and remediation
 - Managed hunting services
 
-> [!TIP]
-> Originally launched as **Windows Defender ATP**, in 2019, this EDR product was renamed **Microsoft Defender ATP**.
->
-> At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection), and this EDR component was renamed **Microsoft Defender for Endpoint (MDE)**.
-
 You can learn about Defender for Cloud's integration with Microsoft Defender for Endpoint by watching this video from the Defender for Cloud in the Field video series: [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)
+
+For more information about migrating servers from Defender for Endpoint to Defender for Cloud, see the [Microsoft Defender for Endpoint to Microsoft Defender for Cloud Migration Guide](/microsoft-365/security/defender-endpoint/migrating-mde-server-to-cloud&preserve-view=true).
 
 ## Availability
 
@@ -318,6 +315,7 @@ To remove the Defender for Endpoint solution from your machines:
 
 - [What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?](#whats-this-mdewindows--mdelinux-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
+- [Do I need to buy a separate anti-malware solution to protect my machines?](#do-i-need-to-buy-a-separate-anti-malware-solution-to-protect-my-machines)
 - [If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-microsoft-defender-for-servers)
 - [How do I switch from a third-party EDR tool?](#how-do-i-switch-from-a-third-party-edr-tool)
 
@@ -327,7 +325,8 @@ In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytic
 
 Defender for Cloud automatically deploys the extension to machines running:
 
-- Windows Server 2019 and Windows Server 2022.
+- Windows Server 2019 and Windows Server 2022
+- Windows Server 2012 R2 and 2016 if [MDE Unified Solution integration](#enable-the-integration) is enabled
 - Windows 10 on Azure Virtual Desktop.
 - Other versions of Windows Server if Defender for Cloud doesn't recognize the OS version (for example, when a custom VM image is used). In this case, Microsoft Defender for Endpoint is still provisioned by the Log Analytics agent.
 - Linux.
