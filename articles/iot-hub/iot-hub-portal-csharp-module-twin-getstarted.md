@@ -79,9 +79,9 @@ Module identity and module twin is in public preview. It's only available in the
 
 1. Select **Browse**, and then select **Include prerelease**. Search for *Microsoft.Azure.Devices.Client*. Select the latest version and install.
 
-    ![Install Azure IoT Hub .NET service SDK preview](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png" alt-text="Screenshot showing how to install the Microsoft.Azure.Devices.Client.":::
 
-    Now you have access to all the module features.
+   Now you have access to all the module features.
 
 ### Create UpdateModuleTwinReportedProperties console app
 

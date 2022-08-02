@@ -63,7 +63,7 @@ Here's how to get your module connection string from the Azure portal. Sign in t
 
 1. Search for and select **Microsoft.Azure.Devices.Client**, and then select **Install**.
 
-   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png" alt-text="Screenshot that shows the "Microsoft.Azure.Devices.Client" selected and the "Install" button highlighted." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png":::
+   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png" alt-text="Screenshot that shows the 'Microsoft.Azure.Devices.Client' selected and the 'Install' button highlighted." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png":::
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 
