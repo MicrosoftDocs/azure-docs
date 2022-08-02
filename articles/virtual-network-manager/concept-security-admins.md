@@ -74,17 +74,17 @@ Note that security admin rules don't depend on NSGs in order to exist. This mean
 
 With NSGs alone, widespread enforcement on VNets across several applications, teams, or even entire organizations can be tricky. Often there’s a balancing act between attempts at centralized enforcement across an organization and handing over granular, flexible control to teams. Let’s look at a few common models of security management without security admin rules, and their pros and cons:
 
-Model 1: NSGs are managed by a central governance team.
-- Pros – The central governance team can enforce important security rules.
-- Cons – Operational overhead is high as admins need to manage each NSG, as the number of NSGs increases, the burden increases.
+- Model 1: NSGs are managed by a central governance team.
+    - Pros – The central governance team can enforce important security rules.
+    - Cons – Operational overhead is high as admins need to manage each NSG, as the number of NSGs increases, the burden increases.
 
-Model 2: NSGs are managed by individual teams.
-- Pros – The individual team has flexible control in tailoring security rules based on their service requirements.
-- Cons – The central governance team can't enforce critical security rules, such as blocking risky ports. Individual team might also misconfigure or forget to attach NSGs, leading vulnerability exposures.
+- Model 2: NSGs are managed by individual teams.
+    - Pros – The individual team has flexible control in tailoring security rules based on their service requirements.
+    - Cons – The central governance team can't enforce critical security rules, such as blocking risky ports. Individual team might also misconfigure or forget to attach NSGs, leading vulnerability exposures.
 
-Model 3: NSGs are managed by individual teams, but NSGs are created using Azure Policy to have standard rules. Modifying these rules would trigger audit notifications.
-- Pros – The individual team has flexible control in tailoring security rules. The central governance team can create standard security rules and receive notifications if these are modified.
-- Cons – The central governance team still can't enforce the standard security rules, since NSG owners in teams can still modify them. Notifications would also be overwhelming to manage.
+- Model 3: NSGs are managed by individual teams, but NSGs are created using Azure Policy to have standard rules. Modifying these rules would trigger audit notifications.
+    - Pros – The individual team has flexible control in tailoring security rules. The central governance team can create standard security rules and receive notifications if these are modified.
+    - Cons – The central governance team still can't enforce the standard security rules, since NSG owners in teams can still modify them. Notifications would also be overwhelming to manage.
 
 Security admin rules aim to eliminate this sliding scale between enforcement and flexibility altogether by consolidating the pros of each of these models while reducing the cons of each. Central governance teams establish guard rails through security admin rules, while still leaving room for individual teams to flexibly pinpoint security as needed through NSG rules. Security admin rules aren't meant to override NSG rules, but rather interact in different ways depending on the type of action specified in the security admin rule. We’ll explore these interactions after we discuss the immense scaling benefits of security admin rules.
 
@@ -105,6 +105,7 @@ Security rule priority is determined by an integer between 0 and 99. The lower t
 #### <a name = "action"></a>Action
 
 You can define one of three actions for a security rule:
+
 | Action | Description |
 | -------------- | --- |
 | **Allow** | Allows traffic on the specific port, protocol, and source/destination IP prefixes in the specified direction. |
