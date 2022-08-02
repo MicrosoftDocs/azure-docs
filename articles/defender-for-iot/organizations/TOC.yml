@@ -114,6 +114,8 @@
       href: tutorial-forescout.md
     - name: Integrate Fortinet
       href: tutorial-fortinet.md
+    - name: LogRhythm
+      href: integrations/logrhythm.md
     - name: Integrate Palo Alto
       href: tutorial-palo-alto.md
     - name: Integrate Qradar
