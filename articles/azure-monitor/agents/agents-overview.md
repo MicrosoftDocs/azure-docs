@@ -25,7 +25,7 @@ If you have virtual machines already deployed with legacy agents, we recommend y
 
 Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 
-- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions. We're **deprecating** Log Analytics Agent and will stop supporting the agent **as of August 31, 2024**. 
+- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.  
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
