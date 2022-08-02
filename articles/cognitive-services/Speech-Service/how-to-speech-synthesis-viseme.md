@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events for lip-sync
 
 > [!NOTE]
-> Viseme ID supports [all neural voices](language-support.md#text-to-speech) in [all supported locales](language-support.md#viseme), including custom neural voice. Scalable Vector Graphics (SVG) only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. 
+> Viseme ID supports neural voices in [all viseme-supported locales](language-support.md#viseme). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales. 
 
 A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
@@ -35,7 +35,7 @@ For more information about visemes, view this [introductory video](https://youtu
 
 ## Overall workflow of producing viseme with speech
 
-Neural Text-to-Speech (Neural TTS) turns input text or SSML (Speech Synthesis Markup Language) into lifelike synthesized speech. Speech audio output can be accompanied by viseme ID, Scalable Vector Graphics (SVG), and blendshapes. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
+Neural Text-to-Speech (Neural TTS) turns input text or SSML (Speech Synthesis Markup Language) into lifelike synthesized speech. Speech audio output can be accompanied by viseme ID, Scalable Vector Graphics (SVG), or blend shapes. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
 
 The overall workflow of viseme is depicted in the following flowchart:
 
@@ -61,11 +61,11 @@ With temporal tags that are provided in a viseme event, these well-designed SVGs
 
 ![Screenshot showing a 2D rendering example of four red-lipped mouths, each representing a different viseme ID that corresponds to a phoneme.](media/text-to-speech/viseme-demo-2D.png)
 
-## 3D blendshapes animation
+## 3D blend shapes animation
 
 You can use blend shapes to drive the facial movements of a 3D character that you designed.
 
-The blendshapes is two dimension D matrix, and each row represents a blendshapes facial status of a frame (in 60 Hz).
+The blend shapes JSON string is represented as a 2-dimensional matrix. Each row is an array of frames. Each frame (in 60 Hz) contains an array of 55 facial positions.
 
 ## Get viseme events with the Speech SDK
 
@@ -84,7 +84,7 @@ using (var synthesizer = new SpeechSynthesizer(speechConfig, audioConfig))
         Console.WriteLine($"Viseme event received. Audio offset: " +
             $"{e.AudioOffset / 10000}ms, viseme id: {e.VisemeId}.");
 
-        // `Animation` is an xml string for SVG or a json string for blendshapes
+        // `Animation` is an xml string for SVG or a json string for blend shapes
         var animation = e.Animation;
     };
 
@@ -108,7 +108,7 @@ synthesizer->VisemeReceived += [](const SpeechSynthesisVisemeEventArgs& e)
         << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
         << "viseme id: " << e.VisemeId << "." << endl;
 
-    // `Animation` is an xml string for SVG or a json string for blendshapes
+    // `Animation` is an xml string for SVG or a json string for blend shapes
     auto animation = e.Animation;
 };
 
@@ -128,7 +128,7 @@ synthesizer.VisemeReceived.addEventListener((o, e) -> {
     System.out.print("Viseme event received. Audio offset: " + e.getAudioOffset() / 10000 + "ms, ");
     System.out.println("viseme id: " + e.getVisemeId() + ".");
 
-    // `Animation` is an xml string for SVG or a json string for blendshapes
+    // `Animation` is an xml string for SVG or a json string for blend shapes
     String animation = e.getAnimation();
 });
 
@@ -146,7 +146,7 @@ def viseme_cb(evt):
     print("Viseme event received: audio offset: {}ms, viseme id: {}.".format(
         evt.audio_offset / 10000, evt.viseme_id))
 
-    # `Animation` is an xml string for SVG or a json string for blendshapes
+    # `Animation` is an xml string for SVG or a json string for blend shapes
     animation = evt.animation
 
 # Subscribes to viseme received event
@@ -166,7 +166,7 @@ var synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, audioConfig);
 synthesizer.visemeReceived = function (s, e) {
     window.console.log("(Viseme), Audio offset: " + e.audioOffset / 10000 + "ms. Viseme ID: " + e.visemeId);
 
-    // `Animation` is an xml string for SVG or a json string for blendshapes
+    // `Animation` is an xml string for SVG or a json string for blend shapes
     var animation = e.Animation;
 }
 
@@ -186,7 +186,7 @@ SPXSpeechSynthesizer *synthesizer =
 [synthesizer addVisemeReceivedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisVisemeEventArgs *eventArgs) {
     NSLog(@"Viseme event received. Audio offset: %fms, viseme id: %lu.", eventArgs.audioOffset/10000., eventArgs.visemeId);
 
-    // `Animation` is an xml string for SVG or a json string for blendshapes
+    // `Animation` is an xml string for SVG or a json string for blend shapes
     NSString *animation = eventArgs.Animation;
 }];
 
@@ -221,9 +221,9 @@ Render the SVG animation along with the synthesized speech to see the mouth move
     ...
 ```
 
-# [3D blendshapes](#tab/3dblendshapes)
+# [3D blend shapes](#tab/3dblendshapes)
 
-The output json looks like the following sample, where each row of the `BlendShapes` is an array with 55 numbers. Each number in the array can vary between 0 to 1. The order of numbers is in line with the order of 'BlendShapes'.
+The output json looks like the following sample, where each row of the `BlendShapes` is an array with 55 numbers. Each number in the array can vary between 0 to 1. The order of numbers is in line with the order of 'BlendShapes'. 
 
 ```json
 {
