@@ -94,7 +94,7 @@ To look at the contents of any of your Person models, select the arrow next to t
 
 ### Check if a person already exists 
 
-You can use the search to check if a person already exists in the model
+You can use the search to check if a person already exists in the model.
 
 ### Manage a person
 
