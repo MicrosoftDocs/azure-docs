@@ -97,7 +97,7 @@ In the following steps, you will switch between the context of the two subscript
    * **PowerShell:** The metadata from the newly formed connection will show in the PowerShell console if the connection was successfully formed.
    * **Azure portal:** Navigate to the virtual hub, **Connectivity -> Virtual Network Connections**. You can view the pointer to the connection. To see the actual resource you will need the proper permissions.
 
-## <a name="AddStaticRoute"></a>Scenario: Add Static Routes to Virtual network hub connection
+## Scenario: Add Static Routes to Virtual network hub connection
 In the following steps, you will add a static route to the virtual hub default route table and virtual network connection to point to a next hop ip address (i.e NVA appliance). 
 - Replace the example values to reflect your own environment.
 
@@ -126,7 +126,7 @@ $Route2 = New-AzVHubRoute -Name "[Route Name]" -Destination “[@("Destination p
 Update-AzVHubRouteTable -ResourceGroupName "[resource group name]"-VirtualHubName [“Hub Name”] -Name "defaultRouteTable" -Route @($Route2)
    ```
 
-## <a name="Customize"></a> Customize Static routes to specify next hop as an IP address for the virtual hub connection.
+## Customize Static routes to specify next hop as an IP address for the virtual hub connection.
 
  2.4 Update the route in the vnethub connection:
 
