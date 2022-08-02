@@ -95,16 +95,16 @@ A `$convert-data` API call has a JSON-formatted [Parameter](http://hl7.org/fhir/
 }
 ```
 
-## Customize templates
+## Customizing templates
 
 You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) for Visual Studio Code to customize templates as per your needs. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. Refer to the extension documentation for more details.
 
-## Host and use templates
+## Hosting your own templates
 
-It's recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own templates and using those in the `$convert-data` operation:
+It's recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own templates and using them in the `$convert-data` operation:
 
 1. Push the templates to your Azure Container Registry.
-2. Enable Managed Identity on your FHIR service instance.
+2. Enable Managed Identity in your FHIR service instance.
 3. Provide ACR access to the FHIR service Managed Identity.
 4. Register the ACR server in the FHIR service.
 5. Optionally configure ACR firewall for secure access.
@@ -113,7 +113,7 @@ It's recommended that you host your own copy of templates on ACR. There are four
 
 After creating an ACR instance, you can use the _FHIR Converter: Push Templates_ command in the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to push the customized templates to the ACR. Alternatively, you can use the [Template Management CLI tool](https://github.com/microsoft/FHIR-Converter/blob/main/docs/TemplateManagementCLI.md) for this purpose.
 
-### Enable Managed Identity on the FHIR service
+### Enable Managed Identity in the FHIR service
 
 Browse to your instance of the FHIR service in Azure portal and select the **Identity** blade.
 Change the status to **On** to enable managed identity in the FHIR service.
