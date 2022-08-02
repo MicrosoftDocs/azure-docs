@@ -23,13 +23,13 @@ ms.custom: devx-track-python
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-In this article, you'll learn how to programmatically schedule a pipeline to run on Azure using SDK v2. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as retrain model or do batch predictions regularly to keep them up-to-date using the new coming. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI and SDK.
+In this article, you'll learn how to programmatically schedule a pipeline to run on Azure using SDK v2. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as retrain model or do batch predictions regularly to keep them up-to-date using the new coming. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via SDK.
 
 ## Prerequisites
 
 * You must have an Azure subscription to use Azure Machine Learning. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* Create an Azure Machine Learning workspace if you don't have one. For workspace creation, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+* Create an Azure Machine Learning workspace if you don't have one. 
 
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
@@ -41,39 +41,38 @@ To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedul
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_pipeline_job)]
 
-### Create a time-based schedule using recurrence pattern
+### Create a time-based schedule with recurrence pattern
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-schedule.yml":::
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
 
 This schedule refer existing pipeline job in workspace. Customer also can refer a pipeline job yaml in local.
 
-The `trigger` section contains following properties:
-
-- **(Required)** `type` specifies the schedule type is `recurrence`.
+The `RecurrenceTrigger` section contains following properties:
 
 - **(Required)** `frequency` specifies he unit of time that describes how often the schedule fires. Can be `minute`, `hour`, `day`, `week`, `month`.
   
 - **(Required)** `interval` specifies how often the schedule fires based on the frequency, which is the number of time units to wait until the schedule fires again.
   
-- (Optional) `start_time` describes the start date and time with timezone. If `start_time` is omitted, the first job will run instantly and the future jobs will be triggered based on the schedule, saying start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time. 
-
-- (Optional) `schedule` defines the recurrence pattern, containing `hours`, `minutes`, and `weekdays`. 
+- (Optional) `schedule` defines the recurrence pattern, containing `hours`, `minutes`, and `weekdays`. We provide `RecurrencePattern` to represent the recurrence pattern.
     - When `frequency` is `day`, pattern can specify `hours` and `minutes`.
     - When `frequency` is `week` and `month`, pattern can specify `hours`, `minutes` and `weekdays`.
     - `hours` should be an integer or a list, from 0 to 23.
     - `minutes` should be an integer or a list, from 0 to 59.
     - `weekdays` can be a string or list from `monday` to `sunday`.
-    - If `pattern` is omitted, the job(s) will be triggered according to the logic of `start_time`, `frequency` and `interval`.
+    - If `schedule` is omitted, the job(s) will be triggered according to the logic of `start_time`, `frequency` and `interval`.
+
+- (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, the first job will run instantly and the future jobs will run based on the schedule. If the start time is in the past, the first job will run at the next calculated run time.
+
+- (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until ，manual disable this schedule.  
 
 - (Optional) `time_zone` specifies the time zone of the recurrence. If omitted, by default is UTC. See [appendix for timezone values](#appendix).
 
-### Create a time-based schedule using cron expression
+### Create a time-based schedule with cron expression
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
 
-The `schedule` section defines the schedule details and contains following properties:
+The `CronTrigger` section defines the schedule details and contains following properties:
 
-- **(Required)** `type` specifies the schedule type is `cron`. 
 - **(Required)** `expression` uses standard crontab expression to express a recurring schedule. A single expression is composed of 5 space-delimited fields:
 
     `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
@@ -97,20 +96,25 @@ The `schedule` section defines the schedule details and contains following prope
 
 - (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, the first job will run instantly and the future jobs will run based on the schedule. If the start time is in the past, the first job will run at the next calculated run time.
 
+- (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until manual disable this schedule.  
+
 - (Optional) `time_zone`specifies the time zone of the expression. If omitted, by default is UTC. See [appendix for timezone values](#appendix).
 
 ### Manage schedule
 
 #### Check schedule detail
-
-#### List all schedules in a workspace
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="show_schedule" :::   
-#### Update a schedule
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule" :::   
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=show_schedule)]
+#### List schedules in a workspace
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=list_schedule)]
 #### Disable a schedule
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="disable_schedule" :::   
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=disable_schedule)]
 #### Enable a schedule
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="enable_schedule" :::   
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
+
+### Delete a schedule
+
+    > [!IMPORTANT]
+    > Please disable schedule first, only disabled schedule can be deleted.
 
 ### Query triggered jobs from a schedule
 All the display name of jobs triggered by schedule will have the display name as <schedule_name>-YYYYMMDDThhmmssZ. For e.g. if a schedule with a name of named-schedule is created with a schedule of run every 12 hours starting 6 AM on Jan 1 2021, then the display names of the jobs created will be as follows:
@@ -120,14 +124,8 @@ All the display name of jobs triggered by schedule will have the display name as
 - named-schedule-20210102T060000Z
 - named-schedule-20210102T180000Z and so on
 
-You can leverage [azure cli JMESPath query](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="query_triggered_jobs" :::   
-
-### Delete a schedule
-
-    > [!IMPORTANT]
-    > Please disable schedule first, only disabled schedule can be deleted.
-
+You can filter the job display name using schedule name to query triggered job by this schedule.
+![](media/how-to-schedule/schedule-triggered-pipelinejobs.png)
 ## Next steps
 
 In this article, you used the Azure Machine Learning CLI to schedule a pipeline. The schedule support use cron expression and recurrence pattern to define trigger frequency. You saw how to use CLI command to managed the schedule. You learned how to query jobs triggered by schedule.
