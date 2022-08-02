@@ -22,7 +22,7 @@ There are three categories of software development kits (SDKs) for working with 
 
 - [DPS management SDKs](#management-sdks) provide control plane operations for backend apps. You can use the management SDKs to create and manage DPS instances and metadata. For example, to create and manage DPS instances in your subscription, to upload and verify certificates with a DPS instance, or to create and manage authorization policies or allocation policies in a DPS instance.
 
-The DPS SDKs are built on top of the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md), which help you build devices and backend apps that communicate with Azure IoT Hub.
+The DPS SDKs help you provision devices through DPS to your IoT hubs. Microsoft also provides a set of SDKs to help you build device apps and backend apps that communicate directly with Azure IoT Hub. For example, to help your provisioned devices send telemetry to your IoT hub, and, optionally, to receive messages and job, method, or twin updates from your IoT hub. To learn more, see [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
 
 ## Device SDKs
 
