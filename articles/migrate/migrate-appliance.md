@@ -36,7 +36,7 @@ The appliance can be deployed using a couple of methods:
 - Download links are available in the tables below.
 
 > [!Note]
-> Do not Install any other components such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance** on the same server hosting the Azure Migrate appliance. In you install the MMA agent you can face with problem like this **"Multiple custom attributes of the same type found"**. It is recommended to have a dedicated server to deploy the appliance.
+> Do not Install any other components such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance** on the same server hosting the Azure Migrate appliance. If you install the MMA agent you can face with problem like this **"Multiple custom attributes of the same type found"**. It is recommended to have a dedicated server to deploy the appliance.
 
 ## Appliance services
 
