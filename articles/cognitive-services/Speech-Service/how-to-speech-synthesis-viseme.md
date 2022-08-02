@@ -65,7 +65,7 @@ With temporal tags that are provided in a viseme event, these well-designed SVGs
 
 You can use blend shapes to drive the facial movements of a 3D character that you designed.
 
-The blend shapes JSON string is represented as a 2-dimensional matrix. Each row is an array of frames. Each frame (in 60 Hz) contains an array of 55 facial positions.
+The blend shapes JSON string is represented as a 2-dimensional matrix. Each row represents a frame. Each frame (in 60 FPS) contains an array of 55 facial positions.
 
 ## Get viseme events with the Speech SDK
 
