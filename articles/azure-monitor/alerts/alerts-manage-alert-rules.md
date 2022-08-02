@@ -139,7 +139,7 @@ az monitor scheduled-query show --ids {RuleResourceId}
 ### Disable a log alert rule
 
 ```azurecli
-az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled false
+az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled true
 ```
 
 ### Delete a log alert rule
