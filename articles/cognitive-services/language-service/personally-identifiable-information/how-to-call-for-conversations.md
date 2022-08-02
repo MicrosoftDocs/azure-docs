@@ -72,8 +72,8 @@ When you get results from PII detection, you can stream the results to an applic
     
 5. See the following reference documentation for more information on the client, and return object:
     
-    * [C#](/dotnet/api/azure.ai.language.conversations?view=azure-dotnet)
-    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations.aio?view=azure-python)
+    * [C#](/dotnet/api/azure.ai.language.conversations)
+    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations.aio)
     
 # [REST API](#tab/rest-api)
 
