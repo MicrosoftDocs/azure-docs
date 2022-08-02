@@ -226,8 +226,6 @@ It joins the data in the 'SAP Dynamic Audit Log Monitor Configuration' and 'SAP 
 The **SAPAuditLogAnomalies** uses Sentinel's underlying Kusto database's built-in machine learning capabilities to help detect anomalous events observed on the SAP audit log.
 Initially developed for the “SAP - (Experimental) Dynamic Anomaly-based Audit Log Monitor Alerts” alert rule, designed to alert on recent anomalies, this function can also help to highlight historical anomalies (see examples below).
 
-See ***LINK TO THE ANOMALY RULE DOCS***
-
 **Parameters:**
 
 - LearningTime
@@ -315,7 +313,7 @@ SAPAuditLog
 | join kind=leftantisemi excludedUsers on $left.User == $right.User2Exclude
 ```
 
-This functionality is heavily used in the #TODO Deterministic and Anomalous Audit Log Monitor Alerts, 'where tags can be associated with SAP audit log message ID, and can also be easily extended to custom alert rules. 
+This functionality is heavily used in the Deterministic and Anomalous Audit Log Monitor Alerts, 'where tags can be associated with SAP audit log message ID, and can also be easily extended to custom alert rules. 
 **Parameters:**
 
 - SearchForTags
@@ -397,9 +395,9 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 - [ABAP Application log](#abap-application-log)
 - [ABAP Change Documents log](#abap-change-documents-log)
 - [ABAP CR log](#abap-cr-log)
-- [ABAP DB table data log PREVIEW](#abap-db-table-data-log-preview)
-- [ABAP Gateway log PREVIEW](#abap-gateway-log-preview)
-- [ABAP ICM log PREVIEW](#abap-icm-log-preview)
+- [ABAP DB table data log](#abap-db-table-data-log-preview) (PREVIEW)
+- [ABAP Gateway log](#abap-gateway-log-preview) (PREVIEW)
+- [ABAP ICM log](#abap-icm-log-preview) (PREVIEW)
 - [ABAP Job log](#abap-job-log)
 - [ABAP Security Audit log](#abap-security-audit-log)
 - [ABAP Spool log](#abap-spool-log)
@@ -542,7 +540,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 | ViewName     | View name                         |
 
 
-### ABAP DB table data log PREVIEW
+### ABAP DB table data log (PREVIEW)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -576,7 +574,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | VersionNumber    | Version number                        |
 
 
-### ABAP Gateway log PREVIEW
+### ABAP Gateway log (PREVIEW)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
@@ -598,7 +596,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | SystemNumber | System number    |
 
 
-### ABAP ICM log PREVIEW
+### ABAP ICM log (PREVIEW)
 
 To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
