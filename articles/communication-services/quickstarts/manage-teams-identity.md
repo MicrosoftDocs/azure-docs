@@ -163,7 +163,14 @@ In this quickstart, you learned how to:
 > * Use the Microsoft Authentication Library (MSAL) to issue an Azure AD user token.
 > * Use the Communication Services Identity SDK to exchange the Azure AD user token for an access token of Teams user.
 
+
+> [!div class="nextstepaction"]
+> [Make a call as a Teams users to a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+> [Check use cases for communication as a Teams user](../concepts/interop/custom-teams-endpoint-use-cases.md)
+
 Learn about the following concepts:
 
 - [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
+
+

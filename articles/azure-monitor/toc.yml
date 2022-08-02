@@ -45,7 +45,7 @@ items:
       href: app/tutorial-users.md
     - name: Dashboard with application data
       href: app/tutorial-app-dashboards.md
-    - name: Monitor mobile application
+    - name: Monitor mobile or UWP application
       href: app/mobile-center-quickstart.md
   - name: Change Analysis
     items:
@@ -686,7 +686,7 @@ items:
     - name: Notifications and actions
       items:
       - name: Alert processing rules
-        href: alerts/alerts-action-rules.md
+        href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: alerts/action-groups.md
@@ -794,9 +794,6 @@ items:
           href: app/azure-web-apps-java.md
         - name: Node.js
           href: app/azure-web-apps-nodejs.md
-      - name: Azure Cloud Services
-        displayName: cloud, cloud services, PaaS
-        href: app/cloudservices.md
       - name: Azure Functions
         displayName: functions, monitor functions, automation
         href: app/monitor-functions.md
@@ -815,8 +812,8 @@ items:
               href: app/status-monitor-v2-detailed-instructions.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
-        - name: Java
-          href: app/java-in-process-agent.md
+        - name: Java (OpenTelemetry redirect)
+          href: app/java-in-process-agent-redirect.md
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -992,28 +989,26 @@ items:
     - name: Transaction search
       href: app/diagnostic-search.md
     - name: Smart Detection
-      href: app/proactive-diagnostics.md
+      href: alerts/proactive-diagnostics.md
       items:
       - name: Upgrade to alerts
         href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
-        href: app/proactive-failure-diagnostics.md
+        href: alerts/proactive-failure-diagnostics.md
       - name: Performance anomalies
-        href: app/proactive-performance-diagnostics.md
+        href: alerts/proactive-performance-diagnostics.md
       - name: Trace degradation
-        href: app/proactive-trace-severity.md
+        href: alerts/proactive-trace-severity.md
       - name: Exception volume
-        href: app/proactive-exception-volume.md
+        href: alerts/proactive-exception-volume.md
       - name: Memory leak
-        href: app/proactive-potential-memory-leak.md
+        href: alerts/proactive-potential-memory-leak.md
       - name: Security detection
-        href: app/proactive-application-security-detection-pack.md
-      - name: Azure Cloud Services
-        href: app/proactive-cloud-services.md
+        href: alerts/proactive-application-security-detection-pack.md
       - name: Manage smart detection rules
-        href: app/proactive-arm-config.md
+        href: alerts/proactive-arm-config.md
       - name: E-mail notification
-        href: app/proactive-email-notification.md
+        href: alerts/proactive-email-notification.md
     - name: Usage (user behavior analytics)
       items:
       - name: Overview
@@ -1172,8 +1167,6 @@ items:
       href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
-    - name: Azure PowerShell
-      href: change/change-analysis-powershell.md
     - name: Custom filters
       href: change/change-analysis-custom-filters.md
     - name: Pin and share changes via Azure dashboard
@@ -1188,7 +1181,7 @@ items:
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
-    - name: Install agents
+    - name: Enable and configure
       items:
       - name: Overview
         href: vm/vminsights-enable-overview.md
@@ -1202,7 +1195,7 @@ items:
         href: vm/vminsights-enable-policy.md
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
-      - name: Upgrade Dependency agent
+      - name: Dependency Agent
         href: vm/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
@@ -1323,22 +1316,20 @@ items:
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Cosmos DB
-      href: insights/cosmosdb-insights-overview.md
+      href: ../cosmos-db/cosmosdb-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Data Explorer
-      href: /azure/data-explorer/data-explorer-insights
+      href: /azure/data-explorer/data-explorer-insights?toc=/azure/azure-monitor/toc.json
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
-      href: insights/network-insights-overview.md
+      href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Key Vault
-      href: insights/key-vault-insights-overview.md
+      href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Storage
       displayName: storage, monitor, insights, storage accounts, azure storage
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
-    - name: Troubleshoot insights
-      href: insights/troubleshoot-workbooks.md
   - name: Logs ingestion API
     items:
     - name: Overview
@@ -1434,6 +1425,12 @@ items:
         href: visualize/workbooks-move-region.md
       - name: Move Workbook templates to another region
         href: visualize/workbook-templates-move-region.md
+    - name: Transition from View Designer
+      items:
+      - name: Move from View Designer to Workbooks
+        href: visualize/workbooks-view-designer-conversion-overview.md
+      - name: Sample JSON to covert View Designer views
+        href: visualize/workbooks-view-designer-conversions.md 
     - name: Workbook Samples
       href: visualize/workbooks-sample-links.md          
   - name: Other visualizations

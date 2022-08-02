@@ -179,4 +179,4 @@ Smart detection works for any web app, hosted in the cloud or on your own server
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
-- Learn more about [Smart Detection](../app/proactive-failure-diagnostics.md).
+- Learn more about [Smart Detection](proactive-failure-diagnostics.md).

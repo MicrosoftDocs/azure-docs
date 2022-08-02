@@ -2,7 +2,7 @@
 title: Database migration scenario status
 titleSuffix: Azure Database Migration Service
 description: Learn about the status of the migration scenarios supported by Azure Database Migration Service.
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg, randolphwest

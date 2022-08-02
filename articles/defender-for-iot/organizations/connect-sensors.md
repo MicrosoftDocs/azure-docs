@@ -49,7 +49,7 @@ Before you start, make sure that you have:
 - Outbound HTTPS traffic on port 443 to the following hostnames:
 
     - **IoT Hub**: `*.azure-devices.net`
-    - **Threat Intelligence**: `*.blob.core.windows.net`
+    - **Blob storage**: `*.blob.core.windows.net`
     - **EventHub**: `*.servicebus.windows.net`
     - **Microsoft Download Center**: `download.microsoft.com`
 

@@ -18,7 +18,7 @@ AKS supports Ubuntu 18.04 as the default node operating system (OS) in general a
 
 ## Container runtime configuration
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and is used by default in Kubernetes 1.23 and greater. Docker is no longer supported as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and will be the only container runtime option in Kubernetes 1.21 and greater. Docker is no longer supported as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby (upstream Docker) version that AKS uses already leverages and is built on top of `containerd`, as shown above.
 
@@ -33,7 +33,7 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 > [!IMPORTANT]
 > Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022.
 > 
-> Using `containerd` with Windows Server 2019 node pools is generally available, and is used by default in Kubernetes 1.23 and greater. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 

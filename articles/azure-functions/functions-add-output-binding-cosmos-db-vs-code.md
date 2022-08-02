@@ -265,7 +265,7 @@ Add code that uses the `outputDocument` output binding object on `context.bindin
 if (name) {
     context.bindings.outputDocument = JSON.stringify({
         // create a random ID
-        id: new Date().toISOString() + Math.random().toString().substr(2,8),
+        id: new Date().toISOString() + Math.random().toString().substring(2, 10),
         name: name
     });
 }
@@ -285,7 +285,7 @@ module.exports = async function (context, req) {
     if (name) {
         context.bindings.outputDocument = JSON.stringify({
             // create a random ID
-            id: new Date().toISOString() + Math.random().toString().substr(2,8),
+            id: new Date().toISOString() + Math.random().toString().substring(2, 10),
             name: name
         });
     }

@@ -192,11 +192,18 @@ This authentication mode allows you to:
 * Set up fine-grained permissions, where different workspace users can have access to different storage accounts or folders within storage accounts.
 * Audit storage access because the storage logs show which identities were used to access data.
 
-> [!WARNING] 
+> [!IMPORTANT] 
 > This functionality has the following limitations
 > * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](how-to-configure-cli.md)
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
+
+> [!WARNING]
+> This feature is __public preview__ and is __not secure for production workloads__. Ensure that only trusted users have permissions to access your workspace and storage accounts.
+>
+> Preview features are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
 

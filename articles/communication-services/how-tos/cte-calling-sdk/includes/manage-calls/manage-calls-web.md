@@ -23,48 +23,33 @@ const oneToOneCall = teamsCallAgent.startCall(userCallee);
 Start a one-to-one phone call to E.164 phone number:
 ```js
 const phoneCallee = { phoneNumber: '<PHONE_NUMBER_E164_FORMAT>' }
-const oneToOneCall = callAgent.startCall(phoneCallee );
+const oneToOneCall = teamsCallAgent.startCall(phoneCallee );
 ```
 Start a group call to Teams user with Voice-over IP (VoIP) and phone number:
 ```js
 const userCallee = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' }
 const phoneCallee = { phoneNumber: '<PHONE_NUMBER_E164_FORMAT>'};
-const groupCall = callAgent.startCall([userCallee, phoneCallee], { threadId: '<THREAD_ID>' });
+const groupCall = teamsCallAgent.startCall([userCallee, phoneCallee], { threadId: '<THREAD_ID>' });
 ```
 
-## Join a call 
-You can join Teams group calls with the method `join` on the `teamsCallAgent` instance. 
+## Join a call
 
-Participants of the ongoing Teams call can share a group identifier (you can find this value in `TeamsCall`.`info`.`groupId`) with another Teams user, who can join the group call with `GroupLocator`. `GroupLocator` is initialized with the property `groupId` of the call identifier. 
-
-Retrieve group ID from ongoing call:
-```js
-const groupId = call.info.groupId;
-```
-
-Join Teams group call with call identifier:
-```js
-const meetingCall = callAgent.join({ groupId: '<GROUP_ID>' });
-```
-
-
-## Join Teams meeting
+### Join a Teams meeting
 
 You can join Teams meetings with the method `join` on the `teamsCallAgent` instance. Teams users can join Teams meeting by providing a `TeamsMeetingLinkLocator`, `TeamsMeetingCoordinatesLocator`, or `TeamsMeetingIdLocator`.
 
 Join Teams meeting with meeting URL:
 ```js
-const meetingCall = callAgent.join({ meetingLink: '<MEETING_LINK>' });
+const meetingCall = teamsCallAgent.join({ meetingLink: '<MEETING_LINK>' });
 ```
 
 Join Teams meeting with combination of thread ID, organizer ID, tenant ID, and message ID:
 ```js
-const meetingCall = callAgent.join({ threadId: '<THREAD_ID>', organizerId: '<ORGANIZER_ID>', tenantId: '<TENANT_ID>', messageId: '<MESSAGE_ID>' });
+const meetingCall = teamsCallAgent.join({ threadId: '<THREAD_ID>', organizerId: '<ORGANIZER_ID>', tenantId: '<TENANT_ID>', messageId: '<MESSAGE_ID>' });
 ```
-
 Join Teams meeting with meeting code:
 ```js
-const meetingCall = callAgent.join({ meetingId: '<MEETING_CODE>'});
+const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>'});
 ```
 
 ## Receive a Teams incoming call
@@ -166,6 +151,12 @@ const identifier = remoteParticipant.identifier;
 |`Disconnected` | Final state | The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes. |
 
 
+States of remote participants in one-to-one or group calls:
+![Diagram of remote participant's call states for one-to-one or group calls.](../media/participants-call-states.svg)
+
+States of remote participants in Teams meetings:
+![Diagram of remote participant's call states for Teams meetings.](../media/participants-meeting-states.svg)
+
 ```js
 const state = remoteParticipant.state;
 ```
@@ -213,13 +204,12 @@ const callId = call.id;
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API, please use the 'beta' release of Azure Communication Services Calling Web SDK
 
-•	`info`: Returns object containing information about the call. The property `threadId` is a string representing chat's thread ID shown in the Teams client. The property `groupId` is a string that can be used to allow another Teams user to join a Teams group call.
+•	`info`: Returns object containing information about the call. The property `threadId` is a string representing chat's thread ID shown in the Teams client.
 
 
 ```js
 const callInfo = call.info;
 const threadId = call.info.threadId;
-const groupId = call.info.groupId;
 ```
 
 •	`remoteParticipants`: Returns a collection of `remoteParticipant` objects representing other participants in the Teams call or Teams meeting. 
@@ -236,6 +226,8 @@ const callerIdentity = call.callerInfo.displayName;
 ```
 
 •	`state`: Returns a string representing the state of the call. The property can have one of the following values:
+
+
 | State value | When | Description |
 |-------------|------| ----------- |
 |`None` | Initial state | The initial state of the call.|
@@ -249,6 +241,11 @@ const callerIdentity = call.callerInfo.displayName;
 |`Disconnecting`| After any state | The transition state before the call goes to a `Disconnected` state.|
 | `Disconnected`| Final state | The final state of the call. If the network connection is lost, the state changes to `Disconnected` after two minutes.|
 
+States for one-to-one or group calls:
+![Diagram with call's states for one-to-one or group calls.](../media/call-states.svg)
+
+States for Teams meetings:
+![Diagram with call's states for Teams meetings.](../media/meeting-states.svg)
 
 ```js
 const callState = call.state;
