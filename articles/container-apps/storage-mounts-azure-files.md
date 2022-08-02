@@ -631,6 +631,8 @@ az group delete `
   --name $RESOURCE_GROUP
 ```
 
+---
+
 ## Next steps
 
 > [!div class="nextstepaction"]
