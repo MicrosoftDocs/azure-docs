@@ -111,9 +111,9 @@ With Premium SSD v2 disks, you can individually set the capacity, throughput, an
 
 #### Premium SSD v2 capacities
 
-Premium SSD v2 capacities range from 1 GiB to 64 TiB, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
+Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
-Premium SSD v2 offers up to 32 TiB per region per subscription by default in the public preview, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+Premium SSD v2 offers up to 32 TiBs per region per subscription by default in the public preview, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 #### Premium SSD v2 IOPS
 
@@ -132,7 +132,7 @@ The following table provides a comparison of disk capacities and performance max
 
 |Disk Size  |Maximum available IOPS  |Maximum available throughput (MB/s)  |
 |---------|---------|---------|
-|1 GiB-64 TiB    |3,000-80,000 (Increases by 500 IOPS per GiB)        |125-1,200 (increases by 0.25 MB/s per set IOPS)         |
+|1 GiB-64 TiBs    |3,000-80,000 (Increases by 500 IOPS per GiB)        |125-1,200 (increases by 0.25 MB/s per set IOPS)         |
 
 To deploy a Premium SSD v2, see [Deploy a Premium SSD v2 (preview)](disks-deploy-premium-v2.md).
 
