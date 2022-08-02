@@ -16,7 +16,7 @@ Azure Arc-enabled Kubernetes provides both automatic and manual upgrade capabili
 
 By default, Azure Arc-enabled Kubernetes provides its agents with out-of-the-box automatic upgrade capabilities.
 
-The following command connects a cluster to Azure Arc with automatic upgrade **enabled**:
+The following command connects a cluster to Azure Arc with automatic upgrade enabled:
 
 ```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
@@ -24,7 +24,9 @@ az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 
 With automatic upgrade enabled, the agent polls Azure hourly to check for a newer version. When a newer version becomes available, it triggers a Helm chart upgrade for the Azure Arc agents.
 
-To opt out of automatic upgrade, specify the `--disable-auto-upgrade` parameter while connecting the cluster to Azure Arc. The following command connects a cluster to Azure Arc with auto-upgrade **disabled**:
+To opt out of automatic upgrade, specify the `--disable-auto-upgrade` parameter while connecting the cluster to Azure Arc.
+
+The following command connects a cluster to Azure Arc with auto-upgrade disabled:
 
 ```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest --disable-auto-upgrade
@@ -45,11 +47,9 @@ az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto
 
 ## Manually upgrade agents
 
-If you've disabled automatic upgrade, you can manually initiate upgrades for the agents by using the `az connectedk8s upgrade`. When doing so, you must specify the version to which you want to upgrade.
+If you've disabled automatic upgrade, you can manually initiate upgrades for the agents by using the `az connectedk8s upgrade` command. When doing so, you must specify the version to which you want to upgrade.
 
-Azure Arc-enabled Kubernetes follows the standard [semantic versioning scheme](https://semver.org/) of `MAJOR.MINOR.PATCH` for versioning its agents.
-
-Each number in the version indicates general compatibility with the previous version:
+Azure Arc-enabled Kubernetes follows the standard [semantic versioning scheme](https://semver.org/) of `MAJOR.MINOR.PATCH` for versioning its agents. Each number in the version indicates general compatibility with the previous version:
 
 * **Major versions** change when there are incompatible API updates or backwards-compatibility may be broken.
 * **Minor versions** change when functionality changes are backwards-compatible to other minor releases.
@@ -65,15 +65,15 @@ az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
 
 ## Version support policy
 
-When you create support issues, Azure Arc-enabled Kubernetes uses the following version support policy:
+When you [create support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request) for Azure Arc-enabled Kubernetes, the following version support policy applies:
 
 * Azure Arc-enabled Kubernetes agents have a support window of "N-2", where 'N' is the latest minor release of agents.
-  * For example, if Azure Arc-enabled Kubernetes introduces 0.28.a today, versions 0.28.a, 0.28.b, 0.27.c, 0.27.d, 0.26.e, and 0.26.f are supported by Azure Arc.
+  * For example, if Azure Arc-enabled Kubernetes introduces 0.28.a today, versions 0.28.a, 0.28.b, 0.27.c, 0.27.d, 0.26.e, and 0.26.f are supported.
 
 * Kubernetes clusters connecting to Azure Arc have a support window of "N-2", where 'N' is the latest stable minor release of [upstream Kubernetes](https://github.com/kubernetes/kubernetes/releases).
   * For example, if Kubernetes introduces 1.20.a today, versions 1.20.a, 1.20.b, 1.19.c, 1.19.d, 1.18.e, and 1.18.f are supported.
 
-If you are using a version that is outside of the support policy (outside the "N-2" supported versions of agents and upstream Kubernetes clusters), and you file a support request, you'll be asked to upgrade the clusters and agents to a supported version.
+If you create a support request and are using a version that is outside of the support policy (older than the "N-2" supported versions of agents and upstream Kubernetes clusters), you'll be asked to upgrade the clusters and agents to a supported version.
 
 ## Next steps
 
