@@ -39,7 +39,7 @@ In this article, you learn how to configure and submit Azure Machine Learning jo
 To run the training examples, first clone the examples repository and change into the `sdk` directory:
 
 ```bash
-git clone --depth 1 https://github.com/Azure/azureml-examples --branch 
+git clone --depth 1 https://github.com/Azure/azureml-examples
 cd azureml-examples/sdk
 ```
 
