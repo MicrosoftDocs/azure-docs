@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 > [!NOTE]
 > Viseme ID supports [all neural voices](language-support.md#text-to-speech) in [all supported locales](language-support.md#viseme), including custom neural voice. Scalable Vector Graphics (SVG) only supports prebuilt neural voices in `en-US` locale, and blendshapes supports prebuilt neural voices in `en-US` and `zh-CN` locales. 
 
-A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes.
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
 You can use visemes to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech. For example, you can:
 
