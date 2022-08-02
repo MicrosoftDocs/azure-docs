@@ -4,8 +4,8 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/28/2022
 ms.topic: how-to

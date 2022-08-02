@@ -4,8 +4,8 @@ description: Rotate user-provided TLS certificate in indirectly connected Azure 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 12/15/2021
 ms.topic: how-to
