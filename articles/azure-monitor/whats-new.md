@@ -107,7 +107,7 @@ All references to unsupported versions of .NET and .NET CORE have been scrubbed 
 
 | Article | Description |
 |:---|:---|
-| [Troubleshoot SQL Insights (preview)](insights/sql-insights-troubleshoot.md) | Added known issue for OS computer name. |
+| [Troubleshoot SQL Insights (preview)](/azure/azure-sql/database/sql-insights-troubleshoot) | Added known issue for OS computer name. |
 ### Logs
 
 | Article | Description |

@@ -600,7 +600,7 @@ It's easy to make mistakes in the custom lexicon, so Microsoft provides a [valid
 
 In the preceding sample, we're using the IPA, which is also known as the IPA phone set. We suggest that you use the IPA because it's the international standard. For some IPA characters, they're the "precomposed" and "decomposed" version when they're being represented with Unicode. The custom lexicon only supports the decomposed Unicode.
 
-The IPA isn't easy to remember, so the Speech service defines a phonetic set for seven languages: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
+The IPA isn't easy to remember, so the Speech service defines a phonetic set for these locales: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, `zh-HK`, and `zh-TW`.
 
 You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated here:
 

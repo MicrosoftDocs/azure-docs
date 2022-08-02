@@ -312,7 +312,19 @@
             - name: Manage documents
               href: how-to-javascript-manage-documents.md         
             - name: Manage queries
-              href: how-to-javascript-manage-queries.md         
+              href: how-to-javascript-manage-queries.md
+        - name: .NET
+          items: 
+            - name: Get started
+              href: how-to-dotnet-get-started.md
+            - name: Manage databases
+              href: how-to-dotnet-manage-databases.md
+            - name: Manage collections
+              href: how-to-dotnet-manage-collections.md         
+            - name: Manage documents
+              href: how-to-dotnet-manage-documents.md         
+            - name: Manage queries
+              href: how-to-dotnet-manage-queries.md            
     - name: Connect using Mongoose
       href: connect-using-mongoose.md
     - name: Distribute reads globally
