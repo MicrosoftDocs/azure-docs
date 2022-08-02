@@ -1,17 +1,17 @@
 ---
-title: How to use the BlobFuse2 unmount all command to unmount all blob containers in a storage account as a Linux file system | Microsoft Docs
+title: How to use the BlobFuse2 unmount all command to unmount all blob containers in a storage account as a Linux file system (preview) | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how to use the BlobFuse2 unmount all command to unmount all blob containers in a storage account as a Linux file system.
+description: Learn how to use the BlobFuse2 unmount all command to unmount all blob containers in a storage account as a Linux file system (preview).
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 unmount all command to unmount all existing mount points
+# How to use the BlobFuse2 unmount all command to unmount all existing mount points (preview)
 
 Use the `blobfuse2 unmount all` command to unmount all existing BlobFuse2 mount points.
 
@@ -52,5 +52,5 @@ blobfuse2 unmount all
 
 ## See also
 
-- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)
-- [The Blobfuse2 mount all command](blobfuse2-commands-mount-all.md)
+- [The Blobfuse2 unmount command (preview)](blobfuse2-commands-unmount.md)
+- [The Blobfuse2 mount all command (preview)](blobfuse2-commands-mount-all.md)

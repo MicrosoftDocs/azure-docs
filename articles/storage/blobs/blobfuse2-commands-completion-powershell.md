@@ -1,16 +1,17 @@
 ---
-title: How to use the "completion powershell" command to generate the autocompletion script for BlobFuse2 | Microsoft Docs
-description: Learn how to use the "completion powershell" command to generate the autocompletion script for BlobFuse2.
+title: How to use the "completion powershell" command to generate the autocompletion script for BlobFuse2 (preview) | Microsoft Docs
+titleSuffix: Azure Blob Storage
+description: Learn how to use the "completion powershell" command to generate the autocompletion script for BlobFuse2 (preview).
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# BlobFuse2 completion powershell command
+# BlobFuse2 completion powershell command (preview)
 
 Use the `blobfuse2 completion powershell` command to generate the autocompletion script for BlobFuse2 for PowerShell.
 
@@ -30,11 +31,11 @@ Use the `blobfuse2 completion powershell` command to generate the autocompletion
 
 ## Flags (options)
 
-Flags that apply to `blobfuse2 completion powershell` are inherited from the grandparent command, `blobfuse2`, or apply only to the [`blobfuse2 completion`](blobfuse2-commands-completion.md) subcommands.
+Flags that apply to `blobfuse2 completion powershell` are inherited from the grandparent command, [`blobfuse2`](blobfuse2-commands.md), or apply only to the `blobfuse2 completion` subcommands.
 
 ### Flags inherited from the BlobFuse2 command
 
-The following flags are inherited from grandparent command `blobfuse2`:
+The following flags are inherited from grandparent command [`blobfuse2`](blobfuse2-commands.md):
 
 | Flag | Short version | Value type | Default value | Description |
 |--|--|--|--|--|
@@ -65,7 +66,7 @@ to your PowerShell profile.
 
 ## See also
 
-- [The Blobfuse2 completion command](blobfuse2-commands-completion.md)
-- [The Blobfuse2 completion bash command](blobfuse2-commands-completion-bash.md)
-- [The Blobfuse2 completion fish command](blobfuse2-commands-completion-fish.md)
-- [The Blobfuse2 completion zsh command](blobfuse2-commands-completion-zsh.md)
+- [The Blobfuse2 completion command (preview)](blobfuse2-commands-completion.md)
+- [The Blobfuse2 completion bash command (preview)](blobfuse2-commands-completion-bash.md)
+- [The Blobfuse2 completion fish command (preview)](blobfuse2-commands-completion-fish.md)
+- [The Blobfuse2 completion zsh command (preview)](blobfuse2-commands-completion-zsh.md)
