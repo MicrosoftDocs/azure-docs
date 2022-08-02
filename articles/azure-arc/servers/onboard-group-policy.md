@@ -52,6 +52,9 @@ The group policy will project machines as Arc-enabled servers in the Azure subsc
 
 Before you can run the script to connect your machines, you'll need to save the onboarding script to the remote share. This will be referenced when creating the Group Policy Object.
 
+> [!NOTE]
+> If you're using a proxy server, you'll need to modify the `Invoke-WebRequest` command in the script to include the `Proxy` parameter and web address, as in: `Invoke-WebRequest -Uri "https://aka.ms/azcmagent-windows" -Proxy "http://xx.x.x.xx:xxxx -TimeoutSec 30 -OutFile "$InstallationFolder\install_windows_azcmagent.ps1"`
+
 <!--1. Edit the field for `remotePath` to reflect the distributed share location with the configuration file and Connected Machine Agent.
 
 1. Edit the `localPath` with the local path where the logs generated from the onboarding to Azure Arc-enabled servers will be saved per machine.
@@ -146,6 +149,8 @@ try
 ```
 
 ## Create a Group Policy Object
+> [!NOTE]
+> Before applying the Group Policy Scheduled Task, you must first check the folder `ScheduledTasks` (located within the `Preferences` folder) and modify the `ScheduledTasks.xml` file by changing `<GroupId>NT AUTHORITY\SYSTEM<\GroupId>` to `<UserId>NT AUTHORITY\SYSTEM</UserId>`.
 
 Create a new Group Policy Object (GPO) to run the onboarding script using the configuration file details:
 

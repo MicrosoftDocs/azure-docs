@@ -655,6 +655,7 @@ When you use `FlushAsync()`, we recommend this pattern:
 
 ```csharp
 await telemetryClient.FlushAsync()
+// No need to sleep
 ```
 
 We recommend always flushing as part of the application shutdown to guarantee that telemetry isn't lost.

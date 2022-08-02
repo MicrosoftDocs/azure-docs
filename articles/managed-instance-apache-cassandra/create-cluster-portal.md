@@ -132,20 +132,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Update Cassandra configuration
 
-The service allows update to a limited set of Cassandra configurations on a datacenter via the portal or by [using CLI commands](manage-resources-cli.md#update-yaml). The following YAML settings are supported:
-
-- column_index_size_in_kb
-- allocate_tokens_for_keyspace
-- compaction_throughput_mb_per_sec
-- read_request_timeout_in_ms
-- range_request_timeout_in_ms
-- aggregated_request_timeout_in_ms
-- write_request_timeout_in_ms
-- request_timeout_in_ms
-- internode_compression
-- batchlog_replay_throttle_in_kb
-
-To update settings in the portal:
+The service allows update to Cassandra YAML configuration on a datacenter via the portal or by [using CLI commands](manage-resources-cli.md#update-yaml). To update settings in the portal:
 
 1. Find `Cassandra Configuration` under settings. Highlight the data center whose configuration you want to change, and click update:
 
@@ -160,7 +147,34 @@ To update settings in the portal:
    :::image type="content" source="./media/create-cluster-portal/update-config-3.png" alt-text="Screenshot of the updated Cassandra config." lightbox="./media/create-cluster-portal/update-config-3.png" border="true":::
 
    > [!NOTE]
-   > Only overridden Cassandra configuration values are shown in the portal. 
+   > Only overridden Cassandra configuration values are shown in the portal.
+
+   > [!IMPORTANT]
+   > Ensure the Cassandra yaml settings you provide are appropriate for the version of Cassandra you have deployed. See [here](https://github.com/apache/cassandra/blob/cassandra-3.11/conf/cassandra.yaml) for Cassandra v3.11 settings and [here](https://github.com/apache/cassandra/blob/cassandra-4.0/conf/cassandra.yaml) for v4.0. The following YAML settings are **not** allowed to be updated:
+   >
+   > - cluster_name
+   > - seed_provider
+   > - initial_token
+   > - autobootstrap
+   > - client_ecncryption_options
+   > - server_encryption_options
+   > - transparent_data_encryption_options
+   > - audit_logging_options
+   > - authenticator
+   > - authorizer
+   > - role_manager
+   > - storage_port
+   > - ssl_storage_port
+   > - native_transport_port
+   > - native_transport_port_ssl
+   > - listen_address
+   > - listen_interface
+   > - broadcast_address
+   > - hints_directory
+   > - data_file_directories
+   > - commitlog_directory
+   > - cdc_raw_directory
+   > - saved_caches_directory 
 
 ## Troubleshooting
 

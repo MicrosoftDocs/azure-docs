@@ -19,7 +19,7 @@ Before you begin, you must have the following requirements in place:
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
++ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (16.16.0 and 14.20.0 recommended).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

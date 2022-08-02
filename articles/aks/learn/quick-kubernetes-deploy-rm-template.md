@@ -63,8 +63,6 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/aks/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/azuredeploy.json":::
-
 For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
 ## Deploy the template

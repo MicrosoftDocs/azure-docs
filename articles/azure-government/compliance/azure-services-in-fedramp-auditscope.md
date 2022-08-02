@@ -97,6 +97,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; |
 | [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; |
 | [Azure Sphere](/azure-sphere/) | &#x2705; | &#x2705; |
+| [Azure Spring Apps](../../spring-apps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; |
 | [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; |
@@ -210,7 +211,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; |
-| [Spring Cloud](../../spring-cloud/index.yml) | &#x2705; | &#x2705; |
 | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; |
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; |
