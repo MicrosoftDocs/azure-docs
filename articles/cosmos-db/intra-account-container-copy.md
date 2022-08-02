@@ -4,8 +4,10 @@ description: Learn about container data copy capability within an Azure Cosmos D
 author: nayakshweta
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 08/1/2022
 ms.author: shwetn
+ms.reviewer: sidandrews
+ms.custom: references_regions 
 ---
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)

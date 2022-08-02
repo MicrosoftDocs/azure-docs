@@ -4,8 +4,9 @@ description: Learn how to create, monitor, and manage container copy jobs within
 author: nayakshweta
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 08/01/2022
 ms.author: shwetn
+ms.reviewer: sidandrews
 ---
 
 # Create and manage intra-account container copy jobs in Azure Cosmos DB (Preview)
@@ -17,7 +18,7 @@ This article describes how to create, monitor, and manage intra-account containe
 
 ## Pre-requisites
 
-* You may use the portal [Cloud Shell](../cloud-shell/quickstart-powershell#start-cloud-shell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps-msi) downloaded and installed on your machine.
+* You may use the portal [Cloud Shell](../cloud-shell/quickstart-powershell.md#start-cloud-shell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps-msi) downloaded and installed on your machine.
 * Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
 
 
