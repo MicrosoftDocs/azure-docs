@@ -26,7 +26,7 @@ To use the steps in this tutorial, you need an Azure subscription. If you don't 
 
 You can change the settings of an existing IoT hub after it's created from the IoT Hub pane. Here are some of the properties you can set for an IoT hub:
 
-**Pricing and scale**: You can use this property to migrate to a different tier or set the number of IoT Hub units. 
+**Pricing and scale**: You can use this property to migrate to a different tier or set the number of IoT Hub units.
 
 **IP Filter**: Specify a range of IP addresses that will be accepted or rejected by the IoT hub.
 
@@ -34,19 +34,19 @@ You can change the settings of an existing IoT hub after it's created from the I
 
 ### Shared access policies
 
-You can also view or modify the list of shared access policies by clicking **Shared access policies** in the **Settings** section. These policies define the permissions for devices and services to connect to IoT Hub. 
+You can also view or modify the list of shared access policies by clicking **Shared access policies** in the **Security settings** section. These policies define the permissions for devices and services to connect to IoT Hub.
 
-Click **Add** to open the **Add a shared access policy** blade.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure:
+Click **Add shared access policy** to open the **Add shared access policy** blade.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure:
 
-![Screenshot showing adding a shared access policy](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
+:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screenshot showing adding a shared access policy." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
 
-* The **Registry read** and **Registry write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
+* The **Registry Read** and **Registry Write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
 
-* The **Service connect** policy grants permission to access service endpoints. This permission is used by back-end cloud services to send and receive messages from devices as well as to update and read device twin and module twin data.
+* The **Service Connect** policy grants permission to access service endpoints. This permission is used by back-end cloud services to send and receive messages from devices as well as to update and read device twin and module twin data.
 
-* The **Device connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints. This permission is used by devices to send and receive messages from an IoT hub, update and read device twin and module twin data, and perform file uploads.
+* The **Device Connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints. This permission is used by devices to send and receive messages from an IoT hub, update and read device twin and module twin data, and perform file uploads.
 
-Click **Create** to add this newly created policy to the existing list.
+Click **Add** to add this newly created policy to the existing list.
 
 For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
@@ -56,17 +56,17 @@ For more detailed information about the access granted by specific permissions, 
 
 ## Message Routing for an IoT hub
 
-Click **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and custom endpoints for the hub. [Message routing](iot-hub-devguide-messages-d2c.md) enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage. 
+Click **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and custom endpoints for the hub. [Message routing](iot-hub-devguide-messages-d2c.md) enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage.
 
 ![Message routing pane](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
 ### Routes
 
-Routes is the first tab on the Message Routing pane. To add a new route, click +**Add**. You see the following screen. 
+Routes is the first tab on the Message Routing pane. To add a new route, click +**Add**. You see the following screen.
 
 ![Screenshot showing adding a new route](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Name your route. The route name must be unique within the list of routes for that hub. 
+Name your route. The route name must be unique within the list of routes for that hub.
 
 For **Endpoint**, you can select one from the dropdown list, or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, click +**Add** next to the Endpoint dropdown and select **Blob Storage**. The following screen shows where the storage account and container are specified.
 
@@ -74,7 +74,7 @@ For **Endpoint**, you can select one from the dropdown list, or add a new one. I
 
 Click **Pick a container** to select the storage account and container. When you have selected those fields, it returns to the Endpoint pane. Use the defaults for the rest of the fields and **Create** to create the endpoint for the storage account and add it to the routing rules.
 
-For **Data source**, select Device Telemetry Messages. 
+For **Data source**, select Device Telemetry Messages.
 
 Next, add a routing query. In this example, the messages that have an application property called `level` with a value equal to `critical` are routed to the storage account.
 
@@ -84,7 +84,7 @@ Click **Save** to save the routing rule. You return to the Message Routing pane,
 
 ### Custom endpoints
 
-Click the **Custom endpoints** tab. You see any custom endpoints already created. From here, you can add new endpoints or delete existing endpoints. 
+Click the **Custom endpoints** tab. You see any custom endpoints already created. From here, you can add new endpoints or delete existing endpoints.
 
 > [!NOTE]
 > If you delete a route, it does not delete the endpoints assigned to that route. To delete an endpoint, click the Custom endpoints tab, select the endpoint you want to delete, and click Delete.
@@ -92,7 +92,7 @@ Click the **Custom endpoints** tab. You see any custom endpoints already created
 
 You can read more about custom endpoints in [Reference - IoT hub endpoints](iot-hub-devguide-endpoints.md).
 
-You can define up to 10 custom endpoints for an IoT hub. 
+You can define up to 10 custom endpoints for an IoT hub.
 
 To see a full example of how to use custom endpoints with routing, see [Message routing with IoT Hub](tutorial-routing.md).
 

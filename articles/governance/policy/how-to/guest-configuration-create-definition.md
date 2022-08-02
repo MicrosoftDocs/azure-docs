@@ -94,7 +94,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in hashtable format.
-- **Version**: Policy version.
+- **PolicyVersion**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for guest configuration policy
   and content package.
@@ -117,7 +117,7 @@ New-GuestConfigurationPolicy `
   -Description 'Details about my policy.' `
   -Path './policies' `
   -Platform 'Windows' `
-  -Version 1.0.0 `
+  -PolicyVersion 1.0.0 `
   -Verbose
 ```
 
@@ -132,7 +132,7 @@ New-GuestConfigurationPolicy `
   -Description 'Details about my policy.' `
   -Path './policies' `
   -Platform 'Windows' `
-  -Version 1.0.0 `
+  -PolicyVersion 1.0.0 `
   -Mode 'ApplyAndAutoCorrect' `
   -Verbose
 ```
@@ -218,48 +218,24 @@ New-GuestConfigurationPolicy `
   -Description 'Audit if a Windows Service isn't enabled on Windows machine.' `
   -Path '.\policies' `
   -Parameter $PolicyParameterInfo `
-  -Version 1.0.0
+  -PolicyVersion 1.0.0
 ```
 
 ### Publish the Azure Policy definition
 
-Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The
-cmdlet only has the **Path** parameter that points to the location of the JSON files created by
-`New-GuestConfigurationPolicy`.
+Finally, you can publish the policy definitions using the New-AzPolicyDefinition cmdlet. The below commands will publish your guest configuration policy to the policy center. 
 
-To run the Publish command, you need access to create policy definitions in Azure. The specific authorization
+To run the New-AzPolicyDefinition command, you need access to create policy definitions in Azure. The specific authorization
 requirements are documented in the [Azure Policy Overview](../overview.md) page. The recommended built-in
 role is **Resource Policy Contributor**.
 
 ```powershell
-Publish-GuestConfigurationPolicy -Path '.\policies'
+New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies'
 ```
 
 With the policy definition created in Azure, the last step is to assign the definition. See how to assign the
 definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
 [Azure PowerShell](../assign-policy-powershell.md).
-
-### Optional: Piping output from each command to the next
-
-The commands in the guest configuration support pipeline parameters by name.
-You can use the `|` operator to pipeline output from each command to the next.
-Piping is useful in developer environments when rapidly iterating because you
-won't need to copy/paste the output of each command.
-
-To run the sequence using the `|` operator:
-
-```powershell
-# End to end flow piping output of each command to the next
-$ConfigName         = myConfigName
-$ResourceGroupName  = myResourceGroupName
-$StorageAccountName = myStorageAccountName
-$DisplayName        = 'Configure Linux machine per my scenario.'
-$Description        = 'Details about my policy.'
-New-GuestConfigurationPackage -Name $ConfigName -Configuration ./$ConfigName.mof -Path ./package/ -Type AuditAndSet -Force |
-Publish-GuestConfigurationPackage -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName -Force |
-New-GuestConfigurationPolicy -PolicyId 'My GUID' -DisplayName $DisplayName -Description $Description -Path './policies' -Platform 'Linux' -Version 1.0.0 -Mode 'ApplyAndAutoCorrect' |
-Publish-GuestConfigurationPolicy
-```
 
 ## Policy lifecycle
 

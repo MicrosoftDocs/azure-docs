@@ -9,12 +9,6 @@ ms.date: 07/13/2021
 
 Standard tests are a single request test that is similar to the [URL ping test](monitor-web-app-availability.md) but more advanced. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`,`HEAD`,`POST`, etc.), custom headers, and custom data associated with your HTTP request.
 
-> [!NOTE]
-> Standard tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
-
-> [!NOTE]
-> There are currently no additional charges for the preview feature Standard tests. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using Standard tests after the notice period, you will be billed at the applicable rate.
-
 To create an availability test, you need use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 
 > [!TIP]
@@ -25,20 +19,20 @@ To create an availability test, you need use an existing Application Insights re
 To create a standard test: 
 
 1. Go to your Application Insights resource and select the **Availability** pane.
-1. Select **Add Standard (preview) test**.
+1. Select **Add Standard test**.
     
     :::image type="content" source="./media/availability-standard-test/standard-test.png" alt-text="Screenshot of Availability pane with add standard test tab open." lightbox="./media/availability-standard-test/standard-test.png":::
 
-1. Input your test name, URL and additional settings (explanation below), then select **Create**.
+1. Input your test name, URL and other settings (explanation below), then select **Create**.
 
 
 |Setting | Explanation |
 |--------|-------------|
 |**URL** |  The URL can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.|
-|**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources cannot be successfully downloaded within the timeout for the whole test. If the option isn't checked, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which may not be noticeable when manually browsing the site. |
+|**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option isn't checked, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which may not be noticeable when manually browsing the site. |
 |**Enable retries**| When the test fails, it's retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. **We recommend this option**. On average, about 80% of failures disappear on retry.|
 | **SSL certificate validation test** | You can verify the SSL certificate on your website to make sure it's correctly installed, valid, trusted, and doesn't give any errors to any of your users. |
-| **Proactive lifetime check** | This enables you to define a set time period before your SSL certificate expires. Once it expires, your test will fail. |
+| **Proactive lifetime check** | This setting enables you to define a set time period before your SSL certificate expires. Once it expires, your test will fail. |
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
 |**Test locations**|  The places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
 | **Custom headers** | Key value pairs that define the operating parameters. |
@@ -49,7 +43,7 @@ To create a standard test:
 
 |Setting| Explanation|
 |-------|------------|
-| **Test timeout** |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site have not been received within this period. If you selected **Parse dependent requests**, then all the images, style files, scripts, and other dependent resources must have been received within this period.|
+| **Test timeout** |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site haven't been received within this period. If you selected **Parse dependent requests**, then all the images, style files, scripts, and other dependent resources must have been received within this period.|
 | **HTTP response** | The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.|
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are supported with content match** |
 
@@ -57,14 +51,14 @@ To create a standard test:
 
 |Setting| Explanation|
 |-------|------------|
-|**Near-realtime (Preview)** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
+|**Near-realtime** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
 ## Location population tags
 
 The following population tags can be used for the geo-location attribute when deploying an availability URL ping test using Azure Resource Manager.
 
-### Azure gov
+### Azure Government
 
 | Display Name   | Population Name     |
 |----------------|---------------------|
@@ -124,7 +118,7 @@ To edit, temporarily disable, or delete a test, select the ellipses next to a te
 
 :::image type="content" source="./media/monitor-web-app-availability/edit.png" alt-text="View test details. Edit and Disable a web test." border="false":::
 
-You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
+You might want to disable availability tests or the alert rules associated with them while you're performing maintenance on your service.
 
 ## If you see failures
 

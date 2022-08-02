@@ -133,17 +133,17 @@ When allocating resources, the total amount of CPUs and memory requested for all
 
 ## Multiple containers
 
-You can define multiple containers in a single container app. The containers in a container app share hard disk and network resources and experience the same [application lifecycle](application-lifecycle-management.md).
+You can define multiple containers in a single container app to implement the [sidecar pattern](/azure/architecture/patterns/sidecar). The containers in a container app share hard disk and network resources and experience the same [application lifecycle](./application-lifecycle-management.md).
 
-To run multiple containers in a container app,  add more than one container in the `containers` array of the container app template.
+Examples of sidecar containers include:
 
-Reasons to run containers together in a container app include:
+- An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#temporary-storage) and forwards them to a logging service.
+- A background process that refreshes a cache used by the primary app container in a shared volume.
 
-- Use a container as a sidecar to your primary app.
-- Share disk space and the same virtual network.
-- Share scale rules among containers.
-- Group multiple containers that need to always run together.
-- Enable direct communication among containers.
+> [!NOTE]
+> Running multiple containers in a single container app is an advanced use case. You should use this pattern only in specific instances in which your containers are tightly coupled. In most situations where you want to run multiple containers, such as when implementing a microservice architecture, deploy each service as a separate container app.
+
+To run multiple containers in a container app, add more than one container in the containers array of the container app template.
 
 ## Container registries
 
@@ -188,12 +188,20 @@ The following example shows how to configure Azure Container Registry credential
 }
 ```
 
+> [!NOTE]
+> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app will fail to start. You're recommended to use a registry with sufficient limits, such as [Azure Container Registry](../container-registry/container-registry-intro.md).
+
 ### Managed identity with Azure Container Registry
 
 You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. To use a managed identity:
 
 - Assign a system-assigned or user-assigned managed identity to your container app.
 - Specify the managed identity you want to use for each registry.
+
+> [!NOTE]
+> You will need to [enable an admin user account](../container-registry/container-registry-authentication.md) in your Azure
+> Container Registry even when you use an Azure managed identity.  You will not need to use the ACR admin credentials to pull images into Azure
+> Container Apps, however, it is a prequisite to have the ACR admin user account enabled in the registry Azure Container Apps is pulling from.
 
 When assigned a managed identity to a registry, use the managed identity resource ID for a user-assigned identity, or "system" for the system-assigned identity. For more information about using managed identities see, [Managed identities in Azure Container Apps Preview](managed-identity.md).
 

@@ -14,7 +14,7 @@ The HPE ProLiant DL20 Plus is also available for the on-premises management cons
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Enterprise|
+|**Hardware profile** | E1800, E1000, E500 |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
 |**Status** | Supported, Available preconfigured |
@@ -144,6 +144,10 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 1. In the **Create Array** form, select all the options. Three options are available for the **Enterprise** appliance.
 
+> [!NOTE]
+> For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
+>
+
 ### Install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus
 
 This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus.
@@ -166,6 +170,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

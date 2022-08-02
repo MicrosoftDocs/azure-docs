@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Connect using PHP - Azure Database for MySQL'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 10/28/2020
+author: savjani
+ms.author: pariks
+ms.custom: mvc, mode-other
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use PHP to connect and query data in Azure Database for MySQL
@@ -79,7 +79,6 @@ if (mysqli_connect_errno())
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Step 2: Create a Table
 Use the following code to connect. This code calls:
@@ -174,4 +173,3 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
 
-[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)

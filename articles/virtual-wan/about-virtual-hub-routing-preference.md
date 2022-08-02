@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 A Virtual WAN virtual hub connects to virtual networks (VNets) and on-premises using connectivity gateways, such as site-to-site (S2S) VPN gateway, ExpressRoute (ER) gateway, point-to-site (P2S) gateway, and SD-WAN Network Virtual Appliance (NVA). The virtual hub router provides central route management and enables advanced routing scenarios using route propagation, route association, and custom route tables.
 
-The virtual hub router takes routing decisions using built-in route selection algorithm. To influence routing decisions in virtual hub router towards on-premises, we now have a new Virtual WAN hub feature called **Hub routing preference** (HRP). When a virtual hub router learns multiple routes across S2S VPN, ER and SD-WAN NVA connections for a destination route-prefix in on-premises, the virtual hub router’s route selection algorithm will adapt based on the hub routing preference configuration and selects the best routes. You can now configure **Hub routing preference** using the [Azure Preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home).
+The virtual hub router takes routing decisions using built-in route selection algorithm. To influence routing decisions in virtual hub router towards on-premises, we now have a new Virtual WAN hub feature called **Hub routing preference** (HRP). When a virtual hub router learns multiple routes across S2S VPN, ER and SD-WAN NVA connections for a destination route-prefix in on-premises, the virtual hub router’s route selection algorithm will adapt based on the hub routing preference configuration and selects the best routes. You can now configure **Hub routing preference** using the Azure Preview Portal. For steps, see [How to configure virtual hub routing preference](howto-virtual-hub-routing-preference.md).
 
 > [!IMPORTANT]
 > The Virtual WAN feature **Hub routing preference** is currently in public preview. If you are interested in trying this feature, please follow the documentation below.
@@ -57,7 +57,7 @@ This section explains the route selection algorithm in a virtual hub along with 
 
 * When there are multiple virtual hubs in a Virtual WAN scenario, a virtual hub selects the best routes using the route selection algorithm described above, and then advertises them to the other virtual hubs in the virtual WAN.
 
-* **Limitation:** If a route-prefix is reachable via ER or VPN connections, and via virtual hub SD-WAN NVA, then the latter route is ignored by the route-selection algorithm. Therefore, the flows to prefixes reachable only via virtual hub SD-WAN NVA will ever take the route through the NVA. This is a limitation during the Preview phase of  the **Hub routing preference** feature.
+* **Limitation:** If a route-prefix is reachable via ER or VPN connections, and via virtual hub SD-WAN NVA, then the latter route is ignored by the route-selection algorithm. Therefore, the flows to prefixes reachable only via virtual hub SD-WAN NVA will take the route through the NVA. This is a limitation during the Preview phase of  the **Hub routing preference** feature.
 
 ## Routing scenarios
 
@@ -82,9 +82,9 @@ Let’s say there are flows from a virtual network VNET1 connected to Hub_1 to v
 
 | Flow destination route-prefix | HRP of Hub_1 | HRP of Hub_2 | Path used by flow | All possible paths | Explanation |
 | --- | --- | --- | --- | --- |---|
-| 10.61.1.5 | AS Path | N/A | 4 | 1,2,3,4 | Paths 1, 4 and 5 have the shortest AS Path but ER takes precedence over VPN, so path 4 is chosen. |
-| 10.61.1.5 | VPN | N/A | 1 | 1,2,3,4 | VPN route is preferred over ER, so paths 1 and 2 are preferred, but path 1 has the shorter AS Path. |
-| 10.61.1.5 | ER | N/A | 4 | 1,2,3,4 | ER routes 3 and 4 are selected, but path 4 has the shorter AS Path. |
+| 10.61.1.5 | AS Path | Any setting | 4 | 1,2,3,4 | Paths 1 and 4 have the shortest AS Path but for local routes ER takes precedence over VPN, so path 4 is chosen. |
+| 10.61.1.5 | VPN | Any setting | 1 | 1,2,3,4 | VPN route is preferred over ER due to HRP setting, so paths 1 and 2 are preferred, but path 1 has the shorter AS Path. |
+| 10.61.1.5 | ER | Any setting | 4 | 1,2,3,4 | ER routes 3 and 4 are preferred, but path 4 has the shorter AS Path. |
 
 **When only remote routes are available:**
 

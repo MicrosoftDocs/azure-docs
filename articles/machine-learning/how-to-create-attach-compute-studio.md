@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/21/2021
+ms.date: 07/28/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
@@ -16,10 +16,9 @@ ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 
 In this article, learn how to create and manage compute targets in Azure Machine studio.  You can also create and manage compute targets with:
 
-* Azure Machine Learning Learning SDK or  CLI extension for Azure Machine Learning
+* Azure Machine Learning SDK or  CLI extension for Azure Machine Learning
   * [Compute instance](how-to-create-manage-compute-instance.md)
   * [Compute cluster](how-to-create-attach-compute-cluster.md)
-  * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
   * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
@@ -31,7 +30,7 @@ In this article, learn how to create and manage compute targets in Azure Machine
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
 ## What's a compute target? 
 
@@ -68,7 +67,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
     * [Compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create)
     * [Compute clusters](#amlcompute)
-    * [Inference clusters](#inference-clusters)
     * [Attached compute](#attached-compute)
 
 1. Select __Create__.
@@ -124,7 +122,6 @@ During cluster creation or when editing compute cluster details, in the **Advanc
 
 > [!IMPORTANT]
 > Using Azure Kubernetes Service with Azure Machine Learning has multiple configuration options. Some scenarios, such as networking, require additional setup and configuration. For more information on using AKS with Azure ML, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
-
 Create or attach an Azure Kubernetes Service (AKS) cluster for large scale inferencing. Use the [steps above](#portal-create) to create the AKS cluster.  Then fill out the form as follows:
 
 
@@ -136,7 +133,7 @@ Create or attach an Azure Kubernetes Service (AKS) cluster for large scale infer
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Cluster purpose  | Select **Production** or **Dev-test** |
 |Number of nodes | The number of nodes multiplied by the virtual machine’s number of cores (vCPUs) must be greater than or equal to 12. |
-| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](./how-to-secure-inferencing-vnet.md). |
+| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](./v1/how-to-secure-inferencing-vnet.md). |
 | Enable SSL configuration | Use this to configure SSL certificate on the compute |
 
 ## <a name="attached-compute"></a> Attach other compute
@@ -151,7 +148,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight
-    * Kubernetes (preview)
+    * [Kubernetes](./how-to-attach-kubernetes-anywhere.md#attach-a-kubernetes-cluster-to-an-azure-ml-workspace)
 
 1. Fill out the form and provide values for the required properties.
 

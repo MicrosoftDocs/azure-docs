@@ -230,12 +230,12 @@
         href: troubleshoot-shared-private-link-resources.md
     - name: Outbound connections
       items:
-      - name: Connect using a managed identity
-        href: search-howto-managed-identities-data-sources.md
-      - name: Connect over an IP range
-        href: search-indexer-howto-access-ip-restricted.md
       - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Connect using a managed identity
+        href: search-howto-managed-identities-data-sources.md
+      - name: Connect through a firewall
+        href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
     - name: Document-level security
@@ -468,7 +468,7 @@
       href: search-performance-tips.md
     - name: Monitoring Cognitive Search
       href: monitor-azure-cognitive-search.md
-    - name: Visualize diagnostic logs
+    - name: Visualize resource logs
       href: search-monitor-logs-powerbi.md
     - name: Monitor queries
       href: search-monitor-queries.md

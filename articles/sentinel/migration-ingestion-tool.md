@@ -27,7 +27,7 @@ The [custom log ingestion tool](https://github.com/Azure/Azure-Sentinel/tree/mas
 
 ### Direct API 
 
-With this option, you [ingest your custom logs into Azure Monitor Logs](../azure-monitor/logs/tutorial-custom-logs.md). You ingest the logs with a PowerShell script that uses a REST API. Alternatively, you can use any other programming language to perform the ingestion, and you can use other Azure services to abstract the compute layer, such as Azure Functions or Azure Logic Apps. 
+With this option, you [ingest your custom logs into Azure Monitor Logs](../azure-monitor/logs/tutorial-logs-ingestion-portal.md). You ingest the logs with a PowerShell script that uses a REST API. Alternatively, you can use any other programming language to perform the ingestion, and you can use other Azure services to abstract the compute layer, such as Azure Functions or Azure Logic Apps. 
 
 ## Azure Data Explorer 
 
@@ -67,7 +67,7 @@ To optimize performance, [configure the Logstash tier size](https://www.elastic.
 You can ingest data to Azure Blob Storage in several ways. 
 - [Azure Data Factory or Azure Synapse](../data-factory/connector-azure-blob-storage.md)
 - [AzCopy](../storage/common/storage-use-azcopy-v10.md)
-- [Azure Storage Explorer](/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
+- [Azure Storage Explorer](/azure/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 - [SSIS](/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis)
 

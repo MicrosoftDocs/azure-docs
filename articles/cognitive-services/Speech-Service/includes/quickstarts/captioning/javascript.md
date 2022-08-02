@@ -19,14 +19,14 @@ ms.author: eur
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
+Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=Captioning&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Create captions from speech
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a Node.js console application and install the Speech SDK.
 
 1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/javascript/node/captioning/"  title="Copy the samples"  target="_blank">scenarios/javascript/node/captioning/</a> sample files from GitHub into your project directory.
 1. Open a command prompt in the same directory as `Captioning.js`.
@@ -42,6 +42,9 @@ Follow these steps to create a new console application and install the Speech SD
 
     > [!NOTE]
     > The Speech SDK for JavaScript does not support [compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md). You must use a WAV file as shown in the example.
+
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
     The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
     ```console

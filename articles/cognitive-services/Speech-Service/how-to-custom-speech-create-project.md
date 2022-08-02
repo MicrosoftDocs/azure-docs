@@ -30,6 +30,9 @@ To create a Custom Speech project, follow these steps:
 
 Select the new project by name or select **Go to project**. You will see these menu items in the left panel: **Speech datasets**, **Train custom models**, **Test models**, and **Deploy models**. 
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Create-a-project&Section=Create-a-project" target="_target">I ran into an issue</a>
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -44,6 +47,9 @@ Here's an example Speech CLI command that creates a project:
 ```azurecli-interactive
 spx csr project create --name "My Project" --description "My Project Description" --language "en-US"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Create-a-project&Section=Create-a-project" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -97,6 +103,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US"
 } '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/projects"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Create-a-project&Section=Create-a-project" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

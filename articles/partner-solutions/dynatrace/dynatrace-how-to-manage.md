@@ -1,5 +1,5 @@
 ---
-title: Manage your Dynatrace for Azure integration
+title: Manage your Dynatrace for Azure (preview) integration - Azure partner solutions
 description: This article describes how to manage Dynatrace on the Azure portal. 
 ms.topic: conceptual
 author: flang-msft
@@ -10,7 +10,7 @@ ms.date: 06/07/2022
 
 # Manage the Dynatrace integration with Azure
 
-This article describes how to manage the settings for your Azure integration with Dynatrace.
+This article describes how to manage the settings for your Dynatrace for Azure (preview).
 
 ## Resource overview
 
@@ -61,8 +61,8 @@ You can filter the list of resources by resource type, resource group name, regi
 
 The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. If the resource isn't sending logs, this field indicates why logs aren't being sent. The reasons could be:
 
-- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
-- _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
+- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
+- _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
 - _Error_ - The resource is configured to send logs to Dynatrace, but is blocked by an error.
 - _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.
 - _Agent not configured_ - Virtual machines without the Dynatrace OneAgent installed don't emit logs to Dynatrace.

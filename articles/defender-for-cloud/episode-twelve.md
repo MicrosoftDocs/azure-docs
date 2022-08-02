@@ -44,4 +44,4 @@ Introduce yourself to [Microsoft Defender for Servers](defender-for-servers-intr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Storage](episode-thirteen.md)

@@ -9,7 +9,10 @@ ms.custom: ignite-fall-2021
 
 # Create an Azure Video Indexer account
 
-When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
+When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, which enables apply access control to all services with role-based access control (Azure RBAC) natively.
+
+> [!NOTE]
+> Before creating a new account, review [Account types](accounts-overview.md).
 
 * You can create an Azure Video Indexer **classic** account through our [API](https://aka.ms/avam-dev-portal).
 * You can create an Azure Video Indexer **ARM-based** account through one of the following:
@@ -22,6 +25,7 @@ To read more on how to create a **new ARM-Based** Azure Video Indexer account, r
 For more details, see [pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
 
 ## How to create classic accounts
+
 This article shows how to create an Azure Video Indexer classic account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
 
 If you are moving from a *trial* to *paid ARM-Based* Azure Video Indexer account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
@@ -60,14 +64,14 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
 
-    :::image type="content" alt-text="Screenshot that shows how to select an event grid subscription." source="./media/create-account/event-grid.png":::
+    :::image type="content" alt-text="Screenshot that shows how to select an Event Grid subscription." source="./media/create-account/event-grid.png":::
 
 ## Connect to Azure manually (advanced option)
 
 If the connection to Azure failed, you can attempt to troubleshoot the problem by connecting manually.
 
 > [!NOTE]
-> It's mandatory to have the following three accounts in the same region: the Azure Video Indexer account that you're connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account.
+> It's mandatory to have the following three accounts in the same region: the Azure Video Indexer account that you're connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account. When you create an Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. 
 
 ### Create and configure a Media Services account
 

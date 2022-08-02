@@ -21,7 +21,7 @@ Learn how to create and manage [tests](./concept-load-testing-concepts.md#test) 
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* An Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
+* An Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource).
 
 ## Create a test
 
@@ -92,18 +92,13 @@ If you've previously created a quick test, you can edit the test plan at any tim
 
 ### Split CSV input data across test engines
 
-By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. You don't have to make any modifications to the JMX test script.
+By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. If you have multiple CSV files, each file will be split evenly.
 
 For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance will process 1/10th of the customers.
 
-If you have multiple CSV files, each file will be split evenly.
+Azure Load Testing doesn't preserve the header row in your CSV file when splitting a CSV file. For more information about how to configure your JMeter script and CSV file, see [Read data from a CSV file](./how-to-read-csv-data.md).
 
-To configure your load test:
-
-1. Go to the **Test plan** page for your load test.
-1. Select **Split CSV evenly between Test engines**.
-
-    :::image type="content" source="media/how-to-create-manage-test/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input C S V files when configuring a test in the Azure portal.":::
+:::image type="content" source="media/how-to-create-manage-test/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input C S V files when configuring a test in the Azure portal.":::
 
 ## Parameters
 
@@ -128,7 +123,7 @@ Configure the number of test engine instances, and Azure Load Testing automatica
 
 ## Test criteria
 
-You can specify test failure criteria based on a number of client metrics. When a load test surpasses the threshold for a metric, the load test has a **Failed** status. For more information, see [Configure test failure criteria](./how-to-define-test-criteria.md).
+You can specify test failure criteria based on client metrics. When a load test surpasses the threshold for a metric, the load test has a **Failed** status. For more information, see [Configure test failure criteria](./how-to-define-test-criteria.md).
 
 You can use the following client metrics:
 

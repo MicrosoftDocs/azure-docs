@@ -255,7 +255,9 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the Microchip ATSAME54-XPRO IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. 
+    > [!IMPORTANT]
+    > Choose a directory with a short path to avoid compiler errors when you build. For example, use *C:\atsame54*.  
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -380,7 +382,9 @@ Keep Termite open to monitor device output in the following steps.
 
 * [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers).
 
-* Download the Microchip ATSAME54-XPRO MPLab sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO MPLab sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory.
+    > [!IMPORTANT]
+    > Choose a directory with a short path to avoid compiler errors when you build. For example, use *C:\atsame54*.  
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 

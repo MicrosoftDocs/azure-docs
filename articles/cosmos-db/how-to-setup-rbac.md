@@ -284,7 +284,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
+For a reference and examples of using Azure Resource Manager templates to create role definitions, see [``Microsoft.DocumentDB`` ``databaseAccounts/sqlRoleDefinitions``](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroledefinitions).
 
 ## <a id="role-assignments"></a> Create role assignments
 
@@ -317,6 +317,7 @@ Assign a role to an identity:
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>"
 $readOnlyRoleDefinitionId = "<roleDefinitionId>" # as fetched above
+# For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
 $principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
@@ -333,13 +334,14 @@ Assign a role to an identity:
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
+# For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
 principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
+For a reference and examples of using Azure Resource Manager templates to create role assignments, see [``Microsoft.DocumentDB`` ``databaseAccounts/sqlRoleAssignments``](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments).
 
 ## Initialize the SDK with Azure AD
 
@@ -476,7 +478,7 @@ Azure portal support for role management is not available yet.
 
 ### Which SDKs in Azure Cosmos DB SQL API support RBAC?
 
-The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md) and [JavaScript V3](sql-api-sdk-node.md) SDKs are currently supported.
+The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md), [JavaScript V3](sql-api-sdk-node.md) and [Python V4.3+](sql-api-sdk-python.md) SDKs are currently supported.
 
 ### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 

@@ -1,7 +1,7 @@
 ---
 title: Localization over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services Mobile UI library to set up localization
+description: Use Azure Communication Services UI Library for Mobile native to set up localization
 author: jorgegarc
 ms.author: jorgegarc
 ms.service: azure-communication-services

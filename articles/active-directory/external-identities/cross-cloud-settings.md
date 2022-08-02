@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 06/30/2022
 
 ms.author: mimart
 author: msmimart
@@ -34,6 +34,9 @@ To set up B2B collaboration between partner organizations in different Microsoft
 
 After each organization has completed these steps, Azure AD B2B collaboration between the organizations is enabled.
 
+> [!NOTE]
+> B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.
+
 ## Before you begin
 
 - **Obtain the partner's tenant ID.** To enable B2B collaboration with a partner's Azure AD organization in another Microsoft Azure cloud, you'll need the partner's tenant ID. Using an organization's domain name for lookup isn't available in cross-cloud scenarios.
@@ -44,15 +47,8 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
-> [!NOTE]
-> The admin experience is currently still deploying to national clouds. To access the admin experience in Microsoft Azure Government or Microsoft Azure China, you can use these links: 
->
->Microsoft Azure Government - https://aka.ms/cloudsettingsusgov
->
->Microsoft Azure China - https://aka.ms/cloudsettingschina
-
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
+1. Select **External Identities**, and then select **Cross-tenant access settings**.
 1. Select **Microsoft cloud settings (Preview)**.
 1. Select the checkboxes next to the external Microsoft Azure clouds you want to enable.
 
@@ -66,7 +62,7 @@ In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to c
 Follow these steps to add the tenant you want to collaborate with to your Organizational settings.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
+1. Select **External Identities**, and then select **Cross-tenant access settings**.
 1. Select **Organizational settings**.
 1. Select **Add organization**.
 1. On the **Add organization** pane, type the tenant ID for the organization (cross-cloud lookup by domain name isn't currently available).
