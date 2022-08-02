@@ -1,6 +1,6 @@
 ---
-title: Configure your API Management service using Git - Azure | Microsoft Docs
-description: Learn how to save and configure your API Management service configuration using Git.
+title: Configure your Azure API Management service using Git | Microsoft Docs
+description: Learn how to save and configure your API Management service configuration using a Git repository.
 services: api-management
 author: dlepow
 
@@ -21,7 +21,7 @@ The following diagram shows an overview of the different ways to configure your 
 
 :::image type="content" source="media/api-management-configuration-repository-git/api-management-git-configure.png" alt-text="Diagram that compares ways to configure Azure API Management." border="false":::
 
-When you make changes to your service using the Azure portal, Azure tools such as Azure PowerShell or the Azure CLI, or the REST API, you are managing your service configuration database using the `https://{name}.management.azure-api.net` endpoint, as shown on the right side of the diagram. The left side of the diagram illustrates how you can manage your service configuration using Git and Git repository for your service located at `https://{name}.scm.azure-api.net`.
+When you make changes to your service using the Azure portal, Azure tools such as Azure PowerShell or the Azure CLI, or the REST API, you're managing your service configuration database using the `https://{name}.management.azure-api.net` endpoint, as shown on the right side of the diagram. The left side of the diagram illustrates how you can manage your service configuration using Git and Git repository for your service located at `https://{name}.scm.azure-api.net`.
 
 The following steps provide an overview of managing your API Management service instance using Git.
 
@@ -34,7 +34,7 @@ The following steps provide an overview of managing your API Management service 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
 > [!IMPORTANT]
-> This feature is designed to work with small to medium API Management services, such as those with an exported configuration less than 10 MB in size, or with fewer than 10,000 entities. Services with a large number of entities (products, APIs, operations, schemas, and so on) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact Azure Support if you need assistance. 
+> This feature is designed to work with small to medium API Management service configurations, such as those with an exported size less than 10 MB, or with fewer than 10,000 entities. Services with a large number of entities (products, APIs, operations, schemas, and so on) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact Azure Support if you need assistance. 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -83,7 +83,7 @@ To clone a repository, in addition to the URL to your repository, your need a us
 
 ## Clone the repository to your local machine
 
-The following examples use the Git Bash tool from [Git for Windows](https://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
+The following examples use the Git Bash tool from [Git for Windows](https://www.git-scm.com/downloads) but you can use any Git tool that you're familiar with.
 
 Open your Git tool in the desired folder and run the following command to clone the Git repository to your local machine, using the following command:
 
@@ -136,7 +136,7 @@ If you make changes to your API Management service instance in the Azure portal 
 git pull
 ```
 
-Before running `git pull` ensure that you are in the folder for your local repository. If you have just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
+Before running `git pull` ensure that you are in the folder for your local repository. If you've just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
 
 ```
 cd {name}.scm.azure-api.net/
@@ -275,9 +275,9 @@ The `groups` folder contains a folder for each group defined in the service inst
 The `policies` folder contains the policy statements for your service instance.
 
 * `policies\global.xml` - Policies defined at global scope for your service instance.
-* `policies\apis\<api name>\` - If you have policies defined at API scope, they are contained in this folder.
-* `policies\apis\<api name>\<operation name>\` folder - If you have policies defined at operation scope, they are contained in this folder in `<operation name>.xml` files that map to the policy statements for each operation.
-* `policies\products\` - If you have policies defined at product scope, they are contained in this folder, which contains `<product name>.xml` files that map to the policy statements for each product.
+* `policies\apis\<api name>\` - If you have policies defined at API scope, they're contained in this folder.
+* `policies\apis\<api name>\<operation name>\` folder - If you have policies defined at operation scope, they're contained in this folder in `<operation name>.xml` files that map to the policy statements for each operation.
+* `policies\products\` - If you have policies defined at product scope, they're contained in this folder, which contains `<product name>.xml` files that map to the policy statements for each product.
 
 ### portalStyles folder
 The `portalStyles` folder contains configuration and style sheets for customizing the deprecated developer portal of the service instance.
