@@ -46,8 +46,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 |`timezone`| string |Specifies the time zone of the recurrence. If omitted, by default is UTC. |See [appendix for timezone values](#timezone)|
 |`pattern`|object|Specifies the pattern of the recurrence. If pattern is omitted, the job(s) will be triggered according to the logic of start_time, frequency and interval.| |
 
-#### Recurrence pattern
-Recurrence pattern defines the recurrence pattern, containing `hours`, minutes, and weekdays.
+#### Recurrence schedule 
+Recurrence schedule defines the recurrence pattern, containing `hours`, minutes, and weekdays.
 - When frequency is `day`, pattern can specify `hours` and `minutes`.
 - When frequency are `week` and `month`, pattern can specify `hours`, `minutes` and `weekdays`.
 
@@ -69,6 +69,7 @@ Recurrence pattern defines the recurrence pattern, containing `hours`, minutes, 
 
 ### Job definition
 Customer can directly use `create_job: azureml:<job_name>` or can use use following properties to define the job.
+
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
 |`type`| string | **Required.** Specifies the job type. Only pipeline job is supported.|`pipeline`|

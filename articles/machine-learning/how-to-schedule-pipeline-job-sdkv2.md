@@ -13,7 +13,7 @@ ms.custom: devx-track-python
 
 ---
 
-# Schedule machine learning pipeline jobs
+# Schedule machine learning pipeline jobs (SDK preview)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -39,11 +39,11 @@ To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedul
 
 ### Create pipeline in SDK
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_pipeline_job)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_pipeline_job)]
 
 ### Create a time-based schedule with recurrence pattern
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
 
 This schedule refer existing pipeline job in workspace. Customer also can refer a pipeline job yaml in local.
 
@@ -69,7 +69,7 @@ The `RecurrenceTrigger` section contains following properties:
 
 ### Create a time-based schedule with cron expression
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
 
 The `CronTrigger` section defines the schedule details and contains following properties:
 
@@ -103,13 +103,13 @@ The `CronTrigger` section defines the schedule details and contains following pr
 ### Manage schedule
 
 #### Check schedule detail
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=show_schedule)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=show_schedule)]
 #### List schedules in a workspace
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=list_schedule)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=list_schedule)]
 #### Disable a schedule
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=disable_schedule)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=disable_schedule)]
 #### Enable a schedule
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
+[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
 
 ### Delete a schedule
 

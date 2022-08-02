@@ -13,7 +13,7 @@ ms.custom: devx-track-python
 
 ---
 
-# Schedule machine learning pipeline jobs
+# Schedule machine learning pipeline jobs (CLI preview)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-CLI-v2.md)]
 
@@ -37,7 +37,7 @@ To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedul
 
 #### Create a time-based schedule yaml with recurrence pattern
 
-:::code language="yaml" source="~/azureml-examples-schedule-pup-main/cli/schedules/recurrence-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-schedule-pup/cli/schedules/recurrence-schedule.yml":::
 
 This schedule refer a pipeline job yaml in local. Customer also can refer a existing pipeline job in workspace.
 
@@ -63,7 +63,7 @@ The `trigger` section contains following properties:
 
 #### Create a time-based schedule yaml with cron expression
 
-:::code language="yaml" source="~/azureml-examples-schedule-pup-main/CLI/schedules/recurrence-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-schedule-pup/CLI/schedules/recurrence-schedule.yml":::
 
 This schedule refer a pipeline job yaml in local. Customer also can refer a existing pipeline job in workspace.
 
@@ -100,9 +100,10 @@ The `trigger` section defines the schedule details and contains following proper
 #### Change runtime settings when defining schedule
 When defining schedule using a existing job, you can change the runtime settings of the job. Using this approach, you can define multi-schedules using same job with different inputs.
 
-:::code language="yaml" source="~/azureml-examples-schedule-pup-main/cli/schedules/cron-with-settings-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-schedule-pup/cli/schedules/cron-with-settings-schedule.yml":::
 
 Following properties can be changed when defining schedule:
+
 | Property | Description |
 | --- | --- |
 |settings| A dictionary of settings to be used when running the pipeline job. |
@@ -114,6 +115,7 @@ Following properties can be changed when defining schedule:
 
 #### Expressions supported in schedule
 When define schedule, we support following expression which will be resolved to real value during job runtime.
+
 | Expression | Description |Supported properties|
 |----------------|----------------|-------------|
 |${{create_context.trigger_time}}|The time when the schedule is triggered.|String type inputs of pipeline job|
@@ -123,18 +125,18 @@ When define schedule, we support following expression which will be resolved to 
 
 #### Create schedule
 After you create schedule yaml, you can use following command to create schedule via CLI.
-:::code language="azurecli" source="~/azureml-examples-schedule-pup-main/cli/schedules/schedule.sh" ID="create_schedule" :::    
+:::code language="azurecli" source="~/azureml-examples-schedule-pup/cli/schedules/schedule.sh" ID="create_schedule" :::    
 
 #### Check schedule detail
 
 #### List schedules in a workspace
-:::code language="azurecli" source="~/azureml-examples-schedule-pup-main/cli/schedules/schedule.sh" ID="show_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-schedule-pup/cli/schedules/schedule.sh" ID="show_schedule" :::   
 #### Update a schedule
-:::code language="azurecli" source="~/azureml-examples-schedule-pup-main/cli/schedules/schedule.sh" ID="update_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-schedule-pup/cli/schedules/schedule.sh" ID="update_schedule" :::   
 #### Disable a schedule
-:::code language="azurecli" source="~/azureml-examples-schedule-pup-main/cli/schedules/schedule.sh" ID="disable_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-schedule-pup/cli/schedules/schedule.sh" ID="disable_schedule" :::   
 #### Enable a schedule
-:::code language="azurecli" source="~/azureml-examples-schedule-pup-main/cli/schedules/schedule.sh" ID="enable_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-schedule-pup/cli/schedules/schedule.sh" ID="enable_schedule" :::   
 
 ### Query triggered jobs from a schedule
 All the display name of jobs triggered by schedule will have the display name as <schedule_name>-YYYYMMDDThhmmssZ. For e.g. if a schedule with a name of named-schedule is created with a schedule of run every 12 hours starting 6 AM on Jan 1 2021, then the display names of the jobs created will be as follows:
@@ -145,11 +147,11 @@ All the display name of jobs triggered by schedule will have the display name as
 - named-schedule-20210102T180000Z and so on
 
 You can leverage [azure cli JMESPath query](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
-:::code language="azurecli" source="~/azureml-examples-schedule-pup-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs" :::   
+:::code language="azurecli" source="~/azureml-examples-schedule-pup/CLI/schedules/schedule.sh" ID="query_triggered_jobs" :::   
 
 ### Delete a schedule
 
-:::code language="azurecli" source="~/azureml-examples-schedule-pup-main/cli/schedules/schedule.sh" ID="delete_schedule" :::  
+:::code language="azurecli" source="~/azureml-examples-schedule-pup/cli/schedules/schedule.sh" ID="delete_schedule" :::  
 
     > [!IMPORTANT]
     > Please disable schedule first, only disabled schedule can be deleted.
