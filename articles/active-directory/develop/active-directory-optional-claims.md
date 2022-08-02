@@ -37,7 +37,7 @@ While optional claims are supported in both v1.0 and v2.0 format tokens, as well
 
 ## v1.0 and v2.0 optional claims set
 
-The set of optional claims available by default for applications to use are listed below. To add custom optional claims for your application, see [Directory Extensions](#configuring-directory-extension-optional-claims), below. When adding claims to the **access token**, the claims apply to access tokens requested *for* the application (a web API), not claims requested *by* the application. No matter how the client accesses your API, the right data is present in the access token that is used to authenticate against your API.
+The set of optional claims available by default for applications to use are listed below. You can use custom data in extension attributes and directory extensions to add optional claims for your application. To use directory extensions, see [Directory Extensions](#configuring-directory-extension-optional-claims), below. When adding claims to the **access token**, the claims apply to access tokens requested *for* the application (a web API), not claims requested *by* the application. No matter how the client accesses your API, the right data is present in the access token that is used to authenticate against your API.
 
 > [!NOTE]
 >The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Consumer accounts support a subset of these claims, marked in the "User Type" column.  Many of the claims listed do not apply to consumer users (they have no tenant, so `tenant_ctry` has no value).
@@ -219,15 +219,15 @@ If supported by a specific claim, you can also modify the behavior of the Option
 
 ## Configuring directory extension optional claims
 
-In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [the Microsoft Graph extensionProperty documentation](/graph/api/resources/extensionproperty).
+In addition to the standard optional claims set, you can also configure tokens to include Microsoft Graph extensions. For more info, see [Add custom data to resources using extensions](/graph/extensibility-overview).
 
-Schema and open extensions are not supported by optional claims, only the AAD-Graph style directory extensions. This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
+Schema and open extensions are not supported by optional claims, only extension attributes and directory extensions. This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
 
-Directory schema extensions are an Azure AD-only feature. If your application manifest requests a custom extension and an MSA user logs in to your app, these extensions will not be returned.
+Directory extensions are an Azure AD-only feature. If your application manifest requests a custom extension and an MSA user logs in to your app, these extensions will not be returned.
 
 ### Directory extension formatting
 
-When configuring directory extension optional claims using the application manifest, use the full name of the extension (in the format: `extension_<appid>_<attributename>`). The `<appid>` must match the ID of the application requesting the claim.
+When configuring directory extension optional claims using the application manifest, use the full name of the extension (in the format: `extension_<appid>_<attributename>`). The `<appid>` is the stripped version of the **appId** (or Client ID) of the application requesting the claim.
 
 Within the JWT, these claims will be emitted with the following name format:  `extn.<attributename>`.
 
@@ -382,7 +382,7 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 
 - The ID tokens will now contain the UPN for federated users in the full form (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
 - The access tokens that other clients request for this application will now include the auth_time claim.
-- The SAML tokens will now contain the skypeId directory schema extension (in this example, the app ID for this app is ab603c56068041afb2f6832e2a17e237). The SAML tokens will expose the Skype ID as `extension_skypeId`.
+- The SAML tokens will now contain the skypeId directory schema extension (in this example, the app ID for this app is ab603c56068041afb2f6832e2a17e237). The SAML tokens will expose the Skype ID as `extension_ab603c56068041afb2f6832e2a17e237_skypeId`.
 
 **UI configuration:**
 
