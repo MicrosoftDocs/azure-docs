@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 This article explains the disaster recovery strategy to handle a region-wide or zone-wide failure.
 
-You need to have a strategy to reduce the impact and effects arising from unpredictable events to be effective in disaster recovery of Automation accounts and their dependent resources such as Modules, Connections, Credentials, Certificates, Variables and Schedules. An essential part of a disaster recovery plan is preparing to failover to the replica of the Automation account created in advance in the secondary region if the Automation account in the primary region becomes unavailable. Ensure that your disaster recovery strategy considers your Automation account and the dependent resources listed above.
+You need to have a strategy to reduce the impact and effects arising from unpredictable events and to be effective in disaster recovery of Automation accounts, and their dependent resources such as Modules, Connections, Credentials, Certificates, Variables and Schedules. An essential part of a disaster recovery plan is preparing to failover to the replica of the Automation account created in advance in the secondary region if the Automation account in the primary region becomes unavailable. Ensure that your disaster recovery strategy considers your Automation account and the dependent resources listed above.
 
 
 ## Enable disaster recovery
@@ -24,7 +24,7 @@ When you [create](./quickstarts/create-account-portal.md#create-automation-accou
 - Begin by [creating a replica of the Automation account](./quickstarts/create-account-portal.md#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 - Select the secondary region of your choice - paired region or any other region where Azure Automation is available.
 - Apart from creating a replica of the Automation account, replicate the dependent resources such as Runbooks, Modules, Connections, Credentials, Certificates, Variables, Schedules and permissions assigned for the Run As account and Managed Identities in the Automation account.
-- If you are using [ARM templates](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all) to define and deploy Automation runbooks, you can use the same templates to deploy the same runbooks in any other Azure region where the replica of the Automation account exists. In case of a region-wide service outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary regions have a disruption or failure. 
+- If you are using [ARM templates](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all) to define and deploy Automation runbooks, you can use the same templates to deploy the same runbooks in any other Azure region where the replica of the Automation account exists. In case of a region-wide outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary regions have a disruption or failure. 
 
 >[!NOTE]
 > Due to data residency requirements, jobs data and logs present in the primary region are not be available in the secondary region.
