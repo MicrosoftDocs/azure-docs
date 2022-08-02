@@ -31,9 +31,72 @@ If your app or business depends on the use of a Form Recognizer custom model, we
 
 The process for copying a custom model consists of the following steps:
 
-1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model, which will receive the copied data.
-1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied. You'll get back a URL that you can query to track the progress of the operation.
+1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model, which will receive the copied model.
+1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
+
+# [Form Recognizer v3.0 (Preview)](#tab/v30)
+
+## Generate Copy authorization request
+
+The following HTTP request gets copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.
+
+```
+POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/documentModels:authorizeCopy?api-version=2022-06-30-preview
+Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_KEY}
+```
+Request body
+```json
+{
+  "modelId": "target-model-name",
+  "description": "Copied from SCUS"
+}
+```
+
+You'll get a `200` response code with response body that contains the JSON payload required to initiate the copy.
+
+```
+{
+    "targetResourceId": "/subscriptions/{targetSub}/resourceGroups/{targetRG}/providers/Microsoft.CognitiveServices/accounts/{targetService}",
+    "targetResourceRegion": "region",
+    "targetModelId": "target-model-name",
+    "targetModelLocation": "model path",
+    "accessToken": "access token",
+    "expirationDateTime": "timestamp"
+}
+```
+
+## Start Copy operation
+
+The following HTTP request starts the copy operation on the source resource. You'll need to enter the endpoint and key of your source resource as the url and header. Notice that the request URL contains the model ID of the source model you want to copy.
+
+```
+POST {{source-endpoint}}formrecognizer/documentModels/{model-to-be-copied}:copyTo?api-version=2022-06-30-preview
+Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
+```
+
+The body of your request is the response from the previous step.
+
+```json
+{
+    "targetResourceId": "/subscriptions/{targetSub}/resourceGroups/{targetRG}/providers/Microsoft.CognitiveServices/accounts/{targetService}",
+    "targetResourceRegion": "region",
+    "targetModelId": "target-model-name",
+    "targetModelLocation": "model path",
+    "accessToken": "access token",
+    "expirationDateTime": "timestamp"
+}
+```
+
+You'll get a `202\Accepted` response with an Operation-Location header. This value is the URL that you'll use to track the progress of the operation. Copy it to a temporary location for the next step.
+
+```
+HTTP/1.1 202 Accepted
+Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
+```
+
+
+# [Form Recognizer v2.1 (GA)](#tab/v21)
 
 ## Generate Copy authorization request
 
@@ -71,15 +134,21 @@ The body of your request needs to have the following format. You'll need to ente
 }
 ```
 
-> [!NOTE]
-> The Copy API transparently supports the [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) feature. This doesn't require any special treatment, but note that if you're copying between an unencrypted resource to an encrypted resource, you need to include the request header `x-ms-forms-copy-degrade: true`. If this header is not included, the copy operation will fail and return a `DataProtectionTransformServiceError`.
-
 You'll get a `202\Accepted` response with an Operation-Location header. This value is the URL that you'll use to track the progress of the operation. Copy it to a temporary location for the next step.
 
 ```
 HTTP/1.1 202 Accepted
 Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
+
+-----
+
+
+
+> [!NOTE]
+> The Copy API transparently supports the [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) feature. This doesn't require any special treatment, but note that if you're copying between an unencrypted resource to an encrypted resource, you need to include the request header `x-ms-forms-copy-degrade: true`. If this header is not included, the copy operation will fail and return a `DataProtectionTransformServiceError`.
+
+
 
 ### Common errors
 
@@ -89,6 +158,15 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 |
 
 ## Track Copy progress
+
+# [Form Recognizer v3.0 (Preview)](#tab/v30)
+
+```
+GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
+Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
+```
+
+# [Form Recognizer v2.1 (GA)](#tab/v21)
 
 Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 
@@ -104,6 +182,10 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
+
+-----
+
+
 
 ### Common errors
 
