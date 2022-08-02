@@ -42,6 +42,11 @@ Use the following table to determine access needs for your LUIS application.
 
 These custom roles only apply to authoring (Language Understanding Authoring) and not prediction resources (Language Understanding).
 
+>[!Note]
+> 'Owner' and 'Contibutor' roles take priority over the custom LUIS roles
+> AAD is only used in case of custom LUIS roles
+
+
 ### Cognitive Services LUIS reader
 
 A user that should only be validating and reviewing LUIS applications, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets (utterances, intents, entities) to notify the app developers of any changes that need to be made, but do not have direct access to make them.
