@@ -46,7 +46,7 @@ Selective logging analysis is now available on all regions for public preview. Y
 1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
 1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
 
-For more information, [see here] <Add link after merging the PR for the Doc>
+For more information, [see here](/azure/hdinsight/selective-logging-analysis)
 
 
 ![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
