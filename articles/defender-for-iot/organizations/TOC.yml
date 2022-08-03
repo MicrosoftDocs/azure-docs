@@ -106,6 +106,8 @@
     items:
     - name: Overview
       href: integrate-overview.md
+    - name: ArcSight
+      href: integrations/arcsight.md
     - name: Integrate ClearPass
       href: tutorial-clearpass.md
     - name: Integrate CyberArk
