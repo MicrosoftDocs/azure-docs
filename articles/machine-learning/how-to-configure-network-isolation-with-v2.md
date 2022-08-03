@@ -44,7 +44,7 @@ The Azure Machine Learning CLI v2 uses our new v2 API platform. New features suc
 
 As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. With the __legacy v1 API__, most operations used the workspace. With the v1 API, adding a private endpoint to the workspace provided network isolation for everything except CRUD operations on the workspace or compute resources.
 
-With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/jobs/create-or-update) api sends metadata, and [parameters](./reference-yaml-job-command.md).
+With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/2022-05-01/jobs/create-or-update) api sends metadata, and [parameters](./reference-yaml-job-command.md).
 
 > [!TIP]
 > * Public ARM operations do not surface data in your storage account on public networks. 
@@ -114,6 +114,9 @@ The return value of the `az ml workspace update` command may not show the update
 ```azurecli
 az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
 ```
+
+> [!IMPORTANT]
+> Note that it takes about 30 minutes to an hour or more for changing v1_legacy_mode parameter from __true__ to __false__ to be reflected in the workspace. Therefore, if you set the parameter to __false__ but receive an error that the parameter is __true__ in a subsequent operation, please try after a few more minutes.
 
 ---
 

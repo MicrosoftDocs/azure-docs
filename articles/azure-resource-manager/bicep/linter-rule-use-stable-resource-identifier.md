@@ -7,7 +7,7 @@ ms.date: 07/21/2022
 
 # Linter rule - use stable resource identifier
 
-Resource name shouldn't use a non-deterministic value. For example, [`newGuid()`](./bicep-functions-string.md#newguid) or [`utcNow()`](./bicep-functions-date.md#utcnow) can't be used in resource name; resource name can't contains a parameter/variable whose default value uses [`newGuid()`](./bicep-functions-string.md#newguid) or [`utcNow()`](./bicep-functions-date.md#utcnow).
+Resource name shouldn't use a non-deterministic value. For example, [`newGuid()`](./bicep-functions-string.md#newguid) or [`utcNow()`](./bicep-functions-date.md#utcnow) can't be used in resource name; resource name can't contain a parameter/variable whose default value uses [`newGuid()`](./bicep-functions-string.md#newguid) or [`utcNow()`](./bicep-functions-date.md#utcnow).
 
 ## Linter rule code
 

@@ -380,6 +380,8 @@
         href: linter-rule-outputs-should-not-contain-secrets.md
       - name: Prefer interpolation
         href: linter-rule-prefer-interpolation.md
+      - name: Prefer unquoted property names
+        href: linter-rule-prefer-unquoted-property-names.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
       - name: Simplify interpolation

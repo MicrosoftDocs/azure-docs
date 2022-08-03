@@ -121,6 +121,8 @@
               href: how-to-event-grid.md
             - name: Move instances between regions
               href: api-management-howto-migrate.md
+            - name: Validate service updates
+              href: validate-service-updates.md
             - name: Recover a deleted instance
               displayName: soft delete
               href: soft-delete.md
@@ -146,8 +148,6 @@
                 href: automation-manage-api-management.md
               - name: Configure using Git
                 href: api-management-configuration-repository-git.md
-              - name: Validate service updates
-                href: validate-service-updates.md
             - name: Self-host the gateway
               items:
                 - name: Provision a self-hosted gateway
