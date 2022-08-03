@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2021
+ms.date: 08/03/2022
 ms.author: jeedes
 ---
 
@@ -125,10 +125,29 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ADP SSO
 
-To configure single sign-on on **ADP** side, you need to upload the downloaded **Metadata XML** on the [ADP website](https://adpfedsso.adp.com/public/login/index.fcc).
+1. To automate the configuration within ADP, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-> [!NOTE]  
-> This process may take a few days.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up ADP** will direct you to the ADP Single Sign-On application. From there, provide the admin credentials to sign in to ADP Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to set up ADP manually, open a new web browser window and sign in to your ADP company site as an administrator and perform the following steps:
+
+1. Click **Federation Setup** and go to **Identity Provider** then, select the **Microsoft Azure**.
+
+	![Configure Single Sign-On settings icon](./media/adpfederatedsso-tutorial/microsoft-azure.png)
+
+1. In the **Services Selection**, select all applicable service(s) for connection, and then click **Next**.
+
+    ![Configure Single Sign-On SAML Enabled](./media/adpfederatedsso-tutorial/services.png)
+
+1. In the **Configure** section, click on the **Next**.
+
+1. In the **Upload Metadata**, click **Browse** to upload the metadata XML file which you have downloaded from the Azure portal and click **UPLOAD**.
+
+    ![Configure Single Sign-On SAML Enabled](./media/adpfederatedsso-tutorial/metadata.png)
 
 ### Configure your ADP service(s) for federated access
 
