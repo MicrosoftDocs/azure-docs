@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 07/01/2022
+ms.date: 08/15/2022
 ms.author: mamccrea
 ---
 
@@ -25,7 +25,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 - The [DCv2-series](dcv2-series.md) can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of Intel XEON E-2288G Processor with SGX technology. With the Intel Turbo Boost Technology, these machines can go up to 5.0 GHz. DCv2 series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
 
-- The [Dpv5-series](dpv5-series.md) are ARM64-based VMs featuring the 80 core, 3.0 GHz Ampere Altra processor. The Dpdsv5, Dpldsv5, Dpsv5, and Dplsv5 series are designed for common enterprise workloads. They're optimized for database, in-memory caching, analytics, gaming, web, and application servers running on Linux.
+- The [Dpsv5 and Dpdsv5-series](dpsv5-dpdsv5-series.md) and [Dplsv5 and Dpldsv5-series](dplsv5-dpldsv5-series.md) are ARM64-based VMs featuring the 80 core, 3.0 GHz Ampere Altra processor. These series are designed for common enterprise workloads. They're optimized for database, in-memory caching, analytics, gaming, web, and application servers running on Linux.
 
 - [Dv2 and Dsv2-series](dv2-dsv2-series.md) VMs, a follow-on to the original D-series, features a more powerful CPU and optimal CPU-to-memory configuration making them suitable for most production workloads. The Dv2-series is about 35% faster than the D-series. Dv2-series run on 2nd Generation Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors with the Intel Turbo Boost Technology 2.0. The Dv2-series has the same memory and disk configurations as the D-series.
 

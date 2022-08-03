@@ -169,8 +169,6 @@
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
         href: dcv3-series.md
-      - name: Dpv5-series
-        href: dpv5-series.md
       - name: Dv2 and DSv2-series
         href: dv2-dsv2-series.md
       - name: Dv3 and DSv3-series
@@ -189,6 +187,10 @@
         href: dasv5-dadsv5-series.md
       - name: DCasv5 and DCadsv5-series
         href: dcasv5-dcadsv5-series.md
+      - name: Dpsv5 and Dpdsv5-series
+        href: dpsv5-dpdsv5-series.md
+      - name: Dplsv5 and Dpldsv5-series
+        href: dplsv5-dpldsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -205,8 +207,6 @@
         href: sizes-memory.md
       - name: Dv2 and DSv2-series 11-15
         href: dv2-dsv2-series-memory.md
-      - name: Epv5-series
-        href: epv5-series.md
       - name: Ev3 and Esv3-series
         href: ev3-esv3-series.md
       - name: Eav4 and Easv4-series
@@ -225,6 +225,8 @@
         href: easv5-eadsv5-series.md
       - name: ECasv5 and ECadsv5-series
         href: ecasv5-ecadsv5-series.md
+      - name: Epsv5 and Epdsv5-series
+        href: epsv5-epdsv5-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series

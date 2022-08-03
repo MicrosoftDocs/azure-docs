@@ -12,7 +12,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 07/01/2022
+ms.date: 08/15/2022
 
 ---
 
@@ -43,7 +43,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for rel
 
 - The [Edv5 and Edsv5-series](edv5-edsv5-series.md) run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors in a hyper-threaded configuration. These series are ideal for various memory-intensive enterprise applications. They feature up to 672 GiB of RAM, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). The series also support [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These new VM sizes have 50% larger local storage, and better local disk IOPS for both read and write compared to the [Ev3/Esv3](./ev3-esv3-series.md) sizes with [Gen2 VMs](./generation-2.md). It features an all core Turbo clock speed of 3.4 GHz.
 
-- The [Epv5-series](epv5-series.md) are ARM64-based VMs featuring the 80 core, 3.0 GHz Ampere Altra processor. The Epdsv5, Epldsv5, Epsv5, and Eplsv5 series are designed for common enterprise workloads. They're optimized for database, in-memory caching, analytics, gaming, web, and application servers running on Linux.
+- The [Epsv5 and Epdsv5-series](epsv5-epdsv5-series.md) are ARM64-based VMs featuring the 80 core, 3.0 GHz Ampere Altra processor. These series are designed for common enterprise workloads. They're optimized for database, in-memory caching, analytics, gaming, web, and application servers running on Linux.
 
 - The [Ev5 and Esv5-series](ev5-esv5-series.md) runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 512 GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
 
