@@ -22,7 +22,7 @@ Each table uses the following icons to indicate support level:
 | &#x2705; | Fully supported |
 | _&#x2705;_ | Supported at the preview level |
 | &nbsp;&#x2716; | Not supported |
-| &#x1F7E0;	 | Not _yet_ supported (Investigating support _or_ working towards support) |
+| &#x1F7E6;	 | Not _yet_ supported (Investigating support _or_ working towards support) |
 
 This table describes the impact of **enabling** the capability and not the specific use of that capability. For example, if you enable the Network File System (NFS) 3.0 protocol but never use the NFS 3.0 protocol to upload a blob, a check mark in the **NFS 3.0 enabled** column indicates that feature support is not negatively impacted by merely enabling NFS 3.0 support.
 
@@ -49,29 +49,29 @@ The following table describes whether a feature is supported in a standard gener
 | [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Blob inventory](blob-inventory.md) | &#x2705; | _&#x2705;_ | _&#x2705;_ | _&#x2705;_ |
-| [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | _&#x2705;_ | &nbsp;&#x2716; | _&#x2705;_ |
 | [Blob Storage APIs](reference.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705;  |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob Storage events](storage-blob-event-overview.md) | &#x2705; | &#x2705;    | &nbsp;&#x2716; | &#x2705; |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob versioning](versioning-overview.md) | &#x2705; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Blob versioning](versioning-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Change feed](storage-blob-change-feed.md) | &#x2705; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Change feed](storage-blob-change-feed.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | _&#x2705;_ | _&#x2705;_ | _&#x2705;_ |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | _&#x2705;_ | &nbsp;&#x2716;  | _&#x2705;_ |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2716; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &nbsp;&#x2716; | _&#x2705;_ |
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &#x1F7E0; | &nbsp;&#x2716; | &nbsp;&#x2716; |
-| [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &nbsp;&#x2716; |
+| [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | _&#x2705;_ | &#x2705; |
@@ -95,29 +95,29 @@ The following table describes whether a feature is supported in a premium block 
 | [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
 | [Blob inventory](blob-inventory.md) | &#x2705; | _&#x2705;_ | _&#x2705;_ | _&#x2705;_ |
-| [Blob index tags](storage-manage-find-blobs.md) | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; | &#x1F7E0; |
+| [Blob index tags](storage-manage-find-blobs.md) | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | _&#x2705;_ | &nbsp;&#x2716; | _&#x2705;_ |
 | [Blob Storage APIs](reference.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705;  |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob Storage events](storage-blob-event-overview.md) | &#x2705;    | &#x2705; | &nbsp;&#x2716; | &#x2705; |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob versioning](versioning-overview.md) | &#x2705; | &#x1F7E0; | &nbsp;&#x2716; | &#x1F7E0; |
+| [Blob versioning](versioning-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Change feed](storage-blob-change-feed.md) | &#x2705; | &#x1F7E0; | &nbsp;&#x2716; | &#x1F7E0; |
+| [Change feed](storage-blob-change-feed.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | _&#x2705;_ | _&#x2705;_ | _&#x2705;_ |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x1F7E0; | &#x1F7E0; | &nbsp;&#x2716; | &#x1F7E0; |
+| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x1F7E6; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &#x1F7E0; | &nbsp;&#x2716; | &#x1F7E0; |
+| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E0; | &nbsp;&#x2716; | &nbsp;&#x2716; |
+| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &nbsp;&#x2716; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | _&#x2705;_ | &nbsp;&#x2716; | _&#x2705;_ |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2716; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; |
 | [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705; | &nbsp;&#x2716; | _&#x2705;_ |
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | _&#x2705;_ | _&#x2705;_ | _&#x2705;_ |
-| [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &#x1F7E0; | &nbsp;&#x2716; | &#x1F7E0; |
-| [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x1F7E0; | &#x1F7E0; | &nbsp;&#x2716; | &#x1F7E0; |
+| [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
+| [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x1F7E6; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md)	| &#x2705; | &#x2705;  | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | _&#x2705;_ | &#x2705; |
