@@ -9,9 +9,11 @@ ms.topic: reference
 ms.date: 08/02/2022
 ---
 
-# Available metadata for Power BI
+# Available metadata
 
 This article has a list of the metadata that is available for a Power BI tenant in the Microsoft Purview governance portal.
+
+## Power BI
 
 | Metadata              | Population method | Source of truth   | Asset type         | Editable | Upstream metadata               |
 |-----------------------|-------------------|-------------------|--------------------|----------|---------------------------------|

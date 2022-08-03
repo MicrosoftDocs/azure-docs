@@ -215,8 +215,6 @@ items:
         href: register-scan-power-bi-tenant-cross-tenant.md
       - name: Troubleshoot Power BI scans
         href: register-scan-power-bi-tenant-troubleshoot.md
-      - name: Power BI metadata
-        href: available-metadata.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
@@ -377,6 +375,8 @@ items:
   items:
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
+    - name: Available source metadata
+      href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Supported classifications
