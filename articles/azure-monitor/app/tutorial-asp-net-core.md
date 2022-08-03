@@ -46,7 +46,7 @@ If you'd like to follow along with the guidance in this article, certain pre-req
 
 * Visual Studio 2022
 * Visual Studio Workloads: ASP.NET and web development, Data storage and processing, and Azure development
-* .Net 6.0
+* .NET 6.0
 * Azure subscription and user account (with the ability to create and delete resources)
 
 ## Deploy Azure resources
@@ -292,7 +292,7 @@ Application Insights introspects incoming telemetry data and is able to generate
 
 ### Sampling
 
-The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. By default, adaptive sampling is enabled. You can disable or customize the sampling behavior.
+The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. By default, adaptive sampling is enabled.
 
 #### Disabling adaptive sampling
 
@@ -306,33 +306,6 @@ The default sampling feature can be disabled while adding Application Insights s
     var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
     aiOptions.EnableAdaptiveSampling = false;
     builder.Services.AddApplicationInsightsTelemetry(aiOptions);
-    ```
-
-The above code will disable adaptive sampling. Follow the steps below to add sampling with more customization options.
-
-#### Configure Fixed-rate sampling
-
-Fixed-rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you.
-
-Like other sampling techniques, this also retains related items. It also synchronizes the client and server sampling so that related items are retained - for example, when you look at a page view in Search, you can find its related server requests.
-
-In Metrics Explorer, rates such as request and exception counts are multiplied by a factor to compensate for the sampling rate, so that they are approximately correct.
-
-1. In Visual Studio 2022, locate and open `Program.cs`.
-
-2. [**Disable adaptive sampling**](#disabling-adaptive-sampling).
-
-3. Enable the fixed-rate sampling module by adding the following code following the `var app = builder.Build();` line of code.
-
-    ```csharp
-    var telemetryConfig = app.Services.GetService<TelemetryConfiguration>();
-    if(telemetryConfig != null)
-    {
-        var telemetryBuilder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-        double fixedSamplingPercentage = 10;
-        telemetryBuilder.UseSampling(fixedSamplingPercentage);
-        telemetryBuilder.Build();
-    }
     ```
 
 ## Application logging with Application Insights
