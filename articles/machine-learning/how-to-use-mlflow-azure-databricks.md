@@ -45,8 +45,8 @@ In the **Package** field, type azureml-mlflow and then select install. Repeat th
 
 Azure Databricks can be configured to track experiments using MLflow in two ways:
 
-1. [Tracking in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking).](#dual-tracking-on-azure-databricks-and-azure-machine-learning)
-2. [Tracking exclusively on Azure Machine Learning.](#tracking-exclusively-on-azure-machine-learning-workspace)
+- [Track in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking)](#dual-tracking-on-azure-databricks-and-azure-machine-learning)
+- [Track exclusively on Azure Machine Learning](#tracking-exclusively-on-azure-machine-learning-workspace)
 
 By default, dual-tracking is configured for you when you linked your Azure Databricks workspace.
 
