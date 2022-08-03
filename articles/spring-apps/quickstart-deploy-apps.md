@@ -196,7 +196,7 @@ This article explains how to build and deploy Spring applications to Azure Sprin
 
 ## Build the Spring applications locally
 
-To build the Spring applications locally, clone the sample app repository to your Azure Cloud account. Run the following commands to change the directory and build the project.
+Use the following commands to clone the sample repository, navigate to the sample folder, and then build the project.
 
 ```azurecli
 git clone https://github.com/azure-samples/spring-petclinic-microservices
@@ -371,7 +371,7 @@ The following procedure explains how to import the sample project in IntelliJ.
 
 ### Deploy the api-gateway app to Azure Spring Apps
 
-To deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Create a Hello World web app for Azure App Service using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+To deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ and choose your subscription. For sign-in details, see [Create a Hello World web app for Azure App Service using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Apps**.
 
