@@ -9,9 +9,7 @@
  ms.author: kendownie
  ms.custom: include file
 ---
-Navigate to the storage account for which you would like to create a private endpoint. In the table of contents for the storage account, select **Networking**, **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint. 
-
-[![A screenshot of the private endpoint connections item in the storage account table of contents](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png#lightbox)
+Navigate to the storage account for which you would like to create a private endpoint. In the table of contents for the storage account, select **Networking**, **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint.
 
     :::image type="content" source="media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png" alt-text="Screenshot of the private endpoint connections item in the storage account table of contents." lightbox="media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png" border="true":::
 
