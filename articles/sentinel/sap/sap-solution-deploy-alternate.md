@@ -10,16 +10,10 @@ ms.date: 02/22/2022
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
 This article describes how to deploy the Microsoft Sentinel Threat Monitoring for SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
 > [!NOTE]
 > The default, and most recommended process for deploying the Microsoft Sentinel Threat Monitoring for SAP data connector is by [using an Azure VM](deploy-data-connector-agent-container.md). This article is intended for advanced users.
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Prerequisites
 

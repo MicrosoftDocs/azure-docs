@@ -9,11 +9,6 @@ ms.date: 03/02/2022
 
 # Kickstart script reference
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Script overview
 
 Simplify the [deployment of the SAP data connector agent container](deploy-data-connector-agent-container.md) by using the provided **Kickstart script** (available at [Microsoft Azure Sentinel Threat Monitoring for SAP GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)), which can also enable different modes of secrets storage, configure SNC, and more.

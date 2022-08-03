@@ -9,12 +9,7 @@ ms.date: 04/27/2022
 
 # Deploy SAP security content in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
 This article shows you how to deploy Microsoft Sentinel security content into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Threat Monitoring solution for SAP.
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Deployment milestones
 
@@ -57,7 +52,7 @@ To deploy SAP solution security content, do the following:
 
 1. Select **Next** to cycle through the **Data Connectors**, **Analytics**, and **Workbooks** tabs, where you can learn about the components that will be deployed with this solution.
 
-    For more information, see [Microsoft Sentinel Threat Monitoring for SAP solution: security content reference (public preview)](sap-solution-security-content.md).
+    For more information, see [Microsoft Sentinel Threat Monitoring for SAP solution: security content reference](sap-solution-security-content.md).
 
 1. On the **Review + create tab** pane, wait for the **Validation Passed** message, then select **Create** to deploy the solution.
 

@@ -8,11 +8,6 @@ ms.date: 03/03/2022
 ---
 # Systemconfig.ini file reference
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
 ## Systemconfig configuration file sections
