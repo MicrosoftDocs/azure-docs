@@ -85,6 +85,6 @@ landingContent:
       - linkListType: reference
         links:
          - text: Azure CLI
-           href: /cli/azure/connectedk8s
+           url: /cli/azure/connectedk8s
          - text: Azure PowerShell
-           href: /powershell/module/az.connectedkubernetes#connected-kubernetes
+           url: /powershell/module/az.connectedkubernetes#connected-kubernetes
