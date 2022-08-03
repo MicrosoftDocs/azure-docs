@@ -693,11 +693,11 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 
 ## Check version of Hybrid Worker
 To check the version of the extension-based Hybrid Runbook Worker:
-- **Windows** - Go to *C:*_\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows_\
-  - The path has *version* folder that has the version information.
 
-- **Linux** - Go to _/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>_
-  - The folder name ends with *version* information.
+|OS types | Paths | Description|
+|--- |--- |--- |
+|**Windows** |`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\`| The path has *version* folder that has the version information. |
+|**Linux** | `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>` | The folder name ends with *version* information. |
 
 ## Next steps
 
