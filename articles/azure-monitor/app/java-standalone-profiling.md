@@ -91,7 +91,7 @@ configuring resource limits which will trigger a profile if breached.
 > Currently the Java profiler does not support the "Sampling" trigger, configuring this will have no effect.
 
 Once this has been completed, the agent will monitor the resource usage of your process and
-trigger a profile when required. Once a profile has been triggered and completed, it will be
+trigger a profile when the threshold is exceeded. Once a profile has been triggered and completed, it will be
 viewable from the
 Application Insights instance within the Performance -> Profiler section. From that screen the
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
