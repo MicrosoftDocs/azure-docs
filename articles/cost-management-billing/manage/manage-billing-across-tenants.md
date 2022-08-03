@@ -13,23 +13,23 @@ ms.author: banders
 
 # Manage billing across multiple tenants using Associated billing tenants
 
-You can simplify billing management for your organization by creating multi-tenant billing relationships using associated billing tenants. A multi-tenant billing relationship lets you securely share your organization’s billing account with other tenants, while maintaining control over your billing data. You can create subscriptions in different tenants and provide users in those tenants with access to your organization’s billing account. This relationship lets users on those tenants do billing activities like viewing and downloading invoices or managing licenses.
+You can simplify billing management for your organization by creating multi-tenant billing relationships using associated billing tenants. A multi-tenant billing relationship lets you securely share your organization’s billing account with other tenants, while maintaining control over your billing data. You can move subscriptions in different tenants and provide users in those tenants with access to your organization’s billing account. This relationship lets users on those tenants do billing activities like viewing and downloading invoices or managing licenses.
 
 ## Understand type of tenants
 
-Primary billing tenant: The primary billing tenant is the tenant used when the billing account is set up. By default, all subscriptions are bought in this tenant and only users from this tenant can get access to the billing account.
+Primary billing tenant: The primary billing tenant is the tenant used when the billing account is set up. By default, all subscriptions are created in this tenant and only users from this tenant can get access to the billing account.
 
-Associated billing tenants: An associated billing tenant is a tenant that is linked to your primary billing tenant’s billing account. These tenants can buy subscriptions using your billing account or can accept subscriptions from you. You can also assign billing account roles to users in an associated billing tenant. 
+Associated billing tenants: An associated billing tenant is a tenant that is linked to your primary billing tenant’s billing account. You can move Microsoft 265 subscriptions to these tenants. You can also assign billing account roles to users in associated billing tenants. 
 
 > [!IMPORTANT]
-> Adding associated billing tenants, and provisioning subscriptions and assigning roles to users in associated billing tenants are only available for billing accounts of type Microsoft Customer Agreement that are created by working with a Microsoft sales representative. To learn more about types of billing accounts, see [Billing accounts and scopes in the Azure portal](view-all-accounts.md).
+> Adding associated billing tenants, moving subscriptions and assigning roles to users in associated billing tenants are only available for billing accounts of type Microsoft Customer Agreement that are created by working with a Microsoft sales representative. To learn more about types of billing accounts, see [Billing accounts and scopes in the Azure portal](view-all-accounts.md).
 
 ## Access settings for associated billing tenants
 
 When you add an associated billing tenant, you can enable one or both of the following access settings:
 
 - **Billing management**: Billing management lets billing account owners assign roles to users in an associated billing tenant, giving them permission to access billing information and make purchasing decisions.
-- **Provisioning**: Provisioning allows the creation of subscriptions in the associated billing tenants.
+- **Provisioning**: Provisioning allows you to move Microsoft 365 subscriptions to the associated billing tenants.
 
 ## Add an associated billing tenant
 
@@ -113,6 +113,10 @@ Before moving subscriptions, make sure you [add a tenant as an associated billin
 1. Select the name of the product that you want to move to the associated billing tenant. 
 1. On the product details page, in the **Licenses assigned from all subscriptions** section, select **Move to another tenant**.
 1. In the **Move subscription to a different tenant** pane, search for a tenant name or select a tenant from the list, then select **Move subscription**.
+
+## Moving Azure subscriptions to an associated billing tenant
+
+The provisioning setting that you enable for an associated billing tenant doesn't apply for Azure subscriptions. To move Azure subscriptions to an associated billing tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Need help? contact support
 
