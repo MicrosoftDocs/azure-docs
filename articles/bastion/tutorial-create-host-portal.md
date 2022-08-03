@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy Bastion using manual settings: Azure portal'
-description: Learn how to deploy Bastion using manual settings using the Azure portal.
+title: 'Tutorial: Deploy Bastion using specified settings: Azure portal'
+description: Learn how to deploy Bastion using settings that you specify - Azure portal.
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
@@ -9,9 +9,9 @@ ms.author: cherylmc
 
 ---
 
-# Tutorial: Deploy Bastion using manual settings
+# Tutorial: Deploy Bastion using specified settings
 
-This tutorial helps you deploy Azure Bastion from the Azure portal using manual settings. When you use manual settings, you can specify configuration values such as instance counts and the SKU at the time of deployment. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
+This tutorial helps you deploy Azure Bastion from the Azure portal using your own specified manual settings. When you use manual settings, you can specify configuration values such as instance counts and the SKU at the time of deployment. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
 
 In this tutorial, you deploy Bastion using the Standard SKU tier and adjust host scaling (instance count). After the deployment is complete, you connect to your VM via private IP address. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
@@ -81,11 +81,12 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to your VNet.
+1. Go to your virtual network.
 
-1. Select **Bastion** in the left pane to open the **Bastion** page.
+1. On the page for your virtual network, in the left pane, select **Bastion** to open the **Bastion** page.
 
-1. On the Bastion page, select **I want to configure Azure Bastion on my own**. This lets you configure specific additional settings when deploying Bastion to your VNet.
+1. On the Bastion page, select **I want to configure Azure Bastion on my own** to configure manually. This lets you configure specific additional settings when deploying Bastion to your VNet.
+
    :::image type="content" source="./media/tutorial-create-host-portal/configure-manually.png" alt-text="Screenshot of Bastion page showing configure bastion on my own." lightbox="./media/tutorial-create-host-portal/configure-manually.png":::
 
 1. On the **Create a Bastion** page, configure the settings for your bastion host. Project details are populated from your virtual network values. Configure the **Instance details** values.
