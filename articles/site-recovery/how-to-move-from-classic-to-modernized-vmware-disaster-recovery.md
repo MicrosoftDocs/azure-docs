@@ -69,3 +69,4 @@ After migration, if the failover is performed using the classic vault, then the 
 
 ## Next steps
 
+[move from classic to modernized VMware disaster recovery](move-from-classic-to-modernized-vmware-disaster-recovery.md)
