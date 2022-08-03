@@ -14,7 +14,9 @@ items:
     - name: Create and configure DevCenter
       href: tutorial-create-and-configure-devcenter.md
     - name: Create and configure a DevCenter Project
-      href: tutorial-create-and-configure-projects.md
+      href: tutorial-create-and-configure-projects.md  
+    - name: Configure a Catalog Item
+      href: configure-catalog-item.md  
 - name: Concepts
   expanded: true
   items:
