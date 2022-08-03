@@ -239,6 +239,80 @@ The tables below provide a quick comparison of the telemetry agents for Windows 
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
+### Supported operating systems
+
+The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 is not supported for any operating system. 
+
+#### Windows
+
+| Operating system | Azure Monitor agent | Log Analytics agent | Diagnostics extension | 
+|:---|:---:|:---:|:---:|:---:|
+| Windows Server 2022                                      | X |   |   |
+| Windows Server 2022 Core                                 | X |   |   |
+| Windows Server 2019                                      | X | X | X |
+| Windows Server 2019 Core                                 | X |   |   |
+| Windows Server 2016                                      | X | X | X |
+| Windows Server 2016 Core                                 | X |   | X |
+| Windows Server 2012 R2                                   | X | X | X |
+| Windows Server 2012                                      | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X |
+| Windows Server 2008 R2                                   |   |   | X |
+| Windows Server 2008 SP2                                  |   | X |   |
+| Windows 11 client OS                                     | X<sup>2</sup> |  |  |
+| Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
+| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
+| Azure Stack HCI                                          |   | X |   |
+
+<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
+
+#### Linux
+
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
+|:---|:---:|:---:|:---:|:---:
+| AlmaLinux                                                   | X | X |   |
+| Amazon Linux 2017.09                                        |   | X |   |
+| Amazon Linux 2                                              |   | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X |   |
+| CentOS Linux 7                                              | X | X | X |
+| CentOS Linux 6                                              |   | X |   |
+| CentOS Linux 6.5+                                           |   | X | X |
+| Debian 11 <sup>1</sup>                                      | X |   |   |
+| Debian 10 <sup>1</sup>                                      | X |   |   |
+| Debian 9                                                    | X | X | X |
+| Debian 8                                                    |   | X |   |
+| Debian 7                                                    |   |   | X |
+| OpenSUSE 13.1+                                              |   |   | X |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |
+| Oracle Linux 7                                              | X | X | X |
+| Oracle Linux 6                                              |   | X |   |
+| Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |   |
+| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X |   |
+| Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
+| Rocky Linux                                                 | X | X |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
+| SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
+| SUSE Linux Enterprise Server 15                             | X | X |   |
+| SUSE Linux Enterprise Server 12 SP5                         | X | X | X |
+| SUSE Linux Enterprise Server 12                             | X | X | X |
+| Ubuntu 22.04 LTS                                            | X |   |   |
+| Ubuntu 20.04 LTS                                            | X | X | X |
+| Ubuntu 18.04 LTS                                            | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X |
+| Ubuntu 14.04 LTS                                            |   | X | X |
+
+<sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
+<sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
+<sup>3</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
+
+> [!NOTE]
+> For Dependency Agent Linux support, see [Dependency Agent documentation](../vm/vminsights-dependency-agent-maintenance.md#dependency-agent-linux-support). 
 
 ## Next steps
 
