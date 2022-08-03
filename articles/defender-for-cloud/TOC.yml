@@ -48,6 +48,9 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
+    - name: Connect Github repositories
+      displayName: Github, DevOps
+      href: quickstart-onboard-github.md
   - name: 4. Configure auto provisioning
     href: enable-data-collection.md
   - name: 5. Set up email notifications
@@ -366,7 +369,15 @@
     - name: Enable Defender for DNS
       href: enable-enhanced-security.md
     - name: Respond to Microsoft Defender for DNS alerts
-      href: defender-for-dns-alerts.md  
+      href: defender-for-dns-alerts.md 
+  - name: Defender for DevOps
+    items:
+    - name: Overview
+      displayName: DevOps
+      href: defender-for-devops-introduction.md
+    - name: Enable Microsoft security Devops Github action
+      displayName: Github, DevOps, 
+      href: msdo-github-action.md
 
 - name: Reference
   items:
