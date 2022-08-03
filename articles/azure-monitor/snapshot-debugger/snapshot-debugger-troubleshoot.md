@@ -2,16 +2,19 @@
 title: Troubleshoot Azure Application Insights Snapshot Debugger
 description: This article presents troubleshooting steps and information to help developers enable and use Application Insights Snapshot Debugger.
 ms.topic: conceptual
-ms.date: 03/07/2019
+ms.date: 08/03/2022
 ms.reviewer: jogrima
+ms.custom: devdivchpfy22
 ---
 
 # <a id="troubleshooting"></a> Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots
+
 If you enabled Application Insights Snapshot Debugger for your application, but aren't seeing snapshots for exceptions, you can use these instructions to troubleshoot.
 
 There can be many different reasons why snapshots aren't generated. You can start by running the snapshot health check to identify some of the possible common causes.
 
 ## Not Supported Scenarios
+
 Below you can find scenarios where Snapshot Collector is not supported:
 
 |Scenario    | Side Effects | Recommendation |
@@ -24,7 +27,7 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 
 For App Service and applications using the Application Insights SDK, you have to update the connection string using the supported overrides for Snapshot Debugger as defined below:
 
-|Connection String Property    | US Government Cloud | China Cloud |   
+|Connection String Property    | US Government Cloud | China Cloud |  
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
@@ -32,11 +35,12 @@ For more information about other connection overrides, see [Application Insights
 
 For Function App, you have to update the `host.json` using the supported overrides below:
 
-|Property    | US Government Cloud | China Cloud |   
+|Property    | US Government Cloud | China Cloud |  
 |---------------|---------------------|-------------|
 |AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
 Below is an example of the `host.json` updated with the US Government Cloud agent endpoint:
+
 ```json
 {
   "version": "2.0",
@@ -56,6 +60,7 @@ Below is an example of the `host.json` updated with the US Government Cloud agen
 ```
 
 ## Use the snapshot health check
+
 Several common problems result in the Open Debug Snapshot not showing up. Using an outdated Snapshot Collector, for example; reaching the daily upload limit; or perhaps the snapshot is just taking a long time to upload. Use the Snapshot Health Check to troubleshoot common problems.
 
 There's a link in the exception pane of the end-to-end trace view that takes you to the Snapshot Health Check.
@@ -101,9 +106,11 @@ To check the setting, open your web.config file and find the system.web section.
 > If the targetFramework is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you are using your own virtual machine, you may need to enable TLS 1.2 in the OS.
 
 ## Preview Versions of .NET Core
+
 If you're using a preview version of .NET Core or your application references Application Insights SDK, directly or indirectly via a dependent assembly, follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json).
 
 ## Check the Diagnostic Services site extension' Status Page
+
 If Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json) in the portal, it was enabled by the Diagnostic Services site extension.
 
 > [!NOTE]
@@ -120,13 +127,15 @@ This domain will be the same as the Kudu management site for App Service.
 This Status Page shows the installation state of the Profiler and Snapshot Collector agents. If there was an unexpected error, it will be displayed and show how to fix it.
 
 You can use the Kudu management site for App Service to get the base url of this Status Page:
+
 1. Open your App Service application in the Azure portal.
-2. Select **Advanced Tools**, or search for **Kudu**.
-3. Select **Go**.
-4. Once you are on the Kudu management site, in the URL, **append the following `/DiagnosticServices` and press enter**.
+1. Select **Advanced Tools**, or search for **Kudu**.
+1. Select **Go**.
+1. Once you are on the Kudu management site, in the URL, **append the following `/DiagnosticServices` and press enter**.
  It will end like this: `https://<kudu-url>/DiagnosticServices`
 
 ## Upgrade to the latest version of the NuGet package
+
 Based on how Snapshot Debugger was enabled, see the following options:
 
 * If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package.
@@ -140,10 +149,10 @@ For the latest updates and bug fixes [consult the release notes](./snapshot-coll
 After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it's deleted from disk. The log files for the uploader process are kept on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
-2. Select **Advanced Tools**, or search for **Kudu**.
-3. Select **Go**.
-4. In the **Debug console** drop-down list box, select **CMD**.
-5. Select **LogFiles**.
+1. Select **Advanced Tools**, or search for **Kudu**.
+1. Select **Go**.
+1. In the **Debug console** drop-down list box, select **CMD**.
+1. Select **LogFiles**.
 
 You should see at least one file with a name that begins with `Uploader_` or `SnapshotUploader_` and a `.log` extension. Select the appropriate icon to download any log files or open them in a browser.
 The file name includes a unique suffix that identifies the App Service instance. If your App Service instance is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it's recorded in the log file. Here's an example of a successful snapshot and upload:
@@ -195,6 +204,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 For applications that _aren't_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
 ## Troubleshooting Cloud Services
+
 In Cloud Services, the default temporary folder could be too small to hold the minidump files, leading to lost snapshots.
 
 The space needed depends on the total working set of your application and the number of concurrent snapshots.
@@ -206,13 +216,15 @@ For example, if your application uses 1 GB of total working set, you should make
 Follow these steps to configure your Cloud Service role with a dedicated local resource for snapshots.
 
 1. Add a new local resource to your Cloud Service by editing the Cloud Service definition (.csdef) file. The following example defines a resource called `SnapshotStore` with a size of 5 GB.
+
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
    </LocalResources>
    ```
 
-2. Modify your role's startup code to add an environment variable that points to the `SnapshotStore` local resource. For Worker Roles, the code should be added to your role's `OnStart` method:
+1. Modify your role's startup code to add an environment variable that points to the `SnapshotStore` local resource. For Worker Roles, the code should be added to your role's `OnStart` method:
+
    ```csharp
    public override bool OnStart()
    {
@@ -220,7 +232,9 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
        return base.OnStart();
    }
    ```
+
    For Web Roles (ASP.NET), the code should be added to your web application's `Application_Start` method:
+
    ```csharp
    using Microsoft.WindowsAzure.ServiceRuntime;
    using System;
@@ -238,7 +252,8 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
    }
    ```
 
-3. Update your role's ApplicationInsights.config file to override the temporary folder location used by `SnapshotCollector`
+1. Update your role's ApplicationInsights.config file to override the temporary folder location used by `SnapshotCollector`
+
    ```xml
    <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
@@ -254,10 +269,11 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
 When the Snapshot Collector starts up, it tries to find a folder on disk that is suitable for running the Snapshot Uploader process. The chosen folder is known as the Shadow Copy folder.
 
 The Snapshot Collector checks a few well-known locations, making sure it has permissions to copy the Snapshot Uploader binaries. The following environment variables are used:
-- Fabric_Folder_App_Temp
-- LOCALAPPDATA
-- APPDATA
-- TEMP
+
+* Fabric_Folder_App_Temp
+* LOCALAPPDATA
+* APPDATA
+* TEMP
 
 If a suitable folder can't be found, Snapshot Collector reports an error saying _"Couldn't find a suitable shadow copy folder."_
 
@@ -297,8 +313,8 @@ Or, if you're using appsettings.json with a .NET Core application:
 When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is included as a custom property when the exception is reported to Application Insights. Using **Search** in Application Insights, you can find all records with the `ai.snapshot.id` custom property.
 
 1. Browse to your Application Insights resource in the Azure portal.
-2. Select **Search**.
-3. Type `ai.snapshot.id` in the Search text box and press Enter.
+1. Select **Search**.
+1. Type `ai.snapshot.id` in the Search text box and press Enter.
 
 ![Search for telemetry with a snapshot ID in the portal](./media/snapshot-debugger/search-snapshot-portal.png)
 
@@ -308,7 +324,7 @@ To search for a specific snapshot ID from the Uploader logs, type that ID in the
 
 1. Double-check that you're looking at the right Application Insights resource by verifying the instrumentation key.
 
-2. Using the timestamp from the Uploader log, adjust the Time Range filter of the search to cover that time range.
+1. Using the timestamp from the Uploader log, adjust the Time Range filter of the search to cover that time range.
 
 If you still don't see an exception with that snapshot ID, then the exception record wasn't reported to Application Insights. This situation can happen if your application crashed after it took the snapshot but before it reported the exception record. In this case, check the App Service logs under `Diagnose and solve problems` to see if there were unexpected restarts or unhandled exceptions.
 
