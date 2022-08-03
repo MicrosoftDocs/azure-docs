@@ -78,7 +78,7 @@ A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT)
 1. Enter a name.
 1. Select **SNAT**. 
 1. Optionally, enter a source such as a subnet to SNAT or destination.
-1. Enter the translated IP.   This IP is from the range of Public IPs you reserved from the Azure VMware Solution Portal.
+1. Enter the translated IP. This IP is from the range of Public IPs you reserved from the Azure VMware Solution Portal.
 1. Optionally, give the rule a higher priority number. This prioritization will move the rule further down the rule list to ensure more specific rules are matched first.
 1. Click **SAVE**.
 
@@ -106,8 +106,8 @@ A Destination Network Translation Service (DNAT) is used to expose a VM on a spe
 **Configure the DNAT rule**
   1. Name the rule.
    1. Select **DNAT** as the action.
-   1. Enter the reserved Public IP in the destination match.
-   1. Enter the VM Private IP in the translated IP. This IP is from the range of Public IPs reserved from the Azure VMware Solution Portal.
+   1. Enter the reserved Public IP in the destination match. This IP is from the range of Public IPs reserved from the Azure VMware Solution Portal.
+   1. Enter the VM Private IP in the translated IP.
    1. Select **SAVE**. 
    1. Optionally, configure the Translated Port or source IP for more specific matches.
     

@@ -30,6 +30,9 @@ To modify the data type for columns in your data flow, add columns to "Cast sett
 
 **Type:** Choose the data type to cast your column to. If you pick "complex", you can then select "Define complex type" and define structures, arrays, and maps inside the expression builder.
 
+> [!NOTE]
+> Support for complex data type casting from the Cast transformation is currently unavailable. Use a Derived Column transformation instead.
+
 **Format:** Some data types, like decimal and dates, will allow for additional formatting options.
 
 **Assert type check:** The cast transformation allows for type checking. If the casting fails, the row will be marked as an assertion error that you can trap later in the stream.
