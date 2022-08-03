@@ -368,7 +368,7 @@ az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOt
 > You can also supply the enrollment group ID rather than the symmetric key to the `iot dps enrollment-group compute-device-key` command. For example:
 >
 > ```azurecli
-> az iot dps enrollment-group compute-device-key -g contoso-us-resource-group --dps-name contoso-provisioning-service-1099\8 --enrollment-id contoso-custom-allocated-devices --registration-id breakroom499-contoso-tstrsd-007
+> az iot dps enrollment-group compute-device-key -g contoso-us-resource-group --dps-name contoso-provisioning-service-1098 --enrollment-id contoso-custom-allocated-devices --registration-id breakroom499-contoso-tstrsd-007
 > ```
 
 # [PowerShell](#tab/powershell)
@@ -512,7 +512,20 @@ This sample code simulates a device boot sequence that sends the provisioning re
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
+6. In the `main()` function, find the call to `Prov_Device_Register_Device()`. Just before that call, add the following lines of code that use [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) to pass a custom JSON payload during provisioning. This can be used to provide more information to your custom allocation functions. This could also be used to pass the device type instead of examining the registration ID. For more information on sending and receiving custom data payloads with DPS, see [How to transfer payloads between devices and DPS](how-to-send-additional-data.md).
+
+    ```c
+    // An example custom payload
+    const char* custom_json_payload = "{\"MyDeviceFirmwareVersion\":\"12.0.2.5\",\"MyDeviceProvisioningVersion\":\"1.0.0.0\"}";
+
+    prov_device_result = Prov_Device_Set_Provisioning_Payload(prov_device_handle, custom_json_payload);
+    if (prov_device_result != PROV_DEVICE_RESULT_OK)
+    {
+        (void)printf("\r\nFailure setting provisioning payload: %s\r\n", MU_ENUM_TO_STRING(PROV_DEVICE_RESULT, prov_device_result));
+    }
+    ```
+
+7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
 
 ### Simulate the Contoso toaster device
 
@@ -537,7 +550,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     The following output is an example of the simulated toaster device successfully booting up and connecting to the provisioning service instance to be assigned to the toasters IoT hub by the custom allocation policy:
 
     ```cmd
-    Provisioning API Version: 1.3.6
+    Provisioning API Version: 1.8.0
 
     Registering Device
 
@@ -549,6 +562,22 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
     Press enter key to exit:
     ```
+
+    The following output is example logging output from the custom allocation function code running for the toaster device. Notice a hub is successfully selected for a toaster device. Also notice the `payload` property that contains the custom JSON content you added to the code. This is available for your code to use within the `deviceRuntimeContext`.
+
+    This logging is available by clicking **Logs** under the function code in the portal:
+
+    ```output
+    2022-08-03T20:34:41.178 [Information] Executing 'Functions.HttpTrigger1' (Reason='This function was programmatically called via the host APIs.', Id=12950752-6d75-4f41-844b-c253a6653d4f)
+    2022-08-03T20:34:41.340 [Information] C# HTTP trigger function processed a request.
+    2022-08-03T20:34:41.341 [Information] Request.Body:...
+    2022-08-03T20:34:41.341 [Information] {"enrollmentGroup":{"enrollmentGroupId":"contoso-custom-allocated-devices","attestation":{"type":"symmetricKey"},"capabilities":{"iotEdge":false},"etag":"\"0000f176-0000-0700-0000-62eaad1e0000\"","provisioningStatus":"enabled","reprovisionPolicy":{"updateHubAssignment":true,"migrateDeviceData":true},"createdDateTimeUtc":"2022-08-03T17:15:10.8464255Z","lastUpdatedDateTimeUtc":"2022-08-03T17:15:10.8464255Z","allocationPolicy":"custom","iotHubs":["contoso-toasters-hub-1098.azure-devices.net","contoso-heatpumps-hub-1098.azure-devices.net"],"customAllocationDefinition":{"webhookUrl":"https://contoso-function-app-1098.azurewebsites.net/api/HttpTrigger1?****","apiVersion":"2021-10-01"}},"deviceRuntimeContext":{"registrationId":"breakroom499-contoso-tstrsd-007","currentIotHubHostName":"contoso-toasters-hub-1098.azure-devices.net","currentDeviceId":"breakroom499-contoso-tstrsd-007","symmetricKey":{},"payload":{"MyDeviceFirmwareVersion":"12.0.2.5","MyDeviceProvisioningVersion":"1.0.0.0"}},"linkedHubs":["contoso-toasters-hub-1098.azure-devices.net","contoso-heatpumps-hub-1098.azure-devices.net"]}
+    2022-08-03T20:34:41.382 [Information] Response
+    2022-08-03T20:34:41.398 [Information] {"iotHubHostName":"contoso-toasters-hub-1098.azure-devices.net","initialTwin":{"properties":{"desired":{"state":"ready","darknessSetting":"medium"}},"tags":{"deviceType":"toaster"}}}
+    2022-08-03T20:34:41.399 [Information] Executed 'Functions.HttpTrigger1' (Succeeded, Id=12950752-6d75-4f41-844b-c253a6653d4f, Duration=227ms)
+    ```
+
+
 
 ### Simulate the Contoso heat pump device
 
@@ -566,7 +595,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     The following output is an example of the simulated heat pump device successfully booting up and connecting to the provisioning service instance to be assigned to the Contoso heat pumps IoT hub by the custom allocation policy:
 
     ```cmd
-    Provisioning API Version: 1.3.6
+    Provisioning API Version: 1.8.0
 
     Registering Device
 
@@ -614,6 +643,6 @@ To delete the resource group by name:
 
 ## Next steps
 
-* To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation)
+* To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md)
 * To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
 * To learn more Deprovisioning, see [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)
