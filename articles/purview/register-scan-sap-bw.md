@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 08/03/2022
 ms.custom: template-how-to
 ---
 
@@ -18,11 +18,11 @@ This article outlines how to register SAP Business Warehouse (BW), and how to au
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|No|
 
-The supported SAP BW versions are 7.3 to 7.5. SAP BW4/HANA isn't supported.
+The supported SAP BW versions are 7.3 to 7.5. SAP BW/4HANA isn't supported.
 
 When scanning SAP BW source, Microsoft Purview supports extracting technical metadata including:
 

@@ -157,9 +157,11 @@ sections:
       - question: |
           My customer accepted the private offer. What's next?
         answer: |
-          They can go to the Azure portal to subscribe to the offer using any Azure Subscription associated with the billing account. They must use an Azure subscription associated with the configured billing account to get the private price. If the private offer includes PAYG offers (Virtual Machines) and was extended to an existing customer, the customer will be charged using the private price as soon as the private offer is accepted.
+          If the private offer is due to begin on the Accepted date, the customer can go to the Azure portal to subscribe to the offer using any Azure Subscription associated with the billing account. They must use an Azure subscription associated with the configured billing account to get the private price. If the private offer includes PAYG offers (Virtual Machines) and was extended to an existing customer, the customer will be charged using the private price as soon as the private offer is accepted.
 
-          For a private offer that includes SaaS, the customer must subscribe within 30 days of accepting the private offer.
+          For a private offer that includes SaaS, the customer must subscribe to the software as a service (SaaS) product first and then configure the product within 30 days of subscribing to the product.
+
+          If the ISV has configured the private offer to begin at a future date, the customer can accept the private offer before the Accept by date, but should not subscribe to or deploy the product until after the Start date set for the private offer.
 
       - question: |
           My customer accepted the private offer, but the private price is still not reflected in the marketplace products page.

@@ -101,7 +101,7 @@ To decompile an existing ARM template to Bicep, see [Decompiling ARM template JS
 
 To learn about the resources that are available in your Bicep file, see [Bicep resource reference](/azure/templates/)
 
-Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
+Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
 
 ## About the language
 

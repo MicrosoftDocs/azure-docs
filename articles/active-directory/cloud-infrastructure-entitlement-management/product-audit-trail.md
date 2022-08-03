@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Filter and query user activity
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 The **Audit** dashboard in Permissions Management details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. The **Audit** dashboard enables you to:
 
 - Create and save new queries so you can access key data points easily.

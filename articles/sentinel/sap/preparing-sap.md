@@ -39,7 +39,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 > [!IMPORTANT]
 > - This article presents a [**step-by-step guide**](#deploy-change-requests) to deploying the required CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
-> - Experienced SAP administrators that are familiar with CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900206* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
+> - Experienced SAP administrators that are familiar with CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
 
 > [!NOTE]
 > 
@@ -81,10 +81,10 @@ To deploy the CRs, follow the steps outlined below:
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
         ```
 
-    - Download NLPK900206
+    - Download NLPK900271
         ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900206.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900206.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
         ```
 
     Note that each CR consists of two files, one beginning with K and one with R.
@@ -139,9 +139,13 @@ To deploy the CRs, follow the steps outlined below:
 
 1. Repeat the procedure in the preceding 5 steps to add the remaining Change Requests to be deployed.
 
-1. In the **Import Queue** window, select the **Import All Requests** icon:
+1. In the **Import Queue** window, select the relevant Transport Request once, and then select **F9** or **Select/Deselect Request** icon.
 
-    :::image type="content" source="media/preparing-sap/import-all-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-all-requests-lightbox.png":::
+1. To add the remaining Transport Requests to the deployment, repeat step 9.
+
+1. Select the Import Requests icon:
+
+    :::image type="content" source="media/preparing-sap/import-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-requests-lightbox.png":::
 
 1. In **Start Import** window, select the **Target Client** field.
 
@@ -167,7 +171,7 @@ To deploy the CRs, follow the steps outlined below:
 
 ## Configure Sentinel role
 
-After the *NPLK900206* change request is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
+After the *NPLK900271* change request is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
 
 In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
 
@@ -228,70 +232,120 @@ The following table lists the ABAP authorizations required to ensure that SAP lo
 The required authorizations are listed here by log type. Only the authorizations listed for the types of logs you plan to ingest into Microsoft Sentinel are required.
 
 > [!TIP]
-> To create a role with all the required authorizations, deploy the SAP change request *NPLK900206* on the SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
+> To create a role with all the required authorizations, deploy the SAP change request *NPLK900271* on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
+> Alternatively, you can create a role that has minimal permissions by deploying change request *NPLK900268*, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This change request or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |
-| **All RFC logs** | | |
-| S_RFC | FUGR | /OSP/SYSTEM_TIMEZONE |
-| S_RFC | FUGR | ARFC |
-| S_RFC | FUGR | STFC |
-| S_RFC | FUGR | RFC1 |
-| S_RFC | FUGR | SDIFRUNTIME  |
-| S_RFC | FUGR | SMOI |
-| S_RFC | FUGR | SYST |
-| S_RFC | FUGR/FUNC | SRFC/RFC_SYSTEM_INFO |
-| S_RFC | FUGR/FUNC | THFB/TH_SERVER_LIST |
+| **All logs** | | |
+| S_RFC | RFC_TYPE | Function Module |
+| S_RFC | RFC_NAME | /OSP/SYSTEM_TIMEZONE |
+| S_RFC | RFC_NAME | DDIF_FIELDINFO_GET |
+| S_RFC | RFC_NAME | RFCPING |
+| S_RFC | RFC_NAME | RFC_GET_FUNCTION_INTERFACE |
+| S_RFC | RFC_NAME | RFC_READ_TABLE |
+| S_RFC | RFC_NAME | RFC_SYSTEM_INFO |
+| S_RFC | RFC_NAME | SUSR_USER_AUTH_FOR_OBJ_GET |
+| S_RFC | RFC_NAME | TH_SERVER_LIST |
+| S_RFC | ACTVT | Execute |
 | S_TCODE | TCD | SM51 |
-| **ABAP Application Log**  | | |
-| S_APPL_LOG | ACTVT | Display |
+| S_TABU_NAM | ACTVT | Display |
+| S_TABU_NAM | TABLE | T000 |
+| **Optional - Only if Sentinel solution CR implemented** | | |
+| S_RFC | RFC_NAME | /MSFTSEN/* |
+| **ABAP Application Log** | | |
+| S_RFC | RFC_NAME | BAPI_XBP_APPL_LOG_CONTENT_GET |
+| S_RFC | RFC_NAME | BAPI_XMI_LOGOFF |
+| S_RFC | RFC_NAME | BAPI_XMI_LOGON |
+| S_RFC | RFC_NAME | BAPI_XMI_SET_AUDITLEVEL |
+| S_TABU_NAM | TABLE | BALHDR |
+| S_XMI_PROD | EXTCOMPANY | Microsoft |
+| S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
+| S_XMI_PROD | INTERFACE | XBP |
 | S_APPL_LOG | ALG_OBJECT | * |
 | S_APPL_LOG | ALG_SUBOBJ | * |
-| S_RFC | FUGR | SXBP_EXT |
-| S_RFC | FUGR | /MSFTSEN/_APPLOG |
+| S_APPL_LOG | ACTVT | Display |
 | **ABAP Change Documents Log** | | |
-| S_RFC | FUGR | /MSFTSEN/_CHANGE_DOCS |
+| S_TABU_NAM | TABLE | CDHDR |
+| S_TABU_NAM | TABLE | CDPOS |
 | **ABAP CR Log** | | |
-| S_RFC | FUGR | CTS_API |
-| S_RFC | FUGR | /MSFTSEN/_CR |
-| S_TRANSPRT | ACTVT | Display |
+| S_RFC | RFC_NAME | CTS_API_READ_CHANGE_REQUEST |
+| S_TABU_NAM | TABLE | E070 |
 | S_TRANSPRT | TTYPE | * |
+| S_TRANSPRT | ACTVT | Display |
 | **ABAP DB Table Data Log** | | |
-| S_RFC | FUGR | /MSFTSEN/_TD |
-| S_TABU_DIS | ACTVT | Display |
-| S_TABU_DIS | DICBERCLS | &NC& |
-| S_TABU_DIS | DICBERCLS | + Any object required for logging |
-| S_TABU_NAM | ACTVT | Display |
-| S_TABU_NAM | TABLE | + Any object required for logging |
 | S_TABU_NAM | TABLE | DBTABLOG |
+| S_TABU_NAM | TABLE | SACF_ALERT |
+| S_TABU_NAM | TABLE | SOUD |
+| S_TABU_NAM | TABLE | USR41 |
+| S_TABU_NAM | TABLE | TMSQAFILTER |
 | **ABAP Job Log** | | |
-| S_RFC | FUGR | SXBP |
-| S_RFC | FUGR | /MSFTSEN/_JOBLOG |
-| **ABAP Job Log, ABAP Application Log** | | |
-| S_XMI_PRD | INTERFACE | XBP |
-| **ABAP Security Audit Log - XAL** | | |
-| All RFC | S_RFC | FUGR |
-| S_ADMI_FCD | S_ADMI_FCD | AUDD |
-| S_RFC | FUGR | SALX |
-| S_USER_GRP | ACTVT | Display |
-| S_USER_GRP | CLASS | * |
-| S_XMI_PRD | INTERFACE | XAL |
-| **ABAP Security Audit Log - XAL, ABAP Job Log, ABAP Application Log** | | |
-| S_RFC | FUGR | SXMI |
-| S_XMI_PRD | EXTCOMPANY | Microsoft |
-| S_XMI_PRD | EXTPRODUCT | Microsoft Sentinel |
-| **ABAP Security Audit Log - SAL** | | |
-| S_RFC | FUGR | RSAU_LOG |
-| S_RFC | FUGR | /MSFTSEN/_AUDITLOG |
-| **ABAP Spool Log, ABAP Spool Output Log** | | |
-| S_RFC | FUGR | /MSFTSEN/_SPOOL |
+| S_RFC | RFC_NAME | BAPI_XBP_JOB_JOBLOG_READ |
+| S_RFC | RFC_NAME | BAPI_XMI_LOGOFF |
+| S_RFC | RFC_NAME | BAPI_XMI_LOGON |
+| S_RFC | RFC_NAME | BAPI_XMI_SET_AUDITLEVEL |
+| S_TABU_NAM | TABLE | TBTCO |
+| S_XMI_PROD | EXTCOMPANY | Microsoft |
+| S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
+| S_XMI_PROD | INTERFACE | XBP |
+| **ABAP Spool Logs** | | |
+| S_TABU_NAM | TABLE | TSP01 |
+| S_ADMI_FCD | S_ADMI_FCD | SPOS (Use of Transaction SP01 (all systems)) |
 | **ABAP Workflow Log** | | |
-| S_RFC | FUGR | SWRR |
-| S_RFC | FUGR | /MSFTSEN/_WF |
+| S_TABU_NAM | TABLE | SWWLOGHIST |
+| S_TABU_NAM | TABLE | SWWWIHEAD |
+| **ABAP Security Audit Log** | | |
+| S_RFC | RFC_NAME | BAPI_USER_GET_DETAIL |
+| S_RFC | RFC_NAME | BAPI_XMI_LOGOFF |
+| S_RFC | RFC_NAME | BAPI_XMI_LOGON |
+| S_RFC | RFC_NAME | BAPI_XMI_SET_AUDITLEVEL |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETMLHIS |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETTREE |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETTIDBYNAME |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MS_GETLIST |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MON_GETLIST |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MON_GETTREE |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETPERFCURVAL |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_MT_GETALERTDATA |
+| S_RFC | RFC_NAME | BAPI_SYSTEM_ALERT_ACKNOWLEDGE |
+| S_ADMI_FCD | S_ADMI_FCD | AUDD (Basis audit display auth.) |
+| S_SAL | SAL_ACTVT | SHOW_LOG (Evaluate the file-based log) |
+| S_USER_GRP | CLASS | SUPER |
+| S_USER_GRP | ACTVT | Display |
+| S_USER_GRP | CLASS | SUPER |
+| S_USER_GRP | ACTVT | Lock |
+| S_XMI_PROD | EXTCOMPANY | Microsoft |
+| S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
+| S_XMI_PROD | INTERFACE | XAL |
 | **User Data** | | |
-| S_RFC | FUNC | RFC_READ_TABLE |
-| | |
+| S_TABU_NAM | TABLE | ADCP |
+| S_TABU_NAM | TABLE | ADR6 |
+| S_TABU_NAM | TABLE | AGR_1251 |
+| S_TABU_NAM | TABLE | AGR_AGRS |
+| S_TABU_NAM | TABLE | AGR_DEFINE |
+| S_TABU_NAM | TABLE | AGR_FLAGS |
+| S_TABU_NAM | TABLE | AGR_PROF |
+| S_TABU_NAM | TABLE | AGR_TCODES |
+| S_TABU_NAM | TABLE | AGR_USERS |
+| S_TABU_NAM | TABLE | DEVACCESS |
+| S_TABU_NAM | TABLE | USER_ADDR |
+| S_TABU_NAM | TABLE | USGRP_USER |
+| S_TABU_NAM | TABLE | USR01 |
+| S_TABU_NAM | TABLE | USR02 |
+| S_TABU_NAM | TABLE | USR05 |
+| S_TABU_NAM | TABLE | USR21 |
+| S_TABU_NAM | TABLE | USRSTAMP |
+| S_TABU_NAM | TABLE | UST04 |
+| **Configuration History** | | |
+| S_TABU_NAM | TABLE | PAHI |
+| **SNC Data** | | |
+| S_TABU_NAM | TABLE | SNCSYSACL |
+| S_TABU_NAM | TABLE | USRACL |
 
+
+## Remove the user role and the optional CR installed on your ABAP system
+
+To remove the user role and optional CR imported to your system, import the deletion CR *NPLK900259* into your ABAP system.
 
 ## Next steps
 

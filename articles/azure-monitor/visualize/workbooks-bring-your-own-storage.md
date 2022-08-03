@@ -6,7 +6,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 07/05/2022
 ---
 
 # Bring your own storage to save workbooks

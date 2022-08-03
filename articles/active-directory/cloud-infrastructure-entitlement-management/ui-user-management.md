@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Manage users and groups with the User management dashboard
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how to use the Permissions Management **User management** dashboard to view and manage users and groups.
 
 **To display the User management dashboard**:

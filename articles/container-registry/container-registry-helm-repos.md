@@ -213,12 +213,12 @@ Output is similar to:
 }
 ```
 
-Run the [az acr repository show-manifests][az-acr-repository-show-manifests] command to see details of the chart stored in the repository. For example:
+Run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command to see details of the chart stored in the repository. For example:
 
 ```azurecli
 az acr manifest list-metadata \
   --registry $ACR_NAME \
-  --name helm/hello-world --detail
+  --name helm/hello-world
 ```
 
 Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:
@@ -383,5 +383,5 @@ helm repo remove $ACR_NAME
 [az-acr-repository]: /cli/azure/acr/repository
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata
 [acr-tasks]: container-registry-tasks-overview.md

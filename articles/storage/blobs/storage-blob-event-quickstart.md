@@ -127,7 +127,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
     "contentType": "text/plain",
     "contentLength": 0,
     "blobType": "BlockBlob",
-    "url": "https://myblobstorageaccount.blob.core.windows.net/testcontainer/testblob1.txt",
+    "url": "https://myblobstorageaccount.blob.core.windows.net/testcontainer/testfile.txt",
     "sequencer": "00000000000000EB0000000000046199",
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -167,11 +167,11 @@ The most common constructor for **CosmosClient** has two parameters:
 
 1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos D B SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL A P I account.":::
 
 ---
 
@@ -367,8 +367,8 @@ As you build your application, your code will primarily interact with four types
 
 The following diagram shows the relationship between these resources.
 
-:::image type="complex" source="media/how-to-dotnet-get-started/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, containers, and items.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
+:::image type="complex" source="media/how-to-dotnet-get-started/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, containers, and items." border="false":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
 Each type of resource is represented by one or more associated .NET classes. Here's a list of the most common classes:
@@ -385,6 +385,8 @@ The following guides show you how to use each of these classes to build your app
 |--|---|
 | [Create a database](how-to-dotnet-create-database.md) | Create databases |
 | [Create a container](how-to-dotnet-create-container.md) | Create containers |
+| [Read an item](how-to-dotnet-read-item.md) | Point read a specific item |
+| [Query items](how-to-dotnet-query-items.md) | Query multiple items |
 
 ## See also
 

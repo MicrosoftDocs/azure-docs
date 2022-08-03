@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure your tenant for Azure AD Verifiable Credentials (preview)
+title: Tutorial - Configure your tenant for Microsoft Entra Verified ID (preview)
 description: In this tutorial, you learn how to configure your tenant to support the Verifiable Credentials service. 
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -12,11 +12,11 @@ ms.date: 06/27/2022
 
 ---
 
-# Configure your tenant for Azure AD Verifiable Credentials (preview)
+# Configure your tenant for Microsoft Entra Verified ID (preview)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-Azure Active Directory (Azure AD) Verifiable Credentials safeguards your organization with an identity solution that's seamless and decentralized. The service allows you to issue and verify credentials. For issuers, Azure AD provides a service that they can customize and use to issue their own verifiable credentials. For verifiers, the service provides a free REST API that makes it easy to request and accept verifiable credentials in your apps and services.
+Microsoft Entra Verified ID safeguards your organization with an identity solution that's seamless and decentralized. The service allows you to issue and verify credentials. For issuers, Azure AD provides a service that they can customize and use to issue their own verifiable credentials. For verifiers, the service provides a free REST API that makes it easy to request and accept verifiable credentials in your apps and services.
 
 In this tutorial, you learn how to configure your Azure AD tenant so it can use the verifiable credentials service.
 
@@ -27,9 +27,9 @@ Specifically, you learn how to:
 > - Set up the Verifiable Credentials service.
 > - Register an application in Azure AD.
 
-The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
+The following diagram illustrates the Microsoft Entra Verified ID architecture and the component you configure.
 
-![Diagram that illustrates the Azure AD Verifiable Credentials architecture.](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
+![Diagram that illustrates the Microsoft Entra Verified ID architecture.](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
 
 ## Prerequisites
 
@@ -41,14 +41,14 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 [Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. The Verifiable
 Credentials service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
 
-If you don't have an Azure Key Vault instance available, follow [these steps](../../key-vault/general/quick-create-portal.md) to create a key vault using the Azure portal.
+If you don't have an Azure Key Vault instance available, follow [these steps](/azure/key-vault/general/quick-create-portal) to create a key vault using the Azure portal.
 
 >[!NOTE]
 >By default, the account that creates a vault is the only one with access. The Verifiable Credentials service needs access to the key vault. You must configure the key vault with an access policy that allows the account used during configuration to create and delete keys. The account used during configuration also requires permission to sign to create the domain binding for Verifiable Credentials. If you use the same account while testing, modify the default policy to grant the account sign permission, in addition to the default permissions granted to vault creators.
 
 ### Set access policies for the key vault
 
-A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the Azure AD Verifiable Credentials service administrator account, and for the Request Service API principal that you created.
+A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the Microsoft Entra Verified ID service administrator account, and for the Request Service API principal that you created.
 After you create your key vault, Verifiable Credentials generates a set of keys used to provide message security. These keys are stored in Key Vault. You use a key set for signing, updating, and recovering verifiable credentials.
 
 ### Set access policies for the Verifiable Credentials Admin user
@@ -79,7 +79,7 @@ The Verifiable Credentials Service Request is the Request Service API, and it ne
 
 ## Set up Verifiable Credentials 
 
-To set up Azure AD Verifiable Credentials, follow these steps:
+To set up Microsoft Entra Verified ID, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then, select **Verifiable Credentials (Preview)**.
 
@@ -108,7 +108,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
 ## Register an application in Azure AD
 
-Azure AD Verifiable Credentials Service Request needs to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
+Microsoft Entra Verified ID needs to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 
@@ -128,7 +128,7 @@ Azure AD Verifiable Credentials Service Request needs to get access tokens to is
 
 ### Grant permissions to get access tokens
 
-In this step, you grant permissions to the Verifiable Credentials Service Request Service principal.
+In this step, you grant permissions to the **Verifiable Credentials Service Request** Service principal.
 
 To add the required permissions, follow these steps:
 
@@ -166,5 +166,5 @@ Once that you have successfully completed the verification steps, you are ready 
 
 ## Next steps
 
-- [Learn how to issue Azure AD Verifiable Credentials from a web application](verifiable-credentials-configure-issuer.md).
-- [Learn how to verify Azure AD Verifiable Credentials](verifiable-credentials-configure-verifier.md).
+- [Learn how to issue Microsoft Entra Verified ID credentials from a web application](verifiable-credentials-configure-issuer.md).
+- [Learn how to verify Microsoft Entra Verified ID credentials](verifiable-credentials-configure-verifier.md).

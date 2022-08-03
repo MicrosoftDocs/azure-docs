@@ -6,12 +6,18 @@ author: ssalgadodev
 ms.author: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/23/2021
+ms.date: 07/28/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
 # Configure Kubernetes cluster for Azure Machine Learning
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
+> * [v1](./v1/how-to-create-attach-kubernetes.md)
+> * [v2 (current version)](how-to-attach-kubernetes-anywhere.md)
 
 Azure Machine Learning Kubernetes compute enables you to run training jobs such as AutoML, pipeline, and distributed jobs,  or to deploy models as online endpoint or batch endpoint. Azure ML Kubernetes compute supports two kinds of Kubernetes cluster:
 * **[Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/)** (AKS) cluster in Azure. With your own managed AKS cluster in Azure, you can gain security and controls to meet compliance requirement as well as flexibility to manage teams' ML workload.
@@ -33,6 +39,11 @@ In this article, you can learn about steps to configure an existing Kubernetes c
 * Install or upgrade Azure CLI to version 2.24.0 or higher.
 * Install or upgrade Azure CLI extension ```k8s-extension``` to version 1.2.3 or higher.
 
+## Limitations
+
+- [Using a service principal with AKS](../aks/kubernetes-service-principal.md) is **not supported** by Azure Machine Learning. The AKS cluster must use a managed identity instead.
+- [Disabling local accounts](../aks/managed-aad.md#disable-local-accounts) for AKS is **not supported**  by Azure Machine Learning. When deploying an AKS Cluster, local accounts are enabled by default.
+- If your AKS cluster has an [Authorized IP range enabled to access the API server](../aks/api-server-authorized-ip-ranges.md), enable the AzureML control plane IP ranges for the AKS cluster. The AzureML control plane is deployed across paired regions. Without access to the API server, the machine learning pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
 
 ## Deploy AzureML extension to Kubernetes cluster
 
@@ -75,7 +86,7 @@ We list 4 typical extension deployment scenarios for reference. To deploy extens
 
 The UI experience to deploy extension is only available for **[Arc Kubernetes](../azure-arc/kubernetes/overview.md)**. If you have an AKS cluster without Azure Arc connection, you need to use CLI to deploy AzureML extension.
 
-1. In the [Azure portal](https://ms.portal.azure.com/#home), navigate to **Kubernetes - Azure Arc** and select your cluster.
+1. In the [Azure portal](https://portal.azure.com/#home), navigate to **Kubernetes - Azure Arc** and select your cluster.
 1. Select **Extensions** (under **Settings**), and then select **+ Add**.
 
    :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
@@ -148,7 +159,7 @@ For AzureML extension deployment configurations, use ```--config``` or ```--conf
    | ```inferenceRouterServiceType``` |```loadBalancer```, ```nodePort``` or ```clusterIP```.  **Required** if ```enableInference=True```. | N/A| **&check;** |   **&check;** |
    | ```internalLoadBalancerProvider``` | This config is only applicable for Azure Kubernetes Service(AKS) cluster now. Set to ```azure``` to allow the inference router using internal load balancer.  | N/A| Optional |  Optional |
    |```sslSecret```| The name of Kubernetes secret in `azureml` namespace to store `cert.pem` (PEM-encoded SSL cert) and `key.pem` (PEM-encoded SSL key), required for inference  HTTPS endpoint support, when  ``allowInsecureConnections`` is set to False. You can find a sample YAML definition of sslSecret [here](./reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl). Use this config or combination of `sslCertPemFile` and `sslKeyPemFile` protected config settings. |N/A| Optional |  Optional |
-   |```sslCname``` |A SSL CName used by inference HTTPS endpoint. **Required** if ```allowInsecureConnections=True```  |  N/A | Optional | Optional|
+   |```sslCname``` |An SSL CName is used by inference HTTPS endpoint. **Required** if ```allowInsecureConnections=False```  |  N/A | Optional | Optional|
    | ```inferenceRouterHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy 3 inference router replicas for high availability, which requires at least 3 worker nodes in a cluster. Set to ```False``` if your cluster has fewer than 3 worker nodes, in this case only one inference router service is deployed. | N/A| Optional |  Optional |
    |```nodeSelector``` | By default, the deployed kubernetes resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
    |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```False```. [NVIDIA Device Plugin](https://github.com/NVIDIA/k8s-device-plugin#nvidia-device-plugin-for-kubernetes) is required for ML workloads on NVIDIA GPU hardware. By default, AzureML extension deployment will not install NVIDIA Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this setting to ```True```, to install it, but make sure to fulfill [Prerequisites](https://github.com/NVIDIA/k8s-device-plugin#prerequisites). | Optional |Optional |Optional |

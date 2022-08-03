@@ -65,7 +65,7 @@ Alternatively, use the [QueryDefinition](/dotnet/api/microsoft.azure.cosmos.quer
 
 In this example, an [``IQueryable``<>](/dotnet/api/system.linq.iqueryable) object is used to construct a [Language Integrated Query (LINQ)](/dotnet/csharp/programming-guide/concepts/linq/). The results are then iterated over using a feed iterator.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/300-query-items/Program.cs" id="query_items_linq" :::
+:::code language="csharp" source="~/azure-cosmos-dotnet-v3/300-query-items/Program.cs" id="query_items_queryable" :::
 
 The [Container.GetItemLinqQueryable<>](/dotnet/api/microsoft.azure.cosmos.container.getitemlinqqueryable) method constructs an ``IQueryable`` to build the LINQ query. Then the ``ToFeedIterator<>`` method is used to convert the LINQ query expression into a [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1).
 

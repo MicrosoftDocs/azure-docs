@@ -87,32 +87,48 @@
       href: powershell-samples.md
     - name: Azure CLI
       items:
-      - name: Overview SQL API samples
-        href: cli-samples.md
-      - name: Create account, keyspace, and table
-        href: ../scripts/cli/sql/create.md
-      - name: Create serverless
-        href: ../scripts/cli/sql/serverless.md
-      - name: Create with autoscale
-        href: ../scripts/cli/sql/autoscale.md
-      - name: Perform throughput operations
-        href: ../scripts/cli/sql/throughput.md
-      - name: Lock resources from deletion
-        href: ../scripts/cli/sql/lock.md
-      - name: Overview common API samples
-        href: ../common-cli-samples.md?toc=/azure/cosmos-db/sql/toc.json
-      - name: Add or fail over regions
-        href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/sql/toc.json
-      - name: Perform account key operations
-        href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/sql/toc.json
-      - name: Secure with IP firewall
-        href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/sql/toc.json
-      - name: Secure new account with service endpoints
-        href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/sql/toc.json
-      - name: Secure existing account with service endpoints
-        href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Overview SQL API samples
+          href: cli-samples.md
+        - name: Create account, database and container
+          href: ../scripts/cli/sql/create.md
+        - name: Create serverless
+          href: ../scripts/cli/sql/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/sql/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/sql/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/sql/lock.md
+        - name: Overview common API samples
+          href: ../common-cli-samples.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Azure PowerShell
       items:
+        - name: Overview SQL API samples
+          href: powershell-samples.md
+        - name: Create account, database and container
+          href: ../scripts/powershell/sql/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/sql/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/sql/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/sql/lock.md
+        - name: List and get databases and containers
+          href: ../scripts/powershell/sql/list-get.md
+        - name: Create a container with indexing turned off
+          href: ../scripts/powershell/sql/create-index-none.md
+        - name: Create a container with a large partition key
+          href: ../scripts/powershell/sql/create-large-partition-key.md
         - name: Overview common API samples
           href: ../common-powershell-samples.md?toc=/azure/cosmos-db/sql/toc.json
         - name: Account keys or connection strings
