@@ -107,6 +107,25 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 - Security Administrator
 - Security Reader
 
+## Block users from viewing their BitLocker keys (preview)
+In this preivew, admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices.
+
+To disable/enable self-service BitLocker recovery:
+
+```PowerShell
+Connect-MgGraph -Scopes Policy.ReadWrite.Authorization
+$authPolicyUri = "https://graph.microsoft.com/beta/policies/authorizationPolicy/authorizationPolicy"
+$body = @{
+    defaultUserRolePermissions = @{
+        allowedToReadBitlockerKeysForOwnedDevice = $false #Set this to $true to allow BitLocker self-service recovery
+    }
+}| ConvertTo-Json
+Invoke-MgGraphRequest -Uri $authPolicyUri -Method PATCH -Body $body
+# Show current policy setting
+$authPolicy = Invoke-MgGraphRequest -Uri $authPolicyUri
+$authPolicy.defaultUserRolePermissions
+```
+
 ## View and filter your devices (preview)
 
 In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
