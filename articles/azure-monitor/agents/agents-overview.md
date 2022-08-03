@@ -21,7 +21,7 @@ Here's a short **introduction to Azure Monitor video**, which includes a quick d
 
 Deploy Azure Monitor Agent on all new virtual machines to collect data for [supported services and features](#supported-services-and-features).
 
-If you have virtual machines already deployed with legacy agents, we recommend you [check whether Azure Monitor Agent supports your monitoring needs](#summary-of-agents) and [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible.
+If you have virtual machines already deployed with legacy agents, we recommend you [check whether Azure Monitor Agent supports your monitoring needs](#compare-to-legacy-agents) and [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible.
 
 Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 
@@ -174,7 +174,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 To configure the agent to use private links for network communications with Azure Monitor, follow instructions to [enable network isolation](./azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) by using [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md).
 
-## Compare with legacy agents
+## Compare to legacy agents
 
 The tables below provide a comparison of Azure Monitor Agent with the legacy the Azure Monitor telemetry agents for Windows and Linux. 
 
