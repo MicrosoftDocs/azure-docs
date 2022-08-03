@@ -46,7 +46,7 @@ To send data to Log Analytics, create the data collection rule in the **same reg
 
     If you need network isolation using private links, select existing endpoints from the same region for the respective resources, or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
-    [![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
+    [![Screenshot showing the Resources tab of the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
 
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select a **Data source type**.
