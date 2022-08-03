@@ -28,6 +28,8 @@ landingContent:
             url: /shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
       - linkListType: whats-new
         links:
+          - text: What's new with Azure Cache for Redis
+            url: cache-whats-new.md
           - text: Managed identity with Azure Cache for Redis
             url: cache-managed-identity.md
           - text: Create an Enterprise tier cache
