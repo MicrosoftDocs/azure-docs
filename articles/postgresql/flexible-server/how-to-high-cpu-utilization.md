@@ -12,7 +12,7 @@ ms.date: 7/28/2022
 #  Troubleshoot high CPU utilization in Azure Database for PostgreSQL - Flexible Server
 
 
-This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using Azure Database for PostgreSQL - Flexible Server. 
+This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using [Azure Database for PostgreSQL - Flexible Server](overview.md). 
 
 
 In this article, you will learn: 
@@ -181,7 +181,8 @@ Keeping table statistics up to date helps improve query performance. Monitor whe
 The following query helps to identify the tables that need vacuuming: 
 
 ```postgresql
-select schemaname,relname,n_dead_tup,n_live_tup,last_vacuum,last_analyze,last_autovacuum,last_autoanalyze from pg_stat_all_tables where n_live_tup > 0;   
+select schemaname,relname,n_dead_tup,n_live_tup,last_vacuum,last_analyze,last_autovacuum,last_autoanalyze 
+from pg_stat_all_tables where n_live_tup > 0;   
 ```
 
 `last_autovacuum` and `last_autoanalyze` columns give the date and time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly, take steps to tune autovacuum. For more information about autovacuum troubleshooting and tuning, see [Autovacuum Troubleshooting](./how-to-autovacuum-tuning.md).

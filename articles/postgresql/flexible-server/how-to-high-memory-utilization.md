@@ -11,12 +11,12 @@ ms.date: 7/28/2022
 
 # High Memory Utilization in Azure Database for PostgreSQL - Flexible Server
 
-This article introduces common scenarios and root causes that might lead to high memory utilization in Azure Database for PostgreSQL - Flexible Server. 
+This article introduces common scenarios and root causes that might lead to high memory utilization in [Azure Database for PostgreSQL - Flexible Server](overview.md). 
 
 In this article, you will learn: 
 
--   Tools to identify high memory utilization.
--   Reasons for high memory & remedial actions.
+- Tools to identify high memory utilization.
+- Reasons for high memory & remedial actions.
 
 
 ## Tools to Identify High Memory Utilization 
