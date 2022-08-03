@@ -34,10 +34,10 @@ landingContent:
             url: quickstart-onboard-machines.md?pivots=azure-arc
           - text: Enable enhanced security for your multicloud resources
             url: enable-enhanced-security.md
-       - linkListType: reference
-         links:
-           - text: Troubleshooting multicloud connectors
-             url: troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector
+      - linkListType: reference
+        links:
+          - text: Troubleshooting multicloud connectors
+            url: troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector
             
   # Card
   - title: Defend Amazon AWS resources
