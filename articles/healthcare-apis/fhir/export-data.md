@@ -27,7 +27,7 @@ For general information about the `$export` API call spec in FHIR, please see th
 
 **Jobs stuck in a bad state**
 
-In some situations, there's a potential for a job to be stuck in a bad state while attempting to `$export` data from the FHIR service. This can occur especially if the ADLS Gen2 storage account permissions haven't been set up correctly. One way to check the status of your `$export` operation is to look in your storage account's **Storage browser** and see if any .ndjson files are present in the designated container. If the files aren't present and there are no other `$export` jobs running, then there's a possibility the current job is stuck in a bad state. In this case, you can cancel the `$export` job by sending a `DELETE` request to the FHIR service. Later you can requeue the `$export` job and try again. Information about cancelling an `$export` operation can be found in the [Bulk Data Delete Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-delete-request) documentation from HL7. 
+In some situations, there's a potential for a job to be stuck in a bad state while attempting to `$export` data from the FHIR service. This can occur especially if the ADLS Gen2 storage account permissions haven't been set up correctly. One way to check the status of your `$export` operation is to look in your storage account's **Storage browser** and see if any `.ndjson` files are present in the designated container. If the files aren't present and there are no other `$export` jobs running, then there's a possibility the current job is stuck in a bad state. In this case, you can cancel the `$export` job by sending a `DELETE` request to the FHIR service. Later you can requeue the `$export` job and try again. Information about canceling an `$export` operation can be found in the [Bulk Data Delete Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-delete-request) documentation from HL7. 
 
 >Note: In the FHIR service, the default run time for an `$export` operation in a bad state is 10 minutes before the service will stop and move to a new job or retry the `$export`. 
 
@@ -65,7 +65,7 @@ The FHIR service supports the following query parameters for filtering data in `
 
 |Query parameter        | Defined by the FHIR Spec?    |  Description|
 |------------------------|---|------------|
-| `_outputFormat` | Yes | Currently supports three values to align to the FHIR Spec: `application/fhir+ndjson`, `application/ndjson`, or just `ndjson`. All export jobs will return .ndjson files and the passed value has no effect on code behavior. |
+| `_outputFormat` | Yes | Currently supports three values to align to the FHIR Spec: `application/fhir+ndjson`, `application/ndjson`, or just `ndjson`. All export jobs will return `.ndjson` files and the passed value has no effect on code behavior. |
 | `_since` | Yes | Allows you to only export resources that have been modified since the time provided. |
 | `_type` | Yes | Allows you to specify which types of resources will be included. For example, `_type=Patient` would return only patient resources.|
 | `_typeFilter` | Yes | To request finer-grained filtering, you can use `_typeFilter` along with the `_type` parameter. The value of the `_typeFilter` parameter is a comma-separated list of FHIR queries that further restrict the results. |
