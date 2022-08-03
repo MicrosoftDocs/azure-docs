@@ -12,7 +12,7 @@ Microsoft Defender for Servers is one of the plans provided by Microsoft Defende
 
 - Watch a [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
 - Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-- [Enable Defender for Servers on your subscriptions](enable-enhanced-security).
+- [Enable Defender for Servers on your subscriptions](enable-enhanced-security.md).
 
 ## Defender for Servers plans
 
