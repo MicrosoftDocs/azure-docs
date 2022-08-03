@@ -3,7 +3,7 @@ title: Azure portal administration for direct Enterprise Agreements
 description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/08/2022
+ms.date: 08/03/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -421,6 +421,32 @@ You can delete an enrollment account only when there are no active subscriptions
 1. In the Accounts list, search for the account you would like to delete.
 1. In the account row that you want to delete, select the ellipsis (**…**) symbol, and then select **Delete**.
 1. On the Delete account page, select the **Yes, I want to delete this account** confirmation and then and select **Delete**.
+
+## Manage notification contacts
+
+Notifications allow enterprise administrators to enroll their team members to receive usage, invoice, and user management notifications without giving them billing account access in the Azure portal.
+
+Notification contacts are shown in the Azure portal in the Notifications under Settings. Managing your notification contacts makes sure that the right people in your organization get Azure EA notifications. 
+
+To view current notifications settings and add contacts:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
+1. Navigate to **Cost Management + Billing**.
+1. In the left menu, select **Billing scopes** and then select a billing account scope.
+1. In the left menu, under **Settings*, select **Notifications**.
+    Notification contacts are shown on the page.
+1. To add a contact, select **+ Add**.
+1. In the **Add Contact** area, enter the contact's email address.
+1. Under **Frequency**, select a notification interval. Weekly is the default value.
+1. Under **Categories**, select Lifecycle Management to receive notifications when the enrollment end date is approached or ended.
+1. Select **Add** to save the changes.
+    :::image type="content" source="./media/direct-ea-administration/add-contact.png" alt-text="Screenshot showing the Add Contact window where you add a contact." :::
+
+The new notification contact is shown in the Notification list.
+
+An EA admin can manage notification access for an contact by selecting the ellipsis (…) symbol to the right of each contact. They can edit and remove existing notification contacts.
+
+By default, notification contacts are subscribed for the coverage period end date approaching lifecycle notifications. Unsubscribing lifecycle management notifications suppresses notifications for the coverage period and agreement end date.
 
 ## Azure sponsorship offer
 
