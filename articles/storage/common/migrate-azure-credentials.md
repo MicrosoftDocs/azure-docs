@@ -69,7 +69,7 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 
 The following code examples demonstrates how to connect to an Azure Storage account using credential-free connections. The next section describes how to migrate to this setup in more detail.
 
-### [C# and .NET Core](#tab/dotnet-credential)
+### [C# and .NET Core](#tab/dotnet-credentials)
 
 A .NET Core application should explicitly pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
@@ -79,7 +79,7 @@ var blobServiceClient = new BlobServiceClient(
     new DefaultAzureCredential());
 ```
 
-### [Java](#tab/java-credential)
+### [Java](#tab/java-credentials)
 
 ```Java
 
@@ -87,12 +87,10 @@ var blobServiceClient = new BlobServiceClient(
 
 ```
 
-### [Python] (#tab/python-credential)
+### [Python](#tab/python-credentials)
 
-```Python
-
+```python
 ## Python code here
-
 ```
 
 ---
@@ -140,7 +138,7 @@ var blobServiceClient = new BlobServiceClient(
 
 ```
 
-### [Python] (#tab/python-migrate)
+### [Python](#tab/python-migrate)
 
 ```Python
 
@@ -160,7 +158,7 @@ Once your application is configured to use credential-free connections and runs 
 
 ### Create the managed identity
 
-The following steps demonstrate how to create a system-assigned managed identity for an app service.
+The following steps demonstrate how to create a system-assigned managed identity for an app service. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
 
 ### [Azure Portal](#tab/create-managed-identity-portal)
 
@@ -219,6 +217,10 @@ az role assignment create --assignee "<your-username>" \
 ```
 
 ---
+
+#### Test the app
+
+After making these code changes, browse to your hosted application in the browser. Your app should be able to connect to the storage account successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 
