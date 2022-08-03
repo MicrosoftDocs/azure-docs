@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 07/18/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: hafowler
+ms.reviewer: myra-ramdenbourg
 
 ms.collection: M365-identity-device-management
 ---
@@ -107,9 +107,9 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 - Security Administrator
 - Security Reader
 
-## Device-list filtering (preview)
+## View and filter your devices (preview)
 
-Previously, you could filter the device list only by activity and enabled state. In this preview, you can filter the device list by these device attributes:
+In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
 
 - Enabled state
 - Compliant state
@@ -117,16 +117,20 @@ Previously, you could filter the device list only by activity and enabled state.
 - Activity timestamp
 - OS
 - Device type (printer, secure VM, shared device, registered device)
+- MDM
+- Extension attributes
+- Administrative unit
+- Owner
 
-To enable the preview filtering functionality in the **All devices** view:
+To enable the preview in the **All devices** view:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to **Azure Active Directory** > **Devices**.
-1. Select the banner that says **Try out the new devices filtering improvements. Click to enable the preview.**
+2. Go to **Azure Active Directory** > **Devices** > **All devices**.
+3. Select the **Preview features** button.
+4. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
+5. Refresh your browser.
 
-   ![Enable filtering preview functionality](./media/device-management-azure-portal/device-filter-preview-enable.png)
-
-You can now add filters to your **All devices** view.
+You can now experience the enhanced **All devices** view.
 
 ## Download devices
 

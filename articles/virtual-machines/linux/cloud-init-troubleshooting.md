@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot using cloud-init 
 description: Troubleshoot provisioning an Azure VM using cloud-init.
-author: danielsollondon 
+author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: danis
+ms.author: mattmcinnes
 ms.reviewer: cynthn
 ms.subservice: cloud-init
 ---

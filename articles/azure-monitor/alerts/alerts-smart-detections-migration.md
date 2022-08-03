@@ -335,7 +335,7 @@ You can create and manage action groups for the new smart detection alert rules 
 After completing the migration, you can use Azure Resource Manager templates to configure settings for smart detection alert rule settings.
 
 > [!NOTE]
-> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](../app/proactive-arm-config.md#smart-detection-rule-configuration).
+> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](./proactive-arm-config.md#smart-detection-rule-configuration).
 
 This Azure Resource Manager template example demonstrates configuring an **Response Latency Degradation** alert rule in an **Enabled** state with a severity of 2.
 * Smart detection is a global service, therefore rule location is created in the **global** location.
@@ -381,4 +381,4 @@ This Azure Resource Manager template example demonstrates configuring an **Respo
 ## Next Steps
 
 - [Learn more about alerts in Azure](./alerts-overview.md)
-- [Learn more about smart detection in Application Insights](../app/proactive-diagnostics.md)
+- [Learn more about smart detection in Application Insights](./proactive-diagnostics.md)

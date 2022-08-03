@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 07/18/2022
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -297,7 +297,7 @@ You have a few options for adding comments and metadata to your template.
 
 ### Comments
 
-For inline comments, you can use either `//` or `/* ... */`.
+For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Code, save the parameter files with comments as the **JSON with comments (JSONC)** file type, otherwise you will get an error message saying "Comments not permitted in JSON".
 
 > [!NOTE]
 >

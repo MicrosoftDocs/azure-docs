@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 01/31/2022
+ms.date: 06/08/2022
 ms.topic: reference
 ---
 
@@ -1557,6 +1557,8 @@ This section describes on-premises management console APIs for:
 
 - [ServiceNow Integration API - “/external/v3/integration/ (Preview)](#servicenow-integration-api---externalv3integration-preview)
 
+All parameters in Version 3 APIs are optional.
+
 ### Alert Exclusions
 
 Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's Alert Exclusions window as read-only exclusion rules.
@@ -2671,7 +2673,9 @@ Example:
 
 The below API's can be used with the ServiceNow integration via the ServiceNow's Service Graph Connector for Defender for IoT.
 
-### Create and update devices
+### devices
+
+This API returns data about all devices that were updated after the given timestamp.
 
 #### Request
 
@@ -2694,9 +2698,11 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Type: JSON
 - Structure:
     - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_devices**” - array of device objects (as defined in the specific device API).
+    - “**u_devices**” - array of device objects. Each object is defined with the parameters listed in the [device](#device) API.
 
 ### Connections
+
+This API returns data about all device connections that were updated after the given timestamp.
 
 #### Request
 
@@ -2721,7 +2727,9 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
             - “**Two Way**”
             - “**Multicast**”
 
-### Specific device
+### device
+
+This API returns data about a specific device per a given device ID.
 
 #### Request
 
@@ -2788,7 +2796,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
     - Array of
         - “**u_id**” - the ID of the deleted device.
 
-### Sensors
+### sensors
 
 #### Request
 
@@ -2833,8 +2841,9 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
             - "**STARTING_INSTALLATION**"
             - "**INSTALLING_OPERATING_SYSTEM**"
         - “**u_uid**” - globally unique identifier of the sensor
+        - "**u_is_in_learning_mode**" - Boolean indication as to whether the sensor is in Learn mode or not
 
-### Device CVEs
+### devicecves
 
 #### Request
 
@@ -2843,8 +2852,11 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Path parameters:
     - “**timestamp**” – the time from which updates are required, only later updates will be returned.
 - Query parameters:
-    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
-    - “**size**” - the page size (default value is 50)
+    - “**page**” - Defines the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - Defines the page size (default value is 50)
+    - “**sensorId**” - Shows results from a specific sensor, as defined by the given sensor ID.
+    - “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**. 
+    - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
 #### Response
 
@@ -2869,6 +2881,5 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 
 ## Next steps
 
-- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-
-- [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

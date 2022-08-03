@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 06/29/2022
+ms.date: 07/20/2022
 ---
 
 # Create an IoT Edge Module offer
@@ -16,6 +16,8 @@ This article describes how to create an IoT (Internet of Things) Edge Module off
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
+
+Before you can publish an IoT Edge Module offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan an IoT Edge Module offer](marketplace-iot-edge.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 

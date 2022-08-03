@@ -502,5 +502,9 @@ The output looks like the following text:
 ]
 ```
 
+#### Azure CLI syntax issues
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
+
 ## Next steps
 To see the code, current issues, and versions, go to the [custom-script-extension-linux repo on GitHub](https://github.com/Azure/custom-script-extension-linux).

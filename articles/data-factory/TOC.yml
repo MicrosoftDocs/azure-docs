@@ -1054,32 +1054,6 @@ items:
         href: scenario-ssis-migration-overview.md
       - name: SSIS migration assessment rules
         href: scenario-ssis-migration-rules.md
-    - name: SAP knowledge center
-      items:
-      - name: Overview
-        href: industry-sap-overview.md
-      - name: SAP connectors
-        href: industry-sap-connectors.md
-      - name: SAP templates
-        href: industry-sap-templates.md
-      - name: SAP change data capture (CDC)
-        items:
-        - name: 1 - Introduction and architecture
-          href: sap-change-data-capture-introduction-architecture.md
-        - name: 2 - Prerequisites and configuration
-          href: sap-change-data-capture-prerequisites-configuration.md
-        - name: 3 - Self-hosted integration runtime preparation
-          href: sap-change-data-capture-shir-preparation.md
-        - name: 4 - Linked service and source dataset creation
-          href: sap-change-data-capture-prepare-linked-service-source-dataset.md
-        - name: 5 - Debug copy activity issues
-          href: sap-change-data-capture-debug-shir-logs.md
-        - name: 6 - Data partitioning template
-          href: sap-change-data-capture-data-partitioning-template.md
-        - name: 7 - Data Replication template
-          href: sap-change-data-capture-data-replication-template.md
-        - name: 8 - Managing the solution
-          href: sap-change-data-capture-management.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -1273,3 +1247,30 @@ items:
     href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
+- name: SAP knowledge center
+  items:
+  - name: Overview
+    href: industry-sap-overview.md
+  - name: SAP connectors
+    href: industry-sap-connectors.md
+  - name: SAP templates
+    href: industry-sap-templates.md
+  - name: SAP change data capture (CDC)
+    items:
+    - name: 1 - Introduction and architecture
+      href: sap-change-data-capture-introduction-architecture.md
+    - name: 2 - Prerequisites and configuration
+      href: sap-change-data-capture-prerequisites-configuration.md
+    - name: 3 - Self-hosted integration runtime preparation
+      href: sap-change-data-capture-shir-preparation.md
+    - name: 4 - Linked service and source dataset creation
+      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+    - name: 5 - Debug copy activity issues
+      href: sap-change-data-capture-debug-shir-logs.md
+    - name: 6 - Data partitioning template
+      href: sap-change-data-capture-data-partitioning-template.md
+    - name: 7 - Data Replication template
+      href: sap-change-data-capture-data-replication-template.md
+    - name: 8 - Managing the solution
+      href: sap-change-data-capture-management.md
+    displayName: SAP, change data capture, CDC
