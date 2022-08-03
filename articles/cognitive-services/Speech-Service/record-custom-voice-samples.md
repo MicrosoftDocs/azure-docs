@@ -130,12 +130,12 @@ Script defects generally fall into the following categories:
 
 | Category | Example |
 | :--------- | :--------------------------- |
-| Have a meaningless content in a common way. | |
+| Meaningless content. | "Colorless green ideas sleep furiously."|
 | Incomplete sentences. |- "This was my last eve" (no subject, no specific meaning) <br>- "He's obviously already funny (no quote mark in the end, it's not a complete sentence) |
 | Typo in the sentences. | - Start with a lower case<br>- No ending punctuation if needed<br> - Misspelling <br>- Lack of punctuation: no period in the end (except news title)<br>- End with symbols, except comma, question, exclamation <br>- Wrong format, such as:<br>    &emsp;- 45$ (should be $45)<br>    	&emsp;- No space or excess space between word/punctuation |
 |Duplication in similar format, one per each pattern is enough. |- "Now is 1pm in New York"<br>- "Now is 2pm in New York"<br>- "Now is 3pm in New York"<br>- "Now is 1pm in Seattle"<br>- "Now is 1pm in Washington D.C." |
-|Uncommon foreign words: only the commonly used foreign word is acceptable in our script. |  |
-|Emoji or any other uncommon symbols. |  |
+|Uncommon foreign words: only commonly used foreign words are acceptable in the script. | In English one might use the French word "faux" in common speech, but a French expression such as "coincer la bulle" would be uncommon.  |
+|Emoji or any other uncommon symbols |  |
 
 ### Script format
 
