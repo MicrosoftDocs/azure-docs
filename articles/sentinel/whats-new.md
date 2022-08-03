@@ -29,7 +29,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
 - [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
-- [Sync user entities from your on-premises Active Directory with Microsoft Sentinel](#sync-user-entities-from-your-on-premises-active-directory-with-microsoft-sentinel)
+- [Sync user entities from your on-premises Active Directory with Microsoft Sentinel (Preview)](#sync-user-entities-from-your-on-premises-active-directory-with-microsoft-sentinel-preview)
 - [Automation rules for alerts (Preview)](#automation-rules-for-alerts-preview)
 
 ### Azure resource entity page (Preview)
@@ -55,7 +55,7 @@ If you have enabled the Security Events data source for UEBA, you will automatic
 
 It's likely that the inclusion of these new event types will result in the ingestion of somewhat more *Security Events* data, billed accordingly. Individual event IDs cannot be enabled or disabled independently; only the whole Security Events data set together.
 
-### Sync user entities from your on-premises Active Directory with Microsoft Sentinel
+### Sync user entities from your on-premises Active Directory with Microsoft Sentinel (Preview)
 
 Until now, you've been able to bring your user account entities from your Azure Active Directory (Azure AD) into the IdentityInfo table in Microsoft Sentinel, so that User and Entity Behavior Analytics (UEBA) can use that information to provide context and give insight into user activities, to enrich your investigations.
 
