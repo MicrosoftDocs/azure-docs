@@ -75,14 +75,19 @@ sections:
           Azure Synapse Link for SQL Server 2022 is in preview. For more information, see [What is Azure Synapse Link for SQL?](synapse-link/sql-synapse-link-overview.md).
 
       - question: |
-          Is Azure Synapse Link to Azure SQL Database generally available?
-        answer: |
-          Azure Synapse Link for Azure SQL Database is in preview. For more information, see [What is Azure Synapse Link for SQL?](synapse-link/sql-synapse-link-overview.md).
-
-      - question: |
           Does Azure Synapse workspace Support CI/CD? 
         answer: |
           Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Git. All pool definitions will be stored in Git as Azure Resource Manager (ARM) templates. Dedicated SQL pool objects (schemas, tables, views, etc.) will be managed with database projects with CI/CD support.
+
+      - question: |
+          What are the functional differences between dedicated SQL pools and serverless pools?
+        answer: |
+          Capabilities and requirements are different between the two types of pools. Differences include database objects, query language capabilities, security, tools, data access, and data format. For detailed comparison of SQL pools and serverless pools, please visit [Pools Comparison](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-features). For best practices when using either type of pool, please view [Best Practices for Dedicated SQL Pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool) and [Best Practices for Serverless SQL Pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-serverless-sql-pool).
+
+      - question: |
+          What are Delta tables, and why should I use them?
+        answer: |
+          Lakehouse is based on open direct-access data formats, such as Apache Parquet. It has first-class support for machine learning and data science. A Delta table is a view of data that is contained in a Delta Lake, which supports most options provided by Apache Spark DataFrame read and write APIs. Lakehouses can help with major challenges with data warehouses, like data staleness, reliability, total cost of ownership, and data lock-in. On Delta tables, optimizations like auto compaction and adaptive query plans are available. For a detailed guide to Delta Lake, please visit [Delta Lake Guide](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/Scala/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Scala.ipynb).
 
   - name: Pipelines
     questions:
@@ -101,7 +106,17 @@ sections:
         answer: |
           At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts by exporting the JSON from the original pipeline and importing it into your Synapse workspace.
 
-  - name: Apache Spark
+      - question: |
+          How do I use an Apache Spark Job Definition?
+        answer: |
+          Check out this [Quick Start Guide](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-transform-data-using-spark-job-definition)
+
+      - question: |
+          Can I call notebooks from ADF pipelines?
+        answer: |
+          There are two options for this use case. One option is to keep pipelines in ADF, and you will have to wrap in a web activity. The other option is to migrate the pipelines to Synapse.
+ 
+ - name: Apache Spark
     questions:
       - question: |
           What is the difference between Apache Spark for Synapse and Apache Spark?
@@ -113,7 +128,7 @@ sections:
       - question: |
           What versions of Spark are available?
         answer: |
-          Azure Synapse Apache Spark fully supports Spark 2.4. For a full list of core components and currently supported version see [Apache Spark version support](./spark/apache-spark-version-support.md).
+          As of May 2021, Azure Synapse Apache Spark fully supports Spark 2.4 and Spark 3.1. As of April 2022, Spark 3.2 is in preview. For a full list of core components and currently supported versions see [Apache Spark version support](./spark/apache-spark-version-support.md).
           
       - question: |
           Is there an equivalent of DButils in Azure Synapse Spark?
@@ -148,7 +163,12 @@ sections:
           How do I include, manage, and install libraries?
         answer: |
            You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal. See [Manage libraries for Apache Spark in Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
-          
+       
+      - question: |
+          What tools are available to me on Synapse Spark?
+        answer: |
+           MSSparkUtils on Synapse Spark offers a variety of utilities to enhance your experience and to make integration with other tools and services easier. Work with file systems, get environment variables, chain notebooks together, and work with secrets with minimal manual steps. For full documentation, please visit [Microsoft Spark Utilities](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-csharp).
+      
   - name: Dedicated SQL Pools
     questions:
       - question: |
@@ -169,7 +189,7 @@ sections:
   - name: Network security
     questions:
       - question: |
-          How do I secure access to my Azure Synapse workspace?
+          How do I secure access to my Azure Synapse workspace? 
         answer: |
           With or without a [managed virtual network](./security/synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](./security/connectivity-settings.md). Access from public networks can be controlled by enabling the [public network access feature](./security/connectivity-settings.md#public-network-access) or the [workspace firewall](./security/synapse-workspace-ip-firewall.md). Alternatively, you can connect to your workspace using a [managed private endpoint](./security/synapse-workspace-managed-private-endpoints.md) and [Private Link](/azure/azure-sql/database/private-endpoint-overview). Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](./security/synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
           
