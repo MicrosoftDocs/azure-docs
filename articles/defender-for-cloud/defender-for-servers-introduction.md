@@ -1,6 +1,8 @@
 ---
 title: Overview of Microsoft Defender for Servers 
 description: Learn about the benefits and features of Microsoft Defender for Servers.
+author: bmansheim
+ms.author: benmansheim
 ms.date: 06/22/2022
 ms.topic: conceptual
 ---
@@ -10,6 +12,7 @@ Microsoft Defender for Servers is one of the plans provided by Microsoft Defende
 
 - Watch a [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
 - Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+- [Enable Defender for Servers on your subscriptions](enable-enhanced-security.md).
 
 ## Defender for Servers plans
 

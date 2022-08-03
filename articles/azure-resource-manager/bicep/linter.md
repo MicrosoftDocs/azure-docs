@@ -64,6 +64,18 @@ The following screenshot shows the linter in the command line. The output from t
 
 You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub action to attempt a bicep build. Errors will fail the pipelines.
 
+## Silencing false positives
+
+Sometimes a rule can have false positives. For example you may need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+In this case you can disable the warning for one line only, not the entire document, by adding `#disable-next-line <rule name>` before the line with the warning.
+
+```bicep
+#disable-next-line no-hardcoded-env-urls //Direct download link to my toolset
+scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
+```
+
+It is good practice to add a comment explaining why the rule does not apply to this line.
+
 ## Next steps
 
 - For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
