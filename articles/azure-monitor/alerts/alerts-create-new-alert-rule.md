@@ -77,7 +77,7 @@ And then defining these elements for the resulting alert actions using:
     ### [Log alert](#tab/log)
 
     > [!NOTE]
-    > This article describes creating alert rules using the alert rule wizard. The new alert rule experience is a little different from the earlier experience. Please note:
+    > If you are creating a new log alert rule, please note that this article describes creating alert rules using the alert rule wizard. The new alert rule experience is a little different from the earlier experience:
     > - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action :
     >    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
     >    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
@@ -246,7 +246,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**, and at the prompt, use the following commands:
     ### [Metric alert](#tab/metric)
 
-    To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/metrics/alert).
+    To create a metric alert rule, use the **az monitor metrics alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor metrics alert create** section of the [CLI reference documentation for metric alerts](/cli/azure/monitor/metrics/alert).
 
     To create a metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
     ```azurecli
@@ -264,7 +264,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 
     ### [Activity log alert](#tab/activity-log)
 
-    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [metric alert CLI reference documentation](/cli/azure/monitor/activity-log/alert).
+    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
 
     To create a new activity log alert rule, use the following commands:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
