@@ -5,7 +5,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 08/01/2022
 ---
 
 # What's new in the Microsoft commercial marketplace
