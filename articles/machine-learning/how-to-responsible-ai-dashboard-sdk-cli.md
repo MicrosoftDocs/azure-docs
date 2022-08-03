@@ -514,3 +514,6 @@ The supplied datasets should be file datasets (uri_file type) in Parquet format.
 - Learn more about the  [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Learn more about how to [collect data responsibly](concept-sourcing-human-data.md)
 - View [sample YAML and Python notebooks](https://aka.ms/RAIsamples) to generate a Responsible AI dashboard with YAML or Python.
+- Learn more about how the Responsible AI Dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn about how the Responsible AI Dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
+- Explore the features of the Responsible AI Dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)

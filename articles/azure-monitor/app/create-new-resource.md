@@ -4,6 +4,7 @@ description: Manually set up Application Insights monitoring for a new live appl
 ms.topic: conceptual
 ms.date: 02/10/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: dalek
 ---
 
 # Create an Application Insights resource
@@ -119,13 +120,13 @@ az monitor app-insights component create --app
 #### Example
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+az monitor app-insights component create --app demoApp --location westus2 --kind web --resource-group demoRg --application-type web
 ```
 
 #### Results
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+az monitor app-insights component create --app demoApp --location eastus --kind web --resource-group demoApp --application-type web
 {
   "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
   "applicationId": "demoApp",

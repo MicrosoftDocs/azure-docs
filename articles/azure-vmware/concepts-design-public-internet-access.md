@@ -2,8 +2,10 @@
 title: Concept - Internet connectivity design considerations (Preview)
 description: Options for Azure VMware Solution Internet Connectivity. 
 ms.topic: conceptual
+ms.service: azure-vmware
 ms.date: 5/12/2022
 ---
+
 # Internet connectivity design considerations (Preview) 
 
 There are three primary patterns for creating outbound access to the Internet from Azure VMware Solution and to enable inbound  Internet access to resources on your Azure VMware Solution private cloud. 

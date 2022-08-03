@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: seramasu
-author: rsethur
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022
 ms.date: 05/24/2022
@@ -131,7 +131,11 @@ For more information, see [Secure online endpoints](how-to-secure-online-endpoin
 
 ## Managed online endpoints vs Kubernetes online endpoints
 
-There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
+There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. 
+
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
+
+Kubernetes online endpoint allows you to deploy models and serve online endpoints at your fully configured and managed [Kubernetes cluster anywhere](./how-to-attach-kubernetes-anywhere.md),with CPUs or GPUs.
 
 The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints. 
 
@@ -140,8 +144,8 @@ The following table highlights the key differences between managed online endpoi
 | **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Kubernetes and can self-manage infrastructure requirements |
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | Kubernetes cluster (Kubernetes) |
-| **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
-| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Supported |
+| **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Supported |
+| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 	Unsupported |
 | **Application Insights** | Supported | Supported |
 | **Managed identity** | [Supported](how-to-access-resources-from-endpoints-managed-identities.md) | Supported |
 | **Virtual Network (VNET)** | [Supported](how-to-secure-online-endpoint.md) (preview) | Supported |
@@ -214,8 +218,6 @@ You can use the following options for input data when invoking a batch endpoint:
 
 For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
 
-For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
-
 Specify the storage output location to any datastore and path. By default, batch endpoints store their output to the workspace's default blob store, organized by the Job Name (a system-generated GUID).
 
 ### Security
@@ -223,6 +225,12 @@ Specify the storage output location to any datastore and path. By default, batch
 - Authentication: Azure Active Directory Tokens
 - SSL: enabled by default for endpoint invocation
 - VNET support: Batch endpoints support ingress protection. A batch endpoint with ingress protection will accept scoring requests only from hosts inside a virtual network but not from the public internet. A batch endpoint that is created in a private-link enabled workspace will have ingress protection. To create a private-link enabled workspace, see [Create a secure workspace](tutorial-create-secure-workspace.md).
+
+> [!NOTE]
+Creating batch endpoints in a private-link enabled workspace is only supported in the following versions.
+> - CLI - version 2.15.1 or higher.
+> - REST API - version 2022-05-01 or higher.
+> - SDK V2 - version 0.1.0b3 or higher.
 
 ## Next steps
 

@@ -25,7 +25,7 @@ Use this **POST** request to text classification task. Replace `{projectName}` w
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
+|Ocp-Apim-Subscription-Key| Your key that provides access to this API.|
 
 #### Body
 

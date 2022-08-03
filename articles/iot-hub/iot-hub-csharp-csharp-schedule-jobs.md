@@ -33,13 +33,13 @@ To learn more about each of these capabilities, see:
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial shows you how to:
+This article shows you how to:
 
 * Create a device app that implements a direct method called **LockDoor**, which can be called by the back-end app.
 
 * Create a back-end app that creates a job to call the **LockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
 
-At the end of this tutorial, you have two .NET (C#) console apps:
+At the end of this article, you have two .NET (C#) console apps:
 
 * **SimulateDeviceMethods**. This app connects to your IoT hub and implements the **LockDoor** direct method.
 
@@ -49,17 +49,13 @@ At the end of this tutorial, you have two .NET (C#) console apps:
 
 * Visual Studio.
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Create a simulated device app
 
@@ -85,6 +81,8 @@ In this section, you create a .NET console app that responds to a direct method 
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
     using Newtonsoft.Json;
+    using System.Threading.Tasks;
+    using System.Text;
     ```
 
 1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section:
@@ -149,7 +147,7 @@ In this section, you create a .NET console app that responds to a direct method 
 1. Save your work and build your solution.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policies. In production code, you should implement retry policies (such as connection retry), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this article does not implement any retry policies. In production code, you should implement retry policies (such as connection retry), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 >
 
 ## Get the IoT hub connection string
@@ -302,7 +300,7 @@ You are now ready to run the apps.
 
 ## Next steps
 
-In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
+In this article, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
 * To continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
 

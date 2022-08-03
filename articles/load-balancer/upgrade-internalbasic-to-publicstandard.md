@@ -2,11 +2,11 @@
 title: Upgrade an internal basic load balancer - Outbound connections required
 titleSuffix: Azure Load Balancer
 description: Learn how to upgrade a basic internal load balancer to a standard public load balancer.
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/17/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Upgrade an internal basic load balancer - Outbound connections required
@@ -35,7 +35,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 ### Constraints
 
-* The script supports an internal load balancer upgrade where outbound connectivity is required. If outbound connectivity isn't required, see [Upgrade an internal basic load balancer - Outbound connections not required](upgrade-basicinternal-standard.md).
+* The script supports an internal load balancer upgrade where outbound connectivity is required. If outbound connectivity isn't required, see [Upgrade an internal basic load balancer - Outbound connections not required](./upgrade-basicinternal-standard.md).
 
 * The standard load balancer has a new public address. It’s impossible to move the IP addresses associated with existing basic internal load balancer to a standard public load balancer because of different SKUs.
 
@@ -43,7 +43,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
 
-* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](update-load-balancer-with-vm-scale-set.md) to complete the migration.
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](./update-load-balancer-with-vm-scale-set.md) to complete the migration.
 
 ## Download the script
 

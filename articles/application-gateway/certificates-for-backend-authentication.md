@@ -22,7 +22,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-An existing backend certificate is required to generate the authentication certificates or trusted root certificates required for allowing backend instances with Application Gateway. The backend certificate can be the same as the TLS/SSL certificate or different for added security. Application Gateway doesn't provide you any mechanism to create or purchase an TLS/SSL certificate. For testing purposes, you can create a self-signed certificate but you shouldn't use it for production workloads. 
+An existing backend certificate is required to generate the authentication certificates or trusted root certificates required for allowing backend instances with Application Gateway. The backend certificate can be the same as the TLS/SSL certificate or different for added security. Application Gateway doesn't provide you any mechanism to create or purchase a TLS/SSL certificate. For testing purposes, you can create a self-signed certificate but you shouldn't use it for production workloads. 
 
 ## Export authentication certificate (for v1 SKU)
 

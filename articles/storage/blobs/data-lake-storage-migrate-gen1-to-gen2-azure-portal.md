@@ -4,7 +4,7 @@ description: You can simplify the task of migrating from Azure Data Lake Storage
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/11/2022
+ms.date: 06/07/2022
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -56,7 +56,7 @@ As you create the account, make sure to configure settings with the following va
 > The migration tool in the Azure portal doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection.
 
 > [!IMPORTANT]
-> Ensure that you use a newly created Gen2 account that's empty. It's important that you don't migrate to a previously used Gen2 account.
+> Ensure that you use a fresh, newly created Gen2 account that has no history of any usage. **Don't** migrate to a previously used Gen2 account or use a Gen2 account in which containers have been deleted to make the Gen2 account empty.
 
 ## Verify RBAC role assignments
 
@@ -73,6 +73,9 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 ## Perform the migration
 
 Before you begin, review the two migration options below, and decide whether to only copy data from Gen1 to Gen2 (recommended) or perform a complete migration.
+
+> [!NOTE]
+> No matter which option you select, a container named **gen1** will be created on the Gen2 account, and all data from the Gen1 account will be copied to this new 'gen1' container. When the migration is complete, in order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
 
 ## Choose a migration option
 
@@ -132,12 +135,12 @@ Whichever option you choose, after you've migrated and verified that all your wo
    > [!div class="mx-imgBorder"]
    > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   > [!IMPORTANT] 
+   > [!IMPORTANT]
    > While your data is being migrated, your Gen1 account becomes read-only and the Gen2-enabled account is disabled.
    > 
    > Also, while the Gen1 URI is being redirected, both accounts are disabled.
    > 
-   > When the migration is finished, your Gen1 account is disabled and you can read and write to your Gen2-enabled account.
+   > When the migration is finished, your Gen1 account will be disabled. The data in your Gen1 account won't be accessible and will be deleted after 30 days. Your Gen2 account will be available for reads and writes.
 
    You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
@@ -204,7 +207,7 @@ Make sure all your Azure Data lake Analytics accounts are [migrated to Azure Syn
 
 #### After the migration completes, can I go back to using the Gen1 account?
 
-This is not supported. After the migration completes, the data in your Gen1 account will not be accessible. You can continue to view the Gen1 account in the Azure portal, and when you are ready, you can delete the account.
+If you used [Option 1: Copy data from Gen1 to Gen2](#option-1-copy-data-from-gen1-to-gen2) mentioned above, then both the Gen1 and Gen2 accounts are available for reads and writes post migration. However, if you used [Option 2: Perform a complete migration](#option-2-perform-a-complete-migration), then going back to the Gen1 account isn't supported. In Option 2, after the migration completes, the data in your Gen1 account won't be accessible and will be deleted after 30 days. You can continue to view the Gen1 account in the Azure portal, and when you're ready, you can delete the Gen1 account.
 
 #### I would like to enable Geo-redundant storage (GRS) on the Gen2 account, how do I do that?
 

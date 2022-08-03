@@ -7,19 +7,19 @@ ms.date: 05/25/2022
 
 # Lessons learned from the field with Microsoft Defender for Cloud
 
-**Episode description**: In this episode Carlos Faria, Microsoft Cybersecurity Consultant joins Yuri to talk about lessons from the field and how customers are using Microsoft Defender for Cloud to improve their security posture and protect their workloads in a multi-cloud environment. 
+**Episode description**: In this episode Carlos Faria, Microsoft Cybersecurity Consultant joins Yuri to talk about lessons from the field and how customers are using Microsoft Defender for Cloud to improve their security posture and protect their workloads in a multicloud environment. 
 
 Carlos also covers how Microsoft Defender for Cloud is used to fill the gap between cloud security posture management and cloud workload protection, and demonstrates some features related to this scenario. 
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=3811455b-cc20-4ee0-b1bf-9d4df5ee4eaf" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=3811455b-cc20-4ee0-b1bf-9d4df5ee4eaf" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [1:30](/shows/mdc-in-the-field/lessons-from-the-field#time=01m30s) - Why Microsoft Defender for Cloud is a unique solution when compared with other competitors?
 
 - [2:58](/shows/mdc-in-the-field/lessons-from-the-field#time=02m58s) - How to fulfill the gap between CSPM and CWPP
 
-- [4:42](/shows/mdc-in-the-field/lessons-from-the-field#time=04m42s) - How a multi-cloud affects the CSPM lifecycle and how Defender for Cloud fits in?
+- [4:42](/shows/mdc-in-the-field/lessons-from-the-field#time=04m42s) - How a multicloud affects the CSPM lifecycle and how Defender for Cloud fits in?
 
 - [8:05](/shows/mdc-in-the-field/lessons-from-the-field#time=08m05s) - Demonstration
 

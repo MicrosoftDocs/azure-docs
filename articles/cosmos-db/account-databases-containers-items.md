@@ -1,13 +1,13 @@
 ---
 title: Azure Cosmos DB resource model
 description: This article describes Azure Cosmos DB resource model which includes the Azure Cosmos account, database, container, and the items. It also covers the hierarchy of these elements in an Azure Cosmos account. 
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/03/2022
 ms.reviewer: sidandrews
-
 ---
 
 # Azure Cosmos DB resource model

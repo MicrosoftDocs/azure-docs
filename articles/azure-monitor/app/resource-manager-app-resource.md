@@ -4,6 +4,7 @@ description: Sample Azure Resource Manager templates to deploy Application Insig
 ms.topic: sample
 ms.date: 04/27/2022
 ms.custom: ignite-fall-2021
+ms.reviewer: vitalyg
 ---
 
 # Resource Manager template samples for creating Application Insights resources

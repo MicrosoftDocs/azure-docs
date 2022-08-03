@@ -156,7 +156,7 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: /learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md

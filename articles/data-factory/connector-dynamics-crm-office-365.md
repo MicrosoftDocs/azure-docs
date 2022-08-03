@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 04/24/2022
+ms.date: 06/01/2022
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -19,11 +19,16 @@ This article outlines how to use a copy activity in Azure Data Factory or Synaps
 
 This connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from Dynamics 365 (Microsoft Dataverse) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+
+For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 >[!NOTE]
 >Effective November 2020, Common Data Service has been renamed to [Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro). This article is updated to reflect the latest terminology. 
@@ -68,7 +73,7 @@ To use this connector with Azure AD service-principal authentication, you must s
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Dynamics 365 using UI
+## Create a linked service to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using UI
 
 Use the following steps to create a linked service to Dynamics 365 in the Azure portal UI.
 
@@ -82,9 +87,11 @@ Use the following steps to create a linked service to Dynamics 365 in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Dynamics and select the Dynamics 365 connector.
+2. Search for Dynamics or Dataverse and select the Dynamics 365 (Microsoft Dataverse) or Dynamics CRM connector.
 
     :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
+
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dataverse-connector.png" alt-text="Screenshot of the Dataverse connector.":::  
 
 1. Configure the service details, test the connection, and create the new linked service.
 
@@ -108,7 +115,7 @@ The following properties are supported for the Dynamics linked service.
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
 | servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
-| servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault. | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
 | credentials | Specify the user-assigned managed identity as the credential object. <br/><br/> [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), assign them to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.| Yes when authentication is "ManagedIdentity" |

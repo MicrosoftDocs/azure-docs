@@ -1,6 +1,6 @@
 ---
 title: TPM attestation overview for Azure
-description: TPM Attestation overview
+description: This article provides an overview of Trusted Platform Module (TPM) attestation and capabilities supported by Azure Attestation.
 services: attestation
 author: prsriva
 ms.service: attestation
@@ -10,49 +10,53 @@ ms.author: prsriva
 ms.custom: TPM Attestation overview complete 
 ---
 
-# Trusted Platform Module (TPM) Attestation
+# Trusted Platform Module attestation
 
-Devices with a TPM, can rely on attestation to prove that boot integrity isn't compromised along with using the measured boot to detect early boot feature states. A growing number of device types, bootloaders and boot stack attacks require an attestation solution to evolve accordingly. An attested state of a device is driven by the attestation policy used to verify the contents on the platform evidence. This document provides an overview of TPM attestation and capabilities supported by MAA.
+Devices with a Trusted Platform Module (TPM) can rely on attestation to prove that boot integrity isn't compromised along with using the Measured Boot process to detect early boot feature states.
+
+A growing number of device types, bootloaders, and boot stack attacks require an attestation solution to evolve accordingly. An attested state of a device is driven by the attestation policy used to verify the contents on the platform evidence.
+
+This article provides an overview of TPM attestation and capabilities supported by Azure Attestation.
 
 ## Overview
 
 TPM attestation starts from validating the TPM itself all the way up to the point where a relying party can validate the boot flow.
 
-In general, TPM attestation is based on the following pillars:
+In general, TPM attestation is based on the following pillars.
 
 ### Validate TPM authenticity
 
-Validate the TPM authenticity by validating the TPM.
+Validate the TPM authenticity by validating the TPM:
 
-- Every TPM ships with a unique asymmetric key, called the Endorsement Key (EK), burned by the manufacturer. We refer to the public portion of this key as EKPub and the associated private key as EKPriv. Some TPM chips also have an EK certificate that is issued by the manufacturer for the EKPub. We refer to this cert as EKCert.
-- A CA establishes trust in the TPM either via EKPub or EKCert.
-- A device proves to the CA that the key for which the certificate is being requested is cryptographically bound to the EKPub and that the TPM owns the EKpriv.
-- The CA issues a certificate with a special issuance policy to denote that the key is now attested to be protected by a TPM.
+- Every TPM ships with a unique asymmetric key called the endorsement key (EK). This key is burned by the manufacturer. The public portion of this key is known as EKPub. The associated private key is known as EKPriv. Some TPM chips also have an EK certificate that's issued by the manufacturer for the EKPub. This certificate is known as EKCert.
+- A certification authority (CA) establishes trust in the TPM either via EKPub or EKCert.
+- A device proves to the CA that the key for which the certificate is being requested is cryptographically bound to the EKPub and that the TPM owns the EKPriv.
+- The CA issues a certificate with a special issuance policy to denote that the key is now attested as protected by a TPM.
 
 ### Validate the measurements made during the boot
 
-Validate the measurements made during the boot using the Azure Attestation service.
+Validate the measurements made during the boot by using Azure Attestation:
 
-- As part of Trusted and Measured boot, every step of the boot is validated and measured into the TPM. Different events are measured for different platforms. More information about the measured boot process in Windows can be found [here](/windows/security/information-protection/secure-the-windows-10-boot-process).
-- At boot, an Attestation Identity Key is generated which is used to provide a cryptographic proof to the attestation service that the TPM in use has been issued a cert after EK validation was performed.
-- Relying parties can perform an attestation against the Azure Attestation service, which can be used to validate measurements made during the boot process.
+- As part of Trusted Boot and Measured Boot, every step is validated and measured into the TPM. Different events are measured for different platforms. For more information about the Measured Boot process in Windows, see [Secure the Windows boot process](/windows/security/information-protection/secure-the-windows-10-boot-process).
+- At boot, an attestation identity key is generated. It's used to provide cryptographic proof to the attestation service that the TPM in use was issued a certificate after EK validation was performed.
+- Relying parties can perform an attestation against Azure Attestation, which can be used to validate measurements made during the boot process.
 - A relying party can then rely on the attestation statement to gate access to resources or other actions.
 
-![Conceptual device attestation flow](./media/device-tpm-attestation-flow.png)
+![Diagram that shows the conceptual device attestation flow.](./media/device-tpm-attestation-flow.png)
 
-Conceptually, TPM attestation can be visualized as above, where the relying party applies Azure Attestation service to verify the platform(s) integrity and any violation of promises, providing the confidence to run workloads or provide access to resources.
+Conceptually, TPM attestation can be visualized as shown in the preceding diagram. The relying party applies Azure Attestation to verify the integrity of the platform and any violation of promises. The verification process gives you the confidence to run workloads or provide access to resources.
 
 ## Protection from malicious boot attacks
 
-Mature attacks techniques aim to infect the boot chain, as it can provide the attacker access to system resources while allowing it the capability of hiding from anti-malware software. Trusted boot acts as the first order of defense and extending the capability to be used by relying parties is trusted boot and attestation. Most attackers attempt to bypass secureboot or load an unwanted binary in the boot process.
+Mature attack techniques aim to infect the boot chain. A boot attack can provide the attacker with access to system resources and allow the attacker to hide from antimalware software. Trusted Boot acts as the first order of defense. Use of Trusted Boot and attestation extends the capability to relying parties. Most attackers attempt to bypass secure boot or load an unwanted binary in the boot process.
 
-Remote Attestation lets the relying parties verify the whole boot chain for any violation of promises. Consider the Secure Boot evaluation by the attestation service that validates the values of the secure variables measured by UEFI.
+Remote attestation allows the relying parties to verify the whole boot chain for any violation of promises. For example, the secure boot evaluation by the attestation service validates the values of the secure variables measured by UEFI.
 
-Measured boot instrumentation ensures the cryptographically bound measurements can't be changed once they are made and also only a trusted component can make the measurement. Hence, validating the secure variables is sufficient to ensure the enablement.
+Measured Boot instrumentation ensures cryptographically bound measurements can't be changed after they're made and that only a trusted component can make the measurement. For this reason, validating the secure variables is sufficient to ensure the enablement.
 
-Azure Attestation additionally signs the report to ensure the integrity of the attestation is also maintained protecting against Man in the Middle type of attacks.
+Azure Attestation signs the report to ensure the integrity of the attestation is also maintained to protect against man-in-the-middle attacks.
 
-A simple policy can be used as below.
+A simple policy can be used:
 
 ```
 version=1.0;
@@ -70,9 +74,9 @@ issuancerules
 
 ```
 
-Sometimes it's not sufficient to only verify one single component in the boot but verifying complimenting features like Code Integrity(or HVCI), System Guard Secure Launch, also add to the protection profile of a device. More so the ability the peer into the boot to evaluate any violations is also needed to ensure confidence can be gained on a platform.
+Sometimes it isn't sufficient to verify only one component in the boot. Verifying complementary features like code integrity or hypervisor-protected code integrity (HVCI) and System Guard Secure Launch adds to the protection profile of a device. You also need the ability to peer into the boot so that you can evaluate any violations and be confident about the platform.
 
-Consider one such policy that takes advantage of the policy version 1.2 to verify details about secureboot, HVCI, System Guard Secure Launch and also verifying that an unwanted(malicious.sys) driver isn't loaded during the boot.
+The following example takes advantage of policy version 1.2 to verify details about secure boot, HVCI, and System Guard Secure Launch. It also verifies that an unwanted (malicious.sys) driver isn't loaded during the boot:
 
 ```
 version=1.2;
@@ -85,7 +89,7 @@ authorizationrules {
 issuancerules
 {
 
-// Verify if secureboot is enabled
+// Verify if secure boot is enabled
 c:[type == "events", issuer=="AttestationService"] => add(type = "efiConfigVariables", value = JmesPath(c.value, "Events[?EventTypeString == 'EV_EFI_VARIABLE_DRIVER_CONFIG' && ProcessedData.VariableGuid == '8BE4DF61-93CA-11D2-AA0D-00E098032B8C']"));
 c:[type=="efiConfigVariables", issuer="AttestationPolicy"]=> add(type = "secureBootEnabled", value = JsonToClaimValue(JmesPath(c.value, "[?ProcessedData.UnicodeName == 'SecureBoot'] | length(@) == `1` && @[0].ProcessedData.VariableData == 'AQ'")));
 ![type=="secureBootEnabled", issuer=="AttestationPolicy"] => add(type="secureBootEnabled", value=false);
@@ -109,5 +113,5 @@ c:[type=="boolProperties", issuer=="AttestationPolicy"] => issue(type="Malicious
 ## Next steps
 
 - [Device Health Attestation on Windows and interacting with Azure Attestation](/windows/client-management/mdm/healthattestation-csp#windows-11-device-health-attestation)
-- [Learn more about the Claim Rule Grammar](claim-rule-grammar.md)
+- [Learn more about claim rule grammar](claim-rule-grammar.md)
 - [Attestation policy claim rule functions](claim-rule-functions.md)

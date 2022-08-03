@@ -47,7 +47,7 @@ Create a new Azure Maps account using the following steps:
     * Select the **Review + create** button.
     * Once you have ensured that everything is correct in the **Review + create** page, select the **Create** button.
 
-    :::image type="content" source="./media/quick-android-map/create-account.png" alt-text="A screenshot that shows the Create Maps account pane in the Azure portal.":::
+    :::image type="content" source="./media/shared/create-account.png" alt-text="A screenshot that shows the Create Maps account pane in the Azure portal.":::
 
 ## Get the primary key for your account
 

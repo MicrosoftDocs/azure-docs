@@ -4,7 +4,7 @@ description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 5/24/2022
+ms.date: 6/3/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -97,10 +97,13 @@ You can add the preview extension bundle by adding or replacing the following co
 
 ::: zone pivot="programming-language-python"  
 
-> [!NOTE]
-> Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+## Functions runtime
 
-## Install bundle    
+> [!NOTE]
+> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.  Learn more about determining the runtime in Azure regions from the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+
+
+## Install bundle
 
 The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
 
@@ -120,7 +123,7 @@ You can add the preview extension bundle by adding or replacing the following co
 
 # [Preview Bundle v3.x](#tab/extensionv3)
 
-Python support is not available with the SQL bindings extension in the v3 version of the functions runtime.
+Python support isn't available with the SQL bindings extension in the v3 version of the functions runtime.
 
 ---
 
@@ -150,6 +153,15 @@ Support for Python durable functions with SQL bindings isn't yet available.
 > In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
 
 ::: zone-end
+
+## SQL connection string
+
+Azure SQL bindings for Azure Functions have a required property for connection string on both [input](./functions-bindings-azure-sql-input.md) and [output](./functions-bindings-azure-sql-output.md) bindings. SQL bindings passes the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.1&preserve-view=true).  Notable keywords include:
+
+- `Authentication` allows a function to connect to Azure SQL with Azure Active Directory, including [Active Directory Managed Identity](./functions-identity-access-azure-sql-with-managed-identity.md)
+- `Command Timeout` allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
+- `ConnectRetryCount` allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
+
 
 ## Considerations
 

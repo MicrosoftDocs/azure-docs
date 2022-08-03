@@ -3,6 +3,7 @@ title: Data model for request telemetry - Azure Application Insights
 description: Application Insights data model for request telemetry
 ms.topic: conceptual
 ms.date: 01/07/2019
+ms.reviewer: mmcc
 ---
 
 # Request telemetry: Application Insights data model

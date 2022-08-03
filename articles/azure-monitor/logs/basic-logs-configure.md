@@ -14,11 +14,10 @@ Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-p
 > You can switch a table's plan once a week. The Basic Logs feature is not available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Which tables support Basic Logs?
-All tables in your Log Analytics are Analytics tables, by default. You can configure particular tables to use Basic Logs. You can't configure a table for Basic Logs if Azure Monitor relies on that table for specific features.
-
+By default, all tables in your Log Analytics are Analytics tables, and available for query and alerts. 
 You can currently configure the following tables for Basic Logs:
 
-- All tables created with the [Data Collection Rule (DCR)-based custom logs API.](custom-logs-overview.md) 
+- All tables created with the [Data Collection Rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) 
 - [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 

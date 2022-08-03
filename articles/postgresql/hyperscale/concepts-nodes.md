@@ -11,6 +11,8 @@ ms.date: 07/28/2019
 
 # Nodes and tables in Azure Database for PostgreSQL – Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Nodes
 
 The Hyperscale (Citus) hosting type allows Azure Database for PostgreSQL

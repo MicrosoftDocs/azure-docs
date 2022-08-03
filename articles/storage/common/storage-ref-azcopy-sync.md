@@ -27,7 +27,7 @@ The sync command differs from the copy command in several ways:
 
   1. By default, the recursive flag is true and sync copies all subdirectories. Sync only copies the top-level files inside a directory if the recursive flag is false.
   2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
-  3. If the 'deleteDestination' flag is set to true or prompt, then sync will delete files and blobs at the destination that aren't present at the source.
+  3. If the 'delete-destination' flag is set to true or prompt, then sync will delete files and blobs at the destination that aren't present at the source.
 
 Advanced:
 
@@ -104,7 +104,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--cpk-by-value`    Client provided key by name let clients that make requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
 
-`--delete-destinatio`    (string)    Defines whether to delete extra files from the destination that aren't present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default 'false'). (default "false")
+`--delete-destination`    (string)    Defines whether to delete extra files from the destination that aren't present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default 'false'). (default "false")
 
 `--dry-run`    Prints the path of files that would be copied or removed by the sync command. This flag doesn't copy or remove the actual files.
 

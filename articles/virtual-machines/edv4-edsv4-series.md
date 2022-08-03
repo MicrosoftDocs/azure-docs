@@ -32,11 +32,11 @@ Edv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup>  | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_E2d_v4<sup>1</sup>  | 2  | 16  | 75   | 4  | 9000/125    | 2 | 1000  |
-| Standard_E4d_v4              | 4  | 32  | 150  | 8  | 19000/250   | 2 | 2000  |
-| Standard_E8d_v4              | 8  | 64  | 300  | 16 | 38000/500   | 4 | 4000  |
-| Standard_E16d_v4             | 16 | 128 | 600  | 32 | 75000/1000   | 8 | 8000  |
-| Standard_E20d_v4             | 20 | 160 | 750  | 32 | 94000/1250  | 8 | 10000 |
+| Standard_E2d_v4<sup>1</sup>  | 2  | 16  | 75   | 4  | 9000/125    | 2 | 5000  |
+| Standard_E4d_v4              | 4  | 32  | 150  | 8  | 19000/250   | 2 | 10000  |
+| Standard_E8d_v4              | 8  | 64  | 300  | 16 | 38000/500   | 4 | 12500  |
+| Standard_E16d_v4             | 16 | 128 | 600  | 32 | 75000/1000   | 8 | 12500  |
+| Standard_E20d_v4             | 20 | 160 | 750  | 32 | 94000/1250  | 8 | 16000 |
 | Standard_E32d_v4             | 32 | 256 | 1200 | 32 | 150000/2000 | 8 | 16000 |
 | Standard_E48d_v4             | 48 | 384 | 1800 | 32 | 225000/3000 | 8 | 24000 |
 | Standard_E64d_v4             | 64 | 504 | 2400 | 32 | 300000/4000 | 8 | 30000 |
@@ -61,11 +61,11 @@ Edsv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2ds_v4<sup>4</sup>    | 2  | 16  | 75   | 4  | 9000/125    | 3200/48    | 4000/200   | 2 | 1000  |
-| Standard_E4ds_v4                | 4  | 32  | 150  | 8  | 19000/250   | 6400/96    | 8000/200   | 2 | 2000  |
-| Standard_E8ds_v4                | 8  | 64  | 300  | 16 | 38000/500   | 12800/192  | 16000/400  | 4 | 4000  |
-| Standard_E16ds_v4               | 16 | 128 | 600  | 32 | 75000/1000   | 25600/384  | 32000/800  | 8 | 8000  |
-| Standard_E20ds_v4               | 20 | 160 | 750  | 32 | 94000/1250  | 32000/480  | 40000/1000 | 8 | 10000 |
+| Standard_E2ds_v4<sup>4</sup>    | 2  | 16  | 75   | 4  | 9000/125    | 3200/48    | 4000/200   | 2 | 5000  |
+| Standard_E4ds_v4                | 4  | 32  | 150  | 8  | 19000/250   | 6400/96    | 8000/200   | 2 | 10000  |
+| Standard_E8ds_v4                | 8  | 64  | 300  | 16 | 38000/500   | 12800/192  | 16000/400  | 4 | 12500  |
+| Standard_E16ds_v4               | 16 | 128 | 600  | 32 | 75000/1000   | 25600/384  | 32000/800  | 8 | 12500  |
+| Standard_E20ds_v4               | 20 | 160 | 750  | 32 | 94000/1250  | 32000/480  | 40000/1000 | 8 | 16000 |
 | Standard_E32ds_v4               | 32 | 256 | 1200 | 32 | 150000/2000 | 51200/768  | 64000/1600 | 8 | 16000 |
 | Standard_E48ds_v4               | 48 | 384 | 1800 | 32 | 225000/3000 | 76800/1152 | 80000/2000 | 8 | 24000 |
 | Standard_E64ds_v4 <sup>2</sup>  | 64 | 504 | 2400 | 32 | 300000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |

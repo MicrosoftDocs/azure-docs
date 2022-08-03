@@ -88,7 +88,6 @@ Your usage charges are displayed at the meter level. The following terms mean th
 |Resource |MeterName |
 |Region |MeterRegion |
 |Consumed | Quantity |
-|Included |Included Quantity |
 |Billable |Overage Quantity |
 |Rate | EffectivePrice|
 | Value | Cost |

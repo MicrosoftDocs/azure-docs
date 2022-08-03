@@ -19,11 +19,19 @@ sections:
   - name: General
     questions:
       - question: |
+          How much does it cost to use burst capacity?
+        answer: |
+          There's no charge to use burst capacity.         
+      - question: |
           How does burst capacity work with autoscale?
         answer: |
           Autoscale and burst capacity are compatible. Autoscale gives you a guaranteed instant 10 times scale range. Burst capacity allows you to take advantage of unused, idle capacity to handle temporary spikes, potentially beyond your autoscale max RU/s. For example, suppose we have an autoscale container with one physical partition that scales between 100 - 1000 RU/s. Without burst capacity, any requests that consume beyond 1000 RU/s would be rate limited. With burst capacity however, the partition can accumulate a maximum of 1000 RU/s of idle capacity each second. Burst capacity allows the partition to burst at a maximum rate of 3000 RU/s for a limited amount of time.
 
-          The autoscale max RU/s per physical partition must be less than 3000 RU/s for burst capacity to be applicable.
+          Accumulation of burst is based on the maximum autoscale RU/s.
+
+          The autoscale maximum RU/s per physical partition must be less than 3000 RU/s for burst capacity to be applicable.
+
+          When burst capacity is used with autoscale, autoscale will use up to the maximum RU/s before using burst capacity. You may see autoscale scale up to max RU/s during spikes of traffic.
       - question: |
           What resources can use burst capacity?
         answer: |
@@ -31,7 +39,7 @@ sections:
       - question: |
           How can I monitor burst capacity?
         answer: |
-          [Azure Monitor metrics](monitor-cosmos-db.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
+          [Azure Monitor metrics](monitor-cosmos-db.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits (preview)** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
       - question: |
           How can I see which resources have less than 3000 RU/s per physical partition?
         answer: |

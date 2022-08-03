@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 # How to export FHIR data
@@ -76,3 +76,5 @@ In this article, you've learned how to export FHIR resources using the $export c
 
 >[!div class="nextstepaction"]
 >[Copy data from the FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

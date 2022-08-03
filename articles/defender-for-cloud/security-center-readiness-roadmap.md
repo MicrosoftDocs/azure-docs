@@ -1,5 +1,5 @@
 ---
-title: Defender for Cloud Readiness Roadmap | Microsoft Docs
+title: Defender for Cloud Readiness Roadmap
 description: This document provides you a readiness roadmap to ramp up on Defender for Cloud.
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -14,7 +14,7 @@ Defender for Cloud provides unified security management and advanced threat prot
 Use the following resources to get started with Defender for Cloud.
 
 Articles
-- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)
+- [What is Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
 - [Defender for Cloud quickstart guide](get-started.md)
 
 Videos

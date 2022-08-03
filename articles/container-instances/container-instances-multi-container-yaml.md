@@ -1,8 +1,12 @@
 ---
 title: Tutorial - Deploy multi-container group - YAML
 description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using a YAML file with the Azure CLI.
-ms.topic: article
-ms.date: 07/01/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Tutorial: Deploy a multi-container group using a YAML file

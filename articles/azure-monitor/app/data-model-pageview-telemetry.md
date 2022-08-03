@@ -3,7 +3,7 @@ title: Azure Application Insights Data Model - PageView Telemetry
 description: Application Insights data model for page view telemetry
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.reviewer: vgorbenko
+ms.reviewer: mmcc
 ---
 
 # PageView telemetry: Application Insights data model

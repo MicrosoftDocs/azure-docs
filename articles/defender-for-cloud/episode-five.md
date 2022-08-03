@@ -1,17 +1,17 @@
 ---
 title: Microsoft Defender for Servers
-description: Learn all about Microsoft Defender for Servers from the product manager.
+description: Learn all about Microsoft Defender for Servers.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 06/28/2022
 ---
 
 # Microsoft Defender for Servers
 
-**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with TVM. Aviv explains how this new integration with TVM works, the advantages of this integration, which includes software inventory and easy experience to onboard. Aviv also covers the integration with MDE for Linux and the Defender for Servers support for the new multi-cloud connector for AWS.
+**Episode description**: In this episode of Defender for Cloud in the field, Aviv Mor joins Yuri Diogenes to talk about Microsoft Defender for Servers updates, including the new integration with TVM. Aviv explains how this new integration with TVM works, the advantages of this integration, which includes software inventory and easy experience to onboard. Aviv also covers the integration with MDE for Linux and the Defender for Servers support for the new multicloud connector for AWS.
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=f62e1199-d0a8-4801-9793-5318fde27497" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=f62e1199-d0a8-4801-9793-5318fde27497" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [1:22](/shows/mdc-in-the-field/defender-for-containers#time=01m22s) - Overview of the announcements for Microsoft Defender for Servers
 

@@ -64,7 +64,7 @@ To create a hierarchy of IoT Edge devices, you will need:
    ```azurecli
    az deployment group create \
     --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
-    --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.3/edgeDeploy.json" \
     --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
     --parameters adminUsername='azureuser' \
     --parameters authenticationType='sshPublicKey' \
@@ -74,7 +74,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 
    The virtual machine uses SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-   IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on the virtual machines. If you are installing IoT Edge on your own devices, see [Install Azure IoT Edge for Linux (version 1.2)](how-to-provision-single-device-linux-symmetric.md) or [Update IoT Edge to version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
+   IoT Edge version 1.3 is preinstalled with this ARM template, saving the need to manually install the assets on the virtual machines. If you are installing IoT Edge on your own devices, see [Install Azure IoT Edge for Linux](how-to-provision-single-device-linux-symmetric.md) or [Update IoT Edge](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).
 
    A successful creation of a virtual machine using this ARM template will output your virtual machine's `SSH` handle and fully-qualified domain name (`FQDN`). You will use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. A sample output is pictured below.
 

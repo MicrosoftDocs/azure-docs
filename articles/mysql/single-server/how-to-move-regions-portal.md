@@ -1,13 +1,13 @@
 ---
 title: Move Azure regions - Azure portal - Azure Database for MySQL
 description: Move an Azure Database for MySQL server from one Azure region to another using a read replica and the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 06/20/2022
 #Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
 ---
 

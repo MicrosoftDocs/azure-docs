@@ -8,16 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-pii, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: Detect Personally Identifiable Information (PII) 
-
-Use this article to get started detecting and redacting sensitive information in text, using the NER and PII client library and REST API. Follow these steps to try out examples code for mining text:
+# Quickstart: Detect Personally Identifiable Information (PII)
 
 > [!NOTE]
 > This quickstart only covers PII detection in documents. To learn more about detecting PII in conversations, see [How to detect and redact PII in conversations](how-to-call-for-conversations.md).
@@ -58,6 +56,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
 
 ## Next steps
 

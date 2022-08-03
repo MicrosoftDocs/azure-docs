@@ -3,7 +3,7 @@ title: Author a RESTful endpoint
 description: This tutorial shows how to author a RESTful endpoint for custom providers. It details how to handle requests and responses for the supported RESTful HTTP methods.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 05/06/2022
 ms.author: jobreen
 ---
 
@@ -24,7 +24,7 @@ In this tutorial, you update the function app to work as a RESTful endpoint for 
 - **POST**: Trigger an action
 - **GET (collection)**: List all existing resources
 
- For this tutorial, you use Azure Table storage. But any database or storage service can work.
+ For this tutorial, you use Azure Table storage, but any database or storage service works.
 
 ## Partition custom resources in storage
 
@@ -36,7 +36,7 @@ The following example shows an `x-ms-customproviders-requestpath` header for a c
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{myResourceType}/{myResourceName}
 ```
 
-Based on the example's `x-ms-customproviders-requestpath` header, you can create the *partitionKey* and *rowKey* parameters for your storage as shown in the following table:
+Based on the `x-ms-customproviders-requestpath` header, you can create the *partitionKey* and *rowKey* parameters for your storage as shown in the following table:
 
 Parameter | Template | Description
 ---|---|---
@@ -60,6 +60,7 @@ public class CustomResource : ITableEntity
     public ETag ETag { get; set; }
 }
 ```
+
 **CustomResource** is a simple, generic class that accepts any input data. It's based on **ITableEntity**, which is used to store data. The **CustomResource** class implements all properties from interface **ITableEntity**: **timestamp**, **eTag**, **partitionKey**, and **rowKey**.
 
 ## Support custom provider RESTful methods
@@ -93,7 +94,7 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 }
 ```
 
-The **TriggerCustomAction** method accepts an incoming request and simply echoes back the response with a status code.
+The **TriggerCustomAction** method accepts an incoming request and echoes back the response with a status code.
 
 ### Create a custom resource
 
@@ -134,7 +135,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-The **CreateCustomResource** method updates the incoming request to include the Azure-specific fields **id**, **name**, and **type**. These fields are top-level properties used by services across Azure. They let the custom provider interoperate with other services like Azure Policy, Azure Resource Manager Templates, and Azure Activity Log.
+The **CreateCustomResource** method updates the incoming request to include the Azure-specific fields **id**, **name**, and **type**. These fields are top-level properties used by services across Azure. They let the custom provider interoperate with other services like Azure Policy, Azure Resource Manager templates, and Azure Activity Log.
 
 Property | Example | Description
 ---|---|---

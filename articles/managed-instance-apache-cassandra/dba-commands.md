@@ -55,6 +55,11 @@ Both will return a json of the following form:
         "exitCode": 0
     }
 ```
+In most cases you might only need the commandOutput or the exitCode. Here is an example for only getting the commandOutput:
+
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --query "commandOutput" --resource-group $resourceGroupName --cluster-name $clusterName --host $host --command-name nodetool --arguments getstreamthroughput=""
+```
 
 ## How to run an `sstable` command
 

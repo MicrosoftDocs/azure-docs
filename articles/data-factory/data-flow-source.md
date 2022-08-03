@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/27/2022
+ms.date: 05/31/2022
 ---
 
 # Source transformation in mapping data flow
@@ -123,7 +123,7 @@ If your text file has no defined schema, select **Detect data type** so that the
 
 **Reset schema** resets the projection to what is defined in the referenced dataset.
 
-You can modify the column data types in a downstream derived-column transformation. Use a select transformation to modify the column names.
+**Overwrite schema** allows you to modify the projected data types here the source, overwriting the schema-defined data types. You can alternatively modify the column data types in a downstream derived-column transformation. Use a select transformation to modify the column names.
 
 ### Import schema
 

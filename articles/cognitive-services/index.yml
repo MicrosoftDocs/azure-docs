@@ -55,7 +55,7 @@ conceptualContent:
         - url: ./custom-vision-service/index.yml
           itemType: overview
           text: Custom Vision
-        - url: ./face/index.yml
+        - url: ./computer-vision/index-identity.yml
           itemType: overview
           text: Face
     - title: Language
@@ -107,9 +107,9 @@ conceptualContent:
         - url: ./openai/overview.md
           itemType: overview
           text:  Azure OpenAI 
-        - url: ./openai/concepts/engines.md
+        - url: ./openai/concepts/models.md
           itemType: overview
-          text: Azure OpenAI Engines
+          text: Azure OpenAI Models
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:

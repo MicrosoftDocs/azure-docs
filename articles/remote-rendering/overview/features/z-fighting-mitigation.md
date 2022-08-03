@@ -12,7 +12,10 @@ ms.custom:
 
 # Z-fighting mitigation
 
-When two surfaces overlap, it isn't clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. When the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For augmented reality and virtual reality applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort, Azure Remote Rendering offers z-fighting mitigation functionality.
+When two triangular surfaces overlap, it isn't clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. When the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For augmented reality and virtual reality applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort, Azure Remote Rendering offers z-fighting mitigation functionality.
+
+> [!NOTE]
+> The z-fighting mitigation settings have no effect on point cloud rendering.
 
 ## Z-fighting mitigation modes
 
@@ -57,7 +60,7 @@ void EnableZFightingMitigation(ApiHandle<RenderingSession> session, bool highlig
 
 Z-fighting happens mainly for two reasons:
 
-* When surfaces are very far away from the camera, the precision of their depth values degrades and the values become indistinguishable
+* When surfaces are far away from the camera, the precision of their depth values degrades and the values become indistinguishable
 * When surfaces in a mesh physically overlap
 
 The first problem can always happen and is difficult to eliminate. If this situation happens in your application, make sure that the ratio of the *near plane* distance to the *far plane* distance is as low as practical. For example, a near plane at distance 0.01 and far plane at distance 1000 creates this problem much earlier than having the near plane at 0.1 and the far plane at distance 20.

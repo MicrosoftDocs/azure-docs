@@ -184,9 +184,7 @@ The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/pyth
 
 ---
 
-### Vulnerability scanning
 
-Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Microsoft Defender for Cloud to scan your resources and follow its recommendations. For more, see  [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ### Advanced
 
@@ -335,12 +333,19 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ## Search for assets across a workspace (preview)
 
-With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and datasets across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and data across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+
+1. Start from [Azure Machine Learning studio](https://ml.azure.com).  
+1. If a workspace is open, select either the **Microsoft** menu item or the **Microsoft** link in the breadcrumb at the top of the page.
+
+:::image type="content" source="media/how-to-manage-workspace/back-to-main-page.png" alt-text="Screenshot shows two ways to get to the home page - menu item or breadcrumb link.":::
 
 ### Free text search
 
-Type search text into the global search bar on the top of portal and hit enter to trigger a 'contains' search.
+Type search text into the global search bar on the top of the studio **Microsoft** page and hit enter to trigger a 'contains' search.
 A contains search scans across all metadata fields for the given asset and sorts results relevance.
+
+:::image type="content" source="media/how-to-manage-workspace/start-search.png" alt-text="Screenshot shows the top search bar.":::
 
 You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
 
@@ -371,7 +376,7 @@ If an asset filter (job, model, component, environment, dataset) is present, res
 
 ### View search results
 
-You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Datasets** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
 
 :::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
 
@@ -454,3 +459,5 @@ To learn more about planning a workspace for your organization's requirements, s
 To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
 
 If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+
+For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

@@ -15,15 +15,22 @@ ms.custom: mqtt, devx-track-python
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The article shows you how to:
 
 * Securely provide a storage container for uploading a file.
 
 * Use the Python client to upload a file through your IoT hub.
 
-The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-python-python-c2d.md) articles show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
-At the end of this tutorial, you run the Python console app:
+* Videos
+* Large files that contain images
+* Vibration data sampled at high frequency
+* Some form of pre-processed data.
+
+These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub. This article shows you how.
+
+At the end of this article, you run the Python console app:
 
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
@@ -189,7 +196,7 @@ Now you're ready to run the application.
 
 ## Next steps
 
-In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
+In this article, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
 

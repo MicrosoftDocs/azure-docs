@@ -3,7 +3,7 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/08/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -21,6 +21,9 @@ A device template in Azure IoT Central is a blueprint that defines the:
 * Commands that IoT Central calls on a device.
 
 This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
+
+> [!IMPORTANT]
+> IoT Central expects to receive UTF-8 encoded JSON data.
 
 The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
 
@@ -46,6 +49,18 @@ IoT Central lets you view the raw data that a device sends to an application. Th
     On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
 ## Telemetry
+
+To learn more about the DTDL telemetry naming rules, see [DTDL > Telemetry](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry). You can't start a telemetry name using the `_` character.
+
+Don't create telemetry types with the following names. IoT Central uses these reserved names internally. If you try to use these names, IoT Central will ignore your data:
+
+* `EventEnqueuedUtcTime`
+* `EventProcessedUtcTime`
+* `PartitionId`
+* `EventHub`
+* `User`
+* `$metadata`
+* `$version`
 
 ### Telemetry in components
 
@@ -435,6 +450,8 @@ A device client should send the state as JSON that looks like the following exam
 ```
 
 ## Properties
+
+To learn more about the DTDL property naming rules, see [DTDL > Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property). You can't start a property name using the `_` character.
 
 > [!NOTE]
 > The payload formats for properties applies to applications created on or after 07/14/2020.
@@ -868,6 +885,8 @@ The device should send the following JSON payload to IoT Central after it proces
 ```
 
 ## Commands
+
+To learn more about the DTDL command naming rules, see [DTDL > Command](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#command). You can't start a command name using the `_` character.
 
 If the command is defined in a component, the name of the command the device receives includes the component name. For example, if the command is called `getMaxMinReport` and the component is called `thermostat2`, the device receives a request to execute a command called `thermostat2*getMaxMinReport`.
 

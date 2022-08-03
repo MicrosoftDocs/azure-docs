@@ -3,7 +3,7 @@ title: View, add, and remove assignments for an access package in Azure AD entit
 description: Learn how to view, add, and remove assignments for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 01/05/2022
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -27,6 +27,7 @@ In Azure AD entitlement management, you can see who has been assigned to access 
 ## Prerequisites
 
 To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
@@ -55,7 +56,7 @@ To use Azure AD entitlement management and assign users to access packages, you 
 
 ## View assignments programmatically
 ### View assignments with Microsoft Graph
-You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/entitlementmanagement-list-accesspackageassignments?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access packages from multiple catalogs, if user is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API.
+You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/entitlementmanagement-list-accesspackageassignments?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access packages from multiple catalogs, if user or application service principal is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API to retrieve assignments across all catalogs.
 
 ### View assignments with PowerShell
 

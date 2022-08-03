@@ -3,6 +3,7 @@ title: Monitoring cost for Container insights | Microsoft Docs
 description: This article describes the monitoring cost for metrics & inventory data collected by Container insights to help customers manage their usage and associated costs. 
 ms.topic: conceptual
 ms.date: 05/29/2020
+ms.reviewer: aul
 
 ---
 # Understand monitoring costs for Container insights
@@ -132,7 +133,7 @@ This workbook helps you to visualize the source of your data without having to b
 
 [![Data usage workbook](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
-To learn about managing rights and permissions to the workbook, review [Access control](../visualize/workbooks-access-control.md).
+To learn about managing rights and permissions to the workbook, review [Access control](../visualize/workbooks-overview.md#access-control).
 
 After completing your analysis to determine which source or sources are generating the most data or more data that are exceeding your requirements, you can reconfigure data collection. Details on configuring collection of stdout, stderr, and environmental variables is described in the [Configure agent data collection settings](container-insights-agent-config.md) article.
 

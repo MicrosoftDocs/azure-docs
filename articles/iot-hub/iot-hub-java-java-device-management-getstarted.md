@@ -16,15 +16,13 @@ ms.custom: mqtt, devx-track-java, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-This tutorial shows you how to:
-
-* Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
+This article shows you how to:
 
 * Create a simulated device app that implements a direct method to reboot the device. Direct methods are invoked from the cloud.
 
 * Create an app that invokes the reboot direct method in the simulated device app through your IoT hub. This app then monitors the reported properties from the device to see when the reboot operation is complete.
 
-At the end of this tutorial, you have two Java console apps:
+At the end of this article, you have two Java console apps:
 
 **simulated-device**. This app:
 
@@ -49,6 +47,10 @@ At the end of this tutorial, you have two Java console apps:
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 * [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
@@ -56,14 +58,6 @@ At the end of this tutorial, you have two Java console apps:
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Get the IoT hub connection string
 
@@ -303,7 +297,7 @@ In this section, you create a Java console app that simulates a device. The app 
     import java.util.HashSet;
     ```
 
-9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you noted in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you saw when you registered a device in the IoT Hub:
 
     ```java
     private static final int METHOD_SUCCESS = 200;

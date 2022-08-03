@@ -28,7 +28,7 @@ This article is part of the Studio (classic) to Azure Machine Learning migration
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 - An Azure Machine Learning training pipeline. For more information, see [Rebuild a Studio (classic) experiment in Azure Machine Learning](migrate-rebuild-experiment.md).
 
 ## Real-time endpoint vs pipeline endpoint
@@ -49,7 +49,7 @@ In Studio (classic), you used a **REQUEST/RESPOND web service** to deploy a mode
 There are multiple ways to deploy a model in Azure Machine Learning. One of the simplest ways is to use the designer to automate the deployment process. Use the following steps to deploy a model as a real-time endpoint:
 
 1. Run your completed training pipeline at least once.
-1. After the run completes, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
+1. After the job completes, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
     ![Create realtime inference pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
         
@@ -94,7 +94,7 @@ Use the following steps to publish a pipeline endpoint for batch prediction:
 
 1. Run your completed training pipeline at least once.
 
-1. After the run completes, at the top of the canvas, select **Create inference pipeline** > **Batch inference pipeline**.
+1. After the job completes, at the top of the canvas, select **Create inference pipeline** > **Batch inference pipeline**.
 
     ![Screenshot showing the create inference pipeline button on a training pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
         

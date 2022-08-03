@@ -4,14 +4,14 @@ titleSuffix: Azure Load Balancer
 description: This Azure PowerShell Script Example shows how to load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: greglin 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -30,7 +30,12 @@ sections:
           What is the Azure Dedicated HSM offering?
         answer: |
           Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) network appliances. They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
-          
+
+      - question: |
+          What are the onboarding and use restrictions for Dedicated HSM?
+        answer: |
+          Customers must have a assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM.
+         
       - question: |
           What hardware is used for Dedicated HSM?
         answer: |
@@ -62,8 +67,13 @@ sections:
       - question: |
           Does Azure Dedicated HSM offer Password-based and PED-based authentication?
         answer: |
-          At this time, Azure Dedicated HSM only provides HSMs with password-based authentication.
+          No. Azure Dedicated HSM only provides HSMs with password-based authentication.
 
+      - question: |
+          Does Azure Dedicated HSM support functionality modules?
+        answer: |
+          No. Azure Dedicated HSM service does not support functionality modules.
+          
       - question: |
           Will Azure Dedicated HSM host my HSMs for me?
         answer: |
@@ -77,12 +87,14 @@ sections:
       - question: |
           Which Azure regions is Dedicated HSM available in?
         answer: |
-          As of late March 2019, Dedicated HSM is available in the 14 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
+          As of January 2022, Dedicated HSM is available in the 23 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
           
           * East US
           * East US 2
           * West US
           * West US 2
+          * Canada East
+          * Canada Central
           * South Central US
           * Southeast Asia
           * East Asia
@@ -94,7 +106,6 @@ sections:
           * West Europe
           * UK South
           * UK West
-          * Canada Central
           * Australia East
           * Australia Southeast
           * Switzerland North
@@ -154,6 +165,11 @@ sections:
           Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
         answer: |
           Yes. Contact your Thales representative for the appropriate Thales migration guide. 
+          
+      - question: |
+          Can I install functionality modules to Azure Dedicated HSMs?
+        answer: |
+          No. Azure Dedicated HSM service does not support functionality modules. 
 
   - name: Using your HSM
     questions:

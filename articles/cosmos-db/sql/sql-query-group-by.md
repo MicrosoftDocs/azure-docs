@@ -1,12 +1,13 @@
 ---
 title: GROUP BY clause in Azure Cosmos DB
 description: Learn about the GROUP BY clause for Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/12/2022
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # GROUP BY clause in Azure Cosmos DB
