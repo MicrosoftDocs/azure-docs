@@ -27,7 +27,8 @@ In this article, you learn about:
 > * Start a batch scoring job
 > * Overview of batch endpoint features in Azure machine learning studio
 
-> [!IMPORTANT] When working on a private link-enabled workspaces, batch enpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI. Please use the [Azure ML CLI v](how-to-configure-cli.md) instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-scoring-job).
+> [!IMPORTANT] 
+> When working on a private link-enabled workspaces, batch enpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI. Please use the [Azure ML CLI v](how-to-configure-cli.md) instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-scoring-job).
 
 ## Prerequisites
 
