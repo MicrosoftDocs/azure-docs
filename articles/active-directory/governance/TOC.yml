@@ -89,8 +89,8 @@
       href: lifecycle-workflow-versioning.md
     - name: Templates (Preview)
       href: lifecycle-workflow-templates.md  
-    - name: Deployment (Preview)
-      href: lifecycle-workflows-deployment.md        
+    - name: History (Preview)
+      href: lifecycle-workflows-history.md        
 - name: How-to guides
   expanded: true
   items:
@@ -206,6 +206,8 @@
           href: create-lifecycle-workflow.md
         - name: Trigger Logic Apps based on custom task extensions (Preview)  
           href: trigger-custom-task.md
+        - name: Deployment (Preview)
+          href: lifecycle-workflows-deployment.md    
       - name: Manage
         items:
         - name: Synchronize attributes (Preview)
