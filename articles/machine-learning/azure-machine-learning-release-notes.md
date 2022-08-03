@@ -24,7 +24,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning SDK for Python v1.44.0  
   
   + **azureml-automl-dnn-nlp** 
-    + Weighted accuracy and Matthews Correlation will no longer be a metric displayed on calculated metrics for NLP Multilabel classification.
+    + Weighted accuracy and Matthews correlation coefficient (MCC) will no longer be a metric displayed on calculated metrics for NLP Multilabel classification.
   + **azureml-automl-dnn-vision**   
     + Raise user error when invalid annotation format is provided
   + **azureml-cli-common**
