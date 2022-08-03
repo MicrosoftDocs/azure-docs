@@ -6,10 +6,10 @@ author: sarat0681
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 7/28/2022
+ms.date: 08/03/2022
 ---
 
-# High Memory Utilization in Azure Database for PostgreSQL - Flexible Server
+# High memory utilization in Azure Database for PostgreSQL - Flexible Server
 
 This article introduces common scenarios and root causes that might lead to high memory utilization in [Azure Database for PostgreSQL - Flexible Server](overview.md). 
 
@@ -19,7 +19,7 @@ In this article, you will learn:
 - Reasons for high memory & remedial actions.
 
 
-## Tools to Identify High Memory Utilization 
+## Tools to identify high memory utilization 
 
 Consider the following tools to identify high memory utilization. 
 
@@ -37,11 +37,11 @@ Query Store can correlate wait event information with query run time statistics.
 For more information on setting up and using Query Store, review [Query Store](./concepts-query-store.md).
 
 
-## Reasons And Remedial Actions
+## Reasons and remedial actions
 
 Consider the following reasons and remedial actions for resolving high memory utilization. 
 
-### Server Parameters
+### Server parameters
 
 The following server parameters impact memory consumption and should be reviewed:
 
@@ -75,13 +75,13 @@ If `maintenance_work_mem` is set to 1 GB, then all sessions combined will use 3 
 A high `maintenance_work_mem` value along with multiple running sessions for vacuuming/index creation/adding foreign keys can cause high memory utilization. The maximum allowed value for the `maintenance_work_mem` server parameter in Azure Database for Flexible Server  is 2 GB.
 
 
-#### Shared Buffers 
+#### Shared buffers 
 
 The `shared_buffers` parameter determines how much memory is dedicated to the server for caching data. The objective of shared buffers is to reduce DISK I/O.
 
 A reasonable setting for shared buffers is 25% of RAM. Setting a value of greater than 40% of RAM is not recommended for most common workloads. 
 
-### Max Connections 
+### Max connections 
 
 All new and idle connections on a Postgres database consume up to 2 MB of memory. One way to monitor connections is by using the following query: 
 

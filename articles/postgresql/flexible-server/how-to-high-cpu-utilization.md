@@ -6,14 +6,12 @@ author: sarat0681
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 7/28/2022
+ms.date: 08/03/2022
 ---
 
 #  Troubleshoot high CPU utilization in Azure Database for PostgreSQL - Flexible Server
 
-
 This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using [Azure Database for PostgreSQL - Flexible Server](overview.md). 
-
 
 In this article, you will learn: 
 
@@ -22,7 +20,9 @@ In this article, you will learn:
 - How to resolve high CPU utilization by using Explain Analyze, Connection Pooling, and Vacuuming tables. 
 
 
-## Tools to Identify high CPU Utilization 
+## Tools to identify high CPU utilization 
+
+Consider these tools to identify high CPU utilization. 
 
 ### Azure Metrics 
 
@@ -39,7 +39,7 @@ The pg_stat_statements extension helps identify queries that consume time on the
 
 #### Mean or average execution time 
 
-# [Postgres v13 & above](#tab/postgres-13)
+##### [Postgres v13 & above](#tab/postgres-13)
 
 
 For Postgres versions 13 and above, use the following statement to view the top five SQL statements by mean or average execution time: 
@@ -52,7 +52,7 @@ DESC LIMIT 5;
 ```
 
 
-# [Postgres v9.6-12 & above](#tab/postgres9-12)
+##### [Postgres v9.6-12 & above](#tab/postgres9-12)
 
 For Postgres versions 9.6, 10, 11, and 12, use the following statement to view the top five SQL statements by mean or average execution time: 
 
@@ -70,7 +70,7 @@ DESC LIMIT 5;
 
 Execute the following statements to view the top five SQL statements by total execution time. 
 
-# [Postgres v13 & above](#tab/postgres-13)
+##### [Postgres v13 & above](#tab/postgres-13)
 
 For Postgres versions 13 and above, use the following statement to view the top five SQL statements by total execution time: 
 
@@ -81,10 +81,9 @@ ORDER BY total_exec_time
 DESC LIMIT 5;   
 ```
 
-# [Postgres v9.6-12 & above](#tab/postgres9-12)
+##### [Postgres v9.6-12 & above](#tab/postgres9-12)
 
 For Postgres versions 9.6, 10, 11, and 12, use the following statement to view the top five SQL statements by total execution time: 
-
 
 ```postgresql
 SELECT userid: :regrole, dbid, query, 
@@ -96,14 +95,14 @@ DESC LIMIT 5;
 ---
 
 
-## Identify Root Causes 
+## Identify root causes 
 
 If CPU consumption levels are high in general, the following could be possible root causes: 
 
 
-### Long Running Transactions  
+### Long-running transactions  
 
-Long running transactions can consume CPU resources that can lead to high CPU utilization.
+Long-running transactions can consume CPU resources that can lead to high CPU utilization.
 
 The following query helps identify connections running for the longest time:  
 
@@ -114,7 +113,7 @@ WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active')
 ORDER BY duration DESC;   
 ```
 
-### Total Number of Connections and Number Connections by State 
+### Total number of connections and number connections by state 
 
 A large number of connections to the database is also another issue that might lead to increased CPU as well as memory utilization.
 
@@ -128,8 +127,7 @@ WHERE pid <> pg_backend_pid()
 GROUP BY 1 ORDER BY 1;   
 ```
   
-
-## Resolve High CPU Utilization
+## Resolve high CPU utilization
 
 Use Explain Analyze, PG Bouncer, connection pooling and terminate long running transactions to resolve high CPU utilization. 
 
@@ -139,7 +137,7 @@ Once you know the query that's running for a long time, use **EXPLAIN** to furth
 For more information about the **EXPLAIN** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html). 
 
 
- ### PGBouncer And Connection Pooling 
+### PGBouncer and connection pooling 
 
 In situations where there are lots of idle connections or lot of connections which are consuming the CPU consider use of a connection pooler like PgBouncer.
 
@@ -152,7 +150,7 @@ For more details about PgBouncer, review:
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [PgBouncer](./concepts-pgbouncer.md)
 
 
-### Terminating Long Running Transactions
+### Terminating long running transactions
 
 You could consider killing a long running transaction as an option.
 
@@ -165,7 +163,7 @@ WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active')
 ORDER BY duration DESC;   
 ```
 
-You can also filter by other properties like usename (username), datname (database name) etc.  
+You can also filter by other properties like `usename` (username), `datname` (database name) etc.  
 
 Once you have the session's PID you can terminate using the following query:
 
@@ -173,7 +171,7 @@ Once you have the session's PID you can terminate using the following query:
 SELECT pg_terminate_backend(pid);
 ```
 
-### Monitoring Vacuum And Table Stats 
+### Monitoring vacuum and table stats 
 
 Keeping table statistics up to date helps improve query performance. Monitor whether regular autovacuuming is being carried out. 
 

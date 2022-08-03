@@ -530,19 +530,19 @@
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
     items:  
-    - name: Functional Troubleshooting
+    - name: Functional troubleshooting
       items:
       - name: Troubleshoot CLI errors
         href: flexible-server/how-to-troubleshoot-cli-errors.md 
-    - name: Performance Troubleshooting
+    - name: Performance troubleshooting
       items:
-      - name: Troubleshoot High CPU Utilization
+      - name: Troubleshoot high CPU utilization
         href: flexible-server/how-to-high-cpu-utilization.md 
         displayName: High CPU Utilization
-      - name: Troubleshoot High Memory Utilization
+      - name: Troubleshoot high memory utilization
         href: flexible-server/how-to-high-memory-utilization.md 
         displayName: High Memory Utilization
-      - name: Troubleshoot Autovacuum 
+      - name: Troubleshoot autovacuum 
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
   - name: How-to guides
