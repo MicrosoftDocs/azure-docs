@@ -37,7 +37,7 @@ Add a new step in your workflow by using the Azure Communication Services Identi
 
 1. Provide the Connection String. This can be found in [Microsoft Azure](https://portal.azure.com/), within your Azure Communication Service Resource, on the Keys option from the left menu > Connection String
 
-    :::image type="content" source="./media/logic-app/azure-portal-connection-string.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource.":::
+    :::image type="content" source="./media/logic-app/azure-portal-connection-string.png" alt-text="Screenshot that shows the Keys page within an Azure Communication Services Resource." lightbox="./media/logic-app/azure-portal-connection-string.png":::    
 
 1. Provide a Connection Name
 
@@ -52,7 +52,7 @@ Add a new step in your workflow by using the Azure Communication Services Identi
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-user-action-advanced.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector advanced options.":::
 
-1.	Click Create. This will output the User Id and an Access Token
+1.	Click Create. This will output the User ID and an Access Token.
 
 ## Create a chat thread
 
@@ -78,7 +78,7 @@ Add a new step in your workflow by using the Azure Communication Services Identi
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-send-chat-message.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action.":::
  
-1.	Provide the Access Token, Thread Id, Content and Name information as shown below
+1.	Provide the Access Token, Thread ID, Content, and Name information as shown below.
  
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-send-chat-message-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action input fields.":::
 
