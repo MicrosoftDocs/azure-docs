@@ -693,7 +693,7 @@ items:
     href: personally-identifiable-information/quickstart.md
   - name: PII language support
     href: personally-identifiable-information/language-support.md
-  - name: Samples
+  - name: SDK Samples
     items:
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
