@@ -70,7 +70,7 @@ As far as runs goes the detailed information are:
 - Failed tasks
 - Unprocessed Tasks
 
-### Filtering user history information 
+## Filtering user history information 
 
 
 While detailed information is good to have for specific user information, you may need to dive further into the information. Lifecycle Workflows allows you to filter the detailed information based on start date, complete date, status, or execution type.
