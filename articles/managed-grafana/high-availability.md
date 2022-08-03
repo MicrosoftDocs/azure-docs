@@ -32,7 +32,7 @@ In a zone-wide outage, no user action is required. An impacted Managed Grafana i
 > Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently. The zone redundancy option comes with an additional cost. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
 
 ### With zone redundancy disabled
-Zone redundancy is not activated in the Managed Grafana Standard tier by default. In this scenario, virtual machines are creacted as regional resources and should not be expected to survive zone-downs schenarios as they can go down at same time.
+Zone redundancy is disabled in the Managed Grafana Standard tier by default. In this scenario, virtual machines are created as regional resources and should not be expected to survive zone-downs schenarios as they can go down at same time.
 
 ## Next steps
 
