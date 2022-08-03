@@ -512,7 +512,7 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |template|Used to change the templating mode that the `set-body` policy will run in. Currently the only supported value is:<br /><br />- liquid - the `set-body` policy will use the liquid templating engine |No| N/A|
-|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. The attribute must be set to one of the following values.<br /><br />- blank - `nil` is represented with an empty string.<br />- blank - `nil` is represented with a null value.|No | blank |
+|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values.<br /><br />- blank - `nil` is represented with an empty string.<br />- null - `nil` is represented with a null value.|No | blank |
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.
