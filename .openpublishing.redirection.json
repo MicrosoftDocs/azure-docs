@@ -7643,7 +7643,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-overview.md",
-      "redirect_url": "/azure/azure-monitor/agents/agents-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/agents-overview",
       "redirect_document_id": true
     },
     {
