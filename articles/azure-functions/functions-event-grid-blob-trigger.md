@@ -11,10 +11,10 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Tutorial: Trigger Azure Functions on blob containers using an event subscription
 
-Earlier versions of the Blob Storage trigger for Azure Functions polled the container for updates, which often resulted in delayed execution. By using the latest version of the extension, you can reduce latency by instead triggering on an event subscription to the same blob container. The event subscription uses Event Grid to forward changes in the blob container as events for your function to consume. This article demonstrates how to use Visual Studio Code to locally develop a function runs based an event subscription when a blob is added to a container. You'll locally verify the function before deploying your project to Azure.
+Earlier versions of the Blob Storage trigger for Azure Functions polled the container for updates, which often resulted in delayed execution. By using the latest version of the extension, you can reduce latency by instead triggering on an event subscription to the same blob container. The event subscription uses Event Grid to forward changes in the blob container as events for your function to consume. This article demonstrates how to use Visual Studio Code to locally develop a function that runs based events raised when a blob is added to a container. You'll locally verify the function before deploying your project to Azure.
 
 > [!NOTE]
-> The Blob Storage trigger using an event subscription and the Storage Extension for Visual Studio Code are both currently in preview.
+> Both the Blob Storage trigger using an event subscription and the Storage Extension for Visual Studio Code are currently in preview.
 
 > [!div class="checklist"]
 > * Create a general storage v2 account in Azure Storage.
@@ -22,8 +22,7 @@ Earlier versions of the Blob Storage trigger for Azure Functions polled the cont
 > * Create an event-driven Blob Storage triggered function.
 > * Create an event subscription to a blob container.
 > * Debug locally using ngrok by uploading files.
-> * Deploy to Azure and recreate the event subscription.
-> * Recreate the event subscription with a filter.
+> * Deploy to Azure and create a filtered event subscription.
 
 ## Prerequisites
 
@@ -192,21 +191,21 @@ public static void Run([BlobTrigger("samples-workitems/{name}", Source = BlobTri
 ::: zone pivot="programming-language-python"   
 After the function is created add `"source": "EventGrid"` to the `myBlob` binding in the function.json configuration file, as shown in the following example:
     
-    ```json
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
     {
-      "scriptFile": "__init__.py",
-      "bindings": [
-        {
-          "name": "myblob",
-          "type": "blobTrigger",
-          "direction": "in",
-          "path": "samples-workitems/{name}",
-          "source": "EventGrid",
-          "connection": "<NAMED_STORAGE_CONNECTION>"
-        }
-      ]
+      "name": "myblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "samples-workitems/{name}",
+      "source": "EventGrid",
+      "connection": "<NAMED_STORAGE_CONNECTION>"
     }
-    ```
+  ]
+}
+```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 1. Replace contents of the generated `Function.java` file with the following code and rename the file to `BlobTriggerEventGrid.java`:
@@ -235,24 +234,24 @@ After the function is created add `"source": "EventGrid"` to the `myBlob` bindin
         }
     }
     ```
-1. Remove the associated unit test file, which is no longer relevant to the new trigger type.
+2. Remove the associated unit test file, which is no longer relevant to the new trigger type.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell"  
-1. After the function is created, add `"source": "EventGrid"` to the `myBlob` binding in the function.json configuration file, as shown in the following example:
+After the function is created, add `"source": "EventGrid"` to the `myBlob` binding in the function.json configuration file, as shown in the following example:
     
-  ```json
-  {
-    "bindings": [
-      {
-        "name": "myblob",
-        "type": "blobTrigger",
-        "direction": "in",
-        "path": "samples-workitems/{name}",
-        "source": "EventGrid",
-        "connection": "<NAMED_STORAGE_CONNECTION>"
-      }
-    ]
-  }
+```json
+{
+  "bindings": [
+    {
+      "name": "myblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "samples-workitems/{name}",
+      "source": "EventGrid",
+      "connection": "<NAMED_STORAGE_CONNECTION>"
+    }
+  ]
+}
   ```
 ::: zone-end  
 
