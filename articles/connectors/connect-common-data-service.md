@@ -30,6 +30,10 @@ You can create and run automated workflows that manage rows in your [Microsoft D
 
 This article shows how you can create a logic app workflow that creates a task row whenever a new lead row is created.
 
+## Connector reference
+
+For technical information based on the connector's Swagger description, such as operations, limits, and other details, review the [managed connector reference page](/connectors/commondataserviceforapps/).
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -37,11 +41,13 @@ This article shows how you can create a logic app workflow that creates a task r
 * A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data in a Dataverse database. For more information, review the following resources:
 
   * [Learn: Create and manage Dataverse environments](/learn/modules/create-manage-environments/)
+
   * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
-* Basic knowledge about how to create either Consumption or Standard logic app workflows and the logic app from where you want to access the rows in your Dataverse database. To start your logic app with a Common Data Service trigger, you need a blank workflow. For more information, review the following documentation:
+* Basic knowledge about how to create either Consumption or Standard logic app workflows and the logic app from where you want to access the rows in your Dataverse database. To start your logic app with a Common Data Service trigger, you need a blank workflow. For more information, review the following resources:
 
   * [Create your first Consumption logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
   * [Create a Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Add a Dataverse trigger
@@ -98,33 +104,27 @@ This example uses the Dataverse action that adds a new row to your database.
 
 ## Test your workflow
 
-To test and trigger the workflow, on the designer toolbar, select **Run Trigger** > **Run**. Then, reproduce the conditions that the trigger requires for your workflow to run.
+To test and trigger the workflow, follow these steps:
 
-## Trigger only on updated attributes
+1. On the designer toolbar, select **Run Trigger** > **Run**.
 
-For triggers that run when rows are updated, such as the trigger named **When a row is added, modified or deleted**, you can use filter attributes so that your logic app runs only when the specified attributes are updated. This capability helps you prevent unnecessary logic app runs.
-
-1. In the trigger, from the **Add new parameter** list, select **Attribute Filters**.
-
-   ![Screenshot that shows the "When a row is added, modified or deleted" trigger and the opened "Add new parameter" list with the "Attribute Filters" property selected.](./media/connect-common-data-service/when-row-updated-trigger-add-attribute-filters.png)
-
-1. For each **Attribute Filters Item**, select the attribute that you want to monitor for updates, for example:
-
-   ![Add "Attribute Filters" property](./media/connect-common-data-service/when-row-updated-trigger-select-attribute-filter.png)
+1. Reproduce the conditions that the trigger requires for your workflow to run.
 
 ## List rows based on a filter
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on the specified filter. For example, you have the action list only the rows for active accounts.
+For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on  the specified filter. For example, you can set up the action to list only the rows for active accounts. For more information, review [List rows](/connectors/commondataserviceforapps/#list-rows).
 
-1. In the action, open the **Add new parameter** list, and select the **Filter Query** property.
+1. In the action, open the **Add new parameter** list, and select the **Filter rows** property.
 
-   ![Add "Filter Query" property](./media/connect-common-data-service/list-rows-action-filter-query.png)
+   ![Screenshot showing designer for Consumption workflow and "Filter rows" property.](./media/connect-common-data-service/dataverse-action-list-rows-filter-rows.png)
 
-1. In the **Filter Query** property that now appears in the action, enter this ODATA filter query: `statuscode eq 1`
+1. In the **Filter rows** property that now appears in the action, enter the following ODATA filter query: 
 
-   ![Enter ODATA filter query for filtering rows](./media/connect-common-data-service/list-rows-action-filter-query-value.png)
+   `statuscode eq 1`
 
-For more information about `$filter` system query options, see [Common Data Service - Filter results](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+   ![Screenshot showing designer for Consumption workflow and "Filter rows" property with ODATA filter query.](./media/connect-common-data-service/dataverse-action-list-rows-filter-rows-query.png)
+
+For more information about `$filter` system query options, review [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
 
 ## List rows based on an order
 
@@ -161,10 +161,6 @@ This example shows how the **Create a new row** action creates a new "Tasks" row
 * Based on the **Regarding** property, which specifies a row ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new "Tasks" row with a specific account.
 
 ![Create "Tasks" row associated with IDs and lookup types](./media/connect-common-data-service/create-new-row-task-properties.png)
-
-## Connector reference
-
-For technical information based on the connector's Swagger description, such as triggers, actions, limits, and other details, see the [connector's reference page](/connectors/commondataservice/).
 
 ## Troubleshooting problems
 
