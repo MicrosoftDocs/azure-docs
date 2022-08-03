@@ -1,7 +1,7 @@
 ---
 title: Exit codes info for Azure Spring Apps | Microsoft Docs
 description: Troubleshooting guide with exit codes for Azure Spring Apps
-author: kunsun
+author: KarlErickson
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 07/07/2021
