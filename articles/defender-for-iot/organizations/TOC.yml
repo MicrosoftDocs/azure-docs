@@ -104,32 +104,29 @@
       href: how-to-analyze-programming-details-changes.md
   - name: Integrate with security partners
     items:
-    - name: Overview
+    - name: Integration catalog
       href: integrate-overview.md
-    - name: ArcSight
-      href: integrations/arcsight.md
-    - name: Integrate ClearPass
+    - name: ClearPass
       href: tutorial-clearpass.md
-    - name: Integrate CyberArk
+    - name: CyberArk
       href: tutorial-cyberark.md
-    - name: Integrate Forescout
+    - name: Forescout
       href: tutorial-forescout.md
-    - name: Integrate Fortinet
+    - name: Fortinet
       href: tutorial-fortinet.md
-<<<<<<< HEAD
-    - name: RSA NetWitness
-      href: integrations/netwitness.md
-=======
     - name: LogRhythm
       href: integrations/logrhythm.md
->>>>>>> a5e442ae17b8ec904f8cbc1c5adea870e2aaf531
-    - name: Integrate Palo Alto
+    - name: Micro Focus ArcSight
+      href: integrations/arcsight.md
+    - name: Palo Alto
       href: tutorial-palo-alto.md
-    - name: Integrate Qradar
+    - name: Qradar
       href: tutorial-qradar.md
-    - name: Integrate Splunk
+    - name: RSA NetWitness
+      href: integrations/netwitness.md
+    - name: Splunk
       href: tutorial-splunk.md
-    - name: Integrate ServiceNow
+    - name: ServiceNow
       href: tutorial-servicenow.md
   - name: System deployment
     items:
