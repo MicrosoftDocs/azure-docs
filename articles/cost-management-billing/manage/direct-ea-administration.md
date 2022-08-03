@@ -433,7 +433,7 @@ To view current notifications settings and add contacts:
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
 1. Navigate to **Cost Management + Billing**.
 1. In the left menu, select **Billing scopes** and then select a billing account scope.
-1. In the left menu, under **Settings*, select **Notifications**.
+1. In the left menu, under **Settings**, select **Notifications**.
     Notification contacts are shown on the page.
 1. To add a contact, select **+ Add**.
 1. In the **Add Contact** area, enter the contact's email address.
