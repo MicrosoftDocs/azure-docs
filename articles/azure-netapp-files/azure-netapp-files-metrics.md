@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/03/2022
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -79,9 +79,10 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
     Whether the status of the volume replication is ‘transferring’. 
 
 - *Volume replication lag time* 
-    The amount of time the replica lags behind the source during a transfer. The source has newer updates; the time it takes to replicate the source. The amount of data to be replicated / the replication speed. 
+    The amount of time the replication lags behind the source, calculated as the amount of data to be replicated divided by the replication speed. 
 
-    If the lag time is greater than the replication schedule, won't catch up. Replication speeds needs to be improved or schedule adjusted. 
+> [!NOTE]
+> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume will not catch up to the source. To resolve this, adjust the replication speed or the replication schedule. 
 
 - *Volume replication last transfer duration*   
     The amount of time in seconds it took for the last transfer to complete. 
