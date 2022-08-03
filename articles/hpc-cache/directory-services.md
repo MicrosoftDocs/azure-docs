@@ -56,7 +56,7 @@ These values are required if you want to download files with your user and group
 
 ![screenshot of Download details section for a flat file download](media/group-download-details-file.png)
 
-By default, the file is polled for updates once an hour. If you want the HPC Cache to fetch the file immediately, you could consider turning off extended groups (change the **Enable extended groups** setting to **No**) and then back on to cause settings to be reloaded.
+By default, the file is polled for updates once an hour. There isn't a direct way to request an immediate update, but as a workaround you could consider disabling extended groups (change the **Enable extended groups** setting to **No**) and then re-enabling it. This action causes HPC Cache to re-read the settings.
 
 ## Configure LDAP
 
