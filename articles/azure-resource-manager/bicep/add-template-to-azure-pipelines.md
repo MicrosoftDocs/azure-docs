@@ -43,7 +43,7 @@ You need a [Bicep file](./quickstart-create-bicep-use-visual-studio-code.md) tha
 
 You can use Azure Resource Group Deployment task or Azure CLI task to deploy a Bicep file.
 
-### Use ARM template deployment task
+### Use Azure Resource Group Deployment task
 
 Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment):
 
