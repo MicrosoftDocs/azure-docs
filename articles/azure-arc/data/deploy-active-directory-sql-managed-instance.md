@@ -238,6 +238,8 @@ There are no specific optional fields for the customer-managed keytab mode.
    - `spec.security.activeDirectory.encryptionTypes`
       List of Kerberos encryption types to allow for the automatically generated AD account provided in `spec.security.activeDirectory.accountName`. Accepted values are RC4, AES128 and AES256. It defaults to allow all encryption types when there is no value provided. You can disable RC4 by providing only AES128 and AES256 as encryption types.
 
+---
+
 ### Prepare deployment specification for SQL Managed Instance for Azure Arc
 
 Prepare the following .yaml specification to deploy SQL. Set the fields described in the spec.
