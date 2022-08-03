@@ -26,9 +26,9 @@ Azure API Management allows you to choose to use the managed gateway or [self-ho
 
 The table below summarizes all the observability capabilities supported by API Management to operate APIs and what deployment models they support. These capabilities can be used by API publishers and others who have permissions to operate or manage the API Management instance. 
 
-> ![NOTE]
+> [!NOTE]
 > For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days.
- 
+>  
 | Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Supported Deployment Model(s) |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |
 | **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | Managed, Self-hosted, Azure Arc |
