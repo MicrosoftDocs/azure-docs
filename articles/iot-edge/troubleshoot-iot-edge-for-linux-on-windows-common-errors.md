@@ -103,3 +103,9 @@ The following section addresses the common errors related to EFLOW networking an
 > | No adapters associated with the switch '$vnetName' are found. <br/> No adapters associated with the device ID '$adapterGuid' are found <br/> No adapters associated with the adapter name '$name' are found. <br/> Network '$vswitchName' does not exist | Caused by a network communication error between the Windows host OS and the EFLOW virtual machine. | Ensure you can reach the EFLOW VM and establish an SSH channel. Use the `Connect-EflowVm` PowerShell cmdlet to connect to the virtual machine. If connectivity fails, reboot the EFLOW VM and check again. | 
 > | ip4Address & ip4PrefixLength are required for StaticIP! | During EFLOW VM deployment or when adding multiple NICs, if using static IP, the three static ip parameters are needed: _ip4Address_, _ip4GatewayAddress_, _ip4PrefixLength_. | For more information about `Deploy-EFlow` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md). | 
 > | Found multiple VMMS switches <br/> with name '$switchName' of type '$switchType' | There are two or more virtual switches with the same name and type. This environment conflicts with the EFLOW VM installation and lifecycle of the VM. | Use `Get-VmSwitch` PowerShell cmdlet to check the virtual switches available in the Windows host and make sure that each {name,type} is unique. | 
+
+## Next steps
+
+Do you think that you found a bug in the IoT Edge for Linux on Windows? [Submit an issue](https://github.com/Azure/iotedge-eflow/issues) so that we can continue to improve.
+
+If you have more questions, create a [Support request](https://portal.azure.com/#create/Microsoft.Support) for help.
