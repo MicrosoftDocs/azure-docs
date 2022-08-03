@@ -6,7 +6,7 @@ manager: roshar
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.date: 07/29/2022
+ms.date: 08/02/2022
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
@@ -15,21 +15,18 @@ ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-When you create a new virtual machine (VM) in a resource group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default operating system (OS) drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it's possible to add data disks to the VM (the number depends on the SKU you chose) and we recommend installing applications and CPU-intensive workloads on these addendum disks, often, customers need to expand the OS drive to support specific scenarios:
-
-- To support legacy applications that install components on the OS drive.
-- To migrate a physical PC or VM from on-premises with a larger OS drive.
+When you create a new virtual machine (VM) in a resource group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default operating system (OS) disk is usually 127 GiB (some images have smaller OS disk sizes by default). You can add data disks to your VM (the amount depends on the VM SKU you selected) and we recommend installing applications and CPU-intensive workloads on data disks. You may need to expand the OS disk if you're supporting a legacy application that installs components on the OS disk or if you're migrating a physical PC or VM from on-premises that has a larger OS disk. This article covers expanding either OS disks or data disks.
 
 > [!IMPORTANT]
-> Unless you use [Expand without downtime (preview)](#expand-without-downtime-preview), resizing a data disk requires the VM to be deallocated.
+> Unless you use [Expand without downtime (preview)](#expand-without-downtime-preview), expanding a data disk requires the VM to be deallocated.
 >
-> Shrinking an existing disk isn’t supported, and can potentially result in data loss.
+> Shrinking an existing disk isn’t supported and may result in data loss.
 > 
 > After expanding the disks, you need to [Expand the volume in the operating system](#expand-the-volume-in-the-operating-system) to take advantage of the larger disk.
 
 ## Expand without downtime (preview)
 
-You can now expand your managed disks without deallocating your VM.
+You can now expand your data disks without deallocating your VM.
 
 The preview for this has the following limitations:
 
@@ -134,12 +131,12 @@ Remote into the VM, open **Computer Management** (or **Disk Management**) and ex
 
 ## Expand the volume in the operating system
 
-When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using [Using Diskpart](#using-diskpart) or [Using Disk Manager](#using-disk-manager).
+When you've expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using [Using Diskpart](#using-diskpart) or [Using Disk Manager](#using-disk-manager).
 
 ### Using DiskPart
 
 
-When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
+When you've expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
 
 1. Open an RDP connection to your VM.
 
