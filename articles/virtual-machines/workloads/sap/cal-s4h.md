@@ -33,6 +33,8 @@ You will also find detailed answers to your questions related to SAP Cloud Appli
 
 The online library is continuously updated with Appliances for demo, proof of concept and exploration of new business cases. For the most recent ones select “Create Appliance” here from the list – or visit [cal.sap.com](https://cal.sap.com/catalog#/applianceTemplates) for further templates.
 
+## Deployment of appliances through SAP Cloud Appliance Library
+
 | Appliance Templates | Link |
 | -------------- | :--------- |
 | **SAP Focused Run 3.0 FP03 (configured)** July 28 2022  | [Create Appliance](https://cal.sap.com/registration?sguid=517c6359-6b26-458d-b816-ca25c3e5af7d&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
@@ -60,7 +62,7 @@ You will need to authenticate with your S-User.
 | -------------- | :--------- |
 | **SAP S/4HANA 2021 FPS01 for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products)
 This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. You will need a valid license for deployment initiation.
- **SAP S/4HANA 2021 Inital Shipment Stack for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products)
+ **SAP S/4HANA 2021 Initial Shipment Stack for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products)
  This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system.
  
 ---
@@ -68,10 +70,7 @@ This solution comes as a standard S/4HANA system installation including High Ava
 _Within a few hours, a healthy SAP S/4 appliance is deployed in Azure._
 
 If you bought an SAP CAL subscription, SAP fully supports deployments through SAP CAL on Azure. The support queue is BC-VCM-CAL.
-
->**NOTE:**
-> For more information about SAP CAL, go to [SAP Cloud Appliance Library](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8).
-
+>[!NOTE] For more information about SAP CAL, go to [SAP Cloud Appliance Library](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8).
 
 
 
