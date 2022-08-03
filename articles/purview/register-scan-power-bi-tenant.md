@@ -20,6 +20,8 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 |---|---|---|---|---|---|---|---|
 | [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)| No |
 
+For a list of metadata available for Power BI, see our [available metadata documentation](available-metadata.md).
+
 ### Supported scenarios for Power BI scans
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
