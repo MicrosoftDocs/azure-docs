@@ -118,7 +118,7 @@ Storage Explorer lets you connect to individual resources, such as an Azure Data
 | Gen2 directories | Yes      | No                   | Yes (URL)                      | Yes                |
 | File shares      | No       | No                   | Yes (URL)                      | No                 |
 | Queues           | Yes      | No                   | Yes (URL)                      | No                 |
-| Tables           | No       | No                   | Yes (URL)                      | No                 |
+| Tables           | Yes      | No                   | Yes (URL)                      | No                 |
 
 Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
 

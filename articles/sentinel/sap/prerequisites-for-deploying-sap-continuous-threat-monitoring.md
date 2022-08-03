@@ -97,13 +97,17 @@ To enable the SAP data connector to retrieve certain information from your SAP s
 
 ### Create and configure a role
 
-To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by deploying CR **NPLK900206**. 
+To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by deploying CR **NPLK900271** or by loading the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file.. 
 
-Experienced SAP administrators may choose to create the role manually and assign it the appropriate permissions. In such a case, it is not necessary to deploy the CR *NPLK900206*, but you must instead create a role using the recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](preparing-sap.md#required-abap-authorizations). 
+> [!NOTE]
+> Alternatively, you can create a role that has minimal permissions by deploying change request *NPLK900268*, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file.
+> This change request or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
+
+Experienced SAP administrators may choose to create the role manually and assign it the appropriate permissions. In such a case, it is not necessary to deploy the CR *NPLK900271*, but you must instead create a role using the recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](preparing-sap.md#required-abap-authorizations). 
 
 | SAP BASIS versions | Sample CR |
 | --- | --- |
-| Any version  | *NPLK900206*: [K900206.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900206.NPL), [R900206.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900206.NPL) |
+| Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) |
 
 ## Next steps
 

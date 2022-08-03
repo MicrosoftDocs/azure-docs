@@ -67,9 +67,13 @@ Microsoft cloud settings let you collaborate with organizations from different M
 - Microsoft Azure global cloud and Microsoft Azure Government
 - Microsoft Azure global cloud and Microsoft Azure China 21Vianet
 
+> [!NOTE]
+> Microsoft Azure Government includes the Office GCC-High and DoD clouds.
+
 To set up B2B collaboration, both organizations configure their Microsoft cloud settings to enable the partner's cloud. Then each organization uses the partner's tenant ID to find and add the partner to their organizational settings. From there, each organization can allow their default cross-tenant access settings apply to the partner, or they can configure partner-specific inbound and outbound settings. After you establish B2B collaboration with a partner in another cloud, you'll be able to:
 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
+- Use B2B collaboration to [share Power BI content to a user in the partner tenant](https://docs.microsoft.com/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
 > [!NOTE]
