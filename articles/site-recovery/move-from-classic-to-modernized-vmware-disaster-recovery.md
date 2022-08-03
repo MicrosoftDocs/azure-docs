@@ -24,7 +24,7 @@ The components involved in the migration of replicated items of a VMware machine
 |Replicated items in a classic Recovery Services vault|One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a non-critical state and must be replicated from on-premises to Azure with the mobility agent running on version 9.50 or later.|
 |Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a non-critical state and its components should be upgraded to the latest version (9.50 or later).|  
 |A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.|
-|A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The exact required versions are as follows:<br></br>Process server: 9.50<br>Proxy server: 1.35.8419.34591<br>Recovery services agent: 2.0.9249.0<br>Replication service: 1.35.8427.21865|
+|A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The exact required versions are as follows:<br></br>Process server: 9.50<br>Proxy server: 1.35.8419.34591<br>Recovery services agent: 2.0.9249.0<br>Replication service: 1.35.8433.24227|
 
 ## Required infrastructure  
 
