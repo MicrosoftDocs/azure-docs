@@ -14,7 +14,7 @@
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-You can see the connection string for your storage account using the [az storage account show-connection-string](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show) command.
+You can see the connection string for your storage account using the [az storage account show-connection-string](/cli/azure/storage/account) command.
 
 ```azurecli
 az storage account show-connection-string --name "<your-storage-account-name>"

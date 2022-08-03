@@ -188,7 +188,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. Choose **Add role assignment**
 
-    :::image type="content" source="media/migration-add-role-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-add-role.png":::
+    :::image type="content" source="media/migration-add-role-small.png" alt-text="A screenshot showing how to add a role to a managed identity."  lightbox="media/migration-add-role.png":::
 
 1. In the **Role** search box, search for *Storage Blob Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
@@ -196,7 +196,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-    :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
+    :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to select the assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment. 
 

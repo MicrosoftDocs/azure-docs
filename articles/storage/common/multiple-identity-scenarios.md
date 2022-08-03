@@ -81,7 +81,7 @@ The following steps demonstrate how to create and configure a user-assigned mana
 
 7) In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
+    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to select a system-assigned identity."  lightbox="media/migration-select-identity.png":::
 
 8) Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
@@ -95,7 +95,7 @@ You can also enable access to Azure resources for local development by assigning
 
 2) Search for the user account or Azure AD security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
 
-    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/local-dev-assign-user.png":::
+    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to select a user account."  lightbox="media/local-dev-assign-user.png":::
 
 > [!NOTE]
 > You can also assign these roles to an Azure Active Directory security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
@@ -198,7 +198,7 @@ BlobServiceClient blobServiceClient2 = new BlobServiceClient(
 
 You can also associate both a user-assigned managed identity as well as a system-assigned managed identity to a resource. This can be useful in scenarios where all of the apps  require access to the same resources, but one of the apps has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
-:::image type="content" source="media/user-and-system-assigned-identities.png" alt-text="A diagram showing multiple user-assigned managed identities.":::
+:::image type="content" source="media/user-and-system-assigned-identities.png" alt-text="A diagram showing user-assigned and system-assigned managed identities.":::
 
 These types of scenarios are explored in more depth in the [identities best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
@@ -206,7 +206,7 @@ These types of scenarios are explored in more depth in the [identities best prac
 
 In this tutorial, you learned how to migrate an application to credential-free connections. You can read the following resources to explore the concepts discussed in this article in more depth:
 
-- For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/storage/blobs/authorize-managed-identity).
+- For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
 -[Authorize with Azure roles](/azure/storage/blobs/authorize-access-azure-active-directory)
 - To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
 - To learn more about authorizing from a web application, visit [Authorize from a native or web application](/azure/storage/common/storage-auth-aad-app)
