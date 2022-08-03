@@ -645,7 +645,7 @@
     items:
     - name: Connect and query
       href: hyperscale/howto-connect.md
-    - name: App stacks
+    - name: Develop with app stacks
       items:
         - name: Overview
           href: hyperscale/howto-app-stacks-overview.md
@@ -659,27 +659,29 @@
           href: hyperscale/howto-app-stacks-java.md
         - name: Ruby
           href: hyperscale/howto-app-stacks-ruby.md
-    - name: Build scalable apps
+    - name: Model distributed data
       items:
       - name: Overview
         href: hyperscale/howto-build-scalable-apps-overview.md
-      - name: Fundamental concepts
+      - name: Concepts
         href: hyperscale/howto-build-scalable-apps-concepts.md
-      - name: Classify workload
-        href: hyperscale/howto-build-scalable-apps-classify.md
-      - name: Model multi-tenant apps
-        href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
-      - name: Model real-time apps
-        href: hyperscale/howto-build-scalable-apps-model-real-time.md
-      - name: Model high-throughput apps
-        href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
+      - name: Workload classification
+        items:
+          - name: Overview
+            href: hyperscale/howto-build-scalable-apps-classify.md
+          - name: Multi-tenant apps
+            href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
+          - name: Real-time apps
+            href: hyperscale/howto-build-scalable-apps-model-real-time.md
+          - name: High-throughput apps
+            href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
     - name: Ingest data
       items:
       - name: Azure Stream Analytics (ASA)
         href: hyperscale/howto-ingest-azure-stream-analytics.md
       - name: Azure Data Factory (ADF)
         href: hyperscale/howto-ingest-azure-data-factory.md
-    - name: Administer
+    - name: Manage
       items:
       - name: Create users
         href: hyperscale/howto-create-users.md
@@ -687,18 +689,18 @@
         href: hyperscale/howto-maintenance.md
       - name: Restart server group
         href: hyperscale/howto-restart.md
-      - name: Monitor
-        items:
-        - name: View metrics
-          href: hyperscale/howto-monitoring.md
-        - name: Create alerts on metrics
-          href: hyperscale/howto-alert-on-metric.md
-          dispalyName: alerts on hyperscale
-        - name: Access database logs
-          href: hyperscale/howto-logging.md
-          displayName: log, hyperscale
       - name: Upgrade server group
         href: hyperscale/howto-upgrade.md
+    - name: Monitor
+      items:
+      - name: View metrics
+        href: hyperscale/howto-monitoring.md
+      - name: Create alerts on metrics
+        href: hyperscale/howto-alert-on-metric.md
+        dispalyName: alerts on hyperscale
+      - name: Access database logs
+        href: hyperscale/howto-logging.md
+        displayName: log, hyperscale
     - name: Scale
       items:
       - name: Server group size
