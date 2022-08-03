@@ -53,7 +53,7 @@ Use the following steps to download the sample app. If you've been using the Azu
 
 ## Deploy PlanetWeatherProvider
 
-The following procedure deploys the PlanetWeatherProvider project.
+Use the following steps to deploy the PlanetWeatherProvider project.
 
 1. Create an app for the PlanetWeatherProvider project in your Azure Spring Apps instance.
 
@@ -102,13 +102,13 @@ The following procedure deploys the PlanetWeatherProvider project.
    az spring app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
    ```
 
-   The `--main-entry` option specifies the relative path from the *.zip* file's root folder to the *.dll* file that contains the application's entry point. After the service uploads the *.zip* file, it extracts all the files and folders and tries to execute the entry point in the specified *.dll* file.
+   The `--main-entry` option specifies the relative path from the *.zip* file's root folder to the *.dll* file that contains the application's entry point. After the service uploads the *.zip* file, it extracts all the files and folders, and then tries to execute the entry point in the specified *.dll* file.
 
    This command may take several minutes to run.
 
 ## Deploy SolarSystemWeather
 
-The following procedure deploys the SolarSystemWeather project.
+Use the following steps to deploy the SolarSystemWeather project.
 
 1. Create another app in your Azure Spring Apps instance for the project.
 
@@ -208,7 +208,7 @@ Compiling the project takes 5-10 minutes. When the project is compiled, you shou
 
 ## Create and deploy apps on Azure Spring Apps
 
-The following procedure explains how to create and deploys apps on Azure Spring Apps using the CLI.
+Use the following steps to create and deploys apps on Azure Spring Apps using the CLI.
 
 1. If you didn't run the following commands in the previous quickstarts, run them now to set the CLI defaults.
 
@@ -297,12 +297,12 @@ The following steps show you how to generate configurations and deploy to Azure 
    mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
    ```
 
-   You will be asked to select:
+   You'll be asked to select:
 
    - **Modules:** Select `api-gateway` and `customers-service`.
-   - **Subscription:** This is your subscription used to create an Azure Spring Apps instance.
-   - **Service Instance:** This is the name of your Azure Spring Apps instance.
-   - **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`. This gives   it public access.
+   - **Subscription:** The subscription you used to create an Azure Spring Apps instance.
+   - **Service Instance:** The name of your Azure Spring Apps instance.
+   - **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`, giving it public access.
 
 1. Verify that the `appName` elements in the POM files are correct:
 
@@ -319,7 +319,7 @@ The following steps show you how to generate configurations and deploy to Azure 
                    <appName>customers-service</appName>
    ```
 
-   Make sure `appName` texts match the following:
+   Make sure `appName` is one of the following values:
 
      - api-gateway
      - customers-service
@@ -359,7 +359,7 @@ Correct app names in each *pom.xml* for above modules and then run the `deploy` 
 
 ## Import sample project in IntelliJ
 
-The following procedure explains how to import the sample project in IntelliJ.
+Use the following steps to import the sample project in IntelliJ.
 
 1. Download and unzip the source repository for this tutorial, or clone it using Git: `git clone https://github.com/azure-samples/spring-petclinic-microservices`
 
@@ -371,7 +371,7 @@ The following procedure explains how to import the sample project in IntelliJ.
 
 ### Deploy the api-gateway app to Azure Spring Apps
 
-To deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ and choose your subscription. For sign-in details, see [Create a Hello World web app for Azure App Service using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+To deploy to Azure, you must sign in with your Azure account with Azure Toolkit for IntelliJ and choose your subscription. For sign-in details, see [Create a Hello World web app for Azure App Service using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Apps**.
 
