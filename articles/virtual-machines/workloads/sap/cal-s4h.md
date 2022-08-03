@@ -70,9 +70,6 @@ This solution comes as a standard S/4HANA system installation including High Ava
 _Within a few hours, a healthy SAP S/4 appliance is deployed in Azure._
 
 If you bought an SAP CAL subscription, SAP fully supports deployments through SAP CAL on Azure. The support queue is BC-VCM-CAL.
->[!NOTE] For more information about SAP CAL, go to [SAP Cloud Appliance Library](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8).
-
-
 
 
 
