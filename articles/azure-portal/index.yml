@@ -46,6 +46,10 @@ landingContent:
         links:
           - text: Azure portal how-to video series
             url: azure-portal-video-series.md
+      - linkListType: learn
+        links:
+          - text: Module: Manage services with the Azure portal
+            url: /learn/modules/tour-azure-portal/
 
   # Card
   - title: Create and manage support requests
@@ -113,3 +117,15 @@ landingContent:
         links:
           - text: Turn on high contrast
             url: set-preferences.md#choose-a-theme-or-enable-high-contrast
+
+            
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/portal
+          - text: Azure PowerShell
+            url: /powershell/module/az.portal
+     
