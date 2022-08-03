@@ -375,7 +375,7 @@
     - name: Overview
       displayName: DevOps
       href: defender-for-devops-introduction.md
-    - name: Enable Microsoft security Devops Github action
+    - name: Enable Microsoft Security Devops Action
       displayName: Github, DevOps, 
       href: msdo-github-action.md
 
