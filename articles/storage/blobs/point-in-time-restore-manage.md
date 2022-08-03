@@ -114,7 +114,7 @@ You can restore all containers in the storage account, or you can restore a rang
 The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum. A few examples for how to structure your restore ranges:
 
  - To include the entire container named myContainer in the range for a restore use start range _myContainer_ and end range _myContainer-0_. This shows how adding '-0' as a suffix to the container name for the end range value includes everything in the container for the restore.
- - To include an entire virtual directory hierarchy, such as directory myFolder inside container myContainer, use start range _myContainer/myFolder_ and end range _myContainer/myFolder0_. Adding '0' as a suffix to virtual directory names for the end range includes all files with a prefix 'myContainer/myFolder/' for the restore.
+ - To include an entire virtual directory hierarchy, such as directory myFolder inside container myContainer, use start range _myContainer/myFolder/_ and end range _myContainer/myFolder0_. Adding '0' as a suffix to virtual directory names for the end range includes all files with a prefix 'myContainer/myFolder/' for the restore.
 
 Wildcard characters are not supported in a lexicographical range. Any wildcard characters are treated as standard characters.
 
