@@ -36,3 +36,13 @@ landingContent:
         links:
           - text: 'Create & configure a dev center'
             url: tutorial-create-and-configure-devcenter.md
+          - text: 'Create & configure a project'
+            url: tutorial-create-and-configure-projects.md
+  
+  # Card
+  - title: Configure environments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure a catalog item
+            url: configure-catalog-item.md
