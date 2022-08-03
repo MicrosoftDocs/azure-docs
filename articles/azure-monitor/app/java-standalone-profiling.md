@@ -2,7 +2,7 @@
 title: Profiler Configuration - Azure Monitor Application Insights for Java
 description: How to configure the Azure Monitor Application Insights for Java Profiler
 ms.topic: conceptual
-ms.date: 19/07/2022
+ms.date: 07/19/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ---
@@ -15,7 +15,7 @@ The Application Insights Java Profiler provides a system for:
 2. Generating JFR profiles automatically when certain trigger conditions are met from the running JVM
    , such as CPU or memory breaching a configured threshold.
 
-# Overview
+## Overview
 
 The Application Insights Java profiler uses the JFR profiler provided by the JVM to record profiling
 data. So that users may download the JFR recordings at a later time and analyze them to identify
@@ -41,9 +41,9 @@ UI.
 > However, you should review all flags enabled to ensure that profiles do not contain sensitive data.
 > See (#configuring-profile-contents) on setting a custom profiler configuration.
 
-# USAGE
+## USAGE
 
-## Pre-requisites
+### Pre-requisites
 
 In order to profile a Java application it is required that:
 
@@ -52,18 +52,29 @@ In order to profile a Java application it is required that:
 - You are using an Application Insights Agent that has the profiling capability
     - `<Insert agent version>`
 
-## Triggers
+### Triggers
 
 For more detailed description of the various triggers available
 see [sampling overrides](../profiler/profiler-overview.md).
 
 The ApplicationInsights Java Agent
 monitors CPU and memory consumption and if it breaches a configured threshold a profile is triggered.
-Both thresholds are a percentage. For CPU this is a percentage of the usage of all available
-cores on the system. For memory the percentage is the current Tenured memory region (OldGen) occupancy
-against the maximum possible size of the region, this is evaluated after a tenured collection has been performed.
+Both thresholds are a percentage. 
 
-## Installation
+#### CPU
+For CPU the threshold is a percentage of the usage of all available
+cores on the system, for instance, if your machine has saturated 1 core of an 8 core machine the CPU
+percentage would be considered 12.5%. 
+
+#### Memory
+For memory the percentage is the current Tenured memory region (OldGen) occupancy
+against the maximum possible size of the region, this is evaluated after a tenured collection has been performed.
+If the maximum possible size of the Tenured memory region is 1024mb (this is the size it could be if the JVMs heap grew
+to its maximum size), and your threshold was set to 75%, then in order to trigger the occupancy of the Tenured region
+would need to be greater than 768mb after a collection that operates on the Tenured region (such as G1 Mixed collection
+or a Full GC).
+
+### Installation
 
 The following steps will guide you through enabling the profiling component on the agent and
 configuring resource limits which will trigger a profile if breached.
@@ -97,16 +108,16 @@ Application Insights instance within the Performance -> Profiler section. From t
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
 tool of your choosing.
 
-## Configuration
+### Configuration
 
 Configuration of the profiler triggering settings, such as thresholds and profiling periods are set
 within the ApplicationInsights UI under the Performance, Profiler, Triggers UI as
-described in [Installation](#Installation).
+described in [Installation](#installation).
 
 Additionally, a number of parameters can be configured using environment variables and the
 `applicationinsights.json` configuration file.
 
-### Configuring Profile Contents
+#### Configuring Profile Contents
 
 If you wish to provide a custom profile configuration, alter the `memoryTriggeredSettings`
 and `cpuTriggeredSettings` to provide the path to a `.jfc` file with your required configuration.
