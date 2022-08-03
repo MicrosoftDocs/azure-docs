@@ -442,10 +442,12 @@ The supported values are:
 
 * **immediate:** raises error in transactions where parallel operations like
   create\_distributed\_table happen before an attempted CREATE TYPE.
-* **deferred:** return to the old object propagation behavior, in which case
-  there may be some inconsistency between which database objects exist on
-  different nodes.
-* **automatic:** TODO: talk to Marco.
+* **automatic:** defer creation of types when sharing a transaction with a
+  parallel operation on distributed tables. There may be some inconsistency
+  between which database objects exist on different nodes.
+* **deferred:** return to pre-11.0 behavior, which is like automatic but with
+  other subtle corner cases. We recommend the automatic setting over deferred,
+  unless you require true backward compatibility.
 
 For an example of this GUC in action, see [type
 propagation](howto-modify-distributed-tables.md#types-and-functions).

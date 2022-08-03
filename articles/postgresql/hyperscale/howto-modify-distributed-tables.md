@@ -507,8 +507,8 @@ ERROR:  cannot run type command because there was a parallel operation on a dist
 
 If you run into this issue, there are two simple workarounds:
 
-1. Use set `citus.create_object_propagation` to `deferred` to return to the old
-   object propagation behavior, in which case there may be some inconsistency
+1. Use set `citus.create_object_propagation` to `automatic` to defer creation
+   of the type in this situation, in which case there may be some inconsistency
    between which database objects exist on different nodes.
 1. Use set `citus.multi_shard_modify_mode` to `sequential` to disable per-node
    parallelism. Data load in the same transaction might be slower.
