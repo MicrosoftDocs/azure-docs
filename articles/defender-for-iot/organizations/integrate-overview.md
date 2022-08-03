@@ -33,7 +33,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Forescout**     |   Automate actions in Forescout based on activity detected by Defender for IoT, and correlate Defender for IoT data with other *Forescout eyeExtended* modules that oversee monitoring, incident management, and device control.      |   - OT networks only<br>- Locally managed sensors only      |   Forescout      |   [Integrate Forescout with Microsoft Defender for IoT] |
+|**Forescout**     |   Automate actions in Forescout based on activity detected by Defender for IoT, and correlate Defender for IoT data with other *Forescout eyeExtended* modules that oversee monitoring, incident management, and device control.      |   - OT networks only<br>- Locally managed sensors only      |   Forescout      |   [Integrate Forescout with Microsoft Defender for IoT](tutorial-forescout.md) |
 
 ## Fortinet
 
@@ -83,21 +83,21 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**RSA NetWitness**      |   Forward Defender for IoT alerts to RSA NetWitness   |  - OT networks only<br>- Locally managed sensors only      |   RSA      | [Integrate RSA NetWitness with Microsoft Defender for IoT](integrations/netwitness.md) <br>[CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364)  |
+|**RSA NetWitness**      |   Forward Defender for IoT alerts to RSA NetWitness   |  - OT networks only<br>- Locally managed sensors only      |   RSA      | [Integrate RSA NetWitness with Microsoft Defender for IoT](integrations/netwitness.md) <br><br>[CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364)  |
 
 ## ServiceNow
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **Vulnerability Response Integration with Microsoft Azure Defender for IoT** | View Defender for IoT device detections, attributes, and connections in ServiceNow.  |    - OT networks only<br>- Locally managed sensors only |  - OT networks only<br>- Locally managed sensors only       |    ServiceNow  | [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/463a7907c3313010985a1b2d3640dd7e/1.0.1?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Ddefender%2520for%2520iot&sl=sh) |
-| **Service Graph Connector Integration with Microsoft Azure Defender for IoT** | View Defender for IoT device detections, attributes, and connections in ServiceNow. |  - OT networks only<br>- Locally managed sensors only       |    ServiceNow     |  - [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229/1.0.0?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Ddefender%2520for%2520iot&sl=sh) |
-| **Microsoft Defender for IoT** (Legacy) | View Defender for IoT device detections, attributes, and connections in ServiceNow.  |    - OT networks only<br>- Locally managed sensors only       |    ServiceNow     |  - [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/6dca6137dbba13406f7deeb5ca961906/3.1.5?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Ddefender%2520for%2520iot&sl=sh)<br><br>- [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md) |
+| **Vulnerability Response Integration with Microsoft Azure Defender for IoT** | View Defender for IoT device detections, attributes, and connections in ServiceNow.  |    - OT networks only<br>- Locally managed sensors only  |    ServiceNow  | [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/463a7907c3313010985a1b2d3640dd7e/1.0.1?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Ddefender%2520for%2520iot&sl=sh) |
+| **Service Graph Connector Integration with Microsoft Azure Defender for IoT** | View Defender for IoT device detections, attributes, and connections in ServiceNow. |  - OT networks only<br>- Locally managed sensors only       |    ServiceNow     |  [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229/1.0.0?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Ddefender%2520for%2520iot&sl=sh) |
+| **Microsoft Defender for IoT** (Legacy) | View Defender for IoT device detections, attributes, and connections in ServiceNow.  |    - OT networks only<br>- Locally managed sensors only       |    ServiceNow     |  [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/6dca6137dbba13406f7deeb5ca961906/3.1.5?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Ddefender%2520for%2520iot&sl=sh)<br><br>[Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md) |
 
 ## Skybox
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Skybox**      |   Import vulnerability occurrence data discovered by Defender for IoT in your Skybox platform.     |  - OT networks only<br>- Locally managed sensors only      |   Skybox      |  - [Skybox documentation](https://docs.skyboxsecurity.com)  <br><br>  - [Skybox integration page](https://www.skyboxsecurity.com/products/integrations)  |
+|**Skybox**      |   Import vulnerability occurrence data discovered by Defender for IoT in your Skybox platform.     |  - OT networks only<br>- Locally managed sensors only      |   Skybox      |  [Skybox documentation](https://docs.skyboxsecurity.com)  <br><br>  [Skybox integration page](https://www.skyboxsecurity.com/products/integrations)  |
 
 
 ## Splunk
