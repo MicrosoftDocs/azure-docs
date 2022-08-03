@@ -16,7 +16,7 @@ This article summarizes supported components and settings for disaster recovery 
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
 
 > [!NOTE]
-> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been set up for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## Deployment scenarios
 
@@ -356,7 +356,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 V1 storage account    |    600 disks    |    300 disks
 V2 storage account    |    1500 disks    |    750 disks
 
-Please note that the above limits are applicable to VMWare and Hyper-V scenarios only.
+Please note that the above limits are applicable to VMware and Hyper-V scenarios only.
 
 ## Vault tasks
 
