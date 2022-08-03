@@ -113,7 +113,7 @@ It's recommended that you host your own copy of templates on ACR. There are six 
 
 ### Create an ACR instance
 
-Read the [Introduction to Container registries in Azure](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) and follow the instructions for creating your own ACR instance. It's recommended to place your ACR instance in the same resource group where your FHIR service is located.
+Read the [Introduction to Container registries in Azure](../../container-registry/container-registry-intro.md) and follow the instructions for creating your own ACR instance. It's recommended to place your ACR instance in the same resource group where your FHIR service is located.
 
 ### Push templates to Azure Container Registry
 
