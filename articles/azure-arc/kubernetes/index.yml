@@ -58,7 +58,7 @@ landingContent:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
   
-    - title: Manage your cluster
+  - title: Manage your cluster
     linkLists:
       - linkListType: how-to-guide
         links:  
