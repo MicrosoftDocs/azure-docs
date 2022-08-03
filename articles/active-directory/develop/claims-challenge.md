@@ -225,14 +225,10 @@ else
 ```javascript
 const checkForRequiredAuthContext = (req, res, next, authContextId) => {
     // req.authInfo contains the decoded access token payload
-    if (!req.authInfo['acrs'] || !req.authInfo['acrs'].includes(authContextId)) {
-        if (isClientCapableOfClaimsChallenge(req.authInfo)) {
+    if (isClientCapableOfClaimsChallenge(req.authInfo)) {
           // Return formatted claims challenge as this client understands this
-        } else {
-            return res.status(403).json({ error: 'Client is not capable' });
-        }
     } else {
-        next();
+            return res.status(403).json({ error: 'Client is not capable' });
     }
 }
 
@@ -252,3 +248,5 @@ const isClientCapableOfClaimsChallenge = (accessTokenClaims) => {
 - [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md#request-an-authorization-code)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
 - [Granular Conditional Access for sensitive data and actions](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
+- [React single-page application using MSAL React to sign-in users against Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
