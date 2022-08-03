@@ -76,7 +76,8 @@ And then defining these elements for the resulting alert actions using:
     1. Select **Done**.
     ### [Log alert](#tab/log)
 
-    1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert. [Get started on writing your own query](../logs/log-analytics-tutorial.md), [learn how to create optimized alert queries](alerts-log-query.md), and [see alert query examples](../logs/queries.md#query-sidebar).
+    1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert. 
+        To use one of the predefined alert rule queries, expand the **Schema and filter pane** on the left of the **Logs** pane, then select the **Queries** tab, and select one of the queries. 
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot of the query pane when creating a new log alert rule.":::    
 
@@ -277,9 +278,61 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 - To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 
 
+## Create an activity log alert rule from the Activity log pane
+
+You can also create an activity log alert on future events similar to an activity log event that already occurred. 
+
+1. In the [portal](https://portal.azure.com/), [go to the activity log pane](../essentials/activity-log.md#view-the-activity-log). 
+1. Filter or find the desired event, and then create an alert  by selecting **Add activity log alert**. 
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png" alt-text="Screenshot of alert rule creation from an activity log event." lightbox="media/alerts-activity-log/create-alert-rule-from-activity-log-event-new.png":::
+
+2. The **Create alert rule** wizard opens, with the scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. Note that by default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts pane"). 
+
+3. Follow the rest of the steps from [Create a new alert rule in the Azure portal](#create-a-new-alert-rule-in-the-azure-portal).
+
 ## Create an activity log alert rule using an Azure Resource Manager template
 
-To create an activity log alert rule using an Azure Resource Manager template, create a `microsoft.insights/activityLogAlerts` resource, and fill in all related properties. Here's a template that creates an activity log alert rule:
+To create an activity log alert rule using an Azure Resource Manager template, create a `microsoft.insights/activityLogAlerts` resource, and fill in all related properties. 
+
+> [!NOTE]
+>The highest level that activity log alerts can be defined is the subscription level. Define the alert to alert per subscription. You can't define an alert on two subscriptions. 
+
+The following fields are the options in the Azure Resource Manager template for the conditions fields. (The **Resource Health**, **Advisor** and **Service Health** fields have extra properties fields.) 
+
+
+|Field  |Description  |
+|---------|---------|
+|resourceId|The resource ID of the impacted resource in the activity log event on which the alert is generated.|
+|category|The category of the activity log event. Possible values: `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`         |
+|caller|The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.        |
+|level     |Level of the activity in the activity log event for the alert. Possible values: `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.|
+|operationName     |The name of the operation in the activity log event. Possible values: `Microsoft.Resources/deployments/write`.        |
+|resourceGroup     |Name of the resource group for the impacted resource in the activity log event.        |
+|resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
+|status     |String describing the status of the operation in the activity event. Possible values: `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`         |
+|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call.This field can also include other strings describing a sub-status. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
+|resourceType     |The type of the resource that was affected by the event. For example: `Microsoft.Resources/deployments`.         |
+
+This example sets the condition to the **Administrative** category:
+
+```json
+"condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ]
+        }
+
+```
+
+This is an example template that creates an activity log alert rule using the **Administrative** condition : 
 
 ```json
 {
@@ -346,41 +399,7 @@ To create an activity log alert rule using an Azure Resource Manager template, c
   ]
 }
 ```
-The previous sample JSON can be saved as, for example, *sampleActivityLogAlert.json*. You can deploy the sample by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
-
-> [!NOTE]
->The highest level that activity log alerts can be defined is the subscription level. There is no option to define an alert on two subscriptions. The definition should be to alert per subscription.
-
-The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields. (Notice that **Resource Health**, **Advisor** and **Service Health** have extra properties fields for their special fields.) 
-
-1. `resourceId`: The resource ID of the impacted resource in the activity log event that the alert should be generated on.
-1. `category`: The category of the activity log event. For example: `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`.
-1. `caller`: The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.
-1. `level`: Level of the activity in the activity log event that the alert should be generated on. For example: `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.
-1. `operationName`: The name of the operation in the activity log event. For example: `Microsoft.Resources/deployments/write`.
-1. `resourceGroup`: Name of the resource group for the impacted resource in the activity log event.
-1. `resourceProvider`: For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).
-1. `status`: String describing the status of the operation in the activity event. For example: `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.
-1. `subStatus`: Usually, this field is the HTTP status code of the corresponding REST call. But it can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.
-1. `resourceType`: The type of the resource that was affected by the event. For example: `Microsoft.Resources/deployments`.
-
-For example:
-
-```json
-"condition": {
-          "allOf": [
-            {
-              "field": "category",
-              "equals": "Administrative"
-            },
-            {
-              "field": "resourceType",
-              "equals": "Microsoft.Resources/deployments"
-            }
-          ]
-        }
-
-```
+This sample JSON can be saved as, for example, *sampleActivityLogAlert.json*. You can deploy the sample by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
 
