@@ -3,7 +3,7 @@ title: Troubleshoot your IoT Edge for Linux on Windows networking | Microsoft Do
 description: Learn about troubleshooting and diagnostics for Azure IoT Edge for Linux on Windows (EFLOW), like retrieving component status and logs.
 author: PatAltimore
 
-ms.author: fcabrara
+ms.author: fcabrera
 ms.date: 08/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
