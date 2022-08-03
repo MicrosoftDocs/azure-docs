@@ -28,6 +28,10 @@ landingContent:
         links:
           - text: Use CVM (Preview)
             url: use-cvm.md
+          - text: AKS GitHub Actions
+            url: kubernetes-action.md
+          - text: FIPS support for Windows Server node pools
+            url: enable-fips-nodes.md#create-a-fips-enabled-windows-node-pool
           - text: Automatically upgrade an AKS cluster
             url: auto-upgrade-cluster.md
           - text: Start/stop node pools
