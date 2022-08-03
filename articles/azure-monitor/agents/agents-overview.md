@@ -44,7 +44,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | Windows 10, 11 desktops, workstations | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
     | Windows 10, 11 laptops | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
     
-1. Define a data collection rule and associate it to the resource.
+1. Define a data collection rule and associate the resource to the rule.
 
     The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
 
