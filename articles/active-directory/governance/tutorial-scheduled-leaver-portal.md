@@ -42,7 +42,7 @@ Use the following steps to create a scheduled leaver workflow that will configur
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
  5.  On the **Overview (Preview)** page, select **New workflow**. 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-2-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-2-1.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/portal-1.png" alt-text="New workflow" lightbox="media/tutorial-lifecycle-workflows/portal-1.png":::
 
  6. From the templates, select **Select** under **Post-offboarding of an employee**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/portal-3-1.png" alt-text="Leaver workflow" lightbox="media/tutorial-lifecycle-workflows/portal-3-1.png":::
