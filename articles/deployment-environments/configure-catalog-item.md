@@ -4,7 +4,7 @@ description: This article helps you configure a Catalog Item in GitHub repo or A
 services: Azure Deployment Environments
 author: anandmeg
 ms.service: deployment-environments
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/03/2022
 ms.custom: devdivchpfy22
 ms.author: meghaanand
