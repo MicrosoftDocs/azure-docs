@@ -223,22 +223,16 @@ else
 ### [JavaScript](#tab/JavaScript)
 
 ```javascript
-const checkForRequiredAuthContext = (req, res, next, authContextId) => {
+const checkIsClientCapableOfClaimsChallenge = (req, res, next) => {
     // req.authInfo contains the decoded access token payload
-    if (isClientCapableOfClaimsChallenge(req.authInfo)) {
+    if (req.authInfo['xms_cc'] && req.authInfo['xms_cc'].includes('CP1')) {
           // Return formatted claims challenge as this client understands this
+          
     } else {
             return res.status(403).json({ error: 'Client is not capable' });
     }
 }
 
-const isClientCapableOfClaimsChallenge = (accessTokenClaims) => {
-    if (accessTokenClaims['xms_cc'] && accessTokenClaims['xms_cc'].includes('CP1')) {
-        return true;
-    }
-
-    return false;
-}
 ```
 
 ---
