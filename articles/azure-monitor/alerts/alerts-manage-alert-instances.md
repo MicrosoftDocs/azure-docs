@@ -2,7 +2,7 @@
 title: Manage your alert instances
 description: The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days and allows you to manage your alert instances.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 08/03/2022
 ms.reviewer: harelbr
 ---
 # Manage your alert instances

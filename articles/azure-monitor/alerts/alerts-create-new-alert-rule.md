@@ -4,7 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 07/17/2022
+ms.date: 08/03/2022
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
