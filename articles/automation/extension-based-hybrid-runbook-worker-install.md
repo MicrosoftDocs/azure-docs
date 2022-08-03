@@ -692,11 +692,12 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
 
 ## Check version of Hybrid Worker
-To check the version of extension-based Hybrid Runbook Worker - 
-**Windows** - Go to *C:*_\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows_\
-The path has *version* folder that has the version information.
+To check the version of the extension-based Hybrid Runbook Worker:
+- **Windows** - Go to *C:*_\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows_\
+  - The path has *version* folder that has the version information.
 
-**Linux** - Go to */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>*. The folder name ends with *version* information.
+- **Linux** - Go to */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>*
+  - The folder name ends with *version* information.
 
 ## Next steps
 
