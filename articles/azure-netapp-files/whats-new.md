@@ -15,6 +15,7 @@ ms.topic: overview
 ms.date: 08/03/2022
 ms.author: anfdocs
 ---
+# What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
