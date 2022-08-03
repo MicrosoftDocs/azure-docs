@@ -1,6 +1,6 @@
 ---
-title: Virtual visits with Azure Communication Services
-description: Learn concepts for virtual visit apps
+title: Virtual appointments with Azure Communication Services
+description: Learn concepts for virtual appointments apps
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -12,20 +12,20 @@ ms.service: azure-communication-services
 ms.custom: event-tier1-build-2022
 ---
 
-# Virtual visits
+# Virtual appointments
 
-This tutorial describes concepts for virtual visit applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you will understand common use cases that a virtual visits application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further.
+This tutorial describes concepts for virtual visit applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you will understand common use cases that a virtual appointments application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further.
 
-Virtual visits are a communication pattern where a **consumer** and a **business** assemble for a scheduled appointment. The **organizational boundary** between consumer and business, and **scheduled** nature of the interaction, are key attributes of most virtual visits. Many industries operate virtual visits: meetings with a healthcare provider, a loan officer, or a product support technician.
+Virtual appointments are a communication pattern where a **consumer** and a **business** assemble for a scheduled appointment. The **organizational boundary** between consumer and business, and **scheduled** nature of the interaction, are key attributes of most virtual appointments. Many industries operate virtual appointments: meetings with a healthcare provider, a loan officer, or a product support technician.
 
 No matter the industry, there are at least three personas involved in a virtual visit and certain tasks they accomplish:
 - **Office Manager.** The office manager configures the business’ availability and booking rules for providers and consumers.
-- **Provider.** The provider gets on the call with the consumer. They must be able to view upcoming virtual visits and join the virtual visit and engage in communication.
+- **Provider.** The provider gets on the call with the consumer. They must be able to view upcoming virtual appointments and join the virtual visit and engage in communication.
 - **Consumer**. The consumer who schedules and motivates the visit. They must schedule a visit, enjoy reminders of the visit, typically through SMS or email, and join the virtual visit and engage in communication.
 
-Azure and Teams are interoperable. This interoperability gives organizations choice in how they deliver virtual visits using Microsoft's cloud. Three examples include:
+Azure and Teams are interoperable. This interoperability gives organizations choice in how they deliver virtual appointments using Microsoft's cloud. Three examples include:
 
--  **Microsoft 365** provides a zero-code suite for virtual visits using Microsoft [Teams](https://www.microsoft.com/microsoft-teams/group-chat-software/) and [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app). This is the easiest option but customization is limited. [Check out this video for an introduction.](https://www.youtube.com/watch?v=zqfGrwW2lEw)
+-  **Microsoft 365** provides a zero-code suite for virtual appointments using Microsoft [Teams](https://www.microsoft.com/microsoft-teams/group-chat-software/) and [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app). This is the easiest option but customization is limited. [Check out this video for an introduction.](https://www.youtube.com/watch?v=zqfGrwW2lEw)
 -  **Microsoft 365 + Azure hybrid.** Combine Microsoft 365 Teams and Bookings with a custom Azure application for the consumer experience. Organizations take advantage of Microsoft 365's employee familiarity but customize and embed the consumer visit experience in their own application.
 -  **Azure custom.** Build the entire solution on Azure primitives: the business experience, the consumer experience, and scheduling systems.
 
@@ -40,16 +40,16 @@ These three **implementation options** are columns in the table below, while eac
 | *Provider* | Join the visit | Teams | Teams | ACS Calling & Chat |
 | *Consumer* | Schedule a visit | Bookings | Bookings | ACS Rooms |
 | *Consumer*| Be reminded of a visit | Bookings | Bookings | ACS SMS |
-| *Consumer*| Join the visit | Teams or Virtual Visits | ACS Calling & Chat | ACS Calling & Chat |
+| *Consumer*| Join the visit | Teams or virtual appointments | ACS Calling & Chat | ACS Calling & Chat |
 
-There are other ways to customize and combine Microsoft tools to deliver a virtual visits experience:
+There are other ways to customize and combine Microsoft tools to deliver a virtual appointments experience:
 -  **Replace Bookings with a custom scheduling experience with Graph.** You can build your own consumer-facing scheduling experience that controls Microsoft 365 meetings with Graph APIs.
 -  **Replace Teams’ provider experience with Azure.** You can still use Microsoft 365 and Bookings to manage meetings but have the business user launch a custom Azure application to join the Teams meeting. This might be useful where you want to split or customize virtual visit interactions from day-to-day employee Teams activity.
 
 ## Extend Microsoft 365 with Azure
 The rest of this tutorial focuses on Microsoft 365 and Azure hybrid solutions. These hybrid configurations are popular because they combine employee familiarity of Microsoft 365 with the ability to customize the consumer experience. They’re also a good launching point to understanding more complex and customized architectures. The diagram below shows user steps for a virtual visit:
 
-![High-level architecture of a hybrid virtual visits solution](./media/virtual-visits/virtual-visit-arch.svg)
+![High-level architecture of a hybrid virtual appointments solution](./media/virtual-visits/virtual-visit-arch.svg)
 1. Consumer schedules the visit using Microsoft 365 Bookings.
 2. Consumer gets a visit reminder through SMS and Email.
 3. Provider joins the visit using Microsoft Teams.
@@ -57,7 +57,7 @@ The rest of this tutorial focuses on Microsoft 365 and Azure hybrid solutions. T
 5. The users communicate with each other using voice, video, and text chat in a meeting.
 
 ## Building a virtual visit sample
-In this section we’re going to use a Sample Builder tool to deploy a Microsoft 365 + Azure hybrid virtual visits application to an Azure subscription. This application will be a desktop and mobile friendly browser experience, with code that you can use to explore and productionize.
+In this section we’re going to use a Sample Builder tool to deploy a Microsoft 365 + Azure hybrid virtual appointments application to an Azure subscription. This application will be a desktop and mobile friendly browser experience, with code that you can use to explore and productionize.
 
 ### Step 1 - Configure bookings
 
