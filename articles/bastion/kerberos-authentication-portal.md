@@ -36,8 +36,6 @@ In this section, the following steps help you update your virtual network to spe
 
 1. Begin configuring your bastion deployment using the steps in [Tutorial: Deploy Bastion using manual configuration settings](tutorial-create-host-portal.md). Configure the settings on the **Basics** tab. Then, at the top of the page, click **Advanced** to go to the Advanced tab.
 
-   :::image type="content" source="./media/kerberos-authentication-portal/advanced.png" alt-text="Screenshot of Advanced tab." lightbox="./media/kerberos-authentication-portal/advanced.png":::
-
 1. On the **Advanced** tab, select **Kerberos**.
 
    :::image type="content" source="./media/kerberos-authentication-portal/select-kerberos.png" alt-text="Screenshot of select bastion features." lightbox="./media/kerberos-authentication-portal/select-kerberos.png":::
