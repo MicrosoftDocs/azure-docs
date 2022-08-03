@@ -444,7 +444,7 @@ To view current notifications settings and add contacts:
 
 The new notification contact is shown in the Notification list.
 
-An EA admin can manage notification access for an contact by selecting the ellipsis (…) symbol to the right of each contact. They can edit and remove existing notification contacts.
+An EA admin can manage notification access for a contact by selecting the ellipsis (…) symbol to the right of each contact. They can edit and remove existing notification contacts.
 
 By default, notification contacts are subscribed for the coverage period end date approaching lifecycle notifications. Unsubscribing lifecycle management notifications suppresses notifications for the coverage period and agreement end date.
 
