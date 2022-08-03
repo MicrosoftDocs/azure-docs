@@ -52,7 +52,7 @@ Azure Firewall also supports the following throughput for single connections:
 |Standard<br>Max bandwidth for single TCP connection     |1.3|
 |Premium<br>Max bandwidth for single TCP connection     |9.5|
 |Premium max bandwidth with TLS/IDS|100|
-|Premium Single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
+|Premium single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
 
 Performance values are calculated with Azure Firewall at full scale. Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
 
