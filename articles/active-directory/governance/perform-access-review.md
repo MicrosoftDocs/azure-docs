@@ -40,7 +40,7 @@ You can also view your pending access reviews by using your browser to open My A
 
 1. Sign in to My Access at https://myaccess.microsoft.com/.
 
-2. Select **Access reviews** from the menu on the left-side bar to see a list of pending access reviews assigned to you.
+2. Select **Access reviews** from the left menu to see a list of pending access reviews assigned to you.
 
 ## Review access for one or more users
 
