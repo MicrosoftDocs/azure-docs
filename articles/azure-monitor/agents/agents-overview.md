@@ -46,7 +46,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     
 1. Define a data collection rule.
 
-The following table lists the types of data you can currently collect with the Azure Monitor Agent by using data collection rules and where you can send that data.
+    The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
 
     | Data source | Destinations | Description |
     |:---|:---|:---|
