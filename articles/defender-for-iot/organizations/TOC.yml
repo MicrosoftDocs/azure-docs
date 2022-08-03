@@ -106,25 +106,27 @@
     items:
     - name: Overview
       href: integrate-overview.md
-    - name: ArcSight
-      href: integrations/arcsight.md
-    - name: Integrate ClearPass
+    - name: ClearPass
       href: tutorial-clearpass.md
-    - name: Integrate CyberArk
+    - name: CyberArk
       href: tutorial-cyberark.md
-    - name: Integrate Forescout
+    - name: Forescout
       href: tutorial-forescout.md
-    - name: Integrate Fortinet
+    - name: Fortinet
       href: tutorial-fortinet.md
+    - name: LogRhythm
+      href: integrations/logrhythm.md
+    - name: Micro Focus ArcSight
+      href: integrations/arcsight.md
+    - name: Palo Alto
+      href: tutorial-palo-alto.md
+    - name: Qradar
+      href: tutorial-qradar.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
-    - name: Integrate Palo Alto
-      href: tutorial-palo-alto.md
-    - name: Integrate Qradar
-      href: tutorial-qradar.md
-    - name: Integrate Splunk
+    - name: Splunk
       href: tutorial-splunk.md
-    - name: Integrate ServiceNow
+    - name: ServiceNow
       href: tutorial-servicenow.md
   - name: System deployment
     items:
