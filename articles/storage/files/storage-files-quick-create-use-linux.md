@@ -4,7 +4,7 @@ description: This tutorial covers how to use the Azure portal to deploy a Linux 
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 08/02/2022
+ms.date: 08/03/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
@@ -128,9 +128,13 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
 
-1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Select the correct subscription and resource group, and then select **Next: DNS**.
+1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Under **Private IP configuration**, leave **Dynamically allocate IP address** selected. Select **Next: DNS**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private IP configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private I P configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
+
+1. Select **Yes** for **Integrate with a private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" alt-text="Screenshot showing how to integrate your private endpoint with a private D N S zone." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" border="true":::
 
 1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
