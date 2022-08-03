@@ -35,6 +35,8 @@ items:
       href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
     items:
+    - name: Application Insights for ASP.NET Core applications
+      href: app/tutorial-asp-net-core.md
     - name: Find application run-time exceptions
       href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
@@ -46,9 +48,7 @@ items:
     - name: Dashboard with application data
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile or UWP application
-      href: app/mobile-center-quickstart.md
-    - name: Application Insights for ASP.NET Core applications
-      href: app/tutorial-asp-net-core.md
+      href: app/mobile-center-quickstart.md    
   - name: Change Analysis
     items:
     - name: Track web outages

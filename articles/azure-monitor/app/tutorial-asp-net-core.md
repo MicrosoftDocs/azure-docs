@@ -4,13 +4,13 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 10/12/2021
+ms.date: 08/03/2022
 ms.reviewer: casocha
 ---
 
 # Application Insights for ASP.NET Core applications
 
-This article describes how to enable Application Insights for an [ASP.NET Core](https://docs.microsoft.com/aspnet/core) application.
+This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation utilizes an SDK-based approach, an [auto-instrumentation approach](./codeless-overview.md) is also available.
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -39,9 +39,6 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on
 * **.NET Core version**: All officially [supported .NET Core versions](https://dotnet.microsoft.com/download/dotnet-core) that aren't in preview
 * **IDE**: Visual Studio, Visual Studio Code, or command line
-
-> [!NOTE]
-> ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
 
 ## Prerequisites
 
@@ -145,7 +142,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
 
     ![The Visual Studio Solution Explorer displays with the Program.cs highlighted.](./media/asp-net-core/solution_explorer_programcs.png "Program.cs")
 
-2. Insert the following code prior to the `builder.Services.AddControllersWithViews()` statement. This code automatically reads the Application Insights connection string value from configuration (this can be from the `appsettings.json` file or Azure App Service Configuration). The `AddApplicationInsightsTelemetry` method registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container, that will then be used to fulfill [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) and [ILogger\<TCategoryName\>](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerprovider) implementation requests.
+2. Insert the following code prior to the `builder.Services.AddControllersWithViews()` statement. This code automatically reads the Application Insights connection string value from configuration. The `AddApplicationInsightsTelemetry` method registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container, that will then be used to fulfill [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) and [ILogger\<TCategoryName\>](/dotnet/api/microsoft.extensions.logging.iloggerprovider) implementation requests.
 
     ```csharp
     builder.Services.AddApplicationInsightsTelemetry();
@@ -154,7 +151,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
     ![A code window displays with the preceding code snippet highlighted.](./media/asp-net-core/enable_server_side_telemetry.png "Enable server-side telemetry")
 
     > [!TIP]
-    > Learn more about [configuration options in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0).
+    > Learn more about [configuration options in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0).
 
 ## Enable client-side telemetry for web applications
 
@@ -177,7 +174,7 @@ The preceding steps are enough to help you start collecting server-side telemetr
     ![The _Layout.cshtml file displays with the preceding line of code highlighted within the head section of the page.](./media/asp-net-core/layout_head_code.png "The head section of _Layout.cshtml")
 
     > [!TIP]
-    > As an alternative to using the `FullScript`, the `ScriptBody` is available starting in Application Insights SDK for ASP.NET Core version 2.14. Use `ScriptBody` if you need to control the `<script>` tag to set a Content Security Policy:
+    > As an alternative to using the `FullScript`, the `ScriptBody` is available. Use `ScriptBody` if you need to control the `<script>` tag to set a Content Security Policy:
 
     ```cshtml
     <script> // apply custom changes to this script tag.
@@ -186,11 +183,14 @@ The preceding steps are enough to help you start collecting server-side telemetr
     ```
 
 > [!NOTE]
-> JavaScript injection provides a default configuration experience. If you require [configuration](https://docs.microsoft.com/azure/azure-monitor/app/javascript#configuration) beyond setting the connection string, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript#adding-the-javascript-sdk).
+> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#adding-the-javascript-sdk).
 
 ## Enable monitoring of database queries
 
-When investigating causes for performance degredation, it is important to include insights into database calls. Enable monitoring through configuration of the [dependency module](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-dependencies).
+When investigating causes for performance degredation, it is important to include insights into database calls. Enable monitoring through configuration of the [dependency module](./asp-net-dependencies.md). Dependency monitoring, including SQL is enabled by default. The following steps can be followed to capture the full SQL query text.
+
+> [!NOTE]
+> SQL text may contain sensitive data such as passwords and PII. Be careful when enabling this feature.
 
 1. From the Visual Studio Solution Explorer, locate and open the **Program.cs** file.
 
@@ -240,6 +240,10 @@ After the web application code is deployed, telemetry will flow to Application I
 
    4. Repeat adding reviews as desired to generate additional telemetry.
 
+### Live metrics
+
+[Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
+
 ### Application map
 
 The sample application makes calls to multiple Azure resources, including Azure SQL, Azure Blob Storage, and the Azure Language Service (for review sentiment analysis).
@@ -257,10 +261,6 @@ Application Insights introspects incoming telemetry data and is able to generate
 4. Select **Application map** from the left menu, beneath the **Investigate** heading. Observe the generated Application map.
 
     ![The Application Insights application map displays.](./media/asp-net-core/application-map.png "Application map")
-
-### Live metrics
-
-[Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
 
 ### Viewing HTTP calls and database SQL command text
 
@@ -310,35 +310,6 @@ The default sampling feature can be disabled while adding Application Insights s
 
 The above code will disable adaptive sampling. Follow the steps below to add sampling with more customization options.
 
-#### Configure adaptive sampling settings
-
-Use extension methods of `TelemetryProcessorChainBuilder` as shown below to customize sampling behavior.
-
-> [!IMPORTANT]
-> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](https://docs.microsoft.com/azure/azure-monitor/logs/daily-cap) to help control your costs.
-
-1. In Visual Studio 2022, locate and open `Program.cs` from the Solution Explorer pane.
-
-2. [**Disable adaptive sampling**](#disabling-adaptive-sampling).
-
-3. At the top of `Program.cs`, add the following **using** statement.
-
-    ```csharp
-    using Microsoft.ApplicationInsights.Extensibility;
-    ```
-
-4. Immediately following the `var app = builder.Build()` line of code, append the following to configure adaptive sampling rates.
-
-    ```csharp
-    var telemetryConfig = app.Services.GetService<TelemetryConfiguration>();
-    if(telemetryConfig != null)
-    {
-        var telemetryBuilder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-        telemetryBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5);    
-        telemetryBuilder.Build();
-    }
-    ```
-
 #### Configure Fixed-rate sampling
 
 Fixed-rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you.
@@ -368,15 +339,21 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 ### Logging overview
 
-Application Insights is one type of logging provider available to ASP.NET Core applications that becomes available to applications when the [Application Insights for ASP.NET Core](#install-the-application-insights-nuget-package) NuGet package is installed and [server-side telemetry collection enabled](#enable-application-insights-server-side-telemetry). As a reminder, the following code in **Program.cs** registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container.
+Application Insights is one type of [logging provider](/dotnet/core/extensions/logging-providers) available to ASP.NET Core applications that becomes available to applications when the [Application Insights for ASP.NET Core](#install-the-application-insights-nuget-package) NuGet package is installed and [server-side telemetry collection enabled](#enable-application-insights-server-side-telemetry). As a reminder, the following code in **Program.cs** registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container.
 
 ```csharp
 builder.Services.AddApplicationInsightsTelemetry();
 ```
 
-With the `ApplicationInsightsLoggerProvider` registered as the logging provider, the app is ready to log to Application Insights using either constructor injection with <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601>. With default settings, the logging provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater.
+With the `ApplicationInsightsLoggerProvider` registered as the logging provider, the app is ready to log to Application Insights using either constructor injection with <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601>. 
 
-Consider the following example controller that demonstrates the injection of ILogger which is resolved with the `ApplicationInsightsLoggerProvider` that is registered with the dependency injection container. Observe in the **Get** method that a Warning and Error message are recorded.
+> [!NOTE]
+> With default settings, the logging provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater.
+
+Consider the following example controller that demonstrates the injection of ILogger which is resolved with the `ApplicationInsightsLoggerProvider` that is registered with the dependency injection container. Observe in the **Get** method that an Informational, Warning and Error message are recorded. 
+
+> [!NOTE]
+> By default, the Information level trace will not be recorded. Only the Warning and above levels are captured.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -395,6 +372,8 @@ public class ValuesController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<string>> Get()
     {
+        //Info level traces are not captured by default
+        _logger.LogInfo("An example of an Info trace..")
         _logger.LogWarning("An example of a Warning trace..");
         _logger.LogError("An example of an Error level message");
 
@@ -403,7 +382,7 @@ public class ValuesController : ControllerBase
 }
 ```
 
-For more information, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0).
+For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0).
 
 ## View logs in Application Insights
 
@@ -435,7 +414,7 @@ The ValuesController above is deployed with the sample application and is locate
 
 ## Control the level of logs sent to Application Insights
 
-`ILogger` implementations have a built-in mechanism to apply [log filtering](https://docs.microsoft.com/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on appropriate use, see the [Log Level](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#log-level) documentation.
+`ILogger` implementations have a built-in mechanism to apply [log filtering](/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on appropriate use, see the [Log Level](/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#log-level) documentation.
 
 The following examples show how to apply filter rules to the `ApplicationInsightsLoggerProvider` to control the level of logs sent to Application Insights.
 
@@ -460,24 +439,6 @@ The `ApplicationInsightsLoggerProvider` is aliased as **ApplicationInsights** in
 ```
 
 Deploying the sample application with the preceding code in *appsettings.json* will yield only the error trace being sent to Application Insights when interacting with the **ValuesController**. This is because the **LogLevel** for the **ValuesController** category is set to **Error**, therefore the **Warning** trace is suppressed.
-
-### Setting a default log level with code
-
-In **Program.cs**, locate the line of code: `var builder = WebApplication.CreateBuilder(args)` and add the following code to set the default logging level.
-
-```csharp
-var builder = WebApplication.CreateBuilder();
-builder.Logging.SetMinimumLevel(LogLevel.Warning);
-```
-
-### Create filter rules with code
-
-Filter rules may also be set in code. In **Program.cs**, locate the line of code: `var builder = WebApplication.CreateBuilder(args)` and add the following code to set the logging level for the **ValuesController** category specific to the **ApplicationInsightsLoggerProvider**.
-
-```csharp
-var builder = WebApplication.CreateBuilder(args);
-builder.Logging.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("ValuesController", LogLevel.Error);
-```
 
 ## Turn off logging to Application Insights
 
@@ -522,4 +483,5 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
+* [Auto-instrumentation for Application Insights](./codeless-overview.md)
 
