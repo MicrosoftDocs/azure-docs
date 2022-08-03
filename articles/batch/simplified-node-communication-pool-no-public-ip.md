@@ -161,7 +161,9 @@ If you're using your own internet outbound solution instead of private endpoint,
 There's no internet inbound access to compute nodes in the Batch pool without public IP addresses. To access your compute nodes for debugging, you'll need to connect from within the virtual network:
 
 - Use jumpbox machine inside the virtual network, then connect to your compute nodes from there.
-- Or, try using other remote connection solutions like [Azure Bastion](../bastion/bastion-overview.md). Note you'll need to use **Standard** SKU to allow [IP based connection](../bastion/connect-ip-address.md).
+- Or, try using other remote connection solutions like [Azure Bastion](../bastion/bastion-overview.md):
+     - Create Bastion in the virtual network with [IP based connection](../bastion/connect-ip-address.md) enabled.
+     - Use Bastion to connect to the compute node using its IP address.
 
 You can follow the guide [Connect to compute nodes](error-handling.md#connect-to-compute-nodes) to get user credential and IP address for the target compute node in your Batch pool.
 

@@ -28,7 +28,7 @@ Batch account resource has two endpoints supported to access with private endpoi
 > - This preview sub-resource is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-:::image type="content" source="media/private-connectivity/private-endpoint-sub-resources.png" alt-text="Sub-resources for Batch private endpoints.":::
+:::image type="content" source="media/private-connectivity/private-endpoint-sub-resources.png" alt-text="Diagram that shows sub-resources for Batch private endpoints.":::
 
 ## Azure portal
 
