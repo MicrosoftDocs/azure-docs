@@ -644,7 +644,7 @@ items:
     - name: Manage alert rules
       href: alerts/alerts-manage-alert-rules.md
     - name: Manage alert instances
-      href: alerts/alerts-page.md
+      href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
       - name: Use dynamic thresholds
