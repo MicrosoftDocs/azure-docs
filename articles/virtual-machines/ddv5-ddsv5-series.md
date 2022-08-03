@@ -5,7 +5,7 @@ author: andysports8
 ms.author: shuji
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021
 ---

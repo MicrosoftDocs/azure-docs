@@ -10,7 +10,7 @@ ms.date: 01/22/2022
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Azure Lab Services - Administrator guide (deprecated)](administrator-guide-1.md).
+> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Administrator guide when using lab accounts](administrator-guide-1.md).
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they have set up a lab plan, administrators or educators create the labs that are associated with the lab plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
@@ -280,7 +280,7 @@ Egress charges might be waived for [Education Solutions](https://www.microsoft.c
 
 For more information, see "What data transfer programs exist for academic customers and how do I qualify?" in the FAQ section of the [Programs for educational institutions](https://azure.microsoft.com/pricing/details/bandwidth/) page.
 
-For information about costs to store images and their replications, see [billing in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
+For information about costs to store images and their replications, see [billing in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 
 #### Cost management
 
@@ -294,4 +294,4 @@ For more information about setting up and managing labs, see:
 
 - [Configure a lab plan](lab-plan-setup-guide.md)  
 - [Configure a lab](setup-guide.md)
-- [Manage costs for labs](cost-management-guide.md)  
+- [Manage costs for labs](cost-management-guide.md)

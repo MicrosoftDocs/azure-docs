@@ -4,6 +4,7 @@ description: Check startup, liveness, and readiness with Azure Container Apps he
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 03/30/2022
 ms.author: cshoe
@@ -64,7 +65,7 @@ TCP probes wait for a connection to be established with the server to indicate s
 
 The following code listing shows how you can define health probes for your containers.
 
-The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
+The `...` placeholders denote omitted code. Refer to [Container Apps ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
 
 # [ARM template](#tab/arm-template)
 

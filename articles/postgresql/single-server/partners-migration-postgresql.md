@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Database for PostgreSQL migration partners 
 description: Lists of third-party migration partners with solutions that support Azure Database for PostgreSQL.
 ms.service: postgresql
@@ -6,13 +6,18 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: jtoland
 author: HJToland3
-ms.date: 08/07/2018
+ms.date: 06/24/2022
 ---
 
 # Azure Database for PostgreSQL migration partners
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+
 To broadly support your Azure Database for PostgreSQL solution, you can choose from a wide variety of industry-leading partners and tools. This article highlights Microsoft partners with migration solutions that support Azure Database for PostgreSQL.
 
 ## Migration partners
+
 | Partner | Description | Links | Videos |
 | --- | --- | --- | --- |
 | ![SNP Technologies][1] |**SNP Technologies**<br>SNP Technologies is a cloud-only service provider, building secure and reliable solutions for businesses of the future. The company believes in generating real value for your business. From thought to execution, SNP Technologies shares a common purpose with clients, to turn their investment into an advantage.|[Website][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
@@ -22,6 +27,7 @@ To broadly support your Azure Database for PostgreSQL solution, you can choose f
 | ![Pactera][6] |**Pactera**<br>Pactera is a global company offering consulting, digital, technology, and operations services to the world’s leading enterprises. From their roots in engineering to the latest in digital transformation, they give customers a competitive edge. Their proven methodologies and tools ensure your data is secure, authentic, and accurate.|[Website][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contact][pactera_contact] | |
 
 ## Next steps
+
 To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
 
 <!--Image references-->

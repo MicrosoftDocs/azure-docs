@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/23/2021
 ms.author: akshanka
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-python, mode-api, devx-track-azurecli
 ---
 
@@ -22,7 +22,7 @@ This quickstart shows how to access the Azure Cosmos DB [Table API](introduction
 
 The sample application is written in [Python3.6](https://www.python.org/downloads/), though the principles apply to all Python3.6+ applications. You can use [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
 
-If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet) before you begin.
+If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet) before you begin.
 
 ## Sample application
 
@@ -164,7 +164,7 @@ To access your table(s) in Cosmos DB, your app will need the table connection st
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the primary connection string using Azure CLI, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`. This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
+To get the primary connection string using Azure CLI, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`. This command uses a [JMESPath query](/cli/azure/query-azure-cli) to display only the primary table connection string.
 
 ```azurecli
 # This gets the primary connection string

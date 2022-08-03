@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/16/2022
+ms.date: 06/13/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Speech service supported regions
 
-The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs. You can perform custom configurations to your speech experience, for all regions, at the [Speech Studio](https://speech.microsoft.com).
+The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs. You can perform custom configurations to your speech experience, for all regions, at the [Speech Studio](https://aka.ms/speechstudio/).
 
 Keep in mind the following points:
 
@@ -34,12 +34,12 @@ In the [Speech SDK](speech-sdk.md), you specify the region as a parameter (for e
 
 The Speech service is available in these regions for speech-to-text, pronunciation assessment, text-to-speech, and translation:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-region-identifier.md)]
 
-If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
+If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can use the [Speech-to-text REST API v3.0](rest-speech-to-text.md) to [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
 > [!TIP]
-> For pronunciation assessment feature, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `es-ES` and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
+> For pronunciation assessment, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `de-DE`, `es-ES`, and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
 
 ### Intent recognition
 
@@ -152,7 +152,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
 > The language parameter must be appended to the URL to avoid receiving an HTTP error. For example, the language set to `US English` by using the `West US` endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.

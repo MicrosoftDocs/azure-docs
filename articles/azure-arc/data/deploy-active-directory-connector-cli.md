@@ -4,8 +4,8 @@ description: Tutorial to deploy an Active Directory connector using Azure CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 05/05/2022
 ms.topic: how-to
@@ -16,11 +16,13 @@ ms.topic: how-to
 
 This article explains how to deploy an Active Directory (AD) connector using Azure CLI. The AD connector is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instance.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Prerequisites
 
 ### Install tools
 
-Before you can proceed with the tasks in this article you need to install the following tools:
+Before you can proceed with the tasks in this article, install the following tools:
 
 - The [Azure CLI (az)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
@@ -274,7 +276,7 @@ az arcdata ad-connector update
 
 To delete an AD connector instance, use `az arcdata ad-connector delete`. See the following examples for both connectivity modes:
 
-### [Indirectly-Connected mode](#tab/indirectly-connected-mode)
+### [Indirectly connected mode](#tab/indirectly-connected-mode)
 
 ```azurecli
 az arcdata ad-connector delete --name < AD Connector name >  --k8s-namespace < namespace > --use-k8s
@@ -286,7 +288,7 @@ Example:
 az arcdata ad-connector delete --name arcadc --k8s-namespace arc --use-k8s
 ```
 
-### [Directly-Connected mode](#tab/directly-connected-mode)
+### [Directly connected mode](#tab/directly-connected-mode)
 ```azurecli
 az arcdata ad-connector delete --name < AD Connector name >  --data-controller-name < data controller name > --resource-group < resource group > 
 ```

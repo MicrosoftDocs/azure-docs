@@ -12,20 +12,20 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Self-service access workflows for hybrid data estates
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Workflows](concept-workflow.md) allow you to automate some business processes through Azure Purview. Self-service access workflows allow you to create a process for your users to request access to datasets they've discovered in Azure Purview!
+[Workflows](concept-workflow.md) allow you to automate some business processes through Microsoft Purview. Self-service access workflows allow you to create a process for your users to request access to datasets they've discovered in Microsoft Purview!
 
-For example: let's say your team has a new data analyst who will be doing some business reporting. You add them to your department's collection in Azure Purview. From there they can browse the data assets and read descriptions about the data your department has available. They notice that one of the Azure Data Lake Storage Gen2 accounts seems to have the exact data they need to get started. Since a self-service access workflow has been set up for that resource, they can [request access](how-to-request-access.md) to that Azure Data Lake Storage account from within Azure Purview!
+For example: let's say your team has a new data analyst who will be doing some business reporting. You add them to your department's collection in Microsoft Purview. From there they can browse the data assets and read descriptions about the data your department has available. They notice that one of the Azure Data Lake Storage Gen2 accounts seems to have the exact data they need to get started. Since a self-service access workflow has been set up for that resource, they can [request access](how-to-request-access.md) to that Azure Data Lake Storage account from within Microsoft Purview!
 
 :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/request-access.png" alt-text="Screenshot of a data asset's overview page, with the Request button highlighted in the mid-page menu.":::
 
 You can create these workflows for any of your resources across your data estate to automate the access request process. Workflows are assigned at the [collection](reference-azure-purview-glossary.md#collection) level, and so automate business processes along the same organizational lines as your permissions.
 
-This guide will show you how to create and manage self-service access workflows in Azure Purview.
+This guide will show you how to create and manage self-service access workflows in Microsoft Purview.
 
 >[!NOTE]
-> To be able to create or edit a workflow, you'll need the to be in the [workflow admin role](catalog-permissions.md) in Azure Purview.
+> To be able to create or edit a workflow, you'll need the to be in the [workflow admin role](catalog-permissions.md) in Microsoft Purview.
 > You can also contact the workflow admin in your collection, or reach out to your collection administrator for permissions.
 
 ## Create and enable self-service access workflow
@@ -66,7 +66,7 @@ This guide will show you how to create and manage self-service access workflows 
     1. Approval connector that specifies a user or group that will be contacted to approve the request.
     1. Condition to check approval status 
         - If approved:
-            1. Condition to check if data source is registered for [data use governance](how-to-enable-data-use-governance.md) (policy) 
+            1. Condition to check if data source is registered for [data use management](how-to-enable-data-use-governance.md) (policy) 
                 1. If a data source is registered with policy:
                     1. Create a [self-service policy](concept-self-service-data-access-policy.md) 
                     1. Send email to requestor that access is provided 
@@ -84,7 +84,7 @@ This guide will show you how to create and manage self-service access workflows 
     > [!NOTE]
     > Please configure the workflow to create self-service policies ONLY for sources supported by Microsoft Purview's policy feature. To see what's supported by policy, check the [Data owner policies documentation](tutorial-data-owner-policies-storage.md).
     >
-    > If your source isn't supported by Azure purview's policy feature, use the Task connector to assign [tasks](how-to-workflow-manage-requests-approvals.md#tasks) to users or groups that can provide access.
+    > If your source isn't supported by Microsoft Purview's policy feature, use the Task connector to assign [tasks](how-to-workflow-manage-requests-approvals.md#tasks) to users or groups that can provide access.
 
 1. You can also modify the template by adding more connectors to suit your organizational needs. 
 

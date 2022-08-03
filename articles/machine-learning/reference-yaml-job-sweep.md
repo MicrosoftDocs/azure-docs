@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
 author: blackmist
 ms.author: larryfr
@@ -20,7 +20,7 @@ ms.reviewer: nibaccam
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -164,7 +164,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | ------------- |
 | `max_total_trials` | integer | The maximum time in seconds the job is allowed to run. Once this limit is reached the system will cancel the job. | `1000` |
 | `max_concurrent_trials` | integer | | Defaults to `max_total_trials`. |
-| `timeout` | integer | The maximum time in minutes the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials. | `10080` |
+| `timeout` | integer | The maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials. | `100800` |
 | `trial_timeout` | integer | The maximum time in seconds each trial job is allowed to run. Once this limit is reached the system will cancel the trial. | |
 
 ### Attributes of the `trial` key

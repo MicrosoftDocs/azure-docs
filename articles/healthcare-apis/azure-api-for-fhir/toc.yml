@@ -13,6 +13,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+  - name: Get started with Azure API for FHIR
+    href: get-started-with-azure-api-fhir.md
   - name: Deploy Azure API for FHIR
     expanded: false
     items:

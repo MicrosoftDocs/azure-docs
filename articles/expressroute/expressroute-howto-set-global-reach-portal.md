@@ -98,15 +98,15 @@ After the operation is complete, you no longer have connectivity between your on
 
 1. To update the configuration for a Global Reach connection, select the connection name.
 
-:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/select-configuration.png" alt-text="Screenshot of Global Reach connection name.":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/select-configuration.png" alt-text="Screenshot of Global Reach connection name.":::
 
 1. Update the configuration on the *Edit Global Reach** page and the select **Save**.
 
-:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/edit-configuration.png" alt-text="Screenshot of the edit Global Reach configuration page.":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/edit-configuration.png" alt-text="Screenshot of the edit Global Reach configuration page.":::
 
 1. Select **Save** on the main overview page to apply the configuration to the circuit.
 
-:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-edit-configuration.png" alt-text="Screenshot of the save button after editing Global Reach configuration.":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-edit-configuration.png" alt-text="Screenshot of the save button after editing Global Reach configuration.":::
 
 ## Next steps
 - [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)

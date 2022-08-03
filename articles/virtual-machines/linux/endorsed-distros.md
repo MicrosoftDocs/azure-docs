@@ -9,6 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: guybo
+ms.reviewer: mattmcinnes
 ---
 
 # Endorsed Linux distributions on Azure
@@ -35,7 +36,7 @@ The Azure Linux Agent is already pre-installed on Azure Marketplace images and i
 | [Red Hat Enterprise Linux by Red Hat](../workloads/redhat/overview.md) |7.x, 8.x |In kernel |Package: In repo under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise by SUSE |SLES/SLES for SAP 11.x, 12.x, 15.x <br/> [SUSE Public Cloud Image Lifecycle](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |In kernel |Package:<p> for 11 in [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>for 12 included in "Public Cloud" Module under "python-azure-agent"<br/>Source code: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE by SUSE |openSUSE Leap 15.x |In kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu by Canonical |Ubuntu Server and Pro. 18.x, 20.x<p>Information about extended support for Ubuntu 14.04 pro and 16.04 pro can be found here: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |In kernel |Package: In repo under "walinuxagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu by Canonical |Ubuntu Server and Pro. 18.x, 20.x 22.x<p>Information about extended support for Ubuntu 14.04 pro and 16.04 pro can be found here: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |In kernel |Package: In repo under "walinuxagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## Image update cadence
 

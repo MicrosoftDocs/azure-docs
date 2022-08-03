@@ -94,7 +94,7 @@ This attribute describes the type of cross-tenant access used by the actor to ac
 - `b2bDirectConnect` - A cross tenant sign-in performed by a B2B.
 - `microsoftSupport`- A cross tenant sign-in performed by a Microsoft support agent in a Microsoft customer tenant.
 - `serviceProvider` - A cross-tenant sign-in performed by a Cloud Service Provider (CSP) or similar admin on behalf of that CSP's customer in a tenant
-- `unknownFutureValue` - A sentinel value used by MS Graph to help clients handle changes in enum lists. For more information, see [Best practices for working with Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept).
+- `unknownFutureValue` - A sentinel value used by MS Graph to help clients handle changes in enum lists. For more information, see [Best practices for working with Microsoft Graph](/graph/best-practices-concept).
 
 If the sign-in did not the pass the boundaries of a tenant, the value is `none`.
 

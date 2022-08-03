@@ -72,15 +72,18 @@ Learn [which identifiers strongly identify an entity](entities-reference.md).
 
 ## Entity pages
 
-When you encounter any entity (currently limited to users and hosts) in a search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
+When you encounter a user or host entity (IP address entities are in preview) in an entity search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
 
 Entity pages consist of three parts:
 
-- The left-side panel contains the entity's identifying information, collected from data sources like Azure Active Directory, Azure Monitor, Microsoft Defender for Cloud, and Microsoft Defender for Cloud.
+- The left-side panel contains the entity's identifying information, collected from data sources like Azure Active Directory, Azure Monitor, Microsoft Defender for Cloud, CEF/Syslog, and Microsoft 365 Defender.
 
-- The center panel shows a graphical and textual timeline of notable events related to the entity, such as alerts, bookmarks, and activities. Activities are aggregations of notable events from Log Analytics. The queries that detect those activities are developed by Microsoft security research teams.
+- The center panel shows a graphical and textual timeline of notable events related to the entity, such as alerts, bookmarks, [anomalies](soc-ml-anomalies.md), and activities. Activities are aggregations of notable events from Log Analytics. The queries that detect those activities are developed by Microsoft security research teams, and you can now [add your own custom queries to detect activities](customize-entity-activities.md) of your choosing. 
 
-- The right-side panel presents behavioral insights on the entity. These insights help to quickly identify anomalies and security threats. The insights are developed by Microsoft security research teams, and are based on anomaly detection models.
+- The right-side panel presents behavioral insights on the entity. These insights help to quickly identify [anomalies](soc-ml-anomalies.md) and security threats. The insights are developed by Microsoft security research teams, and are based on anomaly detection models.
+
+> [!NOTE]
+> The **IP address entity page** (now in preview) contains **geolocation data** supplied by the **Microsoft Threat Intelligence service**. This service combines geolocation data from Microsoft solutions and third-party vendors and partners. The data is then available for analysis and investigation in the context of a security incident. For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md).
 
 ### The timeline
 
@@ -96,7 +99,9 @@ The following types of items are included in the timeline:
 
 - Bookmarks - any bookmarks that include the specific entity shown on the page.
 
-- Activities - aggregation of notable events relating to the entity.
+- Anomalies - UEBA detections based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
+
+- Activities - aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
 
 ### Entity Insights
 
@@ -118,6 +123,8 @@ The insights are based on the following data sources:
 Entity pages are designed to be part of multiple usage scenarios, and can be accessed from incident management, the investigation graph, bookmarks, or directly from the entity search page under **Entity behavior analytics** in the Microsoft Sentinel main menu.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Entity page use cases":::
+
+Entity page information is stored in the **BehaviorAnalytics** table, described in detail in the [Microsoft Sentinel UEBA reference](ueba-reference.md).
 
 ## Next steps
 

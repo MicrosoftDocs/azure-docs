@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-python, devx-track-csharp"
+ms.reviewer: rijolly
 ---
 
 # Telemetry correlation in Application Insights
@@ -145,7 +146,7 @@ Add the following configuration:
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT]
-> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-correlation).
+> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Telemetry correlation in OpenCensus Python
 
@@ -205,6 +206,12 @@ The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where 
 ### Log correlation
 
 OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. (applicable only for loggers that are created after the integration)
+
+Install the OpenCensus logging integration:
+
+```console
+python -m pip install opencensus-ext-logging
+```
 
 **Sample application**
 

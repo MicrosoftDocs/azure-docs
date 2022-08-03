@@ -6,10 +6,12 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 02/24/2022
+ms.date: 08/02/2022
 ---
 
 # The Hyperscale (Citus) SQL API
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Azure Database for PostgreSQL - Hyperscale (Citus) includes features beyond
 standard PostgreSQL. Below is a categorized reference of functions and
@@ -94,6 +96,8 @@ configuration options for:
 | [citus.local_table_join_policy](reference-parameters.md#cituslocal_table_join_policy-enum) | Where data moves when doing a join between local and distributed tables |
 | [citus.multi_shard_commit_protocol](reference-parameters.md#citusmulti_shard_commit_protocol-enum) | The commit protocol to use when performing COPY on a hash distributed table |
 | [citus.propagate_set_commands](reference-parameters.md#cituspropagate_set_commands-enum) | Which SET commands are propagated from the coordinator to workers |
+| [citus.create_object_propagation](reference-parameters.md#cituscreate_object_propagation-enum) | Behavior of CREATE statements in transactions for supported objects |
+| [citus.use_citus_managed_tables](reference-parameters.md#citususe_citus_managed_tables-boolean) | Allow local tables to be accessed in worker node queries |
 
 ### Informational
 
@@ -106,6 +110,8 @@ configuration options for:
 | [citus.stat_statements_max](reference-parameters.md#citusstat_statements_max-integer) | Max number of rows to store in `citus_stat_statements` |
 | [citus.stat_statements_purge_interval](reference-parameters.md#citusstat_statements_purge_interval-integer) | Frequency at which the maintenance daemon removes records from `citus_stat_statements` that are unmatched in `pg_stat_statements` |
 | [citus.stat_statements_track](reference-parameters.md#citusstat_statements_track-enum) | Enable/disable statement tracking |
+| [citus.show_shards_for_app_name_prefixes](reference-parameters.md#citusshow_shards_for_app_name_prefixes-text) | Allows shards to be displayed for selected clients that want to see them |
+| [citus.override_table_visibility](reference-parameters.md#citusoverride_table_visibility-boolean) | Enable/disable shard hiding |
 
 ### Inter-node connection management
 

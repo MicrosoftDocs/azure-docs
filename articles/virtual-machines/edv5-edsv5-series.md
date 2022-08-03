@@ -4,7 +4,7 @@ description: Specifications for the Edv5 and Edsv5-series VMs.
 author: andysports8
 ms.author: shuji
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021
 ---

@@ -4,8 +4,8 @@ description: Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 12/15/2021
 ms.topic: how-to
@@ -14,6 +14,8 @@ ms.topic: how-to
 # Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
 
 This article describes how to connect to SQL Managed Instance endpoint using Active Directory (AD) authentication. Before you proceed, make sure you have an AD-integrated Azure Arc-enabled SQL Managed Instance deployed already.
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 See [Tutorial – Deploy AD-integrated SQL Managed Instance](deploy-active-directory-sql-managed-instance.md) to deploy Azure Arc-enabled SQL Managed Instance with Active Directory authentication enabled.
 

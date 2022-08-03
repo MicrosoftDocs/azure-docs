@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 04/26/2022
+ms.date: 07/11/2022
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service, custom translator
@@ -21,7 +21,7 @@ Translator Service is a cloud-based neural machine translation service that is p
 Translator documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to-create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**How-to guides**](translator-text-apis.md). Instructions for accessing and using the service in more specific or customized ways.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Translator features and development options

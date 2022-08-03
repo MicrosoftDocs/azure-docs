@@ -20,6 +20,61 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+
+## July 28, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.07.19`
+
+Main changes:
+
+- Updated `Azure Cli` to version `2.38.0`
+- Updated `Nodejs` to version `v16.16.0`
+- Updated `Scala` to version `2.12.15`
+- Updated `Spark` to version `3.2.2`
+- `MMLSpark` notebook features `v0.10.0`
+- 4 additional R libraries: [janitor](https://cran.r-project.org/web/packages/janitor/index.html), [skimr](https://cran.r-project.org/web/packages/skimr/index.html#:~:text=CRAN%20-%20Package%20skimr%20skimr:%20Compact%20and%20Flexible%2cby%20the%20user%20as%20can%20the%20default%20formatting.), [palmerpenguins](https://cran.r-project.org/web/packages/palmerpenguins/index.html) and [doParallel](https://cran.r-project.org/web/packages/doParallel/index.html)
+- Added new AzureML Environment `azureml_310_sdkv2`
+
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version `22.07.18`
+
+Main Changes:
+
+- General OS level updates
+
+## July 11, 2022
+[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.07.08`
+
+Main changes:
+
+- Minor bug fixes.
+
+## June 28, 2022
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.06.10`
+
+[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
+
+Version `22.06.13`
+
+Main changes:
+
+- Remove `Rstudio` software tool from DSVM images.
+
+## May 17, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.05.11`
+
+Main changes:
+
+- Upgraded `log4j(v2)` to version `2.17.2`
+
 ## April 29, 2022
 [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
@@ -28,8 +83,8 @@ Version `22.04.27`
 Main changes:
 
 - `Plotly` and `summarytools` R studio extensions runtime import fix.
-- `Cudatoolkit` and `CUDNN` upgraded to 13.1 and 2.8.1 respectively.
-- Fix Python 3.8 - AzureML notebook run, pinned `matplotlib` to 3.2.1 and cycler to 0.11.0 packages in `Azureml_py38` environment.
+- `Cudatoolkit` and `CUDNN` upgraded to `13.1` and `2.8.1` respectively.
+- Fix `Python 3.8` - AzureML notebook run, pinned `matplotlib` to `3.2.1` and `cycler` to `0.11.0` packages in `Azureml_py38` environment.
 
 ## April 26, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
@@ -39,7 +94,7 @@ Version: `22.04.21`
 Main changes:
 
 - `Plotly` R studio extension patch.
-- Update `Rscript` env path to support latest R studio version 4.1.3.
+- Update `Rscript` env path to support latest R studio version `4.1.3`.
 
 ## April 14, 2022
 New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview) is currently live in the marketplace.
@@ -53,14 +108,14 @@ Version: `22.04.01`
 
 Main changes:
 
-- Updated R environment - added libraries: Cluster, Devtools Factoextra, GlueHere, Ottr, Paletteer, Patchwork, Plotly, Rmd2jupyter, Scales, Statip, Summarytools, Tidyverse, Tidymodels and Testthat
-- Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved log4j version 2.0 jars.
-- Azure CLI to version 2.33.1
-- Fixed jupyterhub access issue using public ip address
+- Updated R environment - added libraries: `Cluster`, `Devtools Factoextra`, `GlueHere`, `Ottr`, `Paletteer`, `Patchwork`, `Plotly`, `Rmd2jupyter`, `Scales`, `Statip`, `Summarytools`, `Tidyverse`, `Tidymodels` and `Testthat`
+- Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version `v2`, we have removed old `log4j jars1.0` and moved `log4j` version 2.0 jars.
+- `Azure CLI` to version `2.33.1`
+- Fixed `jupyterhub` access issue using public ip address
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
   - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
-  - `azureml_py38_PT_TF`: additional azureml_py38 environment, preinstalled with latest TensorFlow and PyTorch
-  - `py38_default`: default system environment based on Python 3.8
+  - `azureml_py38_PT_TF`: additional `azureml_py38` environment, preinstalled with latest `TensorFlow` and `PyTorch`
+  - `py38_default`: default system environment based on `Python 3.8`
   - We have removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
  
 

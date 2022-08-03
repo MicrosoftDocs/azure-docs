@@ -4,8 +4,8 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/05/2022
 ms.topic: how-to
@@ -14,6 +14,8 @@ ms.topic: how-to
 # Deploy Active Directory integrated Azure Arc-enabled SQL Managed Instance
 
 This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication.
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Before you proceed, complete the steps explained in [Customer-managed keytab Active Directory (AD) connector](deploy-customer-managed-keytab-active-directory-connector.md) or [Deploy a system-managed keytab AD connector](deploy-system-managed-keytab-active-directory-connector.md)
 

@@ -11,6 +11,9 @@
   items:
   - name: Set up disaster recovery to a secondary Azure region
     href: azure-to-azure-quickstart.md
+  - name: Create a vault - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-vault-bicep.md
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
@@ -28,8 +31,8 @@
       href: azure-to-azure-tutorial-failback.md
   - name: Move
     items:
-    - name: Move Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md
+    - name: Move Azure VMs to another region (Resource Mover)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md
     - name: Move Azure VMs to Availability Zones
       href: move-Azure-VMs-AVset-Azone.md
     - name: Move Azure VMs between Government & Public regions
@@ -120,6 +123,8 @@
       href: azure-vm-disaster-recovery-with-expressroute.md
   - name: About moving Azure VMs to another region
     href: azure-to-azure-move-overview.md
+  - name: Migrate to availability zone support
+    href: ../availability-zones/migrate-recovery-services-vault.md
   - name: About VMware VM disaster recovery
     items:
     - name: VMware disaster recovery overview

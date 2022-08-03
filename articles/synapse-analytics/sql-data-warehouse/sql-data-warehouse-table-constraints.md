@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 09/05/2019
 ms.author: emtehran 
-ms.reviewer: nibruno; jrasnick
+ms.reviewer: nibruno; wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 

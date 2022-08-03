@@ -4,9 +4,9 @@ description: "This article provides troubleshooting guidance for SSIS package ex
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: faq
-ms.author: sawinark
-author: swinarko
-ms.reviewer: sawinark
+ms.author: chugu
+author: chugugrace
+ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
 ms.date: 02/21/2022
 ---

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 03/24/2022
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ms.custom: kr2b-contr-experiment
 ---
 

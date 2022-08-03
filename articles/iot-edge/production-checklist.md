@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/01/2021
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -57,7 +57,9 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge
 * CA certificates
 
-For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). The current methods for updating IoT Edge require physical or SSH access to the IoT Edge device. If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible.
+[Device Update for IoT Hub](../iot-hub-device-update/index.yml) (Preview) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
+
+Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
 ### Use Moby as the container engine
 
@@ -211,7 +213,7 @@ If your networking setup requires that you explicitly permit connections made fr
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
 * **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
-In all three cases, the fully-qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
+In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
 Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
@@ -220,6 +222,8 @@ This checklist is a starting point for firewall rules:
    | FQDN (\* = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
    | `mcr.microsoft.com`  | 443 | Microsoft Container Registry |
+   | `\*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
+   | `*.cdn.azcr.io` | 443 | Deploy modules from the Marketplace to devices |
    | `global.azure-devices-provisioning.net`  | 443 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) access (optional) |
    | `\*.azurecr.io` | 443 | Personal and third-party container registries |
    | `\*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
@@ -228,9 +232,11 @@ This checklist is a starting point for firewall rules:
 
 <sup>1</sup>Open port 8883 for secure MQTT or port 5671 for secure AMQP. If you can only make connections via port 443 then either of these protocols can be run through a WebSocket tunnel.
 
-Since the IP address of an IoT hub can change without notice, always use the FQDN to allow-list configuration. To learn more, see [Understanding the IP address of your IoT hub](../iot-hub/iot-hub-understand-ip-address.md).
+Since the IP address of an IoT hub can change without notice, always use the FQDN to allowlist configuration. To learn more, see [Understanding the IP address of your IoT Hub](../iot-hub/iot-hub-understand-ip-address.md).
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the *\*.blob.core.windows.net* FQDN. For more information, see [Enable dedicated data endpoints](/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints).
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
@@ -264,7 +270,7 @@ On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog
 :::moniker-end
 <!-- end 1.1 -->
 
-<!--1.2-->
+<!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 
 Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
@@ -321,13 +327,13 @@ Add (or append) this information to a file named `daemon.json` and place it in t
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 * `/etc/docker/`
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 The container engine must be restarted for the changes to take effect.
 

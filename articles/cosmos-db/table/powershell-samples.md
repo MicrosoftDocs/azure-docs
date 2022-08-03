@@ -1,12 +1,13 @@
 ---
 title: Azure PowerShell samples for Azure Cosmos DB Table API
 description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB Table API
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 01/20/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB Table API

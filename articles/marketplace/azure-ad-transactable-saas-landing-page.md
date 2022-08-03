@@ -3,7 +3,6 @@ title: Build the landing page for your transactable SaaS offer in the commercial
 description: Learn how to build a landing page for your transactable SaaS offer.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -127,3 +126,7 @@ Most apps that are registered with Azure AD grant delegated permissions to read 
 ## Next steps
 
 - [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
+
+**Video tutorials**
+
+- [Building a Simple SaaS Landing Page in .NET](https://go.microsoft.com/fwlink/?linkid=2196323)

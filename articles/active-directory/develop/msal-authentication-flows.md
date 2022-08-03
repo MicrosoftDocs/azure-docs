@@ -1,6 +1,5 @@
 ---
-title: Authentication flow support in the Microsoft Authentication Library (MSAL) | Azure
-titleSuffix: Microsoft identity platform
+title: Authentication flow support in the Microsoft Authentication Library (MSAL)
 description: Learn about the authorization grants and authentication flows supported by MSAL.
 services: active-directory
 author: mmacy

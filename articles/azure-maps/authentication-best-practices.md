@@ -14,7 +14,7 @@ services: azure-maps
 
 The single most important part of your application is its security. No matter how good the user experience might be, if your application isn't secure a hacker can ruin it.
 
-The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. For more information, See the [introduction to Azure security](/azure/security/fundamentals/overview).
+The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. For more information, See the [introduction to Azure security](../security/fundamentals/overview.md).
 
 ## Understanding security threats
 
@@ -32,17 +32,17 @@ When creating a publicly facing client application with Azure Maps using any of 
 
 Subscription key-based authentication (Shared Key) can be used in either client side applications or web services, however it is the least secure approach to securing your application or web service. This is because the key grants access to all Azure Maps REST API that are available in the SKU (Pricing Tier) selected when creating the Azure Maps account and the key can be easily obtained from an HTTP request. If you do use subscription keys, be sure to [rotate them regularly](how-to-manage-authentication.md#manage-and-rotate-shared-keys) and keep in mind that Shared Key doesn't allow for configurable lifetime, it must be done manually. You should also consider using [Shared Key authentication with Azure Key Vault](how-to-secure-daemon-app.md#scenario-shared-key-authentication-with-azure-key-vault), which enables you to securely store your secret in Azure.
 
-If using [Azure Active Directory (Azure AD) authentication](/azure/active-directory/fundamentals/active-directory-whatis) or [Shared Access Signature (SAS) Token authentication](azure-maps-authentication.md#shared-access-signature-token-authentication) (preview), access to Azure Maps REST APIs is authorized using [role-based access control (RBAC)](azure-maps-authentication.md#authorization-with-role-based-access-control). RBAC enables you to control what access is given to the issued tokens. You should consider how long access should be granted for the tokens. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
+If using [Azure Active Directory (Azure AD) authentication](../active-directory/fundamentals/active-directory-whatis.md) or [Shared Access Signature (SAS) Token authentication](azure-maps-authentication.md#shared-access-signature-token-authentication) (preview), access to Azure Maps REST APIs is authorized using [role-based access control (RBAC)](azure-maps-authentication.md#authorization-with-role-based-access-control). RBAC enables you to control what access is given to the issued tokens. You should consider how long access should be granted for the tokens. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
 
 > [!TIP]
 >
 > For more information on configuring token lifetimes see:
-> - [Configurable token lifetimes in the Microsoft identity platform (preview)](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
+> - [Configurable token lifetimes in the Microsoft identity platform (preview)](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - [Create SAS tokens](azure-maps-authentication.md#create-sas-tokens)
 
 ### Public client and confidential client applications
 
-There are different security concerns between public and confidential client applications. See [Public client and confidential client applications](/azure/active-directory/develop/msal-client-applications) in the Microsoft identity platform documentation for more information about what is considered a *public* versus *confidential* client application.
+There are different security concerns between public and confidential client applications. See [Public client and confidential client applications](../active-directory/develop/msal-client-applications.md) in the Microsoft identity platform documentation for more information about what is considered a *public* versus *confidential* client application.
 
 ### Public client applications
 
@@ -53,7 +53,7 @@ For apps that run on devices or desktop computers or in a web browser, you shoul
 
 ### Confidential client applications
 
-For apps that run on servers (such as web services and service/daemon apps), if you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities can provide an identity for your web service to use when connecting to Azure Maps using Azure Active Directory (Azure AD) authentication. In this case, your web service will use that identity to obtain the required Azure AD tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles](/azure/active-directory/roles/delegate-by-task) possible.
+For apps that run on servers (such as web services and service/daemon apps), if you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md). Managed identities can provide an identity for your web service to use when connecting to Azure Maps using Azure Active Directory (Azure AD) authentication. In this case, your web service will use that identity to obtain the required Azure AD tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles](../active-directory/roles/delegate-by-task.md) possible.
 
 ## Next steps
 

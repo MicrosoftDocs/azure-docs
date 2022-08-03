@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Create Azure Database for MySQL - Azure Resource Manager template'
 description: This tutorial explains how to provision and automate Azure Database for MySQL server deployments using Azure Resource Manager template.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 06/20/2022
 ms.custom: mvc, devx-track-azurepowershell
 ---
 

@@ -1,15 +1,11 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/29/2022
+ ms.date: 05/26/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
-1. Go to your virtual network. On your VNet page, click **Connected devices** on the left. Locate your VPN gateway and click to open it.
+1. Go to your virtual network. On your VNet page, select **Connected devices** on the left. Locate your VPN gateway and click to open it.
 1. On the page for the gateway, select **Connections**. At the top of the Connections page, select **+Add** to open the **Add connection** page.
 
    :::image type="content" source="./media/vpn-gateway-add-site-to-site-connection-portal-include/connection.png" alt-text="Screenshot of Add Connection page." lightbox="./media/vpn-gateway-add-site-to-site-connection-portal-include/connection-expand.png" :::

@@ -252,12 +252,12 @@ Emit group names to be returned in `NetbiosDomain\sAMAccountName` format as the 
 "optionalClaims": {
     "saml2Token": [{
         "name": "groups",
-        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+        "additionalProperties": ["netbios_domain_and_sam_account_name", "emit_as_roles"]
     }],
 
     "idToken": [{
         "name": "groups",
-        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+        "additionalProperties": ["netbios_domain_and_sam_account_name", "emit_as_roles"]
     }]
 }
 ```

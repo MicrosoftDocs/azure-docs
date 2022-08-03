@@ -4,8 +4,8 @@ description: Deploy Azure Arc-enabled data services in Active Directory authenti
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/21/2022
 ms.topic: how-to
@@ -14,6 +14,8 @@ ms.topic: how-to
 # Azure Arc-enabled SQL Managed Instance in Active Directory authentication with system-managed keytab - prerequisites
 
 This document explains how to prepare to deploy Azure Arc-enabled data services with Active Directory (AD) authentication. Specifically the article describes Active Directory objects you need to configure before the deployment of Kubernetes resources.
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 [The introduction](active-directory-introduction.md#compare-ad-integration-modes) describes two different integration modes:
 - *System-managed keytab* mode allows the system to create and manage the AD accounts for each SQL Managed Instance.
@@ -118,7 +120,6 @@ Whether you have created a new account for the DSA or are using an existing Acti
        - **Write all properties**
        - **Create User objects**
        - **Delete User objects**
-       - **Reset Password for Descendant User objects**
 
     - Select **OK**.
 

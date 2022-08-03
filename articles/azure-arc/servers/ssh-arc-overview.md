@@ -106,4 +106,4 @@ To add access to SSH connections, run the following:
 > If you are using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
 
 ## Examples
-To view examples of using the ```az ssh vm``` command, view the az CLI documentation page for [az ssh](/cli/azure/ssh).
+To view examples of using the ```az ssh arc``` command, view the az CLI documentation page for [az ssh](/cli/azure/ssh).

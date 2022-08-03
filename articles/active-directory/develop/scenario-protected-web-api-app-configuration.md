@@ -117,7 +117,7 @@ You can create a web API from scratch by using Microsoft.Identity.Web project te
 
 #### Starting from an existing ASP.NET Core 3.1 application
 
-ASP.NET Core 3.1 uses the Microsoft.AspNetCore.AzureAD.UI library. The middleware is initialized in the Startup.cs file.
+ASP.NET Core 3.1 uses the Microsoft.AspNetCore.Authentication.JwtBearer library. The middleware is initialized in the Startup.cs file.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
