@@ -11,7 +11,9 @@ ms.author: normesta
 
 # Blob Storage feature support in Azure Storage accounts
 
-Feature support is impacted by the type of account that you create and the settings that enable on that account. Support is also impacted by the use of some APIs and protocols. You can use the tables in this article to assess feature support based on these factors. The items that appear in these tables will change over time as support continues to expand.  
+Feature support is impacted by the type of account that you create and the settings that enable on that account. Support is also impacted by the use of some APIs and protocols. You can use the tables in this article to assess feature support based on these factors. The items that appear in these tables will change over time as support continues to expand.
+
+## How to use these tables  
 
 Each table uses the following icons to indicate support level:
 
@@ -22,13 +24,20 @@ Each table uses the following icons to indicate support level:
 | &nbsp;&#x2716; | Not supported |
 | &#x1f7e1;	 | Not _yet_ supported (Investigating support _or_ working towards support) |
 
+This table describes the impact of **enabling** the capability and not the specific use of that capability. For example, if you enable the Network File System (NFS) 3.0 protocol but never use the NFS 3.0 protocol to upload a blob, a check mark in the **NFS 3.0 enabled** column indicates that feature support is not negatively impacted by merely enabling NFS 3.0 support.
+
+Even though a feature is not be negatively impacted, it might not be compatible when used with a specific capability. For example, enabling NFS 3.0 has no impact on Azure Active Directory (Azure AD) authorization. However, you can't use Azure AD to authorize an NFS 3.0 request. See any of these articles for information about known limitations:
+
+- [Known issues: Hierarchical namespace capability](data-lake-storage-known-issues.md)
+
+- [Known issues: Network File System (NFS) 3.0 protocol](network-file-system-protocol-known-issues.md)
+
+- [Known issues: SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-known-issues.md)
+
 ## Standard general-purpose v2 accounts
 
-The following table describes whether a feature is supported in a standard general-purpose v2 account when you enable a hierarchical namespace, Network File System (NFS) 3.0 protocol, or the SSH File Transfer Protocol (SFTP). 
+The following table describes whether a feature is supported in a standard general-purpose v2 account when you enable a hierarchical namespace, NFS 3.0 protocol, or SFTP. 
 
-This table describes the impact of **enabling** the capability and not the specific use of that capability. For example, if you enable NFS 3.0 but never use the NFS protocol to upload a blob, a check mark in the **NFS 3.0 enabled** column indicates that feature support is not negatively impacted by merely enabling NFS 3.0 support. 
-
-To assess whether a feature is compatible with blobs that you upload by using the NFS 3.0 protocol, see the [Support by API and protocol](#support-by-api-and-protocol) section of this article.
 
 | Storage feature | Default support | Hierarchical namespace enabled   | NFS 3.0 enabled  | SFTP enabled |
 |---------------|-------------------|---|---|--|
@@ -36,7 +45,7 @@ To assess whether a feature is compatible with blobs that you upload by using th
 | [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
-| [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Blob inventory](blob-inventory.md) | &#x2705; | _&#x2705;_ | _&#x2705;_ | _&#x2705;_ |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &#x1f7e1; | &#x1f7e1; | &#x1f7e1; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | _&#x2705;_ | &nbsp;&#x2716; | _&#x2705;_ |
@@ -67,13 +76,11 @@ To assess whether a feature is compatible with blobs that you upload by using th
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705;   | &nbsp;&#x2716; | &#x2705; |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
+<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
+
 ## Premium block blob accounts
 
-The following table describes whether a feature is supported in a premium block blob account when you enable a hierarchical namespace, Network File System (NFS) 3.0 protocol, or the SSH File Transfer Protocol (SFTP). 
-
-This table describes the impact of **enabling** the capability and not the specific use of that capability. For example, if you enable NFS 3.0 but never use the NFS protocol to upload a blob, a check mark in the **NFS 3.0 enabled** column indicates that feature support is not negatively impacted by merely enabling NFS 3.0 support. 
-
-To assess whether a feature is compatible with blobs that you upload by using the NFS 3.0 protocol, see the [Support by API and protocol](#support-by-api-and-protocol) section of this article.
+The following table describes whether a feature is supported in a premium block blob account when you enable a hierarchical namespace, NFS 3.0, or SFTP. 
 
 | Storage feature | Default support | Hierarchical namespace enabled   | NFS 3.0 enabled  | SFTP enabled |
 |---------------|-------------------|---|---|--|
@@ -81,7 +88,7 @@ To assess whether a feature is compatible with blobs that you upload by using th
 | [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; |
 | [Access tier - hot](access-tiers-overview.md) | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; |
 | [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
 | [Blob inventory](blob-inventory.md) | &#x2705; | _&#x2705;_ | _&#x2705;_ | _&#x2705;_ |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x1f7e1; | &#x1f7e1; | &#x1f7e1; | &#x1f7e1; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | _&#x2705;_ | &nbsp;&#x2716; | _&#x2705;_ |
@@ -112,19 +119,7 @@ To assess whether a feature is compatible with blobs that you upload by using th
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | _&#x2705;_   | &nbsp;&#x2716;| &#x2705; |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
-<sup>1</sup>    Network File System (NFS) 3.0 protocol and SSH File Transfer Protocol (SFTP) support require a storage account with a hierarchical namespace enabled.
-
-
-## Support by API and protocol
-
-
-| Storage feature | Blob APIs (blob.core.windows.net) | Data Lake Storage Gen2 APIs (dfs.core.windows.net)  | NFS 3.0  (blob.core.windows.net) | SFTP (blob.core.windows.net)  |
-|---------------|-------------------|---|---|--|
-| [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2716;| &nbsp;&#x2716; |
-| [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705; | &nbsp;&#x2716;| &nbsp;&#x2716; |
-| [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2716;| &nbsp;&#x2716;|
-| [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &nbsp;&#x2716;| &nbsp;&#x2716; |
-
+<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
 
 ## See also
 
