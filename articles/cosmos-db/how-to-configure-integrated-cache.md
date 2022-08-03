@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 08/02/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -21,7 +21,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 - An existing application that uses Azure Cosmos DB. If you don't have one, [here are some examples](https://github.com/AzureCosmosDB/labs).
 - An existing [Azure Cosmos DB SQL (core) API account](create-cosmosdb-resources-portal.md).
 
-## Provision a dedicated gateway cluster
+## Provision the dedicated gateway
 
 1. Navigate to an Azure Cosmos DB account in the Azure portal and select the **Dedicated Gateway** tab.
 
@@ -30,8 +30,8 @@ This article describes how to provision a dedicated gateway, configure the integ
 2. Fill out the **Dedicated gateway** form with the following details:
 
    * **Dedicated Gateway** - Turn on the  toggle to **Provisioned**. 
-   * **SKU** - Select a SKU with the required compute and memory size. 
-   *  **Number of instances** - Number of nodes. For development purpose, we recommend starting with one node of the D4 size. Based on the amount of data you need to cache, you can increase the node size after initial testing.
+   * **SKU** - Select a SKU with the required compute and memory size. The integrated cache will use approximately 70% of the memory, and the remaining 30% of memory is used for routing requests to the backend partitions.
+   *  **Number of instances** - Number of nodes. For development purpose, we recommend starting with one node of the D4 size. Based on the amount of data you need to cache and to achieve high availability, you can increase the node size after initial testing.
 
    :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="An image that shows sample input settings for creating a dedicated gateway cluster" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" border="false":::
 
@@ -41,9 +41,9 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 ## Configuring the integrated cache
 
-1. When you create a dedicated gateway, an integrated cache is automatically provisioned. The integrated cache will use approximately 70% of the memory in the dedicated gateway. The remaining 30% of memory in the dedicated gateway is used for routing requests to the backend partitions.
+When you create a dedicated gateway, an integrated cache is automatically provisioned.
 
-2.	Modify your application's connection string to use the new dedicated gateway endpoint.
+1.	Modify your application's connection string to use the new dedicated gateway endpoint.
 
       The updated dedicated gateway connection string is in the **Keys** blade:
    
@@ -53,30 +53,36 @@ This article describes how to provision a dedicated gateway, configure the integ
 
       You don’t need to modify the connection string in all applications using the same Azure Cosmos DB account. For example, you could have one `CosmosClient` connect using gateway mode and the dedicated gateway endpoint while another `CosmosClient` uses direct mode. In other words, adding a dedicated gateway doesn't impact the existing ways of connecting to Azure Cosmos DB.
 
-3. If you're using the .NET or Java SDK, set the connection mode to [gateway mode](sql-sdk-connection-modes.md#available-connectivity-modes). This step isn't necessary for the Python and Node.js SDKs since they don't have additional options of connecting besides gateway mode.
+2. If you're using the .NET or Java SDK, set the connection mode to [gateway mode](sql-sdk-connection-modes.md#available-connectivity-modes). This step isn't necessary for the Python and Node.js SDKs since they don't have additional options of connecting besides gateway mode.
 
 > [!NOTE]
 > If you are using the latest .NET or Java SDK version, the default connection mode is direct mode. In order to use the integrated cache, you must override this default.
 
-4. If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
-
 ## Adjust request consistency
 
-You must adjust the request consistency to session or eventual. If not, the request will always bypass the integrated cache. The easiest way to configure a specific consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
+You must ensure the request consistency is session or eventual. If not, the request will always bypass the integrated cache. The easiest way to configure a specific consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
 
 > [!NOTE]
 > If you are using the Python SDK, you **must** explicitly set the consistency level for each request. The default account-level setting will not automatically apply.
 
 ## Adjust MaxIntegratedCacheStaleness
 
-Configure `MaxIntegratedCacheStaleness`, which is the maximum time in which you are willing to tolerate stale cached data. We recommend setting the `MaxIntegratedCacheStaleness` as high as possible because it will increase the likelihood that repeated point reads and queries can be cache hits. If you set `MaxIntegratedCacheStaleness` to 0, your read request will **never** use the integrated cache, regardless of the consistency level. When not configured, the default `MaxIntegratedCacheStaleness` is 5 minutes.
+Configure `MaxIntegratedCacheStaleness`, which is the maximum time in which you are willing to tolerate stale cached data. It is recommended to set the `MaxIntegratedCacheStaleness` as high as possible because it will increase the likelihood that repeated point reads and queries can be cache hits. If you set `MaxIntegratedCacheStaleness` to 0, your read request will **never** use the integrated cache, regardless of the consistency level. When not configured, the default `MaxIntegratedCacheStaleness` is 5 minutes.
 
-**.NET**
+Adjusting the `MaxIntegratedCacheStaleness` is supported in these versions of each SDK:
+
+| SDK | Supported versions | Comment |
+| --- | ------------------ | ------- |
+| **.NET SDK v3** | *>= 3.19.0-preview* | Currently supported in the preview SDK versions only. |
+| **Java SDK v4** | *>= 4.16.0-beta*    | Currently supported in the preview SDK versions only. |
+| **Node.js SDK** | *>=3.16.0*          | - |
+| **Python SDK**  | *>=4.3.0b3*         | - |
+
+### [.NET](#tab/dotnet)
 
 ```csharp
-FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefinition("SELECT * FROM c"), requestOptions: new QueryRequestOptions
+FeedIterator<MyClass> myQuery = container.GetItemQueryIterator<MyClass>(new QueryDefinition("SELECT * FROM c"), requestOptions: new QueryRequestOptions
         {
-            ConsistencyLevel = ConsistencyLevel.Eventual,
             DedicatedGatewayRequestOptions = new DedicatedGatewayRequestOptions 
             { 
                 MaxIntegratedCacheStaleness = TimeSpan.FromMinutes(30) 
@@ -85,17 +91,47 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 );
 ```
 
-Adjusting the `MaxIntegratedCacheStaleness` is supported in these versions of each SDK:
-| SDK | Supported versions | Comment |
-| --- | --- | --- |
-| **.NET SDK v3** | *>= 3.19.0-preview* | Currently supported in the preview SDK versions only. |
-| **Java SDK v4** | *>= 4.16.0-beta* | Currently supported in the preview SDK versions only. |
-| **Node.js SDK** | *>=3.16.0* | |
-| **Python SDK** | *>=4.3.0b3* | |
+### [Java](#tab/java)
+
+```java
+DedicatedGatewayRequestOptions dgOptions = new DedicatedGatewayRequestOptions()
+   .setMaxIntegratedCacheStaleness(Duration.ofMinutes(30));
+CosmosQueryRequestOptions queryOptions = new CosmosQueryRequestOptions()
+   .setDedicatedGatewayRequestOptions(dgOptions);
+
+CosmosPagedFlux<MyClass> pagedFluxResponse = container.queryItems(
+        "SELECT * FROM c", queryOptions, MyClass.class);
+```
+
+### [Node.js](#tab/nodejs)
+
+```javascript
+ const queryRequestOptions = {
+   maxIntegratedCacheStalenessInMs: 1800000 };
+ const querySpec = {
+   query: "SELECT * from c"
+ };
+ const { resources: items } = await container.items
+   .query(querySpec, queryRequestOptions)
+   .fetchAll();
+```
+
+### [Python](#tab/python)
+
+```python
+query = "SELECT * FROM c"
+container.query_items(
+    query=query,
+    max_integrated_cache_staleness_in_ms=1800000
+)
+```
+
+---
+
 
 ## Verify cache hits
 
-Finally, you can restart your application and verify integrated cache hits for repeated point reads or queries. Once you’ve modified your `CosmosClient` to use the dedicated gateway endpoint, all requests will be routed through the dedicated gateway.
+Finally, you can restart your application and verify integrated cache hits for repeated point reads or queries by seeing if the request charge is 0. Once you’ve modified your `CosmosClient` to use the dedicated gateway endpoint, all requests will be routed through the dedicated gateway.
 
 For a read request (point read or query) to utilize the integrated cache, **all** of the following criteria must be true:
 

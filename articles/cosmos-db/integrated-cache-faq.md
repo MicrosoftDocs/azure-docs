@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 08/02/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -31,11 +31,11 @@ In general, requests routed by the dedicated gateway will have a slightly lower 
 
 ### What kind of latency should I expect from the integrated cache?
 
-A request served by the integrated cache is faster because the cached data is stored in-memory on the dedicated gateway, rather than on the backend. For cached point reads, you should expect latency of 2-4 ms.
+A request served by the integrated cache is fast because the cached data is stored in-memory on the dedicated gateway, rather than on the backend.
 
-For cached queries, latency depends on the query. The query cache works by caching the query engine’s response for a particular query. This response is then sent back client-side to the SDK for processing. For simple queries, minimal work in the SDK is required and latencies of 2-4 ms are typical. However, more complex queries with `GROUP BY` or `DISTINCT` require more processing in the SDK so latency may be higher, even with the query cache.
+For cached point reads, you should expect a median latency of 2-4 ms. For cached queries, latency depends on the query. The query cache works by caching the query engine’s response for a particular query. This response is then sent back client-side to the SDK for processing. For simple queries, minimal work in the SDK is required and median latencies of 2-4 ms are typical. More complex queries with `GROUP BY` or `DISTINCT` require more processing in the SDK so latency may be higher, even with the query cache. 
 
-If you were previously connecting to Azure Cosmos DB with direct mode and switch to connecting with the dedicated gateway, you may observe a slight latency increase for some requests. Using gateway mode requires a request to be sent to the gateway (in this case the dedicated gateway) and then routed appropriately to the backend. Direct mode, as the name suggests, allows the client to communicate directly with the backend, removing an extra hop. 
+If you were previously connecting to Azure Cosmos DB with direct mode and switch to connecting with the dedicated gateway, you may observe a slight latency increase for some requests. Using gateway mode requires a request to be sent to the gateway (in this case the dedicated gateway) and then routed appropriately to the backend. Direct mode, as the name suggests, allows the client to communicate directly with the backend, removing an extra hop. There is no latency SLA for requests using the dedicated gateway.
 
 If your app previously used direct mode, the latency advantages of the integrated cache will be significant in only the following scenarios:
 
@@ -46,11 +46,11 @@ If your app previously used gateway mode with the standard gateway, the integrat
 
 ### Does the Azure Cosmos DB availability SLA extend to the dedicated gateway and integrated cache?
 
-For scenarios that require high availability and in order to be covered by the Azure Cosmos DB availability SLA, you should provision 3x the number of dedicated gateway instances needed. For example, if one dedicated gateway node is needed in production, you should provision two additional dedicated gateway nodes to account for possible downtime or outages. Additionally, [ensure your dedicated gateway has enough nodes](./integrated-cache.md#i-want-to-understand-if-i-need-to-add-more-dedicated-gateway-nodes) to serve your workload.
+For scenarios that require high availability and in order to be covered by the Azure Cosmos DB availability SLA, you should provision 3x the number of dedicated gateway instances needed. For example, if one dedicated gateway node is needed in production, you should provision two additional dedicated gateway nodes to account for possible downtime, outages and upgrades. If only one dedicated gateway node is provisioned, you will temporarily lose availability in these scenarios. Additionally, [ensure your dedicated gateway has enough nodes](./integrated-cache.md#i-want-to-understand-if-i-need-to-add-more-dedicated-gateway-nodes) to serve your workload.
 
 ### The integrated cache is only available for SQL (Core) API right now. Are you planning on releasing it for other APIs as well?
 
-Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but beyond the initial scope of the integrated cache.
+Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but is beyond the initial scope of the integrated cache.
 
 ### What consistency does the integrated cache support?
 

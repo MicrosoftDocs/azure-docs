@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 08/02/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -30,7 +30,7 @@ cosmoscachefeedback@microsoft.com
 
 The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, is not the main benefit of the integrated cache because Azure Cosmos DB is already fast without caching.
 
-Point reads and queries that hit the integrated cache won't use any RUs. In other words, any cache hits will have an RU charge of 0. Cache hits will have a much lower per-operation cost than reads from the backend database.
+Point reads and queries that hit the integrated cache will have an RU charge of 0. Cache hits will have a much lower per-operation cost than reads from the backend database.
 
 Workloads that fit the following characteristics should evaluate if the integrated cache will help lower costs:
 
@@ -76,18 +76,21 @@ The query cache can be used to cache queries. The query cache transforms a query
 
 ### Working with the query cache
 
-You don't need special code when working with the query cache, even if your queries have multiple pages of results. The best practices and code for query pagination are the same, whether your query hits the integrated cache or is executed on the backend query engine.
+You don't need special code when working with the query cache, even if your queries have multiple pages of results. The best practices and code for query pagination are the same whether your query hits the integrated cache or is executed on the backend query engine.
 
-The query cache will automatically cache query continuation tokens, where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache will have an RU charge of 0. If your subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
+The query cache will automatically cache query continuation tokens where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache will have an RU charge of 0. If your subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
 
 > [!NOTE]
-> Integrated cache instances within different dedicated gateway nodes have independent caches from one another. If data is cached within one node, it is not necessarily cached in the others.
+> Integrated cache instances within different dedicated gateway nodes have independent caches from one another. If data is cached within one node, it is not necessarily cached in the others. Multiple pages of the same query are not guaranteed to be routed to the same dedicated gateway node.
 
 ## Integrated cache consistency
 
-The integrated cache supports both session and eventual [consistency](consistency-levels.md) only. If a read has consistent prefix, bounded staleness, or strong consistency, it will always bypass the integrated cache.
+The integrated cache supports read requests with session and eventual [consistency](consistency-levels.md) only. If a read has consistent prefix, bounded staleness, or strong consistency, it will always bypass the integrated cache and be served from the backend. 
 
 The easiest way to configure either session or eventual consistency for all reads is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). However, if you would only like some of your reads to have a specific consistency, you can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level).
+
+> [!NOTE]
+> Write requests with other consistencies will still populate the cache, but in order to read from the cache the request must have either session or eventual consistency.
 
 ### Session consistency
 
@@ -102,8 +105,8 @@ It's important to understand that the `MaxIntegratedCacheStaleness`, when config
 This is an improvement from how most caches work and allows the following additional customization:
 
 - You can set different staleness requirements for each point read or query
-- Different clients, even if they run the same point read or query, can configure different `MaxIntegratedCacheStaleness` values.
-- If you wanted to modify read consistency when using cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency.
+- Different clients, even if they run the same point read or query, can configure different `MaxIntegratedCacheStaleness` values
+- If you wanted to modify read consistency when using cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency
 
 > [!NOTE]
 > When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes.
@@ -142,7 +145,7 @@ All existing metrics are available, by default, from the **Metrics** blade (not 
 
    :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="An image that shows the location of integrated cache metrics" border="false":::
 
-Metrics are either an average, maximum, or sum across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the aggregated value across all five nodes. It isn't possible to determine the metric values for each individual nodes.
+Metrics are either an average, maximum, or sum across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the aggregated value across all five nodes. It isn't possible to determine the metric values for each individual node.
 
 ## Troubleshooting common issues
 
