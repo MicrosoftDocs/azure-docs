@@ -26,13 +26,13 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. In the upper-left corner of the home page, select **Create a resource**. In the **Search services and marketplace** box, enter *Managed Grafana* and select **Azure Managed Grafana**.
 
-    :::image type="content" source="media/managed-grafana-quickstart-marketplace.png" alt-text="Screenshot of the Azure platform. Find Azure Managed Grafana in the marketplace." lightbox="media/managed-grafana-quickstart-marketplace-expanded.png":::
+    :::image type="content" source="media/quickstart-portal/marketplace.png" alt-text="Screenshot of the Azure platform. Find Azure Managed Grafana in the marketplace." lightbox="media/quickstart-portal/marketplace-expanded.png":::
 
 1. Select **Create**.
 
 1. In the **Create Grafana Workspace** pane, enter the following settings.
 
-    :::image type="content" source="media/managed-grafana-quickstart-portal-form.png" alt-text="Screenshot of the Azure portal. Create workspace form.":::
+    :::image type="content" source="media/quickstart-portal/creation-form.png" alt-text="Screenshot of the Azure portal. Create workspace form.":::
 
     | Setting             | Sample value     | Description                                                                                                         |
     |---------------------|------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -59,18 +59,17 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. Once the deployment is complete, select **Go to resource** to open your resource.  
 
-    :::image type="content" source="media/managed-grafana-quickstart-portal-deployment-complete.png" alt-text="Screenshot of the Azure portal. Message: Your deployment is complete.":::
+    :::image type="content" source="media/quickstart-portal/deployment-complete.png" alt-text="Screenshot of the Azure portal. Message: Your deployment is complete.":::
 
 1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Azure Active Directory should have been configured for you automatically. If prompted, enter your Azure account.
 
-    :::image type="content" source="media/managed-grafana-quickstart-workspace-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
+    :::image type="content" source="media/quickstart-portal/grafana-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
 
-    :::image type="content" source="media/managed-grafana-quickstart-portal-grafana-workspace.png" alt-text="Screenshot of a Managed Grafana instance.":::
+    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
 You can now start interacting with the Grafana application to configure data sources, create dashboards, reporting and alerts.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
-> [How to modify access permissions to Azure Monitor](./how-to-permissions.md)
+> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
