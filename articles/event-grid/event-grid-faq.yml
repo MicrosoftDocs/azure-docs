@@ -43,7 +43,11 @@ sections:
       - question: |
           Where does Azure Event Grid store data?
         answer: |
-          Azure Event Grid provides you the flexibility to choose where data is stored and processed. The selection of the kind of data residency currently supported in topics and domains has implications in the disaster recovery configuration. When you create topics and domains, you can opt to replicate data to predefined secondary regions in case Microsoft decides to fail over the traffic by choosing Cross-Geo option, or can opt to keep your data in the region selected without any kind of data replication by choosing Regional option. See [Create a custom topic or a domain in Azure Event Grid](create-custom-topic.md#advanced-page) to learn more about how to configure data residency when creating a topic or domain or see [Configure a custom topic or a domain in Azure Event Grid](configure-custom-topic.md#configure-data-residency) to learn how to configure data residency in a preexisting topic or domain.
+          Azure Event Grid provides you the flexibility to choose where data is stored and processed. By default, your data is replicated to a paired region. However, you can choose to keep it within the same region you deployed the service instance in.
+          
+          The selection of the kind of data residency currently supported in topics and domains has implications in the disaster recovery configuration. When you create topics and domains, you can opt to replicate data to predefined secondary regions in case Microsoft decides to fail over the traffic by choosing Cross-Geo option, or can opt to keep your data in the region selected without any kind of data replication by choosing Regional option.
+          
+          See [Create a custom topic or a domain in Azure Event Grid](create-custom-topic.md#advanced-page) to learn more about how to configure data residency when creating a topic or domain or see [Configure a custom topic or a domain in Azure Event Grid](configure-custom-topic.md#configure-data-residency) to learn how to configure data residency in a preexisting topic or domain.
 
 additionalContent: | 
 
