@@ -28,6 +28,8 @@
       href: migrate-cache-redis.md
     - name: Log Analytics workspaces
       href: migrate-monitor-log-analytics.md
+    - name: Managed Disks
+      href: migrate-managed-disks.md
     - name: Container instances
       href: migrate-container-instances.md
     - name: Recovery Services vault

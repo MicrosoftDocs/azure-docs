@@ -69,7 +69,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Storage: Azure Data Lake Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Storage: Disk Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Storage: Blob Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
-| [Azure Storage: Managed Disks](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
+| [Azure Storage: Managed Disks](migrate-managed-disks.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Virtual Machine Scale Sets](migrate-vm.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | [Azure Virtual Machines](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | Virtual Machines: [Av2-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
