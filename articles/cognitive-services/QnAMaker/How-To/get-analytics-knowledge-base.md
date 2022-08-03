@@ -114,6 +114,10 @@ traces | extend id = operation_ParentId
 | order  by timestamp  desc
 ```
 
+> **NOTE**   
+> If you cannot get properly the log by using Application Insight, please confirm the Application Insights settings on the App Service resource.
+> Open App Service resource and go to Application Insights. And then please check whether it is Enabled or Disabled. If it is disabled, please enable it and then apply there.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -19,7 +19,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). It shows you how to:
+This article builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
@@ -27,7 +27,7 @@ This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-deve
 
 You can find more information on cloud-to-device messages in the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
 
-At the end of this tutorial, you run two Python console apps:
+At the end of this article, you run two Python console apps:
 
 * **SimulatedDevice.py**, a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), which connects to your IoT hub and receives cloud-to-device messages.
 
@@ -230,6 +230,6 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages.
+In this article, you learned how to send and receive cloud-to-device messages.
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
