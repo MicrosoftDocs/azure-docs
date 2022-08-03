@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 The Application Insights Java Profiler provides a system for:
 
-1. Generating profiles of the current JVM.
+1. Generating on demand JDK Flight Recorder (JFR) profiles from the running JVM.
 2. Monitoring local resource usage and generating a profile if certain trigger conditions are
    met, such as CPU or memory breaching a configured threshold.
 
