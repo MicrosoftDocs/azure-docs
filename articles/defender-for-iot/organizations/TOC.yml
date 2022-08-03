@@ -116,6 +116,8 @@
       href: tutorial-forescout.md
     - name: Integrate Fortinet
       href: tutorial-fortinet.md
+    - name: RSA NetWitness
+      href: integrations/netwitness.md
     - name: Integrate Palo Alto
       href: tutorial-palo-alto.md
     - name: Integrate Qradar
