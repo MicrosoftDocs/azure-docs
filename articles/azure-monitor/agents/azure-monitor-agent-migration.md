@@ -117,7 +117,7 @@ Start by analyzing your current monitoring setup with the Log Analytics agent us
 > [!IMPORTANT]
 > Before you deploy to a large number of agents, you should consider [configuring the workspace](agent-data-sources.md) to disable data collection for the Log Analytics agent. If you leave it enabled, you may collect duplicate data resulting in increased cost until you remove the Log Analytics agents from your virtual machines. Alternatively, you may choose to have duplicate collection during the migration period until you can confirm that the AMA has been deployed and configured correctly.
 
-See [Using Azure Policy](azure-monitor-agent-manage.md#using-azure-policy) for details on deploying Azure Monitor agent across a set of virtual machines. Associate the agents to the data collection rules developed during your [testing](#test-migration-by-using-the-azure-portal). 
+See [Using Azure Policy](azure-monitor-agent-manage.md#using-azure-policy) for details on deploying Azure Monitor agent across a set of virtual machines. Associate the agents to the data collection rules developed during your [testing](#test-migration). 
 
 Validate that data is flowing as expected with the Azure Monitor agent and that all downstream dependencies like dashboards, alerts, and runbook workers. Workbooks should all continue to function using data from the new agent.
 

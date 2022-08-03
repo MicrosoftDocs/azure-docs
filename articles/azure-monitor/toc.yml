@@ -473,7 +473,7 @@ items:
         href: agents/azure-monitor-agent-manage.md
       - name: Using Windows client installer (preview)
         href: agents/azure-monitor-agent-windows-client.md
-    - name: Data collection
+    - name: Configure data collection
       items:
       - name: Collect events and performance
         displayName: data collection rule,Azure Monitor agent
