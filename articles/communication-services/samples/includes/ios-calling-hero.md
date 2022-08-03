@@ -16,7 +16,7 @@ The Azure Communication Services **Group Calling Hero Sample for iOS** demonstra
 
 ## Download code
 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-ios-calling-hero/).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
 
 ## Overview
 
@@ -26,13 +26,23 @@ Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins it. The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
-
-After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
+When you press the "Start new call" button, the iOS application prompts you to enter your display 
+name to use for the call.
 
 :::image type="content" source="../media/calling/pre-call-ios.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once you configure your display name and devices, you can join the call. You'll see the main call canvas where the core calling experience lives.
+After tapping "Next" on the "Start Call" screen, you have the opportunity to share the group ID of
+the call via the iOS share sheet.
+
+:::image type="content" source="../media/calling/share-call-ios.png" alt-text="Screenshot showing the share group ID screen of the sample application.":::
+
+The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID or teams ID link.
+
+:::image type="content" source="../media/calling/join-call-ios.png" alt-text="Screenshot showing the join call screen of the sample application.":::
+
+After joining a call, you'll be prompted to give the application permission to access your camera and microphone, if not already authorized.
+
+Once you configure your display name and join the call, you'll see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="../media/calling/main-app-ios.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
