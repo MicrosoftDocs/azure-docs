@@ -25,27 +25,11 @@ If you have virtual machines already deployed with legacy agents, we recommend y
 
 Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 
-- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.  
+- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports monitoring solutions.  
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
-Currently, Azure Monitor Agent consolidates features from the Telegraf agent and Log Analytics Agent, but doesn't support all Log Analytics solutions. In the future, Azure Monitor Agent will also consolidate features from the Diagnostic extensions.
-
-## Benefits
-
-Azure Monitor Agent provides the following benefits over legacy agents:
-
-- **A single agent** that collects all telemetry data across servers and client devices running Windows 10, 11. This is goal, though AMA currently converges with the Log Analytics Agent.
-- **Cost savings:**
-  -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics Agent supports.
-  -	Use XPath queries to filter out Windows events you don't need and reduce ingestion and storage costs.
-- **Simplified management of data collection:** 
-    - Send data from Windows and Linux VMs to multiple Log Analytics workspaces ("multi-homing") and other [supported destinations](#data-sources-and-destinations). 
-    - Every action across the data collection lifecycle, from onboarding to deployment to updates, is easier, more scalable, and centralized using data collection rules.
-- **Manage dependent solutions and services:** Azure Monitor Agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics Agent. This management experience is identical for machines in Azure, on-premises, and in other clouds using Azure Arc, at no added cost.
-- **Security and performance:** For authentication and security, Azure Monitor Agent uses a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) (for virtual machines) and AAD device tokens (for clients), which are both much more secure and ‘hack proof’ than certificates or workspace keys that legacy agents use. This agent performs better at a higher EPS (events per second) upload rate compared to legacy agents. 
-
-### Data collection
+## Data collection
 
 Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), using which you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. The rules are independent of the workspace and the virtual machine, which means you can define a rule once and reuse it across machines and environments. 
 
@@ -64,7 +48,7 @@ Azure Monitor Agent is available in all public regions and Azure Government clou
 
 ## Data sources and destinations
 
-The following table lists the types of data you can currently collect with the Azure Monitor Agent by using data collection rules and where you can send that data. For a list of insights, solutions, and other solutions that use the Azure Monitor Agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
+The following table lists the types of data you can currently collect with the Azure Monitor Agent by using data collection rules and where you can send that data.
 
 The Azure Monitor Agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.
 
@@ -80,6 +64,14 @@ The Azure Monitor Agent sends data to Azure Monitor Metrics (preview) or a Log A
 
 ## Supported services and features
 
+The following table shows the current support for the Azure Monitor Agent with Azure Monitor features.
+
+|	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
+|	:---	|	:---	|	:---	|	:---	|
+|	Text logs and Windows IIS logs	|	Public preview	|	None	|	[Collect text logs with Azure Monitor Agent (preview)](data-collection-text-log.md)	|
+|	Windows client installer	|	Public preview	|	None	|	[Set up Azure Monitor Agent on Windows client devices](azure-monitor-agent-windows-client.md)	|
+|	[VM insights](../vm/vminsights-overview.md)	|	Private preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
+
 The following table shows the current support for the Azure Monitor Agent with other Azure services.
 
 |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
@@ -89,16 +81,7 @@ The following table shows the current support for the Azure Monitor Agent with o
 
 
 
-The following table shows the current support for the Azure Monitor Agent with Azure Monitor features.
-
-|	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
-|	:---	|	:---	|	:---	|	:---	|
-|	Text logs and Windows IIS logs	|	Public preview	|	None	|	[Collect text logs with Azure Monitor Agent (preview)](data-collection-text-log.md)	|
-|	Windows client installer	|	Public preview	|	None	|	[Set up Azure Monitor Agent on Windows client devices](azure-monitor-agent-windows-client.md)	|
-|	[VM insights](../vm/vminsights-overview.md)	|	Private preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
-
-
-The following table shows the current support for the Azure Monitor Agent with Azure solutions.
+The following table shows the current support for the Azure Monitor Agent with .
 
 |	Solution	|	Current support	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
@@ -225,8 +208,6 @@ The tables below provide a quick comparison of the telemetry agents for Windows 
 |		|	Azure Storage	|		|		|	X	|
 |		|	Event Hub	|		|		|	X	|
 |	**Services and features supported**	|		|		|		|		|
-|		|	Log Analytics	|	X	|	X	|		|
-|		|	Metrics Explorer	|	X	|		|	X	|
 |		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
 |		|	VM Insights	|		|	X (Preview)	|		|
 |		|	Azure Automation	|		|	X	|		|
@@ -250,8 +231,6 @@ The tables below provide a quick comparison of the telemetry agents for Windows 
 |		|	Azure Storage	|		|		|	X	|		|
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
-|		|	Log Analytics	|	X	|	X	|		|		|
-|		|	Metrics Explorer	|	X	|		|		|	X	|
 |		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|		|
 |		|	VM Insights	|	X (Preview)	|	X	|		|		|
 |		|	Container Insights	|	X (Preview)	|	X	|		|		|
