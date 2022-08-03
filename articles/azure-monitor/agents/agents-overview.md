@@ -17,7 +17,7 @@ Azure Monitor Agent (AMA) collects monitoring data from the guest operating syst
 
 Here's a short **introduction to Azure Monitor video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
-## Can I deploy the new agent?
+## Can I deploy Azure Monitor Agent?
 
 Deploy Azure Monitor Agent on all new virtual machines to collect data for [supported services and features](#supported-services-and-features).
 
@@ -29,7 +29,7 @@ Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
 - [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
 
-## Data collection
+## Install the agent and configure data collection  
 
 Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), using which you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. The rules are independent of the workspace and the virtual machine, which means you can define a rule once and reuse it across machines and environments. 
 
@@ -64,7 +64,7 @@ The Azure Monitor Agent sends data to Azure Monitor Metrics (preview) or a Log A
 
 ## Supported services and features
 
-The following table shows the current support for the Azure Monitor Agent with Azure Monitor features.
+Azure Monitor Agent currently supports these Azure Monitor features:
 
 |	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
@@ -72,19 +72,12 @@ The following table shows the current support for the Azure Monitor Agent with A
 |	Windows client installer	|	Public preview	|	None	|	[Set up Azure Monitor Agent on Windows client devices](azure-monitor-agent-windows-client.md)	|
 |	[VM insights](../vm/vminsights-overview.md)	|	Private preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
 
-The following table shows the current support for the Azure Monitor Agent with other Azure services.
+Azure Monitor Agent currently supports these Azure services:
 
 |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
 |	:---	|	:---	|	:---	|	:---	|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Private preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Sign-up link](https://aka.ms/AMAgent)	|
 | [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows DNS logs: Private preview</li><li>Linux Syslog CEF: Private preview</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Windows DNS logs](https://aka.ms/AMAgent)</li><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/AMAgent)</li><li>No sign-up needed for Windows Forwarding Event (WEF) and Windows Security Events</li></ul> |
-
-
-
-The following table shows the current support for the Azure Monitor Agent with .
-
-|	Solution	|	Current support	|	Other extensions installed	|	More information	|
-|	:---	|	:---	|	:---	|	:---	|
 |	 [Change Tracking](../../automation/change-tracking/overview.md) (part of Defender)	|	 Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/AMAgent)	|
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (preview) documentation](/azure/update-center/)	|
 |	Connection Monitor	|	Private preview	|	Azure NetworkWatcher extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
