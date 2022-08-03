@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/17/2022
+ms.date: 08/03/2022
 ms.custom: references_regions 
 ---
 
@@ -15,8 +15,8 @@ ms.custom: references_regions
 
 Learn what's new in the service. Bookmark this page to keep up to date with service updates. 
 
-* [**Preview features**](search-api-preview.md) is a list of current features that haven't been approved for production workloads.
-* [**Previous versions**](/previous-versions/azure/search/) is an archive of earlier feature announcements.
+* [**Preview features**](search-api-preview.md) are announced here in "What's New", but you can visit the preview features page if you want to see all preview features listed in one page.
+* [**Previous versions**](/previous-versions/azure/search/) is an archive of feature announcements from 2019 and 2020.
 
 ## June 2022
 
