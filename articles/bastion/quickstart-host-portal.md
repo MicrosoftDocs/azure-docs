@@ -78,7 +78,8 @@ When you create Azure Bastion using default settings, the settings are configure
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment.
-1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**. You can view some of the values that will be used when creating the bastion host for your virtual network. Select **Create Azure Bastion using defaults** to deploy bastion.
+1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**. When the **Bastion** page opens, it checks to see if you have enough available address space to create the AzureBastionSubnet. If you don't, you'll see settings to allow you to add more address space to your VNet to meet this requirement.
+1. On the **Bastion** page, you can view some of the values that will be used when creating the bastion host for your virtual network. Select **Create Azure Bastion using defaults** to deploy bastion using default settings.
 
    :::image type="content" source="./media/quickstart-host-portal/deploy-bastion.png" alt-text="Screenshot of Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion.png":::
 
@@ -88,9 +89,10 @@ When you create Azure Bastion using default settings, the settings are configure
 
 When the Bastion deployment is complete, the screen changes to the **Connect** page.
 
-1. Type the username and password for your virtual machine. Then, select **Connect**.
+1. Type your authentication credentials. Then, select **Connect**.
 
    :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Screenshot shows the Connect using Azure Bastion dialog." lightbox="./media/quickstart-host-portal/connect-vm.png":::
+
 1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
 
    * When you connect, the desktop of the VM may look different than the example screenshot.
@@ -118,7 +120,7 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can can configure more features and work with VM connections.
+In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
 
 > [!div class="nextstepaction"]
 > [VM connections](vm-about.md)
