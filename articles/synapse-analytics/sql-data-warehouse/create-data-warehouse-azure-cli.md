@@ -7,7 +7,8 @@ ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: wiassaf
-ms.custom: azure-synapse, devx-track-azurecli, mode-api
+ms.tool: azure-cli
+ms.custom: azure-synapse, mode-api
 ---
 # Quickstart: Create a Synapse SQL pool with Azure CLI
 
@@ -37,7 +38,7 @@ Use these commands to sign on to Azure and set up a resource group.
    az group create --name myResourceGroup --location WestEurope
    ```
 
-1. Create a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) by using the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command:
+1. Create a [logical SQL server](/azure/azure-sql/database/logical-servers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) by using the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command:
 
    ```azurecli
    az sql server create --resource-group myResourceGroup --name mysqlserver \
@@ -48,7 +49,7 @@ Use these commands to sign on to Azure and set up a resource group.
 
 ## Configure a server-level firewall rule
 
-Create a [server-level firewall rule](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility, to connect to a SQL pool through the SQL pool service firewall.
+Create a [server-level firewall rule](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility, to connect to a SQL pool through the SQL pool service firewall.
 
 Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) command to create a firewall rule:
 

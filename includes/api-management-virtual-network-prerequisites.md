@@ -17,7 +17,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
 
-* **A virtual network and subnet** in the same region and subscription as your API Management instance. The subnet may contain other Azure resources.
+* **A virtual network and subnet** in the same region and subscription as your API Management instance. A dedicated subnet is recommended but not required.
 
 * **A network security group** attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. For specific configuration, see [Configure NSG rules](#configure-nsg-rules), later in this article.
 
@@ -25,7 +25,11 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
-  * When creating a public IP resource, ensure you assign a **DNS name label** to it. The label you choose to use does not matter but a label is required if this resource will be assigned to an API Management service.
+  * When creating a public IP address resource, ensure you assign a **DNS name label** to it. The label you choose to use does not matter but a label is required if this resource will be assigned to an API Management service.
+
+  * For best network performance, it's recommended to use the default **Routing preference**: **Microsoft network**.  
+
+  * When creating a public IP address in a region where you plan to enable [zone redundancy](../articles/availability-zones/migrate-api-mgt.md) for your API Management instance, configure the **Zone-redundant** setting.
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 

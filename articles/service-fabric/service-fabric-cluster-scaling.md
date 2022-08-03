@@ -1,11 +1,14 @@
 ---
 title: Azure Service Fabric cluster scaling 
 description: Learn about scaling Azure Service Fabric clusters in or out and up or down. As application demands change, so can Service Fabric clusters.
-
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: atsenthi
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Scaling Azure Service Fabric clusters
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Clusters can contain potentially thousands of nodes. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes).  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
@@ -67,7 +70,7 @@ Create a new node type with the resources you need.  Update the placement constr
 ### Scaling the primary node type
 Deploy a new primary node type with updated VM SKU, then disable the original primary node type instances one at a time so that the system services migrate to the new scale set. Verify the cluster and new nodes are healthy, then remove the original scale set and node state for the deleted nodes.
 
-If that not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore.
+If that's not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore.
 
 ## Next steps
 * Learn about [application scalability](service-fabric-concepts-scalability.md).

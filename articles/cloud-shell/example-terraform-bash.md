@@ -13,6 +13,7 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
+ms.tool: terraform
 ms.custom: devx-track-terraform
 ---
 

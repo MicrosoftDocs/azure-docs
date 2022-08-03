@@ -1,7 +1,6 @@
 ---
 title: Grant consent on behalf of a single user
 description: Learn how to grant consent on behalf of a single user when user consent is disabled or restricted.
-titleSuffix: Azure AD
 services: active-directory
 author: psignoret
 manager: CelesteDG
@@ -41,7 +40,7 @@ Before you start, record the following details from the Azure portal:
 - The API permissions that are required by the client application. Find out the app ID of the API and the permission IDs or claim values.
 - The username or object ID for the user on whose behalf access will be granted.
 
-For this example, we'll use [Microsoft Graph PowerShell](/graph/powershell/get-started) to grant consent on behalf of a single user. The client application is [Microsoft Graph Explorer](https://aka.ms/ge), and we grant access to the Microsoft Graph API.
+For this example, we'll use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started) to grant consent on behalf of a single user. The client application is [Microsoft Graph Explorer](https://aka.ms/ge), and we grant access to the Microsoft Graph API.
 
 ```powershell
 # The app for which consent is being granted. In this example, we're granting access

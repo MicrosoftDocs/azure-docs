@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/23/2021
+ms.date: 04/15/2022
 ms.author: alkohli
 ---
 
@@ -63,7 +63,11 @@ The failed connection attempts may include background processes, such as retries
 
 **Suggested resolution.** To connect to an SMB share after a share account lockout, do these steps:
 
-1. Verify the SMB credentials for the share. In the local web UI of your device, go to **Connect and copy**, and select **SMB** for the share. You'll see the following dialog box.
+1. If the dashboard status indicates the device is locked, unlock the device from the top command bar and retry the connection.
+
+    :::image type="content" source="media/data-box-troubleshoot-share-access/dashboard-locked.png" alt-text="Screenshot of the dashboard locked status.":::
+
+1. If you are still unable to connect to an SMB share after unlocking your device, verify the SMB credentials for the share. In the local web UI of your device, go to **Connect and copy**, and select **SMB** for the share. You'll see the following dialog box.
 
     ![Screenshot of Access Share And Copy Data screen for an SMB share on a Data Box. Copy icons for the account, username, and password are highlighted.](media/data-box-troubleshoot-share-access/get-share-credentials-01.png)
 

@@ -1,10 +1,14 @@
 ---
 title: Understand guest configuration assignment resources
 description: Guest configuration creates extension resources named guest configuration assignments that map configurations to machines.
-ms.date: 08/15/2021
+author: timwarner-msft
+ms.date: 07/15/2022
 ms.topic: conceptual
+ms.author: timwarner
 ---
 # Understand guest configuration assignment resources
+
+[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
 
 When an Azure Policy is assigned, if it's in the category "Guest Configuration"
 there's metadata included to describe a guest assignment.
@@ -41,6 +45,8 @@ report compliance status. For more information, see
 When an Azure Policy assignment is deleted, if a guest configuration assignment
 was created by the policy, the guest configuration assignment is also deleted.
 
+When an Azure Policy assignment is deleted from an initiative, if a guest configuration assignment was created by the policy, you will need to manually delete the corresponding guest configuration assignment. This can be done by navigating to the guest assignments page on Azure portal and deleting the assignment there.
+
 ## Manually creating guest configuration assignments
 
 Guest assignment resources in Azure Resource Manager can be created by Azure
@@ -68,7 +74,7 @@ An example deployment template:
           "configurationParameter": {}
         }
       }
-    }    
+    }
   ]
 }
 ```

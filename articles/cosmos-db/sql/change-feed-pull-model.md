@@ -1,14 +1,15 @@
 ---
 title: Change feed pull model
 description: Learn how to use the Azure Cosmos DB change feed pull model to read the change feed and the differences between the pull model and Change Feed Processor
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/07/2022
-ms.reviewer: sngun
+ms.custom: devx-track-java
 ---
 
 # Change feed pull model in Azure Cosmos DB
@@ -46,6 +47,8 @@ Here's some key differences between the change feed processor and pull model:
 > Unlike when reading using the change feed processor, you must explicitly handle cases where there are no new changes. 
 
 ## Consuming an entire container's changes
+
+### [.NET](#tab/dotnet)
 
 You can create a `FeedIterator` to process the change feed using the pull model. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`.
 
@@ -221,6 +224,56 @@ FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIte
 ```
 
 As long as the Cosmos container still exists, a FeedIterator's continuation token never expires.
+
+### [Java](#tab/java)
+
+You can create a `Iterator<FeedResponse<JsonNode>> responseIterator` to process the change feed using the pull model. When creating `CosmosChangeFeedRequestOptions` you must specify where to start reading the change feed from. You will also pass the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed. If you specify `FeedRange.forFullRange()`, you can process an entire container's change feed at your own pace. You can optionally specify a value in `byPage()`. When set, this property sets the maximum number of items received per page. Below is an example for obtaining a `responseIterator`.
+
+>[!NOTE]
+> All of the below code snippets are taken from a sample in GitHub, which you can find [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java).
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=FeedResponseIterator)]
+
+We can then iterate over the results. Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `responseIterator.hasNext()` is always true. Below is an example, which reads all changes starting from the beginning. Each iteration persists a continuation token after processing all events, and will pick up from the last processed point in the change feed. This is handled using `createForProcessingFromContinuation`:.
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
+
+
+## Consuming a partition key's changes
+
+In some cases, you may only want to process a specific partition key's changes. You can can process the changes for a specific partition key in the same way that you can for an entire container. Here's an example:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=PartitionKeyProcessing)]
+
+
+## Using FeedRange for parallelization
+
+In the [change feed processor](change-feed-processor.md), work is automatically spread across multiple consumers. In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a range of partition key values.
+
+Here's an example showing how to obtain a list of ranges for your container:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=GetFeedRanges)]
+
+When you obtain of list of FeedRanges for your container, you'll get one `FeedRange` per [physical partition](../partitioning-overview.md#physical-partitions).
+
+Using a `FeedRange`, you can then parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to process changes for the entire container or a single partition key, you can use FeedRanges to process the change feed in parallel.
+
+In the case where you want to use FeedRanges, you need to have an orchestrator process that obtains FeedRanges and distributes them to those machines. This distribution could be:
+
+* Using `FeedRange.toString()` and distributing this string value. 
+* If the distribution is in-process, passing the `FeedRange` object reference.
+
+Here's a sample that shows how to read from the beginning of the container's change feed using two hypothetical separate machines that are reading in parallel:
+
+Machine 1:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine1)]
+
+Machine 2:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)]
+
+---
 
 ## Next steps
 

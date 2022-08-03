@@ -9,11 +9,12 @@ ms.author: larryfr
 author: blackmist
 ms.date: 01/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml
+ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 ---
 
 # Monitor and collect data from ML web service endpoints
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI). Use [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to collect the following data from an endpoint:
 * Output data
@@ -154,7 +155,7 @@ You can also enable Azure Application Insights from Azure Machine Learning studi
 
 ### Query logs for deployed models
 
-Logs of real-time endpoints are customer data. You can use the `get_logs()` function to retrieve logs from a previously deployed web service. The logs may contain detailed information about any errors that occurred during deployment.
+Logs of online endpoints are customer data. You can use the `get_logs()` function to retrieve logs from a previously deployed web service. The logs may contain detailed information about any errors that occurred during deployment.
 
 ```python
 from azureml.core import Workspace
@@ -222,8 +223,8 @@ Use Application Insights' [continuous export](../azure-monitor/app/export-teleme
 In this article, you learned how to enable logging and view logs for web service endpoints. Try these articles for next steps:
 
 
-* [How to deploy a model to an AKS cluster](./how-to-deploy-azure-kubernetes-service.md)
+* [How to deploy a model to an AKS cluster](./v1/how-to-deploy-azure-kubernetes-service.md)
 
-* [How to deploy a model to Azure Container Instances](./how-to-deploy-azure-container-instance.md)
+* [How to deploy a model to Azure Container Instances](./v1/how-to-deploy-azure-container-instance.md)
 
 * [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](./concept-model-management-and-deployment.md) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process.

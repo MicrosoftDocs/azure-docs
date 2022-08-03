@@ -11,6 +11,8 @@ ms.date: 01/14/2022
 
 # Private access in Azure Database for PostgreSQL Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 [Private access](concepts-private-access.md) allows resources in an Azure
 virtual network to connect securely and privately to nodes in a Hyperscale
 (Citus) server group. This how-to assumes you've already created a virtual

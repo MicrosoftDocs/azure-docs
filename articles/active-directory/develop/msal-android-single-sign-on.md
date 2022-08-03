@@ -1,6 +1,5 @@
 ---
-title: How to enable cross-app SSO on Android using MSAL | Azure
-titleSuffix: Microsoft identity platform
+title: How to enable cross-app SSO on Android using MSAL
 description: How to use the Microsoft Authentication Library (MSAL) for Android to enable single sign-on across your applications.
 services: active-directory
 author: mmacy
@@ -47,7 +46,7 @@ There are two ways for applications using MSAL for Android to achieve SSO:
 We recommend that you use one of Microsoft's authentication brokers to participate in device-wide single sign-on (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
 - Device single sign-on
-- Conditional access for:
+- Conditional Access for:
   - Intune App Protection
   - Device Registration (Workplace Join)
   - Mobile Device Management

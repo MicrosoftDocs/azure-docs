@@ -55,6 +55,9 @@ You can access the following packet core dashboards:
 
 - The **Device and Session Statistics dashboard** provides information about the device and session procedures being processed by the packet core instance.
 
+    > [!IMPORTANT] 
+    > The **Device and Session Statistics dashboard** only displays metrics for packet core instances that support 5G UEs. It does not currently display any metrics related to 4G activity. 
+
     :::image type="content" source="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png" alt-text="Screenshot of the Device and Session Statistics dashboard. It shows panels for device authentication, device registration, device context, and P D U session procedures." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
 
 - The **Uplink and Downlink Statistics dashboard** provides detailed statistics on the user plane traffic being handled by the packet core instance. 

@@ -3,7 +3,7 @@ title: Transform data inside Azure IoT Central | Microsoft Docs
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data in an IoT Central before exporting it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/28/2021
+ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -313,7 +313,7 @@ JSON output:
 }
 ```
 
-To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 ### Scenario 2: Breaking apart a telemetry array
 
@@ -546,7 +546,7 @@ JSON output:
 
 ### Scenario 4: Export data to Azure Data Explorer and visualize it in Power BI
 
-In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 This scenario uses an Azure Data Explorer table with the following schema:
 
@@ -730,7 +730,7 @@ JSON output:
 The output data is exported to your Azure Data Explorer cluster. To visualize the exported data in Power BI, complete the following steps:
 
 1. Install the Power BI application. You can download the desktop Power BI application from [Go from data to insight to action with Power BI Desktop](https://powerbi.microsoft.com/desktop/).
-1. Download the Power BI desktop [IoT Central ADX Connector.pbit](https://github.com/Azure-Samples/iot-central-docs-samples/raw/master/azure-data-explorer-power-bi/IoT%20Central%20ADX%20Connector.pbit) file from GitHub.
+1. Download the Power BI desktop [IoT Central ADX Connector.pbit](https://github.com/Azure-Samples/iot-central-docs-samples/raw/main/azure-data-explorer-power-bi/IoT%20Central%20ADX%20Connector.pbit) file from GitHub.
 1. Use the Power BI Desktop app to open the *IoT Central ADX Connector.pbit* file you downloaded in the previous step. When prompted, enter the Azure Data Explorer cluster, database, and table information you made a note of previously.
 
 Now you can visualize the data in Power BI:

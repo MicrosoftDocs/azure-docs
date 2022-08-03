@@ -1,11 +1,11 @@
 ---
 title: StorSimple 8000 series migration to Azure File Sync
 description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure File Sync.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/22/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 

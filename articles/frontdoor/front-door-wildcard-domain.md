@@ -34,7 +34,7 @@ You can add a wildcard domain following guidance in [add a custom domain](standa
 > * Azure DNS supports wildcard records.
 > * Cache purge for wildcard domain is not supported, you have to specify a subdomain for cache purge. 
 
-You can add as many single-level subdomains of the wildcard. For example, for the wildcard domain *.contoso.com, you can add subdomains in the form of image.contosto.com, cart.contoso.com, etc. Subdomains like www.image.contoso.com aren't a single-level subdomain of *.contoso.com. This functionality might be required for: 
+You can add as many single-level subdomains of the wildcard as you would like. For example, for the wildcard domain *.contoso.com, you can add subdomains in the form of image.contosto.com, cart.contoso.com, etc. Subdomains like www.image.contoso.com aren't a single-level subdomain of *.contoso.com. This functionality might be required for: 
 
 * Defining a different route for a subdomain than the rest of the domains (from the wildcard domain).  
 

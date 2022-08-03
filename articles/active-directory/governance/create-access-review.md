@@ -2,16 +2,16 @@
 title: Create an access review of groups and applications - Azure AD
 description: Learn how to create an access review of group members or application access in Azure Active Directory. 
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: rkarlin
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2022
-ms.author: ajburnle
+ms.date: 07/20/2022
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access.
 
-Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User administrator enables the setting via the **Access Reviews Settings** pane (preview). For more information about these scenarios, see [Manage access reviews](manage-access-review.md).
+Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User administrator enables the setting via the **Access Reviews Settings** pane. For more information about these scenarios, see [Manage access reviews](manage-access-review.md).
 
 Watch a short video that talks about enabling access reviews.
 
@@ -33,9 +33,11 @@ This article describes how to create one or more access reviews for group member
 - Azure AD Premium P2.
 - Global administrator, User administrator, or Identity Governance administrator to create reviews on groups or applications.
 - Global administrators and Privileged Role administrators can create reviews on role-assignable groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
-- (Preview) Microsoft 365 and Security group owner.
+- Microsoft 365 and Security group owner.
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
+
+If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
 
 ## Create a single-stage access review
 
@@ -63,22 +65,23 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
-   > [!NOTE]
-   > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
+> [!NOTE]
+> Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
-1. Now you can select a scope for the review. Your options are:
-
+7. Now you can select a scope for the review. Your options are:
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
+1. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group. In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
+
 1. Select **Next: Reviews**.
 
 ### Next: Reviews
  
-1. You can create a single-stage or multi-stage review (preview). For a single stage review continue here. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
+1. You can create a single-stage or multi-stage review. For a single stage review continue here. To create a multi-stage access review, follow the steps in [Create a multi-stage access review](#create-a-multi-stage-access-review)
 
 1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to make decisions in the access reviews. You can choose from:
 
@@ -128,12 +131,14 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Use the **At end of review, send notification to** option to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, choose **Select User(s) or Group(s)** and add another user or group for which you want to receive the status of completion.
 
-1. In the **Enable review decision helpers** section, choose whether you want your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
+1. In the **Enable review decision helpers** section choose whether you want your reviewer to receive recommendations during the review process:
+    1. If you select **No sign-in within 30 days**, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
+    1. If you select **Peer outlier**, approvers will be recommended to keep or deny access to users based on the access the users' peers have. If a user doesn't have the same access as their peers, the system will recommend that the reviewer deny them access.
 
    > [!NOTE]
    > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
 
-   ![Screenshot that shows the Enable reviewer decision helpers option.](./media/create-access-review/helpers.png)
+   ![Screenshot that shows the Enable reviewer decision helpers options.](./media/create-access-review/helpers.png)
 
 1. In the **Advanced settings** section, you can choose the following:
 
@@ -154,7 +159,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Review the information and select **Create**.
 
-## Create a multi-stage access review (preview)
+## Create a multi-stage access review
 
 A multi-stage review allows the administrator to define two or three sets of reviewers to complete a review one after another. In a single-stage review, all reviewers make a decision within the same period and the last reviewer to make a decision "wins". In a multi-stage review, two or three independent sets of reviewers make a decision within their own stage, and the next stage doesn't happen until a decision is made in the previous stage. Multi-stage reviews can be used to reduce the burden on later-stage reviewers, allow for escalation of reviewers, or have independent groups of reviewers agree on decisions.
 > [!WARNING]
@@ -162,7 +167,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
 
-1. Click the checkbox next to **(Preview) Multi-stage review**.
+1. Click the checkbox next to **Multi-stage review**.
 
 1. Under **First stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
 
@@ -199,7 +204,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 1. Continue on to the **settings tab** and finish the rest of the settings and create the review. Follow the instructions in [Next: Settings](#next-settings).
 
-## Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)
+## Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews
 
 You can create access reviews for B2B direct connect users via shared channels in Microsoft Teams. As you collaborate externally, you can use Azure AD access reviews to make sure external access to shared channels stays current. To learn more about Teams Shared Channels and B2B direct connect users, read the [B2B direct connect](../external-identities/b2b-direct-connect-overview.md) article.
 
@@ -213,9 +218,9 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 - User administrator 
 - Identity Governance Administrator
 
-Ue the following instructions to create an access review on a team with shared channels:
+Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
+1. Sign in to the Azure portal as a Global Admin, User Admin or Identity Governance Admin.
   
 1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
@@ -246,7 +251,7 @@ Ue the following instructions to create an access review on a team with shared c
 
 1. Go on to the **Settings** tab and configure additional settings. Then go to the **Review and Create** tab to start your access review. For more detailed information about creating a review and configuration settings, see our [Create a single-stage access review](#create-a-single-stage-access-review).
 
-## Allow group owners to create and manage access reviews of their groups (preview)
+## Allow group owners to create and manage access reviews of their groups
 
 The prerequisite role is a Global or User administrator.
 
@@ -254,7 +259,7 @@ The prerequisite role is a Global or User administrator.
 
 1. On the menu on the left, under **Access reviews**, select **Settings**.
 
-1. On the **Delegate who can create and manage access reviews** page, set **(Preview) Group owners can create and manage access reviews for groups they own** to **Yes**.
+1. On the **Delegate who can create and manage access reviews** page, set **Group owners can create and manage access reviews for groups they own** to **Yes**.
 
     ![Screenshot that shows enabling group owners to review.](./media/create-access-review/group-owners-review-access.png)
 

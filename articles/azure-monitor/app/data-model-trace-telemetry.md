@@ -3,7 +3,6 @@ title: Azure Application Insights Data Model - Trace Telemetry
 description: Application Insights data model for trace telemetry
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.reviewer: sergkanz
 ---
 
 # Trace telemetry: Application Insights data model

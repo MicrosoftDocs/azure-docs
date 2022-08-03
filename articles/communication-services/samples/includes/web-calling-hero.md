@@ -45,7 +45,7 @@ Components of the main calling screen:
 - **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
 > [!NOTE]
-> Based on limitations on the Web Calling SDK, only one remote video stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
+> Based on limitations on the Web Calling SDK, only 4 video streams and 1 screen sharing stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -64,9 +64,21 @@ Below you'll find more information on prerequisites and steps to set up the samp
    git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
    ```
    
-1. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
+1. Get the `Connection String` from the Azure portal or by using the Azure CLI. 
+
+    ```azurecli-interactive
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
+    ```
+
+   For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
 1. Once you get the `Connection String`, add the connection string to the **samples/Server/appsetting.json** file. Input your connection string in the variable: `ResourceConnectionString`.
-1. Get the `Endpoint string` from the Azure portal. For more information on Endpoint strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
+1. Get the `Endpoint string` from the Azure portal or by using the Azure CLI. 
+
+    ```azurecli-interactive
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
+    ```
+
+   For more information on Endpoint strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
 1. Once you get the `Endpoint String`, add the endpoint string to the **samples/Server/appsetting.json** file. Input your endpoint string in the variable `EndpointUrl`
 
 ## Local run
@@ -118,3 +130,4 @@ For more information, see the following articles:
 - [Redux](https://redux.js.org/) - Client-side state management
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework for building web applications

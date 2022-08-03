@@ -214,7 +214,7 @@ az functionapp create \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
     --runtime java \
-    --functions-version 2
+    --functions-version 3
 ```
 
 # [Cmd](#tab/cmd)
@@ -230,7 +230,7 @@ az functionapp create ^
     --storage-account %STORAGE_ACCOUNT% ^
     --consumption-plan-location %LOCATION% ^
     --runtime java ^
-    --functions-version 2
+    --functions-version 3
 ```
 
 ---

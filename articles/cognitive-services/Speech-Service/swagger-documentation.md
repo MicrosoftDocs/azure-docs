@@ -41,12 +41,7 @@ You'll need to set Swagger to the region of your Speech resource. You can confir
 
 You can use the Python library that you generated with the [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
 
-## Reference documents
-
-* [Speech-to-text REST API v3.0](rest-speech-to-text.md)
-* [Text-to-speech REST API](rest-text-to-speech.md)
-
 ## Next steps
 
 * [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Speech-to-text REST API v3.0](rest-speech-to-text.md)

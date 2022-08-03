@@ -1,19 +1,15 @@
 ---
 title: Manage sensors from the on-premises management console 
 description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
-ms.date: 03/20/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
 # Manage sensors from the management console
 
-This article describes how to manage sensors from the management console, including:
+This article describes how to manage OT sensors from an on-premises management console, such as pushing system settings to individual sensors, or enabling or disabling specific engines on your sensors.
 
-- Push system settings to sensors
-
-- Enable and disable engines on sensors
-
-- Update sensor versions
+For more information, see [Next steps](#next-steps).
 
 ## Push configurations
 
@@ -57,31 +53,9 @@ You can define the following sensor system settings from the management console:
 
 1. Select **Save**.
 
-## Update sensor versions
 
-You can update several sensors simultaneously from the on-premises management console.
 
-If you're upgrading an on-premises management console and managed sensors, first update the management console, and then update the sensors. The sensor update process won't succeed if you don't update the on-premises management console first.
-
-**To update several sensors**:
-
-1. Verify that you've already updated the on-premises management console to the version that you're updating the sensors. For more information, see [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
-
-1. On the Azure portal, go to **Defender for IoT** > **Updates**. Under **Sensors**, select **Download** and save the file.
-
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/update-screen.png" alt-text="Screenshot of the Updates page.":::
-
-1. Sign in to the on-premises management console, and select **System Settings**.
-
-1. Under **Sensor Engine Configuration**, select any sensor you want to update, and then select **Automatic Version Updates** > **Save Changes**. For example:
-
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
-
-1. On the right, select **Version** update, and then browse to and select the update file you'd downloaded from the Azure portal.
-
-Monitor the update status of each sensor connected to your on-premises management console in the **Site Management** page. For any update that failed, reattempt the update or open a support ticket for assistance.
-
-## Update threat intelligence packages 
+## Update threat intelligence packages
 
 The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content. 
 
@@ -261,36 +235,63 @@ To restore by using the CLI:
 
 1. In Defender for IoT, make a directory for the backups: 
 
-   `sudo mkdir /<backup_folder_name_on_server>` 
-
-   `sudo chmod 777 /<backup_folder_name_on_server>/` 
+    ```bash
+    sudo mkdir /<backup_folder_name_on_server> 
+    
+    sudo chmod 777 /<backup_folder_name_on_server>/
+    ``` 
 
 1. Edit fstab:  
 
-   `sudo nano /etc/fstab` 
+    ```bash
+    sudo nano /etc/fstab
 
-   `add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0` 
+    add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0
+    ```
+   
 
 1. Edit or create credentials to share. These are the credentials for the SMB server: 
 
-   `sudo nano /etc/samba/user` 
+    ```bash
+    sudo nano /etc/samba/user
+    ```
+    
 
 1. Add:  
 
-   `username=<user name>` 
+    ```bash
+    username=<user name>
 
-   `password=<password>` 
+    password=<password>
+    ```
+    
 
 1. Mount the directory: 
 
-   `sudo mount -a` 
+    ```bash
+    sudo mount -a
+    ```
+    
 
 1. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
 
-   `sudo nano /var/cyberx/properties/backup.properties` 
+    ```bash
+    sudo nano /var/cyberx/properties/backup.properties 
+    ```
+   
 
 1. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
 
 ## Next steps
 
-For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
+For more information, see:
+
+- [Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
+- [Connect your OT sensors to the cloud](connect-sensors.md)
+- [Track sensor activity](how-to-track-sensor-activity.md)
+- [Update OT system software](update-ot-software.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+

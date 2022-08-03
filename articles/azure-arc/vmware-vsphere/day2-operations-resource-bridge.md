@@ -68,10 +68,10 @@ There are two different sets of credentials stored on the Arc resource bridge. B
 - **Account for Arc resource bridge**. This account is used for deploying the Arc resource bridge VM and will be used for upgrade.
 - **Account for VMware cluster extension**. This account is used to discover inventory and perform all VM operations through Azure Arc-enabled VMware vSphere
 
-To update the credentials of the account for Arc resource bridge, run the following command from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
+To update the credentials of the account for Arc resource bridge, use the Azure CLI command [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredential#az-arcappliance-update-infracredentials-vmware). Run the command from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
 
 ```azurecli
-az arcappliance setcredential vmware --kubeconfig <kubeconfig>
+az arcappliance update-infracredentials vmware --kubeconfig <kubeconfig>
 ```
 
 To update the credentials used by the VMware cluster extension on the resource bridge. This command can be run from anywhere with `connectedvmware` CLI extension installed.
@@ -82,7 +82,7 @@ az connectedvmware vcenter connect --custom-location <name of the custom locatio
 
 ## Collecting logs from the Arc resource bridge
 
-For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](https://docs.microsoft.com/cli/azure/arcappliance/logs?#az-arcappliance-logs-vmware) command.
+For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](/cli/azure/arcappliance/logs#az-arcappliance-logs-vmware) command.
 
 The `az arcappliance log` command must be run from a workstation that can communicate with the Arc resource bridge either via the cluster configuration IP address or the IP address of the Arc resource bridge VM.
 

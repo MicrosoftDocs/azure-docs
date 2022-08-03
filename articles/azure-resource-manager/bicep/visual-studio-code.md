@@ -2,12 +2,12 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 04/13/2022
+ms.date: 06/30/2022
 ---
 
 # Create Bicep files by using Visual Studio Code
 
-This article shows you how to use Visual Studio Code to create Bicep files
+This article shows you how to use Visual Studio Code to create Bicep files.
 
 ## Install VS Code
 
@@ -17,15 +17,42 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 Visual Studio Code comes with several Bicep commands.
 
-Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use the key combination **[CTRL]+[SHIFT]+P** to bring up the command palette.
+Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use the key combination **[CTRL]+[SHIFT]+P** to bring up the command palette. Type **Bicep** to list the Bicep commands.
 
-![Visual Studio Code Bicep commands](./media/visual-studio-code/visual-studio-code-bicep-commands.png)
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-commands.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the command palette.":::
 
-### Build
+These commands include:
+
+- [Build Bicep File](#build-bicep-file)
+- [Create Bicep Configuration File](#create-bicep-configuration-file)
+- [Deploy Bicep File](#deploy-bicep-file)
+- [Generate Parameters File](#generate-parameters-file)
+- [Insert Resource](#insert-resource)
+- [Open Bicep Visualizer](#open-bicep-visualizer)
+- [Open Bicep Visualizer to the side](#open-bicep-visualizer)
+- [Restore Bicep File (Force)](#restore-bicep-file)
+
+These commands are also shown in the context menu when you right-click a Bicep file:
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu.":::
+
+### Build Bicep file
 
 The `build` command converts a Bicep file to an Azure Resource Manager template (ARM template). The new JSON template is stored in the same folder with the same file name.  If a file with the same file name exists, it overwrites the old file.  For more information, see [Bicep CLI commands](./bicep-cli.md#bicep-cli-commands).
 
-### Insert Resource
+### Create Bicep configuration file
+
+The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used to customize your Bicep development experience. You can add `bicepconfig.json` in multiple directories. The configuration file closest to the bicep file in the directory hierarchy is used. When you select this command, the extension opens a dialog for you to select a folder. The default folder is where you store the Bicep file. If a `bicepconfig.json` file already exists in the folder, you have the option to overwrite the existing file.
+
+### Deploy Bicep file
+
+You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette or from the context menu. The extension prompts you to sign in Azure, select subscription, create/select resource group, and enter parameter values.
+
+### Generate parameters file
+
+This command creates a parameter file in the same folder as the Bicep file. The new parameter file name is `<bicep-file-name>.parameters.json`.
+
+### Insert resource
 
 The `insert resource` command adds a resource declaration in the Bicep file by providing the resource ID of an existing resource. After you select **Insert Resource**, enter the resource ID in the command palette. It takes a few moments to insert the resource.
 
@@ -49,11 +76,23 @@ Similar to exporting templates, the process tries to create a usable resource. H
 
 For more information, see [Decompiling ARM template JSON to Bicep](./decompile.md).
 
-### Open Visualizer
+### Open Bicep visualizer
 
 The visualizer shows the resources defined in the Bicep file with the resource dependency information. The diagram is the visualization of a [Linux virtual machine Bicep file](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-simple-linux/main.bicep).
 
 [![Visual Studio Code Bicep visualizer](./media/visual-studio-code/visual-studio-code-bicep-visualizer.png)](./media/visual-studio-code/visual-studio-code-bicep-visualizer-expanded.png#lightbox)
+
+You have the option to open the visualizer side-by-side with the Bicep file.
+
+### Restore Bicep file
+
+When your Bicep file uses modules that are published to a registry, the restore command gets copies of all the required modules from the registry. It stores those copies in a local cache. For more information, see [restore](./bicep-cli.md#restore).
+
+## View type document
+
+From Visual Studio Code, you can easily open the template reference for the resource type you are working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
 
 ## Next steps
 

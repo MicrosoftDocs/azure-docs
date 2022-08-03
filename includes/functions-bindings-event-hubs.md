@@ -29,11 +29,11 @@ The functionality of the extension varies depending on the extension version:
 
 # [Extension v5.x+](#tab/extensionv5/in-process)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)] 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version uses the new newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
+This version uses the newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
 
-This extension version is available by installing the [NuGet package], version 5.x
+This extension version is available by installing the [NuGet package], version 5.x.
 
 # [Extension v3.x+](#tab/extensionv3/in-process)
 
@@ -47,7 +47,7 @@ Version 1.x of the Functions runtime doesn't require an extension.
 
 # [Extension v5.x+](#tab/extensionv5/isolated-process)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)] 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 5.x.
 
@@ -57,13 +57,13 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Version 1.x of the Functions runtime doesn't supported running in an isolated process. 
+Version 1.x of the Functions runtime doesn't support running in an isolated process. 
 
 # [Extension v5.x+](#tab/extensionv5/csharp-script)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)]  
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version uses the new newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
+This version uses the newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 3.x.
 
@@ -89,19 +89,11 @@ The Event Hubs extension is part of an [extension bundle], which is specified in
 
 # [Bundle v3.x](#tab/extensionv5)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)] 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
 You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
-  }
-}
-```
+[!INCLUDE [functions-extension-bundles-json-v3](./functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
 
@@ -143,8 +135,8 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
                 "mode" : "exponential",
                 "tryTimeout" : "00:01:00",
                 "delay" : "00:00:00.80",
-                "maxDelay" : "00:01:00",
-                "maxRetries" : 3
+                "maximumDelay" : "00:01:00",
+                "maximumRetries" : 3
             }
         }
     }
@@ -164,8 +156,8 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 | clientRetryOptions/mode | exponential | The approach to use for calculating retry delays. Exponential mode will retry attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The fixed mode will retry attempts at fixed intervals with each delay having a consistent duration. Available options: `exponential`, `fixed`|
 | clientRetryOptions/tryTimeout | 00:01:00 | The maximum duration to wait for an Event Hubs operation to complete, per attempt.|
 | clientRetryOptions/delay | 00:00:00.80 | The delay or back-off factor to apply between retry attempts.|
-| clientRetryOptions/maxDelay | 00:00:01 | The maximum delay to allow between retry attempts. |
-| clientRetryOptions/maxRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
+| clientRetryOptions/maximumDelay | 00:00:01 | The maximum delay to allow between retry attempts. |
+| clientRetryOptions/maximumRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
 
 For a reference of host.json in Azure Functions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
 

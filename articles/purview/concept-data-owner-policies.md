@@ -1,6 +1,6 @@
 ---
-title: Azure Purview data owner policies concepts
-description: Understand Azure Purview data owner policies
+title: Microsoft Purview data owner policies concepts
+description: Understand Microsoft Purview data owner policies
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 03/20/2022
 ---
 
-# Concepts for Azure Purview data owner policies
+# Concepts for Microsoft Purview data owner policies
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This article discusses concepts related to managing access to data sources in your data estate from within Azure Purview Studio.
+This article discusses concepts related to managing access to data sources in your data estate from within the Microsoft Purview governance portal.
 
 > [!Note]
-> This capability is different from access control for Azure Purview itself, which is described in [Access control in Azure Purview](catalog-permissions.md).
+> This capability is different from access control for Microsoft Purview itself, which is described in [Access control in Microsoft Purview](catalog-permissions.md).
 
 ## Overview
 
-Access policies in Azure Purview enable you to manage access to different data systems across your entire data estate. For example:
+Access policies in Microsoft Purview enable you to manage access to different data systems across your entire data estate. For example:
 
-A user needs read access to an Azure Storage account that has been registered in Azure Purview. You can grant this access directly in Azure Purview by creating a data access policy through the **Policy management** app in Azure Purview Studio.
+A user needs read access to an Azure Storage account that has been registered in Microsoft Purview. You can grant this access directly in Microsoft Purview by creating a data access policy through the **Policy management** app in the Microsoft Purview governance portal.
 
 Data access policies can be enforced through Purview on data systems that have been registered for policy.
 
-## Azure Purview policy concepts
+## Microsoft Purview policy concepts
 
-### Azure Purview policy
+### Microsoft Purview policy
 
 A **policy** is a named collection of policy statements. When a policy is published to one or more data systems under Purview’s governance, it's then enforced by them. A policy definition includes a policy name, description, and a list of one or more policy statements.
 
@@ -75,7 +75,7 @@ The data resource specified in a policy statement is hierarchical by default. Th
 
 ### Policy combining algorithm 
 
-Azure Purview can have different policy statements that refer to the same data asset. When evaluating a decision for data access, Azure Purview combines all the applicable policies and provides a consolidated decision. The combining strategy picks the most restrictive policy.
+Microsoft Purview can have different policy statements that refer to the same data asset. When evaluating a decision for data access, Microsoft Purview combines all the applicable policies and provides a consolidated decision. The combining strategy picks the most restrictive policy.
 For example, let’s assume two different policies on an Azure Storage container *FinData* as follows,
 
 Policy 1 - *Allow Read on Data Asset /subscription/…./containers/FinData
@@ -85,19 +85,19 @@ Policy 2 - *Deny Read on Data Asset /subscription/…./containers/FinData
 To group Finance-contractors*
 
 Then let’s assume that user ‘user1’, who is part of two groups:
-*Finance-analyst* and *Finance-contractors*, executes a call to blob read API. Since both policies will be applicable, Azure Purview will choose the most restrictive one, which is *Deny* of *Read*. Thus, the access request will be denied.
+*Finance-analyst* and *Finance-contractors*, executes a call to blob read API. Since both policies will be applicable, Microsoft Purview will choose the most restrictive one, which is *Deny* of *Read*. Thus, the access request will be denied.
 
 > [!Note]
 > Currently, the only supported effect is **Allow**.
 
 ## Policy publishing
 
-A newly created policy exists in the draft mode state, only visible in Azure Purview. The act of publishing initiates enforcement of a policy in the specified data systems. It's an asynchronous action that can take between 5 minutes and 2 hours to be effective, depending on the enforcement code in the underlying data sources. For more information, consult the tutorials related to each data source
+A newly created policy exists in the draft mode state, only visible in Microsoft Purview. The act of publishing initiates enforcement of a policy in the specified data systems. It's an asynchronous action that can take between 5 minutes and 2 hours to be effective, depending on the enforcement code in the underlying data sources. For more information, consult the tutorials related to each data source
 
 A policy published to a data source could contain references to an asset belonging to a different data source. Such references will be ignored since the asset in question does not exist in the data source where the policy is applied.
 
 ## Next steps
-Check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage:
+Check the tutorials on how to create policies in Microsoft Purview that work on specific data systems such as Azure Storage:
 
 * [Access provisioning by data owner to Azure Storage datasets](how-to-data-owner-policies-storage.md)
-* [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)

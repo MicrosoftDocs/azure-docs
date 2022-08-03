@@ -60,7 +60,7 @@ For more information on creating groups in Azure Active Directory using the Azur
 
 1. Local CLI only: sign in to Azure using `az login`:
 
-    ```bash
+    ```azurecli
     az login
     ```
 

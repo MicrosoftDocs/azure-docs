@@ -149,6 +149,21 @@
         "source_path_from_root": "/articles/purview/tutorial-data-owner-policies-resource-group.md",
         "redirect_url": "/azure/purview/how-to-data-owner-policies-resource-group",
         "redirect_document_id": true
-      }
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-enable-data-use-governance.md",
+        "redirect_url": "/azure/purview/how-to-enable-data-use-management",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/azure-purview-connector-overview.md",
+        "redirect_url": "/azure/purview/microsoft-purview-connector-overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/register-scan-azure-sql-database-managed-instance.md",
+        "redirect_url": "/azure/purview/register-scan-azure-sql-managed-instance",
+        "redirect_document_id": true
+      }     
 ]
 }

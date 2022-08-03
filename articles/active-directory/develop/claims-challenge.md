@@ -1,6 +1,5 @@
 ---
 title: Claims challenges, claims requests, and client capabilities
-titleSuffix: Microsoft identity platform
 description: Explanation of claims challenges, claims requests, and client capabilities in the Microsoft identity platform.
 services: active-directory
 author: knicholasa

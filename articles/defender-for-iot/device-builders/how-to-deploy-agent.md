@@ -7,11 +7,6 @@ ms.date: 03/28/2022
 
 # Select and deploy a security agent on your IoT device
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Select and deploy a security agent on your IoT device](how-to-deploy-agent.md).
->
-
-
 Defender for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
 To learn more, see [Security agent reference architecture](security-agent-architecture.md).
 

@@ -51,7 +51,7 @@ sections:
       - question: |
           What is a customer billing account ID and where can I find it for my customer?
         answer: |
-          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal under Cost Management + Billing > Settings > Properties. The customer must be an owner or contributor on the billing account to access this information. If a customer doesn't have a billing account, they can create one by signing up on Azure.com. See [Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts).
+          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal under Cost Management + Billing > Settings > Properties. The customer must be an owner or contributor on the billing account to access this information. If a customer doesn't have a billing account, they can create one by signing up on Azure.com. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
 
           Applying the private offer at the Billing Account ID level means that if new subscriptions are added to the customer's Azure plan, the private offer will automatically apply to those subscriptions also and no edits need to be made to the private offer.
 
@@ -157,9 +157,11 @@ sections:
       - question: |
           My customer accepted the private offer. What's next?
         answer: |
-          They can go to the Azure portal to subscribe to the offer using any Azure Subscription associated with the billing account. They must use an Azure subscription associated with the configured billing account to get the private price. If the private offer includes PAYG offers (Virtual Machines) and was extended to an existing customer, the customer will be charged using the private price as soon as the private offer is accepted.
+          If the private offer is due to begin on the Accepted date, the customer can go to the Azure portal to subscribe to the offer using any Azure Subscription associated with the billing account. They must use an Azure subscription associated with the configured billing account to get the private price. If the private offer includes PAYG offers (Virtual Machines) and was extended to an existing customer, the customer will be charged using the private price as soon as the private offer is accepted.
 
-          For a private offer that includes SaaS, the customer must subscribe within 30 days of accepting the private offer.
+          For a private offer that includes SaaS, the customer must subscribe to the software as a service (SaaS) product first and then configure the product within 30 days of subscribing to the product.
+
+          If the ISV has configured the private offer to begin at a future date, the customer can accept the private offer before the Accept by date, but should not subscribe to or deploy the product until after the Start date set for the private offer.
 
       - question: |
           My customer accepted the private offer, but the private price is still not reflected in the marketplace products page.
@@ -169,9 +171,9 @@ sections:
       - question: |
           My customer accepted the private offer. When will they be billed?
         answer: |
-          Accepting a private offer won't initiate billing. The customer must also activate their subscription in the Azure portal before billing will begin.
+          Accepting a private offer doesn't initiate billing. Before billing begins, the customer must accept the private offer and then subscribe to the software as a service (SaaS) product or deploy the virtual machine or Azure application product that's contained in the private offer in the Azure portal.
 
-          For a private offer that includes SaaS, the customer must activate within 30 days of accepting the private offer.
+          For a private offer that includes a SaaS product, the customer must also configure the product within 30 days of subscribing to the product.
 
   - name: Private offer end dates
     questions:
@@ -206,4 +208,3 @@ additionalContent: |
   ## Next steps
   
   - [Create a private offer for a customer](isv-customer.md)
-  

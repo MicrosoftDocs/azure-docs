@@ -47,13 +47,13 @@ From the Azure portal, follow these steps:
     | Separator | The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: `.`, `,`,`:`, `;`, `/`, `-`. | :                                |
     | Prefix    | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store.                                                                                              | TestApp:Settings:Backgroundcolor |
     | Label     | Optional. Select an existing label or enter a new label that will be assigned to your imported key-values.                                                                                                                  | prod                             |
-    |  Content type         |                    Optional. Indicate if the file you're importing is a Key Vault reference or a JSON file. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](/azure/azure-app-configuration/use-key-vault-references-dotnet-core).                                                                                                                                                                                                          |      JSON (application/json)                            |
+    |  Content type         |                    Optional. Indicate if the file you're importing is a Key Vault reference or a JSON file. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).                                                                                                                                                                                                          |      JSON (application/json)                            |
 
 1. Select **Apply** to proceed with the import.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI as explained below to import App Configuration data. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](/azure/cloud-shell/overview). Specify the source of the data: `appconfig`, `appservice` or `file`. Optionally specify a source label with `--src-label` and a label to apply with `--label`.
+Use the Azure CLI as explained below to import App Configuration data. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md). Specify the source of the data: `appconfig`, `appservice` or `file`. Optionally specify a source label with `--src-label` and a label to apply with `--label`.
 
 Import all keys and feature flags from a file and apply test label.
 
@@ -110,7 +110,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI as explained below to export configurations from App Configuration to another place. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](/azure/cloud-shell/overview). Specify the destination of the data: `appconfig`, `appservice` or `file`. Specify a label for the data you want to export with `--label` or export data with no label by not entering a label.
+Use the Azure CLI as explained below to export configurations from App Configuration to another place. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md). Specify the destination of the data: `appconfig`, `appservice` or `file`. Specify a label for the data you want to export with `--label` or export data with no label by not entering a label.
 
 > [!IMPORTANT]
 > If the keys you want to export have labels, do select the corresponding labels. If you don't select a label, only keys without labels will be exported.

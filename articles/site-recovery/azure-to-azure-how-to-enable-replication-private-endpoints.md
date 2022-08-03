@@ -1,8 +1,8 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: Harsha-CS
-ms.author: harshacs
+author: v-pgaddala
+ms.author: v-pgaddala
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
@@ -230,9 +230,11 @@ The following steps describe how to add a role assignment to your storage accoun
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select one of the roles listed in the beginning of this section.
+1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
 
 1. Select **System-assigned managed identity**, search for a vault, and then select it.
 

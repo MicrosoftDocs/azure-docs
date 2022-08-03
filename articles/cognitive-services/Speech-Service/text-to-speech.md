@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 01/16/2022
+ms.date: 06/13/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech
@@ -98,5 +98,5 @@ For detailed information, see [Speech service pricing](https://azure.microsoft.c
 
 ## Next steps
 
-* [Get a free Speech service subscription](overview.md#try-the-speech-service-for-free)
+* [Text to speech quickstart](get-started-text-to-speech.md)
 * [Get the Speech SDK](speech-sdk.md)

@@ -7,15 +7,10 @@ ms.date: 03/28/2022
 
 # Security recommendations for IoT devices
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md).
->
-
-
 Defender for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface.
 Security recommendations are actionable and aim to aid customers in complying with security best practices.
 
-In this article, you will find a list of recommendations, which can be triggered on your IoT devices.
+In this article, you'll find a list of recommendations, which can be triggered on your IoT devices.
 
 ## Agent based recommendations
 
@@ -36,7 +31,7 @@ Operational recommendations provide insights and suggestions to improve security
 | Severity | Name | Data Source | Description |
 |--|--|--|--|
 | Low | Agent sends unutilized messages | Legacy Defender-IoT-micro-agent | 10% or more of security messages were smaller than 4 KB during the last 24 hours. |
-| Low | Security twin configuration not optimal | Legacy Defender-IoT-micro-agent | Security twin configuration is not optimal. |
+| Low | Security twin configuration not optimal | Legacy Defender-IoT-micro-agent | Security twin configuration isn't optimal. |
 | Low | Security twin configuration conflict | Legacy Defender-IoT-micro-agent | Conflicts were identified in the security twin configuration. |
 
 ## Next steps

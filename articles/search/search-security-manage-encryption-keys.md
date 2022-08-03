@@ -24,11 +24,11 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption occurs when an object is created. You can't encrypt objects that already exist.
 
-## CMK-qualified encryption
+## CMK encryption support
 
 Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets. Encryption is computationally expensive to decrypt so only sensitive content is encrypted.
 
-Encryption is performed over the following objects:
+Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 
@@ -144,7 +144,7 @@ Skip key generation if you already have a key in Azure Key Vault that you want t
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Create a new key vault key" border="true":::
 
-## 3 - Create a security principle
+## 3 - Create a security principal
 
 You have several options for accessing the encryption key at run time. The simplest approach is to retrieve the key using the managed identity and permissions of your search service. You can use either a system or user-managed identity. Doing so allows you to omit the steps for application registration and application secrets, and simplifies the encryption key definition.
 
@@ -271,7 +271,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 1. Select **Next**.
 
-1. On the **Principle** page, find and select the security principle used by the search service to access the encryption key. This will either be the system-managed or user-managed identity of the search service, or the registered application.
+1. On the **Principle** page, find and select the security principal used by the search service to access the encryption key. This will either be the system-managed or user-managed identity of the search service, or the registered application.
 
 1. Select **Next** and **Create**.
 

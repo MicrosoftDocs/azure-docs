@@ -33,7 +33,7 @@ conceptualContent:
         - url: ../aks/tutorial-kubernetes-prepare-app.md
           itemType: tutorial
           text: Prepare an application for AKS
-        - url: ../aks/kubernetes-walkthrough.md
+        - url: ../aks/tutorial-kubernetes-prepare-app.md
           itemType: tutorial
           text: Create an AKS cluster (CLI)
       # footerLink (optional)

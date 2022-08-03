@@ -73,7 +73,7 @@ To trigger an alert when there was a violation from a Dynamic Thresholds in 20 m
 
 ## How do you find out why a Dynamic Thresholds alert was triggered?
 
-You can explore triggered alert instances in the alerts view either by clicking on the link in the email or text message, or browser to see the alerts view in the Azure portal. [Learn more about the alerts view](./alerts-overview.md#alerts-experience).
+You can explore triggered alert instances by clicking on the link in the email or text message, or browse to see the alerts in the Azure portal. [Learn more about the alerts view](./alerts-page.md).
 
 The alert view displays:
 
@@ -93,6 +93,10 @@ When an alert rule is first created, the thresholds appearing in the chart are c
 
 If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days and at least 30 samples of metric data are available, to ensure accurate thresholds.
 For existing resources with sufficient metric data, Dynamic Thresholds can trigger alerts immediately.
+
+## How do prolonged outages affect the calculated thresholds?
+
+The system automatically recognizes prolonged outages and removes them from threshold learning algorithm. As a result, despite prolonged outages, dynamic thresholds understand the data. Service issues are detected with the same sensitivity as before an outage occurred.
 
 ## Dynamic Thresholds best practices
 

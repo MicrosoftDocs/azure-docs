@@ -4,7 +4,7 @@ description: Learn how to create Apache Storm topologies in Java by creating an 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
-ms.date: 04/27/2020
+ms.date: 04/28/2022
 ---
 
 # Create an Apache Storm topology in Java

@@ -66,7 +66,7 @@ sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install 
 Or:
 
 ```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng
+sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
 ```
 
 ### Enable chaos target and capabilities
@@ -147,7 +147,11 @@ The chaos agent is an application that runs in your virtual machine or virtual m
     ```azurecli-interactive
     az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"}'
     ```
-3. If setting up a virtual machine scale set, verify that the instances have been upgraded to the latest model. 
+3. If setting up a virtual machine scale set, verify that the instances have been upgraded to the latest model. If needed, upgrade all instances in the model.
+
+    ```azurecli-interactive
+    az vmss update-instances -g $RESOURCE_GROUP -n $VMSS_NAME --instance-ids *
+    ```
 
 ## Create an experiment
 

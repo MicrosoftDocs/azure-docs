@@ -1,6 +1,5 @@
 ---
-title: Supported account types | Azure
-titleSuffix: Microsoft identity platform 
+title: Supported account types
 description: Conceptual documentation about audiences and supported account types in applications
 services: active-directory
 author: jmprieur

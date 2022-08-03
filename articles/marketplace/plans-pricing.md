@@ -1,12 +1,12 @@
 ---
-title: Plans and pricing for commercial marketplace offers 
+title: Plans and pricing for commercial marketplace offers | Azure Marketplace
 description: Learn about plans for Microsoft commercial marketplace offers in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/01/2022
+ms.date: 07/27/2022
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -31,7 +31,6 @@ The following table shows the plan options for each offer type. The following se
 | Managed service |  | &#10004; (BYOL) | &#10004; |
 | Software as a service | &#10004; |  | &#10004; |
 | Azure virtual machine | &#10004; |  | &#10004; |
-|||||
 
 Plans are not supported for the following offer types:
 
@@ -82,10 +81,14 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 
 ### Pricing models
 
-You must associate a pricing model with each plan for the following offer types. Each of these offer types have different available pricing models:
+You must associate a pricing model with each plan for the following offer types. Each of these offer types has different available pricing models:
 
 - **Azure managed application**: flat rate (monthly) and usage-based pricing (metering service dimensions).
-- **Software as a service**: flat rate (monthly or annual), per user, and usage-based pricing (metering service dimensions). 
+- **Software as a service**: flat rate (1-month to 3-year terms), per user (1-month to 3-year terms), and usage-based pricing (metering service dimensions).
+
+    > [!NOTE]
+    > For flat rate and per user pricing models, customers can pay either monthly, annually, or one-time upfront for the entire 1-year, 2-year, or 3-year term.
+
 - **Azure virtual machine**: Bring your own license (BYOL) and usage-based pricing. For a usage-based pricing model, you can charge per core, per core size, or per market and core size. A BYOL license model does not allow for additional, usage-based charges.   (BYOL virtual machine offers do not require a pricing model.)
 
 An offer can have only one pricing model. For example, a SaaS offer cannot have one plan that's flat rate and another plan that’s per user. However, a SaaS offer can have some plans with flat rate with metered billing and other flat rate plans without metered billing. See specific offer documentation for detailed information.
@@ -113,7 +116,7 @@ This table provides pricing information that’s specific to various offer types
 | Managed service | <ul><li>[Plan a Managed Service offer](plan-managed-service-offer.md#plans-and-pricing)</li><li>[Create plans for a Managed Service offer](create-managed-service-offer-plans.md#define-pricing-and-availability) |
 | Power BI app | <ul><li>[Plan a Power BI App offer](marketplace-power-bi.md#licensing-options)</li></ul> |
 | Software as a Service (SaaS) | <ul><li>[SaaS pricing models](plan-saas-offer.md#saas-pricing-models)</li><li>[SaaS billing](plan-saas-offer.md#saas-billing)</li><li>[Create plans for a SaaS offer](create-new-saas-offer-plans.md#define-a-pricing-model)</li></ul> |
-|
+
 
 ## Custom prices
 
@@ -123,7 +126,7 @@ Review your prices carefully before publishing, as there are some restrictions o
 
 - After a plan is published, the pricing model can't be changed.
 - After a billing term is published for a plan, it can't be removed later.
-- After a price for a market in your plan is published, it can't be changed later.
+- See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
 Prices set in United States Dollars (USD) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market you selected.
 

@@ -130,7 +130,10 @@ const refreshAadToken = async function (abortSignal, username) {
     let account = (await publicClientApplication.getTokenCache().getAllAccounts()).find(u => u.username === username);
 
     const renewRequest = {
-        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
+        scopes: [
+            "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+            "https://auth.msft.communication.azure.com/Teams.ManageChats"
+        ],
         account: account,
         forceRefresh: forceRefresh
     };
@@ -197,7 +200,10 @@ const refreshAadToken = async function (abortSignal, username) {
     // Make sure the token has at least 10-minute lifetime and if not, force-renew it
     if (tokenResponse.expiresOn < (Date.now() + (10 * 60 * 1000))) {
         const renewRequest = {
-            scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
+            scopes: [
+                "https://auth.msft.communication.azure.com/Teams.ManageCalls",
+                "https://auth.msft.communication.azure.com/Teams.ManageChats"
+            ],
             account: account,
             forceRefresh: true // Force-refresh the token
         };        

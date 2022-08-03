@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 02/19/2022
 ms.author: travisw
+ms.custom: cogserv-non-critical-speech
 ---
 
 # What are Voice Assistants on Windows?

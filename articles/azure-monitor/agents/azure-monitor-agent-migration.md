@@ -2,11 +2,12 @@
 title: Migrate from legacy agents to the new Azure Monitor agent
 description: This article provides guidance for migrating from the existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
-ms.date: 02/09/2022 
+author: guywild
+ms.author: guywild
+ms.reviewer: shseth
+ms.date: 6/22/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
+# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics agent to Azure Monitor Agent and track the status of the migration in my account.    
 ---
 
 # Migrate to Azure Monitor agent from Log Analytics agent
@@ -14,7 +15,7 @@ The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monito
 
 ## Why should I migrate to the Azure Monitor agent?
 - **Security and performance**
-  - AMA uses Managed Identity or AAD tokens (for clients) which are much more secure than the legacy authentication methods. 
+  - AMA uses Managed Identity or Azure Active Directory (Azure AD) tokens (for clients) which are much more secure than the legacy authentication methods. 
   - AMA can provide higher events per second (EPS) upload rate compared to legacy agents
 - **Cost savings** via efficient data collection [using Data Collection Rules](data-collection-rule-azure-monitor-agent.md). This is one of the most useful advantages of using AMA.
   - DCRs allow granular targeting of machines connected to a workspace to collect data from as compared to the “all or nothing” mode that legacy agents have.
@@ -23,7 +24,7 @@ The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monito
 - **Simpler management** of data collection, including ease of troubleshooting
   - **Multihoming** on both Windows and Linux is possible easily
   - Every action across the data collection lifecycle, from onboarding/setup to deployment to updates and changes over time, is significantly easier and scalable thanks to agent configuration becoming centralized and ‘in the cloud’ as compared to configuring things on every machine.
-  - Enabling/disabling of additional capabilities or services (Sentinel, Defender for Cloud, VM Insights, etc) is more transparent and controlled, using the extensibility architecture of AMA.
+  - Enabling/disabling of additional capabilities or services (Sentinel, Defender for Cloud, VM Insights, etc.) is more transparent and controlled, using the extensibility architecture of AMA.
 - **A single agent** that will consolidate all the features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11) as compared to running various different monitoring agents. This is the eventual goal, though AMA is currently converging with the Log Analytics agents.
 
 ## When should I migrate to the Azure Monitor agent?
@@ -88,7 +89,7 @@ The following tables show gap analyses for the **log types** that are currently 
 ## Test migration by using the Azure portal
 To ensure safe deployment during migration, you should begin testing with a few resources in your nonproduction environment that are running the existing Log Analytics agent. After you can validate the data collected on these test resources, roll out to production by following the same steps.
 
-See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) to start collecting some of the existing data types. Once you validate data is flowing as expected with the Azure Monitor agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
+See [create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) to start collecting some of the existing data types. Once you validate data is flowing as expected with the Azure Monitor agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
 
 
 ## At-scale migration using Azure Policy

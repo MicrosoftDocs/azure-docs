@@ -96,7 +96,7 @@ Event
 Analyze the amount of billable data collect from a virtual machine or set of virtual machines. The **Usage** table doesn't include information about data collected from virtual machines, so these queries use the [find operator](/azure/data-explorer/kusto/query/findoperator) to search all tables that include a computer name. The **Usage** type is omitted because this is only for analytics of data trends. 
 
 > [!WARNING]
-> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
+> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
 
 **Billable data volume by computer**
   
@@ -122,7 +122,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 Analyze the amount of billable data collected from a particular resource or set of resources. These queries use the [_ResourceId](./log-standard-columns.md#_resourceid) and [_SubscriptionId](./log-standard-columns.md#_subscriptionid) columns for data from resources hosted in Azure. 
 
 > [!WARNING]
-> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
+> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
 
 **Billable data volume by resource ID**
 
@@ -174,14 +174,14 @@ SecurityEvent
 ```kusto
 Usage 
 | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| summarize AggregatedValue = count() by DataType`
+| summarize AggregatedValue = count() by DataType
 ```
 
 **Perf** data type
 
 ```kusto
 Perf 
-| summarize AggregatedValue = count() by CounterPath`
+| summarize AggregatedValue = count() by CounterPath
 ```
 
 ```kusto
@@ -322,7 +322,7 @@ union (AppAvailabilityResults),
 If you don't have excessive data from any particular source, you may have an excessive number of agents that are sending data.
 
 > [!WARNING]
-> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-performance-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
+> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the queries above.
 
 
 **Count of agent nodes that are sending a heartbeat each day in the last month**
@@ -429,4 +429,4 @@ W3CIISLog
 - See [Azure Monitor Logs pricing details](cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
 - See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
-- See [Ingestion-time transformations in Azure Monitor Logs (preview)](ingestion-time-transformations.md) for details on using ingestion-time transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.
+- See [Data collection transformations in Azure Monitor (preview)](../essentials/data-collection-transformations.md) for details on using transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.

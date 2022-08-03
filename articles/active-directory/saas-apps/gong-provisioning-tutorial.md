@@ -172,7 +172,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change Log
 * 03/23/2022 - Added support for **Group Provisioning**.
-* 04/06/2022 - **emails[type eq "work"].value** is made a required attribute.
+* 04/21/2022 - **emails[type eq "work"].value** has been marked as required attribute.
 
 ## More resources
 

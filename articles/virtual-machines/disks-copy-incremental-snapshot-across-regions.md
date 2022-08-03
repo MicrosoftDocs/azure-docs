@@ -4,7 +4,7 @@ description: Learn how to copy an incremental snapshot of a managed disk to a di
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 05/13/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -28,20 +28,20 @@ This article covers copying an incremental snapshot from one region to another. 
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to copy an incremental snapshot. You will need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
+You can use the Azure CLI to copy an incremental snapshot. You need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
 
-The following script will copy an incremental snapshot from one region to another:
+The following script copies an incremental snapshot from one region to another:
 
 ```azurecli
 subscriptionId=<yourSubscriptionID>
 resourceGroupName=<yourResourceGroupName>
-name=<targetSnapshotName>
+targetSnapshotName=<name>
 sourceSnapshotResourceId=<sourceSnapshotResourceId>
 targetRegion=<validRegion>
 
 sourceSnapshotId=$(az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [id] -o tsv)
 
-az snapshot create -g $resourceGroupName -n $targetSnapshotName --source $sourceSnapshotId --incremental --copy-start
+az snapshot create -g $resourceGroupName -n $targetSnapshotName -l $targetRegion --source $sourceSnapshotId --incremental --copy-start
 
 az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv
 ```

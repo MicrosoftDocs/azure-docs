@@ -3,7 +3,7 @@ title: Azure Active Directory Connect Provisioning Agent - Version release histo
 description: This article lists all releases of Azure Active Directory Connect Provisioning Agent and describes new features and fixed issues.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity

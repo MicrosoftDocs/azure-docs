@@ -5,22 +5,68 @@ description: Learn about the latest updates to Azure Machine Learning CLI (v2)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
-ms.author: minxia
-author: mx-iao
+ms.author: larryfr
+author: blackmist
 ms.date: 04/12/2022
 ---
 
 # Azure Machine Learning CLI (v2) release notes
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 
 In this article, learn about Azure Machine Learning CLI (v2) releases.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+
+## 2022-05-24
+
+### Azure Machine Learning CLI (v2) v2.4.0
+
+- The Azure Machine Learning CLI (v2) is now GA.
+- `az ml job`
+  - The command group is marked as GA.
+  - Added AutoML job type in public preview.
+  - Added `schedules` property to pipeline job in public preview.
+  - Added an option to list only archived jobs.
+  - Improved reliability of `az ml job download` command.
+- `az ml data`
+  - The command group is marked as GA.
+  - Added MLTable data type in public preview.
+  - Added an option to list only archived data assets.
+- `az ml environment`
+  - Added an option to list only archived environments.
+- `az ml model`
+  - The command group is marked as GA.
+  - Allow models to be created from job outputs.
+  - Added an option to list only archived models.
+- `az ml online-deployment`
+  - The command group is marked as GA.
+  - Removed timeout waiting for deployment creation.
+  - Improved online deployment list view.
+- `az ml online-endpoint`
+  - The command group is marked as GA.
+  - Added `mirror_traffic` property to online endpoints in public preview.
+  - Improved online endpoint list view.
+- `az ml batch-deployment`
+  - The command group is marked as GA.
+  - Added support for `uri_file` and `uri_folder` as invocation input.
+  - Fixed a bug in batch deployment update.
+  - Fixed a bug in batch deployment list-jobs output.
+- `az ml batch-endpoint`
+  - The command group is marked as GA.
+  - Added support for `uri_file` and `uri_folder` as invocation input.
+  - Fixed a bug in batch endpoint update.
+  - Fixed a bug in batch endpoint list-jobs output.
+- `az ml component`
+  - The command group is marked as GA.
+  - Added an option to list only archived components.
+- `az ml code`
+  - This command group is removed.
 
 ## 2022-03-14
 
