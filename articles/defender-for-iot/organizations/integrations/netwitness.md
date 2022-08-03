@@ -13,9 +13,9 @@ This article describes how to send Microsoft Defender for IoT alerts to RSA NetW
 
 Before you begin, make sure that you have the following prerequisites:
 
-- Access to a Defender for IoT OT sensor, version TBD or higher. Make sure that you can sign in as a TBD user.
+- Access to a Defender for IoT OT sensor. Make sure that you can sign in as an Admin user.
 
-- NetWitness configuration to collect events from sources that support Common Event Format (CEF). For more information, see TBD.
+- NetWitness configuration to collect events from sources that support Common Event Format (CEF). For more information, see the [CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364).
 
 ## Create a Defender for IoT forwarding rule
 
@@ -44,5 +44,6 @@ This procedure describes how to create a forwarding rule from your OT sensor to 
 
 For more information, see:
 
+- [CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364)
 - [Integrations with partner services](../integrate-overview.md)
 - [Forward alert information](../how-to-forward-alert-information-to-partners.md)
