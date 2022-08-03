@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 08/03/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022
 ---
 
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022
 - Building event-driven apps with pub-sub
 - Building applications that are portable across multiple cloud services and hosts (for example, Kubernetes vs. a VM)
 
-By using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster, you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
+[By using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md), you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
 
 > [!NOTE]
 > If you plan on installing Dapr in a Kubernetes production environment, see the [Dapr guidelines for production usage][kubernetes-production] documentation page.
