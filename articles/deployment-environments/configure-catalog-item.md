@@ -5,20 +5,20 @@ services: Azure Deployment Environments
 author: anandmeg
 ms.service: deployment-environments
 ms.topic: tutorial
-ms.date: 08/01/2022
+ms.date: 08/03/2022
 ms.custom: devdivchpfy22
 ms.author: meghaanand
 ---
-# Configure a Catalog Item in Github repo or Azure DevOps repo
+# Configure a Catalog Item in GitHub repo or Azure DevOps repo
 
 In Azure Deployment Environments service, you can use a dev center Catalog to provide your development teams with a curated set of 'infra-as-code' templates called Catalog Items. A Catalog Item is a combination of an 'infra-as-code' template 
 (Azure Resource Manager (ARM) templates during Azure Deployment Environments preview) and a manifest file. 
 
 The environment definition will be defined in the ARM Template, and the *manifest.yaml* file will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to spin-up environments in Azure.
 
-We offer a Sample Catalog <!---(https://github.com/Azure/Project-Fidalgo-PrivatePreview/tree/main/Catalog) ---> that you can attach as-is, or you can fork and customize the Catalog Items. You can attach your private repo to use your own Catalog Items.
+We offer a Sample Catalog that you can attach as-is, or you can fork and customize the Catalog Items. You can attach your private repo to use your own Catalog Items.
 
-After you attach a Catalog <!---(https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md)---> to your dev center, the service will scan through the specified folder path to identify folders containing an ARM Template and the associated manifest file. 
+After you attach a Catalog to your dev center, the service will scan through the specified folder path to identify folders containing an ARM Template and the associated manifest file. 
 
 > [!NOTE]
 > The specified folder path should be a folder that contains subfolders with Catalog Item files.
@@ -62,16 +62,16 @@ The *manifest.yaml* file contains metadata related to the ARM template. The foll
 
 To modify the configuration of Azure resources in an existing Catalog Item, directly update the associated *ARM_Template.json* file in the repository. The change is immediately reflected when you either create a new environment using the specific Catalog Item or if you redeploy an Environment that is associated with the Catalog Item. 
 
-To update any metadata related to the ARM template, modify the *manifest.yaml* and update the Catalog <!---(https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md#updating-a-catalog) Link will be updated later --->. 
+To update any metadata related to the ARM template, modify the *manifest.yaml* and update the Catalog. 
 
 ## Deleting a Catalog Item
 
-To delete an existing Catalog Item, delete the subfolder containing the ARM template and the associated manifest, and then update the Catalog <!---(https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-catalog.md#updating-a-catalog) --->.
+To delete an existing Catalog Item, delete the subfolder containing the ARM template and the associated manifest, and then update the Catalog.
 
 Once you delete a Catalog Item, development teams will no longer be able to use the specific Catalog Item. If any existing environments were created using the deleted Catalog Item, you'll need to update the Catalog Item reference. If the reference isn't updated and the environment is redeployed, it results in a deployment failure.
 
 ## Next steps
 
-* Create and Configure Environment Types <!---(https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-environment-types.md)--->. You can use them later to create new Environments.
+* Create and Configure Environment Types. You can use them later to create new Environments.
 
 * [Create and Configure Projects](./tutorial-create-and-configure-projects.md)
