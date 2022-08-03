@@ -17,7 +17,7 @@ VM Applications are a resource type in Azure Compute Gallery (formerly known as 
 
 
 > [!IMPORTANT]
-> Deploying **VM applications in Azure Compute Gallery** do not currently support using Azure policies.
+> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 ## Prerequisites
@@ -103,6 +103,15 @@ Select the VM application from the list, and then select **Save** at the bottom 
 
 :::image type="content" source="media/vmapps/select-app.png" alt-text="Screenshot showing selecting a VM application to install on the VM.":::
 
+To show the VM application status, go to the Extensions + applications tab/settings and check the status of the VMAppExtension:
+
+:::image type="content" source="media/vmapps/select-app-status.png" alt-text="Screenshot showing VM application status.":::
+
+To show the VM application status for VMSS, go to the VMSS page, Instances, select one of them, then go to VMAppExtension:
+
+:::image type="content" source="media/vmapps/select-apps-status-vmss-portal.png" alt-text="Screenshot showing VMSS application status.":::
+
+
 ### [CLI](#tab/cli)
 
 VM applications require [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
@@ -148,29 +157,46 @@ az vm application set \
 For setting multiple applications on a VM:
 
 ```azurecli-interactive
-az vm applicaction set \
+az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
-	--app-version-ids <appversionID1> <appversionID2> \
-	--treat-deployment-as-failure true
+	--app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.1 \
+	--treat-deployment-as-failure true true
 ```
-To verify application VM deployment status:
+To add an application to a VMSS, use [az vmss application set](/cli/azure/vmss/application#az-vmss-application-set):
+
+```azurepowershell-interactive
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0
+--treat-deployment-as-failure true
+```
+To add multiple applications to a VMSS:
+```azurecli-interactive
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.0
+--treat-deployment-as-failure true
+```
+
+To verify application VM deployment status, use [az vm get-instance-view](/cli/azure/vm/#az-vm-get-instance-view):
 
 ```azurecli-interactive
 az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensions[?name == 'VMAppExtension']"
 ```
-For verifying application VMSS deployment status:
+To verify application VMSS deployment status, use [az vmss get-instance-view](/cli/azure/vmss/#az-vmss-get-instance-view):
+
+```azurepowershell-interactive
+az vmss get-instance-view --ids (az vmss list-instances -g myResourceGroup -n myVmss --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
+```
+> [!NOTE]
+> The above VMSS deployment status command does not list the instance ID with the result. To show the instance ID with the status of the extension in each instance, some additional scripting is required. Refer to the below VMSS CLI example that contains PowerShell syntax:
 
 ```azurecli-interactive
-$ids = az vmss list-instances -g myResourceGroup -n $vmssName --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
+$ids = az vmss list-instances -g myResourceGroup -n myVMss --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
 $ids | Foreach-Object {
     $iid = $_.instanceId
     Write-Output "instanceId: $iid" 
     az vmss get-instance-view --ids $_.id --query "extensions[?name == 'VMAppExtension']" 
 }
 ```
-> [!NOTE]
-> The VMSS deployment status contains PowerShell syntax. Refer to the 2nd [vm-extension-delete](/cli/azure/vm/extension#az-vm-extension-delete-examples) example as there is precedence for it.
+
 
 
 ### [PowerShell](#tab/powershell)
@@ -218,6 +244,7 @@ To add the application to an existing VM, get the application version and use th
 $galleryName = "myGallery"
 $rgName = "myResourceGroup"
 $applicationName = "myApp"
+$version = "1.0.0"
 $vmName = "myVM"
 $vm = Get-AzVM -ResourceGroupName $rgname -Name $vmName
 $appversion = Get-AzGalleryApplicationVersion `
@@ -230,14 +257,40 @@ $app = New-AzVmGalleryApplication -PackageReferenceId $packageid
 Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app -TreatFailureAsDeploymentFailure true
 Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
- 
+To add the application to a VMSS:
+```azurecli-interactive
+$vmss = Get-AzVmss -ResourceGroupName $rgname -Name $vmssName
+$appversion = Get-AzGalleryApplicationVersion `
+   -GalleryApplicationName $applicationName `
+   -GalleryName $galleryName `
+   -Name $version `
+   -ResourceGroupName $rgName
+$packageid = $appversion.Id
+$app = New-AzVmssGalleryApplication -PackageReferenceId $packageid
+Add-AzVmssGalleryApplication -VirtualMachineScaleSetVM $vmss.VirtualMachineProfile -GalleryApplication $app
+Update-AzVMss -ResourceGroupName $rgName -VirtualMachineScaleSet $vmss -VMScaleSetName $vmssName
+```
+
+
 Verify the application succeeded:
 
-```powershell-interactive
+```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmName = "myVM"
 $result = Get-AzVM -ResourceGroupName $rgName -VMName $vmName -Status
 $result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
+```
+To verify for VMSS:
+```powershell-interactive
+$rgName = "myResourceGroup"
+$vmssName = "myVMss"
+$result = Get-AzVmssVM -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
+$resultSummary  = New-Object System.Collections.ArrayList
+$result | ForEach-Object {
+    $res = @{ instanceId = $_.InstanceId; vmappStatus = $_.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
+    $resultSummary.Add($res) | Out-Null
+}
+$resultSummary | convertto-json -depth 5
 ```
 
 ### [REST](#tab/rest2)
@@ -414,7 +467,51 @@ relevant parts.
 
 ```
 
+
 If the VM applications haven't yet been installed on the VM, the value will be empty. 
+
+To get the result of VM instance view:
+
+```rest
+GET
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/virtualMachines/\<**VMName**\>/instanceView?api-version=2019-03-01
+```
+
+The result will look like this:
+
+```rest
+{
+    ...
+    "extensions"  [
+    ...
+        {
+            "name":  "VMAppExtension",
+            "type":  "Microsoft.CPlat.Core.VMApplicationManagerLinux",
+            "typeHandlerVersion":  "1.0.9",
+            "statuses":  [
+                            {
+                                "code":  "ProvisioningState/succeeded",
+                                "level":  "Info",
+                                "displayStatus":  "Provisioning succeeded",
+                                "message":  "Enable succeeded: {\n \"CurrentState\": [\n  {\n   \"applicationName\": \"doNothingLinux\",\n   \"version\": \"1.0.0\",\n   \"result\": \"Install SUCCESS\"\n  },\n  {
+        \n   \"applicationName\": \"badapplinux\",\n   \"version\": \"1.0.0\",\n   \"result\": \"Install FAILED Error executing command \u0027exit 1\u0027: command terminated with exit status=1\"\n  }\n ],\n \"ActionsPerformed\": []\n}
+        "
+                            }
+                        ]
+        }
+    ...
+    ]
+}
+```
+The VM App status is in the status message of the result of the VMApp extension in the instance view.
+
+To get the status for a VMSS Application:
+
+```rest
+GET
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/ virtualMachineScaleSets/\<**VMSSName**\>/virtualMachines/<**instanceId**>/instanceView?api-version=2019-03-01
+```
+The output will be similar to the VM example earlier.
 
 ---
 

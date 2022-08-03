@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 07/19/2022
+ms.date: 08/02/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,6 +21,10 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in July include:
 
 - [General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection](#general-availability-ga-of-the-cloud-native-security-agent-for-kubernetes-runtime-protection)
+- [Defender for Container's VA adds support for the detection of language specific packages (Preview)](#defender-for-containers-va-adds-support-for-the-detection-of-language-specific-packages-preview)
+- [Protect against the Operations Management Suite vulnerability CVE-2022-29149](#protect-against-the-operations-management-suite-vulnerability-cve-2022-29149)
+- [Integration with Entra Permissions Management](#integration-with-entra-permissions-management)
+
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
 We're excited to share that the Cloud-native security agent for Kubernetes runtime protection is now generally available (GA)!
@@ -40,6 +44,30 @@ Learn more about the Defender for Container's [feature availability](supported-m
 You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
+
+### Defender for Container's VA adds support for the detection of language specific packages (Preview)
+
+Defender for Container's vulnerability assessment (VA) is able to detect vulnerabilities in OS packages deployed via the OS package manager. We have now extended VA's abilities to detect vulnerabilities included in language specific packages.
+
+This feature is in `preview` and is only available for Linux images.
+
+To see all of the included language specific packages that have been added, check out Defender for Container's full list of [features and their availability](supported-machines-endpoint-solutions-clouds-containers.md#registries-and-images).
+
+### Protect against the Operations Management Suite vulnerability CVE-2022-29149
+
+Operations Management Suite (OMS) is a collection of cloud-based services for managing on-premises and cloud environments from one single place. Rather than deploying and managing on-premises resources, OMS components are entirely hosted in Azure.
+
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires a patch to remediate [CVE-2022-29149](https://nvd.nist.gov/vuln/detail/CVE-2022-29149). Review the report about this vulnerability in the [Microsoft Security Update guide](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2022-29149) for information about how to identify resources that are affected by this vulnerability and remediation steps.
+
+If you have Defender for Servers enabled with Vulnerability Assessment, you can use [this workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/OMI%20Vulnerability%20Dashboard) to identify affected resources.
+
+### Integration with Entra Permissions Management
+
+Defender for Cloud has integrated with [Microsoft Entra Permissions Management](../active-directory/cloud-infrastructure-entitlement-management/index.yml), a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility and control over permissions for any identity and any resource in Azure, AWS, and GCP.
+
+Each Azure subscription, AWS account, and GCP project that you onboard, will now show you a view of your [Permission Creep Index (PCI)](../active-directory/cloud-infrastructure-entitlement-management/ui-dashboard.md).
+
+Learn more about [Entra Permission Management (formerly Cloudknox)](other-threat-protections.md#entra-permission-management-formerly-cloudknox)
 
 ## June 2022
 
@@ -157,7 +185,7 @@ There are now connector-level settings for Defender for Servers in multicloud.
 
 The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
 
-All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#available-defender-for-server-plans).
+All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#defender-for-servers-plans).
 
 Updates in the UI include a reflection of the selected pricing tier and the required components configured.
 
@@ -207,7 +235,7 @@ Microsoft Defender for Servers is now offered in two incremental plans:
 - Defender for Servers Plan 2, formerly Defender for Servers
 - Defender for Servers Plan 1, provides support for Microsoft Defender for Endpoint only
 
-While Defender for Servers Plan 2 continues to provide protections from threats and vulnerabilities to your cloud and on-premises workloads, Defender for Servers Plan 1 provides endpoint protection only, powered by the natively integrated Defender for Endpoint. Read more about the [Defender for Servers plans](defender-for-servers-introduction.md#available-defender-for-server-plans).
+While Defender for Servers Plan 2 continues to provide protections from threats and vulnerabilities to your cloud and on-premises workloads, Defender for Servers Plan 1 provides endpoint protection only, powered by the natively integrated Defender for Endpoint. Read more about the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans).
 
 If you have been using Defender for Servers until now no action is required.
 

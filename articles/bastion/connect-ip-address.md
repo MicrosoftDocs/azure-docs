@@ -38,7 +38,7 @@ Before you begin these steps, verify that you have the following environment set
 
 ## Configure Bastion
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the Azure portal, go to your Bastion deployment.
 

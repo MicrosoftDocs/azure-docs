@@ -139,11 +139,11 @@ This section provides answers for common questions about custom IP prefix resour
 
 ### A "ValidationFailed" error is returned after a new custom IP prefix creation
 
-A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the given subscription. To view the specific error, you can use the **JSON view** of a custom IP prefix resource in the **Overview** section to see the **failedReason** field. The JSON view displays the Route Origin Authorization, the signed message on the prefix records, and other details of the submission. You should delete the custom IP prefix resource and create a new one with the correct information.
+A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the given subscription. To view the specific error, review the **FailedReason** field in the custom IP prefix resource (in the JSON view in the portal) and review the Status messages section below.
 
 ### After updating a custom IP prefix to advertise, it transitions to a "CommissioningFailed" status
 
-If a custom IP prefix is unable to be fully advertised, it moves to a **CommissioningFailed** status. In these instances, it's recommended to execute the command to update the range to commissioned status again.
+If a custom IP prefix is unable to be fully advertised, it moves to a **CommissioningFailed** status. To view the specific error, review the **FailedReason** field in the custom IP prefix resource (in the JSON view in the portal) and review the Status messages section below, which will help determine at what point the commission process failed.
 
 ### I’m unable to decommission a custom IP prefix
 

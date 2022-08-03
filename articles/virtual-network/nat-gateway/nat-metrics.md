@@ -257,7 +257,7 @@ To create the alert, use the following steps:
 
 ## Network Insights
 
-[Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
+[Azure Monitor Network Insights](../../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
 
 ### View the topology of your Azure architectural setup
 
