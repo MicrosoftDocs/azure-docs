@@ -36,7 +36,7 @@ The following set of performance results demonstrates the maximal Azure Firewall
 |Firewall type and use case  |TCP/UDP bandwidth (Gbps)  |HTTP/S bandwidth (Gbps)  |
 |---------|---------|---------|
 |Standard     |30|30|
-|Premium (no TLS/IDPS)     |30|100|
+|Premium (no TLS/IDPS)     |100|100|
 |Premium with TLS     |-|100|
 |Premium with IDS     |100|100|
 |Premium with IPS      |10|10|
