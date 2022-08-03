@@ -137,17 +137,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **Federation Setup** and go to **Identity Provider** then, select the **Microsoft Azure**.
 
-	![Configure Single Sign-On settings icon](./media/adpfederatedsso-tutorial/microsoft-azure.png)
+	![Screenshot for identity provider.](./media/adpfederatedsso-tutorial/microsoft-azure.png)
 
 1. In the **Services Selection**, select all applicable service(s) for connection, and then click **Next**.
 
-    ![Configure Single Sign-On SAML Enabled](./media/adpfederatedsso-tutorial/services.png)
+    ![Screenshot for services selection.](./media/adpfederatedsso-tutorial/services.png)
 
 1. In the **Configure** section, click on the **Next**.
 
 1. In the **Upload Metadata**, click **Browse** to upload the metadata XML file which you have downloaded from the Azure portal and click **UPLOAD**.
 
-    ![Configure Single Sign-On SAML Enabled](./media/adpfederatedsso-tutorial/metadata.png)
+    ![Screenshot for uploading metadata.](./media/adpfederatedsso-tutorial/metadata.png)
 
 ### Configure your ADP service(s) for federated access
 
