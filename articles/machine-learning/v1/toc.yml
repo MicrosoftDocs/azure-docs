@@ -45,6 +45,15 @@
 - name: Tutorials
   expanded: true
   items:
+    - name: Python get started (Day 1)
+      expanded: true
+      items: 
+        - name: 1. Run a Python script
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 2. Train your model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 3. Use your own data
+          href: tutorial-1st-experiment-bring-data.md
     - name: "Build a training pipeline (Python)"
       href: "tutorial-pipeline-python-sdk.md"
 - name: How-to guides
@@ -93,6 +102,8 @@
     items:
     - name: Use managed identities for access control
       href: how-to-use-managed-identities.md
+    - name: Authenticate from the SDK v1
+      href: how-to-setup-authentication.md
     - name: Network security
       items:
       - name: Secure inferencing environment (v1)

@@ -165,6 +165,8 @@ items:
         href: concepts/telephony/direct-routing-provisioning.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
+      - name: Inbound telephony calling capabilities
+        href: concepts/telephony/inbound-calling-capabilities.md
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -242,8 +244,20 @@ items:
     items:
       - name: Overview
         href: concepts/teams-interop.md
-      - name: Join a Teams meeting
-        href: concepts/join-teams-meeting.md
+      - name: Communication as Teams guest
+        items:        
+          - name: Overview
+            href: concepts/interop/guest/overview.md
+          - name: Capabilities
+            href: concepts/interop/guest/capabilities.md
+          - name: Teams client experience
+            href: concepts/interop/guest/teams-client-experience.md
+          - name: Teams controls
+            href: concepts/interop/guest/teams-administration.md
+          - name: User privacy
+            href: concepts/interop/guest/privacy.md
+          - name: Known issues
+            href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
         items:
           - name: Overview
@@ -265,13 +279,17 @@ items:
   - name: Azure Government
     href: concepts/government.md
   - name: Pricing
-    href: concepts/pricing.md
-  - name: Email Pricing
-    href: concepts/email-pricing.md
-  - name: SMS Pricing
-    href: concepts/sms-pricing.md
-  - name: PSTN Pricing
-    href: concepts/pstn-pricing.md
+    items:
+      - name: Pricing overview
+        href: concepts/pricing.md
+      - name: Email Pricing
+        href: concepts/email-pricing.md
+      - name: SMS Pricing
+        href: concepts/sms-pricing.md
+      - name: PSTN Pricing
+        href: concepts/pstn-pricing.md
+      - name: Teams interoperability Pricing
+        href: concepts/pricing/teams-interop-pricing.md        
   - name: Push notifications
     href: concepts/notifications.md
   - name: Azure Advisor
