@@ -81,7 +81,7 @@ configuring resource limits which will trigger a profile if breached.
       }
    ```
    Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
-2. Execute your process with the updated configuration.
+2. Restart your process with the updated configuration.
 3. Configure the resource thresholds that will cause a profile to be collected:
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
     2. Select "Triggers"
