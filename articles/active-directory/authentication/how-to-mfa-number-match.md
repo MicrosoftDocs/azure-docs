@@ -109,7 +109,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta) collection | A collection of users or groups who are enabled to use the authentication method |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta&preserve-view=true) collection | A collection of users or groups who are enabled to use the authentication method |
 | featureSettings | [microsoftAuthenticatorFeatureSettings](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) collection | A collection of Microsoft Authenticator features. |
  
 #### MicrosoftAuthenticator includeTarget properties
