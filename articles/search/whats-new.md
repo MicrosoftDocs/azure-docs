@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 Learn what's new in the service. Bookmark this page to keep up to date with service updates. 
 
-* [**Preview features**](search-api-preview.md) are announced here in "What's New", but you can visit the preview features page if you want to see all preview features listed in one page.
+* [**Preview features**](search-api-preview.md) are announced here in "What's New", mixed in with announcements for general availability or feature retirement. If you need to quickly determine the status of a particular feature, visit the preview features page to see if it's listed.
 * [**Previous versions**](/previous-versions/azure/search/) is an archive of feature announcements from 2019 and 2020.
 
 ## June 2022
