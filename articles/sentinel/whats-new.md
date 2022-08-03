@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # What's new in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
 If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
@@ -26,6 +24,24 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
+
+## August 2022
+
+### Microsoft Sentinel Solution for SAP is now generally available
+
+The Microsoft Sentinel Solution for SAP is now generally available (GA). [Learn about billing and offer details](/pricing/offers/microsoft-sentinel-sap-promo/).
+
+The Microsoft Sentinel solution for SAP allows you to monitor, detect, and respond to suspicious activities within the SAP ecosystem, protecting your sensitive data against sophisticated cyber attacks. 
+
+Use the solution to: 
+
+- Monitor all SAP system layers 
+- Gain visibility across business logic, application, databases, and operating system layers with built-in investigation and threat detection tools 
+- Detect and automatically respond to threats 
+- Discover suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, and suspicious data downloads with out-of-the-box detection capabilities 
+- Customize based on your needs: build your own threat detection solutions to monitor specific business risks and extend built-in security content
+
+[Learn more about the updated solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protect-critical-information-within-sap-systems-against/ba-p/3586943).
 
 ## July 2022
 
