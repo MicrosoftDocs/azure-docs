@@ -488,7 +488,7 @@ Allows you to review and reject the labeled dataset and view labeling insights. 
 
 A vendor account manager can help manage all the vendor roles and perform any labeling action. They cannot modify projects or view MLAssist experiments.
 
-`Vendor_admin_role.json`:
+`Vendor_admin_role.json` :
 ```json
 {
     "Name": "Vendor account admin",
@@ -503,7 +503,7 @@ A vendor account manager can help manage all the vendor roles and perform any la
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
         "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read"
     ],
     "AssignableScopes": [
         "/subscriptions/<subscription_id>"
@@ -515,21 +515,21 @@ A vendor account manager can help manage all the vendor roles and perform any la
 
 A customer quality assurance role can view project dashboards, preview datasets, export a labeling project, and review submitted labels. This role can't submit labels.
 
-`customer_qa_role.json`:
+`customer_qa_role.json` :
 ```json
 {
     "Name": "Customer QA",
     "IsCustom": true,
     "Description": "Customer QA for Labeling Projects",
     "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/read", 
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read”,
+        "Microsoft.MachineLearningServices/workspaces/read",
+        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/export/action",
+        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read"
     ],
     "AssignableScopes": [
         "/subscriptions/<subscription_id>"
