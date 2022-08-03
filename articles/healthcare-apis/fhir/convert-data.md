@@ -23,7 +23,7 @@ The `$convert-data` custom endpoint in the FHIR service is meant for converting 
 
 The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. Calling the `$convert-data` endpoint causes the FHIR service to perform a conversion on legacy health data:
 
-`POST <<FHIR service base URL>>/$convert-data`
+`POST {{fhirurl}}/$convert-data`
 
 The legacy health data is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the legacy data converted to FHIR.
 
