@@ -11,7 +11,7 @@ This article describes the different types of configurations that the micro agen
 
 The micro agent's behavior is configured by a set of module twin properties. You can configure the micro agent to best suit your needs. For example, you can turn off certain events to minimize power consumption, and reduce other resource usage.
 
-After any change in configuration, the collector will immediately send all unsent event data. After the data is sent, the changes will be applied, and all of the collectors will restart.
+After any change in configuration, the collector will immediately send all unsent event data. After the data is sent, the changes will be applied, and collectors will be restarted as needed.
 
 ## General configuration
 

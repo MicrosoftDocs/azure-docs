@@ -146,10 +146,9 @@ The data collected on each package includes:
 
 How event aggregation works for the [Process events](#process-events-event-based-collector) and [Network Activity events](#network-activity-events-event-based-collector):
 
-Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
+Defender for IoT agents aggregate events during the send interval defined in the message frequency configuration for each collector, such as  **Process_MessageFrequency** or **NetworkActivity_MessageFrequency**.  Once the send interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
 
-The agent collects identical events to the ones that are already stored in memory. This collection causes the agent to increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
-
+When the agent collects similar events to the ones that are already stored in memory, this causes the agent to increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is the aggregation of the hit counts of similar events. For example, network activity with the same remote host and on the same port, is aggregated as one event, instead of as a separate event for each packet.
 
 > [!NOTE]
 > The SBoM collector currently only collects the first 500 packages ingested.
