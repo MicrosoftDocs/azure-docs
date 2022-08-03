@@ -53,7 +53,7 @@ var blobServiceClient = new BlobServiceClient(
 
 Although it's possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections.
 
-### Introducing credential-free connections
+## Introducing credential-free connections
 
 Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings. 
 
