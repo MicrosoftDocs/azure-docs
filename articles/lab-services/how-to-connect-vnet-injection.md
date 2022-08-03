@@ -12,20 +12,12 @@ ms.custom: devdivchpfy22
 
 This article provides information about connecting a [lab plan](tutorial-setup-lab-plan.md) to your virtual network.
 
-Some organizations have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, etc.
+Some organizations have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, etc.  Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, network security group, and the lab plan all must be in the same region.
 
-In the Azure Lab Services [August 2022 Update](lab-services-whats-new.md), customers may take control of the network for the labs using virtual network (VNet) injection. You can now tell us which virtual network to use, and we'll inject the necessary resources into your network.  VNet injection replaces the [peering to your virtual network](how-to-connect-peer-virtual-network.md), as was done in previous versions.
-
-With VNet injection, you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
-
-## Overview
-
-You can connect to your own virtual network to your lab plan when you create the lab plan.
+In the Azure Lab Services [August 2022 Update](lab-services-whats-new.md), customers may take control of the network for the labs using virtual network (VNet) injection. You can now tell Lab Services which virtual network to use, and we'll inject the necessary resources into your network.  With VNet injection, you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).  VNet injection replaces the [peering to your virtual network](how-to-connect-peer-virtual-network.md), as was done in previous versions.
 
 > [!IMPORTANT]
 > Advanced networking (VNet injection) must be configured when creating a lab plan.  It can't be added later.
-
-Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, network security group, and the lab plan all must be in the same region.
 
 > [!NOTE]
 > If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
