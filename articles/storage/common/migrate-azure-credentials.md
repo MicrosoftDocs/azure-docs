@@ -17,11 +17,10 @@ ms.custom: devx-track-csharp
 
 Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways for apps to connect securely. Some of these options rely on string-formatted keys as credentials, such as connection strings, access keys, or shared access signatures. However, you should prioritize credential-free connections in your applications when possible. 
 
-Credential-free solutions such as Azure's Managed Identity or Role Based Access control (RBAC) provide robust security features. They can be implemented using `DefaultAzureCredential` from the Azure Identity client library. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings.
 
 ## Compare authentication options
 
-The following examples demonstrate how to connect to Azure Storage using key credentials. Many developers gravitate towards these solutions because they feel familiar to options have traditionally worked with in the past. If you currently use one of these approaches, consider migrating to credential-free connections with `DefaultAzureCredential` using the steps described later in this document.
+The following examples demonstrate how to connect to Azure Storage using traditional credentials. Many developers gravitate towards these solutions because they feel familiar to options have traditionally worked with in the past. If you currently use one of these approaches, consider migrating to credential-free connections using the steps described later in this document.
 
 ### [Connection String](#tab/connection-string)
 
@@ -53,18 +52,27 @@ var blobServiceClient = new BlobServiceClient(
 ```
 ---
 
-Although it's possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be very diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections with `DefaultAzureCredential`.
+Although it's possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be very diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections.
 
 ### Introducing credential-free connections
 
-Many Azure services support credential-free connections through the use of a class called `DefaultAzureCredential` from the Azure Identity client library. `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code.
+Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC) provide robust security features. These techniques can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings. 
+
+> [!IMPORTANT]
+> Some frameworks must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` through underlying plugins or drivers.
+
+ `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. This approach enables your app to use different authentication methods in different environments (local dev vs. production) without implementing environment-specific code. 
 
 The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential). For example, when working locally, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). No code changes are required for this transition. 
 
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
 
-`DefaultAzureCredential` is generally implemented by passing an instance of the class to the service you're using from the SDK. The following example demonstrates how to create a `BlobServiceClient` that uses `DefaultAzureCredential` to authenticate to an Azure Storage account. The next section describes how to migrate to this setup in more detail.
+The following code examples demonstrates how to create a `BlobServiceClient` that uses `DefaultAzureCredential` to authenticate to an Azure Storage account. The next section describes how to migrate to this setup in more detail.
+
+### [C# and .NET Core](#tab/dotnet-credential)
+
+A .NET Core application should explicitly pass an instance of `DefaultAzureCredential` into the constructor of a service client class.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -72,19 +80,44 @@ var blobServiceClient = new BlobServiceClient(
     new DefaultAzureCredential());
 ```
 
+### [Java](#tab/java-credential)
+
+```Java
+
+// Java code here
+
+```
+
+### [Python] (#tab/python-credential)
+
+```Python
+
+## Python code here
+
+```
+
+---
+
+
 ## Steps to migrate an existing application to use Azure Identity
 
 The following steps explain how to migrate an existing application to use `DefaultAzureCredential` instead of a key-based solution. These same migration steps should apply whether you are using connection strings, access keys, or shared access signatures. 
 
-### 1) Add the Azure Identity libraries to your project
+### 1) Configure roles and users for local development authentication
+
+[!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
+
+### 2) Migrate the application code to use credential-free connections
+
+Each language or framework features a slightly different implementation process for `DefaultAzureCredential`, as demonstrated below:
+
+### [C# and .NET Core](#tab/dotnet-migrate)
 
 Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`.
 
 ```dotnetcli
 dotnet add package Azure.Identity
 ```
-
-### 2) Implement DefaultAzureCredential in your code
 
 At the top of your `Program.cs` file, add the following `using` statement:
 
@@ -100,13 +133,28 @@ var blobServiceClient = new BlobServiceClient(
     new DefaultAzureCredential());
 ```
 
-### 3) Assign the necessary roles to users for local dev
+### [Java](#tab/java-migrate)
 
-[!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
+```Java
 
-### 4) Create a managed identity for the hosted app
+// Java code here
 
-Once your application is configured to use `DefaultAzureCredential`, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. The following steps demonstrate how to create a managed identity for an app service.
+```
+
+### [Python] (#tab/python-migrate)
+
+```Python
+
+## Python code here
+
+```
+
+---
+
+
+### 4) Configure the Azure hosting environment
+
+Once your application is configured to use credential-free connections, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. The following steps demonstrate how to create a managed identity for an app service.
 
 ### [Azure Portal](#tab/create-managed-identity)
 
