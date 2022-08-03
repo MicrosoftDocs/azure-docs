@@ -145,28 +145,8 @@ In case the autovacuum is not keeping up, the following parameters may be change
 |`autovacuum_vacuum_cost_limit`|Default: `200`. Cost limit may be increased. CPU and I/O utilization on the database should be monitored before and after making changes.         |
 |`autovacuum_vacuum_cost_delay` | **Postgres Versions 9.6,10,11** - Default: `20 ms`. The parameter may be decreased to `2-10 ms`. </br> **Postgres Versions 12 and above** - Default: `2 ms`.         |
 
-
-##### `autovacuum_vacuum_scale_factor`
-
-Default: `0.2`, range: `0.05 - 0.1`. The scale factor is workload-specific and should be set depending on the amount of data in the tables. Before changing the value, investigate the workload and individual table volumes.
-
-##### `autovacuum_vacuum_cost_limit`
-
-Default: `200`. Cost limit may be increased. CPU and I/O utilization on the database should be monitored before and after making changes.
-
-##### `autovacuum_vacuum_cost_delay` 
-
-###### Postgres Versions 9.6,10,11   
-
-Default: `20 ms`. The parameter may be decreased to `2-10 ms`.
-
-###### Postgres Versions 12 and above   
-
-Default: `2 ms`.
-
 > [!NOTE]
 > The `autovacuum_vacuum_cost_limit` value is distributed proportionally among the running autovacuum workers, so that if there is more than one, the sum of the limits for each worker does not exceed the value of the `autovacuum_vacuum_cost_limit` parameter
-
 
 ### Autovacuum Constantly Running
 
