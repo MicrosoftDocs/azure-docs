@@ -450,6 +450,7 @@ https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionNam
 ```http
 https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid&code=<BLOB_EXTENSION_KEY>
 ```
+::: zone-end
 
 In this example, replace `<FUNCTION_APP_NAME>` with the name of your function app and replace `<BLOB_EXTENSION_KEY>` with the value you got from the portal. If you used a different name for your function, you'll also need to change the `functionName` query string as needed.
 
