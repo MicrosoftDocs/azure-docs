@@ -110,35 +110,47 @@ To test and trigger the workflow, follow these steps:
 
 1. Reproduce the conditions that the trigger requires for your workflow to run.
 
-## List rows based on a filter
+## Return rows based on a filter
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on  the specified filter. For example, you can set up the action to list only the rows for active accounts. For more information, review [List rows](/connectors/commondataserviceforapps/#list-rows).
+For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on the specified filter. For example, you can set up the action to return only rows for active accounts. For more information about the example action, review [List rows](/connectors/commondataserviceforapps/#list-rows).
+
+### [Consumption](#tab/consumption)
 
 1. In the action, open the **Add new parameter** list, and select the **Filter rows** property.
 
    ![Screenshot showing designer for Consumption workflow and "Filter rows" property.](./media/connect-common-data-service/dataverse-action-list-rows-filter-rows.png)
 
-1. In the **Filter rows** property that now appears in the action, enter the following ODATA filter query: 
+1. In the **Filter rows** property that now appears in the action, enter an ODATA query expression, for example:
 
    `statuscode eq 1`
 
-   ![Screenshot showing designer for Consumption workflow and "Filter rows" property with ODATA filter query.](./media/connect-common-data-service/dataverse-action-list-rows-filter-rows-query.png)
+   ![Screenshot showing designer for Consumption workflow and "Filter rows" property with ODATA query.](./media/connect-common-data-service/dataverse-action-list-rows-filter-rows-query.png)
 
 For more information about `$filter` system query options, review [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
 
-## List rows based on an order
+### [Standard](#tab/standard)
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specified order, which varies based on the rows that the action returns. For example, you can have the action list the rows based on the account name.
+---
+
+## Return rows based on an order
+
+For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specific sequence, which varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name. For more information about the example action, review [List rows](/connectors/commondataserviceforapps/#list-rows).
+
+### [Consumption](#tab/consumption)
 
 1. In the action, open the **Add new parameter** list, and select the **Order By** property.
 
-   ![Add "Order by" property](./media/connect-common-data-service/list-rows-action-order-by.png)
+   ![Screenshot showing designer for Consumption workflow and "Order by" property](./media/connect-common-data-service/list-rows-action-order-by.png)
 
 1. In the **Order By** property that now appears in the action, enter this ODATA filter query: `name`
 
    ![Enter ODATA filter query for ordering rows](./media/connect-common-data-service/list-rows-action-order-by-value.png)
 
 For more information about `$orderby` system query options, see [Common Data Service - Order results](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+
+### [Standard](#tab/standard)
+
+---
 
 ## Field data types
 
