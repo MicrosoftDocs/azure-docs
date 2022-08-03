@@ -71,7 +71,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" alt-text="Screenshot showing how to configure the administrator account and create an S S H key pair for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" border="true":::
 
-1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22) and HTTP (80)** from the drop-down.
+1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
 
@@ -82,7 +82,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. Note the name of the virtual network. When you are ready, select **Create**.
 
-1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myVM_key.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
 
 You'll see a message that deployment is in progress. Wait a few minutes for deployment to complete.
 
@@ -132,7 +132,7 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private I P configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
 
-1. Select **Yes** for **Integrate with a private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.
+1. Select **Yes** for **Integrate with private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" alt-text="Screenshot showing how to integrate your private endpoint with a private D N S zone." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" border="true":::
 
