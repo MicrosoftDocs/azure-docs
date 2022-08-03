@@ -70,7 +70,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &nbsp;&#x2716; | _&#x2705;_ |
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &nbsp;&#x2716; |
+| [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -109,7 +109,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &nbsp;&#x2716; |
+| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2716; | &#x1F7E6; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | _&#x2705;_ | &nbsp;&#x2716; | _&#x2705;_ |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2716; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
