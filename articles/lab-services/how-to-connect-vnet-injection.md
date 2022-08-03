@@ -82,7 +82,7 @@ For connectivity to lab VMs, it's required to associate an NSG with the subnet d
        10. For **Name**, enter **AllowRdpSshForLabs**.
        11. Select **Add**.
 
-      :::image type="content" source="media/how-to-connect-vnet-injection/nsg-add-inbound-rule.png" lightbox="media/how-to-connect-vnet-injection/nsg-add-inbound-rule.png alt-text="Screenshot of Add inbound rule window for Network security group.":::
+      :::image type="content" source="media/how-to-connect-vnet-injection/nsg-add-inbound-rule.png" lightbox="media/how-to-connect-vnet-injection/nsg-add-inbound-rule.png" alt-text="Screenshot of Add inbound rule window for Network security group.":::
    3. Wait for the rule to be created.
    4. Select **Refresh** on the menu bar.  Our new rule will now show in the list of rules.
 3. Associate the NSG with the delegated subnet.
