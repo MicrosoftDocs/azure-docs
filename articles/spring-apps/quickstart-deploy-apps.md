@@ -182,29 +182,23 @@ This response shows that both Spring apps are working. The `SolarSystemWeather` 
 
 ::: zone pivot="programming-language-java"
 
-This document explains how to build and deploy Spring applications to Azure Spring Apps using:
-
-- Azure CLI
-- Maven Plugin
-- Intellij
+This article explains how to build and deploy Spring applications to Azure Spring Apps. You can use Azure CLI, the Maven plugin, or Intellij. This article describes each alternative.
 
 ## Prerequisites
 
 - Completion of the previous quickstarts in this series:
   - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
   - [Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md).
-- For enterprise customers, completion of the following how-to guide:
+- For enterprise customers, completion of the following how-to guide:,
   - [Use Application Configuration Service for Tanzu](./how-to-enterprise-application-configuration-service.md)
 - [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Optionally, [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 - Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
 
-## Deployment procedures
-
 #### [CLI](#tab/Azure-CLI)
 
-### Build the Spring applications locally
+## Build the Spring applications locally
 
 To build the Spring applications locally, clone the sample app repository to your Azure Cloud account. Run the following commands to change the directory and build the project.
 
@@ -216,7 +210,7 @@ mvn clean package -DskipTests -Denv=cloud
 
 Compiling the project takes 5-10 minutes. When the project is compiled, you should have individual JAR files for each service in their respective folders.
 
-### Create and deploy apps on Azure Spring Apps
+## Create and deploy apps on Azure Spring Apps
 
 The following procedure explains how to create and deploys apps on Azure Spring Apps using the CLI.
 
@@ -261,7 +255,7 @@ The following procedure explains how to create and deploys apps on Azure Spring 
    customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -
    ```
 
-### Verify the services
+## Verify the services
 
 Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
 
@@ -270,7 +264,7 @@ Access the app gateway and customers service from browser with the **Public Url*
 > [!TIP]
 > To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring app logs --name <app name> -f`.
 
-### Deploy extra apps
+## Deploy extra apps
 
 To get the PetClinic app functioning with all features like Admin Server, Visits, and Veterinarians, deploy the other apps with following commands:
 
@@ -285,9 +279,9 @@ az spring app deploy --name visits-service --jar-path spring-petclinic-visits-se
 
 #### [Maven](#tab/Maven)
 
-### Build the Spring applications locally
+## Build the Spring applications locally
 
-To build the Spring applications locally, clone the sample app repository to your Azure Cloud account. Run the following commands to change the directory and build the project.
+Use the following commands to clone the sample repository, navigate to the sample folder, and then build the project.
 
 ```azurecli
 git clone https://github.com/azure-samples/spring-petclinic-microservices
@@ -297,7 +291,7 @@ mvn clean package -DskipTests -Denv=cloud
 
 Compiling the project takes 5-10 minutes. When the project is compiled, you should have individual JAR files for each service in their respective folders.
 
-### Generate configurations and deploy to Azure Spring Apps
+## Generate configurations and deploy to Azure Spring Apps
 
 The following procedure explains how to generate configuration and deploy to Azure Spring Apps.
 
@@ -342,7 +336,7 @@ The following procedure explains how to generate configuration and deploy to Azu
    mvn azure-spring-apps:deploy
    ```
 
-### Verify the services
+## Verify the services
 
 A successful deployment command returns a URL in the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Use it to navigate to the running service.
 
@@ -351,16 +345,13 @@ A successful deployment command returns a URL in the form: `https://<service nam
 You can also navigate the Azure portal to find the URL.
 
 1. Navigate to the service.
-
 1. Select **Apps**.
-
 1. Select **api-gateway**.
-
 1. Find the URL on the **api-gateway | Overview** page.
 
-### Deploy extra apps
+## Deploy extra apps
 
-To get the PetClinic app functioning with all features like Admin Server, Visits, and Veterinarians, you can deploy the other Spring applications. Rerun the configuration command and select the following applications.
+To get the PetClinic app functioning with all sections like Admin Server, Visits, and Veterinarians, you can deploy the other Spring applications. Rerun the configuration command and select the following applications.
 
 - admin-server
 - vets-service
@@ -370,7 +361,7 @@ Correct app names in each `pom.xml` for above modules and then run the `deploy` 
 
 #### [IntelliJ](#tab/IntelliJ)
 
-### Import sample project in IntelliJ
+## Import sample project in IntelliJ
 
 The following procedure explains how to import the sample project in IntelliJ.
 
@@ -382,7 +373,7 @@ The following procedure explains how to import the sample project in IntelliJ.
 
    :::image type="content" source="media/quickstart-deploy-apps/import-project-1-pet-clinic.png" alt-text="Screenshot of the IntelliJ import wizard showing the PetClinic sample project." lightbox="media/quickstart-deploy-apps/import-project-1-pet-clinic.png":::
 
-#### Deploy the api-gateway app to Azure Spring Apps
+### Deploy the api-gateway app to Azure Spring Apps
 
 To deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
@@ -391,49 +382,35 @@ To deploy to Azure you must sign in with your Azure account with Azure Toolkit f
    :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png" alt-text="Screenshot of the IntelliJ project explorer showing how to deploy the PetClinic sample project." lightbox="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png":::
 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
-
-
 1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.5.1*.
-
 1. In the **Subscription** textbox, verify your subscription.
-
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Apps that you created in [Provision Azure Spring Apps instance](./quickstart-provision-service-instance.md).
-
 1. Set **Public Endpoint** to *Enable*.
-
 1. In the **App:** textbox, select **Create app...**.
-
 1. Enter *api-gateway*, then select **OK**.
-
 1. Specify the memory to 2 GB and JVM options: `-Xms2048m -Xmx2048m`.
 
    :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of memory and JVM options." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
 
 1. In the **Before launch** section of the dialog, double-click *Run Maven Goal*.
-
 1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/gateway* folder.
-
 1. In the **Command line** textbox, enter *package -DskipTests*. Select **OK**.
 
    :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png" alt-text="Screenshot of the spring-petclinic-microservices/gateway page and command line textbox." lightbox="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png":::
 
  1. Start the deployment by selecting the **Run** button at the bottom of the **Deploy Azure Spring Apps app** dialog. The plug-in runs the command `mvn package` on the `api-gateway` app and deploy the JAR file generated by the `package` command.
 
-#### Deploy customers-service and other apps to Azure Spring Apps
+### Deploy customers-service and other apps to Azure Spring Apps
 
 Repeat the steps above to deploy `customers-service` and other Pet Clinic apps to Azure Spring Apps:
 
 1. Modify the **Name** and **Artifact** to identify the `customers-service` app.
-
 1. In the **App:** textbox, select **Create app...** to create `customers-service` app.
-
 1. Verify that the **Public Endpoint** option is set to *Disabled*.
-
 1. In the **Before launch** section of the dialog, switch the **Working directory** to the *petclinic/customers-service* folder.
-
 1. Start the deployment by selecting the **Run** button at the bottom of the **Deploy Azure Spring Apps app** dialog.
 
-### Verify the services
+## Verify the services
 
 Navigate to the URL of the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`
 
@@ -442,14 +419,11 @@ Navigate to the URL of the form: `https://<service name>-spring-petclinic-api-ga
 You can also navigate the Azure portal to find the URL.
 
 1. Navigate to the service
-
 1. Select **Apps**
-
 1. Select **api-gateway**
-
 1. Find the URL on the **api-gateway | Overview** page
 
-### Deploy extra apps
+## Deploy extra apps
 
 Other Spring applications included in this sample can be deployed similarly.
 
