@@ -15,7 +15,7 @@ ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Get facial pose events for lip-sync
+# Get facial position with viseme
 
 > [!NOTE]
 > Viseme ID supports neural voices in [all viseme-supported locales](language-support.md#viseme). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales. 
