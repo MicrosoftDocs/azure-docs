@@ -13,12 +13,15 @@ ms.date: 7/28/2022
 
 ## What is Autovacuum 
 
-Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes. The downside of it is database needs appropriate maintenance.  
-
-For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, the row is marked as "dead" and a new version of the row is inserted.  These operations leave behind dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, dead tuples remain, consuming disk space and bloating tables and indexes which result in slow query performance.   
+Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes. 
 
 
-The purpose of autovacuum process is to clean up dead tuples.
+PostgreSQL databases need appropriate maintenance. For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, the row is marked as "dead" and a new version of the row is inserted.  These operations leave behind dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, dead tuples remain, consuming disk space and bloating tables and indexes which result in slow query performance.   
+
+
+
+Postgres uses a process called autovacuum to automatically clean up dead tuples. 
+
 
 ## Autovacuum Internals
 
