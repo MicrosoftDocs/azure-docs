@@ -13,13 +13,13 @@ This article describes how to send Microsoft Defender for IoT alerts to LogRhyth
 
 Before you begin, make sure that you have the following prerequisites:
 
-- Access to a Defender for IoT OT sensor, version TBD or higher. Make sure that you can sign in as a TBD user.
-
-- Access to an LogRhythm server as a TBD user.
+- Access to a Defender for IoT OT sensor as an Admin user.
 
 ## Create a Defender for IoT forwarding rule
 
 This procedure describes how to create a forwarding rule from your OT sensor to send Defender for IoT alerts from that sensor to LogRhythm.
+
+For more information, see [Forward alert information](../how-to-forward-alert-information-to-partners.md).
 
 1. Sign in to your OT sensor console and select **Forwarding** on the left.
 
@@ -28,8 +28,6 @@ This procedure describes how to create a forwarding rule from your OT sensor to 
     - The minimal alert level. For example, if you select Minor, you are notified about all minor, major and critical incidents.
     - The protocols you want to include in the rule.
     - The traffic you want to include in the rule.
-
-    For more information, see [Forward alert information](../how-to-forward-alert-information-to-partners.md).
 
 1. In the **Actions** area, define the following values:
 
