@@ -156,9 +156,13 @@ After making these code changes, run your application locally. The new configura
 
 ### 4) Configure the Azure hosting environment
 
-Once your application is configured to use credential-free connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. The following steps demonstrate how to create a managed identity for an app service.
+Once your application is configured to use credential-free connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. 
 
-### [Azure Portal](#tab/create-managed-identity)
+### Create the managed identity
+
+The following steps demonstrate how to create a system-assigned managed identity for an app service.
+
+### [Azure Portal](#tab/create-managed-identity-portal)
 
 1. On the main overview page of your App Service, select **Identity** from the left navigation. 
 
@@ -167,7 +171,7 @@ Once your application is configured to use credential-free connections and runs 
     :::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
 
 
-### [Azure CLI](#tab/create-managed-identity)
+### [Azure CLI](#tab/create-managed-identity-cli)
 
 You can enable managed identity on an app service using the Azure CLI with the [az webapp identity assign](/cli/azure/webapp/identity) command.
 
@@ -176,7 +180,7 @@ az webapp identity assign --resource-group <resource-group-name> -name <app-serv
 ```
 ---
 
-### 5) Assign roles to the managed identity
+### Assign roles to the managed identity
 
 Next, you need to grant permissions to the managed identity you created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user. 
 
