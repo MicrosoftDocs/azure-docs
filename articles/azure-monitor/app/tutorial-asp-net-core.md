@@ -10,7 +10,7 @@ ms.reviewer: casocha
 
 # Application Insights for ASP.NET Core applications
 
-This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation utilizes an SDK-based approach, an [auto-instrumentation approach](./codeless-overview.md) is also available.
+This article describes how to enable Application Insights for an [ASP.NET Core](https://docs.microsoft.com/aspnet/core) application deployed as an Azure Web App. This implementation utilizes an SDK-based approach, an [auto-instrumentation approach](./codeless-overview.md) is also available.
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -22,7 +22,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 > * Heartbeats
 > * Logs
 
-We'll use an [ASP.NET Core MVC application](/aspnet/core/tutorials/first-mvc-app) example that targets `net6.0`. You can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
+We'll use an [ASP.NET Core MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) example that targets `net6.0`. You can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 > [!NOTE]
 > A preview [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
@@ -142,7 +142,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
 
     ![The Visual Studio Solution Explorer displays with the Program.cs highlighted.](./media/asp-net-core/solution_explorer_programcs.png "Program.cs")
 
-2. Insert the following code prior to the `builder.Services.AddControllersWithViews()` statement. This code automatically reads the Application Insights connection string value from configuration. The `AddApplicationInsightsTelemetry` method registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container, that will then be used to fulfill [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) and [ILogger\<TCategoryName\>](/dotnet/api/microsoft.extensions.logging.iloggerprovider) implementation requests.
+2. Insert the following code prior to the `builder.Services.AddControllersWithViews()` statement. This code automatically reads the Application Insights connection string value from configuration. The `AddApplicationInsightsTelemetry` method registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container, that will then be used to fulfill [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) and [ILogger\<TCategoryName\>](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerprovider) implementation requests.
 
     ```csharp
     builder.Services.AddApplicationInsightsTelemetry();
@@ -151,7 +151,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
     ![A code window displays with the preceding code snippet highlighted.](./media/asp-net-core/enable_server_side_telemetry.png "Enable server-side telemetry")
 
     > [!TIP]
-    > Learn more about [configuration options in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0).
+    > Learn more about [configuration options in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0).
 
 ## Enable client-side telemetry for web applications
 
@@ -339,7 +339,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 ### Logging overview
 
-Application Insights is one type of [logging provider](/dotnet/core/extensions/logging-providers) available to ASP.NET Core applications that becomes available to applications when the [Application Insights for ASP.NET Core](#install-the-application-insights-nuget-package) NuGet package is installed and [server-side telemetry collection enabled](#enable-application-insights-server-side-telemetry). As a reminder, the following code in **Program.cs** registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container.
+Application Insights is one type of [logging provider](https://docs.microsoft.com/dotnet/core/extensions/logging-providers) available to ASP.NET Core applications that becomes available to applications when the [Application Insights for ASP.NET Core](#install-the-application-insights-nuget-package) NuGet package is installed and [server-side telemetry collection enabled](#enable-application-insights-server-side-telemetry). As a reminder, the following code in **Program.cs** registers the `ApplicationInsightsLoggerProvider` with the built-in dependency injection container.
 
 ```csharp
 builder.Services.AddApplicationInsightsTelemetry();
@@ -382,7 +382,7 @@ public class ValuesController : ControllerBase
 }
 ```
 
-For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0).
+For more information, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0).
 
 ## View logs in Application Insights
 
@@ -414,7 +414,7 @@ The ValuesController above is deployed with the sample application and is locate
 
 ## Control the level of logs sent to Application Insights
 
-`ILogger` implementations have a built-in mechanism to apply [log filtering](/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on appropriate use, see the [Log Level](/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#log-level) documentation.
+`ILogger` implementations have a built-in mechanism to apply [log filtering](https://docs.microsoft.com/dotnet/core/extensions/logging#how-filtering-rules-are-applied). This filtering lets you control the logs that are sent to each registered provider, including the Application Insights provider. You can use the filtering either in configuration (using an *appsettings.json* file) or in code. For more information about log levels and guidance on appropriate use, see the [Log Level](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#log-level) documentation.
 
 The following examples show how to apply filter rules to the `ApplicationInsightsLoggerProvider` to control the level of logs sent to Application Insights.
 
