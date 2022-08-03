@@ -24,7 +24,7 @@ Within a **Conditional Access policy**, an administrator can use access controls
 
 Block considers any assignments and prevents access based on the **Conditional Access policy** configuration.
 
-Block is a powerful control that should be applied with appropriate knowledge. Policies with block statements can have unintended side effects. Proper testing and validation are vital before enabling at scale. Administrators should use tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
+Block is a powerful control that you should apply with appropriate knowledge. Policies with block statements can have unintended side effects. Apply proper testing and validation, which are vital before enabling at scale. Administrators should use tools such as [conditional access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in conditional access](what-if-tool.md) when making changes.
 
 ## Grant access
 
@@ -62,7 +62,7 @@ Devices must be registered in Azure AD before they can be marked as compliant. M
 
 - The **Require device to be marked as compliant** requirement:
    - Only supports Windows 10+, iOS, Android, and macOS devices registered with Azure AD and enrolled with Intune.
-   - For devices enrolled with third-party MDM systems, see the article [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
+   - For devices enrolled with third-party MDM systems, see [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
    - Conditional access can't consider Microsoft Edge in InPrivate mode as a compliant device.
 
 > [!NOTE]
@@ -74,7 +74,7 @@ You can use the Microsoft Defender for Endpoint app with the approved client app
 
 Organizations can choose to use the device identity as part of their conditional access policy. Organizations can require that devices are hybrid Azure AD joined using this checkbox. For more information about device identities, see the article [What is a device identity?](../devices/overview.md).
 
-When using the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the require managed device grant control or a device state condition aren't supported. This is because the device performing authentication can't provide its device state to the device providing a code and the device state in the token is locked to the device performing authentication. Use the **require multi-factor authentication grant** control instead.
+When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the require managed device grant control or a device state condition aren't supported. This is because the device performing authentication can't provide its device state to the device providing a code and the device state in the token is locked to the device performing authentication. Use the **require multi-factor authentication grant** control instead.
 
 **Remarks**
 
@@ -170,11 +170,11 @@ The following client apps are confirmed to support this setting:
     - Only supports iOS and Android for device platform condition.
     - Requires a broker app to register the device. On iOS, the broker app is Microsoft Authenticator, and on Android, it's Intune Company Portal app.
 
-See [require app protection policy and an approved client app for cloud app access with conditional access](app-protection-based-conditional-access.md) for configuration examples.
+See the article [require app protection policy and an approved client app for cloud app access with conditional access](app-protection-based-conditional-access.md) for configuration examples.
 
 ### Require password change
 
-When user risk is detected, using the user risk policy conditions, administrators can have the user securely change the password using Azure AD self-service password reset. Users can perform a self-service password reset to self-remediate. This process will close the user risk event to prevent unnecessary alerts for administrators.
+When user risk is detected, administrators can employ the user risk policy conditions to have the user securely change their password with Azure AD self-service password reset. Users can perform a self-service password reset to self-remediate. This process will close the user risk event to prevent unnecessary alerts for administrators.
 
 When a user is prompted to change their password, they'll first be required to complete multifactor authentication. Make sure all users have registered for multifactor authentication, so they're prepared in case risk is detected for their account.  
 
@@ -183,7 +183,7 @@ When a user is prompted to change their password, they'll first be required to c
 
 Restrictions when you configure a policy using the password change control:  
 
-1. The policy must be assigned to "all cloud apps." This requirement prevents an attacker from using a different app to change the user's password, and reset their account risk by signing into a different app.
+1. The policy must be assigned to "all cloud apps." This requirement prevents an attacker from using a different app to change the user's password and resetting their account risk by signing into a different app.
 1. **Require password change** can't be used with other controls, such as requiring a compliant device.  
 1. The password change control can only be used with the user and group assignment condition, cloud app assignment condition (which must be set to "all"), and user risk conditions.
 
