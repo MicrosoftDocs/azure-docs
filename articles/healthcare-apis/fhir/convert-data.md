@@ -14,37 +14,37 @@ ms.custom: subject-rbac-steps
 
 # Converting your data to FHIR
 
-The `$convert-data` custom endpoint in the FHIR service is meant for converting health data from different legacy formats to FHIR. The `$convert-data` operation uses Liquid templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for the default FHIR data conversion mappings. You can customize these conversion templates as needed. Currently the `$convert-data` operation supports three types of data conversion: **HL7v2 to FHIR**, **C-CDA to FHIR**, and **JSON to FHIR** (JSON to FHIR templates are intended for custom conversion mapping).
+The `$convert-data` custom endpoint in the FHIR service is meant for converting health data from different legacy formats to FHIR. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion mappings. You can customize these conversion templates as needed. Currently the `$convert-data` operation supports three types of data conversion: **HL7v2 to FHIR**, **C-CDA to FHIR**, and **JSON to FHIR** (JSON to FHIR templates are intended for custom conversion mapping).
 
 > [!NOTE]
-> The `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of legacy health data formats into the FHIR format. However, the `$convert-data` operation is not an ETL pipeline in itself. We recommend you use an ETL engine based on Azure Logic Apps or Azure Data Factory for a complete workflow in preparing your legacy data for persistence in FHIR. The workflow might include: data reading and ingestion, data validation, making `$convert-data` API calls, data pre/post-processing, data enrichment, and data de-duplication.
+> The `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of legacy health data formats into the FHIR format. However, the `$convert-data` operation is not an ETL pipeline in itself. We recommend you use an ETL engine based on Azure Logic Apps or Azure Data Factory for a complete workflow in converting your legacy data to FHIR. The workflow might include: data reading and ingestion, data validation, making `$convert-data` API calls, data pre/post-processing, data enrichment, and data de-duplication.
 
 ## Using the `$convert-data` endpoint
 
-The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. Calling the `$convert-data` endpoint allows you to convert legacy health data into FHIR:
+The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. Calling the `$convert-data` endpoint causes the FHIR service to perform a conversion on legacy health data:
 
 `POST <<FHIR service base URL>>/$convert-data`
 
-The legacy health data is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the legacy data converted into FHIR.
+The legacy health data is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the legacy data converted to FHIR.
 
 ### Parameters Resource
 
-A `$convert-data` API call packages the legacy health data inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request – as described in the table below. 
+A `$convert-data` API call packages the legacy health data inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request. See the table below for a description of the included parameters. 
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
-| `inputData`      | Data payload to be converted to FHIR. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON |
+| `inputData`      | Legacy data payload to be converted to FHIR. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON |
 | `inputDataType`   | Type of data input. | ```HL7v2```, ``Ccda``, ``Json`` |
 | `templateCollectionReference` | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection in [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). The reference is to an image containing Liquid templates to use for conversion. It can be a reference either to default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting them on ACR, and registering to the FHIR service. | For ***default/sample*** templates: <br> **HL7v2** templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br><br> For ***custom*** templates: <br> `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>` |
 | `rootTemplate` | The root template to use while transforming the data. | For **HL7v2**:<br> "ADT_A01", "ADT_A02", "ADT_A03", "ADT_A04", "ADT_A05", "ADT_A08", "ADT_A11",  "ADT_A13", "ADT_A14", "ADT_A15", "ADT_A16", "ADT_A25", "ADT_A26", "ADT_A27", "ADT_A28", "ADT_A29", "ADT_A31", "ADT_A47", "ADT_A60", "OML_O21", "ORU_R01", "ORM_O01", "VXU_V04", "SIU_S12", "SIU_S13", "SIU_S14", "SIU_S15", "SIU_S16", "SIU_S17", "SIU_S26", "MDM_T01", "MDM_T02"<br><br> For **C-CDA**:<br> "CCD", "ConsultationNote", "DischargeSummary", "HistoryandPhysical", "OperativeNote", "ProcedureNote", "ProgressNote", "ReferralNote", "TransferSummary" <br><br> For **JSON**: <br> "ExamplePatient", "Stu3ChargeItem" <br> |
 
 > [!NOTE]
-> JSON templates are sample templates for use in building your own conversion mappings – not "default" templates that adhere to any pre-defined health data message types. JSON itself is not specified as a health data format, unlike HL7v2 messages or C-CDA documents. Therefore, instead of "default" JSON templates, we provide you with some sample JSON templates that you can use as a starting guide for your own customized mappings.
+> JSON templates are sample templates for use in building your own conversion mappings – not "default" templates that adhere to any pre-defined health data message types. JSON itself is not specified as a health data format, unlike HL7v2 or C-CDA. Therefore, instead of "default" JSON templates, we provide you with some sample JSON templates that you can use as a starting guide for your own customized mappings.
 
 > [!WARNING]
 > Default templates are released under MIT License and are **not** supported by Microsoft Support.
 >
-> Default templates are provided only to help you get started with your data conversion workflow. These templates in their default state are not intended for production and may at any point get updated when we update versions of the FHIR service. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** on an Azure Container Registry, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify conversion behavior. 
+> Default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and may at any point get updated when we update versions of the FHIR service. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** on an Azure Container Registry, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify conversion behavior meets your requirements. 
 
 #### Sample Request
 
@@ -98,17 +98,22 @@ A `$convert-data` API call packages the legacy health data inside a JSON-formatt
 
 ## Customize templates
 
-You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) for Visual Studio Code to customize templates as per your needs. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. Refer to the extension documentation for more details.
+You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) for Visual Studio Code to customize templates as per your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. Refer to the extension documentation for more details.
 
 ## Host your own templates
 
-It's recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own templates and using them in the `$convert-data` operation:
+It's recommended that you host your own copy of templates on ACR. There are six steps involved in hosting your own templates and using them in the `$convert-data` operation:
 
-1. Push the templates to your Azure Container Registry.
-2. Enable Managed Identity in your FHIR service instance.
-3. Provide ACR access to the FHIR service Managed Identity.
-4. Register the ACR server in the FHIR service.
-5. Optionally configure ACR firewall for secure access.
+1. Create an Azure Container Registry instance.
+2. Push the templates to your Azure Container Registry.
+3. Enable Managed Identity in your FHIR service instance.
+4. Provide ACR access to the FHIR service Managed Identity.
+5. Register the ACR server in the FHIR service.
+6. Optionally configure ACR firewall for secure access.
+
+### Create an ACR instance
+
+Read the [Introduction to Container registries in Azure](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) and follow the instructions for creating your own ACR instance. It's recommended to place your ACR instance in the same resource group where your FHIR service is located.
 
 ### Push templates to Azure Container Registry
 
@@ -123,34 +128,34 @@ Change the status to **On** to enable managed identity in the FHIR service.
 
 ### Provide ACR access to the FHIR service
 
-1. Select **Access control (IAM)**.
+1. In your resource group, go to your **Container registry** instance and select the **Access control (IAM)** blade.
 
-1. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
+2. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
 
    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Role** tab, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
+3. On the **Role** tab, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
 
    [![Screen shot showing user interface of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
 
-1. On the **Members** tab, select **Managed identity**, and then click **Select members**.
+4. On the **Members** tab, select **Managed identity**, and then click **Select members**.
 
-1. Select your Azure subscription.
+5. Select your Azure subscription.
 
-1. Select **System-assigned managed identity**, and then select the FHIR service.
+6. Select **System-assigned managed identity**, and then select the FHIR service.
 
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+7. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
 ### Register the ACR server in FHIR service
 
-You can register the ACR server using the Azure portal, or using CLI.
+You can register the ACR server using the Azure portal, or using the CLI.
 
 #### Registering the ACR server using Azure portal
-Browse to the **Artifacts** blade under **Data transformation** in your FHIR service instance. You'll see the list of currently registered ACR servers. Select **Add**, and then select your registry server from the drop-down menu. You'll need to select **Save** for the registration to take effect. It may take a few minutes to apply the change.
+Browse to the **Artifacts** blade under **Data transformation** in your FHIR service instance. You'll see the list of currently registered ACR servers. Select **Add**, and then select your registry server from the drop-down menu. You'll need to click **Save** for the registration to take effect. It may take a few minutes to apply the change.
 
-#### Registering the ACR server using CLI
+#### Registering the ACR server using the CLI
 You can register up to 20 ACR servers in the FHIR service.
 
 Install the Azure Health Data Services CLI if needed:
@@ -159,7 +164,7 @@ Install the Azure Health Data Services CLI if needed:
 az extension add -n healthcareapis
 ```
 
-Register the ACR servers to FHIR service following the examples below:
+Register the ACR servers to the FHIR service following the examples below:
 
 ##### Register a single ACR server
 
@@ -174,7 +179,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 ```
 ### Configure ACR firewall
 
-Select **Networking** for the Container registry in your Azure Portal.
+In your Azure Portal, select **Networking** for the Container registry.
 
 [ ![Screen image of configure ACR firewall.](media/convert-data/networking-container-registry.png) ](media/convert-data/networking-container-registry.png#lightbox)
 
@@ -218,11 +223,13 @@ For private network access (that is, a private link), you can also disable the p
 
 [ ![Screen image of private link for ACR.](media/convert-data/configure-private-network-container-registry.png) ](media/convert-data/configure-private-network-container-registry.png#lightbox)
 
-### Verify
+### Verify `$convert-data` operation
 
 Make a call to the `$convert-data` API specifying your template reference in the `templateCollectionReference` parameter.
 
 `<RegistryServer>/<imageName>@<imageDigest>`
+
+You should receive a `Bundle` response containing the legacy health data converted into the FHIR format.
 
 ## Next steps
 
