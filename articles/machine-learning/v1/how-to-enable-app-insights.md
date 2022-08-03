@@ -14,9 +14,9 @@ ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 
 # Monitor and collect data from ML web service endpoints
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI). Use [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to collect the following data from an endpoint:
+In this article, you learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI). Use [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) to collect the following data from an endpoint:
 * Output data
 * Responses
 * Request rates, response times, and failure rates
@@ -25,7 +25,7 @@ In this article, you learn how to collect data from models deployed to web servi
 
 The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article.
  
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 > [!IMPORTANT]
 > The information in this article relies on the Azure Application Insights instance that was created with your workspace. If you deleted this Application Insights instance, there is no way to re-create it other than deleting and recreating the workspace.
@@ -37,9 +37,9 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 
 * An Azure subscription - try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment.md).
+* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](../how-to-configure-environment.md).
 
-* A trained machine learning model. To learn more, see the [Train image classification model](tutorial-train-deploy-notebook.md) tutorial.
+* A trained machine learning model. To learn more, see the [Train image classification model](../tutorial-train-deploy-notebook.md) tutorial.
 
 <a name="python"></a>
 
@@ -66,7 +66,7 @@ Use the following steps to update an existing web service:
 ### Log custom traces in your service
 
 > [!IMPORTANT]
-> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](how-to-enable-data-collection.md).
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](../how-to-enable-data-collection.md).
 >
 > For more complex situations, like model tracking within an AKS deployment, we recommend using a third-party library like [OpenCensus](https://opencensus.io).
 
@@ -203,7 +203,7 @@ Azure Application Insights stores your service logs in the same resource group a
 
    [![trace data](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
-For more information on how to use Azure Application Insights, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
+For more information on how to use Azure Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
 
 ## Web service metadata and response data
 
@@ -215,9 +215,9 @@ To log web service request information, add `print` statements to your score.py 
 ## Export data for retention and processing
 
 >[!Important]
-> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
+> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](../../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Use Application Insights' [continuous export](../azure-monitor/app/export-telemetry.md) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
+Use Application Insights' [continuous export](../../azure-monitor/app/export-telemetry.md) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Continuous export":::
 
@@ -226,8 +226,8 @@ Use Application Insights' [continuous export](../azure-monitor/app/export-teleme
 In this article, you learned how to enable logging and view logs for web service endpoints. Try these articles for next steps:
 
 
-* [How to deploy a model to an AKS cluster](./v1/how-to-deploy-azure-kubernetes-service.md)
+* [How to deploy a model to an AKS cluster](how-to-deploy-azure-kubernetes-service.md)
 
-* [How to deploy a model to Azure Container Instances](./v1/how-to-deploy-azure-container-instance.md)
+* [How to deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
-* [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](./concept-model-management-and-deployment.md) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process.
+* [MLOps: Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md) to learn more about leveraging data collected from models in production. Such data can help to continually improve your machine learning process.
