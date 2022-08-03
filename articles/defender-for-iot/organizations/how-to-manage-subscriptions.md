@@ -87,7 +87,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     - **Number of sites** (for annual commitment only). Enter the number of committed sites.
 
-    - **Committed devices**. If you selected a monthly or annual commitment, enter the number of assets you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
+    - **Committed devices**. If you selected a monthly or annual commitment, enter the number of assets you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 100 devices.
 
     For example: 
 

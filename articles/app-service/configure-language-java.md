@@ -640,10 +640,10 @@ Next, determine if the data source should be available to one application or to 
         <Resource
             name="jdbc/dbconnection"
             type="javax.sql.DataSource"
-            url="${dbuser}"
+            url="${connURL}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
+            username="${dbuser}"
+            password="${dbpassword}"
         />
     </Context>
     ```
