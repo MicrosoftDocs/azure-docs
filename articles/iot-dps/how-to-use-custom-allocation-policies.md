@@ -121,7 +121,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 2. In the *Search the Marketplace* search box, type "Function App". From the drop-down list select **Function App**, and then select **Create**.
 
-3. On **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
+3. On the **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
 
     **Resource Group**: Select the **contoso-us-resource-group** to keep all resources created in this article together.
 
@@ -129,7 +129,7 @@ In this section, you create an Azure function that implements your custom alloca
 
     **Publish**: Verify that **Code** is selected.
 
-    **Runtime Stack**: Select **.NET Core** from the drop-down.
+    **Runtime Stack**: Select **.NET** from the drop-down.
 
     **Version**: Select **3.1** from the drop-down.
 
@@ -142,11 +142,11 @@ In this section, you create an Azure function that implements your custom alloca
 
 4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
 
-5. On the left pane of the function app **Overview** page, click **Functions** and then **+ Add** to add a new function.
+5. On the left pane of the function app **Overview** page, select **Functions** and then **+ Create** to add a new function.
 
-6. On the **Add function** page, click **HTTP Trigger**, then click the **Add** button.
+6. On the **Create function** page, make sure that **Development environment** is set to **Develop in portal**. Then se;ect the **HTTP Trigger** template followed by the **Create** button.
 
-7. On the next page, click **Code + Test**. This allows you to edit the code for the function named **HttpTrigger1**. The **run.csx** code file should be opened for editing.
+7. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
 
 8. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.proj* file. In this step, you save and upload a *function.proj* file for the required assemblies.  For more information, see [Using NuGet packages with Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
@@ -158,8 +158,8 @@ In this section, you create an Azure function that implements your custom alloca
                 <TargetFramework>netstandard2.0</TargetFramework>  
             </PropertyGroup>  
             <ItemGroup>  
-                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.16.3" />
-                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.27.0" />
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.18.1" />
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.30.1" />
             </ItemGroup>  
         </Project>
         ```
@@ -348,12 +348,12 @@ For the example in this article, use the following two device registration IDs a
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az-iot-dps-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [`iot dps enrollment-group compute-device-key`](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 
 ```azurecli
-az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id breakroom499-contoso-tstrsd-007
+az iot dps enrollment-group compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id breakroom499-contoso-tstrsd-007
 
 "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs="
 ```
@@ -363,6 +363,13 @@ az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOt
 
 "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg="
 ```
+
+> [!NOTE]
+> You can also supply the enrollment group ID rather than the symmetric key to the `iot dps enrollment-group compute-device-key` command. For example:
+>
+> ```azurecli
+> az iot dps enrollment-group compute-device-key -g contoso-us-resource-group --dps-name contoso-provisioning-service-1099\8 --enrollment-id contoso-custom-allocated-devices --registration-id breakroom499-contoso-tstrsd-007
+> ```
 
 # [PowerShell](#tab/powershell)
 
