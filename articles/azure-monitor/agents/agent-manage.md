@@ -79,6 +79,35 @@ Run the following command to upgrade the agent.
 
 `sudo sh ./omsagent-*.universal.x64.sh --upgrade`
 
+### Enable Auto-Update for the Linux Agent
+
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
+# [Powershell](#tab/PowerShellLinux)
+```powershell
+Set-AzVMExtension \
+  -ResourceGroupName myResourceGroup \
+  -VMName myVM \
+  -ExtensionName OmsAgentForLinux \
+  -ExtensionType OmsAgentForLinux \
+  -Publisher Microsoft.EnterpriseCloud.Monitoring \
+  -TypeHandlerVersion latestVersion
+  -ProtectedSettingString '{"workspaceKey":"myWorkspaceKey"}' \
+  -SettingString '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+ -EnableAutomaticUpgrade $true
+```
+# [Azure CLI](#tab/CLILinux)
+```powershell
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+  --version latestVersion \
+--enable-auto-upgrade true
+```
+
 ## Adding or removing a workspace
 
 ### Windows agent
