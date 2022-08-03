@@ -180,15 +180,43 @@ Second, if the GPU is correctly assigned, but still not being able to use it ins
 
 ## Check WSSDAgent logs for issues
 
+The first step before checking WSSDAgent logs, is to check if the VM was created and is running. 
 
+1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. On Windows Client SKUs, check the [HCS]() virtual machines.
+    ```powershell
+    hcsdiag list
+    ```
+    If the EFLOW VM is running, you should see a line that has a GUID and then will say _wssdagent_.
+    ```
+    2bd841e4-126a-11ed-9a91-f01dbca16d1e
+        VM,                         Running, 2BD841E4-126A-11ED-9A91-F01DBCA16D1E, wssdagent
 
+    88d7aa8c-0d1f-4786-b4cb-62eff1decd92
+        VM,                         SavedAsTemplate, 88D7AA8C-0D1F-4786-B4CB-62EFF1DECD92, CmService
+    ```
+
+1. On Windows Server SKUs, check the [VMMS] virtual machines
+    ```powershell
+    hcsdiag list
+    ```
+   If the EFLOW VM is running, you should see a line that has the <WindowsHostname-EFLOW> as a name.
+    ```powershell
+    Name               State   CPUUsage(%) MemoryAssigned(M) Uptime           Status             Version
+    ----               -----   ----------- ----------------- ------           ------             -------
+    NUC-EFLOW          Running 0           1024              00:01:34.1280000 Operating normally 9.0
+    ```
+
+If for some reason the VM isn't showing up, that means that VM isn't running or the WSSDAgent wasn't able to create it. In order to check the WSSDAgent logs, use the following steps.
+
+1. Open File Explorer
+1. Go to C:\ProgramData\wssdagent\log
+1. Open the _wssdagent.log_ file.
+1. Look for _Error_ or _Fail_ words.
 
 ## Last resort: reinstall EFLOW
 
 Sometimes, a system might require significant special modification to work with existing networking or operating system constraints. For example, a system could require complex networking configurations (firewall, Windows policies, proxy settings) and custom Windows OS configurations. If you tried all steps above and still get EFLOW issues, it's possible that there's some misconfiguration that is causing the issue. In this case, the last resort option is to uninstall EFLOW and get a clean start from scratch. 
-
-
-
 
 ## Next steps
 
