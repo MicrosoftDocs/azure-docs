@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/10/2020
+ms.date: 08/02/2022
 ---
 
 # Distribute and modify tables
