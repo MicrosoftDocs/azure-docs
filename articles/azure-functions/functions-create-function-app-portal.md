@@ -49,6 +49,8 @@ Next, create a function in the new function app.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
+[!INCLUDE [functions-create-function-app-portal-private-endpoint](../../includes/functions-create-function-app-portal-private-endpoint.md)]
+
 ## Test the function
 
 1. In your new HTTP trigger function, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
