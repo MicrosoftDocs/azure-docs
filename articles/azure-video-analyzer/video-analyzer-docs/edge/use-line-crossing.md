@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This tutorial shows you how to use Azure Video Analyzer detect when objects cross a virtual line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and send the results to a line crossing node.
 
 The line crossing node enables you to detect when objects cross the virtual line. The events contain the direction (clockwise, counterclockwise) and a total counter per direction.  

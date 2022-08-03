@@ -67,7 +67,7 @@ After you create the VM, Azure CLI displays information similar to the following
 ```
 ## Create and attach a new disk for Oracle datafiles and FRA
 
-```bash
+```azurecli
 az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 64 --sku StandardSSD_LRS --vm-name vmoracle19c
 ```
 
@@ -75,7 +75,7 @@ az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 64
 In this task you must configure some external endpoints for the database listener to use by setting up the Azure Network Security Group that protects the VM. 
 
 1. To open the endpoint that you use to access the Oracle database remotely, create a Network Security Group rule as follows:
-   ```bash
+   ```azurecli
    az network nsg rule create ^
        --resource-group rg-oracle ^
        --nsg-name vmoracle19cNSG ^
@@ -85,7 +85,7 @@ In this task you must configure some external endpoints for the database listene
        --destination-port-range 1521
    ```
 2. To open the endpoint that you use to access Oracle remotely, create a Network Security Group rule with az network nsg rule create as follows:
-   ```bash
+   ```azurecli
    az network nsg rule create ^
        --resource-group rg-oracle ^
        --nsg-name vmoracle19cNSG ^
@@ -96,11 +96,11 @@ In this task you must configure some external endpoints for the database listene
    ```
 3. If needed, obtain the public IP address of your VM again with az network public-ip show as follows:
 
-   ```bash
+   ```azurecli
    az network public-ip show ^
        --resource-group rg-oracle ^
        --name vmoracle19cPublicIP ^
-       --query [ipAddress] ^
+       --query "ipAddress" ^
        --output tsv
    ```
 

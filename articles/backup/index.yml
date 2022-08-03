@@ -75,6 +75,8 @@ landingContent:
             url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
+          - text: Multi-user authorization (MUA)
+            url: multi-user-authorization.md
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
   # Card

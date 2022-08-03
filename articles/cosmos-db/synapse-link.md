@@ -6,7 +6,7 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: synapse-cosmos-db
 ---
 
@@ -110,20 +110,17 @@ Synapse Link isn't recommended if you're looking for traditional data warehouse 
 
 ## Limitations
 
-* Azure Synapse Link for Azure Cosmos DB is supported for SQL API and Azure Cosmos DB API for MongoDB. It isn't supported for Gremlin API, Cassandra API, and Table API.
+* Azure Synapse Link for Azure Cosmos DB is not supported for Gremlin API, Cassandra API, and Table API. It is supported for SQL API and API for Mongo DB.
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 
-* Enabling Synapse Link on existing Cosmos DB containers is only supported for SQL API accounts. Synapse Link can be enabled on new containers for both SQL API and MongoDB API   accounts.
+* Enabling Synapse Link on existing Cosmos DB containers is only supported for SQL API accounts. Synapse Link can be enabled on new containers for both SQL API and MongoDB API accounts.
 
-* Backup and restore of your data in analytical store isn't supported at this time. You can recreate your analytical store data in some scenarios as below:
-    * Azure Synapse Link and periodic backup mode can coexist in the same database account. In this mode, your transactional store data will be automatically backed up.              However, analytical store data isn't included in backups and restores. If you use `transactional TTL` equal or bigger than your `analytical TTL` on your container, you can
-     fully recreate your analytical store data by enabling analytical store on the restored container. Please note, at present, you can only recreate analytical store on your
-     restored containers for SQL API.
-    * Synapse Link and continuous backup mode (point=in-time restore) coexistence in the same database account isn't supported. If you enable continuous backup mode, you can't
-      turn on Synapse Link, and vice versa.
+* Although analytical store data is not backed up, and therefore cannot be restored, you can rebuild your analytical store by reenabling Synapse Link in the restored container. Click [here](analytical-store-introduction.md#backup) for more information.
 
-* Role-Based Access (RBAC) isn't supported when querying using Synapse SQL serverless pools. 
+* Currently Synapse Link isn't fully compatible with continuous backup mode. Click [here](analytical-store-introduction.md#backup) for more information.
+         
+* Granular Role-based Access (RBAC)s isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers. 
 
 
 ## Security

@@ -14,17 +14,11 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
 
 The Speech SDK for Swift is distributed as a framework bundle. The framework supports both Objective-C and Swift on both iOS and macOS.
 
 The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded directly [here](https://aka.ms/csspeech/macosbinary) and linked manually. This guide uses a CocoaPod. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Synthesize to speaker output
 
@@ -38,49 +32,49 @@ Follow these steps to synthesize speech in a macOS application.
 
     ```swift
     import Cocoa
-    
+
     @NSApplicationMain
     class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         var textField: NSTextField!
         var synthesisButton: NSButton!
-        
+
         var inputText: String!
-        
+
         var sub: String!
         var region: String!
-    
+
         @IBOutlet weak var window: NSWindow!
-    
+
         func applicationDidFinishLaunching(_ aNotification: Notification) {
             print("loading")
             // load subscription information
             sub = "YourSubscriptionKey"
             region = "YourServiceRegion"
-            
+
             inputText = ""
-            
+
             textField = NSTextField(frame: NSRect(x: 100, y: 200, width: 200, height: 50))
             textField.textColor = NSColor.black
             textField.lineBreakMode = .byWordWrapping
-            
+
             textField.placeholderString = "Type something to synthesize."
             textField.delegate = self
-            
+
             self.window.contentView?.addSubview(textField)
-            
+
             synthesisButton = NSButton(frame: NSRect(x: 100, y: 100, width: 200, height: 30))
             synthesisButton.title = "Synthesize"
             synthesisButton.target = self
             synthesisButton.action = #selector(synthesisButtonClicked)
             self.window.contentView?.addSubview(synthesisButton)
         }
-        
+
         @objc func synthesisButtonClicked() {
             DispatchQueue.global(qos: .userInitiated).async {
                 self.synthesize()
             }
         }
-        
+
         func synthesize() {
             var speechConfig: SPXSpeechConfiguration?
             do {
@@ -98,18 +92,22 @@ Follow these steps to synthesize speech in a macOS application.
             {
                 let cancellationDetails = try! SPXSpeechSynthesisCancellationDetails(fromCanceledSynthesisResult: result)
                 print("cancelled, error code: \(cancellationDetails.errorCode) detail: \(cancellationDetails.errorDetails!) ")
+                print("Did you set the speech resource key and region values?");
                 return
             }
         }
-        
+
         func controlTextDidChange(_ obj: Notification) {
             let textFiled = obj.object as! NSTextField
             inputText = textFiled.stringValue
-        }   
+        }
     }
     ```
 
 1. In `AppDelegate.m`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 1. Optionally in `AppDelegate.m`, include a speech synthesis voice name as shown here: 
     ```swift
     speechConfig?.speechSynthesisVoiceName = "en-US-JennyNeural";
@@ -120,8 +118,8 @@ Follow these steps to synthesize speech in a macOS application.
 
 After you input some text and select the button in the app, you should hear the synthesized audio played.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
 This quickstart uses the `SpeakText` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 - For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).

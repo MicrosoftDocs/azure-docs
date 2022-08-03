@@ -8,10 +8,6 @@ ms.custom: devx-track-js
 
 # Send security messages SDK
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Create custom alerts](quickstart-create-custom-alerts.md).
->
-
 This how-to guide explains the Defender for IoT service capabilities when you choose to collect and send your device security messages without using a Defender for IoT agent, and explains how to do so.
 
 In this guide, you learn how to:

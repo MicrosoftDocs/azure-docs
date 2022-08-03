@@ -24,7 +24,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 ### vCenter Server
 
-- vCenter Server version 6.7.
+- vCenter Server version 6.7 or 7.
 
 - A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
 
@@ -97,7 +97,10 @@ Use the following instructions to run the script, depending on which operating s
 
 ### Windows
 
-1. Open a PowerShell window and go to the folder where you've downloaded the PowerShell script.
+1. Open a PowerShell window as an Administrator and go to the folder where you've downloaded the PowerShell script.
+
+> [!NOTE]
+> On Windows workstations, the script must be run in PowerShell window and not in PowerShell Integrated Script Editor (ISE) as PowerShell ISE doesn't display the input prompts from Azure CLI commands. If the script is run on PowerShell ISE, it could appear as though the script is stuck while it is waiting for input. 
 
 2. Run the following command to allow the script to run, because it's an unsigned script. (If you close the session before you complete all the steps, run this command again for the new session.)
 
@@ -146,7 +149,7 @@ After the command finishes running, your setup is complete. You can now use the 
 ## Save SSH keys and kubeconfig
 
 > [!IMPORTANT]
-> Performing some day 2 operations on the Arc resource bridge will require the SSH key to the resource bridge VM and kubeconfig to the Kubernetes cluster on it. It is important to store them to a secure location as it is not possible to retrieve them if the workstation used for the onboarding is deleted.
+> Performing [day 2 operations on the Arc resource bridge](day2-operations-resource-bridge.md) will require the SSH key to the resource bridge VM and kubeconfig to the Kubernetes cluster on it. It is important to store them to a secure location as it is not possible to retrieve them if the workstation used for the onboarding is deleted.
 
 You will find the kubeconfig file with the name `kubeconfig` in the folder where  the onboarding script is downloaded and run.
 

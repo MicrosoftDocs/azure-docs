@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 03/24/2022
+ms.date: 04/26/2022
 ms.author: tomfitz
 ---
 
@@ -15,6 +15,8 @@ Private link provides the following security benefits:
 
 > [!NOTE]
 > Azure Kubernetes Service (AKS) currently doesn't support the ARM private endpoint implementation.
+>
+> Azure Bastion doesn't support private DNS zones, which are a recommended configuration for your private endpoint. Enabling a private DNS zone will cause your Bastion instance to stop working.
 
 ## Understand architecture
 
@@ -54,4 +56,4 @@ To set up the private link for resource management, you need the following acces
 
 * Owner on the subscription. This access is needed to create resource management private link resource.
 * Owner or Contributor at the root management group. This access is needed to create the private link association resource.
-* The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles at the root management group. To enable creating resource management private links, the Global Administrator must have permission to read root management group and [elevate access](../articles/role-based-access-control/elevate-access-global-admin.md) to have User Access Administrator permission on all subscriptions and management groups in the tenant. After getting the User Access Administrator permission, the Global Administrator must grant Owner or Contributor permission at the root management group to the user creating the private link association.
+* The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles at the root management group. To enable creating resource management private links, the Global Administrator must have permission to read root management group and [elevate access](../articles/role-based-access-control/elevate-access-global-admin.md) to have User Access Administrator permission on all subscriptions and management groups in the tenant. After you get the User Access Administrator permission, the Global Administrator must grant Owner or Contributor permission at the root management group to the user creating the private link association.

@@ -1,5 +1,5 @@
 ---
-title: Application types for the Microsoft identity platform | Azure
+title: Application types for the Microsoft identity platform
 description: The types of apps and scenarios supported by the Microsoft identity platform.
 services: active-directory
 author: rwike77

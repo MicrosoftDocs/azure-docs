@@ -2,10 +2,9 @@
 title: Use Azure AD Domain Services to authorize access to file data over SMB
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials.
 author: khdownie
-
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 04/08/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
@@ -18,7 +17,7 @@ ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
 > [!NOTE]
-> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC and AES-256 encryption.
+> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC and AES-256 encryption. We recommend using AES-256.
 >
 > Azure Files supports authentication for Azure AD DS with full synchronization with Azure AD. If you have enabled scoped synchronization in Azure AD DS which only sync a limited set of identities from Azure AD, authentication and authorization is not supported.
 
@@ -79,35 +78,6 @@ Next, do the following things to grant access to Azure Files resources with Azur
 The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files.
 
 ![Diagram showing Azure AD over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
-
-## (Optional) Use AES 256 encryption
-
-By default, Azure AD DS authentication uses Kerberos RC4 encryption. To use Kerberos AES256 instead, follow these steps:
-
-As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), open the Azure cloud shell.
-
-Execute the following commands:
-
-```azurepowershell
-# 1. Find the service account in your managed domain that represents the storage account.
-
-$storageAccountName= “<InsertStorageAccountNameHere>”
-$searchFilter = "Name -like '*{0}*'" -f $storageAccountName
-$userObject = Get-ADUser -filter $searchFilter
-
-if ($userObject -eq $null)
-{
-   Write-Error "Cannot find AD object for storage account:$storageAccountName" -ErrorAction Stop
-}
-
-# 2. Set the KerberosEncryptionType of the object
-
-Set-ADUser $userObject -KerberosEncryptionType AES256
-
-# 3. Validate that the object now has the expected (AES256) encryption type.
-
-Get-ADUser $userObject -properties KerberosEncryptionType
-```
 
 ## Enable Azure AD DS authentication for your account
 
@@ -173,6 +143,35 @@ To enable this feature on existing storage accounts, use the following command:
 az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds
 ```
 ---
+
+## Recommended: Use AES-256 encryption
+
+By default, Azure AD DS authentication uses Kerberos RC4 encryption. We recommend configuring it to use Kerberos AES-256 encryption instead by following these steps:
+
+As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), open the Azure Cloud Shell.
+
+Execute the following commands:
+
+```azurepowershell
+# 1. Find the service account in your managed domain that represents the storage account.
+
+$storageAccountName= “<InsertStorageAccountNameHere>”
+$searchFilter = "Name -like '*{0}*'" -f $storageAccountName
+$userObject = Get-ADUser -filter $searchFilter
+
+if ($userObject -eq $null)
+{
+   Write-Error "Cannot find AD object for storage account:$storageAccountName" -ErrorAction Stop
+}
+
+# 2. Set the KerberosEncryptionType of the object
+
+Set-ADUser $userObject -KerberosEncryptionType AES256
+
+# 3. Validate that the object now has the expected (AES256) encryption type.
+
+Get-ADUser $userObject -properties KerberosEncryptionType
+```
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 

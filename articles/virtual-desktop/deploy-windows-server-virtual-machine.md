@@ -29,7 +29,7 @@ For more information, refer [Operating systems and licenses](prerequisites.md)
 
 Use the following information to learn about how licensing works in Remote Desktop Services and to deploy and manage your licenses.
 
-[License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)
+[License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license)
 
 If you're already using Windows Server based Remote Desktop Services, you'll likely have Licensing Server setup in your environment. You can continue using the same provided Azure Virtual Desktop hosts has line of sight to the Server. 
 
@@ -57,4 +57,3 @@ Now that you've deployed Windows Server based Host VMs, you can sign in to a sup
 
 - [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md)
 - [Connect with the web client](user-documentation/connect-web.md)
-  

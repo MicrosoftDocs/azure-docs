@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Custom Commands encryption of data at rest

@@ -13,6 +13,9 @@
     items: 
     - name: Portal
       href: quickstart-create-data-migration-service-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: create-dms-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: create-dms-resource-manager-template.md
@@ -37,6 +40,14 @@
       href: resource-network-topologies.md
     - name: Custom roles 
       href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with SQL Managed Instance as a target 
+      href: resource-custom-roles-sql-db-managed-instance-ads.md
+    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Virtual Machines as a target 
+      href: resource-custom-roles-sql-db-virtual-machine-ads.md
+  - name: Migration to Azure Database for MySQL
+    items: 
+    - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
+      href: migrate-azure-mysql-consistent-backup.md
   - name: Security
     items: 
     - name: Security baseline

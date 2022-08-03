@@ -1,12 +1,13 @@
 ---
 title: TicksToDateTime in Azure Cosmos DB query language
 description: Learn about SQL system function TicksToDateTime in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # TicksToDateTime (Azure Cosmos DB)

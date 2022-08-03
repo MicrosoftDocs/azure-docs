@@ -6,7 +6,7 @@ ms.author: macerr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: tutorial
-ms.date: 03/16/2022
+ms.date: 06/29/2022
 ---
 
 # Tutorial: Plan an Azure Application offer
@@ -83,9 +83,9 @@ You can also read about [test drive best practices](https://github.com/Azure/Azu
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
 
-You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Categories and subcategories
 
@@ -229,3 +229,9 @@ There are two kinds of Azure application plans: _solution template_ and _managed
 
 - To plan a solution template, see [Plan a solution template for an Azure application offer](plan-azure-app-solution-template.md).
 - To plan an Azure managed application, see [Plan an Azure managed application for an Azure application offer](plan-azure-app-managed-app.md).
+
+**Video tutorials and hands-on labs**
+
+- [Mastering Azure Managed Application offers](https://go.microsoft.com/fwlink/?linkid=2201395)
+- [Metered Billing for Azure Managed Applications – Demo](https://go.microsoft.com/fwlink/?linkid=2196412)
+- [Azure Managed Application Deployment Package Overview](https://go.microsoft.com/fwlink/?linkid=2196244)

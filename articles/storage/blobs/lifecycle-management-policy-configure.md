@@ -2,9 +2,9 @@
 title: Configure a lifecycle management policy
 titleSuffix: Azure Storage
 description: Configure a lifecycle management policy to automatically move data between hot, cool, and archive tiers during the data lifecycle.
-author: tamram
+author: normesta
 
-ms.author: tamram
+ms.author: normesta
 ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common
@@ -210,6 +210,10 @@ To define a lifecycle management policy with an Azure Resource Manager template,
 ---
 
 A lifecycle management policy must be read or written in full. Partial updates are not supported.
+
+
+> [!NOTE]
+> Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).

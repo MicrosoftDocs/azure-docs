@@ -55,7 +55,7 @@ Azure announced an industry leading single instance virtual machine Service Leve
 
 
 ## VM size
-The [size](../sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.
+The [size](../sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, storage capacity, and network bandwidth. Azure offers a wide variety of sizes to support many types of uses.
 
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
@@ -93,7 +93,7 @@ The resources in this table are used by the VM and need to exist or be created w
 | Resource | Required | Description |
 | --- | --- | --- |
 | [Resource group](../../azure-resource-manager/management/overview.md) |Yes |The VM must be contained in a resource group. |
-| [Storage account](../../storage/common/storage-account-create.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
+| [OS disk](../managed-disks-overview.md) |Yes |The VM needs a disk to store the OS in most cases. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
 | [Public IP address](../../virtual-network/ip-services/public-ip-addresses.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |

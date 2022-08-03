@@ -70,7 +70,7 @@ In Solution Explorer, right-click the **CustomFontSample** project and select **
 
 Select **Docker Compose** > **OK**.
 
-Your project is now set to run in a Windows container. A _Dockerfile_ is added to the **CustomFontSample** project, and a **docker-compose** project is added to the solution. 
+Your project is now set to run in a Windows container. A `Dockerfile` is added to the **CustomFontSample** project, and a **docker-compose** project is added to the solution. 
 
 From the Solution Explorer, open **Dockerfile**.
 
@@ -131,7 +131,7 @@ A terminal window is opened and displays the image deployment progress. Wait for
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a web app
 
@@ -214,7 +214,7 @@ The streamed logs look like this:
 ::: zone pivot="container-linux"
 
 
-Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes--linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
+Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --os linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 
 In this tutorial, you learn how to:
 

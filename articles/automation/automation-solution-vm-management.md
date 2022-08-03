@@ -37,7 +37,7 @@ The following are limitations with the current feature:
 
 - The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./automation-security-overview.md#run-as-accounts). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
-- An [Azure Monitor Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account and Log Analytics workspace need to be in the same subscription and supported region. The workspace needs to already exist, you cannot create a new workspace during deployment of this feature.
+- An [Azure Monitor Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account and Log Analytics workspace need to be in the same subscription and supported region. The workspace needs to already exist, you cannot create a new workspace during deployment of this feature.
 
 We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. Before importing the updated modules into your production Automation account(s), we recommend you import them into a test Automation account to verify there aren't any compatibility issues.
 

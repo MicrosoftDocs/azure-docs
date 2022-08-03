@@ -24,6 +24,8 @@
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure Database for PostgreSQL server - Azure portal
     href: quick-backup-postgresql-database-portal.md
+  - name: Enable Multi-user authorization on Recovery Services vault
+    href: enable-multi-user-authorization-quickstart.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -52,8 +54,14 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
+  - name: Configure Multi-user authorization (MUA) on Recovery Services vault
+    href: multi-user-authorization-tutorial.md
 - name: Concepts
   items:
+  - name: Resiliency
+    items:
+    - name: Migrate to availability zone support
+      href: ../availability-zones/migrate-recovery-services-vault.md
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
@@ -110,6 +118,10 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: Security
+    items:
+    - name: Multi-user authorization
+      href: multi-user-authorization-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -212,6 +224,14 @@
         href: restore-sql-database-azure-vm.md
       - name: Manage
         href: manage-monitor-sql-database-backup.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-azure-sql-backup-cli.md
+      - name: Restore
+        href: backup-azure-sql-restore-cli.md
+      - name: Manage
+        href: backup-azure-sql-manage-cli.md
     - name: With REST API
       items:
       - name: Backup
@@ -480,14 +500,16 @@
     items:
     - name: Overview
       href: monitoring-and-alerts-overview.md
-    - name: Using Backup Explorer
-      href: monitor-azure-backup-with-backup-explorer.md
-    - name: Using the Azure portal
+    - name: Using Backup center
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Using Azure Monitor alerts
+      href: move-to-azure-monitor-alerts.md
     - name: Using Azure Monitor metrics
       href: metrics-overview.md
     - name: Using Azure Monitor Logs
       href: backup-azure-monitoring-use-azuremonitor.md
+    - name: Using Backup Explorer
+      href: monitor-azure-backup-with-backup-explorer.md
   - name: Reports
     items:
     - name: Configure Azure Backup reports
@@ -548,7 +570,7 @@
       href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
     - name: Query backup information using ARG
       href: query-backups-using-azure-resource-graph.md
-    - name: Resource Manager templates
+    - name: Resource Manager and Bicep templates
       href: backup-rm-template-samples.md
   - name: Security and Ransomware protection
     items:
@@ -646,7 +668,7 @@
   - name: Azure Data Protection - PowerShell
     href: /powershell/module/az.dataprotection/
   - name: PowerShell – Azure Backup agent
-    href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+    href: /powershell/module/msonlinebackup/
   - name: REST - Azure Data Protection
     href: /rest/api/dataprotection/
   - name: REST - Backup

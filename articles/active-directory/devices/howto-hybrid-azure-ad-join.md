@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 04/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -58,9 +58,6 @@ Verify devices can access the required Microsoft resources under the system acco
 ## Managed domains
 
 We think most organizations will deploy hybrid Azure AD join with managed domains. Managed domains use [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md). Managed domain scenarios don't require configuring a federation server.
-
-> [!NOTE]
-> Azure AD doesn't support smart cards or certificates in managed domains.
 
 Configure hybrid Azure AD join by using Azure AD Connect for a managed domain:
 
@@ -141,6 +138,7 @@ If you experience issues with completing hybrid Azure AD join for domain-joined 
 - [Troubleshooting devices using dsregcmd command](./troubleshoot-device-dsregcmd.md)
 - [Troubleshoot hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshoot hybrid Azure AD join for Windows downlevel devices](troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshoot pending device state](/troubleshoot/azure/active-directory/pending-devices)
 
 ## Next steps
 

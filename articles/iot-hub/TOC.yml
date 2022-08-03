@@ -13,25 +13,16 @@
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       href: quickstart-control-device.md
+    - name: Auto-route messages using Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep-route-messages.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
 - name: Tutorials
   items:
-    - name: Routing messages
-      items:
-        - name: Part 1 - Configure message routing
-          items:
-            - name: Portal
-              href: tutorial-routing.md
-            - name: Azure RM template
-              href: tutorial-routing-config-message-routing-RM-template.md
-            - name: Azure CLI
-              href: tutorial-routing-config-message-routing-CLI.md
-            - name: PowerShell
-              href: tutorial-routing-config-message-routing-PowerShell.md
-        - name: Part 2 - View message routing results
-          href: tutorial-routing-view-message-routing-results.md
+    - name: Route device messages to storage
+      href: tutorial-routing.md
     - name: Message enrichments
       href: tutorial-message-enrichments.md
     - name: Use metrics and logs
@@ -104,6 +95,8 @@
         href: iot-hub-devguide-messaging.md
       - name: Create and read IoT Hub messages
         href: iot-hub-devguide-messages-construct.md
+      - name: Non-telemetry event schemas
+        href: iot-hub-non-telemetry-event-schema.md
       - name: Send cloud-to-device messages from IoT Hub
         href: iot-hub-devguide-messages-c2d.md
       - name: Choose a device communication protocol
@@ -111,7 +104,7 @@
       - name: Read device-to-cloud messages from the built-in endpoint
         href: iot-hub-devguide-messages-read-builtin.md
       - name: Message enrichments overview
-        href: iot-hub-message-enrichments-overview.md    
+        href: iot-hub-message-enrichments-overview.md
     - name: Message routing
       items:
       - name: Use message routing to send device-to-cloud messages
@@ -136,6 +129,8 @@
         href: iot-hub-understand-ip-address.md
     - name: Scaling and availability
       items:
+      - name: Best practices for large-scale IoT device deployments
+        href: ../iot-dps/concepts-deploy-at-scale.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
       - name: High availability and disaster recovery
         href: iot-hub-ha-dr.md
       - name: How to clone an IoT Hub to another region
@@ -154,7 +149,7 @@
         - name: SDK overview
           href: iot-hub-devguide-sdks.md
         - name: Develop without the SDK
-          href: iot-hub-devguide-no-sdk.md   
+          href: iot-hub-devguide-no-sdk.md
         - name: Manage connectivity and reliable messaging
           href: iot-hub-reliability-features-in-sdks.md
     - name: Protocol support
@@ -170,7 +165,7 @@
         - name: AMQP support
           href: iot-hub-amqp-support.md
         - name: Supporting additional protocols
-          href: iot-hub-protocol-gateway.md
+          href: ../iot-edge/iot-edge-as-gateway.md
     - name: Security
       items:
         - name: TLS support
@@ -230,34 +225,34 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
-            - name: Java
-              href: iot-hub-java-java-c2d.md
-            - name: Node.js
-              href: iot-hub-node-node-c2d.md
             - name: Python
               href: iot-hub-python-python-c2d.md
+            - name: Node.js
+              href: iot-hub-node-node-c2d.md
+            - name: Java
+              href: iot-hub-java-java-c2d.md
             - name: iOS
               href: iot-hub-ios-swift-c2d.md
         - name: Upload files from devices
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-file-upload.md
-            - name: Java
-              href: iot-hub-java-java-file-upload.md
-            - name: Node.js
-              href: iot-hub-node-node-file-upload.md
             - name: Python
               href: iot-hub-python-python-file-upload.md
+            - name: Node.js
+              href: iot-hub-node-node-file-upload.md
+            - name: Java
+              href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
-            - name: Node.js
-              href: iot-hub-node-node-twin-getstarted.md
             - name: .NET
               href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: Java
-              href: iot-hub-java-java-twin-getstarted.md
             - name: Python
               href: iot-hub-python-twin-getstarted.md
+            - name: Node.js
+              href: iot-hub-node-node-twin-getstarted.md
+            - name: Java
+              href: iot-hub-java-java-twin-getstarted.md
         - name: Get started with module twins
           items:
             - name: Portal
@@ -266,30 +261,30 @@
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
             - name: Python
               href: iot-hub-python-python-module-twin-getstarted.md
-            - name: C
-              href: iot-hub-c-c-module-twin-getstarted.md
             - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
+            - name: C
+              href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
-            - name: Node.js
-              href: iot-hub-node-node-device-management-get-started.md
             - name: .NET
               href: iot-hub-csharp-csharp-device-management-get-started.md
-            - name: Java
-              href: iot-hub-java-java-device-management-getstarted.md
             - name: Python
               href: iot-hub-python-python-device-management-get-started.md
+            - name: Node.js
+              href: iot-hub-node-node-device-management-get-started.md
+            - name: Java
+              href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
-            - name: Node.js
-              href: iot-hub-node-node-schedule-jobs.md
             - name: .NET
               href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: Java
-              href: iot-hub-java-java-schedule-jobs.md
             - name: Python
               href: iot-hub-python-python-schedule-jobs.md
+            - name: Node.js
+              href: iot-hub-node-node-schedule-jobs.md
+            - name: Java
+              href: iot-hub-java-java-schedule-jobs.md
     - name: Manage
       items:
         - name: Create an IoT hub
@@ -381,45 +376,15 @@
         - name: Device management with IoT extension for Azure CLI
           href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
         - name: Remote monitoring and notifications with ​Logic ​Apps
-          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md     
+          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Troubleshoot and problem solution
       items:
         - name: Troubleshoot device connectivity
           href: iot-hub-troubleshoot-connectivity.md
         - name: Troubleshoot message routing
           href: troubleshoot-message-routing.md
-        - name: Problem resolution
-          items:          
-            - name: 400027 ConnectionForcefullyClosedOnNewConnection
-              href: iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md
-            - name: 401003 IoTHubUnauthorized
-              href: iot-hub-troubleshoot-error-401003-iothubunauthorized.md
-            - name: 403002 IoTHubQuotaExceeded
-              href: iot-hub-troubleshoot-error-403002-iothubquotaexceeded.md
-            - name: 403004 DeviceMaximumQueueDepthExceeded
-              href: iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md
-            - name: 403006 DeviceMaximumActiveFileUploadLimitExceeded
-              href: iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md
-            - name: 404001 DeviceNotFound
-              href: iot-hub-troubleshoot-error-404001-devicenotfound.md
-            - name: 404103 DeviceNotOnline
-              href: iot-hub-troubleshoot-error-404103-devicenotonline.md
-            - name: 404104 DeviceConnectionClosedRemotely
-              href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
-            - name: 409001 DeviceAlreadyExists
-              href: iot-hub-troubleshoot-error-409001-devicealreadyexists.md
-            - name: 409002 LinkCreationConflict
-              href: iot-hub-troubleshoot-error-409002-linkcreationconflict.md
-            - name: 412002 DeviceMessageLockLost
-              href: iot-hub-troubleshoot-error-412002-devicemessagelocklost.md
-            - name: 429001 ThrottlingException
-              href: iot-hub-troubleshoot-error-429001-throttlingexception.md
-            - name: 500xxx Internal errors
-              href: iot-hub-troubleshoot-error-500xxx-internal-errors.md
-            - name: 503003 PartitionNotFound
-              href: iot-hub-troubleshoot-error-503003-partitionnotfound.md
-            - name: 504101 GatewayTimeout
-              href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
+        - name: Resolve error codes
+          href: troubleshoot-error-codes.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -465,10 +430,6 @@
       href: ./policy-reference.md
     - name: Feature and API retirement
       items:
-        - name: Operations monitoring
-          href: iot-hub-operations-monitoring.md
-        - name: Migrate to Azure Monitor
-          href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
         - name: Classic IP filter

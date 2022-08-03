@@ -1,12 +1,13 @@
 ---
 title: How to configure the Azure Cosmos DB integrated cache
 description: Learn how to configure the Azure Cosmos DB integrated cache
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/28/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 
 # How to configure the Azure Cosmos DB integrated cache (Preview)

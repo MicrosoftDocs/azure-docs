@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud data security | Microsoft Docs
+title: Microsoft Defender for Cloud data security
 description: Learn how data is managed and safeguarded in Microsoft Defender for Cloud.
 ms.topic: overview
 ms.author: benmansheim
@@ -7,8 +7,6 @@ author: bmansheim
 ms.date: 11/09/2021
 ---
 # Microsoft Defender for Cloud data security
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 To help customers prevent, detect, and respond to threats, Microsoft Defender for Cloud collects and processes security-related data, including configuration information, metadata, event logs, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
@@ -59,7 +57,7 @@ You can specify the workspace and region where data collected from your machines
 
 
 > [!NOTE]
-> **Microsoft Defender for Storage** stores artifacts regionally according to the location of the related Azure resource. Learn more in [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md).
+> **Microsoft Defender for Storage** stores artifacts regionally according to the location of the related Azure resource. Learn more in [Overview of Microsoft Defender for Storage](defender-for-storage-introduction.md).
 
 
 ## Data consumption

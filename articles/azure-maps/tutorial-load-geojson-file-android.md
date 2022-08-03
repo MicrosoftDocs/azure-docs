@@ -23,7 +23,7 @@ This tutorial guides you through the process of importing a GeoJSON file of loca
 ## Prerequisites
 
 1. Complete the [Quickstart: Create an Android app](quick-android-map.md). This tutorial will extend the code used in that quickstart.
-2. Download the [Sample Points of Interest](https://raw.githubusercontent.com/Azure-Samples/AzureMapsCodeSamples/master/AzureMapsCodeSamples/Common/data/geojson/SamplePoiDataSet.json) GeoJSON file.
+2. Download the [Sample Points of Interest](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Static/data/geojson/SamplePoiDataSet.json) GeoJSON file.
 
 ### Import GeoJSON data from web or assets folder
 
@@ -33,7 +33,7 @@ The following steps show you how to import a GeoJSON file into the application a
 
 1. Complete the [Quickstart: Create an Android app](quick-android-map.md) as the following steps build on top of this application.
 2. In the project panel of Android studio, right-click on the **app** folder and go to `New > Folder > Assets Folder`.
-3. Drag and drop the [Sample Points of Interest](https://raw.githubusercontent.com/Azure-Samples/AzureMapsCodeSamples/master/AzureMapsCodeSamples/Common/data/geojson/SamplePoiDataSet.json) GeoJSON file into the assets folder.
+3. Drag and drop the [Sample Points of Interest](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Static/data/geojson/SamplePoiDataSet.json) GeoJSON file into the assets folder.
 
 ::: zone pivot="programming-language-java-android"
 

@@ -1,17 +1,16 @@
 ---
 title: Hide an Enterprise application
-titleSuffix: Azure AD
 description: How to hide an Enterprise application from user's experience in Azure Active Directory access portals or Microsoft 365 launchers.
 services: active-directory
-author: davidmu1
+author: lnalepa
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2021
-ms.author: davidmu
-ms.reviewer: lenalepa
+ms.date: 07/21/2022
+ms.author: lenalepa
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to hide an enterprise application from user's experience so that it is not listed in the user's Active directory access portals or Microsoft 365 launchers
 ---
@@ -35,6 +34,7 @@ Use the following steps to hide an application from My Apps portal and Microsoft
 1. Select **Enterprise applications**.
 1. Under **Application Type**, select **Enterprise Applications**, if it isn't already selected.
 1. Search for the application you want to hide, and select the application.
+1. In the left navigation pane, select **Properties**.
 1. Select **No** for the **Visible to users?** question.
 1. Select **Save**.
 
@@ -61,9 +61,8 @@ Use the following steps to hide all Microsoft 365 applications from the My Apps 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator for your directory.
 1. Select **Azure Active Directory**.
-1. Select **Users**.
+1. Select **Enterprise applications**.
 1. Select **User settings**.
-1. Under **Enterprise applications**, select **Manage how end users launch and view their applications.**
 1. For **Users can only see Office 365 apps in the Office 365 portal**, select **Yes**.
 1. Select **Save**.
 

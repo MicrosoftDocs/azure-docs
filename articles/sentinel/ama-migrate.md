@@ -1,10 +1,10 @@
 ---
 title: Migrate to the Azure Monitor agent (AMA) from the Log Analytics agent (MMA/OMS) for Microsoft Sentinel
 description: Learn about migrating from the Log Analytics agent (MMA/OMS) to the Azure Monitor agent (AMA), when working with Microsoft Sentinel.
-author: batamig
+author: yelevin
 ms.topic: reference
-ms.date: 02/09/2022
-ms.author: bagol
+ms.date: 07/04/2022
+ms.author: yelevin
 ---
 
 # AMA migration for Microsoft Sentinel
@@ -36,8 +36,8 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors-reference.md#windows-firewall)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
 |**Windows Event Logs**     |  Collection only       | Collection only        |
-|**Custom logs**     |   -       |    Collection only     |
-|**IIS logs**     |    -      |    Collection only     |
+|**Custom logs**     |   Collection only       |    Collection only     |
+|**IIS logs**     |    Collection only      |    Collection only     |
 |**Multi-homing**     |  Collection only       |   Collection only      |
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
@@ -61,7 +61,7 @@ Each organization will have different metrics of success and internal migration 
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [Plan your migration](../azure-monitor/agents/azure-monitor-agent-migration.md#plan-your-migration) in the Azure Monitor documentation.
+1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [When should I migrate](../azure-monitor/agents/azure-monitor-agent-migration.md#when-should-i-migrate-to-the-azure-monitor-agent) in the Azure Monitor documentation.
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 

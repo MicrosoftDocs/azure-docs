@@ -5,6 +5,8 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: harelbr
+
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
@@ -16,7 +18,7 @@ You can learn more about how metric alerts work from [metric alerts overview](./
 
 The following procedure describes how to create a metric alert rule in Azure portal:
 
-1. In [Azure portal](https://portal.azure.com), click on **Monitor**. The Monitor blade consolidates all your monitoring settings and data in one view.
+1. In [Azure portal](https://portal.azure.com), click on **All Services -> Monitor**. The Monitor blade consolidates all your monitoring settings and data in one view.
 
 2. Click **Alerts**, then expand the **+ Create** menu and select **Alert rule**.
 

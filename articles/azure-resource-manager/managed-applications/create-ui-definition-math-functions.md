@@ -1,11 +1,11 @@
 ---
 title: Create UI definition math functions
 description: Describes the functions to use when performing math operations.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # CreateUiDefinition math functions

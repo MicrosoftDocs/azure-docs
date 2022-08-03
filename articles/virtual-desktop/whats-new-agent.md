@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 06/29/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -19,6 +19,23 @@ The Azure Virtual Desktop Agent updates regularly. This article is where you'll 
 
 Make sure to check back here often to keep up with new updates.
 
+## Version 1.0.4574.1600
+
+This update was released in June 2022 and includes the following changes:
+
+- Fixed broker URL cache to address Agent Telemetry calls.
+- Fixed some network-related issues. 
+- Created two new mechanisms to trigger health checks.
+- Additional general bug fixes and agent upgrades.
+
+## Version 1.0.4230.1600
+
+This update was released in March 2022 and includes the following changes:
+
+- Fixes an issue with the agent health check result being empty for the first agent heart beat.
+- Added Azure VM ID to the WVDAgentHealthStatus Log Analytics table.
+- Updated the agent's update logic to install the Geneva Monitoring agent sooner.
+
 ## Version 1.0.4119.1500
 
 This update was released in February 2022 and includes the following changes:
@@ -33,7 +50,7 @@ This update was released in February 2022 and includes the following changes:
 This update was released in January 2022 and includes the following changes:
 
 - Added logging to better capture agent update telemetry.
-- Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly
+- Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly.
 
 ## Version 1.0.3855.1400
 

@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 02/17/2022
+ms.date: 08/01/2022
 ms.author: madsd
 ---
 
@@ -77,7 +77,14 @@ The normal app access ports inbound are as follows:
 
 You can set route tables without restriction. You can tunnel all of the outbound application traffic from your App Service Environment to an egress firewall device, such as Azure Firewall. In this scenario, the only thing you have to worry about is your application dependencies.
 
-You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so exposes specific apps on that App Service Environment. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
+Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, this could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Azure Active Directory. If you are using [continuous deployment in App Service](../deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you will need to allow `oryx-cdn.microsoft.io:443`.
+
+You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so allows you to expose specific apps on that App Service Environment.
+
+Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
+
+> [!NOTE]
+> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. However, the supportability is determined by the subscription where the virtual network is deployed. For virtual networks created before 1. August 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## Private endpoint
 
@@ -91,7 +98,6 @@ az appservice ase update --name myasename --allow-new-private-endpoint-connectio
 ```
 
 For more information about Private Endpoint and Web App, see [Azure Web App Private Endpoint][privateendpoint] 
-
 
 ## DNS
 
@@ -133,10 +139,7 @@ The apps in your App Service Environment will use the DNS that your virtual netw
 
 ## Limitations
 
-While App Service Environment does deploy into your virtual network, there are a few networking features that aren't available:
-
-* Sending SMTP traffic. Although you can still have email-triggered alerts, your app can't send outbound traffic on port 25.
-* Using Azure Network Watcher or NSG flow to monitor outbound traffic.
+While App Service Environment does deploy into your virtual network, you currently cannot use Azure Network Watcher or NSG flow to monitor outbound traffic.
 
 ## More resources
 

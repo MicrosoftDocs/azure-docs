@@ -292,7 +292,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample usage of the above command:
     
-    ```output
+    ```azurecli
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud register -n az-new-env --endpoint-resource-manager "https://management.team3device.teatraining1.com"
     ```
     
@@ -304,7 +304,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample usage of the above command:
 
-    ```output
+    ```azurecli
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud set -n az-new-env
     Switched active cloud to 'az-new-env'.
     Use 'az login' to log in to this cloud.

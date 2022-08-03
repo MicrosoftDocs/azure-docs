@@ -79,12 +79,12 @@ To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS i
 
 ## Set up GlusterFS
 
-You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and network interfaces or you can deploy the resources manually.
+You can either use an Azure Template from GitHub to deploy all required Azure resources, including the virtual machines, availability set and network interfaces or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
 The Azure Marketplace contains an image for Red Hat Enterprise Linux that you can use to deploy new virtual machines.
-You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, availability set etc.
+You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [SAP file server template][template-file-server] in the Azure portal
@@ -109,12 +109,10 @@ You first need to create the virtual machines for this cluster.
 1. Create an Availability Set  
    Set max update domain
 1. Create Virtual Machine 1  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Add one data disk for each SAP system to both virtual machines.
 

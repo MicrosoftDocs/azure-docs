@@ -7,7 +7,7 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 05/02/2022
 tags: connectors
 ---
 
@@ -17,9 +17,11 @@ From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and w
 
 You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **Logic App (Standard)** resource types by using the [*managed connector*](managed.md) operations. For **Logic App (Standard)**, Azure Cosmos DB also provides [*built-in*](built-in.md) operations, which are currently in preview and offer different functionality, better performance, and higher throughput. For example, if you're working with the **Logic App (Standard)** resource type, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in your logic app workflows to enable scenarios such as event sourcing and general data processing.
 
-> [!NOTE]
-> Currently, only stateful workflows in a **Logic App (Standard)** resource can use both the managed 
-> connector operations and built-in operations. Stateless workflows can use only built-in operations.
+## Limitations
+
+- Currently, only stateful workflows in a **Logic App (Standard)** resource can use both the managed connector operations and built-in operations. Stateless workflows can use only built-in operations.
+
+- The Azure Cosmos DB connector supports only Azure Cosmos DB accounts created with the [Core (SQL) API](../cosmos-db/choose-api.md#coresql-api).
 
 ## Prerequisites
 

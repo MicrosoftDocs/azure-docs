@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 07/15/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -132,6 +132,10 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
 1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential, and incremental).
+
+   >[!Note]
+   >If you've selected **Restore to a point in time**, the log files (dumped to the target VM) may sometimes contain logs beyond the point-in-time chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point-in-time.
+
 1. Move these restored files to the SAP HANA server where you want to restore them as a database.
 1. Then follow these steps:
     1. Set permissions on the folder / directory where the backup files are stored using the following command:
@@ -230,6 +234,42 @@ To restore the backup data as files instead of a database, choose **Restore as F
         ```hdbsql
         RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
         ```
+
+### Partial restore as files
+
+The Azure Backup service decides the chain of files to be downloaded during restore as files. But there are scenarios where you might not want to download the entire content again.
+
+For eg., when you have a backup policy of weekly fulls, daily differentials and logs, and you already downloaded files for a particular differential. You found that this is not the right recovery point and decided to download the next day's differential. Now you just need the differential file since you already have the starting full. With the partial restore as files ability, provided by Azure Backup, you can now exclude the full from the download chain and download only the differential.
+
+#### Excluding backup file types
+
+The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file, that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+
+1. In the target machine where files are to be downloaded, go to "opt/msawb/bin" folder
+2. Create a new JSON file named "ExtensionSettingOverrides.JSON", if it doesn't already exist.
+3. Add the following JSON key value pair
+
+    ```json
+    {
+    "RecoveryPointsToBeExcludedForRestoreAsFiles": "ExcludeFull"
+    }
+    ```
+
+4. Change the permissions and ownership of the file as follows:
+   
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. No restart of any service is required. The Azure Backup service will attempt to exclude backup types in the restore chain as mentioned in this file.
+
+The ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` only takes specific values which denote the recovery points to be excluded during restore. For SAP HANA, these values are:
+
+- ExcludeFull (Other backup types such as differential, incremental and logs will be downloaded, if they are present in the restore point chain.
+- ExcludeFullAndDifferential (Other backup types such as incremental and logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndIncremental (Other backup types such as differential and logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndDifferentialAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
 
 ### Restore to a specific point in time
 

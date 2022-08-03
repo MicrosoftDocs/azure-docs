@@ -35,7 +35,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
 
 
 ### Create a container registry
@@ -88,7 +88,9 @@ Within your selected organization, create a _project_. If you don't have any pro
 
 1. Select the name of your container registry.
 
-1. You can leave the image name and the service port set to the defaults.
+1. You can leave the image name set to the default.
+
+1. Set the service port to 8080.
 
 1. Set the **Enable Review App for Pull Requests** checkbox for [review app](/azure/devops/pipelines/process/environments-kubernetes) related configuration to be included in the pipeline YAML auto-generated in subsequent steps.
 
@@ -122,7 +124,7 @@ After the pipeline run is finished, explore what happened and then go see your a
 
 1. Select **View environment**.
 
-1. Select the instance if your app for the namespace you deployed to. If you stuck to the defaults we mentioned above, then it will be the **myapp** app in the **default** namespace.
+1. Select the instance of your app for the namespace you deployed to. If you stuck to the defaults we mentioned above, then it will be the **myapp** app in the **default** namespace.
 
 1. Select the **Services** tab.
 
@@ -245,7 +247,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
 
 ### Create a container registry
 

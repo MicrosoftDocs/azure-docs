@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 07/11/2022
 
 ---
 
@@ -30,8 +30,8 @@ Cognitive Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint consist of:
 
-+ Creating and managing indexes, indexers, and other objects
-+ Sending requests for indexing, running indexer jobs, executing skills
++ Creating or managing indexes, indexers, data sources, skillsets, or synonym lists
++ Running indexers and skillsets
 + Querying an index
 
 For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with [network security features](#service-access-and-authentication). You can create either inbound rules in an IP firewall, or private endpoints that fully shield your search service from the public internet. 
@@ -40,12 +40,14 @@ Independent of network security, all inbound requests must be authenticated. Key
 
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations. Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset.
+Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations.
 
-+ Indexer connects to external data sources to read in data for indexing.
-+ Indexer writes to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
-+ A custom skill connects to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
+Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or custom skill:
+
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
++ Indexers [connect to external data sources](search-indexer-securing-resources.md) to read in data for indexing.
++ Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
++ Custom skills connect to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
@@ -53,7 +55,12 @@ If your Azure resource is behind a firewall, you'll need to [create rules that a
 
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, private endpoint connections, and requests made to Cognitive Services for built-in skills.
+Internal requests are secured and managed by Microsoft. You can't configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic isn't customer-configurable.
+
+Internal traffic consists of:
+
++ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
++ Requests made to Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md).
 
 <a name="service-access-and-authentication"></a>
 
@@ -89,7 +96,7 @@ Once a request is admitted, it must still undergo authentication and authorizati
 
 + [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
 
-Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user-assigned managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 
@@ -109,9 +116,9 @@ If you're using Azure AD authentication, [use role assignments instead of API ke
 
 ### Controlling access to indexes
 
-In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. In a query request, there's no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
-If you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
+However, if you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
 
 For key-based authentication scenarios, administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update the objects managed by the service. Anyone with an [admin key](search-security-api-keys.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the solution for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it doesn't store or execute your proprietary code used to create or load indexes.
 
@@ -138,8 +145,14 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 [Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
 
-> [!Note]
+> [!NOTE]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
+
+## Data residency
+
+Azure Cognitive Search won't store data outside of your specified region without your authorization. Specifically, the following features write to an Azure Storage resource: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). The storage account is one that you provide, and it could be in any region. 
+
+If both the storage account and the search service are in the same region, network traffic between search and storage uses a private IP address and occurs over the Microsoft backbone network. Because private IP addresses are used, you can't configure IP firewalls or a private endpoint for network security. Instead, use the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as an alternative when both services are in the same region. 
 
 <a name="encryption"></a>
 
@@ -181,7 +194,7 @@ In Azure Cognitive Search, double encryption is an extension of CMK. It's unders
 
 Reliance on API key-based authentication means that you should have a plan for regenerating the admin key at regular intervals, per Azure security best practices. There are a maximum of two admin keys per search service. For more information about securing and managing API keys, see [Create and manage api-keys](search-security-api-keys.md).
 
-### Activity and diagnostic logs
+### Activity and resource logs
 
 Cognitive Search doesn't log user identities so you can't refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
 
@@ -195,7 +208,7 @@ For compliance, you can use [Azure Policy](../governance/policy/overview.md) to 
 
 Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Azure Security Benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses non-compliance.
 
-For Azure Cognitive Search, there's currently one built-in definition. It's for diagnostic logging. With this built-in, you can assign a policy that identifies any search service that is missing diagnostic logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
+For Azure Cognitive Search, there's currently one built-in definition. It's for resource logging. With this built-in, you can assign a policy that identifies any search service that is missing resource logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
 ## Watch this video
 

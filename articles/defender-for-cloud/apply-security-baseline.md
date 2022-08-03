@@ -9,8 +9,6 @@ ms.date: 11/09/2021
 ---
 # Apply Azure security baselines to machines
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To reduce a machine's attack surface and avoid known risks, it's important to configure the operating system (OS) as securely as possible.
 
 The Azure Security Benchmark has guidance for OS hardening which has led to security baseline documents for [Windows](../governance/policy/samples/guest-configuration-baseline-windows.md) and [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md).

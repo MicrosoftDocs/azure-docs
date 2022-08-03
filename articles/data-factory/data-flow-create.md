@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ---

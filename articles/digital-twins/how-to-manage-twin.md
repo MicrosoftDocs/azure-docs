@@ -232,7 +232,9 @@ The patch for this situation needs to update both the model and the twin's tempe
 
 You may optionally decide to use the `sourceTime` field on twin properties to record timestamps for when property updates are observed in the real world. Azure Digital Twins natively supports `sourceTime` in the metadata for each twin property. For more information about this field and other fields on digital twins, see [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format).
 
-This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). The value must comply to ISO 8601 date and time format.
+The minimum stable REST API version to support this field is the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version. To work with this field using the [Azure Digital Twins SDKs](concepts-apis-sdks.md), we recommend using the latest version of the SDK to make sure this field is included.
+
+The `sourceTime` value must comply to ISO 8601 date and time format.
 
 Here's an example of a JSON Patch document that updates both the value and the `sourceTime` field of a `Temperature` property:
 
@@ -272,7 +274,7 @@ You can use the runnable code sample below to create a twin, update its details,
 
 ### Set up sample project files
 
-The snippet uses a sample model definition, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json). To **download the model file** so you can use it in your code, use this link to go directly to the file in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the file as **Room.json**.
+The snippet uses a sample model definition, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/main/AdtSampleApp/SampleClientApp/Models/Room.json). To **download the model file** so you can use it in your code, use this link to go directly to the file in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the file as **Room.json**.
 
 Next, create a **new console app project** in Visual Studio or your editor of choice.
 

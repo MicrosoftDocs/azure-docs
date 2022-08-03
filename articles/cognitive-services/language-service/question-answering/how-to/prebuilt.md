@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Use the question answering Prebuilt API to ask and receive answers to questions without having to create a project/knowledge base. 
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: how-to
 ms.date: 11/03/2021
 ---
@@ -119,6 +119,7 @@ We see that multiple answers are received as part of the API response. Each answ
 
 ## Prebuilt API limits
 
+### API call limits
 If you need to use larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. In this context, a document is a defined single string of text characters.
 
 These numbers represent the **per individual API call limits**:
@@ -126,6 +127,99 @@ These numbers represent the **per individual API call limits**:
 * Number of documents: 5.
 * Maximum size of a single document: 5,120 characters.
 * Maximum three responses per document.
+
+### Language codes supported
+The following language codes are supported by Prebuilt API. These language codes are in accordance to the [ISO 639-1 codes standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+
+Language code|Language
+----|----
+af|Afrikaans
+am|Amharic
+ar|Arabic
+as|Assamese
+az|Azerbaijani
+ba|Bashkir
+be|Belarusian
+bg|Bulgarian
+bn|Bengali
+ca|Catalan, Valencian
+ckb|Central Kurdish
+cs|Czech
+cy|Welsh
+da|Danish
+de|German
+el|Greek, Modern (1453–)
+en|English
+eo|Esperanto
+es|Spanish, Castilian
+et|Estonian
+eu|Basque
+fa|Persian
+fi|Finnish
+fr|French
+ga|Irish
+gl|Galician
+gu|Gujarati
+he|Hebrew
+hi|Hindi
+hr|Croatian
+hu|Hungarian
+hy|Armenian
+id|Indonesian
+is|Icelandic
+it|Italian
+ja|Japanese
+ka|Georgian
+kk|Kazakh
+km|Central Khmer
+kn|Kannada
+ko|Korean
+ky|Kirghiz, Kyrgyz
+la|Latin
+lo|Lao
+lt|Lithuanian
+lv|Latvian
+mk|Macedonian
+ml|Malayalam
+mn|Mongolian
+mr|Marathi
+ms|Malay
+mt|Maltese
+my|Burmese
+ne|Nepali
+nl|Dutch, Flemish
+nn|Norwegian Nynorsk
+no|Norwegian
+or|Oriya
+pa|Punjabi, Panjabi
+pl|Polish
+ps|Pashto, Pushto
+pt|Portuguese
+ro|Romanian, Moldavian, Moldovan
+ru|Russian
+sa|Sanskrit
+sd|Sindhi
+si|Sinhala, Sinhalese
+sk|Slovak
+sl|Slovenian
+sq|Albanian
+sr|Serbian
+sv|Swedish
+sw|Swahili
+ta|Tamil
+te|Telugu
+tg|Tajik
+th|Thai
+tl|Tagalog
+tr|Turkish
+tt|Tatar
+ug|Uighur, Uyghur
+uk|Ukrainian
+ur|Urdu
+uz|Uzbek
+vi|Vietnamese
+yi|Yiddish
+zh|Chinese
 
 ## Prebuilt API reference
 

@@ -2,7 +2,7 @@
 title: NCas T4 v3-series 
 description: Specifications for the NCas T4 v3-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021

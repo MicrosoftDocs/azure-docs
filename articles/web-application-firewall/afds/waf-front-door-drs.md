@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 06/15/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -55,10 +55,8 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 |Warning      |3|
 |Notice       |2|
 
-There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
+There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ to learn what content types are supported for body inspection with different DRS versions.
 
-> [!NOTE]
-> Body inspection is only available on DRS 2.0
 
 ### DRS 2.0
 
@@ -113,9 +111,13 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[APPLICATION-ATTACK-RFI](#drs931-10)**|Protection against remote file inclusion attacks|
 |**[APPLICATION-ATTACK-RCE](#drs932-10)**|Protection against remote command execution|
 |**[APPLICATION-ATTACK-PHP](#drs933-10)**|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-XSS](#drs941-10)**|Protect against cross-site scripting attacks|
 |**[APPLICATION-ATTACK-SQLI](#drs942-10)**|Protect against SQL-injection attacks|
 |**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)**|Protect against session-fixation attacks|
 |**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)**|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](#drs9905-10)**|Protect against Web shell attacks|
+|**[MS-ThreatIntel-CVEs](#drs99001-10)**|Protect against CVE attacks|
+
 
 
 
@@ -221,7 +223,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -236,12 +238,10 @@ Front Door.
 |933110|PHP Injection Attack: PHP Script File Upload Found|
 |933120|PHP Injection Attack: Configuration Directive Found|
 |933130|PHP Injection Attack: Variables Found|
-|933131|PHP Injection Attack: Variables Found|
 |933140|PHP Injection Attack: I/O Stream Found|
 |933150|PHP Injection Attack: High-Risk PHP Function Name Found|
 |933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
 |933160|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 |933200|PHP Injection Attack: Wrapper scheme detected|
@@ -361,6 +361,7 @@ Front Door.
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-20"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
@@ -378,6 +379,9 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
 
 # [DRS 1.1](#tab/drs11)
 
@@ -418,7 +422,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |931120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Shellshock (CVE-2014-6271)|
@@ -529,8 +533,8 @@ Front Door.
 |944110|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |944120|Remote Command Execution: Java serialization (CVE-2015-5842)|
 |944130|Suspicious Java class detected|
-|944200|Magic bytes Detected, probable java serialization in use|
-|944210|Magic bytes Detected Base64 Encoded, probable java serialization in use|
+|944200|Magic bytes Detected, probable Java serialization in use|
+|944210|Magic bytes Detected Base64 Encoded, probable Java serialization in use|
 |944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
@@ -540,6 +544,7 @@ Front Door.
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-11"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
@@ -557,6 +562,9 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 # [DRS 1.0](#tab/drs10)
 
@@ -597,7 +605,7 @@ Front Door.
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -612,12 +620,10 @@ Front Door.
 |933110|PHP Injection Attack: PHP Script File Upload Found|
 |933120|PHP Injection Attack: Configuration Directive Found|
 |933130|PHP Injection Attack: Variables Found|
-|933131|PHP Injection Attack: Variables Found|
 |933140|PHP Injection Attack: I/O Stream Found|
 |933150|PHP Injection Attack: High-Risk PHP Function Name Found|
 |933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
 |933160|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
 |933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack: Variable Function Call Found|
 
@@ -714,6 +720,19 @@ Front Door.
 |944210|Possible use of Java serialization|
 |944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
+
+### <a name="drs9905-10"></a> MS-ThreatIntel-WebShells
+|RuleId|Description|
+|---|---|
+|99005006|Spring4Shell Interaction Attempt|
+
+### <a name="drs99001-10"></a> MS-ThreatIntel-CVEs
+|RuleId|Description|
+|---|---|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
 
 # [Bot rules](#tab/bot)
 

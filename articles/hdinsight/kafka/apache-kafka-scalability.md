@@ -4,7 +4,7 @@ description: Learn how to configure managed disks for Apache Kafka cluster on Az
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/09/2019
+ms.date: 04/08/2022
 ---
 
 # Configure storage and scalability for Apache Kafka on HDInsight
@@ -39,8 +39,6 @@ To control the number of disks used by the worker nodes in a Kafka cluster, use 
     }
     ],
 ```
-
-You can find a complete template that demonstrates how to configure managed disks at [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
 ## Next steps
 

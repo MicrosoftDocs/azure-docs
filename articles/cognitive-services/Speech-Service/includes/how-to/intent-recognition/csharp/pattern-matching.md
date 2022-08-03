@@ -9,38 +9,36 @@ ms.author: ralphe
 zone_pivot_groups: programming-languages-set-two
 ---
 
-## Create a speech project in Visual Studio
+## Create a project
 
-[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
+Create a new C# console application project in Visual Studio 2019 and [install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-csharp).
 
 ## Start with some boilerplate code
 
-1. Open `Program.cs` from the Solution Explorer
+Let's open `Program.cs` and add some code that works as a skeleton for our project.
 
-1. Replace the contents of the file with following:
+```C#
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Intent;
 
-    ```C#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.CognitiveServices.Speech;
-    using Microsoft.CognitiveServices.Speech.Intent;
-    
-    namespace helloworld
+namespace helloworld
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                IntentPatternMatchingWithMicrophoneAsync().Wait();
-            }
-    
-            private static async Task IntentPatternMatchingWithMicrophoneAsync()
-            {
-                var config = SpeechConfig.FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
-            }
+            IntentPatternMatchingWithMicrophoneAsync().Wait();
+        }
+
+        private static async Task IntentPatternMatchingWithMicrophoneAsync()
+        {
+            var config = SpeechConfig.FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
         }
     }
-    ```
+}
+```
 
 ## Create a Speech configuration
 
@@ -68,7 +66,7 @@ You need to associate some patterns with a `PatternMatchingModel` and apply it t
 We will start by creating a `PatternMatchingModel` and adding a few intents to it.
 
 > [!Note]
-> We can add multiple patterns to an `Intent`.
+> We can add multiple patterns to a `PatternMatchingIntent`.
 
 Insert this code inside the `using` block:
 
@@ -199,7 +197,7 @@ else if (result.Reason == ResultReason.Canceled)
     {
         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
     }
 }
 ```
@@ -323,7 +321,7 @@ namespace helloworld
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                     }
                 }
             }
