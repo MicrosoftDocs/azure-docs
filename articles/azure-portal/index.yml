@@ -48,7 +48,7 @@ landingContent:
             url: azure-portal-video-series.md
       - linkListType: learn
         links:
-          - text: Module: Manage services with the Azure portal
+          - text: Module - Manage services with the Azure portal
             url: /learn/modules/tour-azure-portal/
 
   # Card
