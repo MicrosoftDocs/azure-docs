@@ -101,7 +101,7 @@ OR
 
 * Use a **datastore**:
 
-    You can specify AML registered datastore or if your data is publicly available, specify the public path.
+    You can specify AzureML registered datastore or if your data is publicly available, specify the public path.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option":::
 
