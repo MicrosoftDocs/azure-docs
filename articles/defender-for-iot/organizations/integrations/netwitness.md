@@ -21,6 +21,8 @@ Before you begin, make sure that you have the following prerequisites:
 
 This procedure describes how to create a forwarding rule from your OT sensor to send Defender for IoT alerts from that sensor to NetWitness.
 
+For more information, see [Forward alert information](../how-to-forward-alert-information-to-partners.md).
+
 1. Sign in to your OT sensor console and select **Forwarding** on the left.
 
 1. Enter a meaningful name for your rule, and then define your rule details, including:
@@ -28,8 +30,6 @@ This procedure describes how to create a forwarding rule from your OT sensor to 
     - The minimal alert level. For example, if you select Minor, you are notified about all minor, major and critical incidents.
     - The protocols you want to include in the rule.
     - The traffic you want to include in the rule.
-
-    For more information, see [Forward alert information](../how-to-forward-alert-information-to-partners.md).
 
 1. In the **Actions** area, define the following values:
 
