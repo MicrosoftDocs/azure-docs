@@ -106,7 +106,7 @@ You can filter based on the following criteria:
 |Status  |Description  |
 |---------|---------|
 |In Progress     | The workflow is currently in progress.        |
-|Failed     | The workflow completed with one or more failed tasks        |
+|Failed     | The workflow completed with one or more failed tasks.        |
 |Complete     | The workflow processed with no failed tasks.     |
 |Canceled     | The workflow was canceled in this instance.        |
 |Queued     | The workflow is waiting to run        |
