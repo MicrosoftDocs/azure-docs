@@ -15,7 +15,7 @@ ms.custom: template-concept
 
 
 
-Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. After these workflows are processed, making sure they ran correctly becomes an important part of managing the users you ran the workflows for. Workflows that are not processed correctly for users can lead to many issues in terms of security and compliance. To make sure you always know who was processed in workflows you run, Lifecycle Workflows introduces the reporting features of runs and user summary. In this article you will learn the difference between the two, and when you would use each when getting more information about how your workflows were utilized for users in your organization.
+Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. Making sure workflows are processed correctly is an important part of managing your organization's governance policy. Workflows that are not processed correctly for users can lead to many issues in terms of security and compliance. To make sure you always know who was processed in workflows you run, Lifecycle Workflows introduces the reporting features of runs and user summary. In this article you will learn the difference between the two, and when you would use each when getting more information about how your workflows were utilized for users in your organization.
 
 
 
@@ -35,8 +35,8 @@ The cards at the top of the user history page give you a summary in count form. 
 |---------|---------|
 |Total Processed     | The total number of users processed by the workflow. Includes both failed and successful task processing.         |
 |Successful     |  The total number of successfully processed users by a workflow. A user successfully processed means all of the tasks of the workflow processing the user succeeded.    |
-|Failed     | The total number of failed processes for users.  These are failed tasks that exist in workflows, and are noted no matter        |
-|Total tasks     | The total number tasks processed for users. These are the total number of tasks in a workflow that processes users.        |
+|Failed     | The total number of failed processes for users. Even if some tasks of a workflow are successful a failure of any will note a failed process.     |
+|Total tasks     | The total number tasks processed for users.       |
 |Failed tasks     | The total number of failed tasks for users.        |
 
 Separating processing of the workflow from the tasks is important because in a workflow processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters-preview).
