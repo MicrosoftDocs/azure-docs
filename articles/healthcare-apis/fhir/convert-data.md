@@ -29,7 +29,7 @@ The legacy health data is delivered to the FHIR service in the body of the `$con
 
 ### Parameters Resource
 
-A `$convert-data` API call packages the legacy health data inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request. See the table below for a description of the included parameters. 
+A `$convert-data` API call packages the legacy health data inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request. See the table below for a description of the parameters. 
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
@@ -44,7 +44,7 @@ A `$convert-data` API call packages the legacy health data inside a JSON-formatt
 > [!WARNING]
 > Default templates are released under MIT License and are **not** supported by Microsoft Support.
 >
-> Default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and may at any point get updated when we update versions of the FHIR service. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** on an Azure Container Registry, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify conversion behavior meets your requirements. 
+> Default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and may at any point get updated when we update versions of the FHIR service. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** on an Azure Container Registry, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify that the conversion behavior meets your requirements. 
 
 #### Sample Request
 
@@ -179,7 +179,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 ```
 ### Configure ACR firewall
 
-In your Azure Portal, select **Networking** for the Container registry.
+In your Azure portal, select **Networking** for the Container registry.
 
 [ ![Screen image of configure ACR firewall.](media/convert-data/networking-container-registry.png) ](media/convert-data/networking-container-registry.png#lightbox)
 
@@ -214,12 +214,13 @@ In the table below, you'll find the IP address for the Azure region where the FH
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document **How to configure FHIR export settings**. For more information, see [Configure export settings](./configure-export-data.md).
+> The above steps are similar to the configuration steps described in the document **Configure export settings and set up a storage account**. For more information, see [Configure settings for export](./configure-export-data.md).
 
 For private network access (that is, a private link), you can also disable the public network access to ACR.
-* Select the Networking blade for the Container registry in the portal.
-* Select `Disabled`.
-* Select **Firewall exception: Allow trusted Microsoft services to access this container registry**.
+* Select the **Networking** blade for the Container registry in the portal.
+* Make sure you are in the **Public access** tab.
+* Select **Disabled**.
+* Under **Firewall exception** select **Allow trusted Microsoft services to access this container registry**.
 
 [ ![Screen image of private link for ACR.](media/convert-data/configure-private-network-container-registry.png) ](media/convert-data/configure-private-network-container-registry.png#lightbox)
 
