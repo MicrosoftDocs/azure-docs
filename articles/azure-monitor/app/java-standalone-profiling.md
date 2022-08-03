@@ -13,7 +13,7 @@ The Application Insights Java Profiler provides a system for:
 
 1. Generating on demand JDK Flight Recorder (JFR) profiles from the running JVM.
 2. Generating JFR profiles automatically when certain trigger conditions are met from the running JVM
-   met, such as CPU or memory breaching a configured threshold.
+   , such as CPU or memory breaching a configured threshold.
 
 # Overview
 
