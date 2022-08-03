@@ -4,8 +4,8 @@ description: Introduction to Azure Arc-enabled data services with Active Directo
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/15/2022
 ms.topic: how-to
