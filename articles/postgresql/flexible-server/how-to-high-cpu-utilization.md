@@ -166,3 +166,5 @@ vacuum analyze <table_name>;
 ~~~
 
 ## Next steps
+
+## Next steps

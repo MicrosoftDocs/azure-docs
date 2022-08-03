@@ -41,7 +41,6 @@ The amount of work autovacuum does depends on two parameters:
 
 `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go and every time the cleanup is done autovacuum sleeps for `autovacuum_vacuum_cost_delay` number of milliseconds. 
 
-number of milliseconds.   
 
 In Postgres versions 9.6, 10 and 11 the default for `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 20 milliseconds.
 
@@ -184,7 +183,6 @@ Continuously running autovacuum may affect CPU and IO utilization on the server.
 
 Autovacuum daemon uses `autovacuum_work_mem` that is by default set to -1 meaning `autovacuum_work_mem` would have the same value as the parameter `maintenance_work_mem`. This document assumes `autovacuum_work_mem` is set to -1 and `maintenance_work_mem` is used by the autovacuum daemon.
 
-the autovacuum daemon.
 
 If `maintenance_work_mem` is low, it may be increased to up to 2 GB on Flexible Server. A general rule of thumb is to allocate 50 MB to `maintenance_work_mem` for every 1 GB of RAM.  
 
