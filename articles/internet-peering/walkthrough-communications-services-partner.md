@@ -130,6 +130,10 @@ Below are the steps to activate the prefix.
 
 **A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This will ensure not only Communications but other cloud services are accessible from the same interconnect.
 
+**Q.**   Are there any AS path constraints?
+
+**A.**   Yes, for registered prefixes smaller than /24, advertised AS path must be less than four. Path of four or longer will cause the advertisement to be rejected by policy.
+
 **Q.**	I need to set the prefix limit, how many routes Microsoft would be announcing?
 
 **A.** Microsoft announces roughly 280 prefixes on internet, and it may increase by 10-15% in future. So, a safe limit of 400-500 can be good to set as “Max prefix count”
