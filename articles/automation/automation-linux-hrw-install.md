@@ -248,8 +248,7 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 
 
 ## Check version of Hybrid Worker
-To check the version of agent-based Linux Hybrid Runbook Worker:
-Go to *vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION* 
+To check the version of agent-based Linux Hybrid Runbook Worker, go to *vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION* 
 - The file *VERSION* has the version number of Hybrid Runbook Worker. 
 
 ## Next steps
