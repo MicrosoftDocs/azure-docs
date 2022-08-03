@@ -15,7 +15,7 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 
 ## Limitations 
 
-* The target resources must be in [one of the regions supported by the Azure Chaos Studio Preview](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=chaos-studio) 
+* The target resources must be in [one of the regions supported by the Azure Chaos Studio Preview](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio) 
 * For agent-based faults, the machine must have access to the following **HTTPS endpoints**:
     * http://agentcommunicationservice-frontdoor-canary.trafficmanager.net 
     * If sending telemetry data to Application Insights, the IPs [in this document](../azure-monitor/app/ip-addresses.md) are also required.
