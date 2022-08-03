@@ -55,7 +55,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | Syslog             | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
     | Text logs | Log Analytics workspace - custom table | Events sent to log file on agent machine |
     
-    <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [Quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
+    <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
     <sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF). 
 
 1. Associate the data collection rule with the agent.
