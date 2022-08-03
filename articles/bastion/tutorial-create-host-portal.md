@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial: Deploy Bastion using manual settings: Azure portal'
 description: Learn how to deploy Bastion using manual settings using the Azure portal.
-services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 05/05/2022
+ms.date: 08/03/2022
 ms.author: cherylmc
-ms.custom: ignite-fall-2021
+
 ---
 
 # Tutorial: Deploy Bastion using manual settings
@@ -86,8 +85,8 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
 1. Select **Bastion** in the left pane to open the **Bastion** page.
 
-1. On the Bastion page, select **Configure manually**. This lets you configure specific additional settings before deploying Bastion to your VNet.
-   :::image type="content" source="./media/tutorial-create-host-portal/configure-manually.png" alt-text="Screenshot of Bastion page showing configure manually button." lightbox="./media/tutorial-create-host-portal/configure-manually.png":::
+1. On the Bastion page, select **I want to configure Azure Bastion on my own**. This lets you configure specific additional settings when deploying Bastion to your VNet.
+   :::image type="content" source="./media/tutorial-create-host-portal/configure-manually.png" alt-text="Screenshot of Bastion page showing configure bastion on my own." lightbox="./media/tutorial-create-host-portal/configure-manually.png":::
 
 1. On the **Create a Bastion** page, configure the settings for your bastion host. Project details are populated from your virtual network values. Configure the **Instance details** values.
 
@@ -120,7 +119,7 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
    :::image type="content" source="./media/tutorial-create-host-portal/create-a-bastion.png" alt-text="Screenshot of Create a Bastion."lightbox="./media/tutorial-create-host-portal/create-a-bastion.png":::
 
-1. The public IP address section is where you configure the public IP address of the Bastion host resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Bastion resource you're creating. This IP address doesn't have anything to do with any of the VMs that you want to connect to. Create a new IP address. You can leave the default naming suggestion.
+1. The **Public IP address** section is where you configure the public IP address of the Bastion host resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Bastion resource you're creating. Create a new IP address. You can leave the default naming suggestion.
 
 1. When you finish specifying the settings, select **Review + Create**. This validates the values.
 
