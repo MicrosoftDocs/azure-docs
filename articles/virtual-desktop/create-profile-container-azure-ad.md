@@ -6,7 +6,7 @@ author: Heidilohr
 manager: femila
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 08/03/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -195,7 +195,7 @@ If the service principal was already created for you in the last section, follow
 1. Open **Azure Active Directory**.
 2. Select **App registrations** on the left pane.
 3. Select **All Applications**.
-4. Select the application with the name matching your storage account.
+4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
 6. Select **Add permissions** at the bottom of the page.
 7. Select **Grant admin consent for "DirectoryName"**.
