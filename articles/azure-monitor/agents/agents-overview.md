@@ -35,7 +35,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 **To collect data using Azure Monitor Agent:**
 
-1. Install the agent on the machine:
+1. Install the agent on the resource.
 
     | Resource type | Installation method | More information |
     |:---|:---|:---|
@@ -44,7 +44,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | Windows 10, 11 desktops, workstations | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
     | Windows 10, 11 laptops | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
     
-1. Define a data collection rule.
+1. Define a data collection rule and associate it to the resource.
 
     The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
 
@@ -57,8 +57,6 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     
     <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
     <sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF). 
-
-1. Associate the data collection rule with the agent.
 
 ## Supported services and features
 
