@@ -174,7 +174,7 @@ AzureMetrics
 
 > [!NOTE]
 >
-> - Pre-requirement of setting up this alert is that monitored databases stream basic metrics to Azure SQL Analytics.
+> - Pre-requirement of setting up this alert is that monitored databases stream basic metrics to the Log Analytics workspace used by Azure SQL Analytics.
 > - Replace the MetricName value `cpu_percent` with `dtu_consumption_percent` to obtain high DTU results instead.
 
 #### High CPU on elastic pools
@@ -190,7 +190,7 @@ AzureMetrics
 
 > [!NOTE]
 >
-> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to Azure SQL Analytics.
+> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to the Log Analytics workspace used by Azure SQL Analytics.
 > - Replace the MetricName value `cpu_percent` with `dtu_consumption_percent` to obtain high DTU results instead.
 
 #### Storage in average above 95% in the last 1 hr
@@ -208,7 +208,7 @@ AzureMetrics
 
 > [!NOTE]
 >
-> - Pre-requirement of setting up this alert is that monitored databases stream basic metrics to Azure SQL Analytics.
+> - Pre-requirement of setting up this alert is that monitored databases stream basic metrics to the Log Analytics workspace used by Azure SQL Analytics.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the `storage_threshold` within the `time_range` defined.
 > - The output is a list of database resources that are above the `storage_threshold` within the `time_range` defined.
 
@@ -229,7 +229,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - Pre-requirement of setting up this alert is that monitored databases stream SQLInsights diagnostics log to Azure SQL Analytics.
+> - Pre-requirement of setting up this alert is that monitored databases stream SQLInsights diagnostics log to the Log Analytics workspace used by Azure SQL Analytics.
 > - This query requires an alert rule to be set up to run with the same frequency as `alert_run_interval` in order to avoid duplicate results. The rule should be set up to fire off the alert when there exist results (> 0 results) from the query.
 > - Customize the `alert_run_interval` to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to Azure SQL Analytics.
 > - Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of Azure SQL Analytics that you can use from the existing insights. Alternatively, you can use the query below to see the text of all Insights generated on your subscription. Use the output of the query to harvest the distinct strings for setting up alerts on Insights.
@@ -255,7 +255,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - Pre-requirement of setting up this alert is that the monitored managed instance has the streaming of ResourceUsageStats log enabled to Azure SQL Analytics.
+> - Pre-requirement of setting up this alert is that the monitored managed instance has the streaming of ResourceUsageStats log enabled to the Log Analytics workspace used by Azure SQL Analytics.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the managed instance. The output is storage percentage consumption on the managed instance.
 
 #### CPU average consumption is above 95% in the last 1 hr
@@ -271,7 +271,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - Pre-requirement of setting up this alert is that the monitored managed instance has the streaming of ResourceUsageStats log enabled to Azure SQL Analytics.
+> - Pre-requirement of setting up this alert is that the monitored managed instance has the streaming of ResourceUsageStats log enabled to the Log Analytics workspace used by Azure SQL Analytics.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the managed instance. The output is average CPU utilization percentage consumption in defined period on the managed instance.
 
 ### Pricing

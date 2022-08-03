@@ -28,7 +28,7 @@ A Speech service subscription is required before you can use Custom Neural Voice
 Once you've created an Azure account and a Speech service subscription, you'll need to sign in to Speech Studio and connect your subscription.
 
 1. Get your Speech service subscription key from the Azure portal.
-1. Sign in to [Speech Studio](https://aka.ms/speechstudio/customvoice), and then select **Custom Voice**.
+1. Sign in to [Speech Studio](https://aka.ms/speechstudio), and then select **Custom Voice**.
 1. Select your subscription and create a speech project.
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.
 
@@ -41,7 +41,7 @@ Content like data, models, tests, and endpoints are organized into projects in S
 
 To create a custom voice project:
 
-1. Sign in to [Speech Studio](https://aka.ms/speechstudio/customvoice).
+1. Sign in to [Speech Studio](https://aka.ms/speechstudio).
 1. Select **Text-to-Speech** > **Custom Voice** > **Create project**.
 
    See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.

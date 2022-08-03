@@ -37,6 +37,7 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 -  You can create only one scan for a Power BI data source that is registered in your Microsoft Purview account.
 -  If Power BI dataset schema isn't shown after scan, it's due to one of the current limitations with [Power BI Metadata scanner](/power-bi/admin/service-admin-metadata-scanning).
 -  Empty workspaces are skipped.
+-  Payload is currently limited to 2MB and 300 columns when scanning an asset.
 
 ## Prerequisites
 
@@ -128,7 +129,7 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Under **Authentication**, **Allow public client flows** is enabled.
 2. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. (Optional)
-   2. All required [private endpoints for Microsoft Purview](/azure/purview/catalog-private-link-end-to-end) are deployed.
+   2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
 

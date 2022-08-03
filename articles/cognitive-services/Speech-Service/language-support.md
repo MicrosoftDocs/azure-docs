@@ -56,9 +56,12 @@ To improve accuracy, customization is available for some languages and base mode
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |
+| Chinese (Cantonese, Simplified)   | `yue-CN`        |
 | Chinese (Cantonese, Traditional)  | `zh-HK`         |
 | Chinese (Mandarin, Simplified)    | `zh-CN`         |
-| Chinese (Taiwanese Mandarin)      | `zh-TW`         |
+| Chinese (Southwestern Mandarin, Simplified)  | `zh-CN-sichuan` |
+| Chinese (Taiwanese Mandarin, Traditional)    | `zh-TW`         |
+| Chinese (Wu, Simplified)          | `wuu-CN`        |
 | Croatian (Croatia)                | `hr-HR`         |
 | Czech (Czech)                     | `cs-CZ`         |
 | Danish (Denmark)                  | `da-DK`         |
@@ -128,6 +131,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Sinhala (Sri Lanka)               | `si-LK`         |
 | Slovak (Slovakia)                 | `sk-SK`         |
 | Slovenian (Slovenia)              | `sl-SI`         |
+| Somali (Somalia)                  | `so-SO`         |
 | Spanish (Argentina)               | `es-AR`         |
 | Spanish (Bolivia)                 | `es-BO`         |
 | Spanish (Chile)                   | `es-CL`         |
@@ -160,6 +164,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Ukrainian (Ukraine)               | `uk-UA`         |
 | Uzbek (Uzbekistan)                | `uz-UZ`         |
 | Vietnamese (Vietnam)              | `vi-VN`         |
+| Welsh (United Kingdom)          | `cy-GB`         |
 | Zulu (South Africa)               | `zu-ZA`         |
 
 ### [Plain text](#tab/plaintext)
@@ -396,11 +401,14 @@ You can use the locales in this table with [phrase list](improve-accuracy-phrase
 | English (India) | `en-IN` |
 | English (United Kingdom)) | `en-GB` |
 | English (United States) | `en-US` |
+| French (Canada) | `fr-CA` |
 | French (France) | `fr-FR` |
 | German (Germany) | `de-DE` |
 | Italian (Italy) | `it-IT` |
 | Japanese (Japan) | `ja-JP` |
+| Korean (Korea) | `ko-KR` |
 | Portuguese (Brazil) | `pt-BR` |
+| Spanish (Mexico) | `es-MX` |
 | Spanish (Spain) | `es-ES` |
 
 ---
@@ -792,15 +800,19 @@ The following neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN-LN` | Female | `zh-CN-LN-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
-| Chinese (Mandarin, Simplified) | `zh-CN-SC` | Male | `zh-CN-SC-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN-liaoning` | Female | `zh-CN-liaoning-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|
 | English (United States) | `en-US` | Male | `en-US-TonyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Italian (Italy) | `it-IT` | Female | `it-IT-FabiolaNeural` <sup>New</sup> | General |
 | Italian (Italy) | `it-IT` | Female | `it-IT-FiammaNeural` <sup>New</sup> | General |
@@ -867,17 +879,21 @@ Use the following table to determine supported styles and roles for each neural 
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
 |pt-BR-FranciscaNeural|`calm`|||
 |zh-CN-XiaohanNeural|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
+|zh-CN-XiaomengNeural <sup>Public preview</sup>|`chat`|Supported||
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
 |zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`|Supported||
 |zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
+|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
+|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
+|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunxiaNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `fearful`, `narration-relaxed`, `sad`|Supported||
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
-|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
-|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
-|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
+|zh-CN-YunzeNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|Supported|Supported|
+
 
 
 ### Custom Neural Voice
@@ -904,7 +920,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Czech (Czech) | `cs-CZ` | No |No|
 | Danish (Denmark) | `da-DK` | No |No|
 | Dutch (Netherlands) | `nl-NL` | No |No|
-| English (Australia) | `en-AU` | Yes |No|
+| English (Australia) | `en-AU` | Yes |Yes|
 | English (Canada) | `en-CA` | No |Yes|
 | English (India) | `en-IN` | No |No|
 | English (Ireland) | `en-IE` | No |No|
@@ -923,7 +939,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Hungarian (Hungary) | `hu-HU` | No |No|
 | Indonesian (Indonesia) | `id-ID` | No |No|
 | Italian (Italy) | `it-IT` | Yes |Yes|
-| Japanese (Japan) | `ja-JP` | Yes |No|
+| Japanese (Japan) | `ja-JP` | Yes |Yes|
 | Korean (Korea) | `ko-KR` | Yes |Yes|
 | Malay (Malaysia) | `ms-MY` | No |No|
 | Norwegian (Bokmål, Norway) | `nb-NO` | No |No|
@@ -959,18 +975,23 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Danish|`da-DK`|
 |Dutch|`nl-NL`|
 |English|`en-AU`<br/>`en-CA`<br/>`en-GH`<br/>`en-HK`<br/>`en-IN`<br/>`en-IE`<br/>`en-KE`<br/>`en-NZ`<br/>`en-NG`<br/>`en-PH`<br/>`en-SG`<br/>`en-ZA`<br/>`en-TZ`<br/>`en-GB`<br/>`en-US`|
+|Estonian|`et-EE`|
 |Finnish|`fi-FI`|
 |French|`fr-CA`<br/>`fr-FR`|
 |German|`de-DE`|
 |Greek|`el-GR`|
+|Gujarati|`gu-IN`|
 |Hindi|`hi-IN`|
 |Hungarian|`hu-HU`|
 |Indonesian|`id-ID`|
+|Irish|`ga-IE`|
 |Italian|`it-IT`|
 |Japanese|`ja-JP`|
 |Korean|`ko-KR`|
 |Latvian|`lv-LV`|
 |Lithuanian|`lt-LT`|
+|Maltese|`mt-MT`|
+|Marathi|`mr-IN`|
 |Norwegian|`nb-NO`|
 |Polish|`pl-PL`|
 |Portuguese|`pt-BR`<br/>`pt-PT`|
@@ -981,8 +1002,10 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Spanish|`es-AR`<br/>`es-BO`<br/>`es-CL`<br/>`es-CO`<br/>`es-CR`<br/>`es-CU`<br/>`es-DO`<br/>`es-EC`<br/>`es-SV`<br/>`es-GQ`<br/>`es-GT`<br/>`es-HN`<br/>`es-MX`<br/>`es-NI`<br/>`es-PA`<br/>`es-PY`<br/>`es-PE`<br/>`es-PR`<br/>`es-ES`<br/>`es-UY`<br/>`es-US`<br/>`es-VE`|
 |Swedish|`sv-SE`|
 |Tamil|`ta-IN`|
+|Telugu|`te-IN`|
 |Thai|`th-TH`|
 |Turkish|`tr-TR`|
+|Ukrainian|`uk-UA`|
 
 ## Pronunciation assessment
 
@@ -1005,7 +1028,11 @@ The following table lists the released languages and public preview languages.
 
 ## Speech translation
 
-The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
+Speech Translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
+
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](#speech-to-text) above. The default language is `en-US` if you don't specify a language.
+
+To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
 ### Text languages
 
@@ -1142,6 +1169,8 @@ The Intent Recognizer Pattern Matcher supports the following locales:
 | Locale                            | Locale (BCP-47) |
 |-----------------------------------|-----------------|
 | English (United States)           | `en-US`         |
+| Chinese (Cantonese, Traditional)  | `zh-HK`         |
+| Chinese (Mandarin, Simplified)    | `zh-CN`         |
 
 ## Next steps
 

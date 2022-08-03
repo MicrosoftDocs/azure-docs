@@ -143,7 +143,7 @@ to users who do not need them.
 > [!NOTE]
 > The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
 > permissions to create or update targetted resources. For more information, see
-> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-policy-definition).
+> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-the-policy-definition).
 
 ### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
 

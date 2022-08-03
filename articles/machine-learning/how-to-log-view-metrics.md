@@ -1,5 +1,5 @@
 ---
-title: Log & view parameters, metrics and files
+title: Log & view parameters, metrics and files with MLflow
 titleSuffix: Azure Machine Learning
 description: Enable logging on your ML training runs to monitor real-time run metrics with MLflow, and to help diagnose errors and warnings.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-# Log & view metrics and log files
+# Log & view metrics and log files with MLflow
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](./v1/how-to-log-view-metrics.md)
@@ -120,9 +120,9 @@ MLflow supports two ways of logging images:
 
 ## Logging models
 
-MLflow introduces the concept of "models" as a way to package all the artifacts required for a given model to function. Models in MLflow are always a folder with an arbitrary number of files, depending on the framework used to generate the model. Logging models has the advantage of tracking all the elements of the model as a single entity that can be __registered__ and then __deployed__. On top of that, MLflow models enjoy the benefit of [no-code deployment](how-to-deploy-mlflow-models.md) and can be used with the [Responsible AI dashboard](how-to-responsible-ai-dashboard.md) in studio.
+MLflow introduces the concept of "models" as a way to package all the artifacts required for a given model to function. Models in MLflow are always a folder with an arbitrary number of files, depending on the framework used to generate the model. Logging models has the advantage of tracking all the elements of the model as a single entity that can be __registered__ and then __deployed__. On top of that, MLflow models enjoy the benefit of [no-code deployment](how-to-deploy-mlflow-models.md) and can be used with the [Responsible AI dashboard](how-to-responsible-ai-dashboard.md) in studio. Read the article [From artifacts to models in MLflow](concept-mlflow-models.md) for more information.
 
-To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For frameworks that MLflow doesn't support, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
+To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For more details about how to log MLflow models see [Logging MLflow models](how-to-log-mlflow-models.md) For migrating existing models to MLflow, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
 
 ## Automatic logging
 
@@ -242,12 +242,11 @@ tags = finished_mlflow_run.data.tags
 
 You can browse completed job records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar.
+Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar. Click on the job of interest to enter the details view, and then select the **Metrics** tab.
 
-For the individual Experiment view, select the **All experiments** tab. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
+Select the logged metrics to render charts on the right side.
 
-You can also edit the job list table to select multiple jobs and display either the last, minimum, or maximum logged value for your jobs. Customize your charts to compare the logged metrics values and aggregates across multiple jobs. You can plot multiple metrics on the y-axis of your chart and customize your x-axis to plot your logged metrics. 
-
+:::image type="content" source="media/how-to-log-view-metrics/metrics-old.png" alt-text="Screenshot of the current metrics view.":::
 
 ### View and download log files for a job 
 

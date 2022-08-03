@@ -4,7 +4,7 @@ description: Performance counters are collected by Azure Monitor to analyze perf
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/26/2021
+ms.date: 06/28/2022
 
 ---
 

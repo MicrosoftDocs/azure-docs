@@ -27,7 +27,7 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
 > * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
 >     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -588,7 +588,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)

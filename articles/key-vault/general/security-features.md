@@ -40,6 +40,9 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 > [!NOTE]
 > For Azure Key Vault, ensure that the application accessing the Keyvault service should be running on a platform that supports TLS 1.2 or recent version. If the application is dependent on .Net framework, it should be updated as well. You can also make the registry changes mentioned in [this article](/troubleshoot/azure/active-directory/enable-support-tls-environment) to explicitly enable the use of TLS 1.2 at OS level and for .Net framework. To meet with compliance obligations and to improve security posture, Key Vault connections via TLS 1.0 & 1.1 are considered a security risk, and any connections using old TLS protocols will be disallowed in 2023.
 
+> [!WARNING]
+> TLS 1.0 and 1.1 is deprecated by Azure Active Directory and tokens to access key vault may not longer be issued for users or services requesting them with deprecated protocols. This may lead to loss of access to Key vaults. More information on AAD TLS support can be in [Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made)
+
 ## Key Vault authentication options
 
 When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the key vault. In both cases, applications can access Key Vault in three ways:
@@ -76,7 +79,7 @@ For more information about authentication to Key Vault, see [Authenticate to Azu
 
 ## Conditional access 
 
-Key Vault provides support for Azure Azure Active Directory Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
+Key Vault provides support for Azure Active Directory Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
 
 For more information, see [Conditional Access overview](../../active-directory/conditional-access/overview.md)
 

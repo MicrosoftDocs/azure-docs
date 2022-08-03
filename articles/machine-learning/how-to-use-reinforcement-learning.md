@@ -26,7 +26,7 @@ In this article you learn how to:
 > * Set up an experiment
 > * Define head and worker nodes
 > * Create an RL estimator
-> * Submit an experiment to start a run
+> * Submit an experiment to start a job
 > * View results
 
 This article is based on the [RLlib Pong example](https://aka.ms/azureml-rl-pong) that can be found in the Azure Machine Learning notebook [GitHub repository](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).
@@ -102,7 +102,7 @@ ws = Workspace.from_config()
 
 ### Create a reinforcement learning experiment
 
-Create an [experiment](/python/api/azureml-core/azureml.core.experiment.experiment) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
+Create an [experiment](/python/api/azureml-core/azureml.core.experiment.experiment) to track your reinforcement learning job. In Azure Machine Learning, experiments are logical collections of related trials to organize job logs, history, outputs, and more.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -212,7 +212,7 @@ else:
 
 Use the [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) to submit a training job to Azure Machine Learning.
 
-Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you specify how to configure a script execution. 
+Azure Machine Learning uses estimator classes to encapsulate job configuration information. This lets you specify how to configure a script execution. 
 
 ### Define a worker configuration
 
@@ -312,7 +312,7 @@ rl_estimator = ReinforcementLearningEstimator(
     cluster_coordination_timeout_seconds=3600,
     
     # Maximum time for the whole Ray job to run
-    # This will cut off the run after an hour
+    # This will cut off the job after an hour
     max_run_duration_seconds=3600,
     
     # Allow the docker container Ray runs in to make full use
@@ -396,7 +396,7 @@ def on_train_result(info):
         value=info["result"]["episodes_total"])
 ```
 
-## Submit a run
+## Submit a job
 
 [Run](/python/api/azureml-core/azureml.core.run%28class%29) handles the run history of in-progress or complete jobs. 
 
@@ -408,7 +408,7 @@ run = exp.submit(config=rl_estimator)
 
 ## Monitor and view results
 
-Use the Azure Machine Learning Jupyter widget to see the status of your runs in real time. The widget shows two child runs: one for head and one for workers. 
+Use the Azure Machine Learning Jupyter widget to see the status of your jobs in real time. The widget shows two child jobs: one for head and one for workers. 
 
 ```python
 from azureml.widgets import RunDetails
@@ -418,15 +418,15 @@ run.wait_for_completion()
 ```
 
 1. Wait for the widget to load.
-1. Select the head run in the list of runs.
+1. Select the head job in the list of jobs.
 
-Select **Click here to see the run in Azure Machine Learning studio** for additional run information in the studio. You can access this information while the run is in progress or after it completes.
+Select **Click here to see the job in Azure Machine Learning studio** for additional job information in the studio. You can access this information while the job is in progress or after it completes.
 
-![Line graph showing how run details widget](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
+![Line graph showing how job details widget](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
 
 The **episode_reward_mean** plot shows the mean number of points scored per training epoch. You can see that the training agent initially performed poorly, losing its matches without scoring a single point (shown by a reward_mean of -21). Within 100 iterations, the training agent learned to beat the computer opponent by an average of 18 points.
 
-If you browse logs of the child run, you can see the evaluation results recorded in driver_log.txt file. You may need to wait several minutes before these metrics become available on the Run page.
+If you browse logs of the child job, you can see the evaluation results recorded in driver_log.txt file. You may need to wait several minutes before these metrics become available on the Job page.
 
 In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer opponent.
 

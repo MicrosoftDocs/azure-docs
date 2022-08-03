@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 07/11/2022
 ms.author: tomfitz
 ---
 # Bicep deployment what-if operation
@@ -15,6 +15,8 @@ You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API 
 ### Microsoft Learn
 
 If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/) on **Microsoft Learn**.
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Install Azure PowerShell module
 

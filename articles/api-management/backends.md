@@ -31,7 +31,7 @@ Custom backends require extra configuration to authorize the credentials of re
 After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to redirect an incoming API request to the custom backend instead of the default backend for that API.
 
 > [!NOTE]
-> When you use the `set-backend-service` policy to redirect requests to a custom backend, refer to the backend by its identifier (`backend-id`), not by its URL.
+> When you use the `set-backend-service` policy to redirect requests to a custom backend, refer to the backend by its name (`backend-id`), not by its URL.
 
 ## Benefits of backends
 
