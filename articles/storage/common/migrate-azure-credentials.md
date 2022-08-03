@@ -15,16 +15,15 @@ ms.custom: devx-track-csharp
 
 # Migrate an application to use credential-free connections with Azure services
 
-Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways for apps to connect securely. Some of these options rely on string-formatted keys as credentials, such as connection strings, access keys, or shared access signatures. However, you should prioritize credential-free connections in your applications when possible. 
-
+Application requests to Azure Storage must be authenticated. Azure Storage provides several different ways for apps to connect securely. Some of these options rely on string-formatted keys as credentials, such as connection strings, access keys, or shared access signatures. However, you should prioritize credential-free connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, credential-free connections.
 
 ## Compare authentication options
 
-The following examples demonstrate how to connect to Azure Storage using traditional credentials. Many developers gravitate towards these solutions because they feel familiar to options have traditionally worked with in the past. If you currently use one of these approaches, consider migrating to credential-free connections using the steps described later in this document.
+The following code examples demonstrate how to connect to Azure Storage using traditional credentials and techniques. Many developers gravitate towards these solutions because they feel familiar to options have worked with in the past. If your application currently uses one of these approaches, consider migrating to credential-free connections using the steps described later in this document.
 
 ### [Connection String](#tab/connection-string)
 
-A connection string includes the authorization information required for your application to access data in an Azure Storage account. Your storage account access keys are similar to a root password for your storage account. Always be careful to protect your access keys.
+A connection string includes the authorization information required for your application to access data in an Azure Storage account. A connection string is similar to a root password for your storage account. Always be careful to never expose the keys in an unsecure location.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient("<your-connection-string>");
@@ -32,7 +31,7 @@ var blobServiceClient = new BlobServiceClient("<your-connection-string>");
 
 ### [Access Key](#tab/access-keys)
 
-When you create a storage account, Azure generates storage account access keys for that account. These keys can be used to authorize access to data in your storage account via shared key authorization. These keys should be managed with Azure Key Vault and regularly rotated. 
+When you create a storage account, Azure generates storage account access keys for that account. These keys can be used to authorize access to data in your storage account via shared key authorization. They should be managed with Azure Key Vault and rotated regularly. 
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -52,11 +51,11 @@ var blobServiceClient = new BlobServiceClient(
 ```
 ---
 
-Although it's possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be very diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections.
+Although it's possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections.
 
 ### Introducing credential-free connections
 
-Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC) provide robust security features. These techniques can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings. 
+Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries. In this tutorial, you'll learn how to update an existing application to use `DefaultAzureCredential` instead of alternatives such as connection strings. 
 
 > [!IMPORTANT]
 > Some frameworks must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` through underlying plugins or drivers.
@@ -68,11 +67,11 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
 
-The following code examples demonstrates how to create a `BlobServiceClient` that uses `DefaultAzureCredential` to authenticate to an Azure Storage account. The next section describes how to migrate to this setup in more detail.
+The following code examples demonstrates how to connect to an Azure Storage account using credential-free connections. The next section describes how to migrate to this setup in more detail.
 
 ### [C# and .NET Core](#tab/dotnet-credential)
 
-A .NET Core application should explicitly pass an instance of `DefaultAzureCredential` into the constructor of a service client class.
+A .NET Core application should explicitly pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -101,7 +100,7 @@ var blobServiceClient = new BlobServiceClient(
 
 ## Steps to migrate an existing application to use Azure Identity
 
-The following steps explain how to migrate an existing application to use `DefaultAzureCredential` instead of a key-based solution. These same migration steps should apply whether you are using connection strings, access keys, or shared access signatures. 
+The following steps explain how to migrate an existing application to use credential-free connections instead of a key-based solution. These same migration steps should apply whether you are using connection strings, access keys, or shared access signatures. 
 
 ### 1) Configure roles and users for local development authentication
 
@@ -125,7 +124,7 @@ At the top of your `Program.cs` file, add the following `using` statement:
 using Azure.Identity;
 ```
 
-In your project code, locate the places you are currently creating a `BlobServiceClient` to connect to Azure Storage. This is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
+Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -151,10 +150,13 @@ var blobServiceClient = new BlobServiceClient(
 
 ---
 
+#### Run the app locally
+
+After making these code changes, run your application locally. The new configuration should pick up your local credentials, assuming you are logged into a compatible IDE or command line tool, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
 
 ### 4) Configure the Azure hosting environment
 
-Once your application is configured to use credential-free connections, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. The following steps demonstrate how to create a managed identity for an app service.
+Once your application is configured to use credential-free connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. The following steps demonstrate how to create a managed identity for an app service.
 
 ### [Azure Portal](#tab/create-managed-identity)
 
@@ -194,7 +196,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
     :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
 
-2. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment. 
+1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment. 
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
