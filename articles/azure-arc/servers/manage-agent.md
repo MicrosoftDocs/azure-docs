@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 06/29/2022
+ms.date: 08/03/2022
 ms.topic: conceptual
 ---
 
@@ -406,7 +406,7 @@ The proxy bypass feature does not require you to enter specific URLs to bypass. 
 
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
-| AAD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| Azure AD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | ARM | `management.azure.com` |
 | Arc | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
 

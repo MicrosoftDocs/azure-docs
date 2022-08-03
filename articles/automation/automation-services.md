@@ -3,7 +3,7 @@ title: Automation services in Azure - overview
 description: This article tells what are the Automation services in Azure and how to compare and use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation services, automanage, Bicep, Blueprints, Guest Config, Policy, Functions
-ms.date: 03/04/2022
+ms.date: 08/03/2022
 ms.topic: overview
 ---
 
@@ -111,7 +111,7 @@ Replaces repetitive, day-to-day operational tasks with an exception-only managem
 
   **Scenarios** | **Users**
   --- | ---
-  | Automatically configures guest operating system per Microsoft baseline configuration. </br> </br> Automatically detects for drift and corrects it across a VM’s entire lifecycle. </br> </br> Aims at a hands-free management of machines. | The IT Administrators, Infra Administrators, IT Operations Administrators are responsible for managing server workload, day to day admin tasks such as backup, disaster recovery, security updates, responding to security threats, and so on across Azure and on-premise. </br> </br> Developers who do not wish to manage servers or spend the time on fewer priority tasks.
+  | Automatically configures guest operating system per Microsoft baseline configuration. </br> </br> Automatically detects for drift and corrects it across a VM’s entire lifecycle. </br> </br> Aims at a hands-free management of machines. | The IT Administrators, Infra Administrators, IT Operations Administrators are responsible for managing server workload, day to day admin tasks such as backup, disaster recovery, security updates, responding to security threats, and so on across Azure and on-premises. </br> </br> Developers who do not wish to manage servers or spend the time on fewer priority tasks.
 
 
 ## Respond to events in Automation workflow
@@ -151,11 +151,11 @@ Provides a serverless event-driven compute platform for automation that allows y
   - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
   - You can orchestrate complex workflows through [durable functions](../azure-functions/durable/durable-functions-overview.md?tabs=csharp).
   - You should avoid large, and long-running functions that can cause unexpected timeout issues. [Learn more](../azure-functions/functions-best-practices.md?tabs=csharp#write-robust-functions).
-  - When you write Powershell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](../azure-functions/functions-reference-powershell.md?tabs=portal).
+  - When you write PowerShell scripts within the Function Apps, you must tweak the scripts to define how the function behaves such as - how it's triggered, its input and output parameters. [Learn more](../azure-functions/functions-reference-powershell.md?tabs=portal).
 
   **Scenarios** | **Users**
   --- | ---
-  | Respond to events on resources: such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts to send the team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br> Respond to database changes. | The Application developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless Micro-services based applications where a single or mutiple Azure Functions could be part of larger application workflow.
+  | Respond to events on resources: such as add tags to resource group basis cost center, when VM is deleted etc. </br> </br> Set scheduled tasks such as setting a pattern to stop and start a VM at a specific time, reading blob storage content at regular intervals etc. </br> </br> Process Azure alerts to send the team’s event when the CPU activity spikes to 90%. </br> </br> Orchestrate with external systems such as Microsoft 365. </br> </br> Respond to database changes. | The Application developers who are skilled in coding languages such as C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br> </br> Cloud Architects who build serverless applications where Azure Functions could be part of a larger application workflow.
 
 
 ## Orchestrate complex jobs in Azure Automation
