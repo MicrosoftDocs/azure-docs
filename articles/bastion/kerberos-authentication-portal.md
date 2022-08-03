@@ -38,7 +38,7 @@ In this section, the following steps help you update your virtual network to spe
 
    :::image type="content" source="./media/kerberos-authentication-portal/advanced.png" alt-text="Screenshot of Advanced tab." lightbox="./media/kerberos-authentication-portal/advanced.png":::
 
-1. On the **Advanced** tab, select **Kerberos**. 
+1. On the **Advanced** tab, select **Kerberos**.
 
    :::image type="content" source="./media/kerberos-authentication-portal/select-kerberos.png" alt-text="Screenshot of select bastion features." lightbox="./media/kerberos-authentication-portal/select-kerberos.png":::
 
@@ -50,7 +50,7 @@ In this section, the following steps help you update your virtual network to spe
 
 In this section, the following steps help you modify your virtual network and existing Bastion deployment for Kerberos authentication.
 
-1. [Update the DNS settings](#vnet) for your virtual network.
+1. [Update the DNS settings](#update-vnet-dns-servers) for your virtual network.
 1. Go to the portal page for your Bastion deployment and select **Configuration**.
 1. On the Configuration page, select **Kerberos authentication**, then select **Apply**.
 1. Bastion will update with the new configuration settings.
