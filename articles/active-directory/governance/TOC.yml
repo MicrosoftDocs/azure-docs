@@ -90,7 +90,7 @@
     - name: Templates (Preview)
       href: lifecycle-workflow-templates.md  
     - name: History (Preview)
-      href: lifecycle-workflows-history.md        
+      href: lifecycle-workflow-history.md        
 - name: How-to guides
   expanded: true
   items:
