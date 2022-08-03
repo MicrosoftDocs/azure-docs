@@ -114,12 +114,10 @@ To disable/enable self-service BitLocker recovery:
 
 ```PowerShell
 Connect-MgGraph -Scopes Policy.ReadWrite.Authorization
-$allowBitLockerSelfService = $false #Set this to $true to allow bitlocker self service
 $authPolicyUri = "https://graph.microsoft.com/beta/policies/authorizationPolicy/authorizationPolicy"
-# Enable or disable self-service Bitlocker access to the tenant
 $body = @{
     defaultUserRolePermissions = @{
-        allowedToReadBitlockerKeysForOwnedDevice = $allowBitLockerSelfService
+        allowedToReadBitlockerKeysForOwnedDevice = $false #Set this to $true to allow BitLocker self-service
     }
 }| ConvertTo-Json
 Invoke-MgGraphRequest -Uri $authPolicyUri -Method PATCH -Body $body
