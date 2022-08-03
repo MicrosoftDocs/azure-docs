@@ -92,11 +92,11 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 <!-- commenting out until conflict is resolved    :::image type="content" source="./media/tutorial-setup-lab/template-page-publish-button.png" alt-text="Screenshot of Azure Lab Services template page. The Publish template menu button is highlighted."::: -->
 
-    > [!WARNING]
-    > Publishing is an irreversible action!  It can't be undone.
+   > [!WARNING]
+   > Publishing is an irreversible action!  It can't be undone.
 2. On the **Publish template** page, select **Publish**. Select **OK** when warned that publishing is a permanent action.
 
-    :::image type="content" source="./media/tutorial-setup-lab/publish-template-number-vms.png" alt-text="Screenshot of confirmation window for publish action of Azure.":::
+:::image type="content" source="./media/tutorial-setup-lab/publish-template-number-vms.png" alt-text="Screenshot of confirmation window for publish action of Azure.":::
 
 3. You see the **status of publishing** the template on page.
 
@@ -107,8 +107,8 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 <!-- Commenting out until conflict is resolved   :::image type="content" source="./media/tutorial-setup-lab/virtual-machines-stopped.png" alt-text="Screenshot of virtual machines stopped.  The virtual machine pool menu is highlighted."::: -->
 
-    > [!NOTE]
-    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+> [!NOTE]
+> When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## Set a schedule for the lab
 
