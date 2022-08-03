@@ -31,7 +31,7 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 > The information in this article relies on the Azure Application Insights instance that was created with your workspace. If you deleted this Application Insights instance, there is no way to re-create it other than deleting and recreating the workspace.
 
 > [!TIP]
-> If you are using online endpoints instead, use the information in the [Monitor online endpoints](how-to-monitor-online-endpoints.md) article instead. 
+> If you are using online endpoints instead, use the information in the [Monitor online endpoints](../how-to-monitor-online-endpoints.md) article instead. 
  
 ## Prerequisites
 
