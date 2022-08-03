@@ -114,8 +114,13 @@
       href: tutorial-forescout.md
     - name: Integrate Fortinet
       href: tutorial-fortinet.md
+<<<<<<< HEAD
     - name: RSA NetWitness
       href: integrations/netwitness.md
+=======
+    - name: LogRhythm
+      href: integrations/logrhythm.md
+>>>>>>> a5e442ae17b8ec904f8cbc1c5adea870e2aaf531
     - name: Integrate Palo Alto
       href: tutorial-palo-alto.md
     - name: Integrate Qradar

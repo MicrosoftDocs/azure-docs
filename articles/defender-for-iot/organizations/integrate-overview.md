@@ -95,6 +95,8 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks only<br>- Locally managed sensors only       |  Splunk       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
 
+| **LogRhythm** | Forward Defender for IoT alerts to LogRhythm. | [Integrate LogRhythm with Microsoft Defender for IoT](integrations/logrhythm.md) |
+
 | **RSA NetWitness** | Forward Defender for IoT alerts to RSA NetWitness | [Integrate RSA NetWitness with Microsoft Defender for IoT](integrations/netwitness.md) <br>[CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364) |
 
 ## Next steps
