@@ -152,11 +152,11 @@ var blobServiceClient = new BlobServiceClient(
 
 After making these code changes, run your application locally. The new configuration should pick up your local credentials, assuming you are logged into a compatible IDE or command line tool, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
 
-### 4) Configure the Azure hosting environment
+### 3) Configure the Azure hosting environment
 
 Once your application is configured to use credential-free connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. 
 
-### Create the managed identity
+#### Create the managed identity
 
 The following steps demonstrate how to create a system-assigned managed identity for an app service. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
 
@@ -178,7 +178,7 @@ az webapp identity assign --resource-group <resource-group-name> -name <app-serv
 ```
 ---
 
-### Assign roles to the managed identity
+#### Assign roles to the managed identity
 
 Next, you need to grant permissions to the managed identity you created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user. 
 
