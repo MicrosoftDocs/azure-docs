@@ -25,6 +25,7 @@ The following table lists available integrations for Microsoft Defender for IoT,
 |**ServiceNow**     |  View Defender for IoT device detections, attributes, and connections in ServiceNow.   | [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)    |
 | **Splunk** | Send Defender for IoT alerts to Splunk | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md) |
 |**Axonius Cybersecurity Asset Management**    | Import and manage device inventory discovered by Defender for IoT in your Axonius instance. | [Axonius documentation](https://docs.axonius.com/docs/azure-defender-for-iot)       |
+|**Skybox**    | Import vulnerability occurrence data discovered by Defender for IoT in your Skybox platform. | [Skybox documentation](https://docs.skyboxsecurity.com)  <br><br>  [Skybox integration page](https://www.skyboxsecurity.com/products/integrations)   | 
 
 ## Next steps
 

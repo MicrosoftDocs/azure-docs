@@ -17,3 +17,10 @@ items:
       href: tutorial-create-and-configure-projects.md  
     - name: Configure a Catalog Item
       href: configure-catalog-item.md  
+- name: Concepts
+  expanded: true
+  items:
+    - name: Key concepts
+      href: concept-environments-key-concepts.md
+    - name: Usage scenarios
+      href: concept-environments-scenarios.md

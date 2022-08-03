@@ -361,7 +361,7 @@ You might get the following error message when you initiate a remote desktop con
 
 ![Screenshot of the message that says your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verify that you've [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
+Verify that you've [configured Azure RBAC policies](#configure-role-assignments-for-the-vm) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
 
 > [!NOTE]
 > If you're having problems with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#limits).
