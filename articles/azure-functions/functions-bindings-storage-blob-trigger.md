@@ -19,10 +19,10 @@ There are several ways to execute your function code based on changes to blobs i
 | Latency | High (up to 10 min) | Low | Medium  | Low | 
 | [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
 | Extension version |Any | Storage v5.x+ |Any |Any |
-| Processes existing blobs | Yes | No | n/a | No |
+| Processes existing blobs | Yes | No | No | No |
 | Filters | [Blob name pattern](#blob-name-patterns)  | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) | n/a | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) |
-| Requires an [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
-| High-scale² containers | No | Yes | No | Yes |
+| Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
+| Supports high-scale² | No | Yes | Yes | Yes |
 | Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the [examples in this article](#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue Storage trigger to a Blob Storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have non-storage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). | 
 
 ¹Blob Storage input and output bindings support blob-only accounts.  
