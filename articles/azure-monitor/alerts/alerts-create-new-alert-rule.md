@@ -285,7 +285,7 @@ You can also create an activity log alert on future events similar to an activit
 1. In the [portal](https://portal.azure.com/), [go to the activity log pane](../essentials/activity-log.md#view-the-activity-log). 
 1. Filter or find the desired event, and then create an alert  by selecting **Add activity log alert**. 
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png" alt-text="Screenshot of creating an alert tule from an activity log event." lightbox=media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png" alt-text="Screenshot of creating an alert tule from an activity log event." lightbox="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png":::
 
 2. The **Create alert rule** wizard opens, with the scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. Note that by default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts pane"). 
 
