@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/01/2022
+ms.date: 08/03/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
