@@ -44,7 +44,8 @@ landingContent:
             url: use-network-policies.md#create-an-aks-cluster-for-calico-network-policies
           - text: API Server VNet integration (preview)
             url: api-server-vnet-integration.md
-            
+          - text: GitHub Actions for AKS
+            url: integrations.md#github-actions
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS
@@ -187,3 +188,5 @@ landingContent:
             url: dapr.md
           - text: Cluster extensions
             url: cluster-extensions.md
+          - text: GitHub Actions for AKS
+            url: integrations.md#github-actions
