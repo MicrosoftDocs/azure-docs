@@ -70,8 +70,8 @@ This requirement applies to ONTAP-based systems and services in general, which i
 
 Examples of the potential problems if these patches are not applied:
 
-1. Database hang on backend storage endpoint moves.
-1. Database hang on Azure NetApp Files service maintenance events.
+1. Database hangs on backend storage endpoint moves.
+1. Database hangs on Azure NetApp Files service maintenance events.
 1. Brief Oracle hangs during normal operation that may or may not be noticeable.
 1. Slow Oracle shutdowns: if you monitor the shutdown process, you'll see pauses that could add up to minutes of delays as dNFS I/O times out.
 1. Incorrect dNFS reply caching behavior on reads that will hang a database.
