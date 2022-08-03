@@ -9,15 +9,8 @@ ms.topic: overview
 
 Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT data in a partner service.
 
-## Azure Monitor
-
-|Name  |Description  |Support scope  |Supported by  |Learn more |
-|---------|---------|---------|---------|---------|
-|**Log Analytics**     |  Store Defender for IoT data in a Log Analytics workspace, and then create and use Azure Monitor workbooks in Defender for IoT to visualize the data stored in Log Analytics.       | - OT, Enterprise IoT, and device builder data  <br><br>- Cloud-connected sensors only      | Microsoft        | TBD   |
-
 ## Axonius
 
-<<<<<<< HEAD
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
@@ -48,6 +41,18 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Fortinet**     |    Send Defender for IoT data to Fortinet services for: <br><br>- Enhanced network visibility in FortiSIEM<br>- Extra abilities in FortiGate to stop anomalous behavior       |   - OT networks only<br>- Locally managed sensors only       |   Fortinet      | [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)   |
 
+## LogRhythm
+
+|Name  |Description  |Support scope  |Supported by  |Learn more |
+|---------|---------|---------|---------|---------|
+|**LogRhythm**      |   Forward Defender for IoT alerts to LogRhythm.  |  - OT networks only<br>- Locally managed sensors only      |   LogRhythm      | [Integrate LogRhythm with Microsoft Defender for IoT](integrations/logrhythm.md)  |
+
+## Micro Focus ArcSight
+
+|Name  |Description  |Support scope  |Supported by  |Learn more |
+|---------|---------|---------|---------|---------|
+|**Micro Focus ArcSight**      |   Forward Defender for IoT alerts to ArcSight.  |  - OT networks only<br>- Locally managed sensors only      |   Micro Focus      | [Integrate ArcSight with Microsoft Defender for IoT](integrations/arcsight.md)  |
+
 ## Microsoft Defender for Endpoint
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
@@ -60,7 +65,6 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Defender for IoT data connector**     |  Displays Defender for IoT data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.   |    - OT networks only <br>- Cloud-connected sensors only       |    Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)  |
 |**IoT/OT Threat Monitoring with Defender for IoT**     |  Provides additional security content for Defender for IoT data in Microsoft Sentinel       |  - OT networks only <br>- Cloud-connected sensors only      |  Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)  |
-| TBD name (Legacy) | TBD | - OT networks only <br><br>Locally connected sensors only  | TBD |
 
 
 ## Palo Alto
@@ -74,6 +78,12 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
 |**QRadar**     |   Forward Defender for IoT alerts to IBM QRadar.       |   - OT networks only<br>- Locally managed sensors only      |      Qradar   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)   |
+
+## RSA NetWitness
+
+|Name  |Description  |Support scope  |Supported by  |Learn more |
+|---------|---------|---------|---------|---------|
+|**RSA NetWitness**      |   Forward Defender for IoT alerts to RSA NetWitness   |  - OT networks only<br>- Locally managed sensors only      |   RSA      | [Integrate RSA NetWitness with Microsoft Defender for IoT](integrations/netwitness.md) <br>[CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364)  |
 
 ## ServiceNow
 
@@ -96,24 +106,6 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks only<br>- Locally managed sensors only       |  Splunk       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
 
-| **LogRhythm** | Forward Defender for IoT alerts to LogRhythm. | [Integrate LogRhythm with Microsoft Defender for IoT](integrations/logrhythm.md) |
-
-| **RSA NetWitness** | Forward Defender for IoT alerts to RSA NetWitness | [Integrate RSA NetWitness with Microsoft Defender for IoT](integrations/netwitness.md) <br>[CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364) |
-=======
-|Partner service  |Description | Learn more  |
-|---------|---------|---------|
-| **ArcSight** | Forward Defender for IoT alerts to ArcSight. | [Integrate ArcSight with Microsoft Defender for IoT](integrations/arcsight.md) |
-|**Aruba ClearPass**     | Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data. | [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)       |
-|**CyberArk**     | Send CyberArk PSM syslog data on remote sessions and verification failures to Defender for IoT for data correlation.   | [Integrate CyberArk with Microsoft Defender for IoT](tutorial-cyberark.md)       |
-|**Forescout**     | Automate actions in Forescout based on activity detected by Defender for IoT, and correlate Defender for IoT data with other *Forescout eyeExtended* modules that oversee monitoring, incident management, and device control.  | [Integrate Forescout with Microsoft Defender for IoT](tutorial-forescout.md)      |
-|**Fortinet**     | Send Defender for IoT data to Fortinet services for: <br><br>- Enhanced network visibility in FortiSIEM<br>- Extra abilities in FortiGate to stop anomalous behavior    | [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)     |
-|**Palo Alto**     |Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.   | [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)      |
-|**QRadar**     |Forward Defender for IoT alerts to IBM QRadar.   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)      |
-|**ServiceNow**     |  View Defender for IoT device detections, attributes, and connections in ServiceNow.   | [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)    |
-| **Splunk** | Send Defender for IoT alerts to Splunk | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md) |
-|**Axonius Cybersecurity Asset Management**    | Import and manage device inventory discovered by Defender for IoT in your Axonius instance. | [Axonius documentation](https://docs.axonius.com/docs/azure-defender-for-iot)       |
-|**Skybox**    | Import vulnerability occurrence data discovered by Defender for IoT in your Skybox platform. | [Skybox documentation](https://docs.skyboxsecurity.com)  <br><br>  [Skybox integration page](https://www.skyboxsecurity.com/products/integrations)   | 
->>>>>>> 563c6a20f83bbf4c47f76b09e0aec62586d9183a
 
 ## Next steps
 
