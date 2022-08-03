@@ -36,10 +36,12 @@ Even though a feature is not be negatively impacted, it might not be compatible 
 
 ## Standard general-purpose v2 accounts
 
-The following table describes whether a feature is supported in a standard general-purpose v2 account when you enable a hierarchical namespace, NFS 3.0 protocol, or SFTP. 
+The following table describes whether a feature is supported in a standard general-purpose v2 account when you enable a hierarchical namespace (HNS), NFS 3.0 protocol, or SFTP. 
 
+> [!IMPORTANT]
+> This table describes the impact of **enabling** the capability and not the specific use of that capability.
 
-| Storage feature | Default support | Hierarchical namespace enabled   | NFS 3.0 enabled  | SFTP enabled |
+| Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705; | &#x2705;| &#x2705; |
@@ -80,9 +82,12 @@ The following table describes whether a feature is supported in a standard gener
 
 ## Premium block blob accounts
 
-The following table describes whether a feature is supported in a premium block blob account when you enable a hierarchical namespace, NFS 3.0, or SFTP. 
+The following table describes whether a feature is supported in a premium block blob account when you enable a hierarchical namespace (HNS), NFS 3.0 protocol, or SFTP.
 
-| Storage feature | Default support | Hierarchical namespace enabled   | NFS 3.0 enabled  | SFTP enabled |
+> [!IMPORTANT]
+> This table describes the impact of **enabling** the capability and not the specific use of that capability.
+
+| Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tier - archive](access-tiers-overview.md)  | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; |
 | [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; | &nbsp;&#x2716; |
