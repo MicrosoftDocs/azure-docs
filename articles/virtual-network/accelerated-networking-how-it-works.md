@@ -231,7 +231,7 @@ The data path has been switched back to the VF interface.
 
 ## Disable/Enable Accelerated Networking in a Running VM 
 
-Accelerated Networking can be toggled on a virtual NIC in a running VM with Azure CLI. For example: 
+Accelerated Networking can be toggled on a virtual NIC in a non-running VM with Azure CLI. For example: 
 
 ```output
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 
