@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure. Azure VMware Solution SLA guarantees that Azure VMware management tools (vCenter Server and NSX Manager) will be available at least 99.9% of the time.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 04/20/2021
+ms.date: 06/15/2022
 ---
 
 # What is Azure VMware Solution?
@@ -35,6 +35,10 @@ For more information, see [Networking concepts](concepts-networking.md).
 Azure VMware Solution private clouds use vSphere role-based access control for enhanced security. You can integrate vSphere SSO LDAP capabilities with Azure Active Directory. For more information, see the [Access and Identity concepts](concepts-identity.md).  
 
 vSAN data-at-rest encryption, by default, is enabled and is used to provide vSAN datastore security. For more information, see [Storage concepts](concepts-storage.md).
+
+## VMware software versions
+
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
 ## Host and software lifecycle maintenance
 

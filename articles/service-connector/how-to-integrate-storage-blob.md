@@ -31,45 +31,48 @@ This page shows the supported authentication types and client types of Azure Blo
 
 ## Default environment variable names or application properties
 
+Use the connection details below to connect compute services to Blob Storage. For each example below, replace the placeholder texts
+`<account name>`, `<account-key>`, `<client-ID>`,  `<client-secret>`, `<tenant-ID>`, and `<storage-account-name>` with your own account name, account key, client ID, client secret, tenant ID and storage account name.
+
 ### .NET, Java, Node.JS, Python
 
 #### Secret / connection string
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
+| Default environment variable name  | Description                    | Example value                                                                                                       |
+|------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
 #### system-assigned managed identity
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
+| Default environment variable name  | Description           | Example value                                           |
+|------------------------------------|-----------------------|---------------------------------------------------------|
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
 
 #### User-assigned managed identity
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
-| AZURE_STORAGEBLOB_CLIENTID | Your client ID | `{yourClientID}` |
+| Default environment variable name  | Description           | Example value                                           |
+|------------------------------------|-----------------------|---------------------------------------------------------|
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
+| AZURE_STORAGEBLOB_CLIENTID         | Your client ID        | `<client-ID>`                                           |
 
 #### Service principal
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
-| AZURE_STORAGEBLOB_CLIENTID | Your client ID | `{yourClientID}` |
-| AZURE_STORAGEBLOB_CLIENTSECRET | Your client secret | `{yourClientSecret}` |
-| AZURE_STORAGEBLOB_TENANTID | Your tenant ID | `{yourTenantID}` |
+| Default environment variable name  | Description           | Example value                                           |
+|------------------------------------|-----------------------|---------------------------------------------------------|
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
+| AZURE_STORAGEBLOB_CLIENTID         | Your client ID        | `<client-ID>`                                           |
+| AZURE_STORAGEBLOB_CLIENTSECRET     | Your client secret    | `<client-secret>`                                       |
+| AZURE_STORAGEBLOB_TENANTID         | Your tenant ID        | `<tenant-ID>`                                           |
 
 ### Java - Spring Boot
 
 #### Java - Spring Boot secret / connection string
 
-| Application properties | Description | Example value |
-| --- | --- | --- |
-| azure.storage.account-name | Your blob storage account name | `{storageAccountName}` |
-| azure.storage.account-key | Your blob storage account key | `{yourSecret}` |
-| azure.storage.blob-endpoint | Your blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
+| Application properties      | Description                    | Example value                                           |
+|-----------------------------|--------------------------------|---------------------------------------------------------|
+| azure.storage.account-name  | Your Blob storage-account-name | `<storage-account-name>`                                |
+| azure.storage.account-key   | Your Blob Storage account key  | `<account-key>`                                          |
+| azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
 
 ## Next steps
 

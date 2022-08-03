@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Register Peering Service - Azure portal
+          - text: Create a Peering Service connection - Azure portal
             url: azure-portal.md
 
   # Card

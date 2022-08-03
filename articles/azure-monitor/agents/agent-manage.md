@@ -5,12 +5,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/06/2022
+ms.reviewer: luki
 
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
 
 After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Upgrading agent
 
@@ -75,6 +78,35 @@ Upgrade from prior versions (>1.0.0-47) is supported. Performing the installatio
 Run the following command to upgrade the agent.
 
 `sudo sh ./omsagent-*.universal.x64.sh --upgrade`
+
+### Enable Auto-Update for the Linux Agent
+
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
+# [Powershell](#tab/PowerShellLinux)
+```powershell
+Set-AzVMExtension \
+  -ResourceGroupName myResourceGroup \
+  -VMName myVM \
+  -ExtensionName OmsAgentForLinux \
+  -ExtensionType OmsAgentForLinux \
+  -Publisher Microsoft.EnterpriseCloud.Monitoring \
+  -TypeHandlerVersion latestVersion
+  -ProtectedSettingString '{"workspaceKey":"myWorkspaceKey"}' \
+  -SettingString '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+ -EnableAutomaticUpgrade $true
+```
+# [Azure CLI](#tab/CLILinux)
+```powershell
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+  --version latestVersion \
+--enable-auto-upgrade true
+```
 
 ## Adding or removing a workspace
 

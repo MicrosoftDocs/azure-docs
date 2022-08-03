@@ -5,6 +5,7 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: harelbr
 ---
 # Call a webhook with a classic metric alert in Azure Monitor
 

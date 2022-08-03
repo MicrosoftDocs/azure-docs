@@ -25,6 +25,9 @@
   - name: Create durable function - PowerShell
     displayName: get started, chaining
     href: quickstart-powershell-vscode.md
+  - name: Create durable function - Java
+    displayName: get started, chaining
+    href: quickstart-java.md
 - name: Tutorials
   items:
   - name: Function chaining

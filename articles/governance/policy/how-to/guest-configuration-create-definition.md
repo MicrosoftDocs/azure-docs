@@ -94,7 +94,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in hashtable format.
-- **Version**: Policy version.
+- **PolicyVersion**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for guest configuration policy
   and content package.
@@ -117,7 +117,7 @@ New-GuestConfigurationPolicy `
   -Description 'Details about my policy.' `
   -Path './policies' `
   -Platform 'Windows' `
-  -Version 1.0.0 `
+  -PolicyVersion 1.0.0 `
   -Verbose
 ```
 
@@ -132,7 +132,7 @@ New-GuestConfigurationPolicy `
   -Description 'Details about my policy.' `
   -Path './policies' `
   -Platform 'Windows' `
-  -Version 1.0.0 `
+  -PolicyVersion 1.0.0 `
   -Mode 'ApplyAndAutoCorrect' `
   -Verbose
 ```
@@ -218,7 +218,7 @@ New-GuestConfigurationPolicy `
   -Description 'Audit if a Windows Service isn't enabled on Windows machine.' `
   -Path '.\policies' `
   -Parameter $PolicyParameterInfo `
-  -Version 1.0.0
+  -PolicyVersion 1.0.0
 ```
 
 ### Publish the Azure Policy definition

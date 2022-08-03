@@ -3,7 +3,7 @@ title: Customer data storage for Japan customers - Azure AD
 description: Learn about where Azure Active Directory stores customer-related data for its Japan customers.
 services: active-directory
 author: justinha
-manager: karenhoran
+manager: rkarlin
 ms.author: justinha
 
 ms.service: active-directory

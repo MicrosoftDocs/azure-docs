@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 06/23/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -13,7 +13,7 @@ ms.collection: M365-identity-device-management
 ---
 # How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to enable number matching in Microsoft Entra Authenticator push notifications to improve user sign-in security.  
+This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
 >Number matching is a key security upgrade to traditional second factor notifications in the Authenticator app that will be enabled by default for all tenants a few months after general availability (GA).<br> 
@@ -233,7 +233,7 @@ To turn number matching off, you will need to PATCH remove **numberMatchingRequi
 
 To enable number matching in the Azure AD portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Entra Authenticator**.
+1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. Select the target users, click the three dots on the right, and click **Configure**.
    
    ![Screenshot of configuring number match.](media/howto-authentication-passwordless-phone/configure.png)

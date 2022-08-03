@@ -155,7 +155,18 @@
   - name: Azure CLI
     href: /cli/azure/signalr
   - name: REST API
-    href: /rest/api/signalr
+    items:
+    - name: Control plane
+      href: /rest/api/signalr
+    - name: Data plane
+      href: signalr-reference-data-plane-rest-api.md
+      items:
+      - name: Versions
+        items:
+          - name: v1
+            href: swagger/signalr-data-plane-rest-v1.md
+          - name: v1-preview
+            href: swagger/signalr-data-plane-rest-v1-preview.md
   - name: ASP.NET Core SignalR
     href: /aspnet/core/signalr/introduction
   - name: Azure SignalR Service Protocol

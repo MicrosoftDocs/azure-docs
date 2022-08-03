@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/31/2022
+ms.date: 06/01/2022
 ---
 
 # Security, access, and operations for Netezza migrations
 
-This article is part three of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for security access operations.
+This article is part three of a seven-part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. The focus of this article is best practices for security access operations.
 
 ## Security considerations
 
@@ -260,7 +260,7 @@ High-Availability Linux (also called *Linux-HA*) provides the failover capabilit
 
 Each service is a resource.
 
-Netezza groups the Netezza-specific services into the nps resource group. When Heartbeat detects problems that imply a host failure condition or loss of service to the Netezza users, Heartbeat can initiate a failover to the standby host. For details about Linux-HA and its terms and operations, see the documentation at [http://www.linux-ha.org](http://www.linux-ha.org/).
+Netezza groups the Netezza-specific services into the nps resource group. When Heartbeat detects problems that imply a host failure condition or loss of service to the Netezza users, Heartbeat can initiate a failover to the standby host.  
 
 Distributed Replicated Block Device (DRBD) is a block device driver that mirrors the content of block devices (hard disks, partitions, and logical volumes) between the hosts. Netezza uses the DRBD replication only on the **/nz** and **/export/home** partitions. As new data is written to the **/nz** partition and the **/export/home** partition on the primary host, the DRBD software automatically makes the same changes to the **/nz** and **/export/home** partition of the standby host.
 

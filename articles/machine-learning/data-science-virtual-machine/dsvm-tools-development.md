@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: timoklimmer
-ms.author: tklimmer
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/23/2022
 ---
 
 # Development tools on the Azure Data Science Virtual Machine
@@ -37,15 +37,6 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 | Supported DSVM versions | Windows, Linux |
 | Typical uses | Code editor and Git integration |
 | How to use and run it | Desktop shortcut (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, desktop shortcut or terminal (`code`) in Linux |
-
-## RStudio Desktop
-
-| Category | Value |
-|--|--|
-| What is it? | Client IDE for R language |
-| Supported DSVM versions | Windows, Linux |
-| Typical uses | R development |
-| How to use and run it | Desktop shortcut (`C:\Program Files\RStudio\bin\rstudio.exe`) on Windows, desktop shortcut (`/usr/bin/rstudio`) on Linux |
 
 ## PyCharm
 
