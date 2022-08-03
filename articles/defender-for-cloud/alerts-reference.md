@@ -591,7 +591,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 ## <a name="alerts-fusion"></a>Security incident alerts
 
-[Further details and notes](alerts-overview.md#cloud-smart-alert-correlation-incidents)
+[Further details and notes](alerts-overview.md#what-are-security-incidents)
 
 | Alert                                                | Description                                                                                                                                                                         | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
