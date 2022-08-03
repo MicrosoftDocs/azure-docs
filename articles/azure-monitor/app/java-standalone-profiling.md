@@ -92,7 +92,7 @@ configuring resource limits which will trigger a profile if breached.
       }
    ```
    Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
-2. Execute your process with the updated configuration.
+2. Restart your process with the updated configuration.
 3. Configure the resource thresholds that will cause a profile to be collected:
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
     2. Select "Triggers"
@@ -102,7 +102,7 @@ configuring resource limits which will trigger a profile if breached.
 > Currently the Java profiler does not support the "Sampling" trigger, configuring this will have no effect.
 
 Once this has been completed, the agent will monitor the resource usage of your process and
-trigger a profile when required. Once a profile has been triggered and completed, it will be
+trigger a profile when the threshold is exceeded. Once a profile has been triggered and completed, it will be
 viewable from the
 Application Insights instance within the Performance -> Profiler section. From that screen the
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
