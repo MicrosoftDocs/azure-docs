@@ -88,9 +88,9 @@ A reasonable setting for shared buffers is 25% of RAM. Setting a value of greate
 ### Max Connections 
 
 All new and idle connections on a Postgres database consume up to 2 MB of memory. One way to monitor connections is by using the following query: 
-~~~
-    select count(*) from pg_stat_activity;
-~~~
+```
+select count(*) from pg_stat_activity;
+```
 When the number of connections to a database is high, memory consumption also increases.
 
 In situations where there are a lot of database connections, consider using a connection pooler like PgBouncer.
@@ -115,3 +115,7 @@ Once high memory-consuming queries have been identified from Query Store, use **
 For more information on the **EXPLAIN** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html).
 
 ## Next steps
+
+- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-high-cpu-utilization.md).
+- Troubleshoot High CPU Utilization [High CPU Utilization](./how-to-high-cpu-utilization.md).
+- Configure server parameters [Server Parameters](./howto-configure-server-parameters-using-portal.md).

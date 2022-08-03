@@ -43,35 +43,35 @@ Execute the following statements to view the top five SQL statements by mean or 
 
 
 ##### Postgres version 13 and above
-~~~
+```
 SELECT userid::regrole, dbid, query, mean_exec_time 
 FROM pg_stat_statements 
 ORDER BY mean_exec_time 
 DESC LIMIT 5;   
-~~~
+```
 ##### Postgres version 9.6, 10, 11, 12
-~~~
+```
 SELECT userid::regrole, dbid, query 
 FROM pg_stat_statements 
 ORDER BY mean_time 
 DESC LIMIT 5;    
-~~~
+```
 Execute the following statements to view the top five SQL statements by total time taken: 
 
 ##### Postgres version 13 and above
-~~~
+```
 SELECT userid::regrole, dbid, query 
 FROM pg_stat_statements 
 ORDER BY total_exec_time 
 DESC LIMIT 5;   
-~~~
+```
 ##### Postgres version 9.6, 10, 11, 12
-~~~
+```
 SELECT userid: :regrole, dbid, query, 
 FROM pg_stat_statements 
 ORDER BY total_time 
 DESC LIMIT 5;    
-~~~
+```
 ## Identify Root Causes 
 
 If CPU consumption levels are high in general, the following could be possible root causes: 
@@ -83,12 +83,12 @@ Long running transactions can consume CPU resources that can lead to high CPU ut
 
 The following query helps identify the connections running for the longest time:  
 
-~~~
+```
 SELECT pid, usename, datname, query, now() - xact_start as duration 
 FROM pg_stat_activity  
 WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active') 
 ORDER BY duration DESC;   
-~~~
+```
 
 ### Total Number of Connections and Number Connections by State 
 
@@ -97,12 +97,12 @@ A large number of connections to the database is also another issue that might l
 
 The following query gives information about the number of connections by state: 
 
-~~~
+```
 SELECT state, count(*)  
 FROM  pg_stat_activity   
 WHERE pid <> pg_backend_pid()  
 GROUP BY 1 ORDER BY 1;   
-~~~
+```
   
 
 ## Resolve High CPU Utilization: 
@@ -135,36 +135,36 @@ Azure Database for Flexible Server offers PgBouncer as a built-in connection poo
 You could consider killing a long running transaction as an option.
 
 To terminate a session's PID, you will need to detect the PID using the following query: 
-~~~
+```
 SELECT pid, usename, datname, query, now() - xact_start as duration 
 FROM pg_stat_activity  
 WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active') 
 ORDER BY duration DESC;   
-~~~
+```
 
 You can also filter by other properties like usename (username), datname (database name) etc.  
 
 Once you have the session's PID you can terminate using the following query:
-~~~
+```
 SELECT pg_terminate_backend(pid);
-~~~
+```
 ### Monitoring Vacuum And Table Stats 
 
 Keeping table statistics up to date helps improve query performance. Monitor whether regular autovacuuming is being carried out. 
 
 
 The following query helps to identify the tables that need vacuuming 
-~~~
+```
 select schemaname,relname,n_dead_tup,n_live_tup,last_vacuum,last_analyze,last_autovacuum,last_autoanalyze from pg_stat_all_tables where n_live_tup > 0;   
-~~~
+```
 `last_autovacuum` and `last_autoanalyze` columns give the date and time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly, take steps to tune autovacuum. For more information about autovacuum troubleshooting and tuning, see [Autovacuum Troubleshooting](./how-to-autovacuum-tuning.md).
 
 
 A more short term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:
-~~~
+```
 vacuum analyze <table_name>;
-~~~
+```
 
 ## Next steps
-
-## Next steps
+- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-high-cpu-utilization.md).
+- Troubleshoot High Memory Utilization [High Memory Utilization](./how-to-high-memory-utilization.md).

@@ -63,7 +63,7 @@ Use the following queries to monitor autovacuum:
 
 ```
 select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_tup::float*100) dead_pct,autovacuum_count,last_vacuum,last_autovacuum,last_autoanalyze,last_analyze from pg_stat_all_tables where n_live_tup >0;
-```   
+``` 
   
 
 The following columns help determine if autovacuum is catching up to table activity:
@@ -167,11 +167,11 @@ Default: 20 ms. The parameter may be decreased to 2-10 ms.
 ###### Postgres Versions 12 and above   
 Default: 2 ms.
 
-~~~
+```
 > [!NOTE]
 > The `autovacuum_vacuum_cost_limit` value is distributed proportionally among the running autovacuum workers, so that if there is more than one, the sum of the limits for each worker does not exceed the value of the `autovacuum_vacuum_cost_limit` parameter.
 
-~~~   
+```
 
 ### Autovacuum Constantly Running
 
@@ -334,3 +334,6 @@ For step-by-step guidance using pg_cron, review [Extensions](./concepts-extensio
 Autovacuum will run on tables with an insert-only workload. Two new server parameters `autovacuum_vacuum_insert_threshold` and  `autovacuum_vacuum_insert_scale_factor` help control when autovacuum can be triggered on insert-only tables. 
 
 ## Next steps
+- Troubleshoot High CPU Utilization [High CPU Utilization](./how-to-high-cpu-utilization.md).
+- Troubleshoot High Memory Utilization [High Memory Utilization](./how-to-high-memory-utilization.md).
+- Configure server parameters [Server Parameters](./howto-configure-server-parameters-using-portal.md).
