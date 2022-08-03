@@ -57,6 +57,7 @@ The following screenshot shows a finished Stream Analytics job. It highlights al
 Azure Event Hubs is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
 
 To configure an event hub as an input for your job, select the **Event Hub** symbol. A tile appears in the diagram view, including a side pane for its configuration and connection.
+Note: When connecting to your Event Hub in no code editor, it is recommended that you create a new Consumer Group (which is the default option). This helps in avoiding the Event Hub reach the concurrent readers’ limit. 
 
 After you set up your Event Hubs credentials and select **Connect**, you can add fields manually by using **+ Add field** if you know the field names. To instead detect fields and data types automatically based on a sample of the incoming messages, select **Autodetect fields**. Selecting the gear symbol allows you to edit the credentials if needed. When Stream Analytics job detect the fields, you'll see them in the list. You'll also see a live preview of the incoming messages in the **Data Preview** table under the diagram view.
 
