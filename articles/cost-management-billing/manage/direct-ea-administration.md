@@ -439,7 +439,7 @@ To view current notifications settings and add contacts:
 1. In the **Add Contact** area, enter the contact's email address.
 1. Under **Frequency**, select a notification interval. Weekly is the default value.
 1. Under **Categories**, select Lifecycle Management to receive notifications when the enrollment end date is approached or ended.
-1. Select **Add** to save the changes.
+1. Select **Add** to save the changes.  
     :::image type="content" source="./media/direct-ea-administration/add-contact.png" alt-text="Screenshot showing the Add Contact window where you add a contact." :::
 
 The new notification contact is shown in the Notification list.
