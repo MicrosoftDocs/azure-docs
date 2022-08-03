@@ -20,12 +20,20 @@ Microsoft is not providing or setting up disaster recovery for this service. In 
 
 ## Zone redundancy
 
-Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located within one Azure datacenter. The Managed Grafana Standard tier supports *zone redundancy*, which provides protection against zonal outages. When the zone redundancy option is selected, the VMs are spread across [availability zones](../availability-zones/az-overview.md#availability-zones) and other resources with availability zone enabled.
+Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located within one Azure datacenter. The Managed Grafana Standard tier supports *zone redundancy*, which provides protection against zonal outages.
 
-> [!NOTE]
-> Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently. There's also an additional charge for using the zone redundancy option. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
+### With zone redundancy enabled
+
+When the zone redundancy option is enabled, VMs are spread across [availability zones](../availability-zones/az-overview.md#availability-zones) and other resources with availability zone enabled.
 
 In a zone-wide outage, no user action is required. An impacted Managed Grafana instance will rebalance itself to take advantage of the healthy zone automatically. The Managed Grafana service will attempt to heal the affected instances during zone recovery.
+
+> [!NOTE]
+> Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently. The zone redundancy option comes with an additional cost. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
+
+### With zone redundancy disabled
+
+Zone redundancy is disabled in the Managed Grafana Standard tier by default. In this scenario, virtual machines are created as regional resources and should not be expected to survive zone-downs scenarios as they can go down at same time.
 
 ## Next steps
 
