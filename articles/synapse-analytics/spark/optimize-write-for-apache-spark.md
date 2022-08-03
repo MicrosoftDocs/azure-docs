@@ -14,7 +14,7 @@ ms.reviewer: martinle
 
 Analytical workloads on Big Data processing engines such as Apache Spark perform most efficiently when using standardized larger file sizes. The relation between the file size, the number of Spark workers and its configurations, play a critical role on performance. Ingestion workloads into data lake tables may have the inherited characteristic of constantly writing lots of small files; this is commonly known as the "small file problem".
 
-Optimize Write is a Delta Lake on Synapse feature that reduces the number of files being written by Apache Spark and aims to increase the size of the written data at each file. It dynamically optimizes partitions while generates files with a default 128MB size. The target file size may be changed per workload requirements using [configurations](../apache-spark-azure-create-spark-configuration.md).
+Optimize Write is a Delta Lake on Synapse feature that reduces the number of files being written by Apache Spark and aims to increase the size of the written data at each file. It dynamically optimizes partitions while generates files with a default 128MB size. The target file size may be changed per workload requirements using [configurations](apache-spark-azure-create-spark-configuration.md).
 
 This feature achieves the file size the by using an extra data shuffle phase over partitions, causing an extra processing cost while writing the data. The small write penalty should be outweighed by read efficiency on the tables.
 
@@ -39,7 +39,7 @@ This feature achieves the file size the by using an extra data shuffle phase ove
 ### When to avoid it
 
 * Small tables, with infrequently updated data.
-* Un-partitioned data.
+* Un-partitioned tables.
 * Use cases where additional write latency is not acceptable.
 * Big tables with well defined optimization schedules and read patterns.
 
