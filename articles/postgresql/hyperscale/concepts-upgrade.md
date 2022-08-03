@@ -1,15 +1,15 @@
 ---
-title: Upgrade server group - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: This article describes how you can upgrade PostgreSQL and Citus in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Server group upgrades - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Types of upgrades, and their precautions
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 08/02/2022
 ---
 
-# Upgrade Hyperscale (Citus) server group
+# Hyperscale (Citus) server group upgrades
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
@@ -26,7 +26,7 @@ to avoid surprises.
 
 Noteworthy Citus 11 changes:
 
-* Table shards may disappaear in your SQL client. Their visibility
+* Table shards may disappear in your SQL client. Their visibility
   is now controlled by
   [citus.show_shards_for_app_name_prefixes](reference-parameters.md#citusshow_shards_for_app_name_prefixes-text).
 * There are several [deprecated

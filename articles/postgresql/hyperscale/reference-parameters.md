@@ -134,7 +134,7 @@ SET citus.show_shards_for_app_name_prefixes TO 'psql';
 SET citus.show_shards_for_app_name_prefixes TO 'psql,pg_dump';
 ```
 
-Shard hiding can be totally disabled using
+Shard hiding can be disabled entirely using
 [citus.override_table_visibility](#citusoverride_table_visibility-boolean).
 
 #### citus.override\_table\_visibility (boolean)
