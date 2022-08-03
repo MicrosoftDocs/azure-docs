@@ -4,7 +4,7 @@ description: This article provides information on  exclusion lists configuration
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/10/2022
+ms.date: 08/03/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -35,6 +35,7 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request cookie name
 * Query string args name
 * Request body post args name
+* RequestBodyJSONArgNames
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following operators are the supported match criteria:
 
