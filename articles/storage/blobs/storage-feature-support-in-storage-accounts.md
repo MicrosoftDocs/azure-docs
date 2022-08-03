@@ -11,7 +11,7 @@ ms.author: normesta
 
 # Blob Storage feature support in Azure Storage accounts
 
-Feature support is impacted by the type of account that you create and the settings that enable on that account. Support is also impacted by the use of some APIs and protocols. You can use the tables in this article to assess feature support based on these factors. The items that appear in these tables will change over time as support continues to expand.
+Feature support is impacted by the type of account that you create and the settings that enable on that account. You can use the tables in this article to assess feature support based on these factors. The items that appear in these tables will change over time as support continues to expand.
 
 ## How to use these tables  
 
