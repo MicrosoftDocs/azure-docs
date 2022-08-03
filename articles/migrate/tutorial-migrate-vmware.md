@@ -74,8 +74,9 @@ Enable replication as follows:
 
     :::image type="content" source="./media/tutorial-migrate-vmware/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="./media/tutorial-migrate-vmware/select-vms-expanded.png":::
 
-
 6. In **Target settings**, select the subscription and target region. Specify the resource group in which the Azure VMs reside after migration.
+   > [!Caution]
+   > The region for the project cannot be changed after the first replication is initiated. Please select the region carefully.
 7. In **Virtual Network**, select the Azure VNet/subnet which the Azure VMs join after migration.
 8. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
