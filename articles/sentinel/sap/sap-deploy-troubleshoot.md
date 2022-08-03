@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel Threat Monitoring for SAP solution deployment troubleshooting | Microsoft Docs
-description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel Threat Monitoring for SAP solution deployment.
+title: Microsoft Sentinel Solution for SAP deployment troubleshooting
+description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel Solution for SAP deployment.
 author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
@@ -8,7 +8,7 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
 ---
 
-# Troubleshooting your Microsoft Sentinel Threat Monitoring for SAP solution deployment
+# Troubleshooting your Microsoft Sentinel Solution for SAP deployment
 
 ## Useful Docker commands
 
@@ -72,7 +72,7 @@ The change takes effect two minutes after you save the file. You don't need to r
 
 ## View all Docker execution logs
 
-To view all Docker execution logs for your Microsoft Sentinel Threat Monitoring for SAP data connector deployment, run one of the following commands:
+To view all Docker execution logs for your Microsoft Sentinel Solution for SAP data connector deployment, run one of the following commands:
 
 ```bash
 docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
@@ -352,14 +352,14 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel Threat Monitoring for SAP solutions:
+Learn more about the Microsoft Sentinel Solution for SAP:
 
-- [Deploy Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying Threat Monitoring for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Threat Monitoring for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
@@ -369,8 +369,8 @@ Troubleshooting:
 
 Reference files:
 
-- [Microsoft Sentinel Threat Monitoring for SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Threat Monitoring for SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel Solution for SAP solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel Solution for SAP solution: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
