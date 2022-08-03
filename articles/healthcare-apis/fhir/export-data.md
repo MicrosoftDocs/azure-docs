@@ -10,9 +10,9 @@ ms.author: mikaelw
 ---
 # How to export FHIR data
 
-The bulk `$export` operation in the FHIR service allows for data to be exported per the [HL7 FHIR Bulk Data Access specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
+The bulk `$export` operation in the FHIR service allows data to be exported per the [HL7 FHIR Bulk Data Access specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
-Before using `$export`, make sure that your FHIR service is configured to connect with an ADLS Gen2 storage account. For configuring export settings and creating an Azure storage account, refer to the [Configure settings for export](./configure-export-data.md) page.
+Before using `$export`, make sure that your FHIR service is configured to connect with an ADLS Gen2 storage account. For configuring export settings and creating an ADLS Gen2 storage account, refer to the [Configure settings for export](./configure-export-data.md) page.
 
 ## Calling the `$export` endpoint
 
@@ -40,7 +40,7 @@ When data is exported, a separate file is created for each resource type. To ens
 
 
 > [!Note] 
-> `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if a resource is in multiple groups or a compartment of more than one resource.
+> `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if a resource is in multiple groups or in a compartment of more than one resource.
 
 In addition, checking the `$export` operation status through the URL returned in the `Content-Location` header is supported. See the HL7 [Bulk Data Status Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-status-request) documentation for more information.
 
