@@ -232,11 +232,11 @@ with mlflow.start_run() as run:
 
 ## View experiment
 
-In the left-hand menu in Azure Machine Learning Studio, select __Experiments__ and then select your experiment (__azure-ml-in10-mins-tutorial__). An experiment is a grouping of many runs from a specified script or piece of code. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
+In the left-hand menu in Azure Machine Learning studio, select __Experiments__ and then select your experiment (__azure-ml-in10-mins-tutorial__). An experiment is a grouping of many runs from a specified script or piece of code. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
 
 ## Version control your models with the model registry
 
-You can use model registration to store and version your models in your workspace. Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. The code below registers and versions the model you trained above. Once you have executed the code cell below you will be able to see the model in the registry by selecting __Models__ in the left-hand menu in Azure Machine Learning Studio.
+You can use model registration to store and version your models in your workspace. Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. The code below registers and versions the model you trained above. Once you have executed the code cell below you will be able to see the model in the registry by selecting __Models__ in the left-hand menu in Azure Machine Learning studio.
 
 ```python
 # register the model
@@ -317,7 +317,7 @@ The scoring script file referenced in the code above can be found in the same fo
 
 ### View endpoint
 
-Once the model has been successfully deployed, you can view the endpoint by navigating to __Endpoints__ in the left-hand menu in Azure Machine Learning Studio. You will be able to see the state of the endpoint (healthy/unhealthy), logs, and consume (how applications can consume the model).
+Once the model has been successfully deployed, you can view the endpoint by navigating to __Endpoints__ in the left-hand menu in Azure Machine Learning studio. You will be able to see the state of the endpoint (healthy/unhealthy), logs, and consume (how applications can consume the model).
 
 ## Test the model service
 
