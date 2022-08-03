@@ -21,7 +21,7 @@ Workflows created using Lifecycle Workflows allow for the automation of lifecycl
 
 ## Lifecycle Workflows History types
 
-When looking at the history of your workflow, Lifecycle Workflows allow you to view History in 2 separate ways, through user processed summaries or through runs summaries. User processed summaries allow you to view specific users and which tasks ran for them. If you want a more workflow-centric version of the history of the workflow you can view the runs information. This gives you history from the view of the workflow instance being run at that point in time. In this way you are still able to see failed and total task information, but as the information is centered around the workflow instance itself, on the front is information dedicated to that such as start and complete time.
+When looking at the history of your workflow, Lifecycle Workflows allow you to view History in two separate ways, through user processed summaries or through runs summaries. User processed summaries allow you to view specific users, and which tasks ran for them. If you want a more workflow-centric version of the history of the workflow, you can view the runs information. This gives you history from the view of the workflow instance being run at that point in time. In this way you are still able to see failed, and total, task information, but as the information is centered around the run instance itself, on the front is information dedicated to the workflow such as start and complete time.
 
 ## Basic Summary information
 
