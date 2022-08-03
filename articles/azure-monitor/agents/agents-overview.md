@@ -234,7 +234,7 @@ The tables below provide a quick comparison of the telemetry agents for Windows 
 
 ### Supported operating systems
 
-The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 is not supported for any operating system. 
+The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 isn't supported for any operating system. 
 
 #### Windows
 
