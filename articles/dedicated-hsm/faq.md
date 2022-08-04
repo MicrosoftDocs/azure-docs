@@ -187,6 +187,9 @@ The HSM device ships with a default user of admin with its usual default passwor
 
 No. Microsoft does not have any access to the keys stored in customer allocated Dedicated HSM.
 
+### Q: Does Azure Dedicated HSM store customer data?
+No. Azure Dedicated HSM is a baremetal HSM for lease service. Our service does not store customer data. All key materials and data is stored within the customers HSM appliance. Each HSM appliance is fully dedicated to one single customer which they have full administrative control. 
+
 ### Q: Can I upgrade software/firmware on HSMs allocated to me?
 
 The customer has full administrative control including upgrading software/firmware if specific features are required from different firmware versions. Before making changes please consult with Microsoft about your upgrade by contacting HSMRequest@microsoft.com  
