@@ -295,7 +295,7 @@ In addition to the `comments` property, comments using the `//` syntax are suppo
 
 ## Visual Studio Code ARM Tools
 
-Working with ARM templates is much easier with the Azure Resource Manager (ARM) Tools for Visual Studio Code. This extension provides language support, resource snippets, and resource auto-completion to help you create and validate Azure Resource Manager templates. To learn more and install the extension, see [Azure Resource Manager (ARM) Tools]([https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
+Working with ARM templates is much easier with the Azure Resource Manager (ARM) Tools for Visual Studio Code. This extension provides language support, resource snippets, and resource auto-completion to help you create and validate Azure Resource Manager templates. To learn more and install the extension, see [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 
 ## Use test toolkit
 
