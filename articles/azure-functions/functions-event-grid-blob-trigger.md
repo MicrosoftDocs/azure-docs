@@ -277,7 +277,7 @@ http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.BlobTri
 Save this path, which you'll use later to create endpoint URLs for event subscriptions. If you used a different name for your Blob Storage triggered function, you need to change the `functionName` value in the query string. 
 
 > [!NOTE] 
-> Because the endpoint is handling events for a Blob Storage trigger, the endpoint path includes `blobs`. The endpoint URL for an Event Grid trigger would instead have `EventGrid` in the path. 
+> Because the endpoint is handling events for a Blob Storage trigger, the endpoint path includes `blobs`. The endpoint URL for an Event Grid trigger would instead have `eventgrid` in the path. 
 
 ### Run ngrok
 
