@@ -5,7 +5,7 @@ ms.date: 08/04/2022
 ms.topic: how-to
 ---
 
-# Tutorial: Discover vulnerabilities in Infrastructure as Code (IaC)
+# Discover vulnerabilities in Infrastructure as Code (IaC)
 
 Once you have set up the Microsoft Security DevOps Extension, or Workflow, there is additional support located in the YAML configuration that can be used to run a tool, or several of the tools. For example, setting up Infrastructure as Code (IaC) scanning.
 
@@ -18,19 +18,13 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
 1. Sign in to [Github](https://www.github.com). 
 
-1. Navigate to the repository home page.
+1. Navigate to **`your repository's home page`** > **.github/workflows** > **msdevopssec.yml** that was created in the [prerequisites](msdo-github-action.md#setup-github-action).
 
-1. Select the **.github/workflows** folder.
+1. Select **Edit file**.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/github-workflow-folder.png" alt-text="Screenshot showing where to locate the github workflow foleder.":::
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that shows where to find the edit button for the msdevopssec.yml file.":::
 
-1. Select **workflow .yml**, that was created in the [prerequisites](msdo-github-action.md#setup-github-action).
-
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that shows where to find the workflow yaml.":::
-
-1. Select **Edit**.
-
-1. Under the Run Analyzers section, add the following:
+1. Under the Run Analyzers section, add the following: **DOES NOT EXIST**
 
     ```yml
     with:
@@ -39,7 +33,13 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/add-to-yaml.png" alt-text="Screenshot that shows the information that needs to be added to the yaml file.":::
 
-1. Select **Start Commit-\>Commit changes**.
+1. Select **Start Commit** 
+
+1. Select **Commit changes**.
+
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/commit-change.png" alt-text="Screenshot that shows where to select commit change on the githib page.":::
+
+## Got stuck Here 
 
 1. (Optional) Skip this step if you already have an IaC template in your repository.
 

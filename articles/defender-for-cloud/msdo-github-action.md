@@ -125,4 +125,4 @@ Security DevOps uses the following Open Source tools:
 :::image type="content" source="media/msdo-github-action/tool-dropdown.png" alt-text="Screenshot showing you how to navigate to the filter by tool option.":::
 
 ## Next steps
-[Discover vulnerabilities in Infrastructure as Code (IaC)](tutorial-iac-vulnerabilities.md)
+[Discover vulnerabilities in Infrastructure as Code (IaC)](iac-vulnerabilities.md)
