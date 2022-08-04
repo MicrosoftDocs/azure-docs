@@ -22,7 +22,7 @@ Test your system's resiliency to connection breaks using a [reboot](cache-admini
 
 ## TCP settings for Linux-hosted client applications
 
-The default TCP settings in some Linux versions can cause Redis connections to fail for 13 minutes or more. The default settings can prevent the client application from detecting closed connections and restoring them automatically if the connection was not closed gracefully. 
+The default TCP settings in some Linux versions can cause Redis server connections to fail for 13 minutes or more. The default settings can prevent the client application from detecting closed connections and restoring them automatically if the connection was not closed gracefully. 
 
 The failure to reestablish a connection can happen occur in situations where the network connection is disrupted or the Redis server goes offline for unplanned maintenance.
 
