@@ -9,8 +9,8 @@ metadata:
   description: Azure Storage documentation hub page. Points to service documentation for cloud and hybrid storage solutions, and services to transfer, share, and back up data. 
   ms.service: storage
   ms.topic: hub-page
-  author: tamram
-  ms.author: tamram
+  author: normesta
+  ms.author: normesta
   ms.date: 03/09/2022
 
 
@@ -150,6 +150,8 @@ additionalContent:
             text: Use the AzCopy command-line tool
           - url: ./blobs/quickstart-storage-explorer.md
             text: Use the Azure Storage Explorer GUI-based tool              
+          - url: ./blobs/blobfuse2-what-is.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            text: Use BlobFuse2 to mount Azure blobs on Linux
         # Card
         - title: Control costs
           links:

@@ -26,13 +26,13 @@ This procedure uses the [Azure Monitor Logs connector](/connectors/azuremonitorl
 
 When you export data from a Log Analytics workspace, you should filter and aggregate your log data and optimize query and limit the amount of data processed by your Logic App workflow, to the required data. For example, if you need to archive sign-in events, you should filter for required events and project only the required fields. For example: 
 
-```json
+```Kusto
 SecurityEvent
 | where EventID == 4624 or EventID == 4625
 | project TimeGenerated , Account , AccountType , Computer
 ```
 
-When you export the data on a schedule, use the ingestion_time() function in your query to ensure that you don’t miss late arriving data. If data is delayed due to network or platform issues, using the ingestion time ensures that data is included in the next Logic App execution. See *Add Azure Monitor Logs action* under [Logic App procedure]](#logic-app-procedure) for an example.
+When you export the data on a schedule, use the ingestion_time() function in your query to ensure that you don’t miss late arriving data. If data is delayed due to network or platform issues, using the ingestion time ensures that data is included in the next Logic App execution. See *Add Azure Monitor Logs action* under [Logic App procedure](#logic-app-procedure) for an example.
 
 ## Prerequisites
 Following are prerequisites that must be completed before this procedure.

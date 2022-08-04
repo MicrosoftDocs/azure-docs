@@ -1,10 +1,12 @@
 ---
 title: Introduction to the Service Fabric Infrastructure Service
 description: Frequently asked questions about Service Fabric Infrastructure Service
-
-ms.topic: troubleshooting
-ms.date: 1/21/2022
-ms.author: saharsh
+ms.topic: conceptual
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Introduction to the Service Fabric Infrastructure Service
@@ -16,7 +18,7 @@ The Service Fabric Infrastructure Service is a system service for Azure clusters
 
 The rest of this document covers frequently asked questions about Infrastructure Service: 
 
-## FAQs 
+## FAQs
 
 ### What are the different kinds of updates that are managed by Infrastructure Service?
  * Platform Update - An update to underlying host for the virtual machine scale set initiated by the Azure platform and performed in a safe manner by Upgrade Domain (UD). 

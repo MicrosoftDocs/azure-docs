@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Azure Form Recognizer?
     href: overview.md
+  - name: Form Recognizer Studio
+    href: form-recognizer-studio-overview.md
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -42,6 +44,8 @@ items:
   items:
   - name: Create a Form Recognizer resource
     href:  create-a-form-recognizer-resource.md
+  - name: Check my usage and estimate the cost
+    href: how-to-guides/estimate-cost.md
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
   - name: Use the prebuilt-read model
@@ -141,7 +145,7 @@ items:
   - name: Business card model
     href: concept-business-card.md
   - name: Custom models
-    items:  
+    items:
     - name: Custom model
       href: concept-custom.md
     - name: Custom template model

@@ -120,7 +120,7 @@ This table summarizes assessment support and limitations for VMware virtualizati
 **VMware requirements** | **Details**
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
-**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, or 6.7.
+**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
 **vCenter Server permissions** | A read-only account for vCenter Server.
 
 ### VM requirements (agent-based)

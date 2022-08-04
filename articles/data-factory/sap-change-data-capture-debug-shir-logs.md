@@ -2,12 +2,12 @@
 title: SAP change data capture solution (Preview) - Debug issues using SHIR logs
 titleSuffix: Azure Data Factory
 description: This topic describes how to debug issues with Copy activity for SAP change data capture (Preview) using self-hosted integration runtime (SHIR) logs in Azure Data Factory.
-author: swinarko
+author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/01/2022
-ms.author: sawinark
+ms.author: ulrichchrist
 ---
 
 # Debug ADF copy activity issues by sending SHIR logs

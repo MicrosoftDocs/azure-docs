@@ -28,7 +28,7 @@ Use the Optical character recognition REST API to read printed and handwritten t
 * [cURL](https://curl.haxx.se/) installed
 
 
-## Extract printed and handwritten text
+## Read printed and handwritten text
 
 The OCR service can extract visible text in an image or document and convert it to a character stream. For more information on text extraction, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 

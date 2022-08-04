@@ -81,7 +81,7 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 
 ```json
 {
-    "query": "ContainerLog | where LogEntry has \"some value\"\n",
+    "query": "ContainerLogV2 | where Computer ==  \"some value\"\n",
 }
 ```
 

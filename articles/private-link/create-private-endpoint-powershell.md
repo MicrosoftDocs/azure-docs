@@ -316,7 +316,7 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 8. In the bastion connection to **myVM**, open the web browser.
 
-9. Enter the URL of your web app, **https://mywebapp1979.azurewebsites.net**.
+9. Enter the URL of your web app, ``https://mywebapp1979.azurewebsites.net``.
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 

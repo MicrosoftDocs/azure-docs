@@ -3,12 +3,12 @@ title: Manage and restore soft-deleted blobs
 titleSuffix: Azure Storage
 description: Manage and restore soft-deleted blobs and snapshots with the Azure portal or with the Azure Storage client libraries.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/29/2022
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: "devx-track-csharp"
@@ -38,7 +38,7 @@ Next, select the deleted blob from the list of blobs to display its properties. 
 
 #### View deleted snapshots
 
-Deleting a blob also deletes any snapshots associated with the blob. If a soft-deleted blob has snapshots, the deleted snapshots can also be displayed in the portal. Display the soft-deleted blob's properties, then navigate to the **Snapshots** tab, and toggle **Show deleted snapshots**.
+Deleting a blob also deletes any snapshots associated with the blob. If a soft-deleted blob has snapshots, the deleted snapshots can also be displayed in the Azure portal. Display the soft-deleted blob's properties, then navigate to the **Snapshots** tab, and toggle **Show deleted snapshots**.
 
 :::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-snapshots-portal.png" alt-text="Screenshot showing ":::
 

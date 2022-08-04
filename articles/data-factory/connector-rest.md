@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data from and to a REST endpoint by using Azure Data Factory 
+title: Copy and transform data from and to a REST endpoint 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
@@ -24,7 +24,16 @@ The difference among this REST connector, [HTTP connector](connector-http.md), a
 
 ## Supported capabilities
 
-You can copy data from a REST source to any supported sink data store. You also can copy data from any supported source data store to a REST sink. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+This REST connector is supported for the following capabilities:
+
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 Specifically, this generic REST connector supports:
 
