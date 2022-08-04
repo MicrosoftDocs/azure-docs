@@ -18,18 +18,18 @@ Azure App Configuration and its .NET Core, .NET Framework, and Java Spring clien
 
 :::zone target="docs" pivot="framework-dotnet"
 
-This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue,  [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
 
-This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue,  [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) first.
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) first.
 
 :::zone-end
 
 > [!IMPORTANT]
-> Managed Identity cannot be used to authenticate locally-running applications. Your application must be deployed to an Azure service that supports Managed Identity. This article uses Azure App Service as an example, but the same concept applies to any other Azure service that supports managed identity, for example, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), and [Azure Container Instances](../container-instances/container-instances-managed-identity.md). If your workload is hosted in one of those services, you can leverage the service's managed identity support, too.
+> Managed Identity can't be used to authenticate locally-running applications. Your application must be deployed to an Azure service that supports Managed Identity. This article uses Azure App Service as an example. However, the same concept applies to any other Azure service that supports managed identity. For example, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), and [Azure Container Instances](../container-instances/container-instances-managed-identity.md). If your workload is hosted in one of those services, you can leverage the service's managed identity support, too.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -70,9 +70,9 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
 
-1. When prompted, answer **Yes**  to enable system assigned managed identity.
+1. When prompted, answer **Yes** to enable system assigned managed identity.
 
-    :::image type="content" source="./media/set-managed-identity-app-service.png" alt-text="Screenshot of how to add a managed identity in App Service.":::
+    :::image type="content" source="./media/add-managed-identity-app-service.png" alt-text="Screenshot of how to add a managed identity in App Service.":::
 
 ## Grant access to App Configuration
 
@@ -90,9 +90,11 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. On the **Role** tab, select the **App Configuration Data Reader** role.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/select-role-assignment.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 
 1. On the **Members** tab, select **Managed identity** and then select **Select members**.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/add-members.png" alt-text="Screenshot showing Add role assignment page with Members tab selected.":::
 
 1. Select your Azure subscription, for Managed Identity select **App Service**, then select your App Service name.
 
@@ -110,7 +112,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
-1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
+1. Open *appsettings.json* and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {
@@ -118,7 +120,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     }
     ```
 
-1. Open *Program.cs*, and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
+1. Open *Program.cs* and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
 
     ```csharp-interactive
     using Azure.Identity;
@@ -183,7 +185,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     >           options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential("<your_clientId>"))
     >        });
     >```
-    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future (for instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled). So, you will need to specify the clientId even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
+    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future. For instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled. So, you will need to specify the clientId even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
 
 :::zone-end
 
@@ -223,6 +225,7 @@ In addition to App Service, many other Azure services support managed identities
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
+
 In this tutorial, you added an Azure managed identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
