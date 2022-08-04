@@ -1,5 +1,5 @@
 ---
-title: Replicate a configuration store (preview)
+title: Enable geo-replication (preview)
 description: Learn how to use Azure App Configuration geo replication to create, delete, and manage replicas of your configuration store. 
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -7,14 +7,14 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 7/11/2022
+ms.date: 8/1/2022
 ms.author: alkemper 
 ms.custom: devx-track-azurecli
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
 ---
 
-# Replicate a configuration store (preview)
+# Enable geo-replication (preview)
 
 This article covers replication of Azure App Configuration stores. You'll learn about how to create and delete a replica in your configuration store. 
 
@@ -25,31 +25,12 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
-## Sign in to Azure 
-
-You will need to sign in to Azure first to access the App Configuration service.
-
-### [Portal](#tab/azure-portal)
-
-Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
-
-### [Azure CLI](#tab/azure-cli)
-
-Sign in to Azure using the `az login` command in the [Azure CLI](/cli/azure/install-azure-cli).
-
-```azurecli-interactive
-az login
-```
-
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
-
----
 
 ## Create and list a replica
 
-To create a replica of your configuration store, follow the steps below. 
+To create a replica of your configuration store in the portal, follow the steps below. 
 
-### [Portal](#tab/azure-portal)
+<!-- ### [Portal](#tab/azure-portal) -->
 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
 1. Under **Replica(s)**, select **Create**. Choose the location of your new replica in the dropdown, then assign the replica a name. This replica name must be unique. 
@@ -65,7 +46,7 @@ To create a replica of your configuration store, follow the steps below.
     :::image type="content" source="media/disable-public-access.png" alt-text="Screenshot of the Azure portal disabling public access.":::
    -->
 
-### [Azure CLI](#tab/azure-cli)
+<!-- ### [Azure CLI](#tab/azure-cli)
 
 1. In the CLI, run the following code to create a replica of your configuration store. 
 
@@ -78,14 +59,14 @@ To create a replica of your configuration store, follow the steps below.
     ```azurecli-interactive
       az appconfig replica list --store-name MyConfigStoreName 
     ```
----
+--- -->
 
 
 ## Delete a replica
 
-To delete a replica, follow the steps below. 
+To delete a replica in the portal, follow the steps below. 
 
-### [Portal](#tab/azure-portal)
+<!-- ### [Portal](#tab/azure-portal) -->
 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
 1. Under **Replica(s)**, select the **...** to the right of the replica you want to delete. Select **Delete** from the dropdown. 
@@ -97,7 +78,7 @@ To delete a replica, follow the steps below.
 1. Verify the name of the replica to be deleted and select **OK** to confirm. 
 1. Once the process is complete, check the list of replicas that the correct replica has been deleted. 
 
-### [Azure CLI](#tab/azure-cli)
+<!-- ### [Azure CLI](#tab/azure-cli)
 
 1. In the CLI, run the following code. 
 
@@ -110,7 +91,7 @@ To delete a replica, follow the steps below.
     az appconfig replica list --store-name MyConfigStoreName 
     ```
 
----
+--- -->
 
 
 ## Next steps
