@@ -68,14 +68,19 @@ The following steps provide a sample EFLOW PowerShell cmdlet to attach a USB dev
     Get-EflowUSBDevices
     ```
 
+1. List all the network interfaces and get the Windows host OS IP address
+    ```powershell
+    ifconfig
+    ```
+
 1. Select the *bus ID* of the device you’d like to attach to the EFLOW.
     ```powershell
-    Add-EflowUSBDevices --busid <busid>
+    Add-EflowUSBDevices --busid <busid> --hostIp <host-ip>
     ```
 
 1. Check the device was correctly attached to the EFLOW VM.
     ```powershell
-    Invoke-EflowVmCommand `lsusb`
+    Invoke-EflowVmCommand "lsusb"
     ```
 
 1. Once you're finished using the device in EFLOW, you can either physically disconnect the USB device or run this command from an elevated PowerShell session.
