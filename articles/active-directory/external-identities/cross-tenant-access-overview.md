@@ -22,7 +22,9 @@ This article describes cross-tenant access settings, which are used to manage B2
  
 ## Manage external access with inbound and outbound settings
 
-The external identities cross-tenant access settings manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of inbound access users in external Azure AD organizations have to your resources, as well as the level of outbound access your users have to external organizations. The following diagram shows the cross-tenant access inbound and outbound settings. 
+The external identities cross-tenant access settings manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of inbound access users in external Azure AD organizations have to your resources, as well as the level of outbound access your users have to external organizations. 
+
+The following diagram shows the cross-tenant access inbound and outbound settings. The **Resource Azure AD tenant** is your corporate tenant, where you want to invite the external users to. The **User's home Azure AD tenant** is the tenant where the external users are managed.
 
 ![Overview diagram of cross-tenant access settings.](media/cross-tenant-access-overview/cross-tenant-access-settings-overview.png)
 
