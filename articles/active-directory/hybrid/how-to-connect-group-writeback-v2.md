@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 
 
-# Azure AD Connect group writeback
+# Plan for Azure AD Connect group writeback
  
 Group writeback allows you to write cloud groups back to your on-premises Active Directory using Azure AD Connect Sync. This feature enables you to manage groups in the cloud, while controlling access to on-premises applications and resources.  
 

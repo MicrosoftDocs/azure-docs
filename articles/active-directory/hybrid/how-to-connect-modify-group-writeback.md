@@ -160,6 +160,6 @@ Prior to re-enabling for writeback or restoring from soft delete in Azure AD, th
 
 ## Next Steps: 
 
-- [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 
+- [Azure AD Connect group writeback](how-to-connect-group-writeback-v2.md) 
 - [Enable Azure AD Connect group writeback](how-to-connect-group-writeback-enable.md)  - 
 - [Disable Azure AD Connect group writeback](how-to-connect-group-writeback-disable.md) 
