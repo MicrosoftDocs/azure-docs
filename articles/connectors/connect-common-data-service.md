@@ -116,7 +116,7 @@ For actions that return rows, such as the **List rows** action, you can use an O
 
 ### [Consumption](#tab/consumption)
 
-1. In the action, open the **Add new parameter** list, and select the **Filter rows** property.
+1. On the designer, in the action, open the **Add new parameter** list, and select the **Filter rows** property.
 
    ![Screenshot showing designer for Consumption workflow and "Filter rows" property.](./media/connect-common-data-service/dataverse-action-list-rows-filter-rows.png)
 
@@ -132,21 +132,21 @@ For more information about `$filter` system query options, review [Query data us
 
 ---
 
-## Return rows based on an order
+## Return rows based on a sort order
 
 For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specific sequence, which varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name. For more information about the example action, review [List rows](/connectors/commondataserviceforapps/#list-rows).
 
 ### [Consumption](#tab/consumption)
 
-1. In the action, open the **Add new parameter** list, and select the **Order By** property.
+1. On the designer, in the action, open the **Add new parameter** list, and select the **Sort By** property.
 
-   ![Screenshot showing designer for Consumption workflow and "Order by" property](./media/connect-common-data-service/list-rows-action-order-by.png)
+   ![Screenshot showing designer for Consumption workflow and "Sort By" property.](./media/connect-common-data-service/dataverse-action-list-rows-sort-by.png)
 
-1. In the **Order By** property that now appears in the action, enter this ODATA filter query: `name`
+1. In the **Sort By** property that now appears in the action, enter the column name to use for sorting, for example, **name**:
 
-   ![Enter ODATA filter query for ordering rows](./media/connect-common-data-service/list-rows-action-order-by-value.png)
+   ![Screenshot showing designer for Consumption workflow and "Sort By" property with column name.](./media/connect-common-data-service/dataverse-action-list-rows-sort-by-column.png)
 
-For more information about `$orderby` system query options, see [Common Data Service - Order results](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+For more information about `$orderby` system query options, review [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
 
 ### [Standard](#tab/standard)
 
