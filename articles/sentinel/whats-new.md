@@ -49,7 +49,7 @@ The [Security Events data source](ueba-reference.md#ueba-data-sources) for UEBA,
    - 4672: Special privileges assigned to new logon.
    - 4688: A new process has been created.
 
-Having user data for these new event types in your workspace will provide you with more and higher-quality insights into the described user activities, from Active Directory and Azure AD enrichments to anomalous activity to matches to internal Microsoft threat intelligence, all further enabling your incident investigations to piece together the attack story.
+Having user data for these new event types in your workspace will provide you with more and higher-quality insights into the described user activities, from Active Directory and Azure AD enrichments to anomalous activity to matching with internal Microsoft threat intelligence, all further enabling your incident investigations to piece together the attack story.
 
 As before, to use this data source you must enable the [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama). If you have enabled the Security Events data source for UEBA, you will automatically begin receiving these new event types without having to take any additional action.
 
