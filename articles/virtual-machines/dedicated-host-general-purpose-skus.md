@@ -130,6 +130,36 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | DC64as v5 | 1     |
 |                |                 |               | DC96as v5 | 1     |
 
+## DCsv3
+### DCsv3-Type1
+
+The DCsv3-Type1 is a Dedicated Host SKU utilizing the 3rd Generation Intel® Xeon Scalable Processor 8370C. It offers 48 physical cores, 48 vCPUs, and 384 GiB of RAM. The DCsv3-Type1 runs [DCsv3-series](dcv3-series.md#dcsv3-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a DCsv3-Type1 host.
+
+| Physical cores  | Available vCPUs  |  Available RAM | VM Size    | # VMs |
+|-----------------|------------------|----------------|------------|-------|
+| 48              | 48               | 384 GiB        | DC1s v3    | 32    |
+|                 |                  |                | DC2s v3    | 24    |
+|                 |                  |                | DC4s v3    | 12    |
+|                 |                  |                | DC8s v3    | 6     |
+|                 |                  |                | DC16s v3   | 3     |
+|                 |                  |                | DC24s v3   | 2     |
+
+## DCdsv3
+### DCdsv3-Type1
+
+The DCdsv3-Type1 is a Dedicated Host SKU utilizing the 3rd Generation Intel® Xeon Scalable Processor 8370C. It offers 48 physical cores, 48 vCPUs, and 384 GiB of RAM. The DCdsv3-Type1 runs [DCdsv3-series](dcv3-series.md#dcdsv3-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a DCdsv3-Type1 host.
+
+| Physical cores  | Available vCPUs  |  Available RAM | VM Size    | # VMs |
+|-----------------|------------------|----------------|------------|-------|
+| 48              | 48               | 384 GiB        | DC16ds v3  | 2     |
+|                 |                  |                | DC24ds v3  | 1     |
+|                 |                  |                | DC32ds v3  | 1     |
+|                 |                  |                | DC48ds v3  | 1     |
+
 ## DCsv2
 ### DCsv2-Type1
 
@@ -336,48 +366,6 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | D32s v3 | 3     |
 |                |                 |               | D48s v3 | 2     |
 |                |                 |               | D64s v3 | 1     |
-
-## DCsv3
-### DCsv3-Type1
-
-The DCsv3-Type1 is a Dedicated Host SKU utilizing the 3rd Generation Intel® Xeon Scalable Processor 8370C. It offers 48 physical cores, 48 vCPUs, and 384 GiB of RAM. The DCsv3-Type1 runs [DCsv3-series](dcv3-series.md#dcsv3-series) VMs.
-
-The following packing configuration outlines the max packing of uniform VMs you can put onto a DCsv3-Type1 host.
-
-| Physical cores  | Available vCPUs  |  Available RAM | VM Size    | # VMs |
-|-----------------|------------------|----------------|------------|-------|
-| 48              | 48               | 384 GiB        | DC1s v3    | 32    |
-|                 |                  |                | DC2s v3    | 24    |
-|                 |                  |                | DC4s v3    | 12    |
-|                 |                  |                | DC8s v3    | 6     |
-|                 |                  |                | DC16s v3   | 3     |
-|                 |                  |                | DC24s v3   | 2     |
-
-## DCdsv3
-### DCdsv3-Type1
-
-The DCdsv3-Type1 is a Dedicated Host SKU utilizing the 3rd Generation Intel® Xeon Scalable Processor 8370C. It offers 48 physical cores, 48 vCPUs, and 384 GiB of RAM. The DCdsv3-Type1 runs [DCdsv3-series](dcv3-series.md#dcdsv3-series) VMs.
-
-The following packing configuration outlines the max packing of uniform VMs you can put onto a DCdsv3-Type1 host.
-
-| Physical cores  | Available vCPUs  |  Available RAM | VM Size    | # VMs |
-|-----------------|------------------|----------------|------------|-------|
-| 48              | 48               | 384 GiB        | DC16ds v3  | 2     |
-|                 |                  |                | DC24ds v3  | 1     |
-|                 |                  |                | DC32ds v3  | 1     |
-|                 |                  |                | DC48ds v3  | 1     |
-
-
-## DCsv2
-### DCsv2-Type1
-
-The DCsv2-Type1 is a Dedicated Host SKU utilizing the Intel® Coffee Lake (Xeon® E-2288G with SGX technology) processor. It offers 8 physical cores, 8 vCPUs, and 64 GiB of RAM. The DCsv2-Type1 runs [DCsv2-series](dcv2-series.md) VMs.
-
-The following packing configuration outlines the max packing of uniform VMs you can put onto a DCsv2-Type1 host.
-
-| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
-|----------------|-----------------|---------------|---------|-------|
-| 8              | 8               | 64 GiB        | DC8 v2  | 1     |
 
 ## Next steps
 
