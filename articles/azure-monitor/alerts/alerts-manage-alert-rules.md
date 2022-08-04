@@ -1,6 +1,6 @@
 ---
 title: Manage your alert rules
-description: Mange your alert rules in the Azure portal, or using the CLI or Powershell.
+description: Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
@@ -9,10 +9,12 @@ ms.reviewer: harelbr
 ---
 # Manage your alert rules
 
+Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
+
 ## Manage alert rules in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
-1. From the top command bar, select **Alert rules**. You will see all of your alert rules across subscriptions. You can filter the list of rules using the available filters: **Resource group**, **Resource type**, **Resource** and **Signal type**.
+1. From the top command bar, select **Alert rules**. You'll see all of your alert rules across subscriptions. You can filter the list of rules using the available filters: **Resource group**, **Resource type**, **Resource** and **Signal type**.
 1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
 1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, **Scope**, or **Signal type** of an existing alert rule.
     - **Condition**. Learn more about conditions for [metric alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric#tabpanel_1_metric), [log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log#tabpanel_1_log), and [activity log alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=activity-log#tabpanel_1_activity-log)
@@ -37,6 +39,7 @@ The system compiles a list of recommended alert rules based on:
 - Telemetry that tells us what customers commonly alert on for this resource.
 
 To enable recommended alert rules:
+
 1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
 1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.

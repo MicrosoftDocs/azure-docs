@@ -31,7 +31,7 @@ And then defining these elements for the resulting alert actions using:
 
     You can see the **Available signal types** for your selected resource(s) at the bottom right of the pane. The available signal types change based on the selected resource.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing select resource pane for creating new alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing the select resource pane for creating new alert rule.":::
 
 1. Select **Include all future resources** to include any future resources added to the selected scope.
 1. Select **Done**.
@@ -77,18 +77,8 @@ And then defining these elements for the resulting alert actions using:
     ### [Log alert](#tab/log)
 
     > [!NOTE]
-    > If you are creating a new log alert rule, please note that this article describes creating alert rules using the alert rule wizard. The new alert rule experience is a little different from the earlier experience:
-    > - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action :
-    >    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
-    >    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
-    >    - If you need the raw search results or for any other advanced customizations, use Logic Apps.
-    > - The new alert rule wizard does not support customization of the JSON payload.
-    >    - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
-    >    - For more advanced customizations, use Logic Apps.
-    > - The new alert rule wizard does not support customization of the email subject.
-    >    - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
-    >    - For more advanced customizations, use Logic Apps.
-
+    > If you are creating a new log alert rule, note that current alert rule wizard is a little different from the earlier experience. For detailed information about the changes, see [changes to log alert rule creation experience](#changes-to-log-alert-rule-creation-experience). 
+    
     1. In the **Logs** pane, write a query that will return the log events for which you want to create an alert. 
         To use one of the predefined alert rule queries, expand the **Schema and filter pane** on the left of the **Logs** pane, then select the **Queries** tab, and select one of the queries. 
 
@@ -108,7 +98,7 @@ And then defining these elements for the resulting alert actions using:
         |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value using the aggregation granularity. For example: Total, Average, Minimum, or Maximum.    |
         |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Measurements.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Screenshot of the measurements tab when creating a new log alert rule.":::
 
     1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions, alerts are split into separate alerts by grouping combinations of numerical or string columns to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
 
@@ -179,7 +169,7 @@ And then defining these elements for the resulting alert actions using:
 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot of the actions tab when creating a new alert rule.":::
 
 1. In the **Details** tab, define the **Project details** by selecting the **Subscription** and **Resource group**. 
 1. Define the **Alert rule details**.
@@ -198,7 +188,7 @@ And then defining these elements for the resulting alert actions using:
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
          
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Details tab.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot of the details tab when creating a new alert rule..":::
 
     ### [Log alert](#tab/log)
 
@@ -216,7 +206,7 @@ And then defining these elements for the resulting alert actions using:
 
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Details tab.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot of the details tab when creating a new log alert rule..":::
 
     ### [Activity log alert](#tab/activity-log)
 
@@ -225,18 +215,18 @@ And then defining these elements for the resulting alert actions using:
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Details tab.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot of the actions tab when creating a new activity log alert rule..":::
 
     ---
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot of the Tags tab when creating a new alert rule..":::
 
 1. In the **Review + create** tab, a validation will run and inform you of any issues.
 1. When validation passes and you've reviewed the settings, select the **Create** button.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Review and create tab.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot of the Review and create tab when creating a new alert rule..":::
 
 
 ## Create a new alert rule using CLI
@@ -285,9 +275,9 @@ You can also create an activity log alert on future events similar to an activit
 1. In the [portal](https://portal.azure.com/), [go to the activity log pane](../essentials/activity-log.md#view-the-activity-log). 
 1. Filter or find the desired event, and then create an alert  by selecting **Add activity log alert**. 
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png" alt-text="Screenshot of creating an alert tule from an activity log event." lightbox="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png" alt-text="Screenshot of creating an alert rule from an activity log event." lightbox="media/alerts-create-new-alert-rule/create-alert-rule-from-activity-log-event-new.png":::
 
-2. The **Create alert rule** wizard opens, with the scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. Note that by default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts pane"). 
+2. The **Create alert rule** wizard opens, with the scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. By default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope, and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts pane"). 
 
 3. Follow the rest of the steps from [Create a new alert rule in the Azure portal](#create-a-new-alert-rule-in-the-azure-portal).
 
@@ -311,7 +301,7 @@ The following fields are the options in the Azure Resource Manager template for 
 |resourceGroup     |Name of the resource group for the impacted resource in the activity log event.        |
 |resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
 |status     |String describing the status of the operation in the activity event. Possible values: `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`         |
-|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call.This field can also include other strings describing a sub-status. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
+|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
 |resourceType     |The type of the resource that was affected by the event. For example: `Microsoft.Resources/deployments`.         |
 
 This example sets the condition to the **Administrative** category:
@@ -332,7 +322,7 @@ This example sets the condition to the **Administrative** category:
 
 ```
 
-This is an example template that creates an activity log alert rule using the **Administrative** condition : 
+This is an example template that creates an activity log alert rule using the **Administrative** condition: 
 
 ```json
 {
@@ -421,5 +411,20 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 ```
 The *sampleActivityLogAlert.parameters.json* file contains the values provided for the parameters needed for alert rule creation.
 
-## Next Steps
+## Changes to log alert rule creation experience
+
+If you're creating a new log alert rule, note that current alert rule wizard is a little different from the earlier experience:
+
+- Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
+    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
+    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
+    - If you need the raw search results or for any other advanced customizations, use Logic Apps.
+- The new alert rule wizard doesn't support customization of the JSON payload.
+    - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
+    - For more advanced customizations, use Logic Apps.
+- The new alert rule wizard doesn't support customization of the email subject.
+    - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource ID column.
+    - For more advanced customizations, use Logic Apps.
+
+## Next steps
  - [View and manage your alert instances](alerts-manage-alert-instances.md)

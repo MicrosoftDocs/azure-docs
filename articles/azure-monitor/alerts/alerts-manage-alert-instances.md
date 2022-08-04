@@ -24,7 +24,7 @@ The alerts summary pane summarizes the alerts fired in the last 24 hours. You ca
 
 To see more details about a specific alert instance, select the alert instance to open the **Alert Details** page. 
    
-:::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot of alerts page.":::
+:::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot of the alerts summary page in the Azure portal.":::
 
 ## The alerts details page
 
@@ -33,7 +33,7 @@ The **alerts details** page provides details about the selected alert.
  - To change the user response to the alert, select **Change user response** .
  - To see all closed alerts, select the **History** tab.  
 
-:::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of alerts details page.":::
+:::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of the alerts details page in the Azure portal.":::
 ## Next steps
 
 - [Learn about Azure Monitor alerts](./alerts-overview.md)
