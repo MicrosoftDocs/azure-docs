@@ -120,8 +120,9 @@ Synapse Link isn't recommended if you're looking for traditional data warehouse 
 
 * Currently Synapse Link isn't fully compatible with continuous backup mode. Click [here](analytical-store-introduction.md#backup) for more information.
          
-* Granular Role-based Access (RBAC)s isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers. 
+* Granular Role-based Access (RBAC)s isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers.
 
+* Currently Azure Synapse Workspaces don't support linked services using `Managed Identity`. Always use the `MasterKey` option.
 
 ## Security
 
