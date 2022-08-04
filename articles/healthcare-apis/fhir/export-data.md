@@ -22,7 +22,7 @@ After setting up FHIR service to connect with an ADLS Gen2 storage account, you 
 GET {{fhirurl}}/$export?_container={{containerName}}
 ```
 
-If you don't specify a container name in the request (e.g., by calling `GET {{fhirurl}}/$export`), then a new container with an auto-generated name will be created in your ADLS Gen2 account for the exported data.
+If you don't specify a container name in the request (e.g., by calling `GET {{fhirurl}}/$export`), then a new container with an auto-generated name will be created for the exported data.
 
 For general information about the FHIR `$export` API spec, please see the [HL7 FHIR Export Request Flow](https://hl7.org/fhir/uv/bulkdata/export/index.html#request-flow) documentation.
 
