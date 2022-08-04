@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 08/03/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions
 ---
 
 # Migrate Azure managed disks to availability zone support
