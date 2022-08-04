@@ -557,7 +557,5 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 6. Select **Add permissions** at the bottom of the page.
 7. Select **Grant admin consent for "DirectoryName"**.
 
-   :::image type="content" source="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-configure-permissions-admin-consent.png" alt-text="Screenshot from the Azure portal of the configured permissions for applications." lightbox="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-configure-permissions-admin-consent.png":::
-
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
