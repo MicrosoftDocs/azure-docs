@@ -11,11 +11,11 @@ ms.date: 03/02/2022
 
 ## Script overview
 
-Simplify the [deployment of the SAP data connector agent container](deploy-data-connector-agent-container.md) by using the provided **Kickstart script** (available at [Microsoft Sentinel Solution for SAP GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)), which can also enable different modes of secrets storage, configure SNC, and more.
+Simplify the [deployment of the container hosting the SAP data connector](deploy-data-connector-agent-container.md) by using the provided **Kickstart script** (available at [Microsoft Sentinel Solution for SAP GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)), which can also enable different modes of secrets storage, configure SNC, and more.
 
 ## Parameter reference
 
-The following parameters are configurable. You can see examples of how these parameters are used in [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md).
+The following parameters are configurable. You can see examples of how these parameters are used in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
 
 #### Secret storage location
 
@@ -341,9 +341,9 @@ Learn more about the Microsoft Sentinel Solution for SAP:
 - [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure the containter hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 

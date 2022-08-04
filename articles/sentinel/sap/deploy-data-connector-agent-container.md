@@ -1,15 +1,15 @@
 ---
-title: Deploy and configure the Microsoft Sentinel Solution for SAP data connector agent container  | Microsoft Docs
-description: This article shows you how to deploy the SAP data connector agent container in order to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+title: Deploy and configure the container hosting the SAP data connector agent
+description: This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
 ms.date: 04/12/2022
 ---
 
-# Deploy and configure the Microsoft Sentinel Solution for SAP data connector agent container
+# Deploy and configure the container hosting the SAP data connector agent
 
-This article shows you how to deploy the SAP data connector agent container in order to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 
 ## Deployment milestones
 

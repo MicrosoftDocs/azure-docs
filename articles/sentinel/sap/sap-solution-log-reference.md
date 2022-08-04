@@ -762,7 +762,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Provides heartbeat and other health information on the connectivity between the agents and the different SAP systems.
 
-    Automatically created for any agents of the SAP Connector for Microsoft Sentinel.
+    Automatically created for any agents of the Microsoft Sentinel for SAP data connector.
 
 #### SAP_HeartBeat_CL log schema
 
@@ -816,7 +816,7 @@ For more information, see:
 
 - [Deploy the Microsoft Sentinel solution for SAP](deployment-overview.md)
 - [Microsoft Sentinel Solution for SAP detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Microsoft Sentinel Solution for SAP: built-in security content](sap-solution-security-content.md)
 - [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)

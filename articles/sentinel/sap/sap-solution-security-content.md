@@ -153,7 +153,7 @@ For more information, see:
 
 - [Deploying Microsoft Sentinel Solution for SAP](deployment-overview.md)
 - [Microsoft Sentinel Solution for SAP logs reference](sap-solution-log-reference.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
 - [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)

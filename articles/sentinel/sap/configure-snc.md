@@ -1,23 +1,20 @@
 ---
-title: Deploy the Microsoft Sentinel Solution for SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
-description: This article shows you how to deploy the **Microsoft Sentinel data connector for SAP** to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications.
-author: batamig
-ms.author: bagol
+title: Deploy the Microsoft Sentinel for SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
+description: This article shows you how to deploy the Microsoft Sentinel for SAP data connector to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications.
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 05/03/2022
 ---
 
-# Deploy the Microsoft Sentinel Solution for SAP data connector with SNC
+# Deploy the Microsoft Sentinel for SAP data connector with SNC
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article shows you how to deploy the **Microsoft Sentinel data connector for SAP** to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).
+This article shows you how to deploy the **Microsoft Sentinel for SAP** data connector to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).
 
-> [!IMPORTANT]
-> The Microsoft Sentinel Solution for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The Microsoft Sentinel Solution for SAP data connector agent typically connects to an SAP ABAP server using an RFC connection, and a user's username and password for authentication.
+The SAP data connector agent typically connects to an SAP ABAP server using an RFC connection, and a user's username and password for authentication.
 
 However, some environments may require the connection be over an encrypted channel, and client certificates be used for authentication. In these cases you can use SAP Secure Network Communication for this purpose, and you'll have to take the appropriate steps as outlined in this article.
 
@@ -187,7 +184,7 @@ Learn more about the Microsoft Sentinel Solution for SAP:
 - [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the Microsoft Sentinel Solution for SAP](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)

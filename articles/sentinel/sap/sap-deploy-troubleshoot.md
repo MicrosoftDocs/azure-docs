@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel Solution for SAP deployment troubleshooting
 description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel Solution for SAP deployment.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: troubleshooting
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
@@ -12,7 +12,7 @@ ms.date: 11/09/2021
 
 ## Useful Docker commands
 
-When troubleshooting your SAP data connector, you may find the following commands useful:
+When troubleshooting your Microsoft Sentinel for SAP data connector, you may find the following commands useful:
 
 |Function  |Command  |
 |---------|---------|
@@ -119,9 +119,9 @@ For example:
 docker cp sapcon-A4H:/sapcon-app/sapcon/logs /tmp/sapcon-logs-extract
 ```
 
-## Review and update the SAP data connector configuration
+## Review and update the Microsoft Sentinel for SAP data connector configuration
 
-If you want to check the SAP data connector configuration file and make manual updates, perform the following steps:
+If you want to check the Microsoft Sentinel for SAP data connector configuration file and make manual updates, perform the following steps:
 
 1. On your VM, open the **sapcon/[SID]/systemconfig.ini** file.
 
@@ -129,7 +129,7 @@ If you want to check the SAP data connector configuration file and make manual u
 
 The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
-## Reset the SAP data connector
+## Reset the Microsoft Sentinel for SAP data connector
 
 The following steps reset the connector and reingest SAP logs from the last 30 minutes.
 
@@ -162,7 +162,7 @@ Make sure to [Review system logs](#review-system-logs) when you're done.
 
 ## Common issues
 
-After having deployed both the SAP data connector and security content, you may experience the following errors or issues:
+After having deployed both the Microsoft Sentinel for SAP data connector and security content, you may experience the following errors or issues:
 
 ### Corrupt or missing SAP SDK file
 
@@ -325,7 +325,7 @@ If you're not able to import the [required SAP log change requests](prerequisite
 
 If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, isn't ingested into Microsoft Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
 
-- Initial loads are ingested after a fresh installation of the SAP data connector, or after the **metadata.db** file is deleted.
+- Initial loads are ingested after a fresh installation of the Microsoft Sentinel for SAP data connector, or after the **metadata.db** file is deleted.
 - A sample misconfiguration might be when your SAP system timezone is set to **CET** in the **STZAC** transaction, but the SAP host operating system time zone is set to **UTC**.
 
 To check for misconfigurations, run the **RSDBTIME** report in transaction **SE38**. If you find a mismatch between the SAP system and the SAP host operating system:
@@ -357,9 +357,9 @@ Learn more about the Microsoft Sentinel Solution for SAP:
 - [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy SAP security content in Microsoft Sentinel | Microsoft Docs
+title: Deploy SAP security content in Microsoft Sentinel
 description: This article shows you how to deploy Microsoft Sentinel security content into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel Solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
@@ -29,14 +29,14 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
-   - [Configure SAP data connector to use SNC](configure-snc.md)
+   - [Configure data connector to use SNC](configure-snc.md)
 
 
 ## Deploy SAP security content
 
 Deploy the [SAP security content](sap-solution-security-content.md) from the Microsoft Sentinel **Content hub** and **Watchlists** areas.
 
-Deploying the **Microsoft Sentinel Solution for SAP** solution causes the SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
+Deploying the **Microsoft Sentinel Solution for SAP** causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
 
 To deploy SAP solution security content, do the following:
 
@@ -66,9 +66,9 @@ To deploy SAP solution security content, do the following:
     - **Threat Management** > **Workbooks** > **My workbooks**, to find the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks).
     - **Configuration** > **Analytics** to find a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
 
-1. In Microsoft Sentinel, go to the **Microsoft Sentinel Solution for SAP** data connector to confirm the connection:
+1. In Microsoft Sentinel, go to the **Microsoft Sentinel for SAP** data connector to confirm the connection:
 
-    [![Screenshot of the Microsoft Sentinel Solution for SAP data connector page.](./media/deploy-sap-security-content/sap-data-connector.png)](./media/deploy-sap-security-content/sap-data-connector.png#lightbox)
+    [![Screenshot of the Microsoft Sentinel for SAP data connector page.](./media/deploy-sap-security-content/sap-data-connector.png)](./media/deploy-sap-security-content/sap-data-connector.png#lightbox)
 
     SAP ABAP logs are displayed on the Microsoft Sentinel **Logs** page, under **Custom logs**:
 
@@ -83,9 +83,9 @@ Learn more about the Microsoft Sentinel Solution for SAP:
 - [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 

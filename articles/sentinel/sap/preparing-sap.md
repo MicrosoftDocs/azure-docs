@@ -29,7 +29,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
-   - [Configure SAP data connector to use SNC](configure-snc.md)
+   - [Configure data connector to use SNC](configure-snc.md)
 
 
 > [!IMPORTANT]
@@ -349,4 +349,4 @@ You have now fully prepared your SAP environment. The required CRs have been dep
 Now you are ready to deploy the data connector agent container.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure the data connector agent container](deploy-data-connector-agent-container.md)
+> [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md)

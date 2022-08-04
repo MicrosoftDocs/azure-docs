@@ -31,7 +31,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
-   - [Configure SAP data connector to use SNC](configure-snc.md)
+   - [Configure data connector to use SNC](configure-snc.md)
 
 ## Configure watchlists
 
