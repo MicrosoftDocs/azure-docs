@@ -172,9 +172,9 @@ The following permissions can be granted, on a per user / service principal basi
   - *release*: Release a key to confidential compute workloads
 
 - Permissions for rotation policy operations
-- *rotate*: Rotate an existing key by generating new version of the key (Key Vault only) 
-- *get rotation policy*: Retrieve rotation policy configuration
-- *set rotation policy*: Set rotation policy configuration
+  - *rotate*: Rotate an existing key by generating new version of the key (Key Vault only) 
+  - *get rotation policy*: Retrieve rotation policy configuration
+  - *set rotation policy*: Set rotation policy configuration
 
 For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
 
