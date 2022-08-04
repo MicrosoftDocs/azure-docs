@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with ADP, perform the following steps:
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure ADP SSO](#configure-adp-sso)** - to configure the Single Sign-On settings on application side.
+2. **[Configure ADP SSO](#configure-adp-sso)** - to configure the single sign-on settings on application side.
     1. **[Create ADP test user](#create-adp-test-user)** - to have a counterpart of B.Simon in ADP that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
