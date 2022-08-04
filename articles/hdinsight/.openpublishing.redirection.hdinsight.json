@@ -582,8 +582,8 @@
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-compute-contexts.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-compute-contexts",
-        "redirect_document_id": true
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-get-started.md",
@@ -602,7 +602,7 @@
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-storage.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-storage",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": true
     },
     {
@@ -1173,6 +1173,71 @@
     {
         "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
         "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/interactive-query/sizing-guidelines.md",
+        "redirect_url": "/azure/hdinsight/interactive-query/hive-llap-sizing-guide",
+        "redirect_document_id": false
+    },
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/machine-learning-services-quickstart-job-rconsole.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ },
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/machine-learning-services-quickstart-job-rstudio.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ },
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-overview.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false   
+ },
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/quickstart-resource-manager-template.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ },
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/ml-services-tutorial-spark-compute.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ },
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-submit-jobs-r-tools-vs.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ }, 
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-compute-contexts.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ },  
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/hdinsight-hadoop-r-scaler-sparkr.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
+        "redirect_document_id": false
+ },
+ {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scaler-sparkr.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
+        "redirect_document_id": false
+ }, 
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-hdinsight-manage.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ }, 
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-operationalize.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ }, 
+ {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-storage.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     }
 ]

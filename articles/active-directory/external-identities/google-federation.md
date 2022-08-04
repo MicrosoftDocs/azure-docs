@@ -7,12 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 07/12/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan, has-adal-ref"
 ms.collection: M365-identity-device-management
 ---
@@ -33,7 +32,7 @@ By setting up federation with Google, you can allow invited users to sign in to 
 
 ## What is the experience for the Google user?
 
-When a Google user redeems your invitation, their experience varies depending on whether they're already signed in to Google:
+You can invite a Google user to B2B collaboration in various ways. For example, you can [add them to your directory via the Azure portal](b2b-quickstart-add-guest-users-portal.md). When they redeem your invitation, their experience varies depending on whether they're already signed in to Google:
 
 - Guest users who aren't signed in to Google will be prompted to do so.
 - Guest users who are already signed in to Google will be prompted to choose the account they want to use. They must choose the account you used to invite them.
@@ -183,6 +182,9 @@ First, create a new project in the Google Developers Console to obtain a client 
     ![Screenshot that shows the OAuth client ID and client secret.](media/google-federation/google-auth-client-id-secret.png)
 
 1. You can leave your project at a publishing status of **Testing** and add test users to the OAuth consent screen. Or you can select the **Publish app** button on the OAuth consent screen to make the app available to any user with a Google Account.
+
+   > [!NOTE]
+   > In some cases, your app might require verification by Google (for example, if you update the application logo). For more information, see Google's [verification status help](https://support.google.com/cloud/answer/10311615#verification-status).
 
 ## Step 2: Configure Google federation in Azure AD 
 

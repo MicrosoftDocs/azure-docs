@@ -3,7 +3,7 @@ title: Apache Cassandra features supported by Azure Cosmos DB Cassandra API
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
@@ -174,7 +174,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | `REVOKE` | No |
 | `SELECT` | Yes |
 | `UPDATE` | Yes |
-| `TRUNCATE` | No |
+| `TRUNCATE` | Yes |
 | `USE` | Yes |
 
 ## Lightweight Transactions (LWT)
@@ -247,7 +247,30 @@ You can connect to the Cassandra API in Azure Cosmos DB by using the CQLSH insta
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+<!-- If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below. -->
+
+1. Install [Python 3](https://www.python.org/downloads/windows/)    
+1. Install PIP
+    1. Before install PIP, download the get-pip.py file.
+    1. Launch a command prompt if it isn't already open. To do so, open the Windows search bar, type cmd and select the icon.
+    1. Then, run the following command to download the get-pip.py file:
+    ```bash
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 
+    ```
+1. Install PIP on Windows
+```bash
+python get-pip.py
+```
+1. Verify the PIP installation (look for a message from step 3 to confirm which folder PIP was installed in and then navigate to that folder and run the command pip help).
+1. Install CQLSH using PIP
+```bash
+pip3 install cqlsh==5.0.3
+```
+4. Install [Python 2](https://www.python.org/downloads/windows/)
+5. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-your-connection-string).
+
+> [!NOTE]
+>  You would need to set the environment variables to point to  the Python 2 folder.
 
 **Install on Unix/Linux/Mac:**
 
@@ -262,7 +285,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo "deb https://downloads.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra

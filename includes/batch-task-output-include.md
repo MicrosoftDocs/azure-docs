@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: batch
- author: JnHs
+ author: prkannap
  ms.service: batch
  ms.topic: include
- ms.date: 04/06/2018
- ms.author: jenhayes
+ ms.date: 04/20/2022
+ ms.author: prkannap
  ms.custom: include file
 ---
 

@@ -10,13 +10,12 @@ ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 ---
 
-# High Availability with Azure Arc-enabled SQL Managed Instance (preview)
+# High Availability with Azure Arc-enabled SQL Managed Instance
 
 Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application. It uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. Arc-enabled data service provides this service is provided without user intervention. The service sets up the availability group, configures database mirroring endpoints, adds databases to the availability group, and coordinates failover and upgrade. This document explores both types of high availability.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Azure Arc-enabled SQL Managed Instance provides different levels of high availability depending on whether the SQL managed instance was deployed as a *General Purpose* service tier or *Business Critical* service tier. 
 
@@ -115,7 +114,7 @@ az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s --t
 Example:
 
 ```azurecli
-az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier bc --replicas 3
+az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier BusinessCritical --replicas 3
 ```
 
 Directly connected mode:
@@ -125,7 +124,7 @@ az sql mi-arc create --name <name> --resource-group <group>  --location <Azure l
 ```
 Example:
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier bc --replcias 3
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier BusinessCritical --replcias 3
 ```
 
 By default, all the replicas are configured in synchronous mode. This means any updates on the primary instance will be synchronously replicated to each of the secondary instances.
@@ -278,7 +277,7 @@ Additional steps are required to restore a database into an availability group. 
     Add the database backup file into the primary instance container.
 
     ```console
-    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
+    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -c <serviceName> -n <namespaceName>
     ```
 
     Example
@@ -343,4 +342,3 @@ Azure Arc-enabled SQL Managed Instance availability groups has the same limitati
 ## Next steps
 
 Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
-

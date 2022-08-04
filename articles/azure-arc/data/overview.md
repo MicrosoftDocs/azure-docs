@@ -24,7 +24,7 @@ Currently, the following Azure Arc-enabled data services are available:
 
 For an introduction to how Azure Arc-enabled data services supports your hybrid work environment, see this introductory video:
 
-> [!VIDEO https://docs.microsoft.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
 ## Always current
 
@@ -32,7 +32,7 @@ Azure Arc-enabled data services such as Azure Arc-enabled SQL managed instance a
 
 ## Elastic scale
 
-Cloud-like elasticity on-premises enables you to scale you databases up or down dynamically in much the same way as they do in Azure, based on the available capacity of your infrastructure. This capability can satisfy burst scenarios that have volatile needs, including scenarios that require ingesting and querying data in real time, at any scale, with sub-second response time. In addition, you can also scale out database instances using the unique hyper scale deployment option of Azure Database for PostgreSQL Hyperscale. This capability gives data workloads an additional boost on capacity optimization, using unique scale-*out* reads and writes.
+Cloud-like elasticity on-premises enables you to scale databases up or down dynamically in much the same way as they do in Azure, based on the available capacity of your infrastructure. This capability can satisfy burst scenarios that have volatile needs, including scenarios that require ingesting and querying data in real time, at any scale, with sub-second response time. In addition, you can also scale out database instances using the unique hyper scale deployment option of Azure Database for PostgreSQL Hyperscale. This capability gives data workloads an additional boost on capacity optimization, using unique scale-*out* reads and writes.
 
 ## Self-service provisioning
 
@@ -50,27 +50,7 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 ## Supported regions
 
-The following table describes the scenarios that are currently supported for Azure Arc-enabled data services.
-
-|Azure Regions  |Direct connected mode  |Indirect connected mode  |
-|---------|---------|---------|
-|East US|Available|Available
-|East US 2|Available|Available
-|West US|Available|Available
-|West US 2|Available|Available
-|West US 3|Available|Available
-|North Central US | Available | Available
-|Central US|Available|Available
-|South Central US|Available|Available
-|UK South|Available|Available
-|France Central|Available|Available
-|West Europe |Available |Available
-|North Europe|Available|Available
-|Japan East|Available|Available
-|Korea Central|Available|Available
-|East Asia|Available|Available
-|Southeast Asia|Available|Available
-|Australia East|Available|Available
+To see the regions that currently support Azure Arc-enabled data services, go to [Azure Products by Region - Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable&products=azure-arc).
 
 ## Next steps
 

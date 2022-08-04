@@ -2,7 +2,7 @@
 title: Azure Application Gateway listener configuration
 description: This article describes how to configure Azure Application Gateway listeners.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
@@ -50,6 +50,9 @@ Choose HTTP or HTTPS:
 
 
 To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys.
+
+> [!NOTE]
+> When using a TLS certificate from Key Vault for a listener, you must ensure your Application Gateway always has access to that linked key vault resource and the certificate object within it. This enables seamless operations of TLS termination feature and maintains the overall health of your gateway resource. If an application gateway resource detects a misconfigured key vault, it automatically puts the associated HTTPS listener(s) in a disabled state. [Learn more](../application-gateway/disabled-listeners.md).
 
 ## Supported certificates
 

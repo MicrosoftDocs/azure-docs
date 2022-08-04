@@ -108,7 +108,7 @@ There are more samples available within the source code in the Azure SDK GitHub 
 1. From your fork, create a pull request that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
 1. Review the [pull request requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-The pull request triggers a set of GitHub actions that validate the submitted interfaces, and makes sure your pull request satisfies all the requirements.
+The pull request triggers a set of GitHub Actions that validate the submitted interfaces, and makes sure your pull request satisfies all the requirements.
 
 Microsoft will respond to a pull request with all checks in three business days.
 

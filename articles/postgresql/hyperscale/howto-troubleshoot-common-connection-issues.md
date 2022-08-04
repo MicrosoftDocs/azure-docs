@@ -2,8 +2,8 @@
 title: Troubleshoot connections - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 12/17/2021
 ---
 
 # Troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Connection problems may be caused by several things, such as:
 

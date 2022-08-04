@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/03/2021
+ms.date: 07/20/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -96,6 +96,8 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email. 
 
 To prevent automatic generation of PO numbers every month, you can lock the PO number. See [Lock PO number](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+To update the PO number, the **Lock PO number** must not be selected. 
 
 ### Update the Azure services purchase order number
 
@@ -204,7 +206,7 @@ If an Amendment M503 is signed, you can move any agreement from any frequency to
 
 ### Request an invoice copy
 
-To request a copy of your invoice, contact your partner.
+If you're an indirect enterprise agreement customer, contact your partner to request a copy of your invoice.
 
 ## Credits and adjustments
 

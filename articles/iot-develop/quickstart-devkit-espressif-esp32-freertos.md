@@ -208,6 +208,9 @@ Select the **About** tab on the device page.
 
 :::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-device-info.png" alt-text="Screenshot of device information in IoT Central.":::
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Clean up resources
 
 If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you continue to another article in this Getting Started content, you can keep the resources you've already created and reuse them.

@@ -4,7 +4,7 @@ description: Get answers to common questions about using Apache Storm with Azure
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 11/08/2019
+ms.date: 05/13/2022
 ms.custom: seodec18
 ---
 

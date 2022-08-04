@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 01/23/2022
 ms.author: eur
-ms.custom: ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 ---
 
 # What is conversation transcription?

@@ -15,7 +15,7 @@ ms.subservice: pstn
 # Azure direct routing infrastructure requirements 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
+[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 
@@ -65,6 +65,9 @@ Learn more:
  
 [Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
 
+>[!IMPORTANT]
+>Azure Communication Services direct routing supports only TLS 1.2 (or a later version), make sure that the cipher suites you're using on an SBC are supported by Azure Front Door. Microsoft 365 and Azure Front Door have slight differences in cipher suite support. For details, see [What are the current cipher suites supported by Azure Front Door?](/azure/frontdoor/concept-end-to-end-tls#supported-cipher-suites).
+
 SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
 
@@ -72,9 +75,9 @@ SBC pairing works on the Communication Services resource level. It means you can
 
 The connection points for Communication Services direct routing are the following three FQDNs:
 
-- **sip.pstnhub.microsoft.com — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
-- **sip2.pstnhub.microsoft.com — Secondary FQDN — geographically maps to the second priority region.
-- **sip3.pstnhub.microsoft.com — Tertiary FQDN — geographically maps to the third priority region.
+- **sip.pstnhub.microsoft.com** — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
+- **sip2.pstnhub.microsoft.com** — Secondary FQDN — geographically maps to the second priority region.
+- **sip3.pstnhub.microsoft.com** — Tertiary FQDN — geographically maps to the third priority region.
 
 These three FQDNs in order are required to:
 
@@ -94,7 +97,7 @@ Use the following ports for Communication Services Azure direct routing:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|SIP/TLS|SIP Proxy|SBC|1024–65535|Defined on the SBC (For Office 365 GCC High/DoD only port 5061 must be used)|
+|SIP/TLS|SIP Proxy|SBC|1024–65535|Defined on the SBC|
 SIP/TLS|SBC|SIP Proxy|Defined on the SBC|5061|
 
 ### Failover mechanism for SIP Signaling
@@ -103,11 +106,11 @@ The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC
 
 ## Media traffic: IP and Port ranges
 
-The media traffic flows to and from a separate service called Media Processor. At the moment of publishing, Media Processor for Communication Services can use any Azure IP address. 
-Download [the full list of addresses](https://www.microsoft.com/download/details.aspx?id=56519).
+The media traffic flows to and from a separate service in the Microsoft Cloud called Media Processor. The IP address range for media traffic: 
+- `20.202.0.0/16 (IP addresses from 20.202.0.1 to 20.202.255.254)`
 
-### Port range
-The port range of the Media Processors is shown in the following table: 
+### Port ranges
+The port ranges of the Media Processors are shown in the following table: 
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
@@ -120,18 +123,19 @@ The port range of the Media Processors is shown in the following table:
 
 ## Media traffic: Media processors geography
 
-The media traffic flows via components called media processors. Media processors are placed in the same datacenters as SIP proxies:
-- US (two in US West and US East datacenters)
-- Europe (Amsterdam and Dublin datacenters)
-- Asia (Singapore and Hong Kong SAR datacenters)
-- Australia (AU East and Southeast datacenters)
+Media Processors are placed in the same datacenters as SIP proxies:
+- NOAM (US South Central, two in US West and US East datacenters)
+- Europe (UK South, France Central, Amsterdam and Dublin datacenters)
+- Asia (Singapore datacenter)
 - Japan (JP East and West datacenters)
-
+- Australia (AU East and Southeast datacenters)
+- LATAM (Brazil South)
+- Africa (South Africa North)
 
 
 ## Media traffic: Codecs
 
-### Leg between SBC and Cloud Media Processor or Microsoft Teams client.
+### Leg between SBC and Cloud Media Processor.
 
 The Azure direct routing interface on the leg between the Session Border Controller and Cloud Media Processor can use the following codecs:
 

@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync on-premises firewall and proxy settings | Microsoft Docs
 description: Understand Azure File Sync on-premises proxy and firewall settings. Review configuration details for ports, networks, and special connections to Azure.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
@@ -203,7 +203,7 @@ If you are using Azure File Sync on-premises, you can use the service tag API to
 - The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
   - [REST API](/rest/api/virtualnetwork/servicetags/list)
   - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-  - [Azure CLI](/cli/azure/network#az_network_list_service_tags)
+  - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 Because the service tag discovery API is not updated as frequently as the JSON documents published to the Microsoft Download Center, we recommend using the JSON document to update your on-premises firewall's allow list. This can be done as follows:
 
@@ -308,7 +308,7 @@ You can then use the IP address ranges in `$ipAddressRanges` to update your fire
 
 Once a server is registered with the Azure File Sync service, the Test-StorageSyncNetworkConnectivity cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine-tune proxy and firewall configurations.
 
-To run the network connectivity test, install Azure File Sync agent version 9.1 or later and run the following PowerShell commands:
+To run the network connectivity test, run the following PowerShell commands:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

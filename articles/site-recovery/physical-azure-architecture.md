@@ -58,6 +58,8 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
    > [!NOTE]
    > Replication isn't supported over a site-to-site VPN from an on-premises site or Azure ExpressRoute [private peering](concepts-expressroute-with-site-recovery.md#on-premises-to-azure-replication-with-expressroute).
 
+For information related to troubleshooting, see [this article](vmware-azure-troubleshoot-replication.md).
+
 **Physical to Azure replication process**
 
 ![Replication process](./media/physical-azure-architecture/v2a-architecture-henry.png)

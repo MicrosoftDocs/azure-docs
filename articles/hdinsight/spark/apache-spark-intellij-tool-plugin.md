@@ -4,7 +4,7 @@ description: Use the Azure Toolkit for IntelliJ to develop Spark applications wr
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
+ms.date: 04/28/2022
 ---
 
 # Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster

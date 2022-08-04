@@ -230,6 +230,9 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot and debug
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).

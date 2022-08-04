@@ -1,10 +1,8 @@
 ---
 title: Shifting from Express.js to Azure Functions
 description: Learn to refactor Express.js endpoints to Azure Functions.
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.author: cshoe
 ms.devlang: javascript
 ---
 
@@ -18,7 +16,7 @@ When migrating code to a serverless architecture, refactoring Express.js endpoin
 
 - **Differing APIs**: The API used to process both requests and responses differs among Azure Functions and Express.js. The following example details the required changes.
 
-- **Default route**: By default, Azure Functions endpoints are exposed under the `api` route. Routing rules are configurable via [`routePrefix` in the _host.json_ file](./functions-bindings-http-webhook-output.md#hostjson-settings).
+- **Default route**: By default, Azure Functions endpoints are exposed under the `api` route. Routing rules are configurable via [`routePrefix` in the _host.json_ file](./functions-bindings-http-webhook.md#hostjson-settings).
 
 - **Configuration and conventions**: A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./functions-triggers-bindings.md). By default, the folder name that which contains the function files defines the endpoint name, but you can change the name via the `route` property in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file.
 

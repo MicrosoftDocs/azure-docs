@@ -1,9 +1,11 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 02/16/2022
+ms.date: 04/18/2022
 ms.topic: reference
 ms.custom: generated
+author: timwarner-msft
+ms.author: timwarner
 ---
 # Azure Resource Graph table and resource type reference
 
@@ -31,6 +33,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.chaos/experiments/statuses
 - microsoft.chaos/targets
 - microsoft.chaos/targets/capabilities
+
+## communitygalleryresources
+
+- microsoft.compute/locations/communitygalleries
+- microsoft.compute/locations/communitygalleries/images
+- microsoft.compute/locations/communitygalleries/images/versions
 
 ## desktopvirtualizationresources
 
@@ -98,14 +106,8 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 
 - microsoft.maintenance/applyupdates
 - microsoft.maintenance/configurationassignments
+- microsoft.maintenance/maintenanceconfigurations/applyupdates
 - microsoft.maintenance/updates
-- microsoft.resources/subscriptions (Subscriptions)
-  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
-  - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
-  - Sample query: [List all management group ancestors for a specified subscription](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
-  - Sample query: [List all subscriptions under a specified management group](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
-  - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
-  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
 
 ## patchassessmentresources
 
@@ -206,6 +208,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.ApiManagement/service (API Management services)
 - microsoft.app/containerapps
 - microsoft.app/managedenvironments
+- microsoft.app/managedenvironments/certificates
 - microsoft.appassessment/migrateprojects
 - Microsoft.AppConfiguration/configurationStores (App Configuration)
 - Microsoft.AppPlatform/Spring (Azure Spring Cloud)
@@ -563,6 +566,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Logic/workflows (Logic apps)
 - Microsoft.Logz/monitors (Logz main account)
 - Microsoft.Logz/monitors/accounts (Logz sub account)
+- Microsoft.Logz/monitors/metricsSource (Logz metrics data source)
 - Microsoft.MachineLearning/commitmentPlans (Machine Learning Studio (classic) web service plans)
 - Microsoft.MachineLearning/webServices (Machine Learning Studio (classic) web services)
 - Microsoft.MachineLearning/workspaces (Machine Learning Studio (classic) workspaces)
@@ -603,7 +607,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.migrate/migrateprojects
 - microsoft.migrate/movecollections
 - Microsoft.Migrate/projects (Migration projects)
-- microsoft.mixedreality/holographicsbroadcastaccounts
 - Microsoft.MixedReality/objectAnchorsAccounts (Object Anchors Accounts)
 - Microsoft.MixedReality/objectUnderstandingAccounts (Object Understanding Accounts)
 - Microsoft.MixedReality/remoteRenderingAccounts (Remote Rendering Accounts)
@@ -714,6 +717,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.offazure/serversites
 - microsoft.offazure/vmwaresites
 - Microsoft.OpenEnergyPlatform/energyServices (Project Oak Forest)
+- microsoft.openlogisticsplatform/applicationmanagers
 - microsoft.openlogisticsplatform/applicationworkspaces
 - Microsoft.OpenLogisticsPlatform/workspaces (Open Supply Chain Platform)
 - microsoft.operationalinsights/clusters
@@ -745,7 +749,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.powerplatform/enterprisepolicies
 - microsoft.projectbabylon/accounts
 - microsoft.providerhubdevtest/regionalstresstests
-- Microsoft.Purview/Accounts (Azure Purview accounts)
+- Microsoft.Purview/Accounts (Microsoft Purview accounts)
 - Microsoft.Quantum/Workspaces (Quantum Workspaces)
 - Microsoft.RecommendationsService/accounts (Intelligent Recommendations Accounts)
 - Microsoft.RecommendationsService/accounts/modeling (Modeling)
@@ -939,8 +943,8 @@ For sample queries for this table, see [Resource Graph sample queries for securi
 - microsoft.authorization/roleassignments/providers/assessments/governanceassignments
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
-  - Sample query: [List Azure Security Center recommendations](../samples/samples-by-category.md#list-azure-security-center-recommendations)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
+  - Sample query: [List Microsoft Defender recommendations](../samples/samples-by-category.md)
   - Sample query: [List Qualys vulnerability assessment results](../samples/samples-by-category.md#list-qualys-vulnerability-assessment-results)
 - microsoft.security/assessments/governanceassignments
 - microsoft.security/assessments/subassessments
@@ -954,7 +958,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
   - Sample query: [Get specific IoT alert](../samples/samples-by-category.md#get-specific-iot-alert)
 - microsoft.security/locations/alerts (Security Alerts)
 - microsoft.security/pricings
-  - Sample query: [Show Azure Defender pricing tier per subscription](../samples/samples-by-category.md#show-azure-defender-pricing-tier-per-subscription)
+  - Sample query: [Show Defender for Cloud plan pricing tier per subscription](../samples/samples-by-category.md)
 - microsoft.security/regulatorycompliancestandards
   - Sample query: [Regulatory compliance state per compliance standard](../samples/samples-by-category.md#regulatory-compliance-state-per-compliance-standard)
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
@@ -978,6 +982,11 @@ For sample queries for this table, see [Resource Graph sample queries for servic
   - Sample query: [All active planned maintenance events](../samples/samples-by-category.md#all-active-planned-maintenance-events)
   - Sample query: [All active Service Health events](../samples/samples-by-category.md#all-active-service-health-events)
   - Sample query: [All active service issue events](../samples/samples-by-category.md#all-active-service-issue-events)
+
+## spotresources
+
+- microsoft.compute/skuspotevictionrate/location
+- microsoft.compute/skuspotpricehistory/ostype/location
 
 ## workloadmonitorresources
 

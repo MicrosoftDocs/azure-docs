@@ -1,9 +1,9 @@
 ---
 title: Get started with Azure IoT Hub device twins (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for Java to implement the device app and the Azure IoT service SDK for Java to implement a service app that adds the tags and runs the IoT Hub query.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -16,7 +16,7 @@ ms.custom: mqtt, devx-track-java
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-In this tutorial, you create two Java console apps:
+In this article, you create two Java console apps:
 
 * **add-tags-query**, a Java back-end app that adds tags and queries device twins.
 * **simulated-device**, a Java device app that connects to your IoT hub and reports its connectivity condition using a reported property.
@@ -26,6 +26,10 @@ In this tutorial, you create two Java console apps:
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 * [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
@@ -33,14 +37,6 @@ In this tutorial, you create two Java console apps:
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Get the IoT hub connection string
 
@@ -279,7 +275,7 @@ In this section, you create a Java console app that sets a reported property val
     import java.util.Scanner;
     ```
 
-9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you saw when you registered a device in the IoT Hub:
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -399,10 +395,10 @@ You are now ready to run the console apps.
 
 ## Next steps
 
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a device app to report device connectivity information in the device twin. You also learned how to query the device twin information using the SQL-like IoT Hub query language.
+In this article, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a device app to report device connectivity information in the device twin. You also learned how to query the device twin information using the SQL-like IoT Hub query language.
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) article.
 
 * Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.

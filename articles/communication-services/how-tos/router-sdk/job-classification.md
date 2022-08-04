@@ -80,8 +80,8 @@ var job = await client.CreateJobAsync(
     {
         ["Region"] = "NA",
         ["Caller_Id"] = "tel:7805551212",
-        ["Caller_NPA_NXX" = "780555",
-        ["XBOX_Hardware" = 7
+        ["Caller_NPA_NXX"] = "780555",
+        ["XBOX_Hardware"] = 7
     }
 );
 

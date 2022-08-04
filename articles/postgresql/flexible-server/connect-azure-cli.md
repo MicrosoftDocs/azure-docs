@@ -1,17 +1,20 @@
 ---
 title: 'Quickstart: Connect using Azure CLI - Azure Database for PostgreSQL - Flexible Server'
 description: This quickstart provides several ways to connect with Azure CLI with Azure Database for PostgreSQL - Flexible Server.
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.subservice: flexible-server
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
+ms.custom: mvc, mode-api
+ms.tool: azure-cli
 ms.topic: quickstart
 ms.date: 11/30/2021
 ---
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL Flexible Server using Azure CLI with ```az postgres flexible-server connect``` and execute single query or sql file with ```az postgres flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode. 
 
@@ -29,7 +32,7 @@ The first thing we'll create is a managed PostgreSQL server. In [Azure Cloud She
 ```azurecli
 az postgres flexible-server create --public-access <your-ip-address>
 ```
-You can provide additional arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create).
+You can provide additional arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
 
 ## View all the arguments
 You can view all the arguments for this command with ```--help``` argument. 

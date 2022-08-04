@@ -1,6 +1,6 @@
 ---
 author: spelluru
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 11/09/2018	
 ms.author: spelluru

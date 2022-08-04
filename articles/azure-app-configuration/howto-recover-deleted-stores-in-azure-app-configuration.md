@@ -6,7 +6,7 @@ ms.author: mubatra
 ms.service: azure-app-configuration
 ms.custom: devx-track-dotnet
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 03/01/2022
 ---
 
 # Recover Azure App Configuration stores
@@ -19,7 +19,7 @@ To learn more about the concept of soft delete feature, see [Soft-Delete in Azur
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 
-* Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-or-purge-store) for permissions requirements.
+* Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-a-deleted-store) section for permissions requirements.
 
 ## Set retention policy and enable purge protection at store creation
 

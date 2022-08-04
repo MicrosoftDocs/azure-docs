@@ -7,7 +7,7 @@ ms.custom: references_regions
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 02/25/2022
+ms.date: 07/14/2022
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -16,7 +16,7 @@ Azure Government supports applications that use Impact Level 5 (IL5) data in all
 
 ## Background
 
-In January 2017, DISA awarded the [IL5 Provisional Authorization](/azure/compliance/offerings/offering-dod-il5) (PA) to [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government regions (US DoD Central and US DoD East) that are [dedicated to the DoD](https://azure.microsoft.com/global-infrastructure/government/dod/). Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover the remaining Azure Government regions: US Gov Arizona, US Gov Texas, and US Gov Virginia. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
+In January 2017, DISA awarded the [IL5 Provisional Authorization](/azure/compliance/offerings/offering-dod-il5) (PA) to [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government regions (US DoD Central and US DoD East) that are [dedicated to the DoD](https://azure.microsoft.com/global-infrastructure/government/dod/). Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover the remaining Azure Government regions: US Gov Arizona, US Gov Texas, and US Gov Virginia. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
 
 Azure Government is available to US federal, state, local, and tribal governments and their partners. The IL5 expansion to Azure Government honors the isolation requirements mandated by the DoD. Azure Government continues to provide more PaaS services suitable for DoD IL5 workloads than any other cloud services environment.
 
@@ -29,13 +29,13 @@ You need to address two key areas for Azure services in IL5 scope: compute isola
 
 ### Compute isolation
 
-IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
+IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated by DoD mission owners via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
 ### Storage isolation
 
-The DoD requirements for encrypting data at rest are provided in Section 5.11 (Page 122) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). DoD emphasizes encrypting all data at rest stored in virtual machine virtual hard drives, mass storage facilities at the block or file level, and database records where the mission owner does not have sole control over the database service. For cloud applications where encrypting data at rest with DoD key control is not possible, mission owners must perform a risk analysis with relevant data owners before transmitting data into a cloud service offering.
+The DoD requirements for encrypting data at rest are provided in Section 5.11 (Page 122) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). DoD emphasizes encrypting all data at rest stored in virtual machine virtual hard drives, mass storage facilities at the block or file level, and database records where the mission owner doesn't have sole control over the database service. For cloud applications where encrypting data at rest with DoD key control isn't possible, mission owners must perform a risk analysis with relevant data owners before transmitting data into a cloud service offering.
 
 In a recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves data encryption via keys that are maintained in Azure Key Vault and stored in [FIPS 140 validated](/azure/compliance/offerings/offering-fips-140-2) Hardware Security Modules (HSMs). The keys are owned and managed by the IL5 system owner (also known as customer-managed keys).
 
@@ -57,7 +57,7 @@ Be sure to review the entry for each service you're using and ensure that all is
 
 ## AI + machine learning
 
-For AI and machine learning services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=project-bonsai,genomics,search,bot-service,databricks,machine-learning-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For AI and machine learning services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=project-bonsai,genomics,search,bot-service,databricks,machine-learning-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure Cognitive Search](../search/index.yml)
 
@@ -75,7 +75,7 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 - Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-### [Cognitive Services: Face](../cognitive-services/face/index.yml)
+### [Cognitive Services: Face](../cognitive-services/computer-vision/index-identity.yml)
 
 - Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
@@ -106,7 +106,7 @@ Cognitive Services QnA Maker is part of [Cognitive Services for Language](../cog
 
 ## Analytics
 
-For Analytics services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,monitor,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Analytics services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,monitor,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure Databricks](/azure/databricks/)
 
@@ -128,7 +128,7 @@ For Analytics services availability in Azure Government, see [Products available
 
 ### [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md). The instructions to enable this configuration for Azure Synapse Analytics are the same as the instructions to do so for Azure SQL Database.
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-overview). The instructions to enable this configuration for Azure Synapse Analytics are the same as the instructions to do so for Azure SQL Database.
 
 ### [Data Factory](../data-factory/index.yml)
 
@@ -141,7 +141,7 @@ For Analytics services availability in Azure Government, see [Products available
 
 ## Compute
 
-For Compute services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware,cloud-services,batch,app-service,service-fabric,functions,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Compute services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware,cloud-services,batch,app-service,service-fabric,functions,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Batch](../batch/index.yml)
 
@@ -189,7 +189,7 @@ You can encrypt disks that support virtual machine scale sets by using Azure Dis
 
 ## Containers
 
-For Containers services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift,app-service-linux,container-registry,service-fabric,container-instances,kubernetes-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Containers services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift,app-service-linux,container-registry,service-fabric,container-instances,kubernetes-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure Kubernetes Service](../aks/index.yml)
 
@@ -201,11 +201,11 @@ For Containers services availability in Azure Government, see [Products availabl
 
 ### [Container Registry](../container-registry/index.yml) 
 
-- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an additional encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/container-registry-customer-managed-keys.md).
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/container-registry-customer-managed-keys.md).
 
 ## Databases
 
-For Databases services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sql,sql-server-stretch-database,redis-cache,database-migration,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Databases services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sql,sql-server-stretch-database,redis-cache,database-migration,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure Cosmos DB](../cosmos-db/index.yml)
 
@@ -225,13 +225,13 @@ Azure Healthcare APIs supports Impact Level 5 workloads in Azure Government with
 
 - Configure encryption at rest of content in Azure Healthcare APIs [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
 
-### [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
+### [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](../azure-sql/database/transparent-data-encryption-byok-overview.md).
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
 
 ### [SQL Server Stretch Database](../sql-server-stretch-database/index.yml)
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](../azure-sql/database/transparent-data-encryption-byok-overview.md).
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
 
 
 ## Hybrid
@@ -243,7 +243,7 @@ Azure Healthcare APIs supports Impact Level 5 workloads in Azure Government with
 
 ## Integration
 
-For Integration services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid,api-management,service-bus,logic-apps&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Integration services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid,api-management,service-bus,logic-apps&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Service Bus](../service-bus-messaging/index.yml)
 
@@ -252,7 +252,7 @@ For Integration services availability in Azure Government, see [Products availab
 
 ## Internet of Things
 
-For Internet of Things services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=notification-hubs,azure-rtos,azure-maps,iot-central,iot-hub&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Internet of Things services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=notification-hubs,azure-rtos,azure-maps,iot-central,iot-hub&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure IoT Hub](../iot-hub/index.yml)
 
@@ -261,7 +261,7 @@ For Internet of Things services availability in Azure Government, see [Products 
 
 ## Management and governance
 
-For Management and governance services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-automanage,resource-mover,azure-portal,azure-lighthouse,cloud-shell,managed-applications,azure-policy,monitor,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
+For Management and governance services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-automanage,resource-mover,azure-portal,azure-lighthouse,cloud-shell,managed-applications,azure-policy,monitor,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
 
 ### [Automation](../automation/index.yml)
 
@@ -279,7 +279,7 @@ For Management and governance services availability in Azure Government, see [Pr
 
 Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
+Log Analytics may also be used to ingest extra customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
 
 ### [Azure Site Recovery](../site-recovery/index.yml)
 
@@ -287,12 +287,12 @@ Log Analytics may also be used to ingest additional customer-provided logs. Thes
 
 ### [Microsoft Intune](/mem/intune/fundamentals/)
 
-- Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required. Line-of-business apps should be evaluated for IL5 restrictions prior to [uploading to Intune storage](/mem/intune/apps/apps-add). While Intune does encrypt applications that are uploaded to the service for distribution, it does not support customer-managed keys.
+- Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required. Line-of-business apps should be evaluated for IL5 restrictions prior to [uploading to Intune storage](/mem/intune/apps/apps-add). While Intune does encrypt applications that are uploaded to the service for distribution, it doesn't support customer-managed keys.
 
 
 ## Migration
 
-For Migration services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,azure-migrate&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Migration services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,azure-migrate&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure Data Box](../databox/index.yml) 
 
@@ -305,7 +305,7 @@ For Migration services availability in Azure Government, see [Products available
 
 ## Security
 
-For Security services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,security-center,key-vault&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Security services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,security-center,key-vault&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure Information Protection](/azure/information-protection/)
 
@@ -322,7 +322,7 @@ For Security services availability in Azure Government, see [Products available 
 
 ## Storage
 
-For Storage services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+For Storage services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
 ### [Azure Archive Storage](../storage/blobs/access-tiers-overview.md)
 
@@ -359,7 +359,7 @@ To implement Impact Level 5 compliant controls on an Azure Storage account that 
 For more information about how to enable this Azure Storage encryption feature, see [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 > [!NOTE]
-> When you use this encryption method, you need to enable it before you add content to the storage account. Any content that's added earlier won't be encrypted with the selected key. It will be encrypted only via the standard encryption at rest provided by Azure Storage that uses Microsoft-managed keys.
+> When you use this encryption method, you need to enable it before you add content to the storage account. Any content that's added before the customer-managed key is configured will be protected with Microsoft-managed keys.
 
 ### [StorSimple](../storsimple/index.yml)
 
@@ -372,6 +372,7 @@ Learn more about Azure Government:
 
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
 - [Azure Government overview](./documentation-government-welcome.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
 - [DoD Impact Level 5](/azure/compliance/offerings/offering-dod-il5)
 - [DoD in Azure Government](./documentation-government-overview-dod.md)
 - [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)

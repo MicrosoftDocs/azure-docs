@@ -41,7 +41,7 @@ pip install pandas
 pip install --upgrade azure-ai-anomalydetector
 ```
 
-### Create a new python application
+### Create a new Python application
 
  Create a new Python file and import the following libraries.
 
@@ -66,7 +66,8 @@ subscription_key = "ANOMALY_DETECTOR_KEY"
 anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
 ```
 
-
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ## Code examples
 

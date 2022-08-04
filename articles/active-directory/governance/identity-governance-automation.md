@@ -22,7 +22,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Automate Azure AD Identity Governance tasks via Azure Automation and Microsoft Graph
 
-[Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/graph/powershell/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script.
+[Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script.
 
 Azure Automation and the PowerShell Graph SDK supports certificate-based authentication and application permissions, so you can have Azure Automation runbooks authenticate to Azure AD without needing a user context.
 
@@ -110,8 +110,9 @@ Next, you will create an app registration in Azure AD, so that Azure AD will rec
 
 1. Select each of the permissions that your Azure Automation account will require, then select **Add permissions**.
 
+ * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
  * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
- * If your runbook is making changes to entitlement management, for example to create assignments, then use the **EntitlementManagement.ReadWrite.All** permission.
+ * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
  * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
 
 10. Select **Grant admin permissions** to give your app those permissions.
@@ -208,4 +209,3 @@ There are two places where you can see the expiration date in the Azure portal.
 ## Next steps
 
 - [Create an Automation account using the Azure portal](../../automation/quickstarts/create-account-portal.md)
-- [Manage access to resources in Active Directory entitlement management using Microsoft Graph PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta)

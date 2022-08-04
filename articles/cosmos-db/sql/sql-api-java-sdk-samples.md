@@ -2,14 +2,15 @@
 
 title: 'Azure Cosmos DB SQL API: Java SDK v4 examples'
 description: Find Java examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
-author: rothja
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/26/2021
 ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jroth
+ms.author: sidandrews
+ms.reviewer: mjbrown
 
 ---
 # Azure Cosmos DB SQL API: Java SDK v4 examples

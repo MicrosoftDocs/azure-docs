@@ -1,12 +1,13 @@
 ---
 title: Index geospatial data with Azure Cosmos DB
 description: Index spatial data with Azure Cosmos DB
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Index geospatial data with Azure Cosmos DB

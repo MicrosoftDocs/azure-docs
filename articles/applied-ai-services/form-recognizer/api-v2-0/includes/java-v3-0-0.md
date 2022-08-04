@@ -145,7 +145,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-At the top of your **main** method, add the following code. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
+At the top of your **main** method, add the following code. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the key without creating new client objects.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_auth)]
 

@@ -1,9 +1,14 @@
 ---
 title: Visualizing your cluster using Azure Service Fabric Explorer 
 description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
-ms.topic: conceptual
-ms.date: 01/24/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Visualize your cluster with Service Fabric Explorer
 
 Service Fabric Explorer (SFX) is an open-source tool for inspecting and managing Azure Service Fabric clusters. Service Fabric Explorer is a desktop application for Windows, macOS and Linux.
@@ -45,7 +50,13 @@ To connect to a Service Fabric cluster, you need the clusters management endpoin
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
 
 If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or sign in using AAD.
+## Video tutorial
 
+[<b>Check this page for a training video to learn how to use Service Fabric Explorer.</b>](/shows/building-microservices-applications-on-azure-service-fabric/service-fabric-explorer)
+
+[!NOTE]
+> This video shows Service Fabric Explorer hosted in a Service Fabric cluster, not the desktop version.
+>
 ## Understand the Service Fabric Explorer layout
 You can navigate through Service Fabric Explorer by using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
 

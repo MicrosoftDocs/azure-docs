@@ -40,7 +40,7 @@ This procedure is relevant only for CEF connections, and is *not* relevant for S
 
     - You must have elevated permissions (sudo) on your log forwarder machine.
 
-    - You must have **python 2.7** or **3** installed on your log forwarder machine. Use the `python –version` command to check.
+    - You must have **python 2.7** or **3** installed on your log forwarder machine. Use the `python --version` command to check.
 
     - You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
 
@@ -273,7 +273,7 @@ Use the following sections to check your CEF or Syslog data connector prerequisi
 
 If you're using an Azure Virtual Machine as a CEF collector, verify the following:
 
-- Before you deploy the [Common Event Format Data connector python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Log Analytics workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
+- Before you deploy the [Common Event Format Data connector Python script](./connect-log-forwarder.md), make sure that your Virtual Machine isn't already connected to an existing Log Analytics workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
 - Make sure that Microsoft Sentinel is connected to the correct Log Analytics workspace, with the **SecurityInsights** solution installed.
 

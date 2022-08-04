@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/10/2021
+ms.date: 04/19/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -177,6 +177,18 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **ver_intro_msg** | Verification is necessary. Please click Send button. |
 | **ver_input** | Verification code |
 
+### Sign-up and self-asserted pages disclaimer links
+
+The following `UxElement` string IDs will display disclaimer link(s) at the bottom of the self-asserted page. These links are not displayed by default unless specified in the localized strings.
+
+| ID | Example value |
+| --- | ------------- |
+| **disclaimer_msg_intro** | By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply. |
+| **disclaimer_link_1_text** | Privacy Statement |
+| **disclaimer_link_1_url** | {insert your privacy statement URL} |
+| **disclaimer_link_2_text** | Terms and Conditions |
+| **disclaimer_link_2_url** | {insert your terms and conditions URL} |
+
 ### Sign-up and self-asserted pages error messages
 
 | ID | Default value |
@@ -238,6 +250,14 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="ver_input">Verification code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_success_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <!-- The following elements will display a message and two links at the bottom of the page. 
+         For policies that you intend to show to users in the United States, we suggest displaying the following text. Replace the content of the disclaimer_link_X_url elements with links to your organization's privacy statement and terms and conditions. 
+          Uncomment any of these lines to display them.  -->
+    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString> -->
+    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString> -->
+    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString> -->
     <LocalizedString ElementType="ErrorMessage" StringId="ServiceThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">A user with the specified ID already exists. Please choose a different one.</LocalizedString>
@@ -420,6 +440,48 @@ The following are the IDs for a [Verification display control](display-control-v
     <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
+```
+
+## TOTP MFA controls display control user interface elements
+
+The following are the IDs for a [time-based one-time password (TOTP) display control](display-control-time-based-one-time-password.md) with [page layout version](page-layout.md) 2.1.9 and later. 
+
+| ID | Default value |
+| --- | ------------- |
+|title_text |Download the Microsoft Authenticator using the download links for iOS and Android or use any other authenticator app of your choice. |
+| DN |Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment. |
+|DisplayName |Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment. |
+|title_text |Scan the QR code |
+|info_msg |You can download the Microsoft Authenticator app or use any other authenticator app of your choice. |
+|link_text |Can't scan? Try this |
+|title_text| Enter the account details manually. |
+|account_name | Account Name: |
+|display_prefix | Secret |
+|collapse_text | Still having trouble? |
+|DisplayName | Enter the verification code from your authenticator app​.|
+|DisplayName | Enter your code. |
+| button_continue | Verify |
+
+### TOTP MFA controls display control example
+
+```xml
+      <LocalizedResources Id="api.selfasserted.totp.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorAppIconControl" StringId="title_text">Download the Microsoft Authenticator using the download links for iOS and Android or use any other authenticator app of your choice.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorAppIconControl" StringId="DN">Once you&#39;ve downloaded the Authenticator app, you can use any of the methods below to continue with enrollment.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="QrCodeScanInstruction" StringId="DisplayName">Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="title_text">Scan the QR code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="info_msg">You can download the Microsoft Authenticator app or use any other authenticator app of your choice.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="link_text">Can&#39;t scan? Try this</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="title_text">Enter the account details manually</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="account_name">Account Name:</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="display_prefix">Secret</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="collapse_text">Still having trouble?</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="QrCodeVerifyInstruction" StringId="DisplayName">Enter the verification code from your authenticator app​.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="otpCode" StringId="DisplayName">Enter your code.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_continue">Verify</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
 ```
 
 ## Restful service error messages

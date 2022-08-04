@@ -1,14 +1,15 @@
 ---
 title: Restore Azure Database for MySQL - Flexible Server with Azure CLI
 description: This article describes how to perform restore operations in Azure Database for MySQL through the Azure CLI.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 04/01/2021
 ---
 
-# Point-in-time restore of a Azure Database for MySQL Flexible Server with Azure CLI
+# Point-in-time restore of an Azure Database for MySQL Flexible Server with Azure CLI
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -16,11 +17,12 @@ This article provides step-by-step procedure to perform point-in-time recoveries
 
 ## Prerequisites
 
-- An Azure account with an active subscription. 
+- An Azure account with an active subscription.
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
--  Login to Azure account using [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+
+- Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
     ```azurecli-interactive
     az login
@@ -28,6 +30,7 @@ This article provides step-by-step procedure to perform point-in-time recoveries
 
 - If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the ```az account set``` command.
 `
+
     ```azurecli
     az account set --subscription <subscription id>
     ```
@@ -43,6 +46,7 @@ This article provides step-by-step procedure to perform point-in-time recoveries
 You can run the following command to restore a server to an earliest existing backup.
 
 **Usage**
+
 ```azurecli
 az mysql flexible-server restore --restore-time
                                  --source-server
@@ -64,9 +68,37 @@ az mysql flexible-server restore \
 --restore-time "2021-03-03T13:10:00Z" \
 --source-server mydemoserver
 ```
+
 Time taken to restore will depend on the size of the data stored in the server.
 
+## Geo-Restore a server from geo-backup to a new server
+
+You can run the following command to geo-restore a server to the most recent backup available.
+
+**Usage**
+
+```azurecli
+az mysql flexible-server geo-restore --source-server
+                                 --location
+                                 [--name]
+                                 [--no-wait]
+                                 [--resource-group]
+                                 [--subscription]
+```
+
+**Example:**
+Geo-restore 'mydemoserver' in region East US to a new server 'mydemoserver-restored' in it’s geo-paired location West US with the same network setting.
+
+```azurecli
+az mysql flexible-server geo-restore \
+--name mydemoserver-restored \
+--resource-group myresourcegroup \
+--location "West US" \
+--source-server mydemoserver
+```
+
 ## Perform post-restore tasks
+
 After the restore is completed, you should perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server
@@ -75,5 +107,5 @@ After the restore is completed, you should perform the following tasks to get yo
 - Configure alerts as appropriate for the newly restore server
 
 ## Next steps
-Learn more about [business continuity](concepts-business-continuity.md)
 
+Learn more about [business continuity](concepts-business-continuity.md)

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
  ms.date: 01/25/2021
- ms.author: rogarana
+ ms.author: kendownie
  ms.custom: include file
 ---
 Navigate to the storage account for which you would like to restrict all access to the public endpoint. In the table of contents for the storage account, select **Networking**.

@@ -1,9 +1,9 @@
 ---
 title: Schedule jobs with Azure IoT Hub (Java) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method and set a desired property on multiple devices. You use the Azure IoT device SDK for Java to implement the simulated device apps and the Azure IoT service SDK for Java to implement a service app to run the job.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -32,13 +32,13 @@ To learn more about each of these capabilities, see:
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial shows you how to:
+This article shows you how to:
 
 * Create a device app that implements a direct method called **lockDoor**. The device app also receives desired property changes from the back-end app.
 
 * Create a back-end app that creates a job to call the **lockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
 
-At the end of this tutorial, you have a java console device app and a java console back-end app:
+At the end of this article, you have a Java console device app and a Java console back-end app:
 
 **simulated-device** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.
 
@@ -49,6 +49,10 @@ At the end of this tutorial, you have a java console device app and a java conso
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 * [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
@@ -56,16 +60,6 @@ At the end of this tutorial, you have a java console device app and a java conso
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
-
-You can also use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) tool to add a device to your IoT hub.
 
 ## Get the IoT hub connection string
 
@@ -365,7 +359,7 @@ In this section, you create a Java console app that handles the desired properti
     import java.util.Scanner;
     ```
 
-9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied previously in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you saw when you registered a device in your IoT Hub:
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -511,10 +505,10 @@ You are now ready to run the console apps.
 
 ## Next steps
 
-In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
+In this article, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) article.
 
 * Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.

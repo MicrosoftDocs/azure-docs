@@ -9,7 +9,7 @@ author: ssalgadodev
 ms.author:  ssalgado
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli 
+ms.custom: devplatv2, devx-track-azurecli , cliv2
 ms.devlang: azurecli
 #Customer intent: As a machine learning engineer, I want to test and debug online endpoints locally using Visual Studio Code before deploying them Azure.
 ---
@@ -35,7 +35,7 @@ The following table provides an overview of scenarios to help you choose what wo
 
 | Scenario | Inference HTTP Server | Local endpoint |
 |--|--|--|
-| Update local python environment, **without** Docker image rebuild | Yes | No |
+| Update local Python environment, **without** Docker image rebuild | Yes | No |
 | Update scoring script | Yes | Yes |
 | Update deployment configurations (deployment, environment, code, model) | No | Yes |
 | VS Code Debugger integration | Yes | Yes |
@@ -118,7 +118,7 @@ Once your environment is set up, use the VS Code debugger to test and debug your
     - To debug startup behavior, place your breakpoint(s) inside the `init` function.
     - To debug scoring behavior, place your breakpoint(s) inside the `run` function.
 
-1. Select the VS Code Run view.
+1. Select the VS Code Job view.
 1. In the Run and Debug dropdown, select **Azure ML: Debug Local Endpoint** to start debugging your endpoint locally.
 
     In the **Breakpoints** section of the Run view, check that:

@@ -43,9 +43,48 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
 
+
+## Scenario: Unable to create new Automation job in West Europe region
+
+### Issue
+When creating new Automation jobs, you might experience a delay or failure of job creation.
+
+### Cause
+This is because of scalability limits with the Automation service in the West Europe region.
+
+### Resolution
+Do one of the following actions if it is feasible as per your requirement and environment to reduce the chance of failure: 
+
+- During the peak hours of job creation, typically on the hour, and half hour, move the job start time to five minutes before or after the hour/half hour.
+- Run the Automation jobs from alternate data centres until the transition work is complete.
+
+>[!NOTE]
+> The optimization of existing load and transitioning the load to a new design by the product group is in progress.
+
+## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
+
+### Issue
+
+Your runbook using a managed identity Connect-AzAccount -Identity which attempts to manage Azure objects, fails to work successfully and logs the following error - `this.Client.SubscriptionId cannot be null.`
+
+```error
+get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-azvm + ~~~~~~~~ + CategoryInfo : CloseError: (:) [Get-AzVM], ValidationException + FullyQualifiedErrorId : Microsoft.Azure.Commands.Compute.GetAzureVMCommand
+```
+
+### Cause
+
+This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
+
+### Resolution
+Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
+
+:::image type="content" source="../media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
+
+:::image type="content" source="../media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="../media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
+
 ## Scenario: Access blocked to Azure Storage, or Azure Key Vault, or Azure SQL
 
-This scenario uses [Azure Storage](../../storage/common/storage-network-security.md) as an example; however, the information is equally applicable to [Azure Key Vault](../../key-vault/general/network-security.md) and [Azure SQL](../../azure-sql/database/firewall-configure.md).
+This scenario uses [Azure Storage](../../storage/common/storage-network-security.md) as an example; however, the information is equally applicable to [Azure Key Vault](../../key-vault/general/network-security.md) and [Azure SQL](/azure/azure-sql/database/firewall-configure).
 
 ### Issue
 
@@ -57,7 +96,7 @@ The Azure Firewall on Azure Storage is enabled.
 
 ### Resolution
 
-Enabling the Azure Firewall on [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md), or [Azure SQL](../../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with a No permission or Forbidden 403 error
 

@@ -4,17 +4,13 @@ description: This article provides an overview of Data synced from your ITSM pro
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.custom: references_regions
+ms.reviewer: nolavime
 
 ---
 
 # Data synced from your ITSM product
 
-Incidents and change requests are synced from your ITSM tool to your Log Analytics workspace, based on the connection's configuration (using "Sync Data" field):
-* [ServiceNow](./itsmc-connections-servicenow.md)
-* [System Center Service Manager](./itsmc-connections-scsm.md)
-* [Cherwell](./itsmc-connections-cherwell.md)
-* [Provance](./itsmc-connections-provance.md)
-
+Incidents and change requests are synced from [ServiceNow](./itsmc-connections-servicenow.md) to your Log Analytics workspace, based on the connection's configuration using the "Sync Data" field:
 ## Synced data
 
 This section shows some examples of data gathered by ITSMC.

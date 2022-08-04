@@ -2,14 +2,14 @@
 title: Manage external access with Azure Active Directory Conditional Access 
 description: How to use Azure Active Directory Conditional Access policies to secure external access to resources.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 01/25/2022
-ms.author: baselden
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -88,6 +88,10 @@ There may be times you want to block external users except a specific group. For
 1. Select **Create** to create to enable your policy.
 
 After confirming your settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+
+### External partner access
+
+Conditional Access policies that target external users may interfere with service provider access, for example granular delegated admin privileges [Introduction to granular delegated admin privileges (GDAP)](/partner-center/gdap-introduction).
 
 ## Implement Conditional Access
 

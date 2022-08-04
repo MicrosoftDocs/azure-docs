@@ -33,6 +33,8 @@ The following roles have the required permissions:
 - Reports Reader
 - Security Reader
 - Global Reader
+- Application Administrator
+- Cloud Application Administrator
 - Security Operator
 - Security Administrator
 - Global Administrator
@@ -131,7 +133,6 @@ The registration details report shows the following information for each user:
 ## Limitations
 
 - The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
-- Temporary Access Pass registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
 - The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard. 
 
 ## Next steps

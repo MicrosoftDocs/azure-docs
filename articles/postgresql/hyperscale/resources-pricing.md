@@ -1,8 +1,8 @@
 ---
 title: Pricing – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Pricing and how to save with Hyperscale (Citus)
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 02/23/2022
 ---
 
 # Pricing for Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## General pricing
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiWeb Web Application Firewall | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with FortiWeb Web Application Firewall'
 description: Learn how to configure single sign-on between Azure Active Directory and FortiWeb Web Application Firewall.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 07/14/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiWeb Web Application Firewall
+# Tutorial: Azure AD SSO integration with FortiWeb Web Application Firewall
 
 In this tutorial, you'll learn how to integrate FortiWeb Web Application Firewall with Azure Active Directory (Azure AD). When you integrate FortiWeb Web Application Firewall with Azure AD, you can:
 
@@ -28,6 +28,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * FortiWeb Web Application Firewall single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -66,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **FortiWeb Web Application Firewall** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -123,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![SAML server page](./media/fortiweb-web-application-firewall-tutorial/configure-sso.png)
+    ![Screenshot for SAML server page](./media/fortiweb-web-application-firewall-tutorial/configure-sso.png)
 
     a.	In the left-hand menu, click **User**.
 
@@ -135,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e.	In the **Name** field, provide the value for `<fwName>` used in the Configure Azure AD section.
 
-    f.	In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    f.	In the **Entity ID** textbox, Enter the **Identifier (Entity ID)** value, like `https://www.<CUSTOMER_DOMAIN>.com/samlsp`
 
     g. Next to **Metadata**, click **Choose File** and select the **Federation Metadata XML** file which you have downloaded from the Azure portal.
 
@@ -148,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment.
 1. Perform the following steps in the following page.
 
-    ![Site Publishing Rule](./media/fortiweb-web-application-firewall-tutorial/site-publish-rule.png)
+    ![Screenshot for Site Publishing Rule](./media/fortiweb-web-application-firewall-tutorial/site-publish-rule.png)
 
     a.	In the left-hand menu, click **Application Delivery**.
     
@@ -183,7 +186,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![Site Publishing Policy](./media/fortiweb-web-application-firewall-tutorial/site-publish-policy.png)
+    ![Screenshot for Site Publishing Policy](./media/fortiweb-web-application-firewall-tutorial/site-publish-policy.png)
 
     a.	In the left-hand menu, click **Application Delivery**.
 
@@ -218,7 +221,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 8.	Next to **Site Publish**, select the site publishing policy you created earlier.
 9.	Click **OK**.
  
-    ![site publish](./media/fortiweb-web-application-firewall-tutorial/web-protection.png)
+    ![Screenshot for site publish](./media/fortiweb-web-application-firewall-tutorial/web-protection.png)
 
 10.	In the left-hand menu, click **Policy**.
 11.	Under **Policy**, click **Server Policy**.

@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Upgrading from Application Insights Java 2.x SDK
@@ -20,6 +21,8 @@ that was pointing to the 2.x agent.
 The rest of this document describes limitations and changes that you may encounter
 when upgrading from 2.x to 3.x, as well as some workarounds that you may find helpful.
 
+
+
 ## TelemetryInitializers and TelemetryProcessors
 
 The 2.x SDK TelemetryInitializers and TelemetryProcessors will not be run when using the 3.x agent.
@@ -29,7 +32,9 @@ or configuring [telemetry processors](./java-standalone-telemetry-processors.md)
 
 ## Multiple applications in a single JVM
 
-This use case is supported in Application Insights Java 3.x using [Instrumentation keys overrides (preview)](./java-standalone-config.md#instrumentation-keys-overrides-preview).
+This use case is supported in Application Insights Java 3.x using [Instrumentation key overrides (preview)](./java-standalone-config.md#instrumentation-key-overrides-preview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Operation names
 

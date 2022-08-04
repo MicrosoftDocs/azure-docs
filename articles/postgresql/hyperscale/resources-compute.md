@@ -1,15 +1,17 @@
 ---
 title: Compute and storage – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Options for a Hyperscale (Citus) server group, including node compute and storage
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 07/08/2022
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
  
 You can select the compute and storage settings independently for
 worker nodes and the coordinator node in a Hyperscale (Citus) server
@@ -22,13 +24,13 @@ the Postgres server logs.
 
 ## Standard tier
  
-| Resource              | Worker node           | Coordinator node      |
-|-----------------------|-----------------------|-----------------------|
-| Compute, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
-| Memory per vCore, GiB | 8                     | 4                     |
-| Storage size, TiB     | 0.5, 1, 2             | 0.5, 1, 2             |
-| Storage type          | General purpose (SSD) | General purpose (SSD) |
-| IOPS                  | Up to 3 IOPS/GiB      | Up to 3 IOPS/GiB      |
+| Resource              | Worker node                    | Coordinator node         |
+|-----------------------|--------------------------------|--------------------------|
+| Compute, vCores       | 4, 8, 16, 32, 64, 96, 104      | 4, 8, 16, 32, 64, 96     |
+| Memory per vCore, GiB | 8                              | 4                        |
+| Storage size, TiB     | 0.5, 1, 2                      | 0.5, 1, 2                |
+| Storage type          | General purpose (SSD)          | General purpose (SSD)    |
+| IOPS                  | Up to 3 IOPS/GiB               | Up to 3 IOPS/GiB         |
 
 The total amount of RAM in a single Hyperscale (Citus) node is based on the
 selected number of vCores.
@@ -39,7 +41,9 @@ selected number of vCores.
 | 8      | 64                       | 32                        |
 | 16     | 128                      | 64                        |
 | 32     | 256                      | 128                       |
-| 64     | 432                      | 256                       |
+| 64     | 432 or 512               | 256                       |
+| 96     | 672                      | 384                       |
+| 104    | 672                      | n/a                       |
 
 The total amount of storage you provision also defines the I/O capacity
 available to each worker and coordinator node.
@@ -84,7 +88,7 @@ storage resources.
 
 | Resource              | Available options     |
 |-----------------------|-----------------------|
-| Compute, vCores       | 2, 4, 8               |
+| Compute, vCores       | 2, 4, 8, 16, 32, 64   |
 | Memory per vCore, GiB | 4                     |
 | Storage size, GiB     | 128, 256, 512         |
 | Storage type          | General purpose (SSD) |
@@ -98,6 +102,9 @@ selected number of vCores.
 | 2      | 8       |
 | 4      | 16      |
 | 8      | 32      |
+| 16     | 64      |
+| 32     | 128     |
+| 64     | 256     |
 
 The total amount of storage you provision also defines the I/O capacity
 available to the basic tier node.

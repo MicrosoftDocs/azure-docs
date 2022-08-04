@@ -471,7 +471,7 @@ Many libraries needed by Storage Explorer come preinstalled with Canonical's sta
 - iproute2
 - libasound2
 - libatm1
-- libgconf2-4
+- libgconf-2-4
 - libnspr4
 - libnss3
 - libpulse0
@@ -606,7 +606,7 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 
 If none of these solutions work for you, you can:
 
-- Create a support ticket.
+- [Create a support ticket](https://aka.ms/storageexplorer/servicerequest).
 - [Open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues) by selecting the **Report issue to GitHub** button in the lower-left corner.
 
 ![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)

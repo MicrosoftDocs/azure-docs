@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 - The [Azure Functions Core Tools](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-run-local.md) version 3.x.
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-- Create an [Azure SQL server](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-sql/database/single-database-create-quickstart.md)
+- Create an [Azure SQL server](/azure/azure-sql/database/single-database-create-quickstart)
 
 
 ## Software architecture 
@@ -102,7 +102,7 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
         ![the directory location](./media/voice-control-your-inventory-images/select-airlift-folder.png) 
    4. <strong>Provide the following information at the prompts</strong>: Select a language for your function project: Choose <strong>Python</strong>.
         ![following information at the prompts](./media/voice-control-your-inventory-images/language-python.png) 
-   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have python installed.
+   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have Python installed.
         ![create a virtual environment](./media/voice-control-your-inventory-images/skip-virtual-env.png) 
    6. <strong>Select a template for your project's first function</strong>: Choose <strong>HTTP trigger</strong>.
         ![Select a template](./media/voice-control-your-inventory-images/http-trigger.png) 
@@ -172,7 +172,7 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
 In this section, you will import an existing application config json file to Custom Commands.
 
 1. Create an Azure Speech resource in a region that supports Custom Commands.
-   1. Click [Create Speech Services portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to create an Azure Speech resource
+   1. Click [Create Speech Services portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to create an Azure Speech resource
       1. Select your Subscription
       2. Use the Resource group you just created in exercise 1
       3. Select the Region(Please check here to see the support region in custom commands)
@@ -337,7 +337,7 @@ resources with the following steps:
 
 1. Login to the [Azure portal](https://portal.azure.com), go to `Resource Group` you have been using for this tutorial. Delete the SQL DB, Azure Function, and Speech Service resources.
 
-2. Go into [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/overview), select your device from the `Device` blade, click the `Speech` tab within your device, and under `Configuration` remove reference to your custom command. 
+2. Go into [Azure Percept Studio](https://portal.azure.com/#blade/AzureEdgeDevices/Main/overview), select your device from the `Device` blade, click the `Speech` tab within your device, and under `Configuration` remove reference to your custom command. 
 
 3. Go in to [Speech Studio](https://speech.microsoft.com/portal) and delete project created for this tutorial. 
 
@@ -353,8 +353,7 @@ customer can do.
 
 ## Next steps
 
-Check out the other tutorial under Advanced prototyping with Azure Percept section for your Azure Percept DK.
-
+Check out the tutorial [Create a people counting solution with Azure Percept Vision](./create-people-counting-solution-with-azure-percept-devkit-vision.md).
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

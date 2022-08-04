@@ -3,12 +3,12 @@ title: Authorize access to blobs using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure blobs using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 
@@ -31,6 +31,8 @@ The authentication step requires that an application request an OAuth 2.0 access
 The authorization step requires that one or more Azure RBAC roles be assigned to the security principal making the request. For more information, see [Assign Azure roles for access rights](#assign-azure-roles-for-access-rights).
 
 Native applications and web applications that make requests to the Azure Blob service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for blob data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](../common/storage-auth-aad-app.md).
+
+Authorizing blob data operations with Azure AD is supported only for REST API versions 2017-11-09 and later. For more information, see [Versioning for the Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 ## Assign Azure roles for access rights
 
@@ -101,14 +103,7 @@ Azure CLI and PowerShell support signing in with Azure AD credentials. After you
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)| ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

@@ -1,11 +1,12 @@
 ---
 title: 'Quickstart: Connect using Azure CLI - Azure Database for MySQL - Flexible Server'
 description: This quickstart provides several ways to connect with Azure CLI with Azure Database for MySQL - Flexible Server.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.subservice: flexible-server
 ms.topic: quickstart
+author: shreyaaithal 
+ms.author: shaithal 
+ms.custom: mvc, mode-api
 ms.date: 03/01/2021
 ---
 
@@ -32,7 +33,7 @@ The first thing we'll create is a managed MySQL server. In [Azure Cloud Shell](h
 az mysql flexible-server create --public-access <your-ip-address>
 ```
 
-You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create).
+You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create).
 
 ## Create a database
 Run the following command to create a database, **newdatabase** if you have not already created one.

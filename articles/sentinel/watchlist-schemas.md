@@ -1,8 +1,8 @@
 ---
 title: Schemas for Microsoft Sentinel watchlist templates | Microsoft Docs
 description: Learn about the schemas used in each built-in watchlist template in Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
@@ -26,7 +26,7 @@ The High Value Assets watchlist lists devices, resources, and other assets that 
 | **Asset FQDN** | FQDN                                | `Finance-SRv.local.microsoft.com`                                                                                                        | Mandatory          |
 | **IP Address** | IP                                  | `1.1.1.1`                                                                                                                                | Optional           |
 | **Tags**       | List                                | `["SAW user","Blue Ocean team"] `                                                                                                        | Optional           |
-| | | | |
+
 
 ## VIP Users
 
@@ -39,7 +39,7 @@ The VIP Users watchlist lists user accounts of employees that have high impact v
 | **User On-Prem Sid**    | SID    | `S-1-12-1-4141952679-1282074057-627758481-2916039507` | Optional           |
 | **User Principal Name** | UPN    | `JeffL@seccxp.ninja`                                  | Mandatory          |
 | **Tags**                | List   | `["SAW user","Blue Ocean team"]`                      | Optional           |
-| | | | |
+
 
 ## Network Mapping
 
@@ -50,7 +50,7 @@ The Network Mapping watchlist lists IP subnets and their respective organization
 | **IP Subnet**  | Subnet range |` 198.51.100.0/24 - 198….../22` | Mandatory          |
 | **Range Name** | String       | `DMZ`                          | Optional           |
 | **Tags**       | List         | `["Example","Example"]`        | Optional           |
-| | | | |
+
 
 ## Terminated Employees
 
@@ -63,10 +63,10 @@ The Terminated Employees watchlist lists user accounts of employees that have be
 | **User On-Prem Sid**    | SID                                                                             | `S-1-12-1-4141952679-1282074057-123`   | Optional           |
 | **User Principal Name** | UPN                                                                             | `JeffL@seccxp.ninja`                  | Mandatory          |
 | **UserState**           | String <br><br>We recommend using either `Notified` or `Terminated` | `Terminated`                           | Mandatory          |
-| **Notification date**  | Timestamp - day                                                                 | `01.12.20`                             | Optional           |
-| **Termination date**    | Timestamp - day                                                                 | `01.01.21`                            | Mandatory          |
+| **Notification date**  | Timestamp - day <br><br>We recommend using the UTC format                        | `2020-12-1`                             | Optional           |
+| **Termination date**    | Timestamp - day <br><br>We recommend using the UTC format                       | `2021-01-01`                            | Mandatory          |
 | **Tags**                | List                                                                            | `["SAW user","Amba Wolfs team"]`       | Optional           |
-| | | | |
+
 
 
 ## Identity Correlation
@@ -84,7 +84,7 @@ The Identity Correlation watchlist lists related user accounts that belong to th
 | **Associated Privileged Account ID** | UID/SID | `S-1-12-1-4141952679-1282074057-627758481-2916039507` | Optional           |
 | **Associated Privileged Account**    | UPN     | `Admin@seccxp.ninja`                                  | Optional           |
 | **Tags**                             | List    | `["SAW user","Amba Wolfs team"]`                      | Optional           |
-| | | | |
+
 
 ## Service Accounts
 
@@ -101,7 +101,7 @@ The Service Accounts watchlist lists service accounts and their owners, and incl
 | **Owner User On-Prem Sid**    | SID    | `S-1-12-1-4141952679-1282074057-627758481-2916039507` | Optional           |
 | **Owner User Principal Name** | UPN    | `JeffL@seccxp.ninja`                                  | Mandatory          |
 | **Tags**                      | List   | `["Automation Account","GitHub Account"]`             | Optional           |
-| | | | |
+
 
 ## Next steps
 

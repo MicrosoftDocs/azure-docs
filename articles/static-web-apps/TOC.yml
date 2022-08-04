@@ -16,18 +16,29 @@
           href: getting-started.md
         - name: Azure portal
           href: get-started-portal.md
+          displayName: github, devops
         - name: Azure CLI
           href: get-started-cli.md
 - name: Concepts
   items:
     - name: APIs
       items:
-        - name: API support with Azure Functions
-          href: apis.md
-        - name: Add an API
-          href: add-api.md
-        - name: Bring your own functions
-          href: functions-bring-your-own.md
+        - name: Overview
+          href: apis-overview.md
+        - name: Azure Functions
+          items:
+            - name: Integration options
+              href: apis-functions.md
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
+          href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md 
+        - name: Azure Container Apps
+          href: apis-container-apps.md
     - name: Configuration
       items:
         - name: Configuration overview
@@ -48,8 +59,16 @@
           href: user-information.md
         - name: Custom authentication
           href: authentication-custom.md
-    - name: Review pull requests in pre-production environments
-      href: review-publish-pull-requests.md
+    - name: Preview environments
+      items:
+        - name: About preview environments
+          href: preview-environments.md
+        - name: Pull request environments
+          href: review-publish-pull-requests.md
+        - name: Branch environments
+          href: branch-environments.md
+        - name: Named environments
+          href: named-environments.md
     - name: Custom domains
       items:
       - name: About custom domains
@@ -84,8 +103,11 @@
           href: private-endpoint.md
         - name: Secure authentication secrets
           href: key-vault-secrets.md
+        - name: Set up password protection
+          href: password-protection.md
     - name: Set up local development
       href: local-development.md
+      displayName: swa cli
     - name: Configure app settings
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
@@ -122,14 +144,18 @@
           href: deploy-nuxtjs.md
     - name: Add a database with Mongoose.js and Cosmos DB
       href: add-mongoose.md
-    - name: Publish with Azure DevOps
-      href: publish-devops.md
     - name: Publish with an ARM template
       href: publish-azure-resource-manager.md
     - name: Add Azure Front Door
       href: front-door-manual.md
     - name: Set user roles programmatically
       href: assign-roles-microsoft-graph.md
+    - name: Use an external code host
+      items:
+        - name: Bitbucket
+          href: bitbucket.md
+        - name: GitLab
+          href: gitlab.md
 - name: Samples
   items:
     - name: Serverless app with Azure SQL
@@ -158,3 +184,4 @@
       href: quotas.md
     - name: Frequently asked questions
       href: faq.yml
+      displayName: faq

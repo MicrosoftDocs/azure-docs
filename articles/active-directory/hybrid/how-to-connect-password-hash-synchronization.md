@@ -51,7 +51,7 @@ The following section describes, in-depth, how password hash synchronization wor
 3. After the password hash synchronization agent has the encrypted envelope, it uses [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider) and the salt to generate a key to decrypt the received data back to its original MD4 format. The password hash synchronization agent never has access to the clear text password. The password hash synchronization agent’s use of MD5 is strictly for replication protocol compatibility with the DC, and it is only used on-premises between the DC and the password hash synchronization agent.
 4. The password hash synchronization agent expands the 16-byte binary password hash to 64 bytes by first converting the hash to a 32-byte hexadecimal string, then converting this string back into binary with UTF-16 encoding.
 5. The password hash synchronization agent adds a per user salt, consisting of a 10-byte length salt, to the 64-byte binary to further protect the original hash.
-6. The password hash synchronization agent then combines the MD4 hash plus the per user salt, and inputs it into the [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) function. 1000 iterations of the [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256) keyed hashing algorithm are used. 
+6. The password hash synchronization agent then combines the MD4 hash plus the per user salt, and inputs it into the [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) function. 1000 iterations of the [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256) keyed hashing algorithm are used. For additional details, refer to the [Azure AD Whitepaper](https://aka.ms/aaddatawhitepaper).
 7. The password hash synchronization agent takes the resulting 32-byte hash, concatenates both the per user salt and the number of SHA256 iterations to it (for use by Azure AD), then transmits the string from Azure AD Connect to Azure AD over TLS.</br> 
 8. When a user attempts to sign in to Azure AD and enters their password, the password is run through the same MD4+salt+PBKDF2+HMAC-SHA256 process. If the resulting hash matches the hash stored in Azure AD, the user has entered the correct password and is authenticated.
 
@@ -136,13 +136,15 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 
 > [!NOTE]
 > Forcing a user to change their password on next logon requires a password change at the same time.  Azure AD Connect will not pick up the force password change flag by itself; it is supplemental to the detected password change that occurs during password hash sync.
+> 
+> If the user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in.
 
 > [!CAUTION]
 > You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.
 
 #### Account expiration
 
-If your organization uses the accountExpires attribute as part of user account management, this attribute is not synchronized to Azure AD. As a result, an expired Active Directory account in an environment configured for password hash synchronization will still be active in Azure AD. We recommend that if the account is expired, a workflow action should trigger a PowerShell script that disables the user's Azure AD account (use the [Set-AzureADUser](/powershell/module/azuread/set-azureaduser) cmdlet). Conversely, when the account is turned on, the Azure AD instance should be turned on.
+If your organization uses the accountExpires attribute as part of user account management, this attribute is not synchronized to Azure AD. As a result, an expired Active Directory account in an environment configured for password hash synchronization will still be active in Azure AD. We recommend using a scheduled PowerShell script that disables users' AD accounts, once they expire (use the [Set-ADUser](/powershell/module/activedirectory/set-aduser) cmdlet). Conversely, during the process of removing the expiration from an AD account, the account should be re-enabled.
 
 ### Overwrite synchronized passwords
 
@@ -215,6 +217,7 @@ If your server has been locked down according to Federal Information Processing 
 3. Go to the configuration/runtime node at the end of the file.
 4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
 5. Save your changes.
+6. Reboot for the changes to take effect.
 
 For reference, this snippet is what it should look like:
 

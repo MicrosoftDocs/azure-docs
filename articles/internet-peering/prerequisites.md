@@ -3,11 +3,11 @@ title: Prerequisites to set up peering with Microsoft
 titleSuffix: Azure
 description: Prerequisites to set up peering with Microsoft
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: prmitiki
+ms.author: halkazwini
 ---
 
 # Prerequisites to set up peering with Microsoft

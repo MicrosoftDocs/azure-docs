@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 12/11/2017
+ms.date: 04/21/2022
 ms.author: msangapu
 ms.custom: "devx-track-dotnet, mvc, seodec18, devx-track-azurecli"
 ---
@@ -20,24 +20,54 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-docker/deploy-linux-docker.sh?highlight=6 "Linux Docker")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### To create the web app
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-linux-docker/deploy-linux-docker-webapp-only.sh" id="FullScript":::
+
+### Configure Web App with a Custom Docker Container from Docker Hub
+
+1. Create the following variable containing your GitHub information.
+
+   ```azurecli
+   dockerHubContainerPath="<replace-with-docker-container-path>" #format: <username>/<container-or-image>:<tag>
+   ```
+
+1. Configure the web app with a custom docker container from Docker Hub.
+
+   ```azurecli
+   az webapp config container set --docker-custom-image-name $dockerHubContainerPath --name $webApp --resource-group $resourceGroup
+   ```
+
+1. Copy the result of the following command into a browser to see the web app.
+
+   ```azurecli
+   site="http://$webapp.azurewebsites.net"
+   echo $site
+   curl "$site"
+   ```
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands to create a resource group, App Service app, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container#az_webapp_config_container_set) | Sets the Docker container for the App Service app. |
+| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) | Sets the Docker container for the App Service app. |
 
 ## Next steps
 

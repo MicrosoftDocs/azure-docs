@@ -1,8 +1,8 @@
 ---
 title: Support for Hyper-V assessment in Azure Migrate
 description: Learn about support for Hyper-V assessment with Azure Migrate Discovery and assessment
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
@@ -57,7 +57,35 @@ The following table summarizes port requirements for assessment.
 **Device** | **Connection**
 --- | ---
 **Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
-**Hyper-V host/cluster** | Inbound connection on WinRM port 5985 (HTTP) or 5986 (HTTPS) to pull metadata and performance data for servers on Hyper-V, using a Common Information Model (CIM) session.
+**Hyper-V host/cluster** | Inbound connection on WinRM port 5985 (HTTP) to pull metadata and performance data for servers on Hyper-V, using a Common Information Model (CIM) session.
+**Servers** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22 (TCP) to perform software inventory and agentless dependency analysis
+
+## Software inventory requirements
+
+In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles and features running on Windows and Linux servers, discovered using Azure Migrate. It helps you to identify and plan a migration path tailored for your on-premises workloads.
+
+Support | Details
+--- | ---
+**Supported servers** | You can perform software inventory on up to 5,000 servers running across Hyper-V host(s)/cluster(s) added to each Azure Migrate appliance.
+**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os) enabled.
+**Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on OS type and the type of package manager being used, here are some additional commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
+**Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
+**Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
+**Discovery** | Software inventory is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
+
+## Dependency analysis requirements (agentless)
+
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure.The following table summarizes the requirements for setting up agentless dependency analysis:
+
+Support | Details
+--- | ---
+**Supported servers** | You can enable agentless dependency analysis on up to 1000 servers (across multiple Hyper-V hosts/clusters), discovered per appliance.
+**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os) enabled.
+**Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
+**Windows server access** |  A user account (local or domain) with administrator permissions on servers.
+**Linux server access** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+**Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
+**Discovery method** |  Agentless dependency analysis is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 
 ## Agent-based dependency analysis requirements
 
@@ -68,7 +96,7 @@ The following table summarizes port requirements for assessment.
 **Before deployment** | You should have a project in place, with the Azure Migrate: Discovery and assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add Azure Migrate: Discovery and assessment tool to an existing project.<br/> Learn how to set up the appliance for discovery and assessment of [servers on Hyper-V](how-to-set-up-appliance-hyper-v.md).
 **Azure Government** | Dependency visualization isn't available in Azure Government.
 **Log Analytics** | Azure Migrate uses the [Service Map](../azure-monitor/vm/service-map.md) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. The workspace for a project can't be modified after it's added. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br/><br/> The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
-**Required agents** | On each server you want to analyze, install the following agents:<br/><br/> The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md).<br/> The [Dependency agent](../azure-monitor/agents/agents-overview.md#dependency-agent).<br/><br/> If on-premises servers aren't connected to the internet, you need to download and install Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
+**Required agents** | On each server you want to analyze, install the following agents:<br/><br/> The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md).<br/> The [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md).<br/><br/> If on-premises servers aren't connected to the internet, you need to download and install Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
 **Log Analytics workspace** | The workspace must be in the same subscription as the project.<br/><br/> Azure Migrate supports workspaces residing in the East US, Southeast Asia, and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> The workspace for a project can't be modified after it's added.
 **Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the project)/<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA- 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project, since existing workspaces before GA are still chargeable.
 **Management** | When you register agents to the workspace, you use the ID and key provided by the project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/logs/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the project. If you do, the dependency visualization functionality will not work as expected.

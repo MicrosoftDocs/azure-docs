@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA data into Azure Digital Twins
 author: danhellem
 ms.author: dahellem # Microsoft employees only
-ms.date: 8/27/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 # Optional fields. Don't forget to remove # if you need a field.
@@ -28,12 +28,11 @@ This article shows how to connect all these pieces together to get your OPC UA n
 ## Prerequisites
 
 Before completing this article, complete the following prerequisites:
-* **Download sample repo**: This article uses a [DTDL model](concepts-models.md) file and an Azure function body from the [OPC UA to Azure Digital Twins GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins). Start by downloading the sample repo onto your machine. You can select the **Code** button for the repo to either clone the repository or download it as a .zip file to your machine.
+* Download sample repo: This article uses a [DTDL model](concepts-models.md) file and an Azure function body from the [OPC UA to Azure Digital Twins GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins). Start by downloading the sample repo onto your machine. You can select the **Code** button for the repo to either clone the repository or download it as a .zip file to your machine.
 
     :::image type="content" source="media/how-to-ingest-opcua-data/download-repo.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to clone or download the code." lightbox="media/how-to-ingest-opcua-data/download-repo.png":::
     
     If you download the repository as a .zip, be sure to unzip it and extract the files.
-* **Download Visual Studio**: This article uses Visual Studio to publish an Azure function. You can download the latest version of Visual Studio from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
 ## Architecture
 
@@ -294,7 +293,7 @@ First, deploy a new Azure Digital Twins instance, using the guidance in [Set up 
 
 Next, add a model and twin to your instance. The model file that you'll upload to the instance is part of the sample project you downloaded in the [Prerequisites](#prerequisites) section, located at *Simulation Example/simulation-dtdl-model.json*.
 
-You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to upload the Simulation model, and create a new twin called **simulation-1**.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to upload the Simulation model, and create a new twin called simulation-1.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing the Simulation model and simulation-1 twin.":::
 
@@ -358,43 +357,36 @@ Next, create a [shared access signature for the container](../storage/common/sto
 
 In this section, you'll publish an Azure function that you downloaded in [Prerequisites](#prerequisites) that will process the OPC UA data and update Azure Digital Twins.
 
-1. Navigate to the downloaded [OPC UA to Azure Digital Twins](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) project on your local machine, and into the *Azure Functions/OPCUAFunctions* folder. Open the **OPCUAFunctions.sln** solution in Visual Studio.
-2. Publish the project to a function app in Azure. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+1. Navigate to the downloaded [OPC UA to Azure Digital Twins](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) project on your local machine.
+2. Publish the project to a function app in Azure, using your preferred method.
 
-#### Configure the function app
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure).
 
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance.
+### Configure the function app
 
-[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
+Next, assign an access role for the function and configure the application settings so that it can access your Azure Digital Twins instance.
 
-#### Add application settings
+[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 
-You'll also need to add some application settings to fully set up your environment and the Azure function. Go to the [Azure portal](https://portal.azure.com) and navigate to your newly created Azure function by searching for its name in the portal search bar.
+Next, configure an application setting for the URL of the shared access signature for the *opcua-mapping.json* file.
 
-Select Configuration from the function's left navigation menu. Use the **+ New application setting** button to start creating new settings.
+```azurecli-interactive	
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "JSON_MAPPINGFILE_URL=<file-URL>"
+```
 
-:::image type="content" source="media/how-to-ingest-opcua-data/azure-function-settings-1.png" alt-text="Screenshot of adding application settings to an Azure function in the Azure portal.":::
+Optionally, you can configure a third application setting for the log level verbosity. The default is 100, or you can set it to 300 for a more verbose logging experience.
 
-There are three application settings you need to create:
-
-| Setting | Description | Required |
-| --- | --- | --- |
-| ADT_SERVICE_URL | URL for your Azure Digital Twins instance. Example: `https://example.api.eus.digitaltwins.azure.net` | ✔ |
-| JSON_MAPPINGFILE_URL | URL of the shared access signature for the opcua-mapping.json | ✔ |
-| LOG_LEVEL | Log level verbosity. Default is 100. Verbose is 300 | |
-
-:::image type="content" source="media/how-to-ingest-opcua-data/azure-function-settings-2.png" alt-text="Screenshot of application settings for an Azure function in the Azure portal. The settings above have been added.":::
-
-> [!TIP]
-> Set the `LOG_LEVEL` application setting on the function to 300 for a more verbose logging experience. 
+```azurecli-interactive	
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "LOG_LEVEL=<verbosity-level>"
+```
 
 ### Create event subscription
 
-Lastly, create an event subscription to connect your function app and *ProcessOPCPublisherEventsToADT* function to your IoT Hub. The event subscription is needed so that data can flow from the gateway device into IoT Hub through the function, which then updates Azure Digital Twins.
+Lastly, create an event subscription to connect your function app and ProcessOPCPublisherEventsToADT function to your IoT Hub. The event subscription is needed so that data can flow from the gateway device into IoT Hub through the function, which then updates Azure Digital Twins.
 
 For instructions, follow the same steps used in [Connect the IoT hub to the Azure function](tutorial-end-to-end.md#connect-the-iot-hub-to-the-azure-function) from the Azure Digital Twins *Tutorial: Connect an end-to-end solution*.
 
-The event subscription will have an Endpoint type of **Azure function**, and an Endpoint of **ProcessOPCPublisherEventsToADT**.
+The event subscription will have an **Endpoint type** of **Azure function**, and an **Endpoint** of **ProcessOPCPublisherEventsToADT**.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/event-subscription.png" alt-text="Screenshot of Azure portal showing creation of a new event subscription.":::
 
@@ -405,7 +397,7 @@ After this step, all required components should be installed and running. Data s
 In this section, you set up an Azure function to connect the OPC UA data to Azure Digital Twins. Verify that you've completed the following checklist:
 > [!div class="checklist"]
 > * Created and imported *opcua-mapping.json* file into a blob storage container. 
-> * Published the sample function *ProcessOPCPublisherEventsToADT* to a function app in Azure.
+> * Published the sample function ProcessOPCPublisherEventsToADT to a function app in Azure.
 > * Added three new application settings to the Azure Functions app.
 > * Created an event subscription to send IoT Hub events to the function app.
 

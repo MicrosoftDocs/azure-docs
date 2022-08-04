@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 03/23/2022
 ms.author: eur
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"
@@ -39,7 +39,7 @@ When you use SSML, keep in mind that special characters, such as quotation marks
 Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following sections detail how each element is used and when an element is required or optional.
 
 > [!IMPORTANT]
-> Don't forget to use double quotation marks around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that aren't in double quotation marks. 
+> Don't forget to use double quotation marks around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that aren't in double quotation marks.
 
 ## Create an SSML document
 
@@ -146,7 +146,7 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-JennyNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
         </mstts:express-as>
@@ -158,6 +158,7 @@ The following table has descriptions of each supported style.
 
 |Style|Description|
 |-----------|-------------|
+|`style="advertisement-upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
 |`style="assistant"`|Expresses a warm and relaxed tone for digital assistants.|
@@ -169,17 +170,27 @@ The following table has descriptions of each supported style.
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
-|`style="envious"`|Express a tone of admiration when you desire something that someone else has.|
+|`style="envious"`|Expresses a tone of admiration when you desire something that someone else has.|
+|`style="excited"`|Expresses an upbeat and hopeful tone. It sounds like something great is happening and the speaker is really happy about that.|
 |`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tension and unease.|
+|`style="friendly"`|Expresses a pleasant, inviting, and warm tone. It sounds sincere and caring.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
+|`style="hopeful"`|Expresses a warm and yearning tone. It sounds like something good will happen to the speaker.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
 |`style="narration-relaxed"`|Express a soothing and melodious tone for content reading.|
 |`style="newscast"`|Expresses a formal and professional tone for narrating news.|
 |`style="newscast-casual"`|Expresses a versatile and casual tone for general news delivery.|
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
+|`style="poetry-reading"`|Expresses an emotional and rhythmic tone while reading a poem.|
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
+|`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
+|`style="sports-commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
+|`style="sports-commentary-excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
+|`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
+|`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
+|`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
 ### Style degree
 
@@ -256,14 +267,9 @@ The following table has descriptions of each supported role.
 
 ## Adjust speaking languages
 
-You can adjust speaking languages for neural voices at the sentence level and word level.
+By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
 
-Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) by using the `<lang xml:lang>` element. This optional element is unique to the Speech service. Without this element, the voice speaks its primary language.
-
-Speaking language adjustments are only supported for the `en-US-JennyMultilingualNeural` neural voice. The preceding changes are applied at the sentence level and word level. If a language isn't supported, the service won't return an audio stream.
-
-> [!NOTE]
-> The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
+You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions.
 
 **Syntax**
 
@@ -275,41 +281,46 @@ Speaking language adjustments are only supported for the `en-US-JennyMultilingua
 
 | Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `lang` | Specifies the speaking languages. Speaking different languages are voice specific. | Required if adjusting the speaking language for a neural voice. If you're using `lang xml:lang`, the locale must be provided. |
+| `lang` | Specifies the language that you want the neural voice to speak. | Required to adjust the speaking language for the neural voice. If you're using `lang xml:lang`, the locale must be provided. |
 
-Use this table to determine which speaking languages are supported for each neural voice. If a language isn't supported, the service won't return an audio stream.
+> [!NOTE]
+> The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
 
-| Voice                            | Locale language           | Description                                                 |
+Use this table to determine which speaking languages are supported for each neural voice. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+
+| Voice                            | Primary and default locale           | Additional locales  |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Speak en-US locale, which is the primary locale of this voice |
-|                                  | `lang="en-CA"`            | Speak en-CA locale language                                  |
-|                                  | `lang="en-AU"`            | Speak en-AU locale language                                  |
-|                                  | `lang="en-GB"`            | Speak en-GB locale language                                  |
-|                                  | `lang="de-DE"`            | Speak de-DE locale language                                  |
-|                                  | `lang="fr-FR"`            | Speak fr-FR locale language                                  |
-|                                  | `lang="fr-CA"`            | Speak fr-CA locale language                                  |
-|                                  | `lang="es-ES"`            | Speak es-ES locale language                                  |
-|                                  | `lang="es-MX"`            | Speak es-MX locale language                                  |
-|                                  | `lang="zh-CN"`            | Speak zh-CN locale language                                  |
-|                                  | `lang="ko-KR"`            | Speak ko-KR locale language                                  |
-|                                  | `lang="ja-JP"`            | Speak ja-JP locale language                                  |
-|                                  | `lang="it-IT"`            | Speak it-IT locale language                                  |
-|                                  | `lang="pt-BR"`            | Speak pt-BR locale language                                  |
+| `en-US-JennyMultilingualNeural`  | `en-US` | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN`  |
 
 **Example**
 
-This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX`, and `de-DE`.
+The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. This SSML snippet shows how speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
-        I am looking forward to the exciting things.
-        <lang xml:lang="es-MX">
-            Estoy deseando que lleguen las cosas emocionantes.
-        </lang>
         <lang xml:lang="de-DE">
-            Ich freue mich auf die spannenden Dinge.
+            Wir freuen uns auf die Zusammenarbeit mit Ihnen!
+        </lang>
+    </voice>
+</speak>
+```
+
+Within the `speak` element, you can specify multiple languages including `en-US` for text-to-speech output. For each adjusted language, the text must match the language and be wrapped in a `voice` element. This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `es-MX`, `en-US`, and `fr-FR`.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        <lang xml:lang="es-MX">
+            ¡Esperamos trabajar con usted!
+        </lang>
+        <lang xml:lang="en-US">
+           We look forward to working with you!
+        </lang>
+        <lang xml:lang="fr-FR">
+            Nous avons hâte de travailler avec vous!
         </lang>
     </voice>
 </speak>
@@ -381,7 +392,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
@@ -429,7 +440,7 @@ The `ph` element is used for phonetic pronunciation in SSML documents. The `ph` 
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
-> At this time, the phonemes tag isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
+> Phonemes tag may not work on all locales.
 
 **Syntax**
 
@@ -477,8 +488,9 @@ Sometimes text-to-speech can't accurately pronounce a word. Examples might be th
 The custom lexicon currently supports UTF-8 encoding.
 
 > [!NOTE]
-> At this time, the custom lexicon isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
-
+> Custom lexicon feature may not work for some new locales.
+> 
+> The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -577,7 +589,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 
 When you use this custom lexicon, "BTW" is read as "By the way." "Benigni" is read with the provided IPA "bɛˈniːnji."
 
-It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
+It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomLexiconValidation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
 
 **Limitations**
 
@@ -588,7 +600,7 @@ It's easy to make mistakes in the custom lexicon, so Microsoft provides a [valid
 
 In the preceding sample, we're using the IPA, which is also known as the IPA phone set. We suggest that you use the IPA because it's the international standard. For some IPA characters, they're the "precomposed" and "decomposed" version when they're being represented with Unicode. The custom lexicon only supports the decomposed Unicode.
 
-The IPA isn't easy to remember, so the Speech service defines a phonetic set for seven languages: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
+The IPA isn't easy to remember, so the Speech service defines a phonetic set for these locales: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, `zh-HK`, and `zh-TW`.
 
 You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated here:
 
@@ -697,7 +709,39 @@ Pitch changes can be applied at the sentence level.
     </voice>
 </speak>
 ```
-## say-as element
+
+## Adjust emphasis
+
+The optional `emphasis` element is used to add or remove word-level stress for the text. This element can only contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
+
+> [!NOTE]
+> The word-level emphasis tuning is only available for these neural voices: `en-US-GuyNeural`, `en-US-DavisNeural`, and `en-US-JaneNeural`.
+
+**Syntax**
+
+```xml
+<emphasis level="value"></emphasis>
+```
+
+**Attribute**
+
+| Attribute | Description | Required or optional |
+|-----------|-------------|---------------------|
+| `level` | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute is not specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2)| Optional|
+
+**Example**
+
+This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings".
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-GuyNeural">
+    I can help you join your <emphasis level="moderate">meetings</emphasis> fast.
+    </voice>
+</speak>
+```
+
+## Add say-as element
 
 The `say-as` element is optional. It indicates the content type, such as number or date, of the element's text. This element provides guidance to the speech synthesis engine about how to pronounce the text.
 
@@ -715,7 +759,7 @@ The `say-as` element is optional. It indicates the content type, such as number 
 | `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them. See the following table. | Optional |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
-The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `interpret-as` is set to date and time.
+The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column is not empty in the table below.
 
 | interpret-as | format | Interpretation |
 |--------------|--------|----------------|
@@ -728,6 +772,7 @@ The following content types are supported for the `interpret-as` and `format` at
 | `ordinal` | | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option." |
 | `telephone` | | The text is spoken as a telephone number. The `format` attribute can contain digits that represent a country code. Examples are "1" for the United States or "39" for Italy. The speech synthesis engine can use this information to guide its pronunciation of a phone number. The phone number might also include the country code, and if so, takes precedence over the country code in the `format` attribute. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
 | `time` | hms12, hms24 | The text is spoken as a time. The `format` attribute specifies whether the time is specified by using a 12-hour clock (hms12) or a 24-hour clock (hms24). Use a colon to separate numbers representing hours, minutes, and seconds. Here are some valid time examples: 12:35, 1:14:32, 08:15, and 02:50:45. The speech synthesis engine pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />As "The train departs at four A M." |
+| `duration` | hms, hm, ms | The text is spoken as a duration. The `format` attribute specifies the duration's format (*h=hour, m=minute, and s=second*). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="duration">01:18:30</say-as>`<br /><br /> As "one hour eighteen minutes and thirty seconds".<br />Pronounces:<br /><br />`<say-as interpret-as="duration" format="ms">01:18</say-as>`<br /><br /> As "one minute and eighteen seconds".<br />This tag is only supported on English and Spanish.|
 | `name` | | The text is spoken as a person's name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />As [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="name">仇先生</say-as>`<br /><br /> As [qiú] instead of [chóu]. |
 
 **Usage**
@@ -759,6 +804,9 @@ Any audio included in the SSML document must meet these requirements:
 * The audio file must be valid *.mp3, *.wav, *.opus, *.ogg, *.flac, or *.wma files.
 * The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
+
+> [!NOTE]
+> The 'audio' element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -795,6 +843,11 @@ You can use the `mstts:backgroundaudio` element to add background audio to your 
 If the background audio provided is shorter than the text-to-speech or the fade out, it loops. If it's longer than the text-to-speech, it stops when the fade out has finished.
 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
+
+> [!NOTE]
+> The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
+> 
+> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
 
@@ -979,6 +1032,30 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cognitive-services/speech/spxspeechsynthesizer).
 
 ---
+
+## Supported MathML elements
+
+The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech.
+
+> [!NOTE]
+> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales.
+
+**Example**
+
+This SSML snippet demonstrates how the MathML elements are used to output synthesized speech. The text-to-speech output for this example is "a squared plus b squared equals c squared".
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><voice name="en-US-JennyNeural"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
+```
+
+The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional.
+
+All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. The `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored.
+
+> [!NOTE]
+> If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
+
+The MathML entities are not supported by XML syntax, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
 
 ## Next steps
 

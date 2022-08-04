@@ -4,7 +4,8 @@ description: This article describes the different management tasks that you will
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/14/2019
+ms.date: 04/06/2022
+ms.reviewer: luki
 
 ---
 
@@ -12,13 +13,15 @@ ms.date: 06/14/2019
 
 After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+
 ## Upgrading agent
 
 The Log Analytics agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on the deployment scenario and environment the VM is running in. The following methods can be used to upgrade the agent.
 
 | Environment | Installation Method | Upgrade method |
 |--------|----------|-------------|
-| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded by default [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property *autoUpgradeMinorVersion* to **false**. |
+| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property _autoUpgradeMinorVersion_ to **false**. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Major version upgrade is always manual. See [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet). |
 | Custom Azure VM images | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
@@ -75,6 +78,35 @@ Upgrade from prior versions (>1.0.0-47) is supported. Performing the installatio
 Run the following command to upgrade the agent.
 
 `sudo sh ./omsagent-*.universal.x64.sh --upgrade`
+
+### Enable Auto-Update for the Linux Agent
+
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
+# [Powershell](#tab/PowerShellLinux)
+```powershell
+Set-AzVMExtension \
+  -ResourceGroupName myResourceGroup \
+  -VMName myVM \
+  -ExtensionName OmsAgentForLinux \
+  -ExtensionType OmsAgentForLinux \
+  -Publisher Microsoft.EnterpriseCloud.Monitoring \
+  -TypeHandlerVersion latestVersion
+  -ProtectedSettingString '{"workspaceKey":"myWorkspaceKey"}' \
+  -SettingString '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+ -EnableAutomaticUpgrade $true
+```
+# [Azure CLI](#tab/CLILinux)
+```powershell
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+  --version latestVersion \
+--enable-auto-upgrade true
+```
 
 ## Adding or removing a workspace
 

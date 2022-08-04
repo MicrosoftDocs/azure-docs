@@ -4,7 +4,7 @@ description: Understand the available actions you can use with Chaos Studio incl
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 02/09/2022
+ms.date: 06/16/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -22,7 +22,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Supported OS Types | N/A |
 | Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (for example, waiting for autohealing to occur before injecting another fault). |
 | Prerequisites | N/A |
-| Urn | urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed |
+| Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
 | duration | The duration of the delay in ISO 8601 format (Example: PT10M) |
 
 ### Sample JSON
@@ -33,7 +33,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
   "actions": [ 
     {
       "type": "delay",
-      "name": "urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed",
+      "name": "urn:csci:microsoft:chaosStudio:timedDelay/1.0",
       "duration": "PT10M"
     }
   ] 
@@ -47,7 +47,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Capability Name | CPUPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows, Linux |
-| Description | Add CPU pressure up to the specified value on the VM where this fault is injected for the duration of the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Add CPU pressure up to the specified value on the VM where this fault is injected for the duration of the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the "% Processor Utility" performance counter is used at fault start to determine current CPU percentage and this is subtracted from the pressureLevel defined in the fault so that % Processor Utility will hit approximately the pressureLevel defined in the fault parameters. |
 | Prerequisites | **Linux:** Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng*  |
 | | **Windows:** None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
@@ -626,7 +626,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachine |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down a VM for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
+| Description | Shuts down a VM for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
 | Parameters (key, value) |  |
@@ -661,7 +661,7 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
@@ -1090,7 +1090,7 @@ Known issues on Linux:
 | Capability Name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
 | Description | Causes a forced reboot operation to occur on the target to simulate a brief outage. |
-| Prerequisites | None. |
+| Prerequisites | The target Azure Cache for Redis resource must be a Redis Cluster, which requires that the cache must be a Premium Tier cache. Standard and Basic Tiers are not supported. |
 | Urn | urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0 |
 | Fault type | Discrete |
 | Parameters (key, value) |  |
@@ -1126,3 +1126,62 @@ Known issues on Linux:
 
 * The reboot fault causes a forced reboot to better simulate an outage event, which means there is the potential for data loss to occur.
 * The reboot fault is a **discrete** fault type. Unlike continuous faults, it is a one-time action and therefore has no duration.
+
+
+## Cloud Services (Classic) shutdown
+
+| Property | Value |
+|-|-|
+| Capability Name | Shutdown-1.0 |
+| Target type | Microsoft-DomainName |
+| Description | Stops a deployment for the duration of the fault and restarts the deployment at the end of the fault duration or if the experiment is canceled. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:domainName:shutdown/1.0 |
+| Fault type | Continuous |
+| Parameters | None.  |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:domainName:shutdown/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Key Vault Deny Access
+| Property | Value |
+|-|-|
+| Capability Name | DenyAccess-1.0 |
+| Target type | Microsoft-KeyVault |
+| Description | Blocks all network access to a Key Vault by temporarily modifying the Key Vault network rules, preventing an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. If the Key Vault allows access to all networks, this is changed to only allow access from selected networks with no virtual networks in the allowed list at the start of the fault and returned to allowing access to all networks at the end of the fault duration. If they Key Vault is set to only allow access from selected networks, any virtual networks in the allowed list are removed at the start of the fault and restored at the end of the fault duration. |
+| Prerequisites | The target Key Vault cannot have any firewall rules and must not be set to allow Azure services to bypass the firewall. If the target Key Vault is set to only allow access from selected networks, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
+| Urn | urn:csci:microsoft:keyVault:denyAccess/1.0 |
+| Fault type | Continuous |
+| Parameters (key, value) | None. |
+
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:keyvault:denyAccess/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```

@@ -162,7 +162,7 @@ landingContent:
   #         - text: Dedicated SQL pool (formerly SQL DW) architecture
   #           url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
   #         - text: Reference Architecture
-  #           url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+  #           url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
 
 

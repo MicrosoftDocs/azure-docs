@@ -1,6 +1,5 @@
 ---
-title: Microsoft identity platform UserInfo endpoint | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform UserInfo endpoint
 description: Learn about the UserInfo endpoint on the Microsoft identity platform.
 services: active-directory
 author: nickludwig

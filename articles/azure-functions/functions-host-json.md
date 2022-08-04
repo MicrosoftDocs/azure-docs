@@ -116,11 +116,6 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     "managedDependency": {
         "enabled": true
     },
-    "retry": {
-      "strategy": "fixedDelay",
-      "maxRetryCount": 5,
-      "delayInterval": "00:00:05"
-    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -243,7 +238,7 @@ This setting is a child of [logging](#logging). It controls the console logging 
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#hostjson-settings).
 
 ## customHandler
 
@@ -340,7 +335,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook-output.md#hostjson-settings).
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
 
 ## logging
 
@@ -385,35 +380,13 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
 
-## retry
-
-Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) options for all executions in the app.
-
-```json
-{
-    "retry": {
-        "strategy": "fixedDelay",
-        "maxRetryCount": 2,
-        "delayInterval": "00:00:03"  
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|strategy|null|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
-|maxRetryCount|null|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
-|delayInterval|null|The delay that's used between retries with a `fixedDelay` strategy.|
-|minimumInterval|null|The minimum retry delay when using `exponentialBackoff` strategy.|
-|maximumInterval|null|The maximum retry delay when using `exponentialBackoff` strategy.| 
-
 ## sendGrid
 
 Configuration setting can be found in [SendGrid triggers and bindings](functions-bindings-sendgrid.md#host-json).
 
 ## serviceBus
 
-Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md#host-json).
+Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
 ## singleton
 

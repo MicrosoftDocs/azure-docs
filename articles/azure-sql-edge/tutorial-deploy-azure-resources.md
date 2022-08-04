@@ -236,21 +236,21 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
 14. Get the device primary connection string. This will be needed later for the VM. The following command uses Azure CLI for deployments.
 
     ```powershell
-    $deviceConnectionString = az iot hub device-identity show-connection-string --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
+    $deviceConnectionString = az iot hub device-identity connection-string show --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
     $connString = $deviceConnectionString[1].Substring(23,$deviceConnectionString[1].Length-24)
     $connString
     ```
 
 15. Update the connection string in the IoT Edge configuration file on the Edge device. The following commands use Azure CLI for deployments.
 
-    ```powershell
+    ```azurecli
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
 16. Create an Azure Machine Learning workspace within the resource group.
 
-    ```powershell
+    ```azurecli
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
 

@@ -3,13 +3,13 @@ title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
 description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/01/2021
-ms.author: tamram
-ms.reviewer: fryu 
+ms.date: 04/01/2022
+ms.author: jammart
+ms.reviewer: nachakra 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -228,11 +228,15 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 |-|-|
 | Azure portal | Supported. For information about authorizing with your Azure AD account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Supported for Blob storage. For information about authorizing AzCopy operations, see [Choose how you'll provide authorization credentials](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) in the AzCopy documentation. |
-| Azure Storage Explorer | Supported for Blob storage and Azure Data Lake Storage Gen2 only. Azure AD access to Queue storage is not supported. Make sure to select the correct Azure AD tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure Storage Explorer | Supported for Blob storage, Queue storage, Table storage and Azure Data Lake Storage Gen2. Azure AD access to File storage is not supported. Make sure to select the correct Azure AD tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Azure AD, see [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Azure AD credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
 | Azure CLI | Supported. For information about how to authorize Azure CLI commands with Azure AD for access to blob and queue data, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Connect your Microsoft Azure Files storage](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
+
+## Disallow Shared Key authorization to use Azure AD Conditional Access
+
+To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account. Follow the steps described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to analyze the potential impact of this change for existing storage accounts before disallowing Shared Key authorization.
 
 ## Transition Azure Files and Table storage workloads
 

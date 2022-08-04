@@ -57,7 +57,7 @@ A [manifest digest](container-registry-concepts.md#manifest-digest) can be assoc
 To delete by digest, first list the manifest digests for the repository containing the images you wish to delete. For example:
 
 ```azurecli
-az acr repository show-manifests --name myregistry --repository acr-helloworld
+az acr manifest list-metadata --name acr-helloworld --registry myregistry
 ```
 
 ```output
@@ -106,8 +106,8 @@ To maintain the size of a repository or registry, you might need to periodically
 The following Azure CLI command lists all manifest digests in a repository older than a specified timestamp, in ascending order. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment. The timestamp could be a full date-time expression or a date, as in this example.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName> \
---orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+az acr manifest list-metadata --name <repositoryName> --registry <acrName> <repositoryName> \
+    --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
 After identifying stale manifest digests, you can run the following Bash script to delete manifest digests older than a specified timestamp. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
@@ -115,7 +115,7 @@ After identifying stale manifest digests, you can run the following Bash script 
 > [!WARNING]
 > Use the following sample script with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting the manifest digests will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md). 
 
-```bash
+```azurecli
 #!/bin/bash
 
 # WARNING! This script deletes data!
@@ -135,13 +135,13 @@ TIMESTAMP=2019-04-05
 
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    az acr manifest list-metadata --name $REPOSITORY --registry $REGISTRY \
     --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted."
     echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    az acr manifest list-metadata --name $REPOSITORY --repository $REGISTRY \
    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
 fi
 ```
@@ -154,7 +154,7 @@ As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-di
 1. Check manifests for repository *acr-helloworld*:
 
    ```azurecli
-   az acr repository show-manifests --name myregistry --repository acr-helloworld
+   az acr manifest list-metadata --name acr-helloworld --registry myregistry
    
    ```
    
@@ -175,7 +175,7 @@ As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-di
 1. Check manifests for repository *acr-helloworld*:
 
    ```azurecli
-   az acr repository show-manifests --name myregistry --repository acr-helloworld
+   az acr manifest list-metadata --name myregistry --repository acr-helloworld
    ```
    
    ```output

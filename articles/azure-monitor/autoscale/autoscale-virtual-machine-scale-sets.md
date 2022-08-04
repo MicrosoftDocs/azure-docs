@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
-ms.reviewer: jushiman
+ms.reviewer: riroloff
 ms.custom: mimckitt
 
 ---

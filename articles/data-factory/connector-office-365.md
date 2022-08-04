@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 03/04/2022
 ms.author: jianleishen
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory or Synapse Analytics
@@ -18,6 +18,15 @@ Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Gra
 This article outlines how to use the Copy Activity to copy data from Office 365. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This Office 365 connector is supported for the following capabilities:
+
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
 ADF Office 365 connector and Microsoft Graph data connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 
 For now, within a single copy activity you can only **copy data from Office 365 into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Office 365 into other types of data stores or in other formats, you can chain the first copy activity with a subsequent copy activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
@@ -26,6 +35,9 @@ For now, within a single copy activity you can only **copy data from Office 365 
 >- The Azure subscription containing the data factory or Synapse workspace and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Office 365 tenant.
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Office 365 tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](/graph/data-connect-datasets#regions) for the list of supported Office regions and corresponding Azure regions.
 >- Service Principal authentication is the only authentication mechanism supported for Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 as destination stores.
+
+> [!Note]
+> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported. 
 
 ## Prerequisites
 

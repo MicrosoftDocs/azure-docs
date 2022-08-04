@@ -1,8 +1,8 @@
 ---
 title: Choose distribution columns – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn how to choose distribution columns in common scenarios in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.date: 02/28/2022
 ---
 
 # Choose distribution columns in Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Choosing each table's distribution column is one of the most important modeling
 decisions you'll make. Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -98,8 +100,7 @@ worker node, and blue shards are stored on another worker node. Notice how a
 join query between Accounts and Campaigns has all the necessary data together
 on one node when both tables are restricted to the same account\_id.
 
-![Multi-tenant
-colocation](../media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
+![Multi-tenantcolocation](../media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
 To apply this design in your own schema, identify what constitutes a tenant in
 your application. Common instances include company, account, organization, or

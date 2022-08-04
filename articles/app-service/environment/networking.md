@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 02/17/2022
+ms.date: 08/01/2022
 ms.author: madsd
 ---
 
@@ -51,19 +51,20 @@ For your app to receive traffic, ensure that inbound network security group (NSG
 
 It's a good idea to configure the following inbound NSG rule:
 
-|Port|Source|Destination|
-|-|-|-|
-|80,443|Virtual network|App Service Environment subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80,443|Inbound|VirtualNetwork|App Service Environment subnet range|Allow app traffic and internal health ping traffic|
 
 The minimal requirement for App Service Environment to be operational is:
 
-|Port|Source|Destination|
-|-|-|-|
-|80|Azure Load Balancer|App Service Environment subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80|Inbound|AzureLoadBalancer|App Service Environment subnet range|Allow internal health ping traffic|
 
 If you use the minimum required rule, you might need one or more rules for your application traffic. If you're using any of the deployment or debugging options, you must also allow this traffic to the App Service Environment subnet. The source of these rules can be the virtual network, or one or more specific client IPs or IP ranges. The destination is always the App Service Environment subnet range.
+The internal health ping traffic on port 80 is isolated between the Load balancer and the internal servers. No outside traffic can reach the health ping endpoint.
 
-The normal app access ports are as follows:
+The normal app access ports inbound are as follows:
 
 |Use|Ports|
 |-|-|
@@ -76,7 +77,14 @@ The normal app access ports are as follows:
 
 You can set route tables without restriction. You can tunnel all of the outbound application traffic from your App Service Environment to an egress firewall device, such as Azure Firewall. In this scenario, the only thing you have to worry about is your application dependencies.
 
-You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so exposes specific apps on that App Service Environment. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
+Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, this could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Azure Active Directory. If you are using [continuous deployment in App Service](../deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you will need to allow `oryx-cdn.microsoft.io:443`.
+
+You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so allows you to expose specific apps on that App Service Environment.
+
+Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
+
+> [!NOTE]
+> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. However, the supportability is determined by the subscription where the virtual network is deployed. For virtual networks created before 1. August 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## Private endpoint
 
@@ -90,7 +98,6 @@ az appservice ase update --name myasename --allow-new-private-endpoint-connectio
 ```
 
 For more information about Private Endpoint and Web App, see [Azure Web App Private Endpoint][privateendpoint] 
-
 
 ## DNS
 
@@ -117,16 +124,22 @@ To configure DNS in Azure DNS private zones:
 
 In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (simply replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
 
+### DNS configuration for FTP access
+
+For FTP access to Internal Load balancer (ILB) App Service Environment v3 specifically, you need to ensure DNS is configured. Configure an Azure DNS private zone or equivalent custom DNS with the following settings:
+
+1. Create an Azure DNS private zone named `ftp.appserviceenvironment.net`.
+1. Create an A record in that zone that points `<App Service Environment-name>` to the inbound IP address.
+
+In addition to setting up DNS, you also need to enable it in the [App Service Environment configuration](./configure-network-settings.md#ftp-access) as well as at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
+
 ### DNS configuration from your App Service Environment
 
 The apps in your App Service Environment will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server, you can manually set it on a per app basis, with the app settings `WEBSITE_DNS_SERVER` and `WEBSITE_DNS_ALT_SERVER`. `WEBSITE_DNS_ALT_SERVER` configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server.
 
 ## Limitations
 
-While App Service Environment does deploy into your virtual network, there are a few networking features that aren't available:
-
-* Sending SMTP traffic. Although you can still have email-triggered alerts, your app can't send outbound traffic on port 25.
-* Using Azure Network Watcher or NSG flow to monitor outbound traffic.
+While App Service Environment does deploy into your virtual network, you currently cannot use Azure Network Watcher or NSG flow to monitor outbound traffic.
 
 ## More resources
 

@@ -1,22 +1,24 @@
 ---
-title: Introduction to Azure Active Directory Verifiable Credentials (preview)
+title: Introduction to Microsoft Entra Verified ID (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor:
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 04/01/2021
+ms.date: 06/02/2022
 ms.author: barclayn
 ms.reviewer: 
 ---
 
-# Introduction to Azure Active Directory Verifiable Credentials (preview)
+# Introduction to Microsoft Entra Verified ID (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
+> Microsoft Entra Verified ID is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -69,19 +71,23 @@ To deliver on these promises, we need a technical foundation made up of seven ke
 
 ![overview of Microsoft's verifiable credential environment](media/decentralized-identifier-overview/microsoft-did-system.png)
 
-**1. W3C Decentralized Identifiers (DIDs)**
+**1. W3C Decentralized Identifiers (DIDs)**.
 IDs users create, own, and control independently of any organization or government. DIDs are globally unique identifiers linked to Decentralized Public Key Infrastructure (DPKI) metadata composed of JSON documents that contain public key material, authentication descriptors, and service endpoints.
 
-**2. Decentralized system: ION (Identity Overlay Network)**
-ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. We have [open sourced a npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the Bitcoin blockchain. 
+**2. Trust System**.
+In order to be able to resolve DID documents, DIDs are typically recorded on an underlying network of some kind that represents a trust system. Microsoft currently supports two trust systems, which are: 
 
-**3. DID User Agent/Wallet: Microsoft Authenticator App**
+- ION (Identity Overlay Network) ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. We have open sourced a [npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the Bitcoin blockchain.
+
+- DID:Web is a permission based model that allows trust using a web domain’s existing reputation.
+
+**3. DID User Agent/Wallet: Microsoft Authenticator App**.
 Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for verifiable credentials and manages the backup of your DID's seed through an encrypted wallet file.
 
-**4. Microsoft Resolver**
+**4. Microsoft Resolver**.
 An API that connects to our ION node to look up and resolve DIDs using the ```did:ion``` method and return the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
 
-**5. Azure Active Directory Verified Credentials Service**
+**5. Azure Active Directory Verified Credentials Service**.
 An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
 
 ## A sample scenario
@@ -94,9 +100,9 @@ The scenario we use to explain how VCs work involves:
 
 
 
-Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a VC solution to provide a more manageable way for Alice to prove she is an employee of Woodgrove. Proseware is using a VC solution compatible with Woodgrove's VC solution and they accept credentials issued by Woodgrove as proof of employment.
+Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a verifiable credential solution to provide a more manageable way for Alice to prove that she is an employee of Woodgrove. Proseware accepts verifiable credentials issued by Woodgrove as proof of employment to offer corporate discounts as part of their corporate discount program.
 
-The issuer of the credential, Woodgrove Inc., creates a public key and a private key. The public key is stored on ION. When the key is added to the infrastructure, the entry is recorded in a blockchain-based decentralized ledger. The issuer provides Alice the private key that is stored in a wallet application. Each time Alice successfully uses the private key the transaction is logged in the wallet application.
+Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identity and issues a signed verfiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employement on the Proseware site. After a succesfull presentation of the credential, Prosware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
 
 ![microsoft-did-overview](media/decentralized-identifier-overview/did-overview.png)
 
@@ -106,7 +112,7 @@ There are three primary actors in the verifiable credential solution. In the fol
 
 - **Step 1**, the **user** requests a verifiable credential from an issuer.
 - **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a verifiable credential signed with their DID and the user’s DID is the subject.
-- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates of the credential by matching with the public key placed in the DPKI.
+- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates the credential by matching with the public key placed in the DPKI.
 
 The roles in this scenario are:
 

@@ -11,6 +11,11 @@ ms.topic: overview
 ms.date: 01/07/2022
 ms.author: danlep
 ms.custom: mvc
+
+adobe-target: true
+adobe-target-activity: DocsExp–458741–A/B–Docs/APIManagement–Content–FY23Q1
+adobe-target-experience: Experience B
+adobe-target-content: ./api-management-key-concepts-experiment
 ---
 
 # About API Management
@@ -43,7 +48,7 @@ Azure API Management is made up of an API *gateway*, a *management plane*, and a
 
 ### API gateway
 
-All requests from client applications first reach the API gateway, which then forwards them to respective backend services. The API gateway acts as a façade to the backend services, allowing API providers to abstract API implementations and evolve backend architecture without impacting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
+All requests from client applications first reach the API gateway, which then forwards them to respective backend services. The API gateway acts as a facade to the backend services, allowing API providers to abstract API implementations and evolve backend architecture without impacting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
 
 The API gateway:
   
@@ -100,7 +105,7 @@ API Management integrates with many complementary Azure services, including:
 * [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
 * [Virtual networks](virtual-network-concepts.md) and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
 * Azure Active Directory for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
-* [Event Hub](api-management-howto-log-event-hubs.md) for streaming events​
+* [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
 * Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
 
 ## Key concepts

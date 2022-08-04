@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues in a deployment on Azure File Sync, which you can use to transform Windows Server into a quick cache of your Azure file share.
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 11/2/2021
-ms.author: jeffpatt
+ms.date: 6/2/2022
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
@@ -116,17 +116,8 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 
 ### Cloud endpoint creation errors
 
-<a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
-This error occurs if the Azure file share is already in use by another cloud endpoint. 
-
-If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
-
-> [!Warning]  
-> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. If you then use this file share for sync in a different sync group, data loss for files in the old sync group is almost certain.
-
-1. In the Azure portal, go to your Azure file share.  
-2. Right-click the Azure file share, and then select **Edit metadata**.
-3. Right-click **SyncService**, and then select **Delete**.
+<a id="cloud-endpoint-mgmtinternalerror"></a>**Cloud endpoint creation fails, with this error: "MgmtInternalError"**  
+This error can occur if the Azure File Sync service cannot access the storage account due to SMB security settings. To enable Azure File Sync to access the storage account, the SMB security settings on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
 
 <a id="cloud-endpoint-authfailed"></a>**Cloud endpoint creation fails, with this error: "AuthorizationFailed"**  
 This error occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
@@ -149,6 +140,18 @@ To determine whether your user account role has the required permissions:
 5. In the **Resource Provider** list, select **Microsoft Authorization**. 
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
+
+<a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
+This error occurs if the Azure file share is already in use by another cloud endpoint. 
+
+If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
+
+> [!Warning]  
+> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. If you then use this file share for sync in a different sync group, data loss for files in the old sync group is almost certain.
+
+1. In the Azure portal, go to your Azure file share.  
+2. Right-click the Azure file share, and then select **Edit metadata**.
+3. Right-click **SyncService**, and then select **Delete**.
 
 ### Server endpoint creation and deletion errors
 
@@ -358,7 +361,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | The file is encrypted by an unsupported solution (like NTFS EFS). | Decrypt the file and use a supported encryption solution. For a list of support solutions, see the [Encryption](file-sync-planning.md#encryption) section of the planning guide. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | The file is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file has a delete pending state. | No action required. File will be deleted once all open file handles are closed. |
-| 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | The file cannot be synced because the firewall and virtual network settings on the storage account are enabled and the server does not have access to the storage account. | Add the Server IP address or virtual network by following the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide. |
+| 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | The file cannot be synced because the firewall and virtual network settings on the storage account are enabled and the server does not have access to the storage account. | Add the Server IP address or virtual network by following the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings) section in the deployment guide. |
 | 0x80c80243 | -2134375869 | ECS_E_SECURITY_DESCRIPTOR_SIZE_TOO_LARGE | The file cannot be synced because the security descriptor size exceeds the 64 KiB limit. | To resolve this issue, remove access control entries (ACE) on the file to reduce the security descriptor size. |
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | The file cannot be synced due to an unexpected error. | If the error persists for several days, please open a support case. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | The file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
@@ -469,7 +472,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
 2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
 3. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
-4. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings)
 
 <a id="-2134351804"></a>**Sync failed because the request is not authorized to perform this operation.**  
 
@@ -484,7 +487,7 @@ This error occurs because the Azure File Sync agent is not authorized to access 
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
 2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
-3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings)
 4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
@@ -502,7 +505,7 @@ This error occurs because the Azure File Sync agent is not authorized to access 
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
-3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings)
 
 > [!Note]  
 > Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
@@ -517,7 +520,7 @@ This error occurs because the Azure File Sync agent is not authorized to access 
 | **Remediation required** | Yes |
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings)
 
 <a id="-2134364014"></a>**Sync failed due to storage account locked.**  
 
@@ -621,7 +624,7 @@ This error occurs when the Azure subscription is suspended. Sync will be reenabl
 | **Error string** | ECS_E_SERVER_BLOCKED_BY_NETWORK_ACL |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Verify the firewall and virtual network settings on the storage account are configured properly. For more information, see [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
+This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Verify the firewall and virtual network settings on the storage account are configured properly. For more information, see [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings). 
 
 <a id="-2134375911"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -715,15 +718,11 @@ To confirm the certificate is expired, perform the following steps:
 1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
 2. Check if the client authentication certificate is expired.
 
-If the client authentication certificate is expired, perform the following steps to resolve the issue:
+If the client authentication certificate is expired, run the following PowerShell command on the server:
 
-1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell command on the server:
-
-    ```powershell
-    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
-    ```
-
+```powershell
+Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+```
 <a id="-2134375896"></a>**Sync failed due to authentication certificate not found.**  
 
 | Error | Code |
@@ -735,15 +734,11 @@ If the client authentication certificate is expired, perform the following steps
 
 This error occurs because the certificate used for authentication is not found.
 
-To resolve this issue, perform the following steps:
+To resolve this issue, run the following PowerShell command on the server:
 
-1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell command on the server:
-
-    ```powershell
-    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
-    ```
-
+```powershell
+Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+```
 <a id="-2134364039"></a>**Sync failed due to authentication identity not found.**  
 
 | Error | Code |
@@ -890,9 +885,7 @@ This error occurs because of an internal problem with the sync database. This er
 | **Error string** | ECS_E_INVALID_AAD_TENANT |
 | **Remediation required** | Yes |
 
-Make sure you have the latest Azure File Sync agent. As of agent V10, Azure File Sync supports moving the subscription to a different Azure Active Directory tenant.
- 
-Once you have the latest agent version, you must give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](#troubleshoot-rbac)).
+Verify you have the latest Azure File Sync agent version installed and give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](#troubleshoot-rbac)).
 
 <a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
 
@@ -903,9 +896,9 @@ Once you have the latest agent version, you must give the Microsoft.StorageSync 
 | **Error string** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
 | **Remediation required** | Yes |
 
-This error occurs if the firewall and virtual network settings are enabled on the storage account and the "Allow trusted Microsoft services to access this storage account" exception is not checked. To resolve this issue, follow the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide.
+This error occurs if the firewall and virtual network settings are enabled on the storage account and the "Allow trusted Microsoft services to access this storage account" exception is not checked. To resolve this issue, follow the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings) section in the deployment guide.
 
-<a id="-2147024891"></a>**Sync failed because permissions on the System Volume Information folder are incorrect.**  
+<a id="-2147024891"></a>**Sync failed with access denied due to security settings on the storage account or NTFS permissions on the server.**  
 
 | Error | Code |
 |-|-|
@@ -914,15 +907,17 @@ This error occurs if the firewall and virtual network settings are enabled on th
 | **Error string** | ERROR_ACCESS_DENIED |
 | **Remediation required** | Yes |
 
-This error can occur if the NT AUTHORITY\SYSTEM account does not have permissions to the System Volume Information folder on the volume where the server endpoint is located. Note, if individual files are failing to sync with ERROR_ACCESS_DENIED, perform the steps documented in the [Troubleshooting per file/directory sync errors](?tabs=portal1%252cazure-portal#troubleshooting-per-filedirectory-sync-errors) section.
+This error can occur if Azure File Sync cannot access the storage account due to security settings or if the NT AUTHORITY\SYSTEM account does not have permissions to the System Volume Information folder on the volume where the server endpoint is located. Note, if individual files are failing to sync with ERROR_ACCESS_DENIED, perform the steps documented in the [Troubleshooting per file/directory sync errors](?tabs=portal1%252cazure-portal#troubleshooting-per-filedirectory-sync-errors) section.
 
-To resolve this issue, perform the following steps:
+1. Verify the **SMB security settings** on the storage account are allowing **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings)
+3. Verify the **NT AUTHORITY\SYSTEM** account has permissions to the System Volume Information folder on the volume where the server endpoint is located by performing the following steps:
 
-1. Download [Psexec](/sysinternals/downloads/psexec) tool.
-2. Run the following command from an elevated command prompt to launch a command prompt using the system account: `PsExec.exe -i -s -d cmd`
-3. From the command prompt running under the system account, run the following command to confirm the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder: `cacls "drive letter:\system volume information" /T /C`
-4. If the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder, run the following command: `cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"`
-    - If step #4 fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #4: `takeown /A /R /F "drive letter:\System Volume Information"`
+	a. Download [Psexec](/sysinternals/downloads/psexec) tool.  
+    b. Run the following command from an elevated command prompt to launch a command prompt using the system account: `PsExec.exe -i -s -d cmd`  
+	c. From the command prompt running under the system account, run the following command to confirm the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder: `cacls "drive letter:\system volume information" /T /C`  
+	d. If the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder, run the following command: `cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"`  
+    	- If step #d fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #d: `takeown /A /R /F "drive letter:\System Volume Information"`
 
 <a id="-2134375810"></a>**Sync failed because the Azure file share was deleted and recreated.**  
 
@@ -1206,7 +1201,7 @@ If files fail to tier to Azure Files:
 | 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file failed to tier due to access denied error. This error can occur if the file is located on a DFS-R read-only replication folder. | Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
 | 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
-| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | The file failed to tier because the file size is less than the supported size. | If the agent version is less than 9.0, the minimum supported file size is 64 KiB. If agent version is 9.0 and newer, the minimum supported file size is based on the file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | The file failed to tier because the file size is less than the supported size. | The minimum supported file size is based on the file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. |
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | The file failed to tier due to an Azure storage issue. | If the error persists, open a support request. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | The file failed to tier because it was recalled at the same time. | No action required. The file will be tiered when the recall completes and the file is no longer in use. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | The file failed to tier because it has not synced to the Azure file share. | No action required. The file will tier once it has synced to the Azure file share. |
@@ -1245,7 +1240,7 @@ If files fail to be recalled:
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | The file failed to recall due to an I/O timeout. This issue can occur for several reasons: server resource constraints, poor network connectivity or an Azure storage issue (for example, throttling). | No action required. If the error persists for several hours, please open a support case. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | The file failed to recall due to a network issue.  | If the error persists, check network connectivity to the Azure file share. |
 | 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | The file failed to recall because the server endpoint was deleted. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
-| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file failed to recall due to an access denied error. This issue can occur if the firewall and virtual network settings on the storage account are enabled and the server does not have access to the storage account. | To resolve this issue, add the Server IP address or virtual network by following the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file failed to recall due to an access denied error. This issue can occur if the firewall and virtual network settings on the storage account are enabled and the server does not have access to the storage account. | To resolve this issue, add the Server IP address or virtual network by following the steps documented in the [Configure firewall and virtual network settings](file-sync-deployment-guide.md?tabs=azure-portal#optional-configure-firewall-and-virtual-network-settings) section in the deployment guide. |
 | 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | The file failed to recall because it's not accessible in the Azure file share. | To resolve this issue, verify the file exists in the Azure file share. If the file exists in the Azure file share, upgrade to the latest Azure File Sync [agent version](file-sync-release-notes.md#supported-versions). |
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | The file failed to recall due to authorization failure to the storage account. | To resolve this issue, verify [Azure File Sync has access to the storage account](?tabs=portal1%252cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | The file failed to recall because the Azure file share is not accessible. | Verify the file share exists and is accessible. If the file share was deleted and recreated, perform the steps documented in the [Sync failed because the Azure file share was deleted and recreated](?tabs=portal1%252cazure-portal#-2134375810) section to delete and recreate the sync group. |
@@ -1279,14 +1274,13 @@ If the above conditions are not met, restoring access is not possible as these t
 
 <a id="get-orphaned"></a>**How to get the list of orphaned tiered files** 
 
-1. Verify Azure File Sync agent version v5.1 or later is installed.
-2. Run the following PowerShell commands to list orphaned tiered files:
+1. Run the following PowerShell commands to list orphaned tiered files:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
-3. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+2. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
 
 <a id="remove-orphaned"></a>**How to remove orphaned tiered files** 
 
@@ -1294,22 +1288,21 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 This option deletes the orphaned tiered files on the Windows Server but requires removing the server endpoint if it exists due to recreation after 30 days or is connected to a different sync group. File conflicts will occur if files are updated on the Windows Server or Azure file share before the server endpoint is recreated.
 
-1. Verify Azure File Sync agent version v5.1 or later is installed.
-2. Back up the Azure file share and server endpoint location.
-3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
+1. Back up the Azure file share and server endpoint location.
+2. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
 
 > [!Warning]  
 > If the server endpoint is not removed prior to using the Remove-StorageSyncOrphanedTieredFiles cmdlet, deleting the orphaned tiered file on the server will delete the full file in the Azure file share. 
 
-4. Run the following PowerShell commands to list orphaned tiered files:
+3. Run the following PowerShell commands to list orphaned tiered files:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
-5. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
-6. Run the following PowerShell commands to delete orphaned tiered files:
+4. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+5. Run the following PowerShell commands to delete orphaned tiered files:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -1321,7 +1314,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 - Tiered files that are accessible (not orphan) will not be deleted.
 - Non-tiered files will remain on the server.
 
-7. Optional: Recreate the server endpoint if deleted in step 3.
+6. Optional: Recreate the server endpoint if deleted in step 3.
 
 *Option 2: Mount the Azure file share and copy the files locally that are orphaned on the server*
 
@@ -1342,7 +1335,7 @@ Antivirus, backup, and other applications that read large numbers of files cause
 
 Consult with your software vendor to learn how to configure their solution to skip reading offline files.
 
-Unintended recalls also might occur in other scenarios, like when you are browsing files in File Explorer. Opening a folder that has cloud-tiered files in File Explorer on the server might result in unintended recalls. This is even more likely if an antivirus solution is enabled on the server.
+Unintended recalls also might occur in other scenarios, like when you are browsing cloud-tiered files in File Explorer. This is likely to occur on Windows Server 2016 if the folder contains executable files. File Explorer was improved for Windows Server 2019 and later to better handle offline files.
 
 > [!NOTE]
 >Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
@@ -1377,9 +1370,8 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool and send its .zip file output to the support engineer assigned to your case for further diagnosis.
 
-To run AFSDiag, perform the steps below.
+To run AFSDiag, perform the steps below:
 
-For agent version v11 and later:
 1. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
 
     > [!NOTE]
@@ -1393,24 +1385,6 @@ For agent version v11 and later:
 
 2. Reproduce the issue. When you're finished, enter **D**.
 3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
-
-For agent version v10 and earlier:
-1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
-    > [!NOTE]
-    >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
-2. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
-
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-Afs c:\output # Note: Use the path created in step 1.
-    ```
-
-3. For the Azure File Sync kernel mode trace level, enter **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
-4. For the Azure File Sync user mode trace level, enter **1** (unless otherwise specified, to create more verbose traces), and then press Enter.
-5. Reproduce the issue. When you're finished, enter **D**.
-6. A .zip file that contains logs and trace files is saved to the output directory that you specified.
-
 
 ## See also
 - [Monitor Azure File Sync](file-sync-monitoring.md)
