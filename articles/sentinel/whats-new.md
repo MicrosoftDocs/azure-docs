@@ -31,6 +31,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 The Microsoft Sentinel Solution for SAP is now generally available (GA). [Learn about billing and offer details](/pricing/offers/microsoft-sentinel-sap-promo/).
 
+With previous versions, every solution update would duplicate content, creating new objects alongside the previous version objects. The GA version uses rule templates, so that for every solution update, you can clearly understand what has changed, and the UI accepts the change at the rule or workbook level. [Learn more about rule templates](detect-threats-built-in.md).
+
+[Learn more about the updated solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protect-critical-information-within-sap-systems-against/ba-p/3586943).
+
+#### More about the solution
+
 The Microsoft Sentinel solution for SAP allows you to monitor, detect, and respond to suspicious activities within the SAP ecosystem, protecting your sensitive data against sophisticated cyber attacks. 
 
 Use the solution to: 
@@ -40,8 +46,6 @@ Use the solution to:
 - Detect and automatically respond to threats 
 - Discover suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, and suspicious data downloads with out-of-the-box detection capabilities 
 - Customize based on your needs: build your own threat detection solutions to monitor specific business risks and extend built-in security content
-
-[Learn more about the updated solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protect-critical-information-within-sap-systems-against/ba-p/3586943).
 
 ## July 2022
 
