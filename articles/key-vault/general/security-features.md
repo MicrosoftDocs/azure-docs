@@ -112,7 +112,7 @@ When you create a key vault in a resource group, you manage access by using Azur
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
-> If a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
+> When using the Access Policy permission model, if a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults with the Access Policy permission model to ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates. It is recommended to use the new **Role Based Access Control (RBAC) permission model** to avoid this issue. With the RBAC permission model, permission management is limited to 'Owner' and 'User Access Administrator' roles.
 
 ### Controlling access to Key Vault data
 
