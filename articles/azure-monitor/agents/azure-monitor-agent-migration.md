@@ -24,7 +24,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
   - Easy **multihoming** on Windows and Linux.
   - Centralized, ‘in the cloud’ agent configuration makes every action, across the data collection lifecycle, simpler and more easily scalable, from onboarding to deployment to updates and changes over time.
   - Greater transparency and control of more capabilities and services, such as Sentinel, Defender for Cloud, and VM Insights.
-- **A single agent** that consolidates all features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11). This is goal, though AMA is currently converging with the Log Analytics agents.
+- **A single agent** that consolidates all features necessary to address all telemetry data collection needs across servers and client devices (running Windows 10, 11). This is the goal, though Azure Monitor Agent currently converges with the Log Analytics agents.
 
 ## When should I migrate to the Azure Monitor Agent?
 Your migration plan to the Azure Monitor Agent should include the following considerations:
