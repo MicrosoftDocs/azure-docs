@@ -191,14 +191,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|active-timer-count|Yes|System.Runtime|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
-|alloc-rate|Yes|System.Runtime|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
-|AppCpuUsage|Yes|App CPU Usage (Deprecated)|Percent|Average|The recent CPU usage for the app. This metric is being deprecated. Please use "App CPU Usage" with metric id "PodCpuUsage".|Deployment, AppName, Pod|
-|assembly-count|Yes|System.Runtime|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
-|cpu-usage|Yes|System.Runtime|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
-|current-requests|Yes|Microsoft.AspNetCore.Hosting|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
-|exception-count|Yes|System.Runtime|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
-|failed-requests|Yes|Microsoft.AspNetCore.Hosting|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
+|active-timer-count|Yes|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
+|alloc-rate|Yes|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
+|AppCpuUsage|Yes|App CPU Usage |Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
+|assembly-count|Yes|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
+|cpu-usage|Yes|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
+|current-requests|Yes|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
+|exception-count|Yes|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
+|failed-requests|Yes|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
 |GatewayHttpServerRequestsMilliSecondsMax|Yes|Max time of requests|Milliseconds|Maximum|The max time of requests|Pod, httpStatusCode, outcome, httpMethod|
 |GatewayHttpServerRequestsMilliSecondsSum|Yes|Total time of requests|Milliseconds|Total|The total time of requests|Pod, httpStatusCode, outcome, httpMethod|
 |GatewayHttpServerRequestsSecondsCount|Yes|Request count|Count|Total|The number of requests|Pod, httpStatusCode, outcome, httpMethod|
