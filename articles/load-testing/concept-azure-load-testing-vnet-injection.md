@@ -56,7 +56,7 @@ In this scenario, you have an on-premises application endpoint, which isn't publ
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/onpremise-private-endpoint-expressroute.png" alt-text="Diagram that shows the set-up for load testing an on-premises hosted, private endpoint connected via Azure ExpressRoute.":::
 
-ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. Deploy Azure Load Testing in an Azure virtual network and then [connect the network to your ExpressRoute circuit](azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager). After you've set up the connection, the load test engines can connect to the on-premises hosted application endpoint.
+ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. Deploy Azure Load Testing in an Azure virtual network and then [connect the network to your ExpressRoute circuit](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager). After you've set up the connection, the load test engines can connect to the on-premises hosted application endpoint.
 
 ## Next steps
 
