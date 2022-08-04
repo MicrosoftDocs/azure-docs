@@ -3,6 +3,7 @@ title: Migrate managed disks to availability zone support
 description: Learn how to migrate managed disks  to availability zone support.
 author: anaharris-ms
 ms.service: storage
+ms.subservice: disks
 ms.topic: conceptual
 ms.date: 08/03/2022
 ms.author: anaharris 
