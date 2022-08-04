@@ -67,10 +67,8 @@ When you get results from PII detection, you can stream the results to an applic
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
-    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
-    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
-    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript)
-    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples/Sample8_AnalyzeConversation_ConversationPII_Transcript.md)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples/sample_conv_pii_transcript_input.py)
     
 5. See the following reference documentation for more information on the client, and return object:
     
