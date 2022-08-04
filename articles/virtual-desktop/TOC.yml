@@ -103,7 +103,7 @@
     href: store-fslogix-profile.md
   - name: Scale session hosts
     items:
-    - name: Autoscale (preview)
+    - name: Autoscale
       items:
       - name: How autoscale works
         href: autoscale-scenarios.md
