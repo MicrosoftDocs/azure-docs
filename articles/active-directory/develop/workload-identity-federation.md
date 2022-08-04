@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 07/27/2022
 ms.author: ryanwi
-ms.reviewer: keyam, udayh, vakarand
+ms.reviewer: shkhalid, udayh, vakarand
 ms.custom: aaddev 
 #Customer intent: As a developer, I want to learn about workload identity federation so that I can securely access Azure AD protected resources from external apps and services without needing to manage secrets. 
 ---
 
-# Workload identity federation (preview)
+# Workload identity federation
 This article provides an overview of workload identity federation for software workloads. Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets (for supported scenarios).
 
-You can use workload identity federation in scenarios such as GitHub Actions and workloads running on Kubernetes.
+You can use workload identity federation in scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure.
 
 ## Why use workload identity federation?
 
