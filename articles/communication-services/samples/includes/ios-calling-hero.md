@@ -68,7 +68,10 @@ The group calling sample can be run locally using XCode. Developers can either u
 
 1. Install dependencies by running `pod install`.
 2. Open `AzureCalling.xcworkspace` in XCode.
-3. Update `AppSettings.plist`. Set the value for the `communicationTokenFetchUrl` key to be the URL for your Authentication Endpoint.
+3. Create a text file at the root, called `AppSettings.xcconfig` and set the value:
+   ```text
+   communicationTokenFetchUrl = <your authentication endpoint, without the https:// component>
+   ```
 
 ### Run sample
 
@@ -87,13 +90,12 @@ With additional configuration, this sample supports connecting to an **Azure Act
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory configuration on Azure portal.":::
 
-3. Open `AppSettings.plist` in Xcode, add the following key values:
-   - `communicationTokenFetchUrl`: The URL to request Azure Communication Services token 
-   - `isAADAuthEnabled`: A boolean value to indicate if the Azure Communication Services token authentication is required or not
-   - `aadClientId`: Your Application (client) ID
-   - `aadTenantId`: Your Directory (tenant) ID
-   - `aadRedirectURI`: The redirect URI should be in this format: `msauth.<app_bundle_id>://auth`
-   - `aadScopes`: An array of permission scopes requested from users for authorization. Add `<Application ID URI>/user_impersonation` to the array to grant access to authentication endpoint
+3. Create a `AppSettings.xcconfig` file at the root if not already present and add the values:
+   ```text
+   communicationTokenFetchUrl = <Application ID URI, without the https:// component>
+   aadClientId = <Application (client) ID>
+   aadTenantId = <Directory (tenant) ID>
+   ```
 
 ## Clean up resources
 
