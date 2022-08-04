@@ -71,7 +71,7 @@ To ensure the connector VMs send requests to the Application Gateway, an [Azure 
 
 ### Test the application.
 
-After [adding a user for testing][appproxy-add-user], you can test the application by accessing https://www.fabrikam.one.
+After [adding a user for testing](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one. The user will be prompted to authenticate in Azure AD, and upon successfull authentication, will access the application. 
 
 ![authentication](./media/application-proxy-waf/signin2.png)
 ![server response](./media/application-proxy-waf/appgwresponse.png)
