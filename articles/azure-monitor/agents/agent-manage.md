@@ -6,7 +6,6 @@ author: bwren
 ms.author: bwren
 ms.date: 04/06/2022
 ms.reviewer: luki
-
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
