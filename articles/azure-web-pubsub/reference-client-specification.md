@@ -10,7 +10,9 @@ ms.date: 07/26/2022
 
 # Azure Web PubSub client specification
 
-The client specification outlines the complete feature set available to an Azure Web PubSub client. It's highly recommended that client library developers familiarize themselves with the client specification. The specification defines the behaviors and features a client library must implement to work properly with Web PubSub service.
+## Summary
+
+The client specification outlines the complete feature set available to an Azure Web PubSub client. It's highly recommended that client library developers familiarize themselves with the client specification. The specification defines the behaviors and features a client library **must** implement to work properly with Web PubSub service.
 
 For more information, see the [entire client specification](https://github.com/Azure/azure-webpubsub/blob/main/protocols/client/client-spec.md), located on GitHub.
 
