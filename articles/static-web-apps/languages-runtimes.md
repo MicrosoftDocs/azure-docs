@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 08/04/2022
 ms.author: cshoe
 ---
 
@@ -15,12 +15,16 @@ Azure Static Web Apps features two different places where runtime and language v
 
 | Runtime type | Description |
 |--|--|
-| **Front end** | The version responsible for running the website's build steps that build the front end application. |
-| **API** | The version and runtime of Azure Functions used in your web application. |
+| [Front end](#front-end) | The version responsible for running the website's build steps that build the front end application. |
+| [API](#api) | The version and runtime of Azure Functions used in your web application. |
 
 ## Front end
 
-You can specify the runtime version that builds the front end of your static web app in the _package.json_ file.
+By default the runtime version used to build the front end of a static web app is the current long-term service (LTS) version.
+
+Pointing to a version that isn't marked as LTS is often only necessary if you need to roll back to older versions.
+
+You can specify the runtime version that builds the front end of your static web app in the _package.json_ file in the `engines` section of the file.
 
 ```json
 {
@@ -34,3 +38,13 @@ You can specify the runtime version that builds the front end of your static web
 ## API
 
 The APIs in Azure Static Web Apps are supported by Azure Functions. Refer to the [Azure Functions supported languages and runtimes](/azure/azure-functions/supported-languages) for details.
+
+[!INCLUDE [Languages and runtimes](../../includes/container-apps-languages-runtimes.md)]
+
+## Running locally
+
+When running a Static Web Apps locally, you need to run Azure Functions Core Tools v4. For more information, see [Azure Functions runtimes overview](/azure/azure-functions/functions-versions?tabs=azure-cli%2Cin-process%2Cv4&pivots=programming-language-csharp#upgrade-your-local-project).
+
+## Deprecations
+
+- **.NET Core 3.1**: Static Web Apps no longer supports the .NET Core 3.1 runtime. Change the `apiRuntime` version in your _staticwebapp.config.json_ file from .NET Core 3.1 to .NET 6. For more information about changing your runtime, see [Specify API language runtime version in Azure Static Web Apps](https://azure.microsoft.com/updates/generally-available-specify-api-language-runtime-version-in-azure-static-web-apps/) and [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions?tabs=azure-powershell%2Cin-process%2Cv4&pivots=programming-language-csharp#upgrade-your-local-project) for more information.
