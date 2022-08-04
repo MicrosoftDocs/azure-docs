@@ -350,6 +350,92 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalErrors|Yes|Total Errors|Count|Total|Number of calls with any error (HTTP status code 4xx or 5xx)|ApiName, ServingRegion, StatusCode|
 
 
+## Microsoft.Blockchain/blockchainMembers
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BroadcastProcessedCount|Yes|BroadcastProcessedCountDisplayName|Count|Average|The number of transactions processed.|Node, channel, type, status|
+|ChaincodeExecuteTimeouts|Yes|ChaincodeExecuteTimeoutsDisplayName|Count|Average|The number of chaincode executions (Init or Invoke) that have timed out.|Node, chaincode|
+|ChaincodeLaunchFailures|Yes|ChaincodeLaunchFailuresDisplayName|Count|Average|The number of chaincode launches that have failed.|Node, chaincode|
+|ChaincodeLaunchTimeouts|Yes|ChaincodeLaunchTimeoutsDisplayName|Count|Average|The number of chaincode launches that have timed out.|Node, chaincode|
+|ChaincodeShimRequestsCompleted|Yes|ChaincodeShimRequestsCompletedDisplayName|Count|Average|The number of chaincode shim requests completed.|Node, type, channel, chaincode, success|
+|ChaincodeShimRequestsReceived|Yes|ChaincodeShimRequestsReceivedDisplayName|Count|Average|The number of chaincode shim requests received.|Node, type, channel, chaincode|
+|ClusterCommEgressQueueCapacity|Yes|ClusterCommEgressQueueCapacityDisplayName|Count|Average|Capacity of the egress queue.|Node, host, msg_type, channel|
+|ClusterCommEgressQueueLength|Yes|ClusterCommEgressQueueLengthDisplayName|Count|Average|Length of the egress queue.|Node, host, msg_type, channel|
+|ClusterCommEgressQueueWorkers|Yes|ClusterCommEgressQueueWorkersDisplayName|Count|Average|Count of egress queue workers.|Node, channel|
+|ClusterCommEgressStreamCount|Yes|ClusterCommEgressStreamCountDisplayName|Count|Average|Count of streams to other nodes.|Node, channel|
+|ClusterCommEgressTlsConnectionCount|Yes|ClusterCommEgressTlsConnectionCountDisplayName|Count|Average|Count of TLS connections to other nodes.|Node|
+|ClusterCommIngressStreamCount|Yes|ClusterCommIngressStreamCountDisplayName|Count|Average|Count of streams from other nodes.|Node|
+|ClusterCommMsgDroppedCount|Yes|ClusterCommMsgDroppedCountDisplayName|Count|Average|Count of messages dropped.|Node, host, channel|
+|ConnectionAccepted|Yes|Accepted Connections|Count|Total|Accepted Connections|Node|
+|ConnectionActive|Yes|Active Connections|Count|Average|Active Connections|Node|
+|ConnectionHandled|Yes|Handled Connections|Count|Total|Handled Connections|Node|
+|ConsensusEtcdraftActiveNodes|Yes|ConsensusEtcdraftActiveNodesDisplayName|Count|Average|Number of active nodes in this channel.|Node, channel|
+|ConsensusEtcdraftClusterSize|Yes|ConsensusEtcdraftClusterSizeDisplayName|Count|Average|Number of nodes in this channel.|Node, channel|
+|ConsensusEtcdraftCommittedBlockNumber|Yes|ConsensusEtcdraftCommittedBlockNumberDisplayName|Count|Average|The block number of the latest block committed.|Node, channel|
+|ConsensusEtcdraftConfigProposalsReceived|Yes|ConsensusEtcdraftConfigProposalsReceivedDisplayName|Count|Average|The total number of proposals received for config type transactions.|Node, channel|
+|ConsensusEtcdraftIsLeader|Yes|ConsensusEtcdraftIsLeaderDisplayName|Count|Average|The leadership status of the current node: 1 if it is the leader else 0.|Node, channel|
+|ConsensusEtcdraftLeaderChanges|Yes|ConsensusEtcdraftLeaderChangesDisplayName|Count|Average|The number of leader changes since process start.|Node, channel|
+|ConsensusEtcdraftNormalProposalsReceived|Yes|ConsensusEtcdraftNormalProposalsReceivedDisplayName|Count|Average|The total number of proposals received for normal type transactions.|Node, channel|
+|ConsensusEtcdraftProposalFailures|Yes|ConsensusEtcdraftProposalFailuresDisplayName|Count|Average|The number of proposal failures.|Node, channel|
+|ConsensusEtcdraftSnapshotBlockNumber|Yes|ConsensusEtcdraftSnapshotBlockNumberDisplayName|Count|Average|The block number of the latest snapshot.|Node, channel|
+|ConsensusKafkaBatchSize|Yes|ConsensusKafkaBatchSizeDisplayName|Count|Average|The mean batch size in bytes sent to topics.|Node, topic|
+|ConsensusKafkaCompressionRatio|Yes|ConsensusKafkaCompressionRatioDisplayName|Count|Average|The mean compression ratio (as percentage) for topics.|Node, topic|
+|ConsensusKafkaIncomingByteRate|Yes|ConsensusKafkaIncomingByteRateDisplayName|Count|Average|Bytes/second read off brokers.|Node, broker_id|
+|ConsensusKafkaLastOffsetPersisted|Yes|ConsensusKafkaLastOffsetPersistedDisplayName|Count|Average|The offset specified in the block metadata of the most recently committed block.|Node, channel|
+|ConsensusKafkaOutgoingByteRate|Yes|ConsensusKafkaOutgoingByteRateDisplayName|Count|Average|Bytes/second written to brokers.|Node, broker_id|
+|ConsensusKafkaRecordSendRate|Yes|ConsensusKafkaRecordSendRateDisplayName|Count|Average|The number of records per second sent to topics.|Node, topic|
+|ConsensusKafkaRecordsPerRequest|Yes|ConsensusKafkaRecordsPerRequestDisplayName|Count|Average|The mean number of records sent per request to topics.|Node, topic|
+|ConsensusKafkaRequestLatency|Yes|ConsensusKafkaRequestLatencyDisplayName|Count|Average|The mean request latency in ms to brokers.|Node, broker_id|
+|ConsensusKafkaRequestRate|Yes|ConsensusKafkaRequestRateDisplayName|Count|Average|Requests/second sent to brokers.|Node, broker_id|
+|ConsensusKafkaRequestSize|Yes|ConsensusKafkaRequestSizeDisplayName|Count|Average|The mean request size in bytes to brokers.|Node, broker_id|
+|ConsensusKafkaResponseRate|Yes|ConsensusKafkaResponseRateDisplayName|Count|Average|Requests/second sent to brokers.|Node, broker_id|
+|ConsensusKafkaResponseSize|Yes|ConsensusKafkaResponseSizeDisplayName|Count|Average|The mean response size in bytes from brokers.|Node, broker_id|
+|CpuUsagePercentageInDouble|Yes|CPU Usage Percentage|Percent|Maximum|CPU Usage Percentage|Node|
+|DeliverBlocksSent|Yes|DeliverBlocksSentDisplayName|Count|Average|The number of blocks sent by the deliver service.|Node, channel, filtered, data_type|
+|DeliverRequestsCompleted|Yes|DeliverRequestsCompletedDisplayName|Count|Average|The number of deliver requests that have been completed.|Node, channel, filtered, data_type, success|
+|DeliverRequestsReceived|Yes|DeliverRequestsReceivedDisplayName|Count|Average|The number of deliver requests that have been received.|Node, channel, filtered, data_type|
+|DeliverStreamsClosed|Yes|DeliverStreamsClosedDisplayName|Count|Average|The number of GRPC streams that have been closed for the deliver service.|Node|
+|DeliverStreamsOpened|Yes|DeliverStreamsOpenedDisplayName|Count|Average|The number of GRPC streams that have been opened for the deliver service.|Node|
+|EndorserChaincodeInstantiationFailures|Yes|EndorserChaincodeInstantiationFailuresDisplayName|Count|Average|The number of chaincode instantiations or upgrade that have failed.|Node, channel, chaincode|
+|EndorserDuplicateTransactionFailures|Yes|EndorserDuplicateTransactionFailuresDisplayName|Count|Average|The number of failed proposals due to duplicate transaction ID.|Node, channel, chaincode|
+|EndorserEndorsementFailures|Yes|EndorserEndorsementFailuresDisplayName|Count|Average|The number of failed endorsements.|Node, channel, chaincode, chaincodeerror|
+|EndorserProposalAclFailures|Yes|EndorserProposalAclFailuresDisplayName|Count|Average|The number of proposals that failed ACL checks.|Node, channel, chaincode|
+|EndorserProposalSimulationFailures|Yes|EndorserProposalSimulationFailuresDisplayName|Count|Average|The number of failed proposal simulations.|Node, channel, chaincode|
+|EndorserProposalsReceived|Yes|EndorserProposalsReceivedDisplayName|Count|Average|The number of proposals received.|Node|
+|EndorserProposalValidationFailures|Yes|EndorserProposalValidationFailuresDisplayName|Count|Average|The number of proposals that have failed initial validation.|Node|
+|EndorserSuccessfulProposals|Yes|EndorserSuccessfulProposalsDisplayName|Count|Average|The number of successful proposals.|Node|
+|FabricVersion|Yes|FabricVersionDisplayName|Count|Average|The active version of Fabric.|Node, version|
+|GossipCommMessagesReceived|Yes|GossipCommMessagesReceivedDisplayName|Count|Average|Number of messages received.|Node|
+|GossipCommMessagesSent|Yes|GossipCommMessagesSentDisplayName|Count|Average|Number of messages sent.|Node|
+|GossipCommOverflowCount|Yes|GossipCommOverflowCountDisplayName|Count|Average|Number of outgoing queue buffer overflows.|Node|
+|GossipLeaderElectionLeader|Yes|GossipLeaderElectionLeaderDisplayName|Count|Average|Peer is leader (1) or follower (0).|Node, channel|
+|GossipMembershipTotalPeersKnown|Yes|GossipMembershipTotalPeersKnownDisplayName|Count|Average|Total known peers.|Node, channel|
+|GossipPayloadBufferSize|Yes|GossipPayloadBufferSizeDisplayName|Count|Average|Size of the payload buffer.|Node, channel|
+|GossipStateHeight|Yes|GossipStateHeightDisplayName|Count|Average|Current ledger height.|Node, channel|
+|GrpcCommConnClosed|Yes|GrpcCommConnClosedDisplayName|Count|Average|gRPC connections closed. Open minus closed is the active number of connections.|Node|
+|GrpcCommConnOpened|Yes|GrpcCommConnOpenedDisplayName|Count|Average|gRPC connections opened. Open minus closed is the active number of connections.|Node|
+|GrpcServerStreamMessagesReceived|Yes|GrpcServerStreamMessagesReceivedDisplayName|Count|Average|The number of stream messages received.|Node, service, method|
+|GrpcServerStreamMessagesSent|Yes|GrpcServerStreamMessagesSentDisplayName|Count|Average|The number of stream messages sent.|Node, service, method|
+|GrpcServerStreamRequestsCompleted|Yes|GrpcServerStreamRequestsCompletedDisplayName|Count|Average|The number of stream requests completed.|Node, service, method, code|
+|GrpcServerUnaryRequestsReceived|Yes|GrpcServerUnaryRequestsReceivedDisplayName|Count|Average|The number of unary requests received.|Node, service, method|
+|IOReadBytes|Yes|IO Read Bytes|Bytes|Total|IO Read Bytes|Node|
+|IOWriteBytes|Yes|IO Write Bytes|Bytes|Total|IO Write Bytes|Node|
+|LedgerBlockchainHeight|Yes|LedgerBlockchainHeightDisplayName|Count|Average|Height of the chain in blocks.|Node, channel|
+|LedgerTransactionCount|Yes|LedgerTransactionCountDisplayName|Count|Average|Number of transactions processed.|Node, channel, transaction_type, chaincode, validation_code|
+|LoggingEntriesChecked|Yes|LoggingEntriesCheckedDisplayName|Count|Average|Number of log entries checked against the active logging level.|Node, level|
+|LoggingEntriesWritten|Yes|LoggingEntriesWrittenDisplayName|Count|Average|Number of log entries that are written.|Node, level|
+|MemoryLimit|Yes|Memory Limit|Bytes|Average|Memory Limit|Node|
+|MemoryUsage|Yes|Memory Usage|Bytes|Average|Memory Usage|Node|
+|MemoryUsagePercentageInDouble|Yes|Memory Usage Percentage|Percent|Average|Memory Usage Percentage|Node|
+|PendingTransactions|Yes|Pending Transactions|Count|Average|Pending Transactions|Node|
+|ProcessedBlocks|Yes|Processed Blocks|Count|Total|Processed Blocks|Node|
+|ProcessedTransactions|Yes|Processed Transactions|Count|Total|Processed Transactions|Node|
+|QueuedTransactions|Yes|Queued Transactions|Count|Average|Queued Transactions|Node|
+|RequestHandled|Yes|Handled Requests|Count|Total|Handled Requests|Node|
+|StorageUsage|Yes|Storage Usage|Bytes|Average|Storage Usage|Node|
+
+
 ## microsoft.botservice/botservices
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1164,6 +1250,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NICReadThroughput|Yes|Read Throughput (Network)|BytesPerSecond|Average|The read throughput of the network interface on the device in the reporting period for all volumes in the gateway.|InstanceName|
 |NICWriteThroughput|Yes|Write Throughput (Network)|BytesPerSecond|Average|The write throughput of the network interface on the device in the reporting period for all volumes in the gateway.|InstanceName|
 |TotalCapacity|Yes|Total Capacity|Bytes|Average|The total capacity of the device in bytes during the reporting period.|No Dimensions|
+
+
+## Microsoft.DataCollaboration/workspaces
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|DataAssetCount|Yes|Created Data Assets|Count|Maximum|Number of created data assets|DataAssetName|
+|PipelineCount|Yes|Created Pipelines|Count|Maximum|Number of created pipelines|PipelineName|
+|ProposalCount|Yes|Created Proposals|Count|Maximum|Number of created proposals|ProposalName|
+|ScriptCount|Yes|Created Scripts|Count|Maximum|Number of created scripts|ScriptName|
 
 
 ## Microsoft.DataFactory/datafactories
