@@ -17,7 +17,7 @@ The self-hosted gateway is an optional, containerized version of the default man
 
 This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its capabilities.
 
-For an overview of the features across the various gateway offerings, see the [API Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
+For an overview of the features across the various gateway offerings, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
 
 ## Hybrid and multi-cloud API management
 

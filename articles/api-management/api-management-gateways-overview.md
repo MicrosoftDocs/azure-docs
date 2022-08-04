@@ -7,13 +7,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 08/04/2022
 ms.author: danlep
 ---
 
 # API gateway in Azure API Management
 
-This article provides information about the roles and features of the API Management *gateway* component.
+This article provides information about the roles and features of the API Management *gateway* component and compares the gateways you can deploy.
 
 Related information:
 
@@ -23,20 +23,13 @@ Related information:
 
 ## Role of the gateway
 
-The API Management *gateway* (also called data plane) is the service component that's responsible for proxying API requests, applying policies, and collecting telemetry. 
+The API Management *gateway* (also called *data plane* or *runtime*) is the service component that's responsible for proxying API requests, applying policies, and collecting telemetry. 
 
-Specifically, the gateway:
-
-* Acts as a façade to backend services by accepting API calls and routing them to appropriate backends
-* Verifies [API keys](api-management-subscriptions.md) and other credentials such as [JWT tokens and certificates](api-management-access-restriction-policies.md) presented with requests
-* Enforces [usage quotas and rate limits](api-management-access-restriction-policies.md)
-* Optionally transforms requests and responses as specified in [policy statements](api-management-howto-policies.md)
-* If configured, [caches responses](api-management-howto-cache.md) to improve response latency and minimize the load on backend services
-* Emits logs, metrics, and traces for [monitoring, reporting, and troubleshooting](observability.md) 
+[!INCLUDE [api-management-gateway-role](../../includes/api-management-gateway-role.md)]
 
 ## Managed and self-hosted
 
-API Management offers both managed and self-hosted gateways for handling requests to backend APIs:
+API Management offers both managed and self-hosted gateways:
 
 * **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
 
@@ -45,7 +38,7 @@ API Management offers both managed and self-hosted gateways for handling request
     >    
  
 
-* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway. It's useful for scenarios such as placing gateways in the same environments where you host your APIs. Available in the Developer and Premium service tiers, the self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
+* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway. It's useful for hybrid and multi-cloud scenarios where there is a requirment to run the gateways off Azure in the same environments where API backends are hosted. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
 
     * The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Linux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
 
@@ -138,11 +131,14 @@ For details about monitoring options, see [Observability in Azure API Management
 ## Gateway throughput and scaling
 
 > [!IMPORTANT]
-> Throughput is affected by the number and rate of concurrent client connections, the kind and number of configured policies, payload sizes, backend API performance, and other factors. Perform gateway load testing using anticipated production conditions to determine expected throughput accurately.
+> Throughput is affected by the number and rate of concurrent client connections, the kind and number of configured policies, payload sizes, backend API performance, and other factors. Self-hosted gateway throughput is also dependent on the compute capacity (CPU and memory) of the host where it runs. Perform gateway load testing using anticipated production conditions to determine expected throughput accurately.
 
 ### Managed gateway
 
-For estimated gateway throughput in the API Management service tiers, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+For estimated maximum gateway throughput in the API Management service tiers, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+
+> [!IMPORTANT]
+> Throughput figures are presented for information only and must not be relied upon for capacity and budget planning. See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/) for details.
 
 * **Dedicated service tiers**
     * Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier. (Scaling not available in the Developer tier.)
