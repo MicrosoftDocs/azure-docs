@@ -15,7 +15,7 @@ recommendations: false
 
 # Integrate Azure OpenAI with SynapseML and Apache Spark
 
-The Azure OpenAI service can be used to solve a large number of natural language tasks through prompting the completion API. To make it easier to scale your prompting workflows from a few examples to large datasets of examples we have integrated the Azure OpenAI service with the distributed machine learning library [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/). This integration makes it easy to use the [Apache Spark](https://spark.apache.org/) distributed computing framework to process millions of prompts with the OpenAI service. This tutorial shows how to apply large language models at a distributed scale using Azure Open AI and Azure Synapse Analytics.
+The Azure OpenAI service can be used to solve a large number of natural language tasks through prompting the completion API. To make it easier to scale your prompting workflows from a few examples to large datasets of examples, we have integrated the Azure OpenAI service with the distributed machine learning library [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/). This integration makes it easy to use the [Apache Spark](https://spark.apache.org/) distributed computing framework to process millions of prompts with the OpenAI service. This tutorial shows how to apply large language models at a distributed scale using Azure Open AI and Azure Synapse Analytics.
 
 ## Prerequisites
 
@@ -30,12 +30,12 @@ The next step is to add this code into your Spark cluster. You can either create
 
 1. [Download this demo as a notebook](https://github.com/microsoft/SynapseML/blob/master/notebooks/features/cognitive_services/CognitiveServices%20-%20OpenAI.ipynb) (click Raw, then save the file)
 1. Import the notebook [into the Synapse Workspace](../../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#create-a-notebook) or, if using Databricks, [into the Databricks Workspace](../../../databricks/notebooks/notebooks-manage#create-a-notebook.md)
-1. Install SynapseML on your cluster. Please see the installation instructions for Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/). Note that this requires pasting an additional cell at the top of the notebook you just imported
+1. Install SynapseML on your cluster. See the installation instructions for Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/). This requires pasting another cell at the top of the notebook you imported
 1. Connect your notebook to a cluster and follow along, editing and running the cells below.
 
 ## Fill in your service information
 
-Next, edit the cell in the notebook to point to your service. In particular, set the `service_name`, `deployment_name`, `location`, and `key` variables to match those for your Azure OpenAI service.
+Next, edit the cell in the notebook to point to your service. In particular, set the `service_name`, `deployment_name`, `location`, and `key` variables to match the appropriate values for your Azure OpenAI service.
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
@@ -79,7 +79,7 @@ df = spark.createDataFrame(
 
 ## Create the OpenAICompletion Apache Spark Client
 
-To apply the OpenAI Completion service to the dataframe that you just created, create an `OpenAICompletion` object which serves as a distributed client. Parameters of the service can be set either with a single value, or by a column of the dataframe with the appropriate setters on the `OpenAICompletion` object. Here we are setting `maxTokens` to 200. A token is around 4 characters, and this limit applies to the sum of the prompt and the result. We are also setting the `promptCol` parameter with the name of the prompt column in the dataframe.
+To apply the OpenAI Completion service to the dataframe that you just created, create an `OpenAICompletion` object that serves as a distributed client. Parameters of the service can be set either with a single value, or by a column of the dataframe with the appropriate setters on the `OpenAICompletion` object. Here, we're setting `maxTokens` to 200. A token is around four characters, and this limit applies to the sum of the prompt and the result. We're also setting the `promptCol` parameter with the name of the prompt column in the dataframe.
 
 ```python
 from synapse.ml.cognitive import OpenAICompletion
@@ -98,7 +98,7 @@ completion = (
 
 ## Transform the dataframe with the OpenAICompletion Client
 
-Now that you have the dataframe and the completion client, you can transform your input dataset and add a column called `completions` with all of the information the service adds. We will select out just the text for simplicity.
+Now that you have the dataframe and the completion client, you can transform your input dataset and add a column called `completions` with all of the information the service adds. We'll select out just the text for simplicity.
 
 ```python
 from pyspark.sql.functions import col
@@ -108,7 +108,7 @@ display(completed_df.select(
   col("prompt"), col("error"), col("completions.choices.text").getItem(0).alias("text")))
 ```
 
-Your output should look something like this. Please note completion text will be different
+Your output should look something like the following example; note that the completion text can vary.
 
 | **prompt** | **error** | **text** |
 |------------|-----------| ---------|
@@ -116,7 +116,7 @@ Your output should look something like this. Please note completion text will be
 | The best code is code thats  | null | understandable This is a subjective statement,<br\>and there is no definitive answer. |
 | SynapseML is                 | null | A machine learning algorithm that is able to learn how to predict the future outcome of events. |
 
-## Additional Usage Examples
+## Other usage examples
 
 ### Improve throughput with request batching
 
@@ -150,7 +150,7 @@ batch_completion = (
 )
 ```
 
-In the call to transform a request will then be made per row. Since there are multiple prompts in a single row, each request will be sent with all prompts in that row. The results will contain a row for each row in the request.
+In the call to transform, a request will then be made per row. Because there are multiple prompts in a single row, each request will be sent with all prompts in that row. The results will contain a row for each row in the request.
 
 ```python
 completed_batch_df = batch_completion.transform(batch_df).cache()
