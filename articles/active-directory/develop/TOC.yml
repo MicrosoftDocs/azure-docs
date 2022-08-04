@@ -234,8 +234,6 @@
           href: workload-identity-federation.md
         - name: Trust an external identity provider (federation)
           href: workload-identity-federation-create-trust.md
-        - name: Configure an app to trust a GitHub repo
-          href: workload-identity-federation-create-trust-github.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
         - name: Exchange AD FS SAML for Microsoft Graph access token

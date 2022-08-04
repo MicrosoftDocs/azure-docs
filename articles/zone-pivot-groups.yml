@@ -1427,6 +1427,19 @@ groups:
     title: Resource Manager
   - id: identity-mi-methods-rest
     title: REST
+# Owner: ryanwi
+- id: identity-wif-apps-methods
+  title: Workload identity federation for apps methods
+  prompt: Choose an option
+  pivots:
+  - id: identity-wif-apps-methods-azp
+    title: Azure portal
+  - id: identity-wif-apps-methods-azcli
+    title: Azure CLI
+  - id: identity-wif-apps-methods-powershell
+    title: PowerShell
+  - id: identity-wif-apps-methods-rest
+    title: REST
 - id: identity-mi-method-sub
   title: Managed identities method subset
   prompt: Choose an option
