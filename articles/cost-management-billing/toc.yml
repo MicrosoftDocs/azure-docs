@@ -248,7 +248,7 @@
       - name: Pay using strong customer authentication
         href: manage/open-banking-strong-customer-authentication.md
       - name: Find tenant ID and primary domain name
-        href: manage/finding-tenantid-domain.md
+        href: manage/finding-tenant-id-domain.md
     - name: Administer subscriptions
       items:
       - name: Assign access to cost management data
