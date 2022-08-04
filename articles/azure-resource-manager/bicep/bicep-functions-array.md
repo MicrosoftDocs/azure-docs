@@ -54,6 +54,8 @@ The output from the preceding example with the default values is:
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
+### Quickstart samples
+
 The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
 ](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage):
 
@@ -182,6 +184,34 @@ The output from the preceding example with the default values is:
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
+
+### Quickstart samples
+
+The following sample is extracted from a quickstart template, [Application Gateway with WAF and firewall policy](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/application-gateway-waf-firewall-policy):
+
+```bicep
+backendHttpSettingsCollection: [for backendHttpSetting in backendHttpSettings: {
+  name: backendHttpSetting.name
+  properties: {
+    port: backendHttpSetting.port
+    protocol: backendHttpSetting.protocol
+    cookieBasedAffinity: backendHttpSetting.cookieBasedAffinity
+    affinityCookieName: contains(backendHttpSetting, 'affinityCookieName') ? backendHttpSetting.affinityCookieName : null
+    requestTimeout: backendHttpSetting.requestTimeout
+    connectionDraining: backendHttpSetting.connectionDraining
+    probe: contains(backendHttpSetting, 'probeName') ? json('{"id": "${resourceId('Microsoft.Network/applicationGateways/probes', applicationGatewayName, backendHttpSetting.probeName)}"}') : null
+    trustedRootCertificates: contains(backendHttpSetting, 'trustedRootCertificate') ? json('[{"id": "${resourceId('Microsoft.Network/applicationGateways/trustedRootCertificates', applicationGatewayName, backendHttpSetting.trustedRootCertificate)}"}]') : null
+    hostName: contains(backendHttpSetting, 'hostName') ? backendHttpSetting.hostName : null
+    pickHostNameFromBackendAddress: contains(backendHttpSetting, 'pickHostNameFromBackendAddress') ? backendHttpSetting.pickHostNameFromBackendAddress : false
+  }
+}]
+```
+
+More samples can be found in these quickstart Bicep files:
+
+- [Route table with routes](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/route-table-create)
+- [Virtual Network with diagnostic logs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-create-with-diagnostic-logs)
+- [App Service Quickstart - Linux App](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-docs-linux)
 
 ## empty
 
