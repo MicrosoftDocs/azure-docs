@@ -81,7 +81,7 @@ When a data node becomes unavailable or a network split happens, a failover simi
 
 ## Persistence
 
-Applicable tiers: **Premium**, **Enterprise (Preview)**, **Enterprise Flash (Preview)**
+Applicable tiers: **Premium**, **Enterprise (preview)**, **Enterprise Flash (preview)**
 
 Because your cache data is stored in memory, a rare and unplanned failure of multiple nodes can cause all the data to be dropped. To avoid losing data completely, [Redis persistence](https://redis.io/topics/persistence) allows you to take periodic snapshots of in-memory data, and store it to your storage account. If you experience a failure across multiple nodes causing data loss, your cache loads the snapshot from storage account. For more information, see [Configure data persistence for a Premium Azure Cache for Redis instance](cache-how-to-premium-persistence.md).
 
