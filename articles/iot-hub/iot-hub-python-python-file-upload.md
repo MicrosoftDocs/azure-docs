@@ -188,7 +188,6 @@ Now you're ready to run the application.
 
 3. You can use the portal to view the uploaded file in the storage container you configured:
 
-    ![Uploaded file]()
     :::image type="content" source="./media/iot-hub-python-python-file-upload/view-blob.png" alt-text="Screenshot of the container in the Azure portal that shows the uploaded file." border="true" lightbox="./media/iot-hub-python-python-file-upload/view-blob.png":::
 
 ## Next steps

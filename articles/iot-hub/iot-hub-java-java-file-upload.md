@@ -292,7 +292,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 You can use the portal to view the uploaded file in the storage container you configured:
 
-![Uploaded file](media/iot-hub-java-java-upload/uploaded-file.png)
+:::image type="content" source="media/iot-hub-java-java-upload/uploaded-file.png" alt-text="Screenshot showing a file that had been uploaded to your storage container." lightbox="media/iot-hub-java-java-upload/uploaded-file.png":::
 
 ## Receive a file upload notification
 
