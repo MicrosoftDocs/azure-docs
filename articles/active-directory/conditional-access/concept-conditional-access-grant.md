@@ -37,7 +37,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require app protection policy](app-protection-based-conditional-access.md)
 - [Require password change](#require-password-change)
 
-Administrators can choose the following methods if they choose to combine these options:
+Administrators can select from the following methods if they choose to combine these options:
 
 - Require all the selected controls (control *and* control)
 - Require one of the selected controls (control *or* control)
@@ -117,10 +117,9 @@ The following client apps support this setting:
 - Microsoft Whiteboard
 - Microsoft 365 Admin
 
-**Remarks**
+The approved client apps support the Intune mobile application management feature.
 
-- The approved client apps support the Intune mobile application management feature.
-- The **Require approved client app** requirement:
+The following requirements are part of the **Require approved client app** control:
    - Only supports the iOS and Android for device platform condition.
    - Requires a broker app to register the device. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices.
 - Conditional access can't consider Microsoft Edge in InPrivate mode an approved client app.
