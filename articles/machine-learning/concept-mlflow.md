@@ -37,21 +37,20 @@ MLflow can manage the complete machine learning lifecycle using four core capabi
 
 ## Tracking with MLflow
 
-Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiment via the Azure Machine Learning Python SDK, Azure Machine Learning CLI or the Azure Machine Learning studio. Learn more at [Log & view metrics and log files with MLflow](how-to-log-view-metrics.md).
+Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiment via the Azure Machine Learning Python SDK, Azure Machine Learning CLI or the Azure Machine Learning studio. We recommend to use MLflow for tracking experiments. To get you started, see [Log & view metrics and log files with MLflow](how-to-log-view-metrics.md).
 
 > [!NOTE]
 > Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 (preview), and it is recommended to use MLflow for logging and tracking.
 
-With MLflow Tracking you can connect Azure Machine Learning as the backend of your MLflow experiments. By doing so, you can:
+With MLflow Tracking you can connect Azure Machine Learning as the backend of your MLflow experiments. The workspace provides a centralized, secure, and scalable location to store training metrics and models. This includes:
 
-+ Track and log experiment metrics and artifacts in your [Azure Machine Learning workspace](./concept-azure-machine-learning-v2.md#workspace).
-  + If you're using Azure Machine Learning computes, they're already configured to work with MLflow for tracking. Just import `mlflow` in your training routine and start using it.
-  + Azure Machine Learning also supports remote tracking of experiments by configuring MLflow to point to the Azure Machine Learning workspace. By doing so, you can leverage the capabilities of Azure Machine Learning while keeping your experiments where they are.
-+ Lift and shift existing MLflow experiments to Azure Machine Learning. The workspace provides a centralized, secure, and scalable location to store training metrics and models.
+* [Track ML experiments and models running locally or in the cloud with MLflow](how-to-use-mlflow-cli-runs.md) in Azure Machine Learning.
+* [Track Azure Databricks ML experiments with MLflow](how-to-use-mlflow-azure-databricks.md) in Azure Machine Learning.
+* [Track Azure Synapse Analytics ML experiments with MLflow](how-to-use-mlflow-azure-databricks.md) in Azure Machine Learning..
 
 > [!IMPORTANT]
-> - MLflow in R support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. Artifacts and models can't be tracked using the MLflow R SDK. You can save them locally and then have Azure Machine Learning to capture for you as a workaround. RStudio or Jupyter Notebooks with R kernels are not supported. View the following [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
-> - MLflow in Java support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. Artifacts and models can't be tracked using the MLflow Java SDK. You can save them locally and then have Azure Machine Learning to capture for you as a workaround. View the following [Java example about using the MLflow tracking client with the Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/java/iris).
+> - MLflow in R support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. Artifacts and models can't be tracked using the MLflow R SDK. As an alternative, you can save them locally using [`mlflow_save_model.crate`](https://mlflow.org/docs/latest/R-api.html#mlflow-save-model-crate) in the `outputs` folder. RStudio or Jupyter Notebooks with R kernels are not supported. View the following [R example about using the MLflow tracking client with Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r).
+> - MLflow in Java support is limited to tracking experiment's metrics and parameters on Azure Machine Learning jobs. Artifacts and models can't be tracked using the MLflow Java SDK. View the following [Java example about using the MLflow tracking client with the Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/java/iris).
 
 ## Model Registries with MLflow
 
