@@ -483,7 +483,7 @@ items:
         href: agents/data-collection-text-log.md
     - name: Enable network isolation
       href: agents/azure-monitor-agent-data-collection-endpoint.md
-    - name: Migrate from Log Analytics agent
+    - name: Migrate from Log Analytics Agent
       items:
       - name: Migration guidance
         href: agents/azure-monitor-agent-migration.md
