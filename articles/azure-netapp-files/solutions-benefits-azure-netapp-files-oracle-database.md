@@ -19,8 +19,7 @@ ms.author: anfdocs
 
 Oracle Direct NFS (dNFS) makes it possible to drive higher performance than the operating system's own NFS driver. This article explains the technology and provides a performance comparison between dNFS and the traditional NFS client (Kernel NFS). It also shows the advantages and the ease of using dNFS with Azure NetApp Files.  
 
-> [!IMPORTANT]
-> For correct and optional deployment of Orace dNFS, follow the patching guidelines outlined [here](faq-nfs.md#oracle-dnfs).
+[!INCLUDE [Oracle dNFS warning](./includes/oracle-dnfs.md)]
 
 ## How Oracle Direct NFS works
 

@@ -23,8 +23,7 @@ This article addresses the following topics about Oracle in the cloud. These top
 * What is the difference in performance between the regular Linux kernel NFS (kNFS) client and Oracle’s own Direct NFS client?
 * As far as bandwidth is concerned, is the performance of a single Azure NetApp Files volume enough?
 
-> [!IMPORTANT]
-> For correct and optional deployment of Orace dNFS, follow the patching guidelines outlined [here](faq-nfs.md#oracle-dnfs).
+[!INCLUDE [Oracle dNFS warning](includes/oracle-dnfs.md)]
 
 ## Testing environment and components
 
