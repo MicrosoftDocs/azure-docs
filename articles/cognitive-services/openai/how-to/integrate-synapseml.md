@@ -112,8 +112,8 @@ Your output should look something like the following example; note that the comp
 
 | **prompt** | **error** | **text** |
 |------------|-----------| ---------|
-| Hello my name is             | null | Makaveli I'm eighteen years old and I want to<br\>be a rapper when I grow up I love writing and making music I'm from Los<br\>Angeles, CA |
-| The best code is code thats  | null | understandable This is a subjective statement,<br\>and there is no definitive answer. |
+| Hello my name is             | null | Makaveli I'm eighteen years old and I want to<br>be a rapper when I grow up I love writing and making music I'm from Los<br>Angeles, CA |
+| The best code is code thats  | null | understandable This is a subjective statement,<br>and there is no definitive answer. |
 | SynapseML is                 | null | A machine learning algorithm that is able to learn how to predict the future outcome of events. |
 
 ## Other usage examples
