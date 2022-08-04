@@ -31,7 +31,7 @@
   - name: CI/CD
     items:
     - name: Bicep with pipelines
-      displayName: continuous, ci, cd, CI/CD
+      displayName: continuous,ci,cd,CI/CD,AzureResourceGroupDeployment,AzureCLI
       href: add-template-to-azure-pipelines.md
     - name: Bicep with GitHub Actions
       displayName: continuous, ci, cd, CI/CD

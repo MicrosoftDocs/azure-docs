@@ -1371,9 +1371,9 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-enable-app-insights.md",
-        "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/how-to-enable-app-insights.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-online-endpoints",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-designer-sample-text-classification.md",
