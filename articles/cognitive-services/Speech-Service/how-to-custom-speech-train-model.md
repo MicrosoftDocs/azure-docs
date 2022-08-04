@@ -26,7 +26,9 @@ Training a model is typically an iterative process. You will first select a base
 You can use a custom model for a limited time after it's trained. You must periodically recreate and adapt your custom model from the latest base model to take advantage of the improved accuracy and quality. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 > [!IMPORTANT]
-> If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. See footnotes in the [regions](regions.md#speech-service) table for more information. After a model is trained, you can [copy it to a Speech resource](#copy-a-model) in another region as needed. 
+> If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. After a model is trained, you can [copy it to a Speech resource](#copy-a-model) in another region as needed. 
+> 
+> In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. See footnotes in the [regions](regions.md#speech-service) table for more information.  
 
 ## Create a model
 
