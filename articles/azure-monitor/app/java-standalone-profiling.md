@@ -39,7 +39,7 @@ UI.
 > - jdk.SystemProcess
 >
 > However, you should review all flags enabled to ensure that profiles do not contain sensitive data.
-> See (#configuring-profile-contents) on setting a custom profiler configuration.
+> See [Configuring Profile Contents](#configuring-profile-contents) on setting a custom profiler configuration.
 
 ## USAGE
 
