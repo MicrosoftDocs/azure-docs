@@ -45,7 +45,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks only <br>- Cloud connected sensors only | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM
+| **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks only <br>- Cloud connected sensors only | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242) |
 |**IBM QRadar**     |   Forward Defender for IoT alerts to IBM QRadar.       |   - OT networks only<br>- Locally managed sensors only      |      Qradar   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)   |
 
 ## LogRhythm
@@ -106,8 +106,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks only <br>- Cloud connected sensors only | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM
-](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242)
+| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks only <br>- Cloud connected sensors only | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242) |
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks only<br>- Locally managed sensors only       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
 
 
