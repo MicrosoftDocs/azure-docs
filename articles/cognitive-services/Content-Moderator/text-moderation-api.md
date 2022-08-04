@@ -124,7 +124,7 @@ The following example shows a sample response:
 
 ## Auto-correction
 
-The text moderation response optionally contains a version of the text with basic auto-correction, such as fixing spelling errors.
+The text moderation response can optionally return the text with basic auto-correction applied. It can fix some spelling errors, for example.
 
 ## Creating and managing your custom lists of terms
 
