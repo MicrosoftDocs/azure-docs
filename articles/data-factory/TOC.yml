@@ -468,6 +468,9 @@ items:
       href: connector-mariadb.md
     - name: Marketo
       href: connector-marketo.md
+    - name: Microsoft 365
+      href: connector-office-365.md
+      displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
     - name: MongoDB
@@ -486,9 +489,6 @@ items:
       displayName: timeout
     - name: ODBC
       href: connector-odbc.md
-    - name: Microsoft 365
-      href: connector-office-365.md
-      displayName: active directory
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Cloud Storage
