@@ -152,17 +152,17 @@ To create a shared access policy that grants **service connect**, **registry rea
 
 2. On the left-side pane of your IoT hub, select **Shared access policies**.
 
-3. From the top menu above the list of policies, select **Add**.
+3. From the top menu above the list of policies, select **Add shared access policy**.
 
-4. On the **Add a shared access policy** pane, enter a descriptive name for your policy; for example: *serviceAndRegistryReadWrite*. Under **Permissions**, select **Service connect** and **Registry write** (**Registry read** is automatically selected when you select **Registry write**). Then select **Create**.
+4. On the **Add shared access policy** pane, enter a descriptive name for your policy; for example: *serviceAndRegistryReadWrite*. Under **Permissions**, select **Registry Write** and **Service Connect** (**Registry Read** is automatically selected when you select **Registry Write**) then select **Add**.
 
-    ![Show how to add a new shared access policy](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+   :::image type="content" source="./media/iot-hub-python-python-schedule-jobs/add-policy.png" alt-text="Screenshot of how to add a new access policy in the IoT Hub of the Azure portal." lightbox="./media/iot-hub-python-python-schedule-jobs/add-policy.png":::
 
-5. Back on the **Shared access policies** pane, select your new policy from the list of policies.
+5. Back on the **Shared access policies** page, select your new policy from the list of policies.
 
-6. Under **Shared access keys**, select the copy icon for the **Connection string -- primary key** and save the value.
+6. In the new pane that appears, select the copy icon for the **Primary connection string** and save the value.
 
-    ![Show how to retrieve the connection string](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+   :::image type="content" source="./media/iot-hub-python-python-schedule-jobs/get-connection-string.png" alt-text="Screenshot of how to get the primary connection string from an access policy in the IoT Hub of the Azure portal." lightbox="./media/iot-hub-python-python-schedule-jobs/get-connection-string.png":::
 
 For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
