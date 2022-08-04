@@ -26,7 +26,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
 ## New Feature
 
-1. **Attach external disks in HDI Hadoop/Spark clusters**
+**1. Attach external disks in HDI Hadoop/Spark clusters**
 
 HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
@@ -36,9 +36,9 @@ This new feature allows you to add more disks in cluster, which will be used as 
 > The added disks are only configured for node manager local directories.
 > 
 
-For more information, [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing )
+For more information, [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing)
 
-2. **Selective logging analysis**
+**2. Selective logging analysis**
 
 Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
 
