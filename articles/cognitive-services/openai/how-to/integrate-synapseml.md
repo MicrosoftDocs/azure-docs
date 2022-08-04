@@ -41,8 +41,8 @@ Next, edit the cell in the notebook to point to your service. In particular, set
 | -------- | ----- |
 | `service_name` | The name of your Azure OpenAI resource. |
 | `deployment_name` | The name of your Azure OpenAI deployment. |
-| `location` | The location or region ID of your Azure OpenAI resource. |
-| `key` | The subscription key for your Azure OpenAI resource. |
+| `location` | The location or region ID for your resource. |
+| `key` | The key for your resource. |
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
@@ -167,7 +167,7 @@ display(completed_batch_df)
 > [!NOTE]
 > There is currently a limit of 20 prompts in a single request and a limit of 2048 "tokens", or approximately 1500 words.
 
-### Using an automatic minibatcher
+### Using an automatic mini-batcher
 
 If your data is in column format, you can transpose it to row format using SynapseML's `FixedMiniBatcherTransformer`.
 
