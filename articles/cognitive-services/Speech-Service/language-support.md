@@ -961,6 +961,120 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Turkish (Turkey) | `tr-TR` | No |No|
 | Vietnamese (Vietnam) | `vi-VN` | No |No|
 
+### Viseme
+
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes. Speech audio output can be accompanied by a viseme ID, Scalable Vector Graphics (SVG), or blend shapes. For more information, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md).
+
+> [!NOTE]
+> Viseme ID supports [neural voices](#text-to-speech) in the locales listed below. SVG only supports neural voices in the `en-US` locale, and blend shapes supports neural voices in the `en-US` and `zh-CN` locales. 
+
+The following table lists the languages supported by viseme ID.
+
+| Language | Locale |
+|---|---|
+| Arabic (Algeria) | `ar-DZ` |
+| Arabic (Bahrain) | `ar-BH` |
+| Arabic (Egypt) | `ar-EG` |
+| Arabic (Iraq) | `ar-IQ` |
+| Arabic (Jordan) | `ar-JO` |
+| Arabic (Kuwait) | `ar-KW` |
+| Arabic (Lebanon) | `ar-LB` |
+| Arabic (Libya) | `ar-LY` |
+| Arabic (Morocco) | `ar-MA` |
+| Arabic (Oman) | `ar-OM` |
+| Arabic (Qatar) | `ar-QA` |
+| Arabic (Saudi Arabia) | `ar-SA` |
+| Arabic (Syria) | `ar-SY` |
+| Arabic (Tunisia) | `ar-TN` |
+| Arabic (United Arab Emirates) | `ar-AE` |
+| Arabic (Yemen) | `ar-YE` |
+| Bulgarian (Bulgaria) | `bg-BG` |
+| Catalan (Spain) | `ca-ES` |
+| Chinese (Cantonese, Traditional) | `zh-HK` |
+| Chinese (Mandarin, Simplified) | `zh-CN` |
+| Chinese (Taiwanese Mandarin) | `zh-TW` |
+| Croatian (Croatia) | `hr-HR` |
+| Czech (Czech) | `cs-CZ` |
+| Danish (Denmark) | `da-DK` |
+| Dutch (Belgium) | `nl-BE` |
+| Dutch (Netherlands) | `nl-NL` |
+| English (Australia) | `en-AU` |
+| English (Canada) | `en-CA` |
+| English (Hongkong) | `en-HK` |
+| English (India) | `en-IN` |
+| English (Ireland) | `en-IE` |
+| English (Kenya) | `en-KE` |
+| English (New Zealand) | `en-NZ` |
+| English (Nigeria) | `en-NG` |
+| English (Philippines) | `en-PH` |
+| English (Singapore) | `en-SG` |
+| English (South Africa) | `en-ZA` |
+| English (Tanzania) | `en-TZ` |
+| English (United Kingdom) | `en-GB` |
+| English (United States) | `en-US` |
+| Finnish (Finland) | `fi-FI` |
+| French (Belgium) | `fr-BE` |
+| French (Canada) | `fr-CA` |
+| French (France) | `fr-FR` |
+| French (Switzerland) | `fr-CH` |
+| German (Austria) | `de-AT` |
+| German (Germany) | `de-DE` |
+| German (Switzerland) | `de-CH` |
+| Greek (Greece) | `el-GR` |
+| Gujarati (India) | `gu-IN` |
+| Hebrew (Israel) | `he-IL` |
+| Hindi (India) | `hi-IN` |
+| Hungarian (Hungary) | `hu-HU` |
+| Indonesian (Indonesia) | `id-ID` |
+| Italian (Italy) | `it-IT` |
+| Japanese (Japan) | `ja-JP` |
+| Korean (Korea) | `ko-KR` |
+| Malay (Malaysia) | `ms-MY` |
+| Marathi (India) | `mr-IN` |
+| Norwegian (Bokmål, Norway) | `nb-NO` |
+| Polish (Poland) | `pl-PL` |
+| Portuguese (Brazil) | `pt-BR` |
+| Portuguese (Portugal) | `pt-PT` |
+| Romanian (Romania) | `ro-RO` |
+| Russian (Russia) | `ru-RU` |
+| Slovak (Slovakia) | `sk-SK` |
+| Slovenian (Slovenia) | `sl-SI` |
+| Spanish (Argentina) | `es-AR` |
+| Spanish (Bolivia) | `es-BO` |
+| Spanish (Chile) | `es-CL` |
+| Spanish (Colombia) | `es-CO` |
+| Spanish (Costa Rica) | `es-CR` | 
+| Spanish (Cuba) | `es-CU` |
+| Spanish (Dominican Republic) | `es-DO` |
+| Spanish (Ecuador) | `es-EC` |
+| Spanish (El Salvador) | `es-SV` |
+| Spanish (Equatorial Guinea) | `es-GQ` |
+| Spanish (Guatemala) | `es-GT` |
+| Spanish (Honduras) | `es-HN` |
+| Spanish (Mexico) | `es-MX` |
+| Spanish (Nicaragua) | `es-NI` |
+| Spanish (Panama) | `es-PA` |
+| Spanish (Paraguay) | `es-PY` |
+| Spanish (Peru) | `es-PE` |
+| Spanish (Puerto Rico) | `es-PR` |
+| Spanish (Spain) | `es-ES` |
+| Spanish (Uruguay) | `es-UY` |
+| Spanish (US) | `es-US` |
+| Spanish (Venezuela) | `es-VE` |
+| Swahili (Tanzania) | `sw-TZ` |
+| Swedish (Sweden) | `sv-SE` |
+| Tamil (India) | `ta-IN` |
+| Tamil (Malaysia) | `ta-MY` |
+| Tamil (Singapore) | `ta-SG` |
+| Tamil (Sri Lanka) | `ta-LK` |
+| Telugu (India) | `te-IN` |
+| Thai (Thailand) | `th-TH` |
+| Turkish (Turkey) | `tr-TR` |
+| Ukrainian (Ukraine) | `uk-UA` |
+| Urdu (India) | `ur-IN` |
+| Urdu (Pakistan) | `ur-PK` | 
+| Vietnamese (Vietnam) | `vi-VN` |
+
 ## Language identification
 
 With language identification, you set and get one of the supported locales in the following table. We only compare at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` and `en-US`, we'll only compare English (`en`) with the other candidate languages.
