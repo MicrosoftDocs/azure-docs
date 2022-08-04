@@ -46,7 +46,7 @@ At the end of this article you run two .NET console apps:
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-* The sample applications you run in this article are written using C#. For the Azure IoT C# samples, we recommend you have the .NET Core SDK 3.1 or greater on your development machine.
+* The sample applications you run in this article are written using C# with .NET Core.
 
     You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
