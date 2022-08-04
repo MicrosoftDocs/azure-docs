@@ -34,23 +34,29 @@ The following diagram provides a technical overview:
 
 ## Scenario: Load test an Azure-hosted private backend microservice
 
-In this scenario, you've deployed a microservice endpoint in a virtual network on Azure, which isn't publicly accessible. For example, the service could be behind an internal load balancer, running on a VM with a private IP address, etcetera.
+In this scenario, you've deployed an application endpoint in a virtual network on Azure, which isn't publicly accessible. For example, the endpoint could be behind an internal load balancer, or running on a VM with a private IP address.
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-hosted-private-endpoint.png" alt-text="Diagram that shows the set-up for load testing a private endpoint hosted on Azure.":::
 
+When you deploy Azure Load Testing in the virtual network, the load test engines can now communicate with the application endpoint. If you've used separate subnets for the application endpoint and Azure Load Testing, make sure that communication between the subsets isn't blocked, for example by a network security group (NSG). Learn how [network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
+
 ## Scenario: Load test a public endpoint with access restrictions
 
-In this scenario, you've deployed a publicly available web service in Azure, which is restricted to specific client IP addresses by using a firewall. For example, the service could be running behind an Azure Application Gateway, a Web Application Firewall, hosted on Azure App Service, etcetera.
+In this scenario, you've deployed a publicly available web service in Azure, or any other location. Access to the endpoint is restricted to specific client IP addresses. For example, the service could be running behind an [Azure Application Gateway](/azure/application-gateway/overview), hosted on [Azure App Service with access restrictions](/azure/app-service/app-service-ip-restrictions), or deployed behind a web application firewall.
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-hosted-public-access-restrictions.png" alt-text="Diagram that shows the set-up for load testing a public endpoint hosted on Azure with access restrictions.":::
 
-You can deploy a [NAT Gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource), which is a fully managed Azure service that provides source network address translation (SNAT). The NAT Gateway is attached to the subnet in which the test engines are injected. You can configure the public IP addresses that NAT Gateway uses, and allowlist them for access restriction.
+To restrict access to the endpoint for the load test engines, you need a range of public IP addresses for the test engine virtual machines. You deploy Azure Load Testing in your virtual network and then deploy a  [NAT Gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource). A NAT gateway is a fully managed Azure service that provides source network address translation (SNAT). 
+
+When you attach the NAT gateway to the subnet in which the load test engines are injected, you can configure the public IP addresses that NAT Gateway exposes for the test engine virtual machines. You can then allowlist these IP addresses for access restriction to your application endpoint.
 
 ## Scenario: Load test an on-premises hosted service, connected via Azure ExpressRoute
 
-In this scenario, you have an on-premises webservice, which isn't publicly accessible. The on-premises environment is connected to Azure by using Azure ExpressRoute. 
+In this scenario, you have an on-premises application endpoint, which isn't publicly accessible. The on-premises environment is connected to Azure by using Azure ExpressRoute.
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/onpremise-private-endpoint-expressroute.png" alt-text="Diagram that shows the set-up for load testing an on-premises hosted, private endpoint connected via Azure ExpressRoute.":::
+
+ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. Deploy Azure Load Testing in an Azure virtual network and then [connect the network to your ExpressRoute circuit](azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager). After you've set up the connection, the load test engines can connect to the on-premises hosted application endpoint.
 
 ## Next steps
 
