@@ -178,7 +178,7 @@ Once complete, navigate to the Multi-factor Authentication Server folder, and op
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/utility.png" alt-text="Screenshot of MFA Server Migration Utility.":::
 
-you've successfully installed the MFA Server Migration Utility.
+you've successfully installed the Migration Utility.
 
 ### Migrate user data
 Migrating user data doesn't remove or alter any data in the Multi-Factor Authentication Server database. Likewise, this process won't change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Azure AD.
@@ -205,15 +205,13 @@ The migration process can be an automatic process, or a manual process.
 
 The manual process steps are:
 
-- To begin the migration process for a user or selection of multiple users, press and hold the Ctrl key while selecting each of the user(s) you wish to migrate. 
-  - After you select the desired users, click **Migrate Users** > **Selected users** > **OK**.
-  - To migrate all users in the group, click **Migrate Users** > **All users in AAD group** > **OK**.
+1. To begin the migration process for a user or selection of multiple users, press and hold the Ctrl key while selecting each of the user(s) you wish to migrate. 
+1. After you select the desired users, click **Migrate Users** > **Selected users** > **OK**.
+1. To migrate all users in the group, click **Migrate Users** > **All users in AAD group** > **OK**.
 
-The automatic process steps are:
+For the automatic process, click **Automatic synchronization** in the settings menu, and then select whether you want all users to be synced, or only members of a given Azure AD group.
 
-- Click **Automatic synchronization** in the settings menu, and then select whether you want all users to be synced, or only members of a given Azure AD group.
-
-  The following table lists the sync logic for the various methods.
+The following table lists the sync logic for the various methods.
 
 | Method | Logic |
 |--------|-------|
