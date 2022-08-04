@@ -4,7 +4,7 @@ description: Learn how to create Azure HDInsight clusters using the cross-platfo
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 02/03/2020
+ms.date: 08/05/2022
 ---
 
 # Create HDInsight clusters using the Azure CLI
@@ -166,9 +166,3 @@ Now that you've successfully created an HDInsight cluster using the Azure CLI, u
 
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### Apache Storm clusters
-
-* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
