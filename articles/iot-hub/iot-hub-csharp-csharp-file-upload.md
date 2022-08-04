@@ -256,7 +256,7 @@ You can use the portal to view the uploaded file in the storage container you co
 1. Select the folder named after your device.
 1. Select the blob that you uploaded your file to. In this article, it's the blob named **TestPayload.txt**.  
 
-    :::image type="content" source="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png" alt-text="Screenshot of selecting the uploaded file in the Azure portal.":::
+    :::image type="content" source="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png" alt-text="Screenshot of selecting the uploaded file in the Azure portal." lightbox="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png":::
 
 1. View the blob properties on the page that opens. You can select **Download** to download the file and view its contents locally.
 
