@@ -94,6 +94,5 @@ var blobServiceClient = new BlobServiceClient(connectionString);
 ```
 
 > [!IMPORTANT]
-> Connection strings should be used with caution. If your connection string is lost or accidentally placed in an insecure location, your service may become vulnerable. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authentication to Azure services.
-
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authentication to Azure services.
 ---
