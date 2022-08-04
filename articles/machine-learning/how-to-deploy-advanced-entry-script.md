@@ -333,6 +333,6 @@ More entry script examples for specific machine learning use cases can be found 
 * [Update web service](./v1/how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](./v1/how-to-enable-app-insights.md)
+* [Monitor your Azure Machine Learning models with Application Insights](v1/how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)
