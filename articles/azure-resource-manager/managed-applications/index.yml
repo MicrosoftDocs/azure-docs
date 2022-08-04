@@ -9,8 +9,8 @@ metadata:
   ms.service: managed-applications
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
+  author: davidsmatlak
+  ms.author: davidsmatlak
   ms.date: 01/02/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -45,7 +45,7 @@ landingContent:
         links:
           - text: Create definition files
             url: publish-service-catalog-app.md
-          - text: Publish marketplace application 
+          - text: Publish marketplace application
             url: ../../marketplace/azure-app-offer-setup.md
           - text: Create managed application with custom provider
             url: tutorial-create-managed-app-with-custom-provider.md
