@@ -106,7 +106,7 @@
     items:
     - name: Integration catalog
       href: integrate-overview.md
-    - name: ClearPass
+    - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md

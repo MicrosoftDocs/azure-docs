@@ -9,6 +9,13 @@ ms.topic: overview
 
 Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT data in a partner service.
 
+## Aruba ClearPass
+
+
+|Name  |Description  |Support scope  |Supported by  |Learn more |
+|---------|---------|---------|---------|---------|
+|**Aruba ClearPass**      |   Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.      |  - OT networks only<br>- Locally managed sensors only      |   ClearPass      |  [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)  |
+
 ## Axonius
 
 
@@ -16,18 +23,11 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Axonius Cybersecurity Asset Management**      |    Import and manage device inventory discovered by Defender for IoT in your Axonius instance.      |  - OT networks only<br>- Locally managed sensors only      |   Axonius      |  [Axonius documentation](https://docs.axonius.com/docs/azure-defender-for-iot)  |
 
-## ClearPass
-
-
-|Name  |Description  |Support scope  |Supported by  |Learn more |
-|---------|---------|---------|---------|---------|
-|**Aruba ClearPass**      |   Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.      |  - OT networks only<br>- Locally managed sensors only      |   ClearPass      |  [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)  |
-
-## CyberArk
+## CyberArk PSM
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**CyberArk**     |    Send CyberArk PSM syslog data on remote sessions and verification failures to Defender for IoT for data correlation.     |   - OT networks only<br>- Locally managed sensors only        |    CyberArk     |  [Integrate CyberArk with Microsoft Defender for IoT](tutorial-cyberark.md)  |
+|**CyberArk Privileged Session Manager (PSM)**     |    Send CyberArk PSM syslog data on remote sessions and verification failures to Defender for IoT for data correlation.     |   - OT networks only<br>- Locally managed sensors only        |    CyberArk     |  [Integrate CyberArk with Microsoft Defender for IoT](tutorial-cyberark.md)  |
 
 ## Forescout
 
@@ -39,7 +39,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Fortinet**     |    Send Defender for IoT data to Fortinet services for: <br><br>- Enhanced network visibility in FortiSIEM<br>- Extra abilities in FortiGate to stop anomalous behavior       |   - OT networks only<br>- Locally managed sensors only       |   Fortinet      | [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)   |
+|**Fortinet FortiSIEM and FortiGate**     |    Send Defender for IoT data to Fortinet services for: <br><br>- Enhanced network visibility in FortiSIEM<br>- Extra abilities in FortiGate to stop anomalous behavior       |   - OT networks only<br>- Locally managed sensors only       |   Fortinet      | [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)   |
 
 ## IBM QRadar
 
@@ -47,17 +47,18 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 | **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks only <br>- Cloud connected sensors only | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM
 |**IBM QRadar**     |   Forward Defender for IoT alerts to IBM QRadar.       |   - OT networks only<br>- Locally managed sensors only      |      Qradar   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)   |
+
 ## LogRhythm
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**LogRhythm**      |   Forward Defender for IoT alerts to LogRhythm.  |  - OT networks only<br>- Locally managed sensors only      |   LogRhythm      | [Integrate LogRhythm with Microsoft Defender for IoT](integrations/logrhythm.md)  |
+|**LogRhythm**      |   Forward Defender for IoT alerts to LogRhythm.  |  - OT networks only<br>- Locally managed sensors only      |   Microsoft      | [Integrate LogRhythm with Microsoft Defender for IoT](integrations/logrhythm.md)  |
 
 ## Micro Focus ArcSight
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Micro Focus ArcSight**      |   Forward Defender for IoT alerts to ArcSight.  |  - OT networks only<br>- Locally managed sensors only      |   Micro Focus      | [Integrate ArcSight with Microsoft Defender for IoT](integrations/arcsight.md)  |
+|**Micro Focus ArcSight**      |   Forward Defender for IoT alerts to ArcSight.  |  - OT networks only<br>- Locally managed sensors only      |   Microsoft      | [Integrate ArcSight with Microsoft Defender for IoT](integrations/arcsight.md)  |
 
 ## Microsoft Defender for Endpoint
 
@@ -84,7 +85,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**RSA NetWitness**      |   Forward Defender for IoT alerts to RSA NetWitness   |  - OT networks only<br>- Locally managed sensors only      |   RSA      | [Integrate RSA NetWitness with Microsoft Defender for IoT](integrations/netwitness.md) <br><br>[CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364)  |
+|**RSA NetWitness**      |   Forward Defender for IoT alerts to RSA NetWitness   |  - OT networks only<br>- Locally managed sensors only      |   Microsoft      | [Integrate RSA NetWitness with Microsoft Defender for IoT](integrations/netwitness.md) <br><br>[CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364)  |
 
 ## ServiceNow
 
