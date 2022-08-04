@@ -25,11 +25,11 @@ admins can use the MFA Server Migration Utility to target single users or groups
 
 ## Limitations and requirements
 
-- The MFA Server Migration Utility is a private preview feature being shared with you under the terms of your NDA with Microsoft. Don't share documentation, preview builds, screenshots, or other artifacts generated for the purposes of this preview externally.
-- The MFA Server Migration Utility requires a new private preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You shouldn't update the WebSDK or User Portal, even if prompted. Installing the update _doesn't_ start the migration automatically.
+- The MFA Server Migration Utility is a preview feature being shared with you under the terms of your NDA with Microsoft. Don't share documentation, preview builds, screenshots, or other artifacts generated for the purposes of this preview externally.
+- The MFA Server Migration Utility requires a new preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You shouldn't update the WebSDK or User Portal, even if prompted. Installing the update _doesn't_ start the migration automatically.
 - The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure MFA for testing purposes using the staged migration tool. Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
-- If you’re running MFA Server on an IIS Server, reach out to mfamigration@microsoft.com before deploying the Private Preview. You may have to move certain applications to an Application Proxy.
+- If you’re running MFA Server on an IIS Server, reach out to mfamigration@microsoft.com before deploying the preview. You may have to move certain applications to an Application Proxy.
 - Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each)
 
 ## Migration guide
@@ -57,10 +57,10 @@ A few important points:
 - **Phase 1** should be repeated as you add test users. 
   - The migration tool uses Azure AD groups for determining the users for which authentication data should be synced between MFA Server and Azure MFA. After user data has been synced, that user is then ready to use Azure MFA. 
   - Staged Rollout allows you to re-route users to Azure MFA, also using Azure AD groups. 
-    While you certainly could use the same groups for both tools, we recommend against it as users could potentially be redirected to Azure MFA before the tool has synched their data. We recommend setting up Azure AD groups for syncing authentication data by the MFA Server Migration Utility, and another set of groups for Staged Rollout to direct targeted users to Azure MFA rather than on-prem.
+    While you certainly could use the same groups for both tools, we recommend against it as users could potentially be redirected to Azure MFA before the tool has synched their data. We recommend setting up Azure AD groups for syncing authentication data by the MFA Server Migration Utility, and another set of groups for Staged Rollout to direct targeted users to Azure MFA rather than on premises.
 - **Phase 2** should be repeated as you migrate your user base. By the end of Phase 2, your entire user base should be using Azure MFA for all workloads federated against Azure AD.
     During the above phases, you can remove users from the Staged Rollout folders to take them out of scope of Azure MFA and route them back to your on-premises Azure MFA server for all MFA requests originating from Azure AD.
-- **Phase 3** requires moving all clients that authenticate to the on-prem MFA Server (VPNs, password managers, and so on) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you're required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the MFA Portal on the MFA Server, but rather should manage their authentication methods in Azure AD ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Azure AD, those methods won't be synced back to MFA Server. If you roll back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. After user migrations are complete, change the [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) domain federation setting to instruct Azure AD that MFA is no longer performed on-prem and that _all_ MFA requests should be performed by Azure MFA, regardless of group membership. 
+- **Phase 3** requires moving all clients that authenticate to the on-premises MFA Server (VPNs, password managers, and so on) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you're required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the MFA Portal on the MFA Server, but rather should manage their authentication methods in Azure AD ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Azure AD, those methods won't be synced back to MFA Server. If you roll back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. After user migrations are complete, change the [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) domain federation setting to instruct Azure AD that MFA is no longer performed on-premises and that _all_ MFA requests should be performed by Azure MFA, regardless of group membership. 
 
 The following sections explain the migration steps in more details.
 
@@ -329,9 +329,9 @@ Repeat migration steps found in [Migrate user data](#migrate-user-data) and [Val
 Using the data points you collected in [Authentication services](#authentication-services), begin carrying out the various migrations necessary. Once this is completed, consider having users manage their authentication methods in the combined registration portal, rather than in the User Portal on MFA server.
 
 ### Update domain federation settings
-Once you've completed user migrations, and moved all of your [Authentication services](#authentication-services) off of MFA Server, it’s time to update your domain federation settings so that Azure AD no longer sends MFA request to your on-prem federation server.
+Once you've completed user migrations, and moved all of your [Authentication services](#authentication-services) off of MFA Server, it’s time to update your domain federation settings so that Azure AD no longer sends MFA request to your on-premises federation server.
 
-To configure Azure AD to ignore MFA requests to your on-prem federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-&preserve-view=true) and set [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) to `rejectMfaByFederatedIdp`, as shown in the following example.
+To configure Azure AD to ignore MFA requests to your on-premises federation server, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-&preserve-view=true) and set [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) to `rejectMfaByFederatedIdp`, as shown in the following example.
 
 #### Request
 <!-- {
@@ -394,7 +394,7 @@ When you no longer need the Azure MFA server, follow your normal server deprecat
 
 ## Rollback (if needed)
 
-To roll back, configure Azure AD to accept MFA requests to your on-prem federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) to `enforceMfaByFederatedIdp`, as shown in the following example.
+To roll back, configure Azure AD to accept MFA requests to your on-premises federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true) to `enforceMfaByFederatedIdp`, as shown in the following example.
 
 
 #### Request
