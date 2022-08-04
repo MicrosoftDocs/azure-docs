@@ -243,7 +243,6 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
     ![update device 6](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
-
 ## Next steps
 
 Learn more about [administering your Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).
