@@ -22,7 +22,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 A *viseme* is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
-You can use visemes to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech. For example, you can:
+You can use visemes to control the movement of 2D and 3D avatar models, so that the facial positions are best aligned with synthetic speech. For example, you can:
 
  * Create an animated virtual voice assistant for intelligent kiosks, building multi-mode integrated services for your customers.
  * Build immersive news broadcasts and improve audience experiences with natural face and mouth movements.
