@@ -39,7 +39,7 @@ You can submit the input to the API as list of conversation items. Analysis is p
 
 When using the async feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-When you submit data to conversational PII, we can send one conversation (chat or spoken) per request.
+When you submit data to conversational PII, you can send one conversation (chat or spoken) per request.
 
 The API will attempt to detect all the [defined entity categories](concepts/conversations-entity-categories.md) for a given conversation input. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories.
 
@@ -62,8 +62,8 @@ When you get results from PII detection, you can stream the results to an applic
     
     |Language  |Package version  |
     |---------|---------|
-    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
-    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    |.NET     | [1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0)        |
+    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.0.0)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
@@ -74,10 +74,8 @@ When you get results from PII detection, you can stream the results to an applic
     
 5. See the following reference documentation for more information on the client, and return object:
     
-    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
-    * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
-    * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
-    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    * [C#](/dotnet/api/azure.ai.language.conversations)
+    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations.aio)
     
 # [REST API](#tab/rest-api)
 
