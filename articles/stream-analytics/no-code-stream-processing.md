@@ -86,7 +86,7 @@ Reference data is either static or changes slowly over time. It is typically use
 
 ### ADLS Gen2 as reference data
 
-Reference data is modeled as a sequence of blobs in ascending order of the date/time specified in the blob name. Blobs can only be added to the end of the sequence by using a date/time greater than the one specified by the last blob in the sequence. Blobs are defined in the input configuration. For more information, see [Use reference data from Blob Storage for a Stream Analytics job](blob-referencedata-nocode.png).
+Reference data is modeled as a sequence of blobs in ascending order of the date/time specified in the blob name. Blobs can only be added to the end of the sequence by using a date/time greater than the one specified by the last blob in the sequence. Blobs are defined in the input configuration. For more information, see [Use reference data from Blob Storage for a Stream Analytics job](data-protection.md).
 
 First, you have to select your ADLS Gen2. To see details about each field, see Azure Blob Storage section in [Azure Blob Storage Reference data input](stream-analytics-use-reference-data.md).
 
@@ -201,7 +201,7 @@ Select **ADLS Gen2** as output for your Stream Analytics job and select the cont
 
 When connecting to ADLS Gen2, if you choose ‘Managed Identity’ as Authentication mode, then the Storage Blob Data Contributor role will be granted to the Managed Identity for the Stream Analytics job. To learn more about Managed Identity for ADLS Gen2, see [Storage Blob Managed Identity](blob-output-managed-identity.md). Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate because of password changes or user token expirations that occur every 90 days. 
 
-   ![Managed identity for Cosmos DB](./media/no-code-stream-processing/msi-adls-nocode.png)
+   ![Managed identity for ADLS Gen2](./media/no-code-stream-processing/msi-adls-nocode.png)
 
 ### Azure Synapse Analytics
 
