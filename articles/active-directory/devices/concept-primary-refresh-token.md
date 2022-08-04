@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is a Primary Refresh Token?
 
-A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10 or newer, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 or newer devices.
+A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10 or newer, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 or newer devices. We recommend using the latest versions of Windows 10, Windows 11 and Windows Server 2019+ to get the best SSO experience.
 
 This article assumes that you already understand the different device states available in Azure AD and how single sign-on works in Windows 10 or newer. For more information about devices in Azure AD, see the article [What is device management in Azure Active Directory?](overview.md)
 
