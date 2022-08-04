@@ -59,7 +59,7 @@ Modify `startCall()` event handler in **MainActivity.java**, so that it handles 
 
 ## Launch the app and call the echo bot
 
-The app can now be launched using the "Run App" button on the toolbar (Shift+F10). You can make an call to phone by providing a phone number in the added text field and clicking the **CALL** button.
+The app can now be launched using the "Run App" button on the toolbar (Shift+F10). to make a call provide a phone number in the added text field and click the **CALL** button.
 > [!WARNING]
 > Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 
