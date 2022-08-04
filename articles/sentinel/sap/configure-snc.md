@@ -10,8 +10,6 @@ ms.date: 05/03/2022
 
 # Deploy the Microsoft Sentinel for SAP data connector with SNC
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
 This article shows you how to deploy the **Microsoft Sentinel for SAP** data connector to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).
 
 The SAP data connector agent typically connects to an SAP ABAP server using an RFC connection, and a user's username and password for authentication.
