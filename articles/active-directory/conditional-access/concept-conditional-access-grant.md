@@ -1,6 +1,6 @@
 ---
 title: Grant controls in Conditional Access policy - Azure Active Directory
-description: Grant controls in an Azure Active Directory Conditional Access policy
+description: Grant controls in an Azure Active Directory Conditional Access policy.
 
 services: active-directory
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional access: grant
+# Conditional Access: Grant
 
 Within a **Conditional Access policy**, an administrator can use access controls to grant or block access to resources.
 
-:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of Conditional Access policy with a grant control requiring multifactor authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
+:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of a Conditional Access policy with a grant control that requires multifactor authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
 
 ## Block access
 
-Block considers any assignments and prevents access based on the **Conditional Access policy** configuration.
+The control for blocking access considers any assignments and prevents access based on the **Conditional Access policy** configuration.
 
-Block is a powerful control that you should apply with appropriate knowledge. Policies with block statements can have unintended side effects. Apply proper testing and validation, which are vital before enabling at scale. Administrators should use tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
+**Block access** is a powerful control that you should apply with appropriate knowledge. Policies with block statements can have unintended side effects. Proper testing and validation are vital before you enable the control at scale. Administrators should use tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
 
 ## Grant access
 
@@ -37,7 +37,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require app protection policy](app-protection-based-conditional-access.md)
 - [Require password change](#require-password-change)
 
-Administrators can select from the following methods if they choose to combine these options:
+When administrators choose to combine these options, they can use the following methods:
 
 - Require all the selected controls (control *and* control)
 - Require one of the selected controls (control *or* control)
