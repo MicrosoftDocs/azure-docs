@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure Devops extension.
-ms.date: 05/18/2022
+ms.date: 08/04/2022
 ms.topic: how-to
 ---
 
@@ -31,18 +31,18 @@ If you don't have access to install the extension, you must request access from 
 
 **To configure the Microsoft Security DevOps extension**:
 
-1.  Sign into [Azure DevOps](https://dev.azure.com/)
+1. Sign in to [Azure DevOps](https://dev.azure.com/)
 
-1.  Navigate to **Shopping Bag** > **Manage extensions**.
+1. Navigate to **Shopping Bag** > **Manage extensions**.
 
     :::image type="content" source="media/msdo-azure-devops-extension/manage-extensions.png" alt-text="Screenshot that shows how to navigate to the manage extensions screen.":::
 
-1.  Select **Shared**.
+1. Select **Shared**.
 
     > [!Note]
-    > If you have already installed the Microsoft Security DevOps extension, it will be listed in the Installed tab.
+    > If you have already [installed the Microsoft Security DevOps extension](msdo-azure-devops-extension.md), it will be listed under Installed tab.
 
-1.  Select **Microsoft Security DevOps extension**.
+1. Select **Microsoft Security DevOps extension**.
 
 1. Select **Install**.
 
@@ -54,9 +54,11 @@ If you don't have access to install the extension, you must request access from 
 
 ## Configure your Pipelines using YAML
 
-1.  Sign into [Azure DevOps](https://dev.azure.com/)
+**To configure your pipeline using YAML**:
 
-1.  Navigate to **Project** > **Pipelines**
+1. Sign into [Azure DevOps](https://dev.azure.com/)
+
+1. Navigate to **Project** > **Pipelines**
 
 1. Select **Create Pipeline**.
 

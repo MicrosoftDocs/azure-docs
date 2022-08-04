@@ -1,7 +1,7 @@
 ---
 title: Enable Microsoft Security DevOps
 description: Learn how to enable the Microsoft Security DevOps actions.
-ms.date: 08/03/2022
+ms.date: 08/04/2022
 ms.topic: how-to
 ---
 
@@ -125,3 +125,4 @@ Security DevOps uses the following Open Source tools:
 :::image type="content" source="media/msdo-github-action/tool-dropdown.png" alt-text="Screenshot showing you how to navigate to the filter by tool option.":::
 
 ## Next steps
+[Discover vulnerabilities in Infrastructure as Code (IaC)](tutorial-iac-vulnerabilities.md)
