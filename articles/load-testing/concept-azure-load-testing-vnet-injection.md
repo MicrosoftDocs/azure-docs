@@ -7,7 +7,7 @@ ms.service: load-testing
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 08/03/2022
 ---
 
 # Scenarios for deploying Azure Load Testing in a virtual network
@@ -16,11 +16,11 @@ In this article, you'll learn about the scenarios for deploying Azure Load Testi
 
 This functionality enables the following usage scenarios:
 
-- Generate load to a [web service exposed to an Azure Virtual Network](#scenario-load-test-an-azure-hosted-private-backend-microservice).
-- Generate load to an [Azure-hosted public endpoint with access restrictions](#scenario-load-test-an-azure-hosted-public-endpoint-with-access-restrictions), such as restricting client IP addresses.
+- Generate load to an [endpoint hosted in an Azure virtual network](#scenario-load-test-an-azure-hosted-private-backend-microservice).
+- Generate load to a [public endpoint with access restrictions](#scenario-load-test-a-public-endpoint-with-access-restrictions), such as restricting client IP addresses.
 - Generate load to an [on-premise service, not publicly accessible, that is connected to Azure via ExpressRoute (hybrid application deployment)](#scenario-load-test-an-on-premise-hosted-service-connected-via-azure-expressroute).
 
-When you deploy Azure Load Testing in a virtual network, the load test agents are attached to the virtual network in your subscription. The load test agents can then communicate with the other resources in the virtual network. You aren't billed for the load agent compute resources.
+When you deploy Azure Load Testing in a virtual network, the load test engine virtual machines are attached to the virtual network in your subscription. The load test engines can then communicate with the other resources in the virtual network, such as the private application endpoint. You are not billed for the test engine compute resources.
 
 > [!IMPORTANT]
 > When you deploy Azure Load Testing in a virtual network, you'll incur additional charges. Azure Load Testing deploys an [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) and a [Public IP address](https://azure.microsoft.com/pricing/details/ip-addresses/) in your subscription and there might be a cost for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/pricing/details/virtual-network).
@@ -38,7 +38,7 @@ In this scenario, you've deployed a microservice endpoint in a virtual network o
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-hosted-private-endpoint.png" alt-text="Diagram that shows the set-up for load testing a private endpoint hosted on Azure.":::
 
-## Scenario: Load test an Azure-hosted public endpoint with access restrictions
+## Scenario: Load test a public endpoint with access restrictions
 
 In this scenario, you've deployed a publicly available web service in Azure, which is restricted to specific client IP addresses by using a firewall. For example, the service could be running behind an Azure Application Gateway, a Web Application Firewall, hosted on Azure App Service, etcetera.
 
