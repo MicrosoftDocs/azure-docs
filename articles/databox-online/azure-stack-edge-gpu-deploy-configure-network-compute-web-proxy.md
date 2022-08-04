@@ -522,7 +522,7 @@ This is an optional configuration. Although web proxy configuration is optional,
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
 
-   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-web-proxy-1.png)
+   ![Screenshot of local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-web-proxy-1.png)
 
 ## Validate network settings
 
