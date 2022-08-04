@@ -30,30 +30,30 @@ This article guides you through the steps to securely expose a web application o
 
 Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal][appgw_quick].
 
-1. Create a private-facing HTTPS listener.
+#### 1. Create a private-facing HTTPS listener.
 
 This will allow users to access the web application privately when connected to the corporate network.
 
 ![Add Listener](./media/application-proxy-waf/appgw_listener.png)
 
-2. Create a backend pool with the web servers.
+#### 2. Create a backend pool with the web servers.
 
 In this example, the backend servers have Internet Information Services (IIS) installed. 
 
 ![Add backend](./media/application-proxy-waf/appgw_backend.png)
 
-3. Create a backend setting. 
+#### 3. Create a backend setting. 
 
 This will determine how requests will reach the backend pool servers.
 
 ![Add backend setting](./media/application-proxy-waf/appgw_backendsettings.png)
  
- 4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
+ #### 4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
  
  ![Add rule1](./media/application-proxy-waf/appgw_addrule1.png)
  ![Add rule2](./media/application-proxy-waf/appgw_addrule2.png)
  
- 5. Enable the WAF in the Application Gateway and set it to Prevention mode.
+ #### 5. Enable the WAF in the Application Gateway and set it to Prevention mode.
  
  ![enable waf](./media/application-proxy-waf/appgw_enablewaf.png)
  
@@ -73,32 +73,21 @@ To ensure the connector VMs send requests to the Application Gateway, an [Azure 
 
 After [adding a user for testing][appproxy-add-user], you can test the application by accessing https://www.fabrikam.one.
 
-![add authentication image]
-![add server response image]
+![authentication](./media/application-proxy-waf/signin2.png)
+![server response](./media/application-proxy-waf/appgwresponse.png)
 
 ### Simulate an attack.
 
-To test if the WAF is blocking malicious requests, you can simulate an attack by using a basic SQL injection signature. For example, "https://www.fabrikam.one/api/sqlquery?query=x%22%20or%201%3D1%20--".
+To test if the WAF is blocking malicious requests, you can simulate an attack using a basic SQL injection signature. For example, "https://www.fabrikam.one/api/sqlquery?query=x%22%20or%201%3D1%20--".
 
-![waf403 image]
+![waf403](./media/application-proxy-waf/waf403.png)
 
 An HTTP 403 response confirms that the request was blocked by the WAF.
 
 The Application Gateway [Firewall logs][waf-logs] provide more details about the request and why it was blocked by the WAF.
 
-![waflog image]
+![waflog image](./media/application-proxy-waf/waflog.png)
 
 ## Next steps
 
-Configure custom WAF rules?
-
-[appgw-quick]: /azure/application-gateway/quick-create-portal
-[waf-overview]: /azure/web-application-firewall/ag/ag-overview
-[waf-create]: /azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal
-[waf-logs]: /azure/application-gateway/application-gateway-diagnostics#firewall-log
-[appproxy-create]: /azure/active-directory/app-proxy/application-proxy-add-on-premises-application
-[appproxy-add-app]: /azure/active-directory/app-proxy/application-proxy-add-on-premises-application
-[appproxy-add-user]: /azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing
-[appproxy-custom-domain]: /azure/active-directory/app-proxy/application-proxy-configure-custom-domain
-[appproxy-optimize]: /azure/active-directory/app-proxy/application-proxy-network-topology
-[private-dns]: /azure/dns/private-dns-getstarted-portal
+To prevent false positives, learn how to [Customize Web Application Firewall rules](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal), configure [Web Application Firewall exclusion lists](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-waf-configuration?tabs=portal), or [Web Application Firewall custom rules](https://docs.microsoft.com/azure/web-application-firewall/ag/create-custom-waf-rules).
