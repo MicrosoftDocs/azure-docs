@@ -41,7 +41,7 @@ The easiest and cleanest way to create a snapshot is to do so while the VM is of
 If you'll be taking a snapshot of a disk that's attached to a running VM, make sure you read the guidance in [Create snapshots while the VM is running](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#create-snapshots-while-the-vm-is-running) before proceeding.
 
 >[!NOTE]
-> The source managed disk remains intact with its current configuration. If you no longer want to keep it, you must manually delete the disk. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
+> The source managed disk remains intact with its current configuration and you'll continue to be billed for it. To avoid this, you must manually delete the disk once you've finished your migration and confirmed the new disk is working. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
 
 
 ## Option 1: Migrate a non-zonal managed disk to zonal
