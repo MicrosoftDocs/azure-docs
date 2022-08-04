@@ -152,7 +152,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 
 #### Configure logging for Django applications
 
-You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. For how to configure Django settings, see [Django settings](https://docs.djangoproject.com/en/3.0/topics/settings/). For more information on configuring logging, see [Django logging](https://docs.djangoproject.com/en/3.0/topics/logging/).
+You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. For how to configure Django settings, see [Django settings](https://docs.djangoproject.com/en/4.0/topics/settings/). For more information on configuring logging, see [Django logging](https://docs.djangoproject.com/en/4.0/topics/logging/).
 
 ```json
 LOGGING = {
@@ -572,5 +572,5 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 ### Alerts
 
 * [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
-* [Smart diagnostics](./proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
+* [Smart diagnostics](../alerts/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
 * [Metric alerts](../alerts/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.

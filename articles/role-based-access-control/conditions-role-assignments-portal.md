@@ -26,7 +26,6 @@ An [Azure role assignment condition](conditions-overview.md) is an additional ch
 
 For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
-
 ## Step 1: Determine the condition you need
 
 To determine the conditions you need, review the examples in [Example Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md).

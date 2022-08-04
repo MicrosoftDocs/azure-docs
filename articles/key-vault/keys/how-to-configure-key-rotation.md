@@ -14,7 +14,7 @@ ms.author: mbaldwin
 # Configure cryptographic key auto-rotation in Azure Key Vault
 
 ## Overview
-Automated cryptographic key rotation in [Key Vault](../general/overview.md) allows users to configure Key Vault to automatically generate a new key version at a specified frequency. To configure roation you can use key rotation policy, which can be defined on each individual key. 
+Automated cryptographic key rotation in [Key Vault](../general/overview.md) allows users to configure Key Vault to automatically generate a new key version at a specified frequency. To configure rotation you can use key rotation policy, which can be defined on each individual key. 
 
 Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. 
 

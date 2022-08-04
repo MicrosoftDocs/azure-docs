@@ -10,17 +10,16 @@ ms.author: juliako
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
-> [!NOTE]
-> The service is now rebranded from Azure Video Analyzer for Media to **Azure Video Indexer**. Click [here](https://vi.microsoft.com) to read more.
+[!INCLUDE [Gate notice](../cognitive-services/computer-vision/includes/identity-gate-notice.md)]
 
 Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
 
 Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow.":::
+> :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow." lightbox="./media/video-indexer-overview/model-chart.png":::
 
-To start extracting insights with Azure Video Indexer, you need to [create an account](connect-to-azure.md) and upload videos, see the [how can I get started](#how-can-i-get-started-with-azure-video-indexer) section below.
+To start extracting insights with Azure Video Indexer, see the [how can I get started](#how-can-i-get-started-with-azure-video-indexer) section below.
 
 ## Compliance, Privacy and Security
 
@@ -34,12 +33,12 @@ To learn about compliance, privacy and security in Azure Video Indexer please vi
 
 Azure Video Indexer's insights can be applied to many scenarios, among them are:
 
-* *Deep search*: Use the insights extracted from the video to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding moments in a video where a person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps, and in general to any industry that has a video library that users need to search against.
-* *Content creation*: Create trailers, highlight reels, social media content, or news clips based on the insights Azure Video Indexer extracts from your content. Keyframes, scenes markers, and timestamps of the people and label appearances make the creation process smoother and easier, enabling you to easily get to the parts of the video you need when creating content.
-* *Accessibility*: Whether you want to make your content available for people with disabilities or if you want your content to be distributed to different regions using different languages, you can use the transcription and  translation provided by Azure Video Indexer in multiple languages.
-* *Monetization*: Azure Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue (news media, social media, and so on) can deliver relevant ads by using the extracted insights as additional signals to the ad server.
-* *Content moderation*: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.
-* *Recommendations*: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that will match their needs.
+* Deep search: Use the insights extracted from the video to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding moments in a video where a person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps, and in general to any industry that has a video library that users need to search against.
+* Content creation: Create trailers, highlight reels, social media content, or news clips based on the insights Azure Video Indexer extracts from your content. Keyframes, scenes markers, and timestamps of the people and label appearances make the creation process smoother and easier, enabling you to easily get to the parts of the video you need when creating content.
+* Accessibility: Whether you want to make your content available for people with disabilities or if you want your content to be distributed to different regions using different languages, you can use the transcription and  translation provided by Azure Video Indexer in multiple languages.
+* Monetization: Azure Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue (news media, social media, and so on) can deliver relevant ads by using the extracted insights as additional signals to the ad server.
+* Content moderation: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.
+* Recommendations: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that will match their needs.
 
 ## Features
 
@@ -61,7 +60,7 @@ The following list shows the insights you can retrieve from your videos using Az
 * **Rolling credits**: Identifies the beginning and end of the rolling credits in the end of TV shows and movies.
 * **Animated characters detection** (preview): Detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
 * **Editorial shot type detection**: Tagging shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* **Observed People Tracking** (preview): detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
+* **Observed people tracking** (preview): detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
     * **People's detected clothing**: detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start,end) along with a confidence level for the detection are provided.
 * **Matched person**: matches between people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
 
@@ -109,15 +108,12 @@ You can access Azure Video Indexer capabilities in three ways:
 * Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models.
 
     For more information about the portal, see [Get started with the Azure Video Indexer website](video-indexer-get-started.md).  
-
 * API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure.
 
     To get started as a developer, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
-
 * Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app.
 
     For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
-
 If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
 
 ## Supported browsers

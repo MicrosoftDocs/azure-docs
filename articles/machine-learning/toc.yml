@@ -75,10 +75,6 @@
           href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
-    - name: Create a secure workspace
-      href: tutorial-create-secure-workspace.md
-    - name: Create a secure workspace with templates
-      href: tutorial-create-secure-workspace-template.md
     - name: Build a training pipeline (Python SDK V2)(preview)
       href: tutorial-pipeline-python-sdk.md
 - name: Samples
@@ -142,8 +138,6 @@
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: concept-model-management-and-deployment.md
-        - name: Open-source integrations
-          href: concept-open-source.md
         - name: ML pipelines
           href: concept-ml-pipelines.md
         - name: ML components
@@ -191,9 +185,6 @@
         - name: Compute target
           displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
           href: concept-compute-target.md
-        - name: Plan and manage costs
-          displayName: low priority VM
-          href: concept-plan-manage-cost.md
     - name: Work with Data
       items: 
         - name: Access data
@@ -219,8 +210,14 @@
           href: concept-vulnerability-management.md
 - name: Infrastructure & security
   items:
+    - name: Tutorials & templates
+      items:
+        - name: "Tutorial: Create a secure workspace in Azure portal"
+          href: tutorial-create-secure-workspace.md
+        - name: "Tutorial: Create a secure workspace with templates"
+          href: tutorial-create-secure-workspace-template.md
     - name: Identity & access management
-      items: 
+      items:
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
@@ -229,7 +226,7 @@
         - name: Use managed identities for access control
           href: how-to-use-managed-identities.md
     - name: Network security
-      items: 
+      items:
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -296,6 +293,9 @@
         - name: Use studio
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
+    - name: Plan and manage costs
+      displayName: low priority VM
+      href: concept-plan-manage-cost.md
     - name: Monitor Azure Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure coding

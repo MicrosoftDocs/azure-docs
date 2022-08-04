@@ -698,9 +698,13 @@
   - name: Troubleshoot database corruption
     href: single-server/how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Troubleshoot connectivity issues
+    href: single-server/how-to-troubleshoot-connectivity-issues.md
   - name: Tune performance using the sys_schema
     href: single-server/how-to-troubleshoot-sys-schema.md
     displayName: sys schema, views
+  - name: Troubleshooting best practices
+    href: single-server/concepts-troubleshooting-best-practices.md
 - name: Best Practices
   items:
   - name: Monitoring best practices

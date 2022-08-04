@@ -72,7 +72,7 @@ Azure Private 5G Core is able to leverage this low latency with the security and
 
 Azure Private 5G Core instantiates a single private mobile network distributed across one or more enterprise sites across the world. Each site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
 
-- A high performance and highly programmable 5G User Plane Function (UPF).
+- A high performance (25 Gbps rated load) and highly programmable 5G User Plane Function (UPF).
 - Core control plane functions including policy and subscriber management.
 - A portfolio of service-based architecture elements.
 - Management components for network monitoring.
