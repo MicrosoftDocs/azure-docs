@@ -45,8 +45,8 @@ Create an Azure Notification Hub within the same subscription as your Communicat
 3.APNS Cert Configuration  
 Here we recommend to create a .p12 APNS cert and set it in Notification Hub.  
 
-`If you are not a Microsoft internal client`, please follow step 1 to step 10.   
-`If you are a Microsoft internal client`, please submit a ticket [here](https://aka.ms/mapsupport) and provide the bundle ID of your app to get a .p12 cert. Once you gtt a valid certificate issued, please execute the step 10.       
+`If you are not a Microsoft internal client`, please follow step 1 to step 9.   
+`If you are a Microsoft internal client`, please submit a ticket [here](https://aka.ms/mapsupport) and provide the bundle ID of your app to get a .p12 cert. Once you gtt a valid certificate issued, please execute the step 9.       
 
 * Step 1: Log in to the Apple Developer Portal. Navigate to `Certificates, IDs & Profiles > Identifiers > App IDs` and click the App ID associated with your app.
 
@@ -110,12 +110,11 @@ If you want to implement an advanced version of Push Notification, you will need
 
 First, you should create a persistent data storage in IOS device. This data storage should be able to share data between Main App and App Extensions (Please refer to Item 2 for more information about App Extension – Notification Service Extension). 
 
-In our sample code, we will choose “App Group” as the data storage. Here are the suggested steps to create and use “App Group”. 
+In our sample code, we will choose “App Group” as the data storage. Below are the suggested steps to create and use “App Group”:
 
 Follow the steps in [Add a capability](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app?changes=latest_minor#Add-a-capability) to add the Apps Groups capability to your app’s targets – both Main App and Notification Service Extension (Please refer to Item 2 on how to create a Notification Service Extension). 
 
-
-Also Follow the steps in this [Apple official doc](https://developer.apple.com/documentation/xcode/configuring-app-groups?changes=latest_minor) to configure App Group. Make sure your Main App and App extension container have the same container name.  
+Also follow the steps in this [Apple official doc](https://developer.apple.com/documentation/xcode/configuring-app-groups?changes=latest_minor) to configure App Group. Make sure your Main App and App Extension have the same container name.  
 
 * Item 2: Notification Service Extension 
 
