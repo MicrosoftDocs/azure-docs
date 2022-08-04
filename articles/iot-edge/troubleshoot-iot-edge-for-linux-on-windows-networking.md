@@ -21,7 +21,7 @@ If you experience networking issues using Azure IoT Edge for Linux on Windows (E
 When troubleshooting IoT Edge for Linux on Windows networking, there are four network features that could be causing issues:
 
 - IP addresses configuration
-- Domain Name Server (DNS)
+- Domain Name System (DNS) configuration
 - Firewall and port configurations
 - Other components
 
@@ -60,10 +60,10 @@ If the _inet_ IP address is blank or different from the one provided by using th
 
 | Virtual Switch | IP Address Assignation | Troubleshoot | 
 | ---------------| -----------------------|--------------|
-| External | Static IP | Ensure that the IP configuration is correctly set up. All three parameters *ip4Address*, *ip4GateWayAddress*, and *ip4PrefixLength* should be used.The IP address assigned to the VM should be valid and free on the external network. You can check EFLOW VM interface configurations by checking the files under `/etc/systemd/network/`. |
+| External | Static IP | Ensure that the IP configuration is correctly set up. All three parameters *ip4Address*, *ip4GateWayAddress*, and *ip4PrefixLength* should be used. The IP address assigned to the VM should be valid and not being used by other device on the external network. You can check EFLOW VM interface configurations by checking the files under `/etc/systemd/network/`. |
 | External | DHCP | Ensure that there's a DHCP server on the external network. If no DHCP server is available, then use static IP configurations. Also, make sure that DHCP server has no firewall policy regarding MAC addresses. If it has, you can get the EFLOW MAC address by using the `Get-EflowVmAddr` cmdlet. | 
 | Default switch | DHCP | Generally, the issue is related to a malfunction of the default switch. Try rebooting the Windows host OS. If the problem persists, try disabling and enabling Hyper-V | 
-| Internal | Static IP | Ensure that the IP configuration is correctly set up. All three parameters *ip4Address*, *ip4GateWayAddress*, and *ip4PrefixLength* should be used. The IP address assigned to the VM should be valid and free on the internal network. Also, to get connected to internet, you'll need to set up a NAT table. Follow the NAT configuration steps in [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md).|
+| Internal | Static IP | Ensure that the IP configuration is correctly set up. All three parameters *ip4Address*, *ip4GateWayAddress*, and *ip4PrefixLength* should be used. The IP address assigned to the VM should be valid and not being used by other device on the internal network. Also, to get connected to internet, you'll need to set up a NAT table. Follow the NAT configuration steps in [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md).|
 | Internal | DHCP | Ensure that there's a DHCP server on the internal network. To set up a DHCP server and a NAT table on Windows Server, follow the steps in [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md). If no DHCP server is available, then use static IP configurations.|
 
 >[!WARNING]
@@ -71,7 +71,7 @@ If the _inet_ IP address is blank or different from the one provided by using th
 
 If you're still having issues with the IP address assignation, try setting up another Windows or Linux virtual machine and assign the same switch and IP configuration. If you have the same issue with the new non-EFLOW VM, the issue is likely with the virtual switch or IP configuration and it's not specific to EFLOW. 
 
-## Check Domain Name Server (DNS)
+## Check Domain Name System (DNS) configuration
 
 Your second step when troubleshooting IoT Edge for Linux on Windows networking should be to check the DNS servers assigned to the EFLOW VM. To check the EFLOW VM DNS configuration, see [Networking configuration for Azure IoT Edge for Linux on Windows](how-to-configure-iot-edge-for-linux-on-windows-networking.md). If address resolution is working, then the issue is likely related to firewall or security configurations on the network. 
 
@@ -129,9 +129,9 @@ To add a firewall rule to the EFLOW VM, you can use the [EFLOW Util - Firewall R
     ```powershell
     Connect-EflowVm
     ```
-1. Add a firewall rule to accept incoming traffic to  port _X_ of _udp_ or _tcp_ traffic. 
+1. Add a firewall rule to accept incoming traffic to _\<port\>_ of _\<protocol\>_ ( _udp_ or _tcp_) traffic. 
     ```powershell
-    sudo iptables -A INPUT -p udp/tcp --dport X -j ACCEPT
+    sudo iptables -A INPUT -p <protocol> --dport <port> -j ACCEPT
     ```
 1. Finally, persist the rules so that they're recreated on every VM boot
     ```powershell
