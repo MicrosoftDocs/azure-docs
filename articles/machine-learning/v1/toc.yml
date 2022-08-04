@@ -236,7 +236,7 @@
           displayName: track production
           href: ../how-to-enable-data-collection.md
         - name: Monitor with Application Insights
-          href: ../how-to-enable-app-insights.md
+          href: how-to-enable-app-insights.md
     - name: Deploy designer models
       displayName: designer, studio
       href: ../how-to-deploy-model-designer.md
