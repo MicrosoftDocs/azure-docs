@@ -31,9 +31,9 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 `Containerd` works on every GA version of Kubernetes in AKS, and in every upstream kubernetes version above v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022.
+> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. 
 > 
-> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
@@ -232,4 +232,4 @@ az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -ots
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: ./learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd

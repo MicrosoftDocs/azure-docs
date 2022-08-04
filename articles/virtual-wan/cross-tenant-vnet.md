@@ -96,6 +96,58 @@ In the following steps, you will switch between the context of the two subscript
 
    * **PowerShell:** The metadata from the newly formed connection will show in the PowerShell console if the connection was successfully formed.
    * **Azure portal:** Navigate to the virtual hub, **Connectivity -> Virtual Network Connections**. You can view the pointer to the connection. To see the actual resource you will need the proper permissions.
+
+## Scenario: add static routes to virtual network hub connection
+In the following steps, you will add a static route to the virtual hub default route table and virtual network connection to point to a next hop ip address (i.e NVA appliance). 
+- Replace the example values to reflect your own environment.
+
+1.	Make sure you are in the context of your parent account by running the following command: 
+
+ ```azurepowershell-interactive
+Select-AzSubscription -SubscriptionId "[parent ID]" 
+```
+
+2.	Add route in the Virtual hub default route table without a specific ip address and next hop as the virtual hub connection by: 
+
+    2.1 get the connection details:
+      ```azurepowershell-interactive
+    $hubVnetConnection = Get-AzVirtualHubVnetConnection -Name "[HubconnectionName]" -ParentResourceName "[Hub Name]" -ResourceGroupName "[resource group name]"
+      ``` 
+    2.2 add a static route to the virtual hub route table (next hop is hub vnet connection): 
+      ```azurepowershell-interactive
+    $Route2 = New-AzVHubRoute -Name "[Route Name]" -Destination “[@("Destination prefix")]” -DestinationType "CIDR" -NextHop $hubVnetConnection.Id -NextHopType "ResourceId"
+      ```
+    2.3 update the current hub default route table:
+      ```azurepowershell-interactive
+    Update-AzVHubRouteTable -ResourceGroupName "[resource group name]"-VirtualHubName [“Hub Name”] -Name "defaultRouteTable" -Route @($Route2)
+      ```
+      ## Customize static routes to specify next hop as an IP address for the virtual hub connection.
+
+    2.4 update the route in the vnethub connection:
+      ```azurepowershell-interactive
+    $newroute = New-AzStaticRoute -Name "[Route Name]"  -AddressPrefix "[@("Destination prefix")]" -NextHopIpAddress "[Destination NVA IP address]"
+
+    $newroutingconfig = New-AzRoutingConfiguration -AssociatedRouteTable $hubVnetConnection.RoutingConfiguration.AssociatedRouteTable.id -Id $hubVnetConnection.RoutingConfiguration.PropagatedRouteTables.Ids[0].id -Label @("default") -StaticRoute @($newroute)
+
+    Update-AzVirtualHubVnetConnection -ResourceGroupName $rgname -VirtualHubName "[Hub Name]" -Name "[Virtual hub connection name]" -RoutingConfiguration $newroutingconfig
+
+      ```
+    2.5 verify static route is established to a next hop IP address:
+
+      ```azurepowershell-interactive
+    Get-AzVirtualHubVnetConnection -ResourceGroupName "[Resource group]" -VirtualHubName "[virtual hub name]" -Name "[Virtual hub connection name]"
+      ```
+
+
+>[!NOTE]
+>- In step 2.2 and 2.4 the route name should be same otherwise it will create two routes one without ip address one with ip address in the routing table.
+>- If you run 2.5 it will remove the previous manual config route in your routing table.
+>- Make sure you have access and are authorized to the remote subscription as well when running the above.
+>- Destination prefix can be one CIDR or multiple ones
+>- Please use this format @("10.19.2.0/24") or @("10.19.2.0/24", "10.40.0.0/16") for multiple CIDR
+>
+
+
    
 ## <a name="troubleshoot"></a>Troubleshooting
 
