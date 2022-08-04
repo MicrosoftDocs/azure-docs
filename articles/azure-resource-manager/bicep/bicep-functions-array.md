@@ -54,7 +54,7 @@ The output from the preceding example with the default values is:
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
-### Quickstart samples
+### Quickstart example
 
 The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
 ](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage):
@@ -185,7 +185,7 @@ The output from the preceding example with the default values is:
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-### Quickstart samples
+### Quickstart example
 
 The following sample is extracted from a quickstart template, [Application Gateway with WAF and firewall policy](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/application-gateway-waf-firewall-policy):
 
