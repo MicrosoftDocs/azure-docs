@@ -114,14 +114,14 @@
       href: tutorial-forescout.md
     - name: Fortinet
       href: tutorial-fortinet.md
+    - name: IBM Qradar
+      href: tutorial-qradar.md
     - name: LogRhythm
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
     - name: Palo Alto
       href: tutorial-palo-alto.md
-    - name: Qradar
-      href: tutorial-qradar.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
     - name: Splunk

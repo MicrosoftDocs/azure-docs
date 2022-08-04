@@ -41,6 +41,12 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Fortinet**     |    Send Defender for IoT data to Fortinet services for: <br><br>- Enhanced network visibility in FortiSIEM<br>- Extra abilities in FortiGate to stop anomalous behavior       |   - OT networks only<br>- Locally managed sensors only       |   Fortinet      | [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)   |
 
+## IBM QRadar
+
+|Name  |Description  |Support scope  |Supported by  |Learn more |
+|---------|---------|---------|---------|---------|
+| **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks only <br>- Cloud connected sensors only | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM
+|**IBM QRadar**     |   Forward Defender for IoT alerts to IBM QRadar.       |   - OT networks only<br>- Locally managed sensors only      |      Qradar   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)   |
 ## LogRhythm
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
@@ -73,11 +79,6 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Palo Alto**     |   Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.      |  - OT networks only<br>- Locally managed sensors only       |     Palo Alto    | [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)   |
 
-## Qradar
-
-|Name  |Description  |Support scope  |Supported by  |Learn more |
-|---------|---------|---------|---------|---------|
-|**QRadar**     |   Forward Defender for IoT alerts to IBM QRadar.       |   - OT networks only<br>- Locally managed sensors only      |      Qradar   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)   |
 
 ## RSA NetWitness
 
@@ -104,7 +105,9 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks only<br>- Locally managed sensors only       |  Splunk       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
+| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks only <br>- Cloud connected sensors only | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM
+](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242)
+|**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks only<br>- Locally managed sensors only       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
 
 
 ## Next steps
