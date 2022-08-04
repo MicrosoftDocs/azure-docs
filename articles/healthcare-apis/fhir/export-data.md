@@ -43,7 +43,7 @@ When data is exported, a separate file is created for each resource type. The FH
 > [!Note] 
 > `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if a resource is in multiple groups or in a compartment of more than one resource.
 
-In addition, you can check the `$export` operation status through the URL returned in the `Content-Location` header included in the FHIR service's response after the initial request. See the HL7 [Bulk Data Status Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-status-request) documentation for more information.
+In addition, you can check the `$export` operation status through the URL returned in the `Content-Location` header included in the initial response from the FHIR service. See the HL7 [Bulk Data Status Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-status-request) documentation for more information.
 
 ### Exporting FHIR data to ADLS Gen2
 
