@@ -17,10 +17,18 @@ Azure Cache for Redis offers Redis persistence using the Redis database (RDB) an
 - **RDB persistence** - When you use RDB persistence, Azure Cache for Redis persists a snapshot of your cache in a binary format. The snapshot is saved in an Azure Storage account. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 - **AOF persistence** - When you use AOF persistence, Azure Cache for Redis saves every write operation to a log. The log is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-Azure Cache for Redis persistence features are intended to be used to restore data after data loss, not importing it to a new cache. You can't import from AOF page blob backups to a new cache. To export data for importing back to a new cache, use the export RDB feature or automatic recurring RDB export. For more information on importing to a new cache, see [Import](cache-how-to-import-export-data.md#import).
+Azure Cache for Redis persistence features are intended to be used to restore data to the same cache after data loss and the RDB/AOF persisted data files cannot be imported to a new cache.
+
+To move data across caches, use the Import/Export feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+
+To generate backup of data that can be added to a new cache, you can write automated scripts using PowerShell or CLI to export data periodically.
 
 > [!NOTE]
-> Importing from AOF page blob backups to a new cache is not a supported option.
+> Persistence features are intended to be used to restore data to the same cache after data loss.
+>
+> - RDB/AOF persisted data files cannot be imported to a new cache.
+> - Use the Import/Export feature to move data across caches.
+> - Write automated scripts using PowerShell or CLI to create a backup of data that can be added to a new cache.
 
 Persistence writes Redis data into an Azure Storage account that you own and manage. You configure the **New Azure Cache for Redis** on the left during cache creation. For existing premium caches, use the **Resource menu**.
 
@@ -30,13 +38,13 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 ## Set up data persistence
 
-1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. Y You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
+    :::image type="content" source="media/cache-how-to-premium-persistence/create-resource.png" alt-text="Screenshot that shows a form to create an Azure Cache for Redis resource.":::
   
 2. On the **Create a resource** page, select **Databases** and then select **Azure Cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-how-to-premium-persistence/select-cache.png" alt-text="Screenshot showing Azure Cache for Redis selected as a new database type.":::
 
 3. On the **New Redis Cache** page, configure the settings for your new premium cache.
   
@@ -50,7 +58,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 4. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
 
-5. In the **Networking** tab, select your connectivity method. For premium cache instances, you  connect either publicly, via Public IP addresses or service endpoints. You connect privately using a private endpoint.
+5. In the **Networking** tab, select your connectivity method. For premium cache instances, you connect either publicly, via Public IP addresses or service endpoints. You connect privately using a private endpoint.
 
 6. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
 
@@ -173,7 +181,7 @@ All RDB persistence backups, except for the most recent one, are automatically d
 
 ### When should I use a second storage account?
 
-Use a second storage account for AOF persistence when you believe you have higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
+Use a second storage account for AOF persistence when you believe you've higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
 
 ### Does AOF persistence affect throughout, latency, or performance of my cache?
 

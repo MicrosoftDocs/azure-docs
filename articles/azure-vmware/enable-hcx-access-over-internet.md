@@ -2,9 +2,10 @@
 title: Enable HCX access over the internet
 description: This article describes how to access HCX over a public IP address using Azure VMware solution.
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 7/19/2022
 ---
 # Enable HCX access over the internet
+
 
 In this article, you'll learn how to perform HCX migration over a Public IP address using Azure VMware Solution.
 >[!IMPORTANT]
@@ -29,7 +30,7 @@ To perform HCX Migration over the public internet, you'll need a minimum of six 
 
 After the Public IP is configured successfully, you should see it appear under the Public IP section. The provisioning state shows **Succeeded**. This Public IP block is configured as NSX-T segment on the Tier-1 router.
 
-For more information about how to enable a public IP to the NSX Edge for Azure VMware Solution, see [Enable Public IP to the NSX Edge for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge). 
+For more information about how to enable a public IP to the NSX Edge for Azure VMware Solution, see [Enable Public IP to the NSX Edge for Azure VMware Solution](./enable-public-ip-nsx-edge.md). 
 
 ## Create Public IP segment on NSX-T 
 Before you create a Public IP segment, get your credentials for NSX-T Manager from Azure VMware Solution portal. 
@@ -37,15 +38,17 @@ Before you create a Public IP segment, get your credentials for NSX-T Manager fr
 1. Sign in to NSX-T Manager using credentials provided by the Azure VMware Solution portal. 
 1. Under the **Manage** section, select **Identity**.
 1. Copy the NSX-T Manager admin user password.  
+
 1. Browse the NSX-T Manger and paste the admin password in the password field, and select **Login**. 
 1. Under the **Networking** section select **Connectivity** and **Segments**, then select **ADD SEGMENT**.
-1. 6.	Provide Segment name, select Tier-1 router as connected gateway, and provide the reserved Public IP under subnets. The Public IP block for this Public IP segment shouldn't include the first and last Public IPs from the overall Public IP block. For example, if you reserved 20.95.1.16/29, you would input 20.95.1.16/30. 
+1. Provide Segment name, select Tier-1 router as connected gateway, and provide the reserved Public IP under subnets. The Public IP block for this Public IP segment shouldn't include the first and last Public IPs from the overall Public IP block. For example, if you reserved 20.95.1.16/29, you would input 20.95.1.16/30. 
 1. Select **Save**.   
 
 ## Assign public IP to HCX manager
 HCX manager of destination Azure VMware Solution SDDC should be reachable from the internet to do site pairing with source site.  HCX Manager can be exposed by way of DNAT rule and a static null route.  Because HCX Manager is in the provider space, not within the NSX-T environment, the null route is necessary to allow HCX Manager to route back to the client by way of the DNAT rule. 
 
 ### Add static null route to the T1 router 
+
 The static null route is used to allow HCX private IP to route through the NSX T1 for public endpoints.
 
 1. Sign in to NSX-T manager, and select **Networking**.
@@ -67,6 +70,7 @@ The static null route is used to allow HCX private IP to route through the NSX T
 1. Select **CLOSE EDITING**.
 
 ### Add NAT rule to T1 gateway
+
 >[!Note]
 >The NAT rules should use a different Public IP address than your Public IP segment.  
 1. Sign in to NSX-T Manager, and select **Networking**.
@@ -91,14 +95,14 @@ The static null route is used to allow HCX private IP to route through the NSX T
 1. Select **NSX Networks** as network type under **Network**.
 1. Select the **Public-IP-Segment** created on NSX-T.
 1. Enter **Name**.
-1. Under IP pools, enter **IP Ranges** for HCX uplink, **Prefix Length** and **Gateway** of public IP segment. 
+1. Under IP pools, enter the **IP Ranges** for HCX uplink, **Prefix Length**, and **Gateway** of public IP segment. 
 1. Scroll down and select the **HCX Uplink** checkbox under **HCX Traffic Type** as this profile will be used for HCX uplink.
 1. To create the Network Profile, select **Create**.
 
 ### Pair site
 Site pairing is required to create service mesh between source and destination sites. 
 
-1. Sign in to **Source** site HCX Manager.
+1. Sign in to the **Source** site HCX Manager.
 1. Select **Site Pairing** and select **ADD SITE PAIRING**. 
 1. Enter the remote HCX URL and sign in credentials, then select **Connect**.
 
@@ -117,14 +121,14 @@ Service Mesh will deploy HCX WAN Optimizer, HCX Network Extension and HCX-IX app
 1. Select the Network Profile of source site.
 1. Select the Network Profile of Destination that you created in the Network Profile section.
 1. Select **Continue**.
-1. Review the Transport Zone information, and select **Continue**. 
+1. Review the Transport Zone information, and then select **Continue**. 
 1. Review the Topological view, and select **Continue**.
 1. Enter the Service Mesh name and select **FINISH**. 
 
 ### Extend network 
 The HCX Network Extension service provides layer 2 connectivity between sites. The extension service also allows you to keep the same IP and MAC addresses during virtual machine migrations. 
 1. Sign in to **source** HCX Manager. 
-1. Under the **Network Extension** section, select the site for which you want to extend the network, and select **EXTEND NETWORKS**. 
+1. Under the **Network Extension** section, select the site for which you want to extend the network, and then select **EXTEND NETWORKS**. 
 1. Select the network that you want to extend to destination site, and select **Next**. 
 1. Enter the subnet details of network that you're extending.
 1. Select the destination first hop route (T1), and select **Submit**.
@@ -133,11 +137,6 @@ The HCX Network Extension service provides layer 2 connectivity between sites. T
 After the network is extended to destination site, VMs can be migrated over Layer 2 Extension. 
 
 ## Next steps 
-[Enable Public IP to the NSX Edge for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge)
+[Enable Public IP to the NSX Edge for Azure VMware Solution](./enable-public-ip-nsx-edge.md)
 
 For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html).
-
-
-
-
-

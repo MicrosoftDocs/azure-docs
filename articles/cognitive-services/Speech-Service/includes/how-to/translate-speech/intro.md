@@ -7,7 +7,7 @@ ms.date: 01/25/2022
 ms.author: eur
 ---
 
-In this quickstart, you learn how to recognize human speech and translate it to another language.
+In this how-to guide, you learn how to recognize human speech and translate it to another language.
 
 See the speech translation [overview](../../../speech-translation.md) for more information about:
 

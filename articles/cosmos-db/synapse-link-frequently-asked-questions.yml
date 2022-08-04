@@ -142,7 +142,7 @@ sections:
           No, you can't access analytical store with the Azure Cosmos DB SDKs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.
       
       - question: |
-          Can I access analytical store with Azure Cosmos DB REAS APIs?
+          Can I access analytical store with Azure Cosmos DB REST APIs?
         answer: |
           No, you can't access analytical store with the Azure Cosmos DB REST APIs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.       
           

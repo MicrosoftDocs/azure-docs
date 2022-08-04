@@ -1,12 +1,12 @@
 ---
 title: Access slow query logs - Azure portal - Azure Database for MySQL
 description: This article describes how to configure and access the slow logs in Azure Database for MySQL from the Azure portal.
-author: Bashar-MSFT
-ms.author: bahusse
 ms.service: mysql
 ms.subservice: single-server
+author: Bashar-MSFT
+ms.author: bahusse
 ms.topic: how-to
-ms.date: 3/15/2021
+ms.date: 06/20/2022
 ---
 
 # Configure and access slow query logs from the Azure portal

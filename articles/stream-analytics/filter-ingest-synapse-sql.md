@@ -61,4 +61,4 @@ You can see the job under the Process Data section on the **Stream Analytics job
 Learn more about Azure Stream Analytics and how to monitor the job you've created.
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Monitor Stream Analytics jobs](stream-analytics-monitoring.md)
+* [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md)

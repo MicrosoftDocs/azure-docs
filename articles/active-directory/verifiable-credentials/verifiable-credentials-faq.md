@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 06/02/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -55,7 +55,7 @@ We implement [the Decentralized Identity Foundation's Well Known DID Configurati
 
 ### Why does the Verifiable Credential preview use ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
-ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special crypto asset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.
+Microsoft now offers two different trust systems, Web and ION. You may choose to use either one of them during tenant onboarding. ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special crypto asset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.
 
 ## Using the preview
 
@@ -179,7 +179,7 @@ Resetting requires that you opt out and opt back into the Azure Active Directory
 1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Azure Active Directory Verifiable credentials deployment.
 1. Under Manage, select Properties
     :::image type="content" source="media/verifiable-credentials-faq/region.png" alt-text="settings delete and opt out":::
-1. See the value for Country or Region. If the value is a country or a region in Europe, your Azure AD Verifiable Credentials service will be set up in Europe.
+1. See the value for Country or Region. If the value is a country or a region in Europe, your Microsoft Entra Verified ID service will be set up in Europe.
 
 ### How can I check if my tenant has the new Hub endpoint?
 
@@ -205,7 +205,7 @@ Resetting requires that you opt out and opt back into the Azure Active Directory
         "type": "IdentityHub",
         "serviceEndpoint": {
           "instances": [
-            "https://beta.hub.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000"
+            "https://verifiedid.hub.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000"
           ],
           "origins": []
         }

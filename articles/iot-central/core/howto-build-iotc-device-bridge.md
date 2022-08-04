@@ -6,7 +6,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 custom: contperf-fy22q3
 

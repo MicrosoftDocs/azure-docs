@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 06/17/2022
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
@@ -37,7 +37,9 @@ To create a read replica, follow these steps:
 
 4. Enter a name for the read replica. 
 
-5. Select **OK** to confirm the creation of the replica.
+5. Select a value from the **Location (preview)** drop-down.
+
+6. Select **OK** to confirm the creation of the replica.
 
 After the read replica is created, it can be viewed from the **Replication** window.
 

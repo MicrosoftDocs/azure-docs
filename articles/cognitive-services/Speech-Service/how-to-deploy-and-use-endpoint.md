@@ -8,9 +8,10 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: caoling
 ms.custom: references_regions
+zone_pivot_groups: programming-languages-set-nineteen
 ---
 
 # Deploy and use your voice model
@@ -65,6 +66,13 @@ To copy your custom neural voice model to another project:
 1. Select **Submit** to copy the model.
 1. Select **View model** under the notification message for copy success. 
 1. On the **Train model** tab, select the newly copied model and then select **Deploy model**.
+
+## Switch to a new voice model in your product
+
+Once you've updated your voice model to the latest engine version, or if you want to switch to a new voice in your product, you need to redeploy the new voice model to a new endpoint. Redeploying new voice model on your existing endpoint is not supported. After deployment, switch the traffic to the newly created endpoint. We recommend that you transfer the traffic to the new endpoint in a test environment first to ensure that the traffic works well, and then transfer to the new endpoint in the production environment. During the transition, you need to keep the old endpoint. If there are some problems with the new endpoint during transition, you can switch back to your old endpoint. If the traffic has been running well on the new endpoint for about 24 hours (recommended value), you can delete your old endpoint. 
+
+> [!NOTE]
+> If your voice name is changed and you are using Speech Synthesis Markup Language (SSML), be sure to use the new voice name in SSML.
 
 ## Suspend and resume an endpoint
 
@@ -278,6 +286,50 @@ The HTTP status code for each response indicates success or common errors.
 | 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text-short.md#authentication) is valid and in the correct region.                                                      |
 | 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
 | 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.                                                                                                          |
+
+## Use your custom voice
+
+The difference between Custom voice sample codes and [Text-to-speech quickstart codes](get-started-speech-to-text.md) is that `EndpointId` must be filled in Custom Voice. So you should first build and run demo quickly by quickstart codes and then check following Custom voice sample codes to see how to set `EndpointId`.
+
+::: zone pivot="programming-language-csharp"
+```csharp
+var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);      
+speechConfig.SpeechSynthesisVoiceName = "YourCustomVoiceName";
+speechConfig.EndpointId = "YourEndpointId";
+```
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+```cpp
+auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
+speechConfig->SetSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig->SetEndpointId("YourEndpointId");
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
+speechConfig.setSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig.setEndpointId("YourEndpointId");
+```
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+```ObjectiveC
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:speechKey region:serviceRegion];
+speechConfig.speechSynthesisVoiceName = @"YourCustomVoiceName";
+speechConfig.EndpointId = @"YourEndpointId";
+```
+::: zone-end
+
+::: zone pivot="programming-language-python"
+```Python
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_config.endpoint_id = "YourEndpointId"
+speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
+```
+::: zone-end
 
 ## Next steps
 

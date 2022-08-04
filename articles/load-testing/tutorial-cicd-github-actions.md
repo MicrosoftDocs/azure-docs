@@ -70,7 +70,7 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     In the previous command, replace the placeholder text `<subscription-id>` with the Azure subscription ID of your Azure Load Testing resource.
 
     > [!NOTE]
-    > Azure Login supports multiple ways to authenticate with Azure. For other authentication options, see the [Azure and GitHub integration site](/azure/developer/github).
+    > You might get a `--sdk-auth` deprecation warning when you run this command. Alternatively, you can use OpenID Connect (OIDC) based authentication for authenticating GitHub with Azure. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
     The output is the role assignment credentials that provide access to your resource. The command outputs a JSON object similar to the following snippet.
 
@@ -113,6 +113,9 @@ You now have a service principal that the necessary permissions to create and ru
 
 Next, add a GitHub secret **AZURE_CREDENTIALS** to your repository to store the service principal you created earlier. You'll pass this GitHub secret to the Azure Login action to authenticate with Azure.
 
+> [!NOTE]
+> If you're using OpenID Connect to authenticate with Azure, you don't have to pass the service principle object in the Azure login action. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+
 1. In [GitHub](https://github.com), browse to your forked repository, select **Settings** > **Secrets** > **New repository secret**.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/github-new-secret.png" alt-text="Screenshot that shows selections for adding a new repository secret to your GitHub repo.":::
@@ -143,6 +146,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
+
+> [!NOTE]
+> If you're using OpenID Connect to authenticate with Azure, you don't have to pass the service principle object in the Azure login action. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
 You've now authorized your GitHub Actions workflow to access your Azure Load Testing resource. You'll now configure the CI/CD workflow to run a load test with Azure Load Testing.
 

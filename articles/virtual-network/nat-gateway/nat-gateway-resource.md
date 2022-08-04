@@ -117,7 +117,9 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../ne
 
 Each NAT gateway can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
-Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can support up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet for TCP and UDP. Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
+Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can support up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet for TCP and UDP. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
+
+Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
 ## Protocols
 
@@ -179,7 +181,7 @@ The following illustrates this concept as an additional flow to the preceding se
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well. See [Scale NAT gateway](#scale-nat-gateway) for more discussion on correctly sizing your IP address provisioning.
+A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well (see flow 1 from table above). See [Scale NAT gateway](#scale-nat-gateway) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|

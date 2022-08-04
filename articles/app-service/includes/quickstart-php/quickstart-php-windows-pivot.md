@@ -8,6 +8,9 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
+> [!NOTE]
+> [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
+
 ## Prerequisites
 
 To complete this quickstart:
@@ -178,10 +181,3 @@ The PHP sample code is running in an Azure App Service web app.
 
 [!INCLUDE [cli-samples-clean-up](../../../../includes/cli-samples-clean-up.md)]
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [PHP with MySQL](../../tutorial-php-mysql-app.md)
-
-> [!div class="nextstepaction"]
-> [Configure PHP app](../../configure-language-php.md)

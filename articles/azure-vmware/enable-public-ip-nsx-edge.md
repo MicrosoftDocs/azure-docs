@@ -16,7 +16,7 @@ In this article, you'll learn how to enable Public IP to the NSX Edge for your A
 Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. 
 
 >[!IMPORTANT]
->To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+>To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
 The Public IP is configured in Azure VMware Solution through the Azure portal and the NSX-T Data center interface within your Azure VMware Solution private cloud.
 
@@ -28,7 +28,7 @@ With this capability, you have the following features:
 - HCX Migration support over the Public Internet.
 
 >[!TIP]
->To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+>To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
 ## Reference   architecture    
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.
@@ -78,7 +78,7 @@ A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT)
 1. Enter a name.
 1. Select **SNAT**. 
 1. Optionally, enter a source such as a subnet to SNAT or destination.
-1. Enter the translated IP.   This IP is from the range of Public IPs you reserved from the Azure VMware Solution Portal.
+1. Enter the translated IP. This IP is from the range of Public IPs you reserved from the Azure VMware Solution Portal.
 1. Optionally, give the rule a higher priority number. This prioritization will move the rule further down the rule list to ensure more specific rules are matched first.
 1. Click **SAVE**.
 
@@ -106,8 +106,8 @@ A Destination Network Translation Service (DNAT) is used to expose a VM on a spe
 **Configure the DNAT rule**
   1. Name the rule.
    1. Select **DNAT** as the action.
-   1. Enter the reserved Public IP in the destination match.
-   1. Enter the VM Private IP in the translated IP. This IP is from the range of Public IPs reserved from the Azure VMware Solution Portal.
+   1. Enter the reserved Public IP in the destination match. This IP is from the range of Public IPs reserved from the Azure VMware Solution Portal.
+   1. Enter the VM Private IP in the translated IP.
    1. Select **SAVE**. 
    1. Optionally, configure the Translated Port or source IP for more specific matches.
     
@@ -135,8 +135,8 @@ For example, the following rule is set to Match External Address, and this setti
     :::image type="content" source="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity.png" alt-text="Screenshot Internet connectivity inbound Public IP." lightbox="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity-expanded.png":::
      
 If **Match Internal Address** was specified, the destination would be the internal or private IP address of the VM. 
-For more information on the NSX-T Gateway Firewall see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
-The Distributed Firewall could be used to filter traffic to VMs. This feature is outside the scope of this document. For more information, see [NSX-T Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html)git status.
+For more information on the NSX-T Gateway Firewall see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
+The Distributed Firewall could be used to filter traffic to VMs. This feature is outside the scope of this document. For more information, see [NSX-T Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html).
 
 ## Next steps 
 [Internet connectivity design considerations (Preview)](concepts-design-public-internet-access.md)
@@ -146,5 +146,3 @@ The Distributed Firewall could be used to filter traffic to VMs. This feature is
 [Disable Internet access or enable a default route](disable-internet-access.md)
 
 [Enable HCX access over the internet](enable-hcx-access-over-internet.md)
-
-

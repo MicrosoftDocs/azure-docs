@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # What's new in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
 If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
@@ -26,6 +24,87 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
+
+## August 2022
+
+### Microsoft Sentinel Solution for SAP is now generally available
+
+The Microsoft Sentinel Solution for SAP is now generally available (GA). [Learn about billing and offer details](/pricing/offers/microsoft-sentinel-sap-promo/).
+
+With previous versions, every solution update would duplicate content, creating new objects alongside the previous version objects. The GA version uses rule and workbook templates, so that for every solution update, you can clearly understand what has changed, using a dedicated wizard. [Learn more about rule templates](manage-analytics-rule-templates.md).
+
+[Learn more about the updated solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protect-critical-information-within-sap-systems-against/ba-p/3586943).
+
+#### Solution highlights
+
+The Microsoft Sentinel solution for SAP allows you to monitor, detect, and respond to suspicious activities within the SAP ecosystem, protecting your sensitive data against sophisticated cyber attacks. 
+
+Use the solution to: 
+
+- Monitor all SAP system layers 
+- Gain visibility across business logic, application, databases, and operating system layers with built-in investigation and threat detection tools 
+- Detect and automatically respond to threats 
+- Discover suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, and suspicious data downloads with out-of-the-box detection capabilities 
+- Customize based on your needs: build your own threat detection solutions to monitor specific business risks and extend built-in security content
+
+## July 2022
+
+- [Sync user entities from your on-premises Active Directory with Microsoft Sentinel](#sync-user-entities-from-your-on-premises-active-directory-with-microsoft-sentinel)
+- [Automation rules for alerts](#automation-rules-for-alerts)
+
+### Sync user entities from your on-premises Active Directory with Microsoft Sentinel
+
+Until now, you've been able to bring your user account entities from your Azure Active Directory (Azure AD) into the IdentityInfo table in Microsoft Sentinel, so that User and Entity Behavior Analytics (UEBA) can use that information to provide context and give insight into user activities, to enrich your investigations.
+
+Now you can do the same with your on-premises (non-Azure) Active Directory as well.
+
+If you have Microsoft Defender for Identity, [enable and configure User and Entity Behavior Analytics (UEBA)](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics) to collect and sync your Active Directory user account information into Microsoft Sentinel's IdentityInfo table, so you can get the same insight value from your on-premises users as you do from your cloud users.
+
+Learn more about the [requirements for using Microsoft Defender for Identity](/defender-for-identity/prerequisites) this way.
+
+### Automation rules for alerts
+
+In addition to their incident-management duties, [automation rules](automate-incident-handling-with-automation-rules.md) have a new, added function: they are the preferred mechanism for running playbooks built on the **alert trigger**. 
+
+Previously, these playbooks could be automated only by attaching them to analytics rules on an individual basis. With the alert trigger for automation rules, a single automation rule can apply to any number of analytics rules, enabling you to centrally manage the running of playbooks for alerts as well as those for incidents.
+
+Learn more about [migrating your alert-trigger playbooks to be invoked by automation rules](migrate-playbooks-to-automation-rules.md).
+
+## June 2022
+
+- [Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)](#microsoft-purview-data-loss-prevention-dlp-integration-in-microsoft-sentinel-preview)
+- [Incident update trigger for automation rules (Preview)](#incident-update-trigger-for-automation-rules-preview)
+
+### Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)
+
+[Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md) now includes the integration of Microsoft Purview DLP alerts and incidents in Microsoft Sentinel's incidents queue.
+
+With this feature, you will be able to do the following:
+
+- View all DLP alerts grouped under incidents in the Microsoft 365 Defender incident queue.
+
+- View intelligent inter-solution (DLP-MDE, DLP-MDO) and intra-solution (DLP-DLP) alerts correlated under a single incident.
+
+- Retain DLP alerts and incidents for **180 days**.
+
+- Hunt for compliance logs along with security logs under Advanced Hunting.
+
+- Take in-place administrative remediation actions on users, files, and devices.
+
+- Associate custom tags to DLP incidents and filter by them.
+
+- Filter the unified incident queue by DLP policy name, tag, Date, service source, incident status, and user.
+
+In addition to the native experience in the Microsoft 365 Defender Portal, customers will also be able to use the one-click Microsoft 365 Defender connector to [ingest and investigate DLP incidents in Microsoft Sentinel](/microsoft-365/security/defender/investigate-dlp).
+
+
+### Incident update trigger for automation rules (Preview)
+
+Automation rules are an essential tool for triaging your incidents queue, reducing the noise in it, and generally coping with the high volume of incidents in your SOC seamlessly and transparently. Previously you could create and run automation rules and playbooks that would run upon the creation of an incident, but your automation options were more limited past that point in the incident lifecycle. 
+
+You can now create automation rules and playbooks that will run when incident fields are modified - for example, when an owner is assigned, when its status or severity is changed, or when alerts and comments are added.
+
+Learn more about the [update trigger in automation rules](automate-incident-handling-with-automation-rules.md).
 
 ## May 2022
 
@@ -81,9 +160,9 @@ For more information, see:
 
 Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
 
-The first of these features is the [**custom logs API**](../azure-monitor/logs/custom-logs-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
+The first of these features is the [**Logs ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
 
-The second feature is [**ingestion-time data transformation**](../azure-monitor/logs/ingestion-time-transformations.md) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+The second feature is [**workspace transformations**](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
 
 - AMA-based data connectors (based on the new Azure Monitor Agent)
 - MMA-based data connectors (based on the legacy Log Analytics Agent)
@@ -585,7 +664,7 @@ For more information, see:
 
 ### Data connector health enhancements (Public preview)
 
-Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you [turn on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event generated.
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you [turn on the Azure Sentinel health feature](monitor-sentinel-health.md) in your Azure Sentinel workspace, at the first success or failure health event generated.
 
 For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
 

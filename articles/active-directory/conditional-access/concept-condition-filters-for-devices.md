@@ -31,7 +31,7 @@ There are multiple scenarios that organizations can now enable using filter for 
    - Policy 2: Select users and groups and include group that contains service accounts only, accessing all cloud apps, excluding a filter for devices using rule expression device.extensionAttribute2 not equals TeamsPhoneDevice and for Access controls, Block.
 
 > [!NOTE] 
-> Azure AD uses device authentication to evaluate device filter rules. For devices that are unregistered with Azure AD, all device properties are considered as null values.
+> Azure AD uses device authentication to evaluate device filter rules. For a device that is unregistered with Azure AD, all device properties are considered as null values and the device attributes cannot be determined since the device does not exist in the directory. The best way to target policies for unregistered devices is by using the negative operator since the configured filter rule would apply. If you were to use a positive operator, the filter rule would only apply when a device exists in the directory and the configured rule matches the attribute on the device. 
 
 ## Create a Conditional Access policy
 

@@ -41,6 +41,7 @@ The following table provides a description of each instance state and indicates 
 
 | Power state | Description | Billing |  
 |---|---|---|
+| Creating | Virtual machine is allocating resources. | Not Billed* | 
 | Starting| Virtual machine is powering up. | Billed |
 | Running | Virtual machine is fully up. This state is the standard working state. | Billed |
 | Stopping | This state is transitional between running and stopped. | Billed |

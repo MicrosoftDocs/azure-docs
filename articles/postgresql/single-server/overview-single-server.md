@@ -7,9 +7,12 @@ ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
 ms.custom: mvc
-ms.date: 11/30/2021
+ms.date: 06/24/2022
 ---
+
 # Azure Database for PostgreSQL Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 [Azure Database for PostgreSQL](./overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
@@ -21,7 +24,7 @@ In this article, we will provide an overview and introduction to core concepts o
 
 ## Overview
 
-Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 9.6, 10, and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 10 and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom PostgreSQL configuration settings.
 
@@ -35,8 +38,8 @@ During planned or unplanned failover events, if the server goes down, the servic
 2. The storage with data files is mapped to the new container.
 3. PostgreSQL database engine is brought online on the new compute container.
 4. Gateway service ensures transparent failover ensuring no application side changes requires.
-   
- :::image type="content" source="./media/overview/overview-azure-postgres-single-server.png" alt-text="Azure Database for PostgreSQL Single Server":::
+
+:::image type="content" source="./media/overview/overview-azure-postgres-single-server.png" alt-text="Azure Database for PostgreSQL Single Server":::
 
 The typical failover time ranges from 60-120 seconds. The cloud native design of the single server service allows it to support 99.99% of availability eliminating the cost of passive hot standby.
 
@@ -81,10 +84,9 @@ The service runs community version of PostgreSQL. This allows full application c
 
 ## Frequently Asked Questions
 
- Will Flexible Server replace Single Server or Will Single Server be retired soon?
+Will Flexible Server replace Single Server or Will Single Server be retired soon?
 
 We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
-
 
 ## Contacts
 

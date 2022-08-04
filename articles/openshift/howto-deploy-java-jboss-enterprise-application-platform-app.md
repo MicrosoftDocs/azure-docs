@@ -308,7 +308,7 @@ Execute the following command if you want to delete the secret that holds the ap
 
 ```bash
 $ oc delete secrets/todo-list-secret
-secret "todo-list-secret" deleted
+# secret "todo-list-secret" deleted
 ```
 
 ### Delete the OpenShift project
@@ -317,7 +317,7 @@ You can also delete all the configuration created for this demo by deleting the 
 
 ```bash
 $ oc delete project eap-demo
-project.project.openshift.io "eap-demo" deleted
+# project.project.openshift.io "eap-demo" deleted
 ```
 
 ### Delete the ARO cluster

@@ -64,7 +64,7 @@ The key differences between the data structure of Azure Cosmos DB and HBase are 
 
 * HBase uses timestamp to version multiple instances of a given cell. You can query different versions of a cell using timestamp.
 
-* Azure Cosmos DB ships with the [Change feed feature](../change-feed.md) which tracks persistent record of changes to a container in the order they occur. It then outputs the sorted list of documents that were changed in the order in which they were modified.  
+* Azure Cosmos DB ships with the [Change feed feature](../change-feed.md) which tracks persistent record of changes to a container in the order they occur. It then outputs the sorted list of documents that were changed in the order in which they were modified.
 
 **Data format**
 
@@ -323,7 +323,7 @@ sqlline.py ZOOKEEPER/hbase-unsecure
 #### Get the table details
 
 ```console
-!describe <Table Name> 
+!describe <Table Name>
 ```
 
 #### Get the index details
@@ -335,7 +335,7 @@ sqlline.py ZOOKEEPER/hbase-unsecure
 ### Get the primary key details
 
  ```console
-!primarykeys <Table Name> 
+!primarykeys <Table Name>
 ```
 
 ## Migrate your data
@@ -361,7 +361,7 @@ Data Factory's Copy activity supports HBase as a data source. See the [Copy data
 
 You can specify Cosmos DB (SQL API) as the destination for your data. See the [Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory](../../data-factory/connector-azure-cosmos-db.md) article for more details.
 
-:::image type="content" source="./media/migrate-hbase-to-cosmos-db/data-migration-hbase-azure-data-factory.png" alt-text="Architecture for migrating data from on-premise to Azure Cosmos DB using Data Factory.":::
+:::image type="content" source="./media/migrate-hbase-to-cosmos-db/data-migration-hbase-azure-data-factory.png" alt-text="Architecture for migrating data from on-premises to Azure Cosmos DB using Data Factory.":::
 
 ### Migrate using Apache Spark - Apache HBase Connector & Cosmos DB Spark connector
 
@@ -408,10 +408,10 @@ For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](create-sql
        |"personalPhone":{"cf":"Personal", "col":"Phone", "type":"string"}
        |}
    |}""".stripMargin
-   
+
    ```
 
-1. Next, define a method to get the data from the HBase Contacts table as a DataFrame. 
+1. Next, define a method to get the data from the HBase Contacts table as a DataFrame.
 
    ```scala
    def withCatalog(cat: String): DataFrame = {
@@ -421,7 +421,7 @@ For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](create-sql
        .format("org.apache.spark.sql.execution.datasources.hbase")
        .load()
     }
-   
+
    ```
 
 1. Create a DataFrame using the defined method.
@@ -475,29 +475,29 @@ The mappings for code migration are shown here, but the HBase RowKeys and Azure 
 **HBase**
 
 ```java
-Configuration config = HBaseConfiguration.create(); 
-config.set("hbase.zookeeper.quorum","zookeepernode0,zookeepernode1,zookeepernode2"); 
-config.set("hbase.zookeeper.property.clientPort", "2181"); 
-config.set("hbase.cluster.distributed", "true"); 
+Configuration config = HBaseConfiguration.create();
+config.set("hbase.zookeeper.quorum","zookeepernode0,zookeepernode1,zookeepernode2");
+config.set("hbase.zookeeper.property.clientPort", "2181");
+config.set("hbase.cluster.distributed", "true");
 Connection connection = ConnectionFactory.createConnection(config)
 ```
 
 **Phoenix**
 
 ```java
-//Use JDBC to get a connection to an HBase cluster 
+//Use JDBC to get a connection to an HBase cluster
 Connection conn = DriverManager.getConnection("jdbc:phoenix:server1,server2:3333",props);
 ```
 
 **Azure Cosmos DB**
 
 ```java
-// Create sync client 
-client = new CosmosClientBuilder()              
-    .endpoint(AccountSettings.HOST)              
-    .key(AccountSettings.MASTER_KEY)              
-    .consistencyLevel(ConsistencyLevel.{ConsistencyLevel})              
-    .contentResponseOnWriteEnabled(true)              
+// Create sync client
+client = new CosmosClientBuilder()
+    .endpoint(AccountSettings.HOST)
+    .key(AccountSettings.MASTER_KEY)
+    .consistencyLevel(ConsistencyLevel.{ConsistencyLevel})
+    .contentResponseOnWriteEnabled(true)
     .buildClient();
 ```
 
@@ -506,12 +506,12 @@ client = new CosmosClientBuilder()
 **HBase**
 
 ```java
-// create an admin object using the config     
-HBaseAdmin admin = new HBaseAdmin(config);      
-// create the table...     
-HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("FamilyTable"));     
-// ... with single column families     
-tableDescriptor.addFamily(new HColumnDescriptor("ColFam"));     
+// create an admin object using the config
+HBaseAdmin admin = new HBaseAdmin(config);
+// create the table...
+HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("FamilyTable"));
+// ... with single column families
+tableDescriptor.addFamily(new HColumnDescriptor("ColFam"));
 admin.createTable(tableDescriptor);
 ```
 
@@ -524,18 +524,18 @@ CREATE IF NOT EXISTS FamilyTable ("id" BIGINT not null primary key, "ColFam"."la
 **Azure Cosmos DB**
 
 ```java
-//  Create database if not exists 
-CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName); 
-database = client.getDatabase(databaseResponse.getProperties().getId());  
+//  Create database if not exists
+CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
+database = client.getDatabase(databaseResponse.getProperties().getId());
 
-//  Create container if not exists 
-CosmosContainerProperties containerProperties = new CosmosContainerProperties("FamilyContainer", "/lastName");  
+//  Create container if not exists
+CosmosContainerProperties containerProperties = new CosmosContainerProperties("FamilyContainer", "/lastName");
 
-// Provision throughput 
-ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);  
+// Provision throughput
+ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);
 
-//  Create container with 400 RU/s 
-CosmosContainerResponse databaseResponse = database.createContainerIfNotExists(containerProperties, throughputProperties); 
+//  Create container with 400 RU/s
+CosmosContainerResponse databaseResponse = database.createContainerIfNotExists(containerProperties, throughputProperties);
 container = database.getContainer(databaseResponse.getProperties().getId());
 ```
 

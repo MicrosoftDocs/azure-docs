@@ -2,12 +2,12 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: mikaelweave
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/10/2022
-ms.author: mikaelw
+ms.date: 06/29/2022
+ms.author: dseven
 ---
 
 # Release notes: Azure Health Data Services
@@ -18,6 +18,18 @@ ms.author: mikaelw
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+
+## June 2022
+
+### FHIR service
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | :--------------- |
+|Export Job not being queued for execution.  |Fixes issue with export job not being queued due to duplicate job definition caused due to reference to container URL. For more information, see [#2648](https://github.com/microsoft/fhir-server/pull/2648). |
+|Queries not providing consistent result count after appended with the _sort operator.   |Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response.  For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). |
+
 
 ## May 2022
 
@@ -36,7 +48,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/fhir/configure-cross-origin-resource-sharing.md). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. |
+|DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/dicom/configure-cross-origin-resource-sharing.md). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. |
 |DICOMcast supports Private Link   |DICOMcast has been updated to support Azure Health Data Services workspaces that have been configured to use [Private Link](./../healthcare-apis/healthcare-apis-configure-private-link.md). |
 |UPS-RS supports Change and Retrieve work item  |Modality worklist (UPS-RS) endpoints have been added to support Change and Retrieve operations for work items. |
 |API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI.  For more details, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service.md). |
