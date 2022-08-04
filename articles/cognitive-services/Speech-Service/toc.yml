@@ -117,7 +117,7 @@ items:
       displayName: ipa, phoneme, phonetic, prosody
     - name: Lower speech synthesis latency
       href: how-to-lower-speech-synthesis-latency.md
-    - name: Get facial pose events for lip-sync
+    - name: Get facial position with viseme
       href: how-to-speech-synthesis-viseme.md
       displayName: viseme, phoneme, phonetic
     - name: Custom Neural Voice

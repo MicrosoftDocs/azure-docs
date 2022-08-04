@@ -960,7 +960,7 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 
 ### Viseme
 
-A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes. Speech audio output can be accompanied by a viseme ID, Scalable Vector Graphics (SVG), or blend shapes. For more information, see [Get facial pose events for lip-sync](how-to-speech-synthesis-viseme.md).
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes. Speech audio output can be accompanied by a viseme ID, Scalable Vector Graphics (SVG), or blend shapes. For more information, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md).
 
 > [!NOTE]
 > Viseme ID supports [neural voices](#text-to-speech) in the locales listed below. SVG only supports neural voices in the `en-US` locale, and blend shapes supports neural voices in the `en-US` and `zh-CN` locales. 

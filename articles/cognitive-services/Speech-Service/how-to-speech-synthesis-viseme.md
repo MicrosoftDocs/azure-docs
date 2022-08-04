@@ -15,12 +15,12 @@ ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Get facial pose events for lip-sync
+# Get facial position with viseme
 
 > [!NOTE]
-> Viseme ID supports neural voices in [all viseme-supported locales](language-support.md#viseme). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales. 
+> Viseme ID supports neural voices in [all viseme-supported locales](language-support.md#viseme). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales.
 
-A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
+A *viseme* is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
 You can use visemes to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech. For example, you can:
 
@@ -88,6 +88,7 @@ using (var synthesizer = new SpeechSynthesizer(speechConfig, audioConfig))
         var animation = e.Animation;
     };
 
+    // If VisemeID is the only thing you want, you can also use `SpeakTextAsync()`
     var result = await synthesizer.SpeakSsmlAsync(ssml);
 }
 
@@ -112,6 +113,7 @@ synthesizer->VisemeReceived += [](const SpeechSynthesisVisemeEventArgs& e)
     auto animation = e.Animation;
 };
 
+// If VisemeID is the only thing you want, you can also use `SpeakTextAsync()`
 auto result = synthesizer->SpeakSsmlAsync(ssml).get();
 ```
 
@@ -132,6 +134,7 @@ synthesizer.VisemeReceived.addEventListener((o, e) -> {
     String animation = e.getAnimation();
 });
 
+// If VisemeID is the only thing you want, you can also use `SpeakTextAsync()`
 SpeechSynthesisResult result = synthesizer.SpeakSsmlAsync(ssml).get();
 ```
 
@@ -152,6 +155,7 @@ def viseme_cb(evt):
 # Subscribes to viseme received event
 speech_synthesizer.viseme_received.connect(viseme_cb)
 
+# If VisemeID is the only thing you want, you can also use `speak_text_async()`
 result = speech_synthesizer.speak_ssml_async(ssml).get()
 ```
 
@@ -170,6 +174,7 @@ synthesizer.visemeReceived = function (s, e) {
     var animation = e.Animation;
 }
 
+// If VisemeID is the only thing you want, you can also use `speakTextAsync()`
 synthesizer.speakSsmlAsync(ssml);
 ```
 
@@ -190,6 +195,7 @@ SPXSpeechSynthesizer *synthesizer =
     NSString *animation = eventArgs.Animation;
 }];
 
+// If VisemeID is the only thing you want, you can also use `SpeakText`
 [synthesizer speakSsml:ssml];
 ```
 
@@ -222,6 +228,7 @@ Render the SVG animation along with the synthesized speech to see the mouth move
 ```
 
 # [3D blend shapes](#tab/3dblendshapes)
+
 
 Each viseme event includes a series of frames in the `Animation` SDK property. These are grouped to best align the facial positions with the audio. Your 3D engine should render each group of `BlendShapes` frames immediately before the corresponding audio chunk. The `FrameIndex` value indicates how many frames have already been rendered prior to the current list of frames.
 
