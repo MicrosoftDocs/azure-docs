@@ -62,8 +62,7 @@ If you are reviewing access to an application, then before creating the review, 
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/teams-groups.png)
 
 > [!NOTE]  
-> Creating Access Reviews for Privileged Access Groups (Preview): Reviews can be performed on both active members of the group who are active at the time the review is created and the eligible members of the group. When a Privileged Access Group (PAG) is selected, the users under review for the Group will include all eligible users and active users in that group. Reviews on PAGs can be created under “Teams + Groups” in the Access Review creation form. PAGs can be selected in the Teams + Groups. When a PAG is selected, an info banner will be displayed on the portal: “The selected resource is a Privileged Access Group. Access Reviews on Privileged Access Groups will include both eligible and active member assignments”.There will be no change in the Reviewer experience in My Access portal.
-
+> Creating Access Reviews for Privileged Access Groups (Preview): Reviews can be performed on both active members of the group who are active at the time the review is created and the eligible members of the group. When a Privileged Access Group (PAG) is selected, the users under review for the Group will include all eligible users and active users in that group. 
 
 1. If you selected **Applications**, select one or more applications.
 
