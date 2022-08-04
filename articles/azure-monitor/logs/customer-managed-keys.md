@@ -71,6 +71,8 @@ Customer-managed key configuration isn't supported in Azure portal currently and
 
 ## Storing encryption key ("KEK")
 
+A [portfolio of Azure Key Management products](../../key-vault/managed-hsm/mhsm-control-data.md#portfolio-of-azure-key-management-products) lists the vaults and managed HSMs that can be used. 
+
 Create or use an existing Azure Key Vault in the region that the cluster is planed, and generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable, to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
 [![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png "Screenshot of Key Vault soft delete and purge protection properties")](media/customer-managed-keys/soft-purge-protection.png#lightbox)
@@ -97,7 +99,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 ## Grant Key Vault permissions
 
-There are two permission models in Key Vault to grants permissions to your cluster and underlay storage, Vault access policy and Azure role-based access control.
+There are two permission models in Key Vault to grants permissions to your cluster and underlay storage——Vault access policy, and Azure role-based access control.
 
 1. Vault access policy
 

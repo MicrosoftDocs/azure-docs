@@ -195,7 +195,7 @@ This tutorial describes how to create a cloud-connected sensor, connecting direc
 Before continuing, make sure that your sensor can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
 - **IoT Hub**: `*.azure-devices.net`
-- **Threat Intelligence**: `*.blob.core.windows.net`
+- **Blob Storage**: `*.blob.core.windows.net`
 - **Eventhub**: `*.servicebus.windows.net`
 - **Microsoft Download Center**: `download.microsoft.com`
 

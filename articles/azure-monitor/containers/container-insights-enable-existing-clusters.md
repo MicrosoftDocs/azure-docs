@@ -14,6 +14,10 @@ If you're connecting an existing AKS cluster to an Azure Log Analytics workspace
 
 
 ## [CLI](#tab/azure-cli)
+
+> [!NOTE]
+> Azure CLI version 2.39.0 or higher required for managed identity authentication.
+
 The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to pre-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
 
 ```azurecli
@@ -400,7 +404,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 ## Migrate to managed identity authentication
 
 ### Existing clusters with service principal 
-AKS Clusters with service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud is currently supported for this migration.
+AKS Clusters with service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
 
 
 1.	Disable monitoring with the following command:

@@ -31,7 +31,7 @@
   - name: CI/CD
     items:
     - name: Bicep with pipelines
-      displayName: continuous, ci, cd, CI/CD
+      displayName: continuous,ci,cd,CI/CD,AzureResourceGroupDeployment,AzureCLI
       href: add-template-to-azure-pipelines.md
     - name: Bicep with GitHub Actions
       displayName: continuous, ci, cd, CI/CD
@@ -380,6 +380,8 @@
         href: linter-rule-outputs-should-not-contain-secrets.md
       - name: Prefer interpolation
         href: linter-rule-prefer-interpolation.md
+      - name: Prefer unquoted property names
+        href: linter-rule-prefer-unquoted-property-names.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
       - name: Simplify interpolation

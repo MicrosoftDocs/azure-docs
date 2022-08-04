@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 07/21/2022
+ms.date: 07/29/2022
 ---
 
 # Add linter settings in the Bicep config file
@@ -45,6 +45,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "prefer-interpolation": {
+          "level": "warning"
+        },
+        "prefer-unquoted-property-names": {
           "level": "warning"
         },
         "secure-parameter-default": {
