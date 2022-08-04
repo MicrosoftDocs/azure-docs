@@ -31,7 +31,7 @@ Set the partitioning of column data for your window transformation. The SQL equi
 ## Sort
 Another part of the Over clause is setting the ```Order By```. This will set the data sort ordering. You can also create an expression for a calculate value in this column field for sorting.
 
-:::image type="content" source="media/data-flow/-5.png" alt-text="Screenshot shows Windowing Settings with the Sort tab selected.":::
+:::image type="content" source="media/data-flow/windows-5.png" alt-text="Screenshot shows Windowing Settings with the Sort tab selected.":::
 
 ## Range By
 Next, set the window frame as Unbounded or Bounded. To set an unbounded window frame, set the slider to Unbounded on both ends. If you choose a setting between Unbounded and Current Row, then you must set the Offset start and end values. Both values will be positive integers. You can use either relative numbers or values from your data.
