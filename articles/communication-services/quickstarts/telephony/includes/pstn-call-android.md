@@ -33,11 +33,6 @@ Add the `PhoneNumber` type to your app by modifying **MainActivity.java**:
 import com.azure.android.communication.common.PhoneNumberIdentifier;
 ```
 
-<!--
-> [!TBD]
-> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-check this.
--->
-
 ## Start a call to phone
 
 Specify the phone number you acquired from within your Communication Services resource. This will be used to start the call:
