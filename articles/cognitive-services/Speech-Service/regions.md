@@ -32,7 +32,7 @@ The following regions are supported for Speech service features such as speech-t
 
 | Geography | Region | Region identifier |
 | ----- | ----- | ----- |
-| Africa | South Africa North | `southafricanorth` |
+| Africa | South Africa North | `southafricanorth` <sup>6</sup>|
 | Asia Pacific | East Asia | `eastasia` <sup>5</sup>|
 | Asia Pacific | Southeast Asia | `southeastasia` <sup>1,2,3,4,5</sup>|
 | Asia Pacific | Australia East | `australiaeast` <sup>1,2,3,4</sup>|
@@ -46,16 +46,16 @@ The following regions are supported for Speech service features such as speech-t
 | Europe | France Central | `francecentral` |
 | Europe | Germany West Central | `germanywestcentral` |
 | Europe | Norway East | `norwayeast` |
-| Europe | Switzerland North | `switzerlandnorth` |
+| Europe | Switzerland North | `switzerlandnorth` <sup>6</sup>|
 | Europe | Switzerland West | `switzerlandwest` |
 | Europe | UK South | `uksouth` <sup>1,2,3,4</sup>|
-| Middle East | UAE North | `uaenorth` |
-| South America | Brazil South | `brazilsouth` |
+| Middle East | UAE North | `uaenorth` <sup>6</sup>|
+| South America | Brazil South | `brazilsouth` <sup>6</sup>|
 | US | Central US | `centralus` |
 | US | East US | `eastus` <sup>1,2,3,4,5</sup>|
 | US | East US 2 | `eastus2` <sup>1,2,4,5</sup>|
-| US | North Central US | `northcentralus` <sup>1,4</sup>|
-| US | South Central US | `southcentralus` <sup>1,2,3,4,5</sup>|
+| US | North Central US | `northcentralus` <sup>1,4,6</sup>|
+| US | South Central US | `southcentralus` <sup>1,2,3,4,5,6</sup>|
 | US | West Central US | `westcentralus` <sup>5</sup>|
 | US | West US | `westus` <sup>2,5</sup>|
 | US | West US 2 | `westus2` <sup>1,2,4,5</sup>|
@@ -70,6 +70,8 @@ The following regions are supported for Speech service features such as speech-t
 <sup>4</sup> The region supports custom keyword advanced models.
 
 <sup>5</sup> The region supports keyword verification.
+
+<sup>6</sup> The region does not support Speaker Recognition.
 
 ## Intent recognition
 
