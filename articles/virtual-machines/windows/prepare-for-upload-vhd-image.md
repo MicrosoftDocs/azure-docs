@@ -115,6 +115,7 @@ After the SFC scan completes, install Windows Updates and restart the computer.
 
    ```powershell
    powercfg.exe /setactive SCHEME_MIN
+   powercfg /setacvalueindex SCHEME_CURRENT SUB_VIDEO VIDEOIDLE 0
    ```
 
 1. Make sure the environmental variables **TEMP** and **TMP** are set to their default values:
