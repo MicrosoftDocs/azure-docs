@@ -54,7 +54,7 @@ To migrate a non-zonal managed disk to zonal:
 
 1. Create your snapshot. Thoroughly read the recommendations and directions in [Create your snapshot](#create-your-snapshot)
 
-1. Create a zonal managed disk from the source disk snapshot. The zone in which your managed disk is created should match your zonal VM.  To create a zonal managed disk from the snapshot, you can use [Azure CLI](../virtual-machines/scripts/create-managed-disk-from-snapshot.md)(example below), [PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md), or the Azure Portal.
+1. Create a zonal managed disk from the source disk snapshot. The zone parameter should match your zonal VM.  To create a zonal managed disk from the snapshot, you can use [Azure CLI](../virtual-machines/scripts/create-managed-disk-from-snapshot.md)(example below), [PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md), or the Azure Portal.
 
     ```powershell
         az disk create --resource-group $resourceGroupName --name $diskName --location @location --zone 1 --sku $storageType --size-gb $diskSize --source $snapshotId
