@@ -107,8 +107,9 @@ PATCH https://graph.microsoft.com/v1.0/users/<user-object-ID>
 Content-type: application/json
 
 {
-"passwordProfile": {
-  "forceChangePasswordNextSignIn": true
+    "passwordProfile": {
+      "forceChangePasswordNextSignIn": true
+    }
 }
 ```
 
