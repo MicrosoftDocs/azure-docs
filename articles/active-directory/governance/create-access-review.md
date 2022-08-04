@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 07/20/2022
+ms.date: 08/04/2022
 ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -61,6 +61,10 @@ If you are reviewing access to an application, then before creating the review, 
 
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/teams-groups.png)
 
+> [!NOTE]  
+> Creating Access Reviews for Privileged Access Groups (Preview): Reviews can be performed on both active members of the group who are active at the time the review is created and the eligible members of the group. When a Privileged Access Group (PAG) is selected, the users under review for the Group will include all eligible users and active users in that group. Reviews on PAGs can be created under “Teams + Groups” in the Access Review creation form. PAGs can be selected in the Teams + Groups. When a PAG is selected, an info banner will be displayed on the portal: “The selected resource is a Privileged Access Group. Access Reviews on Privileged Access Groups will include both eligible and active member assignments”.There will be no change in the Reviewer experience in My Access portal.
+
+
 1. If you selected **Applications**, select one or more applications.
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
@@ -68,7 +72,7 @@ If you are reviewing access to an application, then before creating the review, 
 > [!NOTE]
 > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
-7. Now you can select a scope for the review. Your options are:
+1. Now you can select a scope for the review. Your options are:
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
