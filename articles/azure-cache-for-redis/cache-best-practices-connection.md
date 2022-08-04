@@ -22,9 +22,9 @@ Test your system's resiliency to connection breaks using a [reboot](cache-admini
 
 ## TCP settings for Linux-hosted client applications
 
-Some Linux versions use TCP settings that are too high by default. The higher TCP settings can create a situation where a client connection to a cache can't be reestablished for a long time when a Redis server stops responding. The client waits too long before closing the connection gracefully.
+The default TCP settings in some Linux versions can cause Redis connections to fail for 13 minutes or more. The default settings can prevent the client application from detecting closed connections and restoring them automatically if the connection was not closed gracefully. 
 
-The failure to reestablish a connection can happen if the primary node of your Azure Cache For Redis becomes unavailable, for example, for unplanned maintenance.
+The failure to reestablish a connection can happen occur in situations where the network connection is disrupted or the Redis server goes offline for unplanned maintenance.
 
 We recommend these TCP settings:
 
