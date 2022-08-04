@@ -27,7 +27,7 @@ To create an application, navigate to the [IoT Central Application](https://port
 
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
-* **Location** is the Azure region where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Fo a list of the regions where Azure IoT Central is currently available, see [Availability by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=iot-central).
+* **Location** is the Azure region where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. For a list of the regions where Azure IoT Central is currently available, see [Availability by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=iot-central).
 
   Once you choose a location, you can't later move your application to a different location.
 
