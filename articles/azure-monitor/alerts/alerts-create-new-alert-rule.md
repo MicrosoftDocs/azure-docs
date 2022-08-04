@@ -188,7 +188,7 @@ And then defining these elements for the resulting alert actions using:
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
          
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot of the details tab when creating a new alert rule..":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot of the details tab when creating a new alert rule.":::
 
     ### [Log alert](#tab/log)
 
@@ -206,7 +206,7 @@ And then defining these elements for the resulting alert actions using:
 
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot of the details tab when creating a new log alert rule..":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot of the details tab when creating a new log alert rule.":::
 
     ### [Activity log alert](#tab/activity-log)
 
@@ -215,18 +215,18 @@ And then defining these elements for the resulting alert actions using:
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot of the actions tab when creating a new activity log alert rule..":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot of the actions tab when creating a new activity log alert rule.":::
 
     ---
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot of the Tags tab when creating a new alert rule..":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot of the Tags tab when creating a new alert rule.":::
 
 1. In the **Review + create** tab, a validation will run and inform you of any issues.
 1. When validation passes and you've reviewed the settings, select the **Create** button.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot of the Review and create tab when creating a new alert rule..":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot of the Review and create tab when creating a new alert rule.":::
 
 
 ## Create a new alert rule using CLI

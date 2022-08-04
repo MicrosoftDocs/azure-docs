@@ -115,6 +115,7 @@ Dynamic thresholds help you:
 See [this article](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
 
 ## Log alerts
+
 A log alert rule monitors a resource by using a Log Analytics query to evaluate resource logs at a set frequency. If the conditions are met, an alert is fired. Because you can use Log Analytics queries, you can perform advanced logic operations on your data and use the robust KQL features to manipulate log data.
 
 The target of the log alert rule can be:
@@ -132,25 +133,31 @@ You can configure if log alerts are [stateful or stateless](alerts-overview.md#a
 > Log alerts work best when you are trying to detect specific data in the logs, as opposed to when you are trying to detect a **lack** of data in the logs. Since logs are semi-structured data, they are inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you are trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
 ### Dimensions in log alert rules
+
 You can use dimensions when creating log alert rules to monitor the values of multiple instances of a resource with one rule. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
 
 ### Splitting by dimensions in log alert rules
+
 To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations using numerical or string columns. Splitting on the Azure resource ID column makes the specified resource into the alert target.
 You may also decide not to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
 ### Using the API
+
 Manage new rules in your workspaces using the [ScheduledQueryRules](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) API. 
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). Learn more about [switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 ## Log alerts on your Azure bill
+
 Log Alerts are listed under resource provider microsoft.insights/scheduledqueryrules with:
 - Log Alerts on Application Insights shown with exact resource name along with resource group and alert properties.
 - Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using scheduledQueryRules API.
 - Log alerts created from [legacy Log Analytics API](./api-alerts.md) aren't tracked [Azure Resources](../../azure-resource-manager/management/overview.md) and don't have enforced unique resource names. These alerts are still created on `microsoft.insights/scheduledqueryrules` as hidden resources, which have this resource naming structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Log Alerts on legacy API are shown with above hidden resource name along with resource group and alert properties.
+
 > [!Note]
 > Unsupported resource characters such as <, >, %, &, \, ?, / are replaced with _ in the hidden resource names and this will also reflect in the billing information.
 ## Activity log alerts
+
 An activity log alert monitors a resource by checking the activity logs for a new activity log event that matches the defined conditions. 
 
 You may want to use activity log alerts for these types of scenarios: 
@@ -168,13 +175,14 @@ Activity log alert rules are Azure resources, so they can be created by using an
 An activity log alert only monitors events in the subscription in which the alert is created.
 
 ## Smart Detection alerts
+
 After setting up Application Insights for your project, when your app generates a certain minimum amount of data, Smart Detection takes 24 hours to learn the normal behavior of your app. Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies. Smart Detection monitors the data received from your app, and in particular the failure rates. Application Insights automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests.
 
 As data comes into Application Insights from your web app, Smart Detection compares the current behavior with the patterns seen over the past few days. If there's an abnormal rise in failure rate compared to previous performance, an analysis is triggered. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 While metric alerts tell you there might be a problem, Smart Detection starts the diagnostic work for you, performing much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
-Smart detection works for any web app, hosted in the cloud or on your own servers, that generate application request or dependency data.
+Smart detection works for web apps hosted in the cloud or on your own servers that generate application requests or dependency data.
 
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
