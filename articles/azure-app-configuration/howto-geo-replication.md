@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
 ---
 
-# Enable geo-replication (preview)
+# Enable geo-replication (Preview)
 
 This article covers replication of Azure App Configuration stores. You'll learn about how to create and delete a replica in your configuration store. 
 
@@ -35,16 +35,16 @@ To create a replica of your configuration store in the portal, follow the steps 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
 1. Under **Replica(s)**, select **Create**. Choose the location of your new replica in the dropdown, then assign the replica a name. This replica name must be unique. 
 
-    <!-- PLACEHOLDER FOR SCREENSHOT
-    :::image type="content" source="./media/how-to-soft-delete-app-config-4.png" alt-text="On App Configuration stores, the Manage deleted stores option is highlighted."::: 
-    -->
+    
+    :::image type="content" source="./media/how-to-geo-replication-create-flow.png" alt-text="In Geo Replication, the Geo Replication button is highlighted as well as the create button for a replica."::: 
+   
 
 1. Select **Create**. 
 1. You should now see your new replica listed under Replica(s). Check that the status of the replica is "Succeeded", which indicates that it was created successfully.   
 
-    <!-- PLACEHOLDER FOR SCREENSHOT
-    :::image type="content" source="media/disable-public-access.png" alt-text="Screenshot of the Azure portal disabling public access.":::
-   -->
+   
+    :::image type="content" source="media/how-to-geo-replication-created-replica-successfully.png" alt-text="Screenshot of the list of replicas that have been created for the configuration store.":::
+
 
 <!-- ### [Azure CLI](#tab/azure-cli)
 
@@ -71,9 +71,8 @@ To delete a replica in the portal, follow the steps below.
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
 1. Under **Replica(s)**, select the **...** to the right of the replica you want to delete. Select **Delete** from the dropdown. 
 
-    <!-- PLACEHOLDER FOR SCREENSHOT
-    :::image type="content" source="./media/how-to-soft-delete-app-config-4.png" alt-text="On App Configuration stores, the Manage deleted stores option is highlighted."::: 
-    -->
+    :::image type="content" source="./media/how-to-geo-replication-delete-flow.png" alt-text=" Screenshot showing the three dots on the right of the replica being selected, showing you the delete option."::: 
+    
 
 1. Verify the name of the replica to be deleted and select **OK** to confirm. 
 1. Once the process is complete, check the list of replicas that the correct replica has been deleted. 
