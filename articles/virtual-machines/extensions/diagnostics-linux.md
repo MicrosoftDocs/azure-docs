@@ -137,7 +137,7 @@ The **recommendation** is to enable automatic update of the agent by enabling th
 
 # [Azure CLI](#tab/azcli)
 
-```powershell
+```azurecli
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json --enable-auto-upgrade true
 ```
 
