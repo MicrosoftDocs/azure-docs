@@ -308,7 +308,7 @@ Once you have successfully migrated user data, you can validate the end-user exp
 
       `https://graph.microsoft.com/v1.0/policies/featureRolloutPolicies/{policyID}?$expand=appliesTo`
 
-      Note that the above process uses the [featureRolloutPolicy resource](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0). The public documentation has not yet been updated with the new multifactorAuthentication feature, but detailed information on how to interact with the API can be found on the Microsoft docs site.
+      Note that the above process uses the [featureRolloutPolicy resource](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true). The public documentation has not yet been updated with the new multifactorAuthentication feature, but detailed information on how to interact with the API can be found on the Microsoft docs site.
 
 1. Confirm that the end-user MFA experience. Here are a few things to check:
    1. Do users see their methods in [aka.ms/mfasetup](https://aka.ms/mfasetup)?
