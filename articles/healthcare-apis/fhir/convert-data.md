@@ -44,7 +44,7 @@ A `$convert-data` API call packages the legacy health data inside a JSON-formatt
 > [!WARNING]
 > Default templates are released under MIT License and are **not** supported by Microsoft Support.
 >
-> Default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and may change at any point when Microsoft updates the FHIR service to a new version. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** in an Azure Container Registry, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify that the conversion behavior meets your requirements. 
+> Default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and may change at any point when Microsoft updates the FHIR service to a new version. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** in an Azure Container Registry instance, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify that the conversion behavior meets your requirements. 
 
 #### Sample Request
 
