@@ -25,7 +25,9 @@ After you click the button to enable extended groups, you must choose the source
 
 The **Username downloaded** field shows the status of the most recent group information download.
 
-![screenshot of directory services page settings page in portal, with the Yes option selected for extended groups, and the drop-down menu labeled Download source open](media/directory-services-select-group-source.png)
+![Screenshot of directory services page settings page in portal, with the Yes option selected for extended groups, and the drop-down menu labeled 'Download source' open.](media/directory-services-select-group-source.png)
+
+HPC Cache checks the source for updates once an hour. There isn't a direct way to request an immediate poll for updates, but as a workaround you might consider disabling extended groups (change the **Enable extended groups** setting to **No**) and then re-enabling it. This action causes HPC Cache to re-read the settings, but it also can disrupt client access while the group information is unavailable.
 
 ## Configure Active Directory
 
@@ -55,8 +57,6 @@ These values are required if you want to download files with your user and group
 * **Group file URI** - Enter the complete URI for the `/etc/group` file.
 
 ![screenshot of Download details section for a flat file download](media/group-download-details-file.png)
-
-By default, the file is polled for updates once an hour. There isn't a direct way to request an immediate update, but as a workaround you could consider disabling extended groups (change the **Enable extended groups** setting to **No**) and then re-enabling it. This action causes HPC Cache to re-read the settings.
 
 ## Configure LDAP
 
