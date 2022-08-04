@@ -12,11 +12,11 @@ There are a few ways to get to the alerts page:
 
 - From the home page in the [Azure portal](https://portal.azure.com/), select **Monitor** > **Alerts**.  
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-monitor-menu.png" alt-text="Screenshot of alerts link on monitor menu. ":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-monitor-menu.png" alt-text="Screenshot of the alerts link on the Azure monitor menu. ":::
   
-- From a specific resource, go to the **Monitoring** section, and choose **Alerts**. The landing page is pre-filtered for alerts on that specific resource.
+- From a specific resource, go to the **Monitoring** section, and choose **Alerts**. The landing page contains the alerts on that specific resource.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-resource-menu.png" alt-text="Screenshot of alerts link on a resource's menu.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-resource-menu.png" alt-text="Screenshot of the alerts link on the menu of a resource in the Azure portal.":::
 
 ## The alerts summary pane
 
