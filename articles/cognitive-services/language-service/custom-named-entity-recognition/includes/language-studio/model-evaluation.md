@@ -49,8 +49,40 @@ ms.author: aahi
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
 ---
-    
-    
+### [Dataset distribution](#tab/dataset-distribution) 
+
+This snapshot shows how entities are distributed across your training and testing sets. This data is static and tied to your model, so it won’t update until you train again.
+
+* You can view the dataset distribution in *graph* or *table* view.
+
+**Graph view**
+
+* *Documents with at least one label*: 
+
+* *Total instances throughout documents*: 
+
+
+**Table view**
+
+For each *entity*, you can view: tags per entity in training set, tagged documents in training set, tags per entity in testing set, tagged documents in testing set, tags per entity total and tagged documents total.
+
+---
+### [Confusion matrix](#tab/confusion-matrix) 
+
+A confusion matrix is an N x N matrix used for evaluating the performance of a classification model, where N is the number of target entities. The matrix compares the actual target values with those predicted by the machine learning model to show how well the extraction model is performing and what kinds of errors it is making.
+
+You can view the confusion matrix in *raw count* or *normalized* view.
+
+
+
+* All values:
+
+* Only errors:
+
+* Only matches: 
+
+
+---
 
 > [!NOTE]
 > Entities that are neither labeled nor predicted in the test set will not be part of the displayed results.
