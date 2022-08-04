@@ -125,7 +125,7 @@ Open MFA Server, click **User Portal**:
 |- Mobile app|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
 |- OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
 |Allow users to select language|Language settings will be automatically applied to a user based on the locale settings in their browser|
-|Allow users to activate mobile app|See MFA Service settings|
+|Allow users to activate mobile app|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
 |- Device limit|Azure AD limits users to 5 cumulative devices (mobile app instances + hardware OATH token + software OATH token) per user|
 |Use security questions for fallback|Azure AD allows users to choose a fallback method at authentication time should the chosen authentication method fail|
 |- Questions to answer|Security Questions in Azure AD can only be used for SSPR. See more details for [Azure AD Custom Security Questions](concept-authentication-security-questions.md#custom-security-questions)|
@@ -157,6 +157,8 @@ Depending on user activity, the data file can become outdated quickly. Any chang
 
 ### Install MFA Server update
 Run the new installer on the Primary MFA Server. Before you upgrade a server, remove it from load balancing or traffic sharing with other MFA Servers. You don't need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade using the current installation path (for example, C:\Program Files\Multi-Factor Authentication Server). If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed. **DON'T INSTALL ANY OTHER UPDATES FOR THE USER PORTAL, WEB SDK, OR AD FS ADAPTER.**
+
+After the installation is complete, it can take several minutes for the datafile to be upgraded. During this time, the MFA Server portal may have issues connecting to the MFA Service. **Don't restart the MFA Service, or the MFA Server during this time.** This is normal. Once the upgrade is complete, the primary server’s main service will again be functional. 
 
 ### Configure the MFA Server Migration Utility
 After installing the MFA Server Update, open an elevated PowerShell command prompt: hover over the PowerShell icon, right-click, and click **Run as Administrator**. Run the .\Configure-MultiFactorAuthMigrationUtility.ps1 script found in your MFA Server installation directory (C:\Program Files\Multi-factor Authentication Server by default).
