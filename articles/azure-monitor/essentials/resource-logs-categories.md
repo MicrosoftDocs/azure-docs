@@ -133,6 +133,15 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Request|Request|Yes|
 
 
+## Microsoft.AutonomousDevelopmentPlatform/datapools
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit|Yes|
+|Operational|Operational|Yes|
+|Request|Request|Yes|
+
+
 ## Microsoft.AutonomousDevelopmentPlatform/workspaces
 
 |Category|Category Display Name|Costs To Export|
@@ -157,6 +166,31 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ServiceLog|Service Logs|No|
 |ServiceLogs|Service Logs|Yes|
 
+
+## Microsoft.BatchAI/workspaces 
+
+|Category|Category Display Name|Costs To Export| 
+|---|---|---| 
+|BaiClusterEvent|BaiClusterEvent|No| 
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No| 
+|BaiJobEvent|BaiJobEvent|No| 
+
+
+## Microsoft.Blockchain/blockchainMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
+|FabricOrderer|Fabric Orderer|No|
+|FabricPeer|Fabric Peer|No|
+|Proxy|Proxy|No|
+
+
+## Microsoft.Blockchain/cordaMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
 
 
 ## microsoft.botservice/botservices
@@ -319,6 +353,17 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ssh|Databricks SSH|No|
 |unityCatalog|Databricks Unity Catalog|Yes|
 |workspace|Databricks Workspace|No|
+
+
+## Microsoft.DataCollaboration/workspaces	
+
+|Category|Category Display Name|Costs To Export|	
+|---|---|---|	
+|CollaborationAudit|Collaboration Audit|Yes|	
+|DataAssets|Data Assets|No|	
+|Pipelines|Pipelines|No|	
+|Proposals|Proposals|No|	
+|Scripts|Scripts|No|
 
 
 ## Microsoft.DataFactory/factories
