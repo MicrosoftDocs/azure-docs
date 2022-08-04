@@ -28,13 +28,15 @@ In production, it's recommended to plan for no more than 80% unit utilization be
 
 The *message count* is an abstract concept for billing purposes. It's defined as the size of outbound traffic (bytes) in 2-KB increments, with each increment counting as one message for billing. For example, 100 KB of traffic is counted as 50 messages. 
 
-### Outbound traffic 
+### Outbound traffic
 
 The *outbound traffic* is the messages sent out of Web PubSub service. 
 
 - The messages broadcasted from service to receivers.
 - The messages sent from the service to the upstream webhooks.
 - The resource logs with live trace tool. 
+
+### Inbound traffic
 
 The *inbound traffic* is the messages sent to the Azure Web PubSub service. 
 
