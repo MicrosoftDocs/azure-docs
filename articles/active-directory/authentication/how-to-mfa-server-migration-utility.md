@@ -308,7 +308,7 @@ Once you have successfully migrated user data, you can validate the end-user exp
 
       `https://graph.microsoft.com/v1.0/policies/featureRolloutPolicies/{policyID}?$expand=appliesTo`
 
-      Note that the above process uses the [featureRolloutPolicy resource](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true). The public documentation has not yet been updated with the new multifactorAuthentication feature, but detailed information on how to interact with the API can be found on the Microsoft docs site.
+      Note that the above process uses the [featureRolloutPolicy resource](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true). The public documentation has not yet been updated with the new multifactorAuthentication feature, but detailed information on how to interact with the API can be found on the [Microsoft docs site](/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0).
 
 1. Confirm that the end-user MFA experience. Here are a few things to check:
    1. Do users see their methods in [aka.ms/mfasetup](https://aka.ms/mfasetup)?
@@ -320,7 +320,7 @@ Once you have successfully migrated user data, you can validate the end-user exp
 ### Educate users
 Ensure users know what to expect when they are moved to Azure MFA, including new authentication flows. You may also wish to instruct users to use the Azure AD Combined Registration portal ([aka.ms/mfasetup](https://aka.ms/mfasetup)) to manage their authentication methods rather than the Azure MFA Server registration portal once migrations are complete. Note that any changes made to authentication methods in Azure AD will not propagate back to your on-premises environment. In a situation where you have to rollback to MFA Server, any changes users have made in Azure AD won’t be available in the MFA Server User portal.
 
-Also note that if you have third party solutions that are dependent on Azure MFA Server for authentication (see Authentication Services section above), you’ll want users to continue to make changes to their MFA methods in the Azure MFA Server portal. These changes will be synced to Azure AD automatically. Once you have migrated these third party solutions, you can move users to the Azure AD combined registration page.
+Also note that if you have third party solutions that are dependent on Azure MFA Server for authentication (see [Authentication services](#authentication-services)), you’ll want users to continue to make changes to their MFA methods in the Azure MFA Server portal. These changes will be synced to Azure AD automatically. Once you have migrated these third party solutions, you can move users to the Azure AD combined registration page.
 
 ### Complete user migration
 Repeat migration steps found in [Migrate user data](#migrate-user-data) and [Validate and test](#validate-and-test) sections until all user data is migrated.
