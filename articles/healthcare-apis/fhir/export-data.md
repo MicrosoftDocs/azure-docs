@@ -16,7 +16,7 @@ Before using `$export`, make sure that your FHIR service is configured to connec
 
 ## Calling the `$export` endpoint
 
-After setting up FHIR service to connect with an ADLS Gen2 storage account, you can call the `$export` endpoint and the FHIR service will export data into a container within that storage account. The example request below exports all resources into a container specified by name (`{{containerName}}`). Note that the container in the ADLS Gen2 account must be created beforehand in order to specify the `{{containerName}}` in the request.
+After setting up FHIR service to connect with an ADLS Gen2 storage account, you can call the `$export` endpoint and the FHIR service will export data into a blob storage container within that storage account. The example request below exports all resources into a container specified by name (`{{containerName}}`). Note that the container in the ADLS Gen2 account must be created beforehand in order to specify the `{{containerName}}` in the request.
 
 ```
 GET {{fhirurl}}/$export?_container={{containerName}}
