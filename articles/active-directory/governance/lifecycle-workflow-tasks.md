@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/23/2022
 ms.subservice: compliance
 ---
-# Lifecycle Workflow tasks and definitions (preview)
+# Lifecycle Workflow built-in tasks (preview)
 
 Lifecycle Workflows come with many pre-configured tasks that are designed to automate common lifecycle management scenarios. These pre-configured tasks can be paired together to make customized workflows to suit your organization's needs. While each task has common parameters that must be filled out such as a category, displayName, description, if a task error stops a workflow from running, and whether it's enabled, some tasks also have unique parameters which must be completed to run them in a workflow. In this article you'll get the complete list of tasks, information on common parameters each task has, and a list of unique parameters needed for each specific task.
 

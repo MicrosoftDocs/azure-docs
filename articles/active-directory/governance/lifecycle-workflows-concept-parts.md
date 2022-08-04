@@ -13,7 +13,7 @@ ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
 
-# Parts of lifecycle workflows 
+# Parts of Lifecycle Workflows 
 The following reference doc provides an overview of how a lifecycle workflow is constructed.  The examples here are using workflows that are created using GRAPH and not in the portal.  The concepts are however the same.
 
 ## Parts of a workflow 
@@ -64,19 +64,19 @@ Lets examine the tasks section of a sample workflow.
 ```
 
 
-This task uses 1b555e50-7f65-41d5-b514-5894a026d10d, which is the taskDefinitionID for [Generate Temporary Access Password and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-password-and-send-via-email-to-users-manager).  This is a pre-defined task created by Microsoft and will send a user's manager an email that contains a temporary access pass.  This task requires the following additional agruments.
+This task uses 1b555e50-7f65-41d5-b514-5894a026d10d, which is the taskDefinitionID for [Generate Temporary Access Password and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-password-and-send-via-email-to-users-manager).  This is a pre-defined task created by Microsoft and will send a user's manager an email that contains a temporary access pass.  This task requires the following additional arguments.
 
 |Parameter |Definition  |
 |---------|---------|
 |tapLifetimeMinutes     | The lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days).   |
 |tapIsUsableOnce     |  Determines whether the pass is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.   |
 
-This portion of the worflow supports the following parameters.  The arguments section will be based on the actual task defined by the taskDefinitionID.
+This portion of the workflow supports the following parameters.  The arguments section will be based on the actual task defined by the taskDefinitionID.
 
 | Parameters | Description |
 |:--- |:---:|
 |isEnabled|Boolean that determines whether the workflow or a task with in a workflow is enabled|
-|tasks|The actions that the worklow will take when it is executed by the extensible lifecycle manager|
+|tasks|The actions that the workflow will take when it is executed by the extensible lifecycle manager|
 |taskDefinitionID|The unique ID corresponding to a supported task|
 |arguments|Used to specify the activation duration of the TAP and toggle between one-time use or multiple uses|
 
@@ -109,7 +109,7 @@ Lets examine the execution conditions of a sample workflow.
 } 
 ```
 
-The first portion `microsoft.graph.identityGovernance.triggerAndScopeBasedConditions` tells the workflow execution that there are two settings that comprise the exectuion condition
+The first portion `microsoft.graph.identityGovernance.triggerAndScopeBasedConditions` tells the workflow execution that there are two settings that comprise the execution condition
    - scope, which determines the subject set for a workflow execution.
    - trigger, which determines when a workflow will be executed
 
@@ -163,7 +163,7 @@ The following table is a summary of the parameters of a workflow.  You can use t
 |displayName|The name of the workflow|
 |description|A description of the workflow|
 |isEnabled|Boolean that determines whether the workflow or a task with in a workflow is enabled|
-|tasks|The actions that the worklow will take when it is executed by the extensible lifecycle manager|
+|tasks|The actions that the workflow will take when it is executed by the extensible lifecycle manager|
 |taskDefinitionID|The unique ID corresponding to a supported task|
 |arguments|Used to specify the activation duration of the TAP and toggle between one-time use or multiple uses|
 |executionConditions|Defines for who (scope) and when (trigger) the workflow runs.|

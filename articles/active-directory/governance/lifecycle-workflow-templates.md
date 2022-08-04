@@ -10,7 +10,7 @@ ms.date: 07/06/2022
 ms.custom: template-concept
 ---
 
-# Lifecycle Workflow templates
+# Lifecycle Workflows templates (Preview)
 
 
 Lifecycle Workflows allows you to automate the lifecycle management process for your organization by creating workflows that contain both built-in tasks, and custom task extensions. These workflows, and the tasks within them, all fall into categories based on the Joiner-Mover-Leaver(JML) model of lifecycle management. To make this process even more efficient, Lifecycle Workflows also provide you templates, which you can use to quickly automate common parts of the lifecycle management process. You can create workflows based on these templates as is, or you can customize them even further to match the requirements for users within your organization. In this article you'll get the complete list of workflow templates, common template parameters, default template parameters for specific templates, and the list of compatible tasks for each template. For full task definitions, see [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).
@@ -23,9 +23,9 @@ Lifecycle Workflows currently have three built-in templates you can use or custo
 - [Onboard pre-hire employee](lifecycle-workflow-templates.md#onboard-pre-hire-employee)
 - [Onboard new hire employee](lifecycle-workflow-templates.md#onboard-new-hire-employee)
 - [Real-time employee termination](lifecycle-workflow-templates.md#real-time-employee-termination)  
-- [Pre-Offboarding of an employee]()
-- [Offboard an employee]()
-- [Post-Offboarding of an employee]()
+- [Pre-Offboarding of an employee](lifecycle-workflow-templates.md#pre-offboarding-of-an-employee)
+- [Offboard an employee](lifecycle-workflow-templates.md#offboard-an-employee)
+- [Post-Offboarding of an employee](lifecycle-workflow-templates.md#post-offboarding-of-an-employee)
 
 
 While these templates have specific properties which can be configured for them, they also contain basic properties which are common among each of them. Basic properties of the templates are as follows:
