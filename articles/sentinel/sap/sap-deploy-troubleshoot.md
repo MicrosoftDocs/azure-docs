@@ -26,7 +26,7 @@ For more information, see the [Docker CLI documentation](https://docs.docker.com
 
 ## Review system logs
 
-We highly recommend that you review the system logs after installing or [resetting the data connector](#reset-the-sap-data-connector).
+We highly recommend that you review the system logs after installing or [resetting the data connector](#reset-the-microsoft-sentinel-for-sap-data-connector).
 
 Run:
 
@@ -271,7 +271,7 @@ Common issues include:
 
 If you have unexpected issues not listed in this article, try the following steps:
 
-- [Reset the connector and reload your logs](#reset-the-sap-data-connector)
+- [Reset the connector and reload your logs](#reset-the-microsoft-sentinel-for-sap-data-connector)
 - [Upgrade the connector](update-sap-data-connector.md) to the latest version.
 
 > [!TIP]
