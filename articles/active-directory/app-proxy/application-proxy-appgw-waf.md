@@ -2,13 +2,13 @@
 title: Using Application Gateway WAF to protect your application
 description: How to add Web Application Firewall protection for apps published with Azure Active Directory Application Proxy.
 services: active-directory
-author: erjosito
+author: beatrizsilv
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/22/2022
-ms.author: erjosito
+ms.author: besilvei
 ms.reviewer: ashishj
 ---
 
