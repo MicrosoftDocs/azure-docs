@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/07/2022
+ms.date: 08/03/2022
 
 ms.author: justinha
 author: justinha
@@ -15,21 +15,21 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# MFA Server Migration
+# MFA Server Migration 
 
 ## Solution overview
 
 The MFA Server Migration Utility facilitates synchronizing multi-factor authentication data stored in the on-premises Azure MFA Server directly to Azure AD MFA. 
-After the authentication data is migrated to Azure AD, users can leverage cloud-based MFA seamlessly without having to re-register or confirm authentication methods. 
+After the authentication data is migrated to Azure AD, users can perform cloud-based MFA seamlessly without having to re-register or confirm authentication methods. 
 Using the Staged Migration for MFA tool, admins can target single users or groups of users for testing and controlled rollout without having to make any tenant-wide changes.
 
 ## Limitations and requirements
 
-- This is a private preview feature being shared with you under the terms of your NDA with Microsoft. Do not share documentation, preview builds, screenshots, or other artifacts generated for the purposes of this preview externally.
-- This requires a new private preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You should not update the WebSDK or User Portal, even if prompted. Note that installing the update _does not_ start the migration automatically.
-- The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. While carrying out the migration, users can be targeted for Azure MFA for testing purposes using the staged migration tool. This allows for testing without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
+- The MFA Server Migration Utility is a private preview feature being shared with you under the terms of your NDA with Microsoft. Do not share documentation, preview builds, screenshots, or other artifacts generated for the purposes of this preview externally.
+- The MFA Server Migration Utility requires a new private preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You should not update the WebSDK or User Portal, even if prompted. Installing the update _does not_ start the migration automatically.
+- The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. While carrying out the migration, users can be targeted for Azure MFA for testing purposes using the staged migration tool. Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
-- If you’re running MFA Server on an IIS Server, please reach out to mfamigration@microsoft.com before deploying the Private Preview. You may have to move certain applications to an Application Proxy.
+- If you’re running MFA Server on an IIS Server, reach out to mfamigration@microsoft.com before deploying the Private Preview. You may have to move certain applications to an Application Proxy.
 - Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each)
 
 ## Migration guide
@@ -54,15 +54,15 @@ An MFA Server migration generally includes the steps in the following process:
 
 A few important points:
 
-- **Phase 1** should be repeated as you add more and more test users. 
+- **Phase 1** should be repeated as you add test users. 
   - The migration tool uses Azure AD groups for determining the users for which authentication data should be synced between MFA Server and Azure MFA. After user data has been synced, that user is then ready to use Azure MFA. 
   - Staged Rollout allows you to re-route users to Azure MFA, also using Azure AD groups. 
-    While you certainly could use the same groups for both tools, we recommend against it as users could potentially be redirected to Azure MFA before the tool has synched their data. We recommend setting up Azure AD groups that will be targeted by the MFA Server Migration Utility for syncing authentication data, and another set of groups that will be used by Staged Rollout for directing targeted users to Azure MFA rather than on-prem.
+    While you certainly could use the same groups for both tools, we recommend against it as users could potentially be redirected to Azure MFA before the tool has synched their data. We recommend setting up Azure AD groups for syncing authentication data by the MFA Server Migration Utility, and another set of groups for Staged Rollout to direct targeted users to Azure MFA rather than on-prem.
 - **Phase 2** should be repeated as you migrate your user base. By the end of Phase 2, your entire user base should be using Azure MFA for all workloads federated against Azure AD.
     During the above phases, you can simply remove users from the Staged Rollout folders to take them out of scope of Azure MFA and route them back to your on-premises Azure MFA server for all MFA requests originating from Azure AD.
-- **Phase 3** requires moving all clients that authenticate to the on-prem MFA Server (VPNs, password managers, etc.) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you are required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the MFA Portal on the MFA Server, but rather should manager their authentication methods in Azure AD ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Azure AD, those methods will not be synced back to MFA Server. If you roll-back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. Next, changing the [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta) domain federation setting instructs Azure AD that MFA is no longer performed on-prem and that _all_ MFA requests should be performed by Azure MFA, regardless of group membership. 
+- **Phase 3** requires moving all clients that authenticate to the on-prem MFA Server (VPNs, password managers, and so on) to Azure AD federation via SAML/OAUTH. If modern authentication standards aren’t supported, you are required to stand up NPS server(s) with the Azure MFA extension installed. Once dependencies are migrated, users should no longer use the MFA Portal on the MFA Server, but rather should manage their authentication methods in Azure AD ([aka.ms/mfasetup](https://aka.ms/mfasetup)). Once users begin managing their authentication data in Azure AD, those methods will not be synced back to MFA Server. If you roll-back to the on-premises MFA Server after users have made changes to their Authentication Methods in Azure AD, those changes will be lost. After user migrations are complete, change the [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta) domain federation setting to instruct Azure AD that MFA is no longer performed on-prem and that _all_ MFA requests should be performed by Azure MFA, regardless of group membership. 
 
-Continue reading for detailed migration steps.
+The following sections explain the migration steps in more details.
 
 ### Identify Azure MFA Server dependencies
 
@@ -249,7 +249,24 @@ As mentioned in the confirmation message, it can take several minutes for the mi
 
 ### Validate and test
 
-Once you have successfully migrated user data, you can validate the end-user experience using Staged Rollout before making the global tenant change. The following process will allow you to target specific Azure AD group(s) for staged rollout for MFA. This tells Azure AD to perform MFA via Azure MFA for users in the targeted groups, rather than sending them on-premises to perform MFA.
+Once you have successfully migrated user data, you can validate the end-user experience using Staged Rollout before making the global tenant change. The following process will allow you to target specific Azure AD group(s) for staged rollout for MFA. This tells Azure AD to perform MFA via Azure MFA for users in the targeted groups, rather than sending them on-premises to perform MFA. You have two ways to validate and test—we recommend using the Azure portal, but if you prefer, you can also use Microsoft Graph.
+
+#### Enable Staged Rollout using Azure portal
+
+1. Navigate to the following url: [Enable staged rollout features - Microsoft Azure](https://portal.azure.com/?mfaUIEnabled=true%2F#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2).
+
+1. Change **Azure multifactor authentication (preview)** to **On**, and then click **Manage groups**.
+
+   :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/staged-rollout.png" alt-text="Screenshot of Staged Rollout.":::
+
+1. Click **Add groups** and add the group(s) containing users you wish to enable for Azure MFA. Selected groups appear in the displayed list. 
+
+   >[!NOTE]
+   >Any groups you target using the Microsoft Graph method below will also appear in this list.
+
+   :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/managed-groups.png" alt-text="Screenshot of Manage Groups menu.":::
+
+#### Enable Staged Rollout using Microsoft Graph
 
 1. Create the featureRolloutPolicy
    1. Navigate to [aka.ms/ge](https://aka.ms/ge) and login to Graph Explorer using a Hybrid Identity Administrator account in the tenant you wish to setup for Staged Rollout.
