@@ -16,9 +16,17 @@ Azure Diagnostics extension is an [agent in Azure Monitor](../agents/agents-over
 ## Primary scenarios
 The primary scenarios addressed by the diagnostics extension are:
 
-- Collect guest metrics into Azure Monitor Metrics.
-- Send guest logs and metrics to Azure storage for archiving.
-- Send guest logs and metrics to Azure event hubs to send outside of Azure.
+Use the Azure Diagnostics extension if you need to:
+
+- Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+- Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [Metrics Explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near-real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Windows only).
+- Send data to third-party tools by using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
+- Collect [Boot Diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics) to investigate VM boot issues.
+
+Limitations of the Azure Diagnostics extension:
+
+- Can only be used with Azure resources.
+- Limited ability to send data to Azure Monitor Logs.
 
 
 ## Comparison to Log Analytics agent
