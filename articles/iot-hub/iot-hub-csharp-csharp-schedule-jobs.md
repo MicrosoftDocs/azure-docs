@@ -73,7 +73,7 @@ In this section, you create a .NET console app that responds to a direct method 
 
 1. In **NuGet Package Manager**, select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
 
-   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png" alt-text="Screenshot of the Nuget Package Manager in Visual Studio." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png":::
+   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png" alt-text="Screenshot of the NuGet Package Manager in Visual Studio." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png":::
 
     This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
 
