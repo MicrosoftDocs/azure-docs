@@ -103,6 +103,15 @@ securityContext:
 > [!WARNING]
 > Running the self-hosted gateway with read-only filesystem (`readOnlyRootFilesystem: true`) is not supported.
 
+## Assessing impact with Azure Advisor
+
+In order to make the migration easier, we have introduced new Azure Advisor recommendations:
+
+- **Use self-hosted gateway v2** recommendation - Identifies Azure API Management instances where the usage of self-hosted gateway v0.x or v1.x was identified.
+- **Use Configuration API v2 for self-hosted gateways** recommendation - Identifies Azure API Management instances where the usage of Configuration API v1 for self-hosted gateway was identified.
+
+We highly recommend customers to use ["All Recommendations" overview in Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/All) to determine if a migration is required. Customers can easily use the filtering options to see if one of the above recommendations is present.
+
 ## Known limitations
 
 Here's a list of known limitations for the self-hosted gateway v2:
