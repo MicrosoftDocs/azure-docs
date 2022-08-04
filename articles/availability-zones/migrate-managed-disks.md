@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Migrate Azure managed disks to availability zone support
  
-This guide describes how to migrate Azure managed disks from non-availability zone support to availability support. We'll take you through the two different options for migration. The first migration option describes how to migrate a non-zonal managed disk to zonal. The second option describes how to migrate a non-zonal managed disk to zone-redundant.
+This guide describes how to migrate Azure managed disks from non-availability zone support to availability zone support. We'll take you through the two different options for migration. The first migration option describes how to migrate a non-zonal managed disk to zonal. The second option describes how to migrate a non-zonal managed disk to zone-redundant.
 
 For both options, you'll need to take snapshots of those disks and recreate them with availability zone support before attaching them to the Azure VM.  
 
