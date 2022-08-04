@@ -1,21 +1,21 @@
 ---
 title: 'Deployment best practices for Microsoft Purview (formerly Azure Purview)'
-description: This article provides best practices for deploying Microsoft Purview (formerly Azure Purview). The Microsoft Purview Data Map and governance portal enable any user to register, discover, understand, and consume data sources.
+description: This article provides best practices for deploying Microsoft Purview (formerly Azure Purview) in your data estate. The Microsoft Purview Data Map and governance portal enable any user to register, discover, understand, and consume data sources.
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 08/04/2022
 ---
 # Microsoft Purview (formerly Azure Purview) deployment best practices
 
-This article identifies common considerations that can help you successfully deploy Microsoft Purview (formerly Azure Purview) into production in your data estate. The article is intended to help you strategize and phase your deployment, and is best used in tandem with our [deployment checklist](tutorial-azure-purview-checklist.md).
+This article is a guide to successfully deploying Microsoft Purview (formerly Azure Purview) into production in your data estate. It's intended to help you strategize and phase your deployment from research to hardening your production environment, and is best used in tandem with our [deployment checklist](tutorial-azure-purview-checklist.md).
 
-If you are looking for a strictly technical deployment guide, the [deployment checklist](tutorial-azure-purview-checklist.md) is for you.
+If you're looking for a strictly technical deployment guide, use the [deployment checklist](tutorial-azure-purview-checklist.md).
 
-If you are creating a plan to deploy Microsoft Purview, and want to consider best practices as you develop your deployment strategy, then this deployment best practices guide is for you! This guide outlines tasks can be completed in phases, over the course of a month or more. Even organizations who have already deployed Microsoft Purview can use this guide to ensure they're getting the most out of their investment.
+If you're creating a plan to deploy Microsoft Purview and want to consider best practices as you develop your deployment strategy, then follow the article below. This guide outlines tasks can be completed in phases over the course of a month or more to develop your deployment process for Microsoft Purview. Even organizations who have already deployed Microsoft Purview can use this guide to ensure they're getting the most out of their investment.
 
-A well-planned deployment of a data governance platform (such as Microsoft Purview), can give the following benefits:
+A well-planned deployment of your data governance platform, can give the following benefits:
 
 - Better data discovery
 - Improved analytic collaboration
@@ -27,9 +27,9 @@ This guide provides insight on a full deployment lifecycle, from initial plannin
 |-------|-------------|
 |[Identify objectives and goals](#identify-objectives-and-goals)|Consider what your entire organization wants and needs from data governance.|
 |[Gathering questions](#gathering-questions)|What questions might you and your team have as you get started, and where can you look to begin addressing them?|
-|[Deployment models](#deployment-models)|Customize your deployment to your data estate.|
-|[Create a process to move to production](#create-a-process-to-move-to-production)|Create a phased deployment tailored to your data estate.|
-|[Platform hardening](#platform-hardening)|How you can continue to grow your deployment to maturity.|
+|[Deployment models](#deployment-models)|Customize your Microsoft Purview deployment to your data estate.|
+|[Create a process to move to production](#create-a-process-to-move-to-production)|Create a phased deployment strategy tailored to your organization.|
+|[Platform hardening](#platform-hardening)|Continue to grow your deployment to maturity.|
 
 Many of Microsoft Purview's applications and features have their own individual best practices pages as well. They're referenced often throughout this deployment guide, but you can find all of them in the table of contents under **Concepts** and then **Best practices and guidelines**.
 
@@ -63,7 +63,7 @@ The general approach is to break down those overarching objectives into various 
 
 ### Identify key scenarios
 
-Microsoft Purview governance services can be used to centrally manage data governance across an organization’s data estate spanning cloud and on-premises environments. To have a successful implementation, you must identify key scenarios that are critical to the business. These scenarios can cross business unit boundaries or impact multiple user personas either upstream or downstream.
+Microsoft Purview governance services can be used to centrally manage data governance across an organization’s data estate spanning cloud and on-premises environments. To have a successful implementation, you must identify key scenarios that are critical to the business. These scenarios can cross business unit boundaries or affect multiple user personas either upstream or downstream.
 
 These scenarios can be written up in various ways, but you should include at least these five dimensions:
 
@@ -79,7 +79,7 @@ The scenarios must be specific, actionable, and executable with measurable resul
 |---------|---------|---------|
 |Catalog business-critical assets|I need to have information about each data sets to have a good understanding of what it is. This scenario includes both business and technical metadata data about the data set in the catalog. The data sources include Azure Data Lake Storage Gen2, Azure Synapse DW, and/or Power BI. This scenario also includes on-premises resources such as SQL Server.|Business Analyst, Data Scientist, Data Engineer|
 |Discover business-critical assets|I need to have a search engine that can search through all metadata in the catalog. I should be able to search using technical term, business term with either simple or complex search using wildcard.|Business Analyst, Data Scientist, Data Engineer, Data Admin|
-|Track data to understand its origin and troubleshoot data issues|I need to have data lineage to track data in reports, predictions, or models back to its original source and understand the changes and where the data has resided through the data life cycle. This scenario needs to support prioritized data pipelines Azure Data Factory and Databricks.|Data Engineer, Data Scientist|
+|Track data to understand its origin and troubleshoot data issues|I need to have data lineage to track data in reports, predictions, or models back to its original source. I also need to understand the changes made to the data, and where the data has resided throughout the data life cycle. This scenario needs to support prioritized data pipelines Azure Data Factory and Databricks.|Data Engineer, Data Scientist|
 |Enrich metadata on critical data assets|I need to enrich the data set in the catalog with technical metadata that is generated automatically. Classification and labeling are some examples.|Data Engineer, Domain/Business Owner|
 |Govern data assets with friendly user experience|I need to have a Business glossary for business-specific metadata. The business users can use Microsoft Purview for self-service scenarios to annotate their data and enable the data to be discovered easily via search.|Domain/Business Owner, Business Analyst, Data Scientist, Data Engineer|
 
@@ -98,13 +98,14 @@ For other integration scenarios such as ticketing, custom user interface, and or
 
 Once your organization agrees on the high-level objectives and goals, there will be many questions from multiple groups. It’s crucial to gather these questions in order to craft a plan to address all of the concerns. Make sure to [include relevant groups](#include-the-right-stakeholders) as you gather these questions. You can use our documentation to start answering them.
 
-Some example questions that you may run into during the initial phase. For questions about Microsoft Purview, the questions below link to relevant documentation:
+Some example questions that you may run into during the initial phase:
 
-1. What are the main organization data sources and data systems?
+1. What are the main data sources and data systems in our organization?
+1. [What data sources are supported?](microsoft-purview-connector-overview.md) 
+1. For data sources that aren't supported yet by Microsoft Purview, what are my options?
 1. [How should we budget for Microsoft Purview?](concept-guidelines-pricing.md)
-1. [What data sources are supported?](microsoft-purview-connector-overview.md) For data sources that aren't supported yet by Microsoft Purview, what are my options?
 1. [How many Microsoft Purview instances do we need?](concept-best-practices-accounts.md)
-1. Who are the users?
+1. [Who will use Microsoft Purview, and what roles will they have?](catalog-permissions.md)
 1. [Who can scan new data sources?](catalog-permissions.md)
 1. [Who can modify content inside of Microsoft Purview?](catalog-permissions.md)
 1. What processes can I use to improve the data quality in Microsoft Purview?
@@ -156,7 +157,7 @@ For more information, see our [accounts architecture best practices guide](conce
 
 Some organizations may decide to keep things simple by working with a single production version of Microsoft Purview. They probably don’t need to go beyond discovery, search, and browse scenarios. However, most organizations that want to deploy Microsoft Purview across various business units will want to have some form of process and control.
 
-Below we have provided a potential four phase deployment plan that includes tasks, helpful links, and acceptance criteria for each phase:
+Below we've provided a potential four phase deployment plan that includes tasks, helpful links, and acceptance criteria for each phase:
 
 1. [Phase 1: Pilot](#phase-1-pilot)
 1. [Phase 2: Minimum viable product](#phase-2-minimum-viable-product)
