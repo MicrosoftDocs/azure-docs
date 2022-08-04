@@ -1,7 +1,7 @@
 ---
 title: Use service tags
 titleSuffix: Azure Web PubSub service
-description: Use service tags to allow outbound traffic to your Azure Web PubSub service
+description: Use service tags to allow outbound traffic to your Azure Web PubSub service.
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
