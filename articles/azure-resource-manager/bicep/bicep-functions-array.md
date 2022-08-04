@@ -54,6 +54,34 @@ The output from the preceding example with the default values is:
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
+The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage):
+
+```bicep
+@description('Amount of data disks (1TB each) for SQL Data files')
+@minValue(1)
+@maxValue(8)
+param sqlDataDisksCount int = 1
+
+@description('Amount of data disks (1TB each) for SQL Log files')
+@minValue(1)
+@maxValue(8)
+param sqlLogDisksCount int = 1
+
+var dataDisksLuns = array(range(0, sqlDataDisksCount))
+var logDisksLuns = array(range(sqlDataDisksCount, sqlLogDisksCount))
+
+output array1 array = dataDisksLuns
+output array2 array = logDisksLuns
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| array1 | Array | [0] |
+| array2 | Array | [1] |
+
 ## concat
 
 `concat(arg1, arg2, arg3, ...)`
