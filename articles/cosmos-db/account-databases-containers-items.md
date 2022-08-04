@@ -7,7 +7,6 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/03/2022
-ms.reviewer: sidandrews
 ---
 
 # Azure Cosmos DB resource model
