@@ -232,7 +232,9 @@ with mlflow.start_run() as run:
 
 ## View experiment
 
-In the left-hand menu in Azure Machine Learning studio, select __Experiments__ and then select your experiment (__azure-ml-in10-mins-tutorial__). An experiment is a grouping of many runs from a specified script or piece of code. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
+In the left-hand menu in Azure Machine Learning studio, select __Jobs__ and then select your job (__azure-ml-in10-mins-tutorial__). A job is a grouping of many runs from a specified script or piece of code.  Multiple jobs can be grouped together as an experiment.
+
+Information for the run is stored under that job. If the name doesn't exist when you submit a job, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
 
 ## Version control your models with the model registry
 
