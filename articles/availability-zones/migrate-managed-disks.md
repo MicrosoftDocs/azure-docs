@@ -19,7 +19,6 @@ For both options, you'll need to take snapshots of those disks and recreate them
 
 ## Prerequisites
 
-For zone-redundant managed disks, one of the following two specific storage SKUs must be selected:
 
 - **Zonal**. When you create a zonal Azure VM, the managed disk that's created is also zonal by default, which means that your managed disk will be co-located in the same zone as your Azure VM. 
 - **Zone-redundant**. Managed disks support zone-redundant storage (ZRS) which synchronously replicates your managed disk across three availability zones in the region you select. 
