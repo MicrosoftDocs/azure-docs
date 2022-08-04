@@ -358,7 +358,7 @@ converted_model.delete()
 
 ## Next steps
 
-+ Learn how to [secure your web services](how-to-secure-web-service.md) document.
++ Learn how to [secure your web services](./v1/how-to-secure-web-service.md) document.
 
 + Learn about FPGA and [Azure Machine Learning pricing and costs](https://azure.microsoft.com/pricing/details/machine-learning/).
 
