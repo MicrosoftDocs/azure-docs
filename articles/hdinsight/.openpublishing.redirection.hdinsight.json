@@ -29,32 +29,32 @@
         "redirect_document_id": false
  }, 
  {
-        "source_path_from_root": "/articles/hdinsightstorm/apache-storm-develop-csharp-visual-studio-topology.md",
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-csharp-visual-studio-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
  }, 
  {
-        "source_path_from_root": "/articles/hdinsightstorm/apache-storm-scp-programming-guide.md",
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-scp-programming-guide.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
  }, 
  {
-        "source_path_from_root": "/articles/hdinsightstorm/apache-storm-example-topology.md",
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-example-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
  }, 
  {
-        "source_path_from_root": "/articles/hdinsightstorm/apache-storm-develop-csharp-event-hub-topology.md",
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
  }, 
  {
-        "source_path_from_root": "/articles/hdinsightstorm/apache-storm-deploy-monitor-topology-linux.md",
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-deploy-monitor-topology-linux.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
  }, 
  {
-        "source_path_from_root": "/articles/hdinsightstorm/apache-troubleshoot-storm.md",
+        "source_path_from_root": "/articles/hdinsight/storm/apache-troubleshoot-storm.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
  },
