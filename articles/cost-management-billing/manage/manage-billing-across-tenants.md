@@ -34,7 +34,7 @@ When you add an associated billing tenant, you can enable one or both of the fol
 
 ## Add an associated billing tenant
 
-Before you begin, make sure you have either the tenant ID, or the primary domain name for the tenant you want to add. For more information, see [Find a tenant ID or domain name](finding-tenantid-domain.md).
+Before you begin, make sure you have either the tenant ID, or the primary domain name for the tenant you want to add. For more information, see [Find a tenant ID or domain name](finding-tenant-id-domain.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
@@ -91,12 +91,12 @@ Choosing to assign roles to users from associated billing tenants might be the r
 
 :::image type="content" source="./media/manage-billing-across-tenants/b2b-role-assignment.png" alt-text="Illustration showing B2B role assignment." border="false" lightbox="./media/manage-billing-across-tenants/b2b-role-assignment.png" :::
 
-|  |Associated billing tenants  |Azure B2B  |
+| Consideration |Associated billing tenants  |Azure B2B  |
 |---------|---------|---------|
-|Security     |  The users that you invite to share your billing account will follow their tenant's security policies      |  The users that you invite to share your billing account will follow your tenant's security policies       |
-|Access    | The users get access to your billing account in their own tenant and can manage billing and make purchases without switching tenants        |  External guest identities are created for users in your tenant and these identities get access to your billing account. Users would have to switch tenant to manage billing and make purchases     |
+|Security     |  The users that you invite to share your billing account will follow their tenant's security policies.      |  The users that you invite to share your billing account will follow your tenant's security policies.       |
+|Access    | The users get access to your billing account in their own tenant and can manage billing and make purchases without switching tenants.        |  External guest identities are created for users in your tenant and these identities get access to your billing account. Users would have to switch tenant to manage billing and make purchases.     |
 
-## Move Microsoft 365 subscriptions to an associated billing tenant
+## Move Microsoft 365 subscriptions to a billing tenant
 
 Before moving subscriptions, make sure you [add a tenant as an associated billing tenant and enable provisioning access setting](#add-an-associated-billing-tenant). Also the global administrator of the associated billing tenant must accept the provisioning request from your billing account.
 
