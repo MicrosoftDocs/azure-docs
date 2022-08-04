@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Windows. See common issues 
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 05/26/2022
+ms.date: 08/04/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -541,6 +541,18 @@ az storage account keys renew \
 ```
 
 ---
+
+## Set the API permissions on a newly created application
+
+You can configure the API permissions from the [Azure portal](https://portal.azure.com).
+
+1. Open **Azure Active Directory**.
+2. Select **App registrations** on the left pane.
+3. Select **All Applications**.
+4. Select the application with the name matching your storage account.
+5. Select **API permissions** in the left pane.
+6. Select **Add permissions** at the bottom of the page.
+7. Select **Grant admin consent for "DirectoryName"**.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
