@@ -12,9 +12,9 @@ ms.custom: include file
 
 ## Authenticate the app to Azure
 
-Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing credential-free connections to Azure services in your code, including Blob Storage. 
+Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing credential-free connections to Azure services in your code, including Blob Storage.
 
-Azure Blob Storage also provides the option to authenticate using connection strings, but this approach should be used with caution. `DefaultAzureCredential` offers improved management and security benefits over connection strings to allow credential-free authentication. Both options are demonstrated in the following example.
+You can also authorize requests to Azure Blob Storage by using the account access key, but this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow credential-free authentication. Both options are demonstrated in the following example.
 
 ## [Credential-free (Recommended)](#tab/managed-identity)
 
