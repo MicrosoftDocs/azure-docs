@@ -88,7 +88,7 @@ Virtual Machine and Azure Application offers are a good fit if you want customer
 
 [1] Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).
 
-[2]</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.
+[2] VM offer images can be included in the Azure App offer to increase pricing and deployments.
 
 [3] This can include your own VM offers.
 
