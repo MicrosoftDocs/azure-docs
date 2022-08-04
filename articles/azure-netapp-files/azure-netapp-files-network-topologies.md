@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2022
+ms.date: 08/05/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -131,7 +131,7 @@ Configuring user-defined routes (UDRs) on the source VM subnets with address pre
 
 The following diagram illustrates an Azure-native environment:
 
-![Azure-native networking environment](../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png)
+:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png" alt-text="Diagram depicting Azure native environment setup." lightbox="../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png":::
 
 ### Local VNet
 
@@ -151,7 +151,7 @@ In the diagram above, although VM 3 can connect to Volume 1, VM 4 can't connect 
 
 The following diagram illustrates a hybrid environment: 
 
-![Hybrid networking environment](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
+:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png" alt-text="Diagram depicting hybrid networking environment." lightbox="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png":::
 
 In the hybrid scenario, applications from on-premises datacenters need access to the resources in Azure.  This is the case whether you want to extend your datacenter to Azure, or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) for information on how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
 

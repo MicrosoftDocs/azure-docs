@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 08/03/2022
+ms.date: 08/05/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
