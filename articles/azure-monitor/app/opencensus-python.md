@@ -27,7 +27,7 @@ You may have noted that OpenCensus is converging into [OpenTelemetry](https://op
 
 ## Instrument with OpenCensus Python SDK with Azure Monitor exporters
 
-To get started with OpenCensus Azure Monitor exporters in your pythong application, install the `opencensus-ext-azure` library:
+Install the OpenCensus Azure Monitor exporters:
 
 ```console
 python -m pip install opencensus-ext-azure
@@ -540,18 +540,13 @@ In the list under **Active**:
 
 For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../logs/data-platform-logs.md).
 
-## Sample Applications
-
-You can find sample applications in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor).
-
-
 ## Learn more about OpenCensus for Python
 
 * [OpenCensus Python on GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Customization](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
 * [Azure Monitor Exporters on GitHub](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 * [OpenCensus Integrations](https://github.com/census-instrumentation/opencensus-python#extensions)
-* [Azure Monitor Sample Applications](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
+* [Azure Monitor Sample Applications](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor)
 
 ## Next steps
 

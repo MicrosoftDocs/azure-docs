@@ -87,6 +87,8 @@ You can find an example Django application in the sample Azure Monitor OpenCensu
     
     > [!NOTE]
     > To run Flask under uWSGI in a Docker environment, you must first add `lazy-apps = true` to the uWSGI configuration file (uwsgi.ini). For more information, see the [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660). 
+
+    You can find a Flask sample application that uses dependencies in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/flask_sample).
     
 ## Tracking Pyramid applications
 

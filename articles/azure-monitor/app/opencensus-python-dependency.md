@@ -105,6 +105,9 @@ OPENCENSUS = {
 }
 ```
 
+You can find a Django sample application that uses dependencies in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
+
+
 ## Dependencies with "mysql" integration
 
 Track your MYSQL dependencies with the OpenCensus `mysql` integration. This integration supports the [mysql-connector](https://pypi.org/project/mysql-connector-python/) library.
@@ -162,10 +165,6 @@ from opencensus.trace import config_integration
 
 config_integration.trace_integrations(['sqlalchemy'])
 ```
-
-## Sample Applications
-
-You can find sample applications in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor).
 
 ## Next steps
 
