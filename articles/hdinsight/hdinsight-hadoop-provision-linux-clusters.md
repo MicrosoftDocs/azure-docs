@@ -4,7 +4,7 @@ description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
-ms.date: 07/22/2022
+ms.date: 08/04/2022
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -242,6 +242,10 @@ To find out what value you should use to specify a VM size while creating a clus
 For more information, see [Sizes for virtual machines](../virtual-machines/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ### Disk attachment
+
+HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios.
+
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the selected disks will be part of node manager’s local directories.
 
 On each of the **NodeManager** machines, **LocalResources** are ultimately localized in the target directories.
 

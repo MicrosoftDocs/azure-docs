@@ -106,8 +106,6 @@ While the service attempts to make the server read-only, all new write transacti
 
 To get the server out of read-only mode, you should increase the provisioned storage on the server. This can be done using the Azure portal or Azure CLI. Once increased, the server will be ready to accept write transactions again.
 
-We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics available. 
-
 We recommend that you <!--turn on storage auto-grow or to--> set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](how-to-alert-on-metric.md).
 
 ### Storage auto-grow
