@@ -68,7 +68,7 @@ To use it, be sure to fill out these variables:
 - **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **sentShareName** - a name for your new data share
 - **description** - an optional description for your data share
-- **referenceName** - the name of the collection where your share will be housed. For the root collection, give the name of the Microsoft Purview account. For any other collection, you will need to give the internal reference name for the collection.
+- **referenceName** - the name of the collection where your share will be housed. For the root collection, give the name of the Microsoft Purview account. For any other collection, you'll need to give the internal reference name for the collection.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure.Core;
@@ -98,15 +98,15 @@ var sentShare = await sentShareClient.CreateOrUpdateAsync(sentShareName, Request
 
 ## Add an asset to a sent share
 
-The below code will create add a data asset to a share you are sending.
+The below code will add a data asset to a share you're sending.
 To use it, be sure to fill out these variables:
 
 - **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-- **sentShareName** - the name of the data share where you will add the asset
-- **assetName** - a name for the asset you will be adding
-- **senderStorageResourceId** - the [resource id for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data asset is stored
+- **sentShareName** - the name of the data share where you'll add the asset
+- **assetName** - a name for the asset you'll be adding
+- **senderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data asset is stored
 - **senderStorageContainer** - the name of container where your asset is housed in your storage account
-- **senderPathToShare** - the folder and file path for the asset you will be sharing
+- **senderPathToShare** - the folder and file path for the asset you'll be sharing
 - **pathNameForReceiver** - a (path compliant) name that for the share that will be visible to the data receiver
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_02_Namespaces
@@ -152,9 +152,9 @@ The below code will send an invitation to a data share.
 To use it, be sure to fill out these variables:
 
 - **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
-- **sentShareName** - the name of the data share you are sending
+- **sentShareName** - the name of the data share you're sending
 - **assetName** - a name for your invitation
-- **targetEmail** or **targetActiveDirectoryId and targetObjectId** - the email address **or** objectId and tenantId for the user or service pricipal that will receive the data share. TenantId is optional.
+- **targetEmail** or **targetActiveDirectoryId and targetObjectId** - the email address **or** objectId and tenantId for the user or service principal that will receive the data share. TenantId is optional.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_03_Namespaces
 using Azure.Core;
@@ -242,7 +242,7 @@ To use it, be sure to fill out these variables:
 - **endpoint** - "https://<my-account-name>.purview.azure.com/share". Replace **\<my-account-name>** with the name of your Microsoft Purview instance
 - **receivedShareName** - a name for the share that is being received
 -  **sentShareLocation** - the region where the share is housed. It should be the same region as the sent share and will be one of [Microsoft Purview's available regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).
-- **referenceName** - the name of the collection where your share will be housed. For the root collection, give the name of the Microsoft Purview account. For any other collection, you will need to give the internal reference name for the collection.
+- **referenceName** - the name of the collection where your share will be housed. For the root collection, give the name of the Microsoft Purview account. For any other collection, you'll need to give the internal reference name for the collection.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_06_Namespaces
 using System.Linq;
@@ -322,7 +322,7 @@ To use it, be sure to fill out these variables:
 - **receiverContainerName** - the name of the container where the assets were housed
 - **receiverFolderName** - the name of the folder where the assets were housed
 - **receiverMountPath** - an optional input path parameter for destination mapping location
-- **receiverStorageResourceId** - the [resource id for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data asset is stored
+- **receiverStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data asset is stored
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_08_Namespaces
 using System;
