@@ -35,7 +35,14 @@ The next step is to add this code into your Spark cluster. You can either create
 
 ## Fill in your service information
 
-Next, edit the cell in the notebook to point to your service. In particular, set the `service_name`, `deployment_name`, `location`, and `key` variables to match the appropriate values for your Azure OpenAI service.
+Next, edit the cell in the notebook to point to your service. In particular, set the following variables to the appropriate values for your Azure OpenAI service.
+
+| Variable | Value |
+| -------- | ----- |
+| `service_name` | The name of your Azure OpenAI resource. |
+| `deployment_name` | The name of your Azure OpenAI deployment. |
+| `location` | The location or region ID of your Azure OpenAI resource. |
+| `key` | The subscription key for your Azure OpenAI resource. |
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
@@ -71,7 +78,7 @@ You can also load data directly from Azure Data Lake Storage (ADLS) or other dat
 df = spark.createDataFrame(
     [
         ("Hello my name is",),
-        ("The best code is code thats",),
+        ("The best code is code that's",),
         ("SynapseML is ",),
     ]
 ).toDF("prompt")
@@ -112,9 +119,9 @@ Your output should look something like the following example; note that the comp
 
 | **prompt** | **error** | **text** |
 |------------|-----------| ---------|
-| Hello my name is             | null | Makaveli I'm eighteen years old and I want to<br>be a rapper when I grow up I love writing and making music I'm from Los<br>Angeles, CA |
-| The best code is code thats  | null | understandable This is a subjective statement,<br>and there is no definitive answer. |
-| SynapseML is                 | null | A machine learning algorithm that is able to learn how to predict the future outcome of events. |
+| Hello my name is             | undefined | Makaveli I'm eighteen years old and I want to<br>be a rapper when I grow up I love writing and making music I'm from Los<br>Angeles, CA |
+| The best code is code thats  | undefined | understandable This is a subjective statement,<br>and there is no definitive answer. |
+| SynapseML is                 | undefined | A machine learning algorithm that is able to learn how to predict the future outcome of events. |
 
 ## Other usage examples
 
@@ -186,7 +193,7 @@ The Azure OpenAI service can solve many different natural language tasks through
 translate_df = spark.createDataFrame(
     [
         ("Japanese: Ookina hako \nEnglish: Big box \nJapanese: Midori tako\nEnglish:",),
-        ("French: Quel heure et il au Montreal? \nEnglish: What time is it in Montreal? \nFrench: Ou est le poulet? \nEnglish:",),
+        ("French: Quelle heure est-il à Montréal? \nEnglish: What time is it in Montreal? \nFrench: Où est le poulet? \nEnglish:",),
     ]
 ).toDF("prompt")
 
