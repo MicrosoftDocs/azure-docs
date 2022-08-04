@@ -291,7 +291,11 @@ The following information can be helpful when you work with [resources](./syntax
 
 ## Comments
 
-In addition to the `comments` property, if your ARM template is stored in a `.jsonc` file, comments using the `//` syntax are supported.  For more details about comments and metadata see [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax#comments-and-metadata).
+In addition to the `comments` property, comments using the `//` syntax are supported.  For more details about comments and metadata see [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax#comments-and-metadata). You may choose to save JSON files that contain `//` comments using the `.jsonc` file extension, to indicate the JSON file contains comments. The ARM service will also accept comments in any JSON file including parameters files.
+
+## Visual Studio Code Azure Resource Manager Tools
+
+Working with ARM templates is much easier with the Azure Resource Manager (ARM) Tools for Visual Studio Code. This extension provides language support, resource snippets, and resource auto-completion to help you create and validate Azure Resource Manager templates. To learn more and install the extension, see (Azure Resource Manager (ARM) Tools)[https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools].
 
 ## Use test toolkit
 

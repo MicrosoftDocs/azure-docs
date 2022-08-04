@@ -79,7 +79,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-The value of the `--template-file` parameter must be a Bicep file or a `.json` or `.jsonc` file. The `.jsonc` file extension indicates the file can contain `//` style comments. For more details about comments and metadata see [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax#comments-and-metadata).
+The value of the `--template-file` parameter must be a Bicep file or a `.json` or `.jsonc` file. The `.jsonc` file extension indicates the file can contain `//` style comments. The ARM system accepts `//` comments in `.json` files. It does not care about the file extension. For more details about comments and metadata see [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax#comments-and-metadata).
 
 The Azure deployment template can take a few minutes to complete. When it finishes, you see a message that includes the result:
 
