@@ -1,3 +1,12 @@
+---
+title: IoT Prototyping Device Selection List
+description: This document provides guidance on choosing a hardware device for prototyping IoT solutions.
+author: Jen Fox
+ms.author: jefo
+ms.service: iot-develop
+ms.topic: IoT Device Selection List 
+ms.date: 08/03/2022
+---
 # IoT Device Selection List
 
 This IoT Device Selection List aims to give partners a starting point with IoT hardware to build prototypes and proof-of-concepts quickly and easily.[1]
@@ -20,11 +29,11 @@ All boards listed support users of all experience levels.
 
 | Section | Description |
 |--------------|-----------|
-| [Start Here](##StartHere) | A guide to using this selection list. Includes suggested selection criteria.|
-| [Selection Diagram](##SelectionDiagram) | A visual that summarizes common selection criteria with possible hardware choices. |
-| [Terminology and ML Requirements](##TerminologyandMLRequirements) | Terminology and acronym definitions and device requirements for edge machine learning (ML). |
-| [MCU Device List](##MCUDeviceList) | A list of recommended MCUs, for example, ESP32, with tech specs and alternatives. |
-| [SBC Device List](##SBCDeviceList) | A list of recommended SBCs, for example, Raspberry Pi, with tech specs and alternatives. |
+| [Start Here](#StartHere) | A guide to using this selection list. Includes suggested selection criteria.|
+| [Selection Diagram](#SelectionDiagram) | A visual that summarizes common selection criteria with possible hardware choices. |
+| [Terminology and ML Requirements](#TerminologyandMLRequirements) | Terminology and acronym definitions and device requirements for edge machine learning (ML). |
+| [MCU Device List](#MCUDeviceList) | A list of recommended MCUs, for example, ESP32, with tech specs and alternatives. |
+| [SBC Device List](#SBCDeviceList) | A list of recommended SBCs, for example, Raspberry Pi, with tech specs and alternatives. |
 
 ## Start Here
 
