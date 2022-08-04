@@ -114,8 +114,10 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
+  - name: Azure CLI
+    href: /cli/azure/connectedk8s
   - name: Azure PowerShell
-    href: /powershell/module/Az.ConnectedKubernetes/
+    href: /powershell/module/az.connectedkubernetes#connected-kubernetes
 - name: Resources
   items:
     - name: Region availability

@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 08/03/2022
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
