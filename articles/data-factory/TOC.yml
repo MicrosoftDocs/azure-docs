@@ -74,7 +74,7 @@ items:
       displayName: polybase
     - name: From SAP BW to Azure Data Lake Storage Gen2
       href: load-sap-bw-data.md
-    - name: From Office 365 to Azure Blob storage
+    - name: From Microsoft 365 to Azure Blob storage
       href: load-office-365-data.md
     - name: Multiple tables in bulk
       items:
@@ -486,7 +486,7 @@ items:
       displayName: timeout
     - name: ODBC
       href: connector-odbc.md
-    - name: Office 365
+    - name: Microsoft 365
       href: connector-office-365.md
       displayName: active directory
     - name: Oracle
