@@ -65,7 +65,12 @@ Metric domain|Metric type|Metric purpose|
 
    :::image type="content" source="media\iot-metrics-display\iot-select-add-metric.png" alt-text="Screenshot of select Add metric button to add more MedTech service metrics." lightbox="media\iot-metrics-display\iot-select-add-metric.png":::
 
+   > [!TIP]
+   >
+   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure-monitor/essentials/metrics-getting-started)
+
    > [!IMPORTANT]
+   >
    > If you leave the MedTech service metrics page, the metrics settings for your MedTech service are lost and will have to be recreated. If you would like to save your MedTech service metrics for future viewing, you can pin them to an Azure dashboard as a tile.
 
 ## How to pin the MedTech service metrics tile to an Azure portal dashboard
@@ -91,11 +96,11 @@ Metric domain|Metric type|Metric purpose|
    :::image type="content" source="media\iot-metrics-display\iot-dashboard-with-metrics-tile-displayed.png" alt-text="Screenshot of dashboard with pinned MedTech service metrics tile." lightbox="media\iot-metrics-display\iot-dashboard-with-metrics-tile-displayed.png":::
 
    > [!TIP]
-   > See [Troubleshoot MedTech service](./iot-troubleshoot-guide.md) for assistance fixing common errors, conditions, and issues with the MedTech service.
+   > See [Troubleshoot the MedTech service](./iot-troubleshoot-guide.md) for assistance fixing common errors, conditions, and issues with the MedTech service.
 
 ## Next steps
 
-To learn how to export the MedTech service metrics, see
+To learn how to configure the diagnostic settings and export the MedTech service metrics to another location (for example: an Azure storage account), see
 
 > [!div class="nextstepaction"]
 > [How to configure diagnostic settings for exporting the MedTech service metrics](./iot-metrics-diagnostics-export.md)
