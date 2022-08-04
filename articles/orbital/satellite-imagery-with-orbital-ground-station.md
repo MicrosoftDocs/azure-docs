@@ -121,10 +121,16 @@ Because IPOPP has higher system requirements than RT-STPS, it should be run on a
 Create a file system on the data disk:
 
 ```console
-sudo fdisk /dev/sdc
-sudo mkfs -t ext4 /dev/sdc1
-sudo mount /dev/sdc1 /datadrive
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+sudo parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100%  # making partions, do not run on re-attaching an existing drive
+sudo mkfs.xfs /dev/sdb1
+sudo partprobe /dev/sdb1 
+sudo mkdir /datadrive
+sudo mount /dev/sdb1 /datadrive
+sudo chown azureuser:azureuser /datadrive
 ```
+> [!NOTE]
+> To ensure that the datadrive is mounted automatically after every reboot, please refer to [Attach a data disk to a Linux VM](../virtual-machines/linux/attach-disk-portal.md#mount-the-disk) for instructions on how to add an entry to ```/etc/fstab```
 
 IPOPP installation requires using a browser to sign on to the DRL website to download the installation script. This script must be run from the same host that it was downloaded to. IPOPP configuration also requires a GUI. Therefore, we install a full desktop and a vnc server to enable running GUI applications.
 
