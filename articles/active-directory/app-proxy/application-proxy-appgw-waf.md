@@ -28,7 +28,7 @@ This article guides you through the steps to securely expose a web application o
 
 ### Configure Azure Application Gateway to send traffic to your internal application.
 
-Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal][appgw_quick].
 
 1. Create a private-facing HTTPS listener.
 
@@ -46,7 +46,7 @@ In this example, the backend servers have Internet Information Services (IIS) in
 
 This will determine how requests will reach the backend pool servers.
 
-![Add backend setting](/media/application-proxy-waf/appgw_backendsettings.png)
+![Add backend setting](./media/application-proxy-waf/appgw_backendsettings.png)
  
  4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
  
@@ -61,17 +61,17 @@ This will determine how requests will reach the backend pool servers.
  
 As represented in the diagram above, both connector VMs, the Application Gateway, and the backend servers were deployed in the same VNET in Azure. This setup also applies to applications and connectors deployed on-premises. 
 
-For a detailed guide on how to add your application to Application Proxy in Azure AD, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application). For more information about performance considerations concerning the Application Proxy connectors, see [Optimize traffic flow with Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-network-topology). 
+For a detailed guide on how to add your application to Application Proxy in Azure AD, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory][appproxy-add-app]. For more information about performance considerations concerning the Application Proxy connectors, see [Optimize traffic flow with Azure Active Directory Application Proxy][appproxy-optimize]. 
  
 ![App proxy config](./media/application-proxy-waf/appproxyconfig.png)
 
-In this example, the same URL was configured as the internal and external URL. Remote clients will access the application over the Internet on port 443, through the Application Proxy, whereas clients connected to the corporate network will access the application privately through the Application Gateway directly, also on port 443. For a detailed step on how to configure custom domains in Application Proxy, see [Configure custom domains with Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-configure-custom-domain).
+In this example, the same URL was configured as the internal and external URL. Remote clients will access the application over the Internet on port 443, through the Application Proxy, whereas clients connected to the corporate network will access the application privately through the Application Gateway directly, also on port 443. For a detailed step on how to configure custom domains in Application Proxy, see [Configure custom domains with Azure AD Application Proxy][appproxy-custom-domain].
 
-To ensure the connector VMs send requests to the Application Gateway, an [Azure Private DNS zone](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) was created with an A record pointing www.fabrikam.one to the private frontend IP of the Application Gateway.
+To ensure the connector VMs send requests to the Application Gateway, an [Azure Private DNS zone][private-dns] was created with an A record pointing www.fabrikam.one to the private frontend IP of the Application Gateway.
 
 ### Test the application.
 
-After [adding a user for testing](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one.
+After [adding a user for testing][appproxy-add-user], you can test the application by accessing https://www.fabrikam.one.
 
 ![add authentication image]
 ![add server response image]
@@ -84,7 +84,7 @@ To test if the WAF is blocking malicious requests, you can simulate an attack by
 
 An HTTP 403 response confirms that the request was blocked by the WAF.
 
-The Application Gateway [Firewall logs](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#firewall-log) provide more details about the request and why it was blocked by the WAF.
+The Application Gateway [Firewall logs][waf-logs] provide more details about the request and why it was blocked by the WAF.
 
 ![waflog image]
 
@@ -92,6 +92,13 @@ The Application Gateway [Firewall logs](https://docs.microsoft.com/azure/applica
 
 Configure custom WAF rules?
 
+[appgw-quick]: /azure/application-gateway/quick-create-portal
 [waf-overview]: /azure/web-application-firewall/ag/ag-overview
 [waf-create]: /azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal
+[waf-logs]: /azure/application-gateway/application-gateway-diagnostics#firewall-log
 [appproxy-create]: /azure/active-directory/app-proxy/application-proxy-add-on-premises-application
+[appproxy-add-app]: /azure/active-directory/app-proxy/application-proxy-add-on-premises-application
+[appproxy-add-user]: /azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing
+[appproxy-custom-domain]: /azure/active-directory/app-proxy/application-proxy-configure-custom-domain
+[appproxy-optimize]: /azure/active-directory/app-proxy/application-proxy-network-topology
+[private-dns]: /azure/dns/private-dns-getstarted-portal
