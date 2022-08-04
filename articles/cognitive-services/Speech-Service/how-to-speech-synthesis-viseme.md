@@ -230,7 +230,7 @@ Render the SVG animation along with the synthesized speech to see the mouth move
 # [3D blend shapes](#tab/3dblendshapes)
 
 
-Each viseme event includes a series of frames in the `Animation` SDK property. These are grouped to best align the facial positions with the audio. Your 3D engine should render each group of `BlendShapes` frames immediately before the corresponding audio chunk. The `FrameIndex` value indicates how many frames have already been rendered prior to the current list of frames.
+Each viseme event includes a series of frames in the `Animation` SDK property. These are grouped to best align the facial positions with the audio. Your 3D engine should render each group of `BlendShapes` frames immediately before the corresponding audio chunk. The `FrameIndex` value indicates how many frames preceded the current list of frames.
 
 The output json looks like the following sample. Each frame within `BlendShapes` contains an array of 55 facial positions represented as decimal values between 0 to 1. The decimal values are in the same order as described in the facial positions table below.
 
