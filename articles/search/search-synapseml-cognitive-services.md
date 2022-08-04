@@ -8,42 +8,40 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/06/2022
 ---
 
-# How to implement full text search over AI-enriched data from Apache Spark using Synapse ML and Azure Cognitive Services
+# Create a search solution using AI-enriched data from Apache Spark, Azure Synapse, Cognitive Services, and Cognitive Search
 
-This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark using Synapse ML. This workflow includes machine learning translation and image analysis from Cognitive Services.
+This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark using SynapseML. Transformers in SynapseML automate calls to both Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to transform big data in a Spark cluster and then send it a search index so that you can query the output.
 
-The article includes the following steps:
+The article starts with forms (invoices) in Azure Storage and includes the following steps:
 
-+ Start with data in Azure Databricks, Azure's Apache Spark solution
-+ Apply machine learning using Azure Cognitive Services for big data
-+ Load the results into a generated search index using AzureSearchWriter from Synapse ML
-+ Query the search index that contains multi-lingual content
++ Create a Synapse workspace that connects to a Spark cluster using Azure Databricks.
++ Create a notebooks that loads and transforms data. + Transformations include forms recognition, form ontology, text translation.
++ Load the results into a generated search index using AzureSearchWriter from SynapseML.
++ Query the search index that contains transformed and multi-lingual content.
 
-The search corpus is created and hosted in Azure Cognitive Search, and all queries execute locally over the search corpus. Synapse ML provides modules that wrap other Azure resources, including Azure Forms Recognizer and Azure Cognitive Search. 
+The search corpus is created and hosted in Azure Cognitive Search, and all queries execute locally over the search corpus. SynapseML provides transformers that wrap other Azure resources, including Azure Forms Recognizer, Azure Text Translator, and Azure Cognitive Search.
 
-You'll call these modules in this walkthrough:
+You'll call these SynapseML transformers in this walkthrough:
 
-+ synapse.ml.cognitive.AnalyzeInvoices
-+ synapse.ml.cognitive.FormOntologyLearner
-+ synpase.ml.cognitive.AzureSearchWriter
++ [synapse.ml.cognitive.AnalyzeInvoices](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices)
++ [synapse.ml.cognitive.FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer)
++ [synpase.ml.cognitive.AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch)
 
 ## Prerequisites
 
-You'll need multiple Azure resources for this walkthrough, but you can put everything into one resource group for simple clean up later. The following links are for portal installs.
+You'll need multiple Azure resources for this walkthrough. You should use the same subscription and region, and put everything into one resource group for simple clean up later. The following links are for portal installs.
 
-+ [Azure Databricks](../databricks/scenarios/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace)
-+ [Azure Cognitive Services multiservice]() <sup>1</sup>
-+ [Azure Cognitive Services Translator]() <sup>2</sup>
-+ [Azure Cognitive Search](search-create-service-portal.md)
++ [Azure Cognitive Search](search-create-service-portal.md) (any tier)
++ [Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) StorageV2 (general purpose V2)
++ [Azure Databricks](../databricks/scenarios/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) (any tier)
++ [Azure Synapse Analytics](../synapse-analytics/get-started-create-workspace.md) (any tier)
++ [Azure Forms Recognizer](../applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md)
++ [Azure Cognitive Services Translator](../cognitive-services/translator/how-to-create-translator-resource.md) 
 
-<sup>1</sup> The multi-service account gives access to most Cognitive Services resources. It's used in this walkthrough for access to for Big Data is a Cognitive Services resource that's integrated with Apache Spark. The only difference 
-
-<sup>2</sup>Translator isn't supported in Cognitive Services for big data so this walkthrough uses a standalone resource to access the machine translation model.
-
-All of these resources support security features in the Microsoft Identity platform, but for simplicity this walkthrough assumes key-based authentication, using keys copied from the portal pages of each service.
+All of these resources support security features in the Microsoft Identity platform, but for simplicity this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service.
 
 ## Steps
 
