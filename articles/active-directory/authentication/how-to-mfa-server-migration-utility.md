@@ -25,13 +25,12 @@ admins can use the MFA Server Migration Utility to target single users or groups
 
 ## Limitations and requirements
 
-- The MFA Server Migration Utility is a preview feature being shared with you under the terms of your NDA with Microsoft. Don't share documentation, preview builds, screenshots, or other artifacts generated for the purposes of this preview externally.
+- The MFA Server Migration Utility is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 - The MFA Server Migration Utility requires a new preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You shouldn't update the WebSDK or User Portal, even if prompted. Installing the update _doesn't_ start the migration automatically.
 - The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure MFA for testing purposes using the staged migration tool. Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
 - If you’re running MFA Server on an IIS Server, reach out to mfamigration@microsoft.com before deploying the preview. You may have to move certain applications to an Application Proxy.
-- Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each)
-
+- Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each).
 ## Migration guide
 
 |Phase | Steps |
@@ -211,23 +210,23 @@ The automatic process steps are:
   The sync logic for the various methods is as follows
 
 - **Phone** 
-  - If there is no extension, update MFA phone.
-  - If there is an extension, update Office phone.
+  - If there's no extension, update MFA phone.
+  - If there's an extension, update Office phone.
   
   Exception: If the default method is Text Message, drop extension and update MFA phone.
 
 - **Backup Phone**
-  - If there is no extension, update Alternate phone.
-  - If there is an extension, update Office phone.
+  - If there's no extension, update Alternate phone.
+  - If there's an extension, update Office phone.
   
   Exception: If both Phone and Backup Phone have an extension, skip Backup Phone.
 
 - **Mobile App**
-  - Maximum of 5 devices will be migrated or only 4 if the user also has an hardware OATH token.
+  - Maximum of 5 devices will be migrated or only 4 if the user also has a hardware OATH token.
   - If there are multiple devices with the same name, only migrate the most recent one.
   - Devices will be ordered from newest to oldest.
   - If devices already exist in Azure AD, match on OATH Token Secret Key and update.
-    - If there is no match on OATH Token Secret Key, match on Device Token
+    - If there's no match on OATH Token Secret Key, match on Device Token
       - If found, create a Software OATH Token for the MFA Server device to allow OATH Token method to work.  Notifications will still work using the existing Azure MFA device.
       - If not found, create a new device.
   - If adding a new device will exceed the 5-device limit, the device will be skipped. 
