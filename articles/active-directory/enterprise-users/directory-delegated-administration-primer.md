@@ -2,9 +2,9 @@
 title: Delegated administration in Azure Active Directory
 description: The relationship between older delegated admin permissions and new granular delegated admin permissions in Azure Active Directory
 keywords:
-author: curtand
-manager: karenhoran
-ms.author: curtand
+author: barclayn
+manager: rkarlin
+ms.author: barclayn
 ms.reviewer: yuank
 ms.date: 06/23/2022
 ms.topic: overview

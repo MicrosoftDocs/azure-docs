@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 06/27/2022
+ms.date: 08/03/2022
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -43,7 +43,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator) | Can manage secrets for federation and encryption in the Identity Experience Framework (IEF). | aaf43236-0c0d-4d5f-883a-6955382ac081 |
 > | [B2C IEF Policy Administrator](#b2c-ief-policy-administrator) | Can create and manage trust framework policies in the Identity Experience Framework (IEF). | 3edaf663-341e-4475-9f94-5c398ef6c070 |
 > | [Billing Administrator](#billing-administrator) | Can perform common billing related tasks like updating payment information. | b0f54661-2d74-4c50-afa3-1ec803f12efe |
-> | [Cloud App Security Administrator](#cloud-app-security-administrator) | Can manage all aspects of the Cloud App Security product. | 892c5842-a9a6-463a-8041-72aa08ca3cf6 |
+> | [Cloud App Security Administrator](#cloud-app-security-administrator) | Can manage all aspects of the Defender for Cloud Apps product. | 892c5842-a9a6-463a-8041-72aa08ca3cf6 |
 > | [Cloud Application Administrator](#cloud-application-administrator) | Can create and manage all aspects of app registrations and enterprise apps except App Proxy. | 158c047a-c907-4556-b7ef-446551a6b5f7 |
 > | [Cloud Device Administrator](#cloud-device-administrator) | Limited access to manage devices in Azure AD. | 7698a772-787b-4ac8-901f-60d6b08affd2 |
 > | [Compliance Administrator](#compliance-administrator) | Can read and manage compliance configuration and reports in Azure AD and Microsoft 365. | 17315797-102d-40b4-93e0-432062caca18 |
@@ -327,7 +327,7 @@ Users with this role can't change the credentials or reset MFA for members and o
 > | --- | --- |
 > | microsoft.directory/users/authenticationMethods/create | Create authentication methods for users |
 > | microsoft.directory/users/authenticationMethods/delete | Delete authentication methods for users |
-> | microsoft.directory/users/authenticationMethods/standard/read | Read standard properties of authentication methods for users |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information for users |
 > | microsoft.directory/users/authenticationMethods/basic/update | Update basic properties of authentication methods for users |
 > | microsoft.directory/deletedItems.users/restore | Restore soft deleted users to original state |
 > | microsoft.directory/users/delete | Delete users |
@@ -458,12 +458,12 @@ Makes purchases, manages subscriptions, manages support tickets, and monitors se
 
 ## Cloud App Security Administrator
 
-Users with this role have full permissions in Cloud App Security. They can add administrators, add Microsoft Cloud App Security (MCAS) policies and settings, upload logs, and perform governance actions.
+Users with this role have full permissions in Defender for Cloud Apps. They can add administrators, add Microsoft Defender for Cloud Apps policies and settings, upload logs, and perform governance actions.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Cloud App Security |
+> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Defender for Cloud Apps |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Cloud Application Administrator
@@ -598,7 +598,7 @@ In | Can do
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
-> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Cloud App Security |
+> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Defender for Cloud Apps |
 > | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
@@ -614,6 +614,10 @@ Users with this role have the ability to manage Azure Active Directory Condition
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
+> | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
+> | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
+> | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
 > | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
@@ -879,7 +883,6 @@ Users with this role have read access to recipients and write access to the attr
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.office365.exchange/allRecipients/allProperties/allTasks | Create and delete all recipients, and read and update all properties of recipients in Exchange Online |
-> | microsoft.office365.exchange/messageTracking/allProperties/allTasks | Manage all tasks in message tracking in Exchange Online |
 > | microsoft.office365.exchange/migration/allProperties/allTasks | Manage all tasks related to migration of recipients in Exchange Online |
 
 ## External ID User Flow Administrator
@@ -937,7 +940,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/users/authenticationMethods/basic/update | Update basic properties of authentication methods for users |
 > | microsoft.directory/authorizationPolicy/allProperties/allTasks | Manage all aspects of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
-> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Cloud App Security |
+> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Defender for Cloud Apps |
 > | microsoft.directory/connectors/create | Create application proxy connectors |
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
 > | microsoft.directory/connectorGroups/create | Create application proxy connector groups |
@@ -950,6 +953,10 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/deletedItems/delete | Permanently delete objects, which can no longer be restored |
 > | microsoft.directory/deletedItems/restore | Restore soft deleted objects to original state |
 > | microsoft.directory/devices/allProperties/allTasks | Create and delete devices, and read and update all properties |
+> | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
+> | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
+> | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
+> | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
@@ -1077,6 +1084,7 @@ Users in this role can read settings and administrative information across Micro
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 > - [SharePoint](https://admin.microsoft.com/sharepoint) - Global Reader currently can't access SharePoint using PowerShell.
 > - [Power Platform admin center](https://admin.powerplatform.microsoft.com) - Global Reader is not yet supported in the Power Platform admin center.
+> - Microsoft Purview doesn't support the Global Reader role.
 >
 > These features are currently in development.
 >
@@ -1095,7 +1103,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information for users |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
-> | microsoft.directory/cloudAppSecurity/allProperties/read | Read all properties for Cloud app security |
+> | microsoft.directory/cloudAppSecurity/allProperties/read | Read all properties for Defender for Cloud Apps |
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
 > | microsoft.directory/contacts/allProperties/read | Read all properties for contacts |
@@ -1110,6 +1118,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/groupSettingTemplates/allProperties/read | Read all properties of group setting templates |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
 > | microsoft.directory/loginOrganizationBranding/allProperties/read | Read all properties for your organization's branded sign-in page |
+> | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/read | Read all properties of OAuth 2.0 permission grants |
 > | microsoft.directory/organization/allProperties/read | Read all properties for an organization |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Read standard properties of permission grant policies |
@@ -1723,7 +1732,7 @@ The [Authentication Administrator](#authentication-administrator) role has permi
 The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
 
 | Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive attributes |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- | 
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | Yes for some users (see above) |
 | Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No | Yes for all users |
 | Authentication Policy Administrator | No | No | Yes | Yes | Yes | No |
@@ -1879,6 +1888,10 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
 > | microsoft.directory/identityProtection/allProperties/update | Update all resources in Azure AD Identity Protection |
+> | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
+> | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
+> | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
+> | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
 > | microsoft.directory/policies/create | Create policies in Azure AD |
 > | microsoft.directory/policies/delete | Delete policies in Azure AD |
 > | microsoft.directory/policies/basic/update | Update basic properties on policies |
@@ -1927,7 +1940,7 @@ Users with this role can manage alerts and have global read-only access on secur
 > | --- | --- |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
-> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Cloud App Security |
+> | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Defender for Cloud Apps |
 > | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Azure AD Identity Protection |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
@@ -1963,6 +1976,7 @@ Identity Protection Center | Read all security reports and settings information 
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
+> | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/policies/standard/read | Read basic properties on policies |
 > | microsoft.directory/policies/owners/read | Read owners of policies |
 > | microsoft.directory/policies/policyAppliedTo/read | Read policies.policyAppliedTo property |
@@ -2184,10 +2198,6 @@ Users with this role can't change the credentials or reset MFA for members and o
 > | microsoft.directory/accessReviews/definitions.groups/create | Create access reviews for membership in Security and Microsoft 365 groups. |
 > | microsoft.directory/accessReviews/definitions.groups/delete | Delete access reviews for membership in Security and Microsoft 365 groups. |
 > | microsoft.directory/accessReviews/definitions.groups/allProperties/read | Read all properties of access reviews for membership in Security and Microsoft 365 groups, including role-assignable groups. |
-> | microsoft.directory/users/authenticationMethods/create | Create authentication methods for users |
-> | microsoft.directory/users/authenticationMethods/delete | Delete authentication methods for users |
-> | microsoft.directory/users/authenticationMethods/standard/read | Read standard properties of authentication methods for users |
-> | microsoft.directory/users/authenticationMethods/basic/update | Update basic properties of authentication methods for users |
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |

@@ -143,7 +143,7 @@ to users who do not need them.
 > [!NOTE]
 > The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
 > permissions to create or update targetted resources. For more information, see
-> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-policy-definition).
+> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-the-policy-definition).
 
 ### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
 
@@ -157,7 +157,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[guest configuration](./concepts/guest-configuration.md),
+[Machine configuration](../machine-configuration/overview.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see

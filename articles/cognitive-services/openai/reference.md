@@ -18,14 +18,14 @@ ms.custom:
 
 This article provides details on the  REST API endpoints for the Azure OpenAI Service, a service in the Azure Cognitive Services suite. The REST APIs are broken up into two categories:
 
-* **Management APIs**: The Azure Resource Manager (ARM) provides the management layer in Azure that allows you to create, update and delete resource in Azure. All services use a common structure for these operations. [Learn More](/azure/azure-resource-manager/management/overview)
+* **Management APIs**: The Azure Resource Manager (ARM) provides the management layer in Azure that allows you to create, update and delete resource in Azure. All services use a common structure for these operations. [Learn More](../../azure-resource-manager/management/overview.md)
 * **Service APIs**: The Azure OpenAI service provides you with a set of REST APIs for interacting with the resources & models you deploy via the Management APIs.
 
 ## Management APIs
 
 The Azure OpenAI Service is deployed as a part of the Azure Cognitive Services. All Cognitive Services rely on the same set of management APIs for creation, update and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
 
-[**Management APIs reference documentation**](/azure/rest/api/cognitiveservices/)
+[**Management APIs reference documentation**](/rest/api/cognitiveservices/)
 
 ## Authentication
 

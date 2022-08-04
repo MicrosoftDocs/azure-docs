@@ -15,7 +15,7 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
+- Access granted to service in the desired AzuFre subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
 - Azure CLI. [Installation guide](/cli/azure/install-azure-cli)
 
 ## Sign in to the CLI
@@ -23,7 +23,7 @@ keywords:
 run the az login command to log in, `az login`
 
 ## Create a new Azure Resource Group
-You must have an Azure resource group in order to create an OpenAI resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group. You can create a new resource group in the Azure CLI using the `az group create` command. The example below creates a new resource group in the eastus location. you can find the full [reference documentation here](/cli/azure/group?view=azure-cli-latest#az-group-create).
+You must have an Azure resource group in order to create an OpenAI resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group. You can create a new resource group in the Azure CLI using the `az group create` command. The example below creates a new resource group in the eastus location. you can find the full [reference documentation here](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create).
 
 ```azurecli
 az group create \
@@ -32,7 +32,7 @@ az group create \
 ```
 
 ## Create a resource
-Run the following command to create an OpenAI resource in the new resource group. In this example, we create a resource called MyOpenAIResource in the resource group called OAIResourceGroup. Make sure to update with your own values for the resource group, resource name and your Azure Subscription ID. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create).
+Run the following command to create an OpenAI resource in the new resource group. In this example, we create a resource called MyOpenAIResource in the resource group called OAIResourceGroup. Make sure to update with your own values for the resource group, resource name and your Azure Subscription ID. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-create).
 
 ```azurecli
 az cognitiveservices account create \
@@ -46,7 +46,7 @@ az cognitiveservices account create \
     
 
 ## Retrieve information from your resource
-Once your resource has been created, you can use the Azure CLI to find useful information about your service such as your REST API endpoint base URL and the access keys. Below are examples on how to do both. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account?view=azure-cli-latest).
+Once your resource has been created, you can use the Azure CLI to find useful information about your service such as your REST API endpoint base URL and the access keys. Below are examples on how to do both. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true).
 
 1.	**Retrieve your endpoint**: 
 
@@ -66,7 +66,7 @@ Once your resource has been created, you can use the Azure CLI to find useful in
 
 ## Deploy a model
 
-To deploy a model, you can use the Azure CLI to run the following command to deploy an instance of text-curie-001. In this example, we deploy a model called MyModel. Make sure to update with your own values. You don't need to change the `model-version`, `model-format` or `scale-settings-scale-type` values. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest).
+To deploy a model, you can use the Azure CLI to run the following command to deploy an instance of text-curie-001. In this example, we deploy a model called MyModel. Make sure to update with your own values. You don't need to change the `model-version`, `model-format` or `scale-settings-scale-type` values. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli
 az cognitiveservices account deployment create \
@@ -81,7 +81,7 @@ az cognitiveservices account deployment create \
 
 ## Delete a model from your resource
 
-You can delete any model you've deployed from your resource. To do so, you can use the Azure CLI to run the following command. In this example, we delete a model called MyModel. Make sure to update with your own values. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete).
+You can delete any model you've deployed from your resource. To do so, you can use the Azure CLI to run the following command. In this example, we delete a model called MyModel. Make sure to update with your own values. You can find the full [reference documentation here](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete).
 
 ```azurecli
 az cognitiveservices account deployment delete \

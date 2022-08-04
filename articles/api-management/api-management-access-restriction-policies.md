@@ -235,7 +235,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
-        retry-after-header-name="header name" 
+        retry-after-header-name="custom header name, replaces default 'Retry-After'" 
         retry-after-variable-name="policy expression variable name"
         remaining-calls-header-name="header name"  
         remaining-calls-variable-name="policy expression variable name"
@@ -275,7 +275,7 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -312,8 +312,10 @@ For more information and examples of this policy, see [Advanced request throttli
                    increment-condition="condition"
                    increment-count="number"
                    counter-key="key value" 
-                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
-                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   retry-after-header-name="custom header name, replaces default 'Retry-After'" 
+                   retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  
+                   remaining-calls-variable-name="policy expression variable name"
                    total-calls-header-name="header name"/> 
 
 ```
@@ -349,11 +351,11 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | Name                | Description                                                                                           | Required | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
-| counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
+| counter-key         | The key to use for the rate limit policy. For each key value, a single counter is used for all scopes at which the policy is configured.           | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
 | increment-count | The number by which the counter is increased per request.        | No       | 1     |
 | renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -420,7 +422,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
-The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
+The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
 To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
@@ -471,7 +473,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | name           | The name of the API or operation for which the quota applies.                                             | Yes                                                              | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.| Yes                                                              | N/A     |
+| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes                                                              | N/A     |
 
 ### Usage
 
@@ -485,7 +487,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 > [!IMPORTANT]
 > This feature is unavailable in the **Consumption** tier of API Management.
 
-The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call rate is exceeded, the caller receives a `403 Forbidden` response status code.
+The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -538,9 +540,9 @@ In the following example, the quota is keyed by the caller IP address.
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandwidth           | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| counter-key         | The key to use for the quota policy.                                                                      | Yes                                                              | N/A     |
+| counter-key         | The key to use for the quota policy. For each key value, a single counter is used for all scopes at which the policy is configured.              | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
-| renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
+| renewal-period      | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to `first-perdiod-start`. When `renewal-period` is set to `0`, the period is set to infinite.                                                   | Yes                                                              | N/A     |
 | first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
 
 > [!NOTE]
@@ -555,7 +557,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from either a specified HTTP header or a specified query parameter.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
@@ -569,10 +571,11 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
 
 ```xml
 <validate-jwt
-    header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"
+    header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
+    query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
+    token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
     failed-validation-httpcode="http status code to return on failure"
     failed-validation-error-message="error message to return on failure"
-    token-value="expression returning JWT token as a string"
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"
@@ -724,7 +727,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | failed-validation-httpcode      | HTTP Status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token.                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
-| token-value                     | Expression returning a string containing JWT token. You must not return `Bearer ` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| token-value                     | Expression returning a string containing the token. You must not return `Bearer ` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | id                              | The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.                                                                                                                                                                                                                                           | No                                                                               | N/A                                                                               |
 | match                           | The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> - `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> - `any` - at least one claim value must be present in the token for validation to succeed.                                                       | No                                                                               | all                                                                               |
 | require-expiration-time         | Boolean. Specifies whether an expiration claim is required in the token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |

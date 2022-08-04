@@ -3,7 +3,7 @@ title: Azure Active Directory Authentication management operations reference gui
 description: This operations reference guide describes the checks and actions you should take to secure authentication management
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: rkarlin
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual

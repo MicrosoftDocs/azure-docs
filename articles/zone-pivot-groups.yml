@@ -845,6 +845,14 @@ groups:
     title: Windows with Maven
   - id: platform-windows-development-environment-azure-portal
     title: Windows with Azure portal
+- id: app-service-containers-windows-linux
+  title: App Service with custom containers
+  prompt: Choose a custom container platform
+  pivots:
+  - id: container-linux
+    title: Linux container
+  - id: container-windows
+    title: Windows container    
 - id: app-service-containers-windows-linux-portal
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
@@ -862,13 +870,13 @@ groups:
   prompt: Choose a hosting platform
   pivots:
   - id: container-linux
-    title: Linux container
+    title: Linux code and container
   - id: container-windows
     title: Windows container
   - id: code-windows
     title: Windows code
-- id: programming-languages-spring-cloud
-# Owner: bmitchell287
+- id: programming-languages-spring-apps
+# Owner: karler
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -1161,7 +1169,7 @@ groups:
   prompt: How will you connect the AWS account?
   pivots:
   - id: env-settings
-    title: Environment settings
+    title: Native connector
   - id: classic-connector
     title: Classic connector
 - id: connect-gcp-accounts
@@ -1169,7 +1177,7 @@ groups:
   prompt: How will you connect the GCP account?
   pivots:
   - id: env-settings
-    title: Environment settings
+    title: Native connector
   - id: classic-connector
     title: Classic connector
 - id: manage-asc-initiatives
@@ -1407,6 +1415,19 @@ groups:
     title: Resource Manager
   - id: identity-mi-methods-rest
     title: REST
+# Owner: ryanwi
+- id: identity-wif-apps-methods
+  title: Workload identity federation for apps methods
+  prompt: Choose an option
+  pivots:
+  - id: identity-wif-apps-methods-azp
+    title: Azure portal
+  - id: identity-wif-apps-methods-azcli
+    title: Azure CLI
+  - id: identity-wif-apps-methods-powershell
+    title: PowerShell
+  - id: identity-wif-apps-methods-rest
+    title: REST
 - id: identity-mi-method-sub
   title: Managed identities method subset
   prompt: Choose an option
@@ -1595,15 +1616,20 @@ groups:
   - id: azure-sql-elastic-pool
     title: Elastic pool
 # Owner: karler
-- id: spring-cloud-tier-selection
-  title: Azure Spring Cloud tier
-  prompt: Select an Azure Spring Cloud tier
+- id: spring-apps-tier-selection
+  title: Azure Spring Apps tier
+  prompt: Select an Azure Spring Apps tier
   pivots:
   - id: sc-standard-tier
     title: Basic/Standard tier
   - id: sc-enterprise-tier
     title: Enterprise tier
-# Owner: jomondi
+########### BEGIN APPLICATION MANAGEMENT
+# Service:       Active Directory (active-directory)
+# Sub-service:   APPLICATION MANAGEMENT(manage-apps)
+# Referenced by: /articles/active-directory/manage-apps/*
+# Owner(s):      jomondi, celested
+## Home realm discovery ##
 - id: home-realm-discovery
   title: hrd-policy
   prompt: Choose an option
@@ -1612,6 +1638,54 @@ groups:
     title: PowerShell
   - id: graph-hrd
     title: Graph
+## template with all
+- id: enterprise-apps-all
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+## Template without portal
+- id: enterprise-apps-minus-portal
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+## template without graph
+- id: enterprise-apps-minus-graph
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+## Create service principal with appId
+- id: enterprise-apps-cli
+  title: Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: msgraph-powershell
+    title: Microsoft graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+  - id: azure-cli
+    title: Azure CLI
+  - id: admin-consent-url
+    title: Admin consent URL
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
@@ -1686,3 +1760,12 @@ groups:
     title: OT sensor console
   - id: experience-cm
     title: On-premises management console
+# Owner: v-yilinhu
+- id: programming-languages-batch-linux-nodes
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
