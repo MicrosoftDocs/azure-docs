@@ -24,7 +24,7 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure WAF on Application Gateway. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
 
-![diagram](/media/application-proxy-waf/appproxy-waf.png)
+![diagram](./media/application-proxy-waf/appproxy-waf.png)
 
 ### Configure Azure Application Gateway to send traffic to your internal application.
 
@@ -34,13 +34,13 @@ Some steps of the Application Gateway configuration will be omitted in this arti
 
 This will allow users to access the web application privately when connected to the corporate network.
 
-![Add Listener](/media/application-proxy-waf/appgw_listener.png)
+![Add Listener](./media/application-proxy-waf/appgw_listener.png)
 
 2. Create a backend pool with the web servers.
 
 In this example, the backend servers have Internet Information Services (IIS) installed. 
 
-![Add backend](/media/application-proxy-waf/appgw_backend.png)
+![Add backend](./media/application-proxy-waf/appgw_backend.png)
 
 3. Create a backend setting. 
 
@@ -50,12 +50,12 @@ This will determine how requests will reach the backend pool servers.
  
  4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
  
- ![Add rule1](/media/application-proxy-waf/appgw_addrule1.png)
- ![Add rule2](/media/application-proxy-waf/appgw_addrule2.png)
+ ![Add rule1](./media/application-proxy-waf/appgw_addrule1.png)
+ ![Add rule2](./media/application-proxy-waf/appgw_addrule2.png)
  
  5. Enable the WAF in the Application Gateway and set it to Prevention mode.
  
- ![enable waf](/media/application-proxy-waf/appgw_enablewaf.png)
+ ![enable waf](./media/application-proxy-waf/appgw_enablewaf.png)
  
  ### Configure your application to be remotely accessed through Application Proxy in Azure AD.
  
@@ -63,7 +63,7 @@ As represented in the diagram above, both connector VMs, the Application Gateway
 
 For a detailed guide on how to add your application to Application Proxy in Azure AD, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application). For more information about performance considerations concerning the Application Proxy connectors, see [Optimize traffic flow with Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-network-topology). 
  
-![App proxy config](/media/application-proxy-waf/appproxyconfig.png)
+![App proxy config](./media/application-proxy-waf/appproxyconfig.png)
 
 In this example, the same URL was configured as the internal and external URL. Remote clients will access the application over the Internet on port 443, through the Application Proxy, whereas clients connected to the corporate network will access the application privately through the Application Gateway directly, also on port 443. For a detailed step on how to configure custom domains in Application Proxy, see [Configure custom domains with Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-configure-custom-domain).
 
