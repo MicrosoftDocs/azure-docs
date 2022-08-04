@@ -1,16 +1,14 @@
 ---
 title: Investigate incidents with UEBA data | Microsoft Docs
 description: Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
-author: batamig
+author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: bagol
+ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Investigate incidents with UEBA data
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 
