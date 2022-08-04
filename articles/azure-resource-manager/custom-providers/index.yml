@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Custom Providers documentation
-summary: Define custom APIs that extend the Azure experience
+summary: Define custom APIs that extend the Azure experience.
 
 metadata:
   title: Azure Custom Providers documentation
-  description: Azure Custom Providers is an extensibility platform to Azure that enables you define to custom APIs.
+  description: Azure Custom Providers is an extensibility platform to Azure that enables you to define custom APIs.
   ms.service: azure-custom-providers
   ms.topic: landing-page
   ms.collection: na

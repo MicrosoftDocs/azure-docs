@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Managed Applications documentation
+title: Azure Managed Applications documentation
 summary: Offer cloud solutions that are easy for consumers to deploy and operate.
 
 metadata:
   title: Azure Managed Applications documentation
-  description: Azure managed applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
+  description: Azure Managed Applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   ms.service: managed-applications
   ms.topic: landing-page
   ms.collection: na
