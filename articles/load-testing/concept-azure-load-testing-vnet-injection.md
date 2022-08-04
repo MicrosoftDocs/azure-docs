@@ -18,7 +18,7 @@ This functionality enables the following usage scenarios:
 
 - Generate load to an [endpoint hosted in an Azure virtual network](#scenario-load-test-an-azure-hosted-private-backend-microservice).
 - Generate load to a [public endpoint with access restrictions](#scenario-load-test-a-public-endpoint-with-access-restrictions), such as restricting client IP addresses.
-- Generate load to an [on-premises service, not publicly accessible, that is connected to Azure via ExpressRoute (hybrid application deployment)](#scenario-load-test-an-on-premise-hosted-service-connected-via-azure-expressroute).
+- Generate load to an [on-premises service, not publicly accessible, that is connected to Azure via ExpressRoute (hybrid application deployment)](#scenario-load-test-an-on-premises-hosted-service-connected-via-azure-expressroute).
 
 When you deploy Azure Load Testing in a virtual network, the load test engine virtual machines are attached to the virtual network in your subscription. The load test engines can then communicate with the other resources in the virtual network, such as the private application endpoint. You are not billed for the test engine compute resources.
 
