@@ -89,7 +89,7 @@ An Azure Cosmos DB container has a set of system-defined properties. Depending o
 |uniqueKeyPolicy | User-configurable | Used to ensure the uniqueness of one or more values in a logical partition. For more information, see [Unique key constraints](unique-keys.md). | Yes | No | No | No | Yes |
 |AnalyticalTimeToLive | User-configurable | Provides the ability to delete items automatically from a container after a set time period. For details, see [Time to Live](analytical-store-introduction.md). | Yes | No | Yes | No | No |
 
-## Data in Azure Cosmos DB
+## Azure Cosmos DB items
 
 Depending on which API you use, data can represent either an item in a container, a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the mapping of API-specific entities to an Azure Cosmos item:
 
