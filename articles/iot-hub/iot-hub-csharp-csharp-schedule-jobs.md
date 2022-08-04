@@ -63,15 +63,17 @@ In this section, you create a .NET console app that responds to a direct method 
 
 1. In Visual Studio, select **Create a new project**, and then choose the **Console App (.NET Framework)** project template. Select **Next** to continue.
 
-1. In **Configure your new project**, name the project *SimulateDeviceMethods*, and then select **Create**.
+1. In **Configure your new project**, name the project *SimulateDeviceMethods* then select **Next**.
 
-    ![Configure your SimulateDeviceMethods project](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png" alt-text="Screenshot of the 'Configure your new project' popup in Visual Studio." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png":::
 
-1. In Solution Explorer, right-click the **SimulateDeviceMethods** project, and then select **Manage NuGet Packages**.
+1. Accept the default version of the .NET Framework then select **Create** to create the project.
+
+1. In Solution Explorer, right-click the **SimulateDeviceMethods** project then select **Manage NuGet Packages**.
 
 1. In **NuGet Package Manager**, select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
 
-    ![NuGet Package Manager window Client app](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png" alt-text="Screenshot of the NuGet Package Manager in Visual Studio." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png":::
 
     This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
 
@@ -162,9 +164,13 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 
 1. In Visual Studio, select **File** > **New** > **Project**. In **Create a new project**, choose **Console App (.NET Framework)**, and then select **Next**.
 
-1. In **Configure your new project**, name the project *ScheduleJob*. For **Solution**, choose **Add to solution**, and then select **Create**.
+1. In **Configure your new project**, name the project *ScheduleJob* then select **Create**.
 
-    ![Name and configure you ScheduleJob project](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
+    ![Name and configure you ScheduleJob project]()
+
+   :::image type="content" source="./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png" alt-text="Screenshot of the 'Configure your new project' popup in Visual Studio, where you add a name." lightbox="./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png":::
+
+1. Accept the default version of the .NET Framework then select **Create** to create the project.
 
 1. In Solution Explorer, right-click the **ScheduleJob** project, and then select **Manage NuGet Packages**.
 
