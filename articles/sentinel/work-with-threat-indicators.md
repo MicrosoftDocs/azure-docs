@@ -217,6 +217,7 @@ Microsoft Threat Intelligence Matching Analytics currently matches only with IPv
 | --------- | --------- |
 |[CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with CEF logs, no manual mapping needs to be done. The URL is populated in the `RequestURL` field by default.|
 
+---
 
 ## Workbooks provide insights about your threat intelligence
 
