@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 # Manage an Azure Automation Run As account
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 30, 2025 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity.md#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2025. See the official announcement [here](https://azure.microsoft.com/updates/azure-automation-runas-account-retiring-on-30-september-2025/preview/).
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity?tabs=ua-managed-identity.md#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023. See the official announcement [here](https://azure.microsoft.com/updates/azure-automation-runas-account-retiring-on-30-september-2023/preview/).
 
 
 
