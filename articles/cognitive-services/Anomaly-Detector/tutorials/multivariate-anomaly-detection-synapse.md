@@ -36,26 +36,26 @@ In this section, you'll create the following resources in Azure portal:
 
 ### Create Anomaly Detector and Azure Synapse Analytics resources
 
-* [Create a resource for Azure Synapse Analytics](https://ms.portal.azure.com/#create/Microsoft.Synapse) in Azure portal, fill in all the required items.
-* [Create an Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resource in the Azure portal.
-* Sign in [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) using your subscription and Workspace name.
+* [Create a resource for Azure Synapse Analytics](https://portal.azure.com/#create/Microsoft.Synapse) in Azure portal, fill in all the required items.
+* [Create an Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resource in the Azure portal.
+* Sign in [Azure Synapse Analytics](https://web.azuresynapse.net/) using your subscription and Workspace name.
 
     ![An image of the Synapse Analytics landing page.](../media/multivariate-anomaly-detector-synapse/synapse-workspace-welcome-page.png)
 
 ### Create a Storage account resource
 
-* [Create a Storage account resource](https://ms.portal.azure.com/#create/Microsoft.StorageAccount) in Azure portal. After your storage account is built, **create a container** to store intermediate data, since SynapseML will transform your original data to a schema that Multivariate Anomaly Detector supports. (Refer to Multivariate Anomaly Detector [input schema](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/how-to/multivariate-how-to#input-data-schema))
+* [Create a Storage account resource](https://portal.azure.com/#create/Microsoft.StorageAccount) in Azure portal. After your storage account is built, **create a container** to store intermediate data, since SynapseML will transform your original data to a schema that Multivariate Anomaly Detector supports. (Refer to Multivariate Anomaly Detector [input schema](../how-to/multivariate-how-to.md#input-data-schema))
 
     > [!NOTE]
-    > You could also choose not to create a container in this step, in the later part, our sample code will help you create a container with your specified name if you don't have one.
+    > For the purposes of this example only we are setting the security on the container to allow anonymous read access for containers and blobs since it will only contain our example .csv data. For anything other than demo purposes this is not recommended.
 
     ![An image of the creating a container in storage account.](../media/multivariate-anomaly-detector-synapse/create-a-container.png)
 
 ### Create a Key Vault to hold Anomaly Detector Key and storage account connection string
 
 * Create a key vault and configure secrets and access
-    1. Create a [key vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
-    2. Go to Key Vault > Access policies, and grant the [Azure Synapse workspace](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) permission to read secrets from Azure Key Vault.
+    1. Create a [key vault](https://portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
+    2. Go to Key Vault > Access policies, and grant the [Azure Synapse workspace](/azure/data-factory/data-factory-service-identity?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) permission to read secrets from Azure Key Vault.
 
         ![An image of granting permission to Synapse.](../media/multivariate-anomaly-detector-synapse/grant-synapse-permission.png)
 
@@ -76,7 +76,7 @@ In this section, you'll create the following resources in Azure portal:
 
 ### Create a notebook and a Spark pool
 
-1. Sign in [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) and create a new Notebook for coding.
+1. Sign in [Azure Synapse Analytics](https://web.azuresynapse.net/) and create a new Notebook for coding.
 
     ![An image of creating notebook in Synapse.](../media/multivariate-anomaly-detector-synapse/create-a-notebook.png)
 
@@ -221,7 +221,6 @@ In this section, you'll create the following resources in Azure portal:
     The inference results will look as followed. The `severity` is a number between 0 and 1, showing the severe degree of an anomaly. The last three columns indicate the    `contribution score` of each sensor, the higher the number is, the more anomalous the sensor is. 
         ![An image of inference result.](../media/multivariate-anomaly-detector-synapse/inference-result.png)
 
-
 ## Clean up intermediate data (optional)
 
 By default, the anomaly detector will automatically upload data to a storage account so that the service can process the data. To clean up the intermediate data, you could run the following codes.
@@ -230,6 +229,7 @@ By default, the anomaly detector will automatically upload data to a storage acc
 simpleMultiAnomalyEstimator.cleanUpIntermediateData()
 model.cleanUpIntermediateData()
 ```
+
 ## Use trained model in another notebook with model ID (optional)
 
 If you have the needs to run training code and inference code in separate notebooks in Synapse, you could first get the model ID and use that ID to load model in another notebook by creating a new object.
@@ -260,13 +260,13 @@ If you have the needs to run training code and inference code in separate notebo
 ## Learn more
 
 ### About Anomaly Detector
-* Learn about [what is Multivariate Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview-multivariate).
+* Learn about [what is Multivariate Anomaly Detector](../overview-multivariate.md).
 * SynapseML documentation with [Multivariate Anomaly Detector feature](https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_cognitive/#fitmultivariateanomaly).
 * Recipe: [Cognitive Services - Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/next/features/cognitive_services/CognitiveServices).
 * Need support? [Join the Anomaly Detector Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Ci-wb6-iNDoBoNxrnEk9VURjNXUU1VREpOT0U1UEdURkc0OVRLSkZBNC4u).
 
 ### About Synapse
-* Quick start: [Configure prerequisites for using Cognitive Services in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse#create-a-key-vault-and-configure-secrets-and-access).
+* Quick start: [Configure prerequisites for using Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse#create-a-key-vault-and-configure-secrets-and-access).
 * Visit [SynpaseML new website](https://microsoft.github.io/SynapseML/) for the latest docs, demos, and examples.
 * Learn more about [Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/).
 * Read about the [SynapseML v0.9.5 release](https://github.com/microsoft/SynapseML/releases/tag/v0.9.5) on GitHub.
