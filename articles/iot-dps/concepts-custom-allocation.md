@@ -12,11 +12,17 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Understand custom allocation policies with Azure IoT Hub Device Provisioning Service
 
-A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an [Azure Function](../azure-functions/functions-overview.md) to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment. Your function code is executed and returns the IoT hub information used to provisioning the device.
+Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the built-in policies provided by the Device Provisioning Service (DPS) don't meet the requirements of your scenario.
 
-By using custom allocation policies, you define your own allocation policies when the policies provided by the Device Provisioning Service don't meet the requirements of your scenario.
+For example, maybe you want to examine the certificate a device is using during provisioning and assign the device to an IoT hub based on a certificate property. Or, maybe you have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to or how the device's initial twin should be set.
 
-For example, maybe you want to examine the certificate a device is using during provisioning and assign the device to an IoT hub based on a certificate property. Or, maybe you have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
+With custom allocation polices, you create an [Azure Function](../azure-functions/functions-overview.md) to assign devices to your IoT hubs. You register this function with one or more DPS enrollment entries, both enrollment groups and individual enrollments are supported. When a device registers with DPS through an enrollment that specifies a custom allocation policy, DPS calls your Azure Function code providing all relevant information about the device and the enrollment. Your function code is executed and returns the IoT hub information used to provisioning the device. This can include 
+
+## Overview
+
+The following list describes the basic steps with custom allocation polices:
+
+1. Custom allocation developer deploys an Azure Function
 
 ## Custom allocation policy request
 
@@ -29,7 +35,7 @@ The request body is an **AllocationRequest** object:
 | individualEnrollment | Contains properties associated with the individual enrollment that the allocation request originated from. |
 | enrollmentGroup | Contains the properties associated with the enrollment group that the allocation request originated from. |
 | deviceRuntimeContext | A context that contains properties associated with the device that is registering. |
-| linkedHubs | An array that contains the hostnames of the IoT hubs that are linked to the DPS instance that the allocation request originated from. The device may be assigned to any one of these IoT hubs. |
+| linkedHubs | An array that contains the hostnames of the IoT hubs that are linked to the enrollment entry that the allocation request originated from. The device may be assigned to any one of these IoT hubs. |
 
 The **DeviceRuntimeContext** object has the following properties:
 
