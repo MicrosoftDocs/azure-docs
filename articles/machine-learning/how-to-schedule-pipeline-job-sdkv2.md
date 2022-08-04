@@ -39,11 +39,11 @@ To run a pipeline job on a recurring basis, you'll create a schedule. A `Schedul
 
 ### Create pipeline in SDK
 
-[!notebook-python[] (~/azureml-examples-anthu-schedule-pup-main/sdk/schedules/schedule.ipynb?name=create_pipeline_job)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_pipeline_job)]
 
 ### Create a time-based schedule with recurrence pattern
 
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
 
 This schedule refer existing pipeline job in workspace. Customer also can refer a pipeline job yaml in local.
 
@@ -61,7 +61,7 @@ The `RecurrenceTrigger` section contains following properties:
     - `weekdays` can be a string or list from `monday` to `sunday`.
     - If `schedule` is omitted, the job(s) will be triggered according to the logic of `start_time`, `frequency` and `interval`.
 
-- (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, the first job will run instantly and the future jobs will run based on the schedule. If the start time is in the past, the first job will run at the next calculated run time.
+- (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.
 
 - (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until ，manual disable this schedule.  
 
@@ -69,7 +69,7 @@ The `RecurrenceTrigger` section contains following properties:
 
 ### Create a time-based schedule with cron expression
 
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
 
 The `CronTrigger` section defines the schedule details and contains following properties:
 
@@ -94,7 +94,7 @@ The `CronTrigger` section defines the schedule details and contains following pr
     > [!IMPORTANT]
     > `DAYS` and `MONTH` are not supported for now. If you pass a value, it will be ignored and treat as `*`.
 
-- (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, the first job will run instantly and the future jobs will run based on the schedule. If the start time is in the past, the first job will run at the next calculated run time.
+- (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.
 
 - (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until manual disable this schedule.  
 
@@ -103,13 +103,13 @@ The `CronTrigger` section defines the schedule details and contains following pr
 ### Manage schedule
 
 #### Check schedule detail
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=show_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=show_schedule)]
 #### List schedules in a workspace
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=list_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=list_schedule)]
 #### Disable a schedule
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=disable_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=disable_schedule)]
 #### Enable a schedule
-[!notebook-python[] (~/azureml-examples-schedule-pup/sdk/schedules/schedule.ipynb?name=enable_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=enable_schedule)]
 
 ### Delete a schedule
 
