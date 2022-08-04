@@ -46,9 +46,9 @@ You can review the status of running notebooks and jobs in Apache Spark pools if
 
 You can review logs and cancel running jobs and pipelines if you're a Synapse Compute Operator at the workspace or for a specific Spark pool or pipeline.  
 
-### Monitor and manage execution
+### Debug pipelines
 
-
+You can review and make changes in pipelines with Synapse User Role but if you want to be able to debug it you also need Synapse Credential User
 
 ### Publish and save your code
 
