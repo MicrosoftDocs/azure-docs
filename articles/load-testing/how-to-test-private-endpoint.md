@@ -195,22 +195,24 @@ If you're using the [Azure Load Testing REST API](/rest/api/loadtesting/) to sta
         1. Enter the details of the VM you created in the previous step.
         1. Select **Service Tag** for the **Source type**, and then select **BatchNodeManagement** for the **Service tag**.
         1. The **Destination IP address** is the IP address of the VM you created in previous step.
-        1. For **Destination port**, you have to validate two ports: **29876** and **29877**. Enter one value at a time and move to the next step.
+        1. For **Destination port**, you have to validate two ports: *29876* and *29877*. Enter one value at a time and move to the next step.
         1. Press **Check** to verify that the network security group isn't blocking traffic.
 
             :::image type="content" source="media/how-to-test-private-endpoint/test-nsg-connectivity.png" alt-text="Screenshot that shows the N S G Diagnotic page to test network connectivity.":::
 
-            If the traffic status is **Denied**, you'll have to [modify the Network Security Group (NSG) rules](/azure/virtual-network/manage-network-security-group) to allow traffic for the **BatchNodeManagement** service tag.
+            If the traffic status is **Denied**, [configure your virtual network](#configure-your-virtual-network) to allow traffic for the **BatchNodeManagement** service tag.
 
-    1. Test the inbound connectivity from the Azure Load Testing service.
+    1. Test the inbound connectivity to the temporary VM from the `AzureLoadTestingInstanceManagement` service tag.
 
-        1. Stay on the **NSG Diagnostic** page.
+        1. In the [Azure portal](https://portal.azure.com), go to **Network Watcher**.
+        1. On the left pane, select **NSG Diagnostic**.
         1. Enter the details of the VM you created in the previous step.
-        1. Select **IPv4 address/CIDR** for the **Source type**.
-        1. For **IPv4 address/CIDR**, enter the [IP address of the Azure Load Testing](#azure-load-testing-outbound-ip-addresses-per-region) service region you're using.
-        1. For **Destination IP address**, enter the IP address of the VM you created in previous step.
-        1. For **Destination port**, enter **8080**.
+        1. Select **Service Tag** for the **Source type**, and then select **AzureLoadTestingInstanceManagement** for the **Service tag**.
+        1. The **Destination IP address** is the IP address of the VM you created in previous step.
+        1. For **Destination port**, enter *8080*.
         1. Press **Check** to verify that the network security group isn't blocking traffic.
+
+            If the traffic status is **Denied**, [configure your virtual network](#configure-your-virtual-network) to allow traffic for the **AzureLoadTestingInstanceManagement** service tag.
 
     1. Delete the temporary VM you created earlier.
 
