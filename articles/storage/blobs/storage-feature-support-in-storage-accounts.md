@@ -20,9 +20,9 @@ Each table uses the following icons to indicate support level:
 | Icon | Description | 
 |---------------|-------------------|
 | &#x2705; | Fully supported |
-| &#x1F7E1; | Supported at the preview level |
+| &#x1F7E6; | Supported at the preview level |
 | &nbsp;&#x2716; | Not supported |
-| &#x1F7E6;	 | Not _yet_ supported (Investigating support _or_ working towards support) |
+| &#x1F7E1; | Not _yet_ supported (Investigating support _or_ working towards support) |
 
 This table describes the impact of **enabling** the capability and not the specific use of that capability. For example, if you enable the Network File System (NFS) 3.0 protocol but never use the NFS 3.0 protocol to upload a blob, a check mark in the **NFS 3.0 enabled** column indicates that feature support is not negatively impacted by merely enabling NFS 3.0 support.
 
