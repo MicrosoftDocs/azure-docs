@@ -75,7 +75,7 @@ Enable replication as follows:
     :::image type="content" source="./media/tutorial-migrate-vmware/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="./media/tutorial-migrate-vmware/select-vms-expanded.png":::
 
 6. In **Target settings**, select the subscription and target region. Specify the resource group in which the Azure VMs reside after migration.
-   > [!Warning]
+   > [!Note]
    > The region for the project cannot be changed after the first replication is initiated. Please select the region carefully.
 7. In **Virtual Network**, select the Azure VNet/subnet which the Azure VMs join after migration.
 8. In **Availability options**, select:
