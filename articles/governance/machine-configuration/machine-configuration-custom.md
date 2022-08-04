@@ -1,39 +1,40 @@
 ---
-title: Changes to behavior in PowerShell Desired State Configuration for guest configuration
-description: This article provides an overview of the platform used to deliver configuration changes to machines through Azure Policy.
+title: Changes to behavior in PowerShell Desired State Configuration for machine configuration
+description: This article describes the platform used to deliver configuration changes to machines through Azure Policy.
 author: timwarner-msft
 ms.date: 07/15/2022
 ms.topic: how-to
 ms.author: timwarner
+ms.service: machine-configuration
 ---
-# Changes to behavior in PowerShell Desired State Configuration for guest configuration
+# Changes to behavior in PowerShell Desired State Configuration for machine configuration
 
-[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview of
-[guest configuration](./guest-configuration.md).
+[machine configuration](./overview.md).
 
 [A video walk-through of this document is available](https://youtu.be/nYd55FiKpgs).
 
-Guest configuration uses
+Machine configuration uses
 [Desired State Configuration (DSC)](/powershell/dsc/overview)
 version 3 to audit and configure machines. The DSC configuration defines the
 state that the machine should be in. There's many notable differences in how
-DSC is implemented in guest configuration.
+DSC is implemented in machine configuration.
 
-## Guest configuration uses PowerShell 7 cross platform
+## Machine configuration uses PowerShell 7 cross platform
 
-Guest configuration is designed so the experience of managing Windows and Linux
+Machine configuration is designed so the experience of managing Windows and Linux
 can be consistent. Across both operating system environments, someone with
 PowerShell DSC knowledge can create and publish configurations using scripting
 skills.
 
-Guest configuration only uses PowerShell DSC version 3 and doesn't rely on the
+Machine configuration only uses PowerShell DSC version 3 and doesn't rely on the
 previous implementation of
 [DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
 or the "nx" providers included in that repository.
 
-As of version 1.29.33, guest configuration operates in PowerShell 7.1.2 for Windows and PowerShell 7.2
+As of version 1.29.33, machine configuration operates in PowerShell 7.1.2 for Windows and PowerShell 7.2
 preview 6 for Linux. Starting with version 7.2, the `PSDesiredStateConfiguration`
 module moved from being part of the PowerShell installation and is instead
 installed as a
@@ -41,18 +42,18 @@ installed as a
 
 ## Multiple configurations
 
-Guest configuration supports assigning multiple configurations to
+Machine configuration supports assigning multiple configurations to
 the same machine. There's no special steps required within the
-operating system of guest configuration extension. There's no need to configure
+operating system of machine configuration extension. There's no need to configure
 [partial configurations](/powershell/dsc/pull-server/partialConfigs).
 
 ## Dependencies are managed per-configuration
 
 When a configuration is
-[packaged using the available tools](../how-to/guest-configuration-create.md),
+[packaged using the available tools](./machine-configuration-create.md),
 the required dependencies for the configuration are included in a .zip file.
 Machines extract the contents into a unique folder for each configuration.
-The agent delivered by the guest configuration extension creates a dedicated
+The agent delivered by the machine configuration extension creates a dedicated
 PowerShell session for each configuration, using a `$Env:PSModulePath` that
 limits automatic module loading to only the path where the package was
 extracted.
@@ -77,7 +78,7 @@ DSC extension has a simplified model where all artifacts are packaged together
 and stored in a location accessible from the target machine using an HTTPS request
 (Azure Blob Storage is the popular option).
 
-Guest configuration only uses the simplified model where all artifacts
+Machine configuration only uses the simplified model where all artifacts
 are packaged together and accessed from the target machine over HTTPS.
 There's no need to publish modules, scripts, or compile in the service. One
 change is that the package should always include a compiled MOF. It is
@@ -87,8 +88,8 @@ on the target machine.
 ## Maximum size of custom configuration package
 
 In Azure Automation state configuration, DSC configurations were
-[limited in size](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
-Guest configuration supports a total package size of 100 MB (before
+[limited in size](../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
+Machine configuration supports a total package size of 100 MB (before
 compression). There's no specific limit on the size of the MOF file within
 the package.
 
@@ -109,13 +110,13 @@ configurations are assigned.
 ## Parameter support through Azure Resource Manager
 
 Parameters set by the `configurationParameter` property array in
-[guest configuration assignments](guest-configuration-assignments.md)
+[machine configuration assignments](machine-configuration-assignments.md)
 overwrite the static text within a configuration MOF file when the file is
 stored on a machine. Parameters allow for customization and changes to be controlled
 by an operator from the service API without needing to run commands within
 the machine.
 
-Parameters in Azure Policy that pass values to guest configuration
+Parameters in Azure Policy that pass values to machine configuration
 assignments must be _string_ type. It isn't possible to pass arrays through
 parameters, even if the DSC resource supports arrays.
 
@@ -123,13 +124,13 @@ parameters, even if the DSC resource supports arrays.
 
 A challenge in previous versions of DSC has been correcting drift at scale
 without much custom code and reliance on WinRM remote connections. Guest
-configuration solves this problem. Users of guest configuration have control
+configuration solves this problem. Users of machine configuration have control
 over drift correction through
-[Remediation On Demand](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
+[Remediation On Demand](./machine-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
 
 ## Sequence includes Get method
 
-When guest configuration audits or configures a machine the same
+When machine configuration audits or configures a machine the same
 sequence of events is used for both Windows and Linux. The notable change in
 behavior is the `Get` method is called by the service to return details about
 the state of the machine.
@@ -274,16 +275,16 @@ the `.zip` file for the content package, the configuration name in the MOF file,
 and the guest assignment name in the Azure Resource Manager template, must be
 the same.
 
-## Common DSC features not available during guest configuration public preview
+## Common DSC features not available during machine configuration public preview
 
-During public preview, guest configuration doesn't support
+During public preview, machine configuration doesn't support
 [specifying cross-machine dependencies](/powershell/dsc/configurations/crossnodedependencies)
 using "WaitFor*" resources. It isn't possible for one
 machine to monitor and wait for another machine to reach a state before
 progressing.
 
 [Reboot handling](/powershell/dsc/configurations/reboot-a-node) isn't
-available in the public preview release of guest configuration, including,
+available in the public preview release of machine configuration, including,
 the `$global:DSCMachineStatus` isn't available. Configurations aren't able to reboot a node during or at the end of a configuration.
 
 ## Known compatibility issues with supported modules
@@ -309,7 +310,7 @@ is available, it's required to author custom resources.
 
 ## Coexistence with DSC version 3 and previous versions
 
-DSC version 3 in guest configuration can coexist with older versions installed in
+DSC version 3 in machine configuration can coexist with older versions installed in
 [Windows](/powershell/dsc/getting-started/wingettingstarted) and
 [Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 The implementations are separate. However, there's no conflict detection
@@ -317,16 +318,16 @@ across DSC versions, so don't attempt to manage the same settings.
 
 ## Next steps
 
-- Read the [guest configuration overview](./guest-configuration.md).
-- Setup a custom guest configuration package [development environment](../how-to/guest-configuration-create-setup.md).
-- [Create a package artifact](../how-to/guest-configuration-create.md)
-  for guest configuration.
-- [Test the package artifact](../how-to/guest-configuration-create-test.md)
+- Read the [machine configuration overview](./overview.md).
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
+  for machine configuration.
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.

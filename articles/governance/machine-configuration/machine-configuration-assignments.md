@@ -1,14 +1,15 @@
 ---
-title: Understand guest configuration assignment resources
-description: Guest configuration creates extension resources named guest configuration assignments that map configurations to machines.
+title: Understand machine configuration assignment resources
+description: Machine configuration creates extension resources named machine configuration assignments that map configurations to machines.
 author: timwarner-msft
 ms.date: 07/15/2022
 ms.topic: conceptual
 ms.author: timwarner
+ms.service: machine-configuration
 ---
-# Understand guest configuration assignment resources
+# Understand machine configuration assignment resources
 
-[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 When an Azure Policy is assigned, if it's in the category "Guest Configuration"
 there's metadata included to describe a guest assignment.
@@ -30,24 +31,24 @@ the policy.
 //additional metadata properties exist
 ```
 
-## How Azure Policy uses guest configuration assignments
+## How Azure Policy uses machine configuration assignments
 
-The metadata information is used by the guest configuration service to
+The metadata information is used by the machine configuration service to
 automatically create an audit resource for definitions with either
 **AuditIfNotExists** or **DeployIfNotExists** policy effects. The resource type
 is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy
 uses the **complianceStatus** property of the guest assignment resource to
 report compliance status. For more information, see
-[getting compliance data](../how-to/get-compliance-data.md).
+[getting compliance data](../policy/how-to/get-compliance-data.md).
 
 ### Deletion of guest assignments from Azure Policy
 
-When an Azure Policy assignment is deleted, if a guest configuration assignment
-was created by the policy, the guest configuration assignment is also deleted.
+When an Azure Policy assignment is deleted, if a machine configuration assignment
+was created by the policy, the machine configuration assignment is also deleted.
 
-When an Azure Policy assignment is deleted from an initiative, if a guest configuration assignment was created by the policy, you will need to manually delete the corresponding guest configuration assignment. This can be done by navigating to the guest assignments page on Azure portal and deleting the assignment there.
+When an Azure Policy assignment is deleted from an initiative, if a machine configuration assignment was created by the policy, you will need to manually delete the corresponding machine configuration assignment. This can be done by navigating to the guest assignments page on Azure portal and deleting the assignment there.
 
-## Manually creating guest configuration assignments
+## Manually creating machine configuration assignments
 
 Guest assignment resources in Azure Resource Manager can be created by Azure
 Policy or any client SDK.
@@ -90,18 +91,18 @@ The following table describes each property of guest assignment resources.
 | assignmentType | Behavior of the assignment. Allowed values: `Audit`, `ApplyandMonitor`, and `ApplyandAutoCorrect`. |
 | configurationParameter | List of DSC resource type, name, and value in the content package MOF file to be overridden after it's downloaded in the machine. |
 
-### Deletion of manually created guest configuration assignments
+### Deletion of manually created machine configuration assignments
 
-Guest configuration assignments created through any manual approach (such as
+Machine configuration assignments created through any manual approach (such as
 an Azure Resource Manager template deployment) must be deleted manually.
 Deleting the parent resource (virtual machine or Arc-enabled machine) will also
-delete the guest configuration assignment.
+delete the machine configuration assignment.
 
-To manually delete a guest configuration assignment, use the following
+To manually delete a machine configuration assignment, use the following
 example. Make sure to replace all example strings, indicated by "\<\>" brackets.
 
 ```PowerShell
-# First get details about the guest configuration assignment
+# First get details about the machine configuration assignment
 $resourceDetails = @{
   ResourceGroupName = '<myResourceGroupName>'
   ResourceType      = 'Microsoft.Compute/virtualMachines/providers/guestConfigurationAssignments/'
@@ -110,7 +111,7 @@ $resourceDetails = @{
 }
 $guestAssignment = Get-AzResource @resourceDetails
 
-# Review details of the guest configuration assignment
+# Review details of the machine configuration assignment
 $guestAssignment
 
 # After reviewing properties of $guestAssignment to confirm
@@ -119,16 +120,16 @@ $guestAssignment | Remove-AzResource
 
 ## Next steps
 
-- Read the [guest configuration overview](./guest-configuration.md).
-- Setup a custom guest configuration package [development environment](../how-to/guest-configuration-create-setup.md).
-- [Create a package artifact](../how-to/guest-configuration-create.md)
-  for guest configuration.
-- [Test the package artifact](../how-to/guest-configuration-create-test.md)
+- Read the [machine configuration overview](./overview.md).
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
+  for machine configuration.
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.

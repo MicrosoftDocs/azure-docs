@@ -1,19 +1,24 @@
 ---
-title: Azure Automation State Configuration to guest configuration migration planning
+title: Azure Automation State Configuration to machine configuration migration planning
 description: This article provides process and technical guidance for customers interested in moving from DSC version 2 in Azure Automation to version 3 in Azure Policy.
-ms.date: 07/1/2021
+ms.date: 07/26/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
-# Azure Automation state configuration to guest configuration migration planning
+# Azure Automation state configuration to machine configuration migration planning
 
-Guest configuration is the latest implementation of functionality
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+
+Machine configuration is the latest implementation of functionality
 that has been provided by Azure Automation State Configuration (also known as
 Azure Automation Desired State Configuration, or AADSC).
 When possible, you should plan to move your content and machines to the new service.
 This article provides guidance on developing a migration strategy from Azure
-Automation to guest configuration.
+Automation to machine configuration.
 
-New features in guest configuration address top asks from customers:
+New features in machine configuration address top asks from customers:
 
 - Increased size limit for configurations ( 100MB )
 - Advanced reporting through Azure Resource Graph including resource ID and state
@@ -23,7 +28,7 @@ New features in guest configuration address top asks from customers:
 
 Before you begin, it's a good idea to read the conceptual overview
 information at the page
-[Azure Policy's guest configuration](../concepts/guest-configuration.md).
+[Azure Policy's machine configuration](./overview.md).
 
 ## Understand migration
 
@@ -33,19 +38,19 @@ migrate machines. The expected steps for migration are outlined.
 - Export configurations from Azure Automation
 - Discover module requirements and load them in your environment
 - Compile configurations
-- Create and publish guest configuration packages
-- Test guest configuration packages
+- Create and publish machine configuration packages
+- Test machine configuration packages
 - Onboard hybrid machines to Azure Arc
 - Unregister servers from Azure Automation State Configuration
-- Assign configurations to servers using guest configuration
+- Assign configurations to servers using machine configuration
 
-Guest configuration uses DSC version 3 with PowerShell version 7.
+Machine configuration uses DSC version 3 with PowerShell version 7.
 DSC version 3 can coexist with older versions of DSC in
 [Windows](/powershell/dsc/getting-started/wingettingstarted) and
 [Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 The implementations are separate. However, there's no conflict detection.
 
-Guest configuration doesn't require publishing modules or configurations in to
+Machine configuration doesn't require publishing modules or configurations in to
 a service, or compiling in a service. Instead, content is developed and tested
 using purpose-built tooling and published anywhere the machine can reach over
 HTTPS (typically Azure Blob Storage).
@@ -58,7 +63,7 @@ there are no technical barriers. The two services are independent.
 
 Start by discovering and exporting content from Azure Automation State
 Configuration in to a development environment where you create, test, and publish
-content packages for guest configuration.
+content packages for machine configuration.
 
 ### Configurations
 
@@ -154,14 +159,14 @@ UnixMode   User             Group                 LastWriteTime           Size N
 
 #### Consider decomposing complex configuration files
 
-Guest configuration can manage multiple configurations per machine.
+Machine configuration can manage multiple configurations per machine.
 Many configurations written for Azure Automation State Configuration assumed the
 limitation of managing a single configuration per machine. To take advantage of
-the expanded capabilities offered by guest configuration, large
+the expanded capabilities offered by machine configuration, large
 configuration files can be divided into many smaller configurations where each
 handles a specific scenario.
 
-There is no orchestration in guest configuration to control the order of how
+There is no orchestration in machine configuration to control the order of how
 configurations are sorted, so keep steps in a configuration together in one
 package if they are required to happen sequentially.
 
@@ -169,7 +174,7 @@ package if they are required to happen sequentially.
 
 It isn't possible to export modules from Azure Automation or automatically
 correlate which configurations require which module/version. You must
-have the modules in your local environment to create a new guest configuration
+have the modules in your local environment to create a new machine configuration
 package. To create a list of modules you need for migration, use PowerShell to
 query Azure Automation for the name and version of modules.
 
@@ -262,23 +267,23 @@ Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
 The configuration requires you to have the "xWebAdministration" module version
 "1.19.0.0" and the module "PSDesiredStateConfiguration".
 
-### Test content in Azure guest configuration
+### Test content in Azure machine configuration
 
 The best way to evaluate whether your content from Azure Automation State
-Configuration can be used with guest configuration is to follow
+Configuration can be used with machine configuration is to follow
 the step-by-step tutorial in the page
-[How to create custom guest configuration package artifacts](./guest-configuration-create.md).
+[How to create custom machine configuration package artifacts](./machine-configuration-create.md).
 
 When you reach the step
-[Author a configuration](./guest-configuration-create.md#author-a-configuration),
+[Author a configuration](./machine-configuration-create.md#author-a-configuration),
 the configuration script that generates a MOF file should be one of the scripts
 you exported from Azure Automation State Configuration. You must have the
 required PowerShell modules installed in your environment before you can compile
-the configuration to a MOF file and create a guest configuration package.
+the configuration to a MOF file and create a machine configuration package.
 
-#### What if a module does not work with guest configuration?
+#### What if a module does not work with machine configuration?
 
-Some modules might encounter compatibility issues with guest configuration. The
+Some modules might encounter compatibility issues with machine configuration. The
 most common problems are related to .NET framework vs .NET core. Detailed
 technical information is available on the page,
 [Differences between Windows PowerShell 5.1 and PowerShell (core) 7.x](/powershell/scripting/whats-new/differences-from-windows-powershell)
@@ -304,7 +309,7 @@ function New-TaskResolvedInPWSH7 {
 #### Will I have to add "Reasons" property to Get-TargetResource in all modules I migrate?
 
 Implementing the
-["Reasons" property](../concepts/guest-configuration-custom.md#special-requirements-for-get)
+["Reasons" property](./machine-configuration-custom.md#special-requirements-for-get)
 provides a better experience when viewing
 the results of a configuration assignment from the Azure Portal. If the `Get`
 method in a module doesn't include "Reasons", generic output is returned
@@ -314,7 +319,7 @@ it's optional for migration.
 ## Machines
 
 After you've finished testing content from Azure Automation State Configuration
-in guest configuration, develop a plan for migrating machines.
+in machine configuration, develop a plan for migrating machines.
 
 Azure Automation State Configuration is available for both virtual machines in
 Azure and hybrid machines located outside of Azure. You must plan for each of
@@ -323,26 +328,26 @@ these scenarios using different steps.
 ### Azure VMs
 
 Azure virtual machines already have a
-[resource](../../../azure-resource-manager/management/overview.md#terminology)
-in Azure, which means they're ready for guest configuration assignments that
+[resource](../../azure-resource-manager/management/overview.md#terminology)
+in Azure, which means they're ready for machine configuration assignments that
 associate them with a configuration. The high-level tasks for migrating Azure
 virtual machines are to remove them from Azure Automation State Configuration
-and then assign configurations using guest configuration.
+and then assign configurations using machine configuration.
 
 To remove a machine from Azure Automation State Configuration, follow the steps
 in the page
-[How to remove a configuration and node from Automation State Configuration](../../../automation/state-configuration/remove-node-and-configuration-package.md).
+[How to remove a configuration and node from Automation State Configuration](../../automation/state-configuration/remove-node-and-configuration-package.md).
 
-To assign configurations using guest configuration, follow the steps in the
+To assign configurations using machine configuration, follow the steps in the
 Azure Policy Quickstarts, such as
-[Quickstart: Create a policy assignment to identify non-compliant resources](../assign-policy-portal.md).
+[Quickstart: Create a policy assignment to identify non-compliant resources](../policy/assign-policy-portal.md).
 In step 6 when selecting a policy definition, pick the definition that applies
 a configuration you migrated from Azure Automation State Configuration.
 
 ### Hybrid machines
 
 Machines outside of Azure
-[can be registered to Azure Automation State Configuration](../../../automation/automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines),
+[can be registered to Azure Automation State Configuration](../../automation/automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines),
 but they don't have a machine resource in Azure. The connection
 to Azure Automation is handled by Local Configuration Manager service inside
 the machine and the record of the node is managed as a resource in the Azure
@@ -350,17 +355,17 @@ Automation provider type.
 
 Before removing a machine from Azure Automation State Configuration,
 onboard each node as an
-[Azure Arc-enabled server](../../../azure-arc/servers/overview.md).
+[Azure Arc-enabled server](../../azure-arc/servers/overview.md).
 Onboard to Azure Arc creates a machine resource in Azure so the machine
 can be managed by Azure Policy. The machine can be onboarded to Azure Arc at any
 time but you can use Azure Automation State Configuration to automate the process.
 
 You can register a machine to Azure Arc-enabled servers by using PowerShell DSC.
 For details, view the page
-[How to install the Connected Machine agent using Windows PowerShell DSC](../../../azure-arc/servers/onboard-dsc.md).
+[How to install the Connected Machine agent using Windows PowerShell DSC](../../azure-arc/servers/onboard-dsc.md).
 Remember however, that Azure Automation State Configuration can manage only one
 configuration per machine, per Automation Account. This means you have the option
-to export, test, and prepare your content for guest configuration, and then
+to export, test, and prepare your content for machine configuration, and then
 "switch" the node configuration in Azure Automation to onboard to Azure Arc. As
 the last step, you remove the node registration from Azure Automation State
 Configuration and move forward only managing the machine state through guest
@@ -383,16 +388,16 @@ service.
 
 ## Next steps
 
-- [Create a package artifact](./guest-configuration-create.md)
-  for guest configuration.
-- [Test the package artifact](./guest-configuration-create-test.md)
+- [Create a package artifact](./machine-configuration-create.md)
+  for machine configuration.
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
-- [Publish the package artifact](./guest-configuration-create-publish.md)
+- [Publish the package artifact](./machine-configuration-create-publish.md)
   so it is accessible to your machines.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](./guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](./determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.

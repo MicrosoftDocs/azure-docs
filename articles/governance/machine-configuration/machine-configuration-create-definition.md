@@ -1,27 +1,32 @@
 ---
-title: How to create custom guest configuration policy definitions
-description: Learn how to create a guest configuration policy.
-ms.date: 07/22/2021
+title: How to create custom machine configuration policy definitions
+description: Learn how to create a machine configuration policy.
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
-# How to create custom guest configuration policy definitions
+# How to create custom machine configuration policy definitions
+
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
-[guest configuration](../concepts/guest-configuration.md),
-and the details about guest configuration policy effects
-[How to configure remediation options for guest configuration](../concepts/guest-configuration-policy-effects.md).
+[machine configuration](./overview.md),
+and the details about machine configuration policy effects
+[How to configure remediation options for machine configuration](./machine-configuration-policy-effects.md).
 
 > [!IMPORTANT]
-> The guest configuration extension is required for Azure virtual machines. To
+> The machine configuration extension is required for Azure virtual machines. To
 > deploy the extension at scale across all machines, assign the following policy
-> initiative: `Deploy prerequisites to enable guest configuration policies on
+> initiative: `Deploy prerequisites to enable machine configuration policies on
 > virtual machines`
-> 
-> To use guest configuration packages that apply configurations, Azure VM guest
+>
+> To use machine configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
 >
-> Custom guest configuration policy definitions using **AuditIfNotExists** are
+> Custom machine configuration policy definitions using **AuditIfNotExists** are
 > Generally Available, but definitions using **DeployIfNotExists** with guest
 > configuration are **in preview**.
 
@@ -31,26 +36,26 @@ manage the state of Azure or Arc-enabled machines.
 ## Install PowerShell 7 and required PowerShell modules
 
 First, make sure you've followed all steps on the page
-[How to setup a guest configuration authoring environment](./guest-configuration-create-setup.md)
+[How to setup a machine configuration authoring environment](./machine-configuration-create-setup.md)
 to install the required version of PowerShell for your OS and the
 `GuestConfiguration` module.
 
-## Create and publish a guest configuration package artifact
+## Create and publish a machine configuration package artifact
 
 If you haven't already, follow all steps on the page
-[How to create custom guest configuration package artifacts](./guest-configuration-create.md)
-to create and publish a custom guest configuration package
+[How to create custom machine configuration package artifacts](./machine-configuration-create.md)
+to create and publish a custom machine configuration package
 and
-[How to test guest configuration package artifacts](./guest-configuration-create-test.md) to validate the guest configuration package locally in your
+[How to test machine configuration package artifacts](./machine-configuration-create-test.md) to validate the machine configuration package locally in your
 development environment.
 
-## Policy requirements for guest configuration
+## Policy requirements for machine configuration
 
 The policy definition `metadata` section must include two properties for the
-guest configuration service to automate provisioning and reporting of guest
+machine configuration service to automate provisioning and reporting of guest
 configuration assignments. The `category` property must be set to "Guest
 Configuration" and a section named `guestConfiguration` must contain information
-about the guest configuration assignment. The `New-GuestConfigurationPolicy`
+about the machine configuration assignment. The `New-GuestConfigurationPolicy`
 cmdlet creates this text automatically.
 
 The following example demonstrates the `metadata` section that is automatically
@@ -72,13 +77,13 @@ created by `New-GuestConfigurationPolicy`.
 
 The `category` property must be set to "Guest Configuration". If the definition
 effect is set to "DeployIfNotExists", the `then` section must contain deployment
-details about a guest configuration assignment. The
+details about a machine configuration assignment. The
 `New-GuestConfigurationPolicy` cmdlet creates this text automatically.
 
 ### Create an Azure Policy definition
 
-Once a guest configuration custom policy package has been created and uploaded,
-create the guest configuration policy definition. The `New-GuestConfigurationPolicy`
+Once a machine configuration custom policy package has been created and uploaded,
+create the machine configuration policy definition. The `New-GuestConfigurationPolicy`
 cmdlet takes a custom policy package and creates a policy definition.
 
 The **PolicyId** parameter of `New-GuestConfigurationPolicy` requires a unique
@@ -90,13 +95,13 @@ definition is updated.
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
 - **PolicyId**: A GUID or other unique string that identifies the definition.
-- **ContentUri**: Public HTTP(s) URI of guest configuration content package.
+- **ContentUri**: Public HTTP(s) URI of machine configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in hashtable format.
 - **PolicyVersion**: Policy version.
 - **Path**: Destination path where policy definitions are created.
-- **Platform**: Target platform (Windows/Linux) for guest configuration policy
+- **Platform**: Target platform (Windows/Linux) for machine configuration policy
   and content package.
 - **Mode**: (ApplyAndMonitor, ApplyAndAutoCorrect, Audit) choose if the policy
   should audit or deploy the configuration. Default is "Audit".
@@ -104,7 +109,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Category** sets the category metadata field in the policy definition
 
 For more information about the "Mode" parameter, see the page
-[How to configure remediation options for guest configuration](../concepts/guest-configuration-policy-effects.md).
+[How to configure remediation options for machine configuration](./machine-configuration-policy-effects.md).
 
 Create a policy definition that audits using a custom
 configuration package, in a specified path:
@@ -142,7 +147,7 @@ path of the policy files. Definition JSON files that create audit policy definit
 have the name **auditIfNotExists.json** and files that create policy definitions to
 apply configurations have the name **deployIfNotExists.json**.
 
-#### Filtering guest configuration policies using tags
+#### Filtering machine configuration policies using tags
 
 The policy definitions created by cmdlets in the Guest Configuration can optionally include a
 filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports an array of
@@ -167,15 +172,15 @@ An example snippet of a policy definition that filters for tags is given below.
       ]
     },
     {
-      // Original guest configuration content
+      // Original machine configuration content
     }
   ]
 }
 ```
 
-#### Using parameters in custom guest configuration policy definitions
+#### Using parameters in custom machine configuration policy definitions
 
-Guest configuration supports overriding properties of a Configuration at run time. This feature
+Machine configuration supports overriding properties of a Configuration at run time. This feature
 means that the values in the MOF file in the package don't have to be considered static. The
 override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.
@@ -223,10 +228,10 @@ New-GuestConfigurationPolicy `
 
 ### Publish the Azure Policy definition
 
-Finally, you can publish the policy definitions using the New-AzPolicyDefinition cmdlet. The below commands will publish your guest configuration policy to the policy center. 
+Finally, you can publish the policy definitions using the New-AzPolicyDefinition cmdlet. The below commands will publish your machine configuration policy to the policy center.
 
 To run the New-AzPolicyDefinition command, you need access to create policy definitions in Azure. The specific authorization
-requirements are documented in the [Azure Policy Overview](../overview.md) page. The recommended built-in
+requirements are documented in the [Azure Policy Overview](./overview.md) page. The recommended built-in
 role is **Resource Policy Contributor**.
 
 ```powershell
@@ -234,8 +239,8 @@ New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies'
 ```
 
 With the policy definition created in Azure, the last step is to assign the definition. See how to assign the
-definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
-[Azure PowerShell](../assign-policy-powershell.md).
+definition with [Portal](../policy/assign-policy-portal.md), [Azure CLI](../policy/assign-policy-azurecli.md), and
+[Azure PowerShell](../policy/assign-policy-powershell.md).
 
 ## Policy lifecycle
 
@@ -243,7 +248,7 @@ If you would like to release an update to the policy definition, make the change
 configuration package and the Azure Policy definition details.
 
 > [!NOTE]
-> The `version` property of the guest configuration assignment only effects packages that
+> The `version` property of the machine configuration assignment only effects packages that
 > are hosted by Microsoft. The best practice for versioning custom content is to include
 > the version in the file name.
 
@@ -271,7 +276,7 @@ updated.
 
 ## Next steps
 
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](./determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md#compliance-details) policy assignments.

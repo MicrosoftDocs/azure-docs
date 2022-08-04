@@ -1,15 +1,20 @@
 ---
-title: How to create custom guest configuration package artifacts
-description: Learn how to create a guest configuration package file.
-ms.date: 07/22/2021
+title: How to create custom machine configuration package artifacts
+description: Learn how to create a machine configuration package file.
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
-# How to create custom guest configuration package artifacts
+# How to create custom machine configuration package artifacts
+
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
-[guest configuration](../concepts/guest-configuration.md).
+[machine configuration](./overview.md).
 
-When auditing / configuring both Windows and Linux, guest configuration uses a
+When auditing / configuring both Windows and Linux, machine configuration uses a
 [Desired State Configuration](/powershell/dsc/overview)
 (DSC). The DSC configuration defines the condition that the machine should
 be in.
@@ -18,7 +23,7 @@ be in.
 > Custom packages that audit the state of an environment are Generally Available,
 > but packages that apply configurations are **in preview**. **The following limitations apply:**
 >
-> To use guest configuration packages that apply configurations, Azure VM guest
+> To use machine configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
 >
@@ -37,7 +42,7 @@ state of an Azure or non-Azure machine.
 ## Install PowerShell 7 and required PowerShell modules
 
 First, make sure you've followed all steps on the page
-[How to setup a guest configuration authoring environment](./guest-configuration-create-setup.md)
+[How to setup a machine configuration authoring environment](./machine-configuration-create-setup.md)
 to install the required version of PowerShell for your OS, the
 `GuestConfiguration` module, and if needed, the module
 `PSDesiredStateConfiguration`.
@@ -59,13 +64,13 @@ for Windows.
 For Linux, you'll need to create a custom DSC resource module using
 [PowerShell classes](/powershell/dsc/resources/authoringResourceClass).
 A full example of a custom resource and configuration is available
-(and has been tested with guest configuration) in the PowerShell docs page
+(and has been tested with machine configuration) in the PowerShell docs page
 [Writing a custom DSC resource with PowerShell classes](/powershell/dsc/resources/authoringResourceClass).
 
 ## Create a configuration package artifact
 
 Once the MOF is compiled, the supporting files must be packaged together.
-The completed package is used by guest configuration to create the Azure Policy
+The completed package is used by machine configuration to create the Azure Policy
 definitions.
 
 The `New-GuestConfigurationPackage` cmdlet creates the package. Modules that are
@@ -76,7 +81,7 @@ package.
 Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Windows
 content:
 
-- **Name**: guest configuration package name.
+- **Name**: machine configuration package name.
 - **Configuration**: Compiled DSC configuration document full path.
 - **Path**: Output folder path. This parameter is optional. If not specified,
   the package is created in current directory.
@@ -115,9 +120,9 @@ Name      Path
 MyConfig  /Users/.../MyConfig/MyConfig.zip
 ```
 
-### Expected contents of a guest configuration artifact
+### Expected contents of a machine configuration artifact
 
-The completed package is used by guest configuration to create the Azure Policy
+The completed package is used by machine configuration to create the Azure Policy
 definitions. The package consists of:
 
 - The compiled DSC configuration as a MOF
@@ -131,10 +136,10 @@ The PowerShell cmdlet creates the package .zip file. No root level folder or
 version folder is required. The package format must be a .zip file and can't
 exceed a total size of 100 MB when uncompressed.
 
-## Extending guest configuration with third-party tools
+## Extending machine configuration with third-party tools
 
-The artifact packages for guest configuration can be extended to include
-third-party tools. Extending guest configuration requires development of two
+The artifact packages for machine configuration can be extended to include
+third-party tools. Extending machine configuration requires development of two
 components.
 
 - A Desired State Configuration resource that handles all activity related to
@@ -149,7 +154,7 @@ already exist. Community solutions can be discovered by searching the PowerShell
 [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
 > [!NOTE]
-> Guest configuration extensibility is a "bring your own
+> Machine configuration extensibility is a "bring your own
 > license" scenario. Ensure you have met the terms and conditions of any third
 > party tools before use.
 
@@ -159,14 +164,13 @@ content for the third-party platform in the content artifact.
 
 ## Next steps
 
-- [Test the package artifact](./guest-configuration-create-test.md)
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
-- [Publish the package artifact](./guest-configuration-create-publish.md)
+- [Publish the package artifact](./machine-configuration-create-publish.md)
   so it is accessible to your machines.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](./guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
-- Learn how to view
-  [compliance details for guest configuration](./determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+

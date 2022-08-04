@@ -1,47 +1,48 @@
 ---
-title: Remediation options for guest configuration
-description: Azure Policy's guest configuration feature offers options for continuous remediation or control using remediation tasks.
+title: Remediation options for machine configuration
+description: Azure Policy's machine configuration feature offers options for continuous remediation or control using remediation tasks.
 author: timwarner-msft
-ms.date: 07/15/2022
+ms.date: 07/25/2022
 ms.topic: how-to
 ms.author: timwarner
+ms.service: machine-configuration
 ---
-# Remediation options for guest configuration
+# Remediation options for machine configuration
 
-[!INCLUDE [Machine config rename banner](../../includes/banner.md)]
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for
-[guest configuration](../concepts/guest-configuration.md).
+[machine configuration](./overview.md).
 
 > [!IMPORTANT]
-> The guest configuration extension is required for Azure virtual machines. To
+> The machine configuration extension is required for Azure virtual machines. To
 > deploy the extension at scale across all machines, assign the following policy
-> initiative: `Deploy prerequisites to enable guest configuration policies on
+> initiative: `Deploy prerequisites to enable machine configuration policies on
 > virtual machines`
 >
-> To use guest configuration packages that apply configurations, Azure VM guest
+> To use machine configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
 >
-> Custom guest configuration policy definitions using **AuditIfNotExists** are
+> Custom machine configuration policy definitions using **AuditIfNotExists** are
 > Generally Available, but definitions using **DeployIfNotExists** with guest
 > configuration are **in preview**.
 
-## How remediation (Set) is managed by guest configuration
+## How remediation (Set) is managed by machine configuration
 
-Guest configuration uses the policy effect
-[DeployIfNotExists](../concepts/effects.md#deployifnotexists)
+Machine configuration uses the policy effect
+[DeployIfNotExists](../policy/concepts/effects.md#deployifnotexists)
 for definitions that deliver changes inside machines.
 Set the properties of a policy assignment to control how
-[evaluation](../concepts/effects.md#deployifnotexists-evaluation)
+[evaluation](../policy/concepts/effects.md#deployifnotexists-evaluation)
 delivers configurations automatically or on-demand.
 
 [A video walk-through of this document is available](https://youtu.be/rjAk1eNmDLk).
 
-### Guest configuration assignment types
+### Machine configuration assignment types
 
 There are three available assignment types when guest assignments are created.
-The property is available as a parameter of guest configuration definitions
+The property is available as a parameter of machine configuration definitions
 that support **DeployIfNotExists**.
 
 | Assignment type | Behavior |
@@ -57,7 +58,7 @@ decisions about which machines need remediation.
 
 ## Remediation on-demand (ApplyAndMonitor)
 
-By default, guest configuration assignments operates in a "remediation on
+By default, machine configuration assignments operates in a "remediation on
 demand" scenario. The configuration is applied and then allowed to drift out of
 compliance. The compliance status of the guest assignment is "Compliant"
 unless an error occurs while applying the configuration or if during the next
@@ -65,8 +66,8 @@ evaluation the machine is no longer in the desired state. The agent reports
 the status as "NonCompliant" and doesn't automatically remediate.
 
 To enable this behavior, set the
-[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype)
-of the guest configuration assignment to "ApplyandMonitor". Each time the
+[assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype)
+of the machine configuration assignment to "ApplyandMonitor". Each time the
 assignment is processed within the machine, for each resource the
 [Test](/powershell/dsc/resources/get-test-set#test)
 method returns "true" the agent reports "Compliant"
@@ -74,11 +75,11 @@ or if the method returns "false" the agent reports "NonCompliant".
 
 ## Continuous remediation (AutoCorrect)
 
-Guest configuration supports the concept of "continuous remediation". If the machine drifts out of compliance for a configuration, the next time it's evaluated the configuration is corrected automatically. Unless an error occurs, the machine always reports status as "Compliant" for the configuration. There's no way to report when a drift was automatically corrected when using continuous remediation.
+Machine configuration supports the concept of "continuous remediation". If the machine drifts out of compliance for a configuration, the next time it's evaluated the configuration is corrected automatically. Unless an error occurs, the machine always reports status as "Compliant" for the configuration. There's no way to report when a drift was automatically corrected when using continuous remediation.
 
 To enable this behavior, set the
-[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype)
-of the guest configuration assignment to "ApplyandAutoCorrect". Each time the
+[assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype)
+of the machine configuration assignment to "ApplyandAutoCorrect". Each time the
 assignment is processed within the machine, for each resource the
 [Test](/powershell/dsc/resources/get-test-set#test)
 method returns "false", the
@@ -101,7 +102,7 @@ packages only, not for built-in content provided by Microsoft.
 ## Azure Policy enforcement
 
 Azure Policy assignments include a required property
-[Enforcement Mode](../concepts/assignment-structure.md#enforcement-mode)
+[Enforcement Mode](../policy/concepts/assignment-structure.md#enforcement-mode)
 that determines behavior for new and existing resources.
 Use this property to control whether configurations are automatically applied to
 machines.
@@ -119,9 +120,9 @@ don't change the machine resource in Azure Resource Manager.
 
 If enforcement is set to "Disabled", the configuration assignment
 audits the state of the machine until the behavior is changed by a
-[remediation task](../how-to/remediate-resources.md). By default, guest configuration
+[remediation task](../policy/how-to/remediate-resources.md). By default, machine configuration
 definitions update the
-[assignmentType property](/rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype) from "Audit" to "ApplyandMonitor" so the configuration
+[assignmentType property](/rest/api/guestconfiguration/machine-configuration-assignments/get#assignmenttype) from "Audit" to "ApplyandMonitor" so the configuration
 is applied one time and then it won't apply again until a remediation is
 triggered.
 
@@ -132,7 +133,7 @@ If an Azure Policy assignment is created from the Azure portal, on the
 box is checked, after the policy assignment is created any resources that
 evaluate to "NonCompliant" is automatically be corrected by remediation tasks.
 
-The effect of this setting for guest configuration is that you can deploy a
+The effect of this setting for machine configuration is that you can deploy a
 configuration across many machines simply by assigning a policy. You won't
 also have to run the remediation task manually for machines that aren't
 compliant.
@@ -143,19 +144,19 @@ It's also possible to orchestrate remediation outside of the Azure Policy
 experience by updating a guest assignment resource, even if the update
 doesn't make changes to the resource properties.
 
-When a guest configuration assignment is created, the
-[complianceStatus property](/rest/api/guestconfiguration/guest-configuration-assignments/get#compliancestatus)
+When a machine configuration assignment is created, the
+[complianceStatus property](/rest/api/guestconfiguration/machine-configuration-assignments/get#compliancestatus)
 is set to "Pending".
-The guest configuration service inside the machine (delivered to Azure
+The machine configuration service inside the machine (delivered to Azure
 virtual machines by the
-[Guest configuration extension](../../../virtual-machines/extensions/guest-configuration.md)
+[Guest configuration extension](./overview.md)
 and included with Arc-enabled servers) requests a list of assignments every 5
 minutes.
-If the guest configuration assignment has both requirements, a
+If the machine configuration assignment has both requirements, a
 `complianceStatus` of "Pending" and a `configurationMode` of either
 "ApplyandMonitor" or "ApplyandAutoCorrect", the service in the machine
 applies the configuration. After the configuration is applied, at the
-[next interval](./guest-configuration.md#validation-frequency)
+[next interval](./overview.md)
 the configuration mode dictates whether the behavior is to only report on
 compliance status and allow drift or to automatically correct.
 
@@ -168,16 +169,16 @@ compliance status and allow drift or to automatically correct.
 
 ## Next steps
 
-- Read the [guest configuration overview](./guest-configuration.md).
-- Setup a custom guest configuration package [development environment](../how-to/guest-configuration-create-setup.md).
-- [Create a package artifact](../how-to/guest-configuration-create.md)
-  for guest configuration.
-- [Test the package artifact](../how-to/guest-configuration-create-test.md)
+- Read the [machine configuration overview](./overview.md).
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
+  for machine configuration.
+- [Test the package artifact](./machine-configuration-create-test.md)
   from your development environment.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](../how-to/guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.

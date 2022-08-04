@@ -1,10 +1,15 @@
 ---
-title: How to test guest configuration package artifacts
+title: How to test machine configuration package artifacts
 description: The experience creating and testing packages that audit or apply configurations to machines.
-ms.date: 07/20/2021
+ms.date: 07/25/2022
 ms.topic: how-to
+ms.service: machine-configuration
+ms.author: timwarner
+author: timwarner-msft
 ---
-# How to test guest configuration package artifacts
+# How to test machine configuration package artifacts
+
+[!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
 The PowerShell module `GuestConfiguration` includes tools to automate
 testing a configuration package outside of Azure. Use these tools to find issues
@@ -12,20 +17,20 @@ and iterate quickly before moving on to test in an Azure or Arc connected
 environment.
 
 Before you can begin testing, follow all steps in the page
-[How to setup a guest configuration authoring environment](./guest-configuration-create-setup.md)
+[How to setup a machine configuration authoring environment](./machine-configuration-create-setup.md)
 and then
-[How to create custom guest configuration package artifacts](./guest-configuration-create.md)
-to create and publish a custom guest configuration package.
+[How to create custom machine configuration package artifacts](./machine-configuration-create.md)
+to create and publish a custom machine configuration package.
 
 > [!IMPORTANT]
 > Custom packages that audit the state of an environment are Generally Available,
 > but packages that apply configurations are **in preview**. **The following limitations apply:**
-> 
-> To use guest configuration packages that apply configurations, Azure VM guest
+>
+> To use machine configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
-> 
-> To test creating and applying configurations on Linux, the 
+>
+> To test creating and applying configurations on Linux, the
 > `GuestConfiguration` module is only available on Ubuntu 18 but the package
 > and policies produced by the module can be used on any Linux distro/version
 > supported in Azure or Arc.
@@ -64,10 +69,10 @@ following package requirements.
 
 Parameters of the `Get-GuestConfigurationPackageComplianceStatus ` cmdlet:
 
-- **Path**: File path or URI of the guest configuration package.
+- **Path**: File path or URI of the machine configuration package.
 - **Parameter**: Policy parameters provided in hashtable format.
 
-When this command is run for the first time, the guest configuration agent gets
+When this command is run for the first time, the machine configuration agent gets
 installed on the test machine at the path `c:\programdata\GuestConfig\bin` on
 Windows and `/var/lib/GuestConfig/bin` on Linux. This path isn't accessible to
 a user account so the command requires elevation.
@@ -109,7 +114,7 @@ the `Set` method can apply settings to a local machine using the command
 
 Parameters of the `Start-GuestConfigurationPackageRemediation` cmdlet:
 
-- **Path**: Full path of the guest configuration package.
+- **Path**: Full path of the machine configuration package.
 
 In Windows, from an elevated PowerShell 7 session.
 
@@ -134,12 +139,12 @@ machine is now in the correct state.
 
 ## Next steps
 
-- [Publish the package artifact](./guest-configuration-create-publish.md)
+- [Publish the package artifact](./machine-configuration-create-publish.md)
   so it is accessible to your machines.
 - Use the `GuestConfiguration` module to
-  [create an Azure Policy definition](./guest-configuration-create-definition.md)
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
   for at-scale management of your environment.
-- [Assign your custom policy definition](../assign-policy-portal.md) using
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
   Azure portal.
 - Learn how to view
-  [compliance details for guest configuration](./determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.
