@@ -137,7 +137,7 @@ To create a load test for testing your private endpoint, you have to specify the
 
 1. On the **Test plan** tab, select your Apache JMeter script, and then select **Upload** to upload the file to Azure.
 
-    You can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
+    You can select and upload other Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
 1. On the **Load** tab, select **Private** traffic mode, and then select your virtual network and subnet.
 
@@ -154,7 +154,7 @@ To create a load test for testing your private endpoint, you have to specify the
 
 To start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 
-If you're using the Azure Load Testing REST API to start a load test, check that you're using a valid subnet ID. The subnet must be in the same Azure region as your Azure Load Testing resource.
+If you're using the [Azure Load Testing REST API](/rest/api/loadtesting/) to start a load test, check that you're using a valid subnet ID. The subnet must be in the same Azure region as your Azure Load Testing resource.
 
 ### The load test is stuck in `Provisioning` state and then goes to `Failed`
 
