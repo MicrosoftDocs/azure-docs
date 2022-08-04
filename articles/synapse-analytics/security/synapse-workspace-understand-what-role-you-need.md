@@ -46,6 +46,10 @@ You can review the status of running notebooks and jobs in Apache Spark pools if
 
 You can review logs and cancel running jobs and pipelines if you're a Synapse Compute Operator at the workspace or for a specific Spark pool or pipeline.  
 
+### Monitor and manage execution
+
+
+
 ### Publish and save your code
 
 You can publish new or updated code artifacts to the service if you're a Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator. 
