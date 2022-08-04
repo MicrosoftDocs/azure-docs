@@ -19,7 +19,7 @@ Workflows created using Lifecycle Workflows allow for the automation of lifecycl
 
 
 
-## Lifecycle Workflows History types
+## Lifecycle Workflows history types
 
 When looking at the history of your workflow, Lifecycle Workflows allow you to view History in two separate ways, through user processed summaries or through runs summaries. User processed summaries allow you to view specific users, and which tasks ran for them. If you want a more workflow-centric version of the history of the workflow, you can view the runs information. This gives you history from the view of the workflow instance being run at that point in time. In this way you are still able to see failed, and total, task information, but as the information is centered around the run instance itself, on the front is information dedicated to the workflow such as start and complete time.
 
@@ -39,13 +39,20 @@ The cards at the top of the user history page give you a summary in count form. 
 |Total tasks     | The total number tasks processed for users.       |
 |Failed tasks     | The total number of failed tasks for users.        |
 
-Separating processing of the workflow from the tasks is important because in a workflow processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters-preview).
+
+Like with the User summary page, you are also able to see a summary of workflow runs at the top of the runs page:
+:::image type="content" source="media/lifecycle-workflow-history/lcw-runs-summary-concept.png" alt-text="lcw runs summary":::
+
+The cards for runs are the same as user summary except the total tasks card is not present.
+
+
+Separating processing of the workflow from the tasks is important because in a workflow processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters-preview).
 
 
 
 ## Detailed summary information 
 
-While basic information is good for total counts, you may need to find information about how specific users have been processed. Below the basic user summary cards you are able to find detailed information about the users processed by the workflow. This detailed information breaks down information given in the summary cards by users so that they can be audited, and you can quickly figure out who you would have to run a workflow for again. 
+While basic information is good for total counts, you may need to find information about how specific users have been processed. Below the basic user summary cards you are able to find detailed information about the users processed by the workflow. This detailed data breaks down information given in the summary cards by users so that they can be audited, and you can quickly figure out who you would have to run a workflow for again. 
 
 
 The detailed information given for users processed are as follows:
@@ -70,24 +77,21 @@ As far as runs goes the detailed information are:
 - Failed tasks
 - Unprocessed Tasks
 
-## Filtering user history information 
+## Filtering history information 
 
 
-While detailed information is good to have for specific user information, you may need to dive further into the information. Lifecycle Workflows allows you to filter the detailed information based on start date, complete date, status, or execution type.
+While detailed data is good to have for specific user or run information, you may need to dive further into the information. Lifecycle Workflows allows you to filter the detailed information based on start date, complete date, status, or execution type.
 
 ### Filtering based on start and completed date
 
 
-When filtering workflow history based on either start or completed date you can filter based on 3 default intervals:
+When filtering workflow history based on either start or completed date, you can filter based on 3 default intervals:
 
 :::image type="content" source="media/lifecycle-workflow-history/lcw-user-summary-concept-date.png" alt-text="lcw filter by date concept":::
 
 - 7 days
 - 14 days 
 - 30 days
-
-You can also choose to filter date information based on a custom interval between 1 and 30 days.
-
 
 
 > [!NOTE]
@@ -96,7 +100,7 @@ You can also choose to filter date information based on a custom interval betwee
 
 #### Filtering based on status 
 
-Another way to filter workflow is through the summary status. Whenever a user is processed, or a workflow runs, you get an update of that specific event. Filtering based on status allows you to quickly focus on only workflow processes that behaved in a specific way.
+Another way to filter workflow history is through the summary status. Whenever a user is processed, or a workflow runs, you get an update of that specific event. Filtering based on status allows you to quickly focus on only workflow processes that behaved in a specific way.
 :::image type="content" source="media/lifecycle-workflow-history/lcw-runs-status-concept.png" alt-text="lcw runs status information":::
 
 
@@ -115,7 +119,7 @@ You can filter based on the following criteria:
 
 ## Filtering based on execution type
 
-The final way you can filter user summary and run information is by execution type. To understand why this is significant it is important to note the different ways in which a workflow can run. 
+The final way you can filter workflow history information is by execution type. To understand why this is significant it is important to note the different ways in which a workflow can run. 
 
 Workflows created using Lifecycle Workflows can run in two ways:
 
