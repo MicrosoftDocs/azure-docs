@@ -56,7 +56,7 @@ Create a new file called _.env_ in the root of your project. Paste the following
 Do not include quotation marks or the "{" and "}" characters.
 
 > [!IMPORTANT]
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}

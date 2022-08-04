@@ -45,7 +45,7 @@ In the **Run** view, click on **Arguments** tab.
 In the **Environment Variables** section, add the following names and values, supplying the values given when you created your Immersive Reader resource.
 
 > [!IMPORTANT]
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
