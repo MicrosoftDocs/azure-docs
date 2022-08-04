@@ -21,7 +21,7 @@ For both options, you'll need to take snapshots of those disks and recreate them
 
 
 - **Zonal**. Make sure your Azure VMs are in a region that supports Availability Zones and they are zonal, meaning that the VMs are created in availability zones. Take note of the zone of the VM to which you are attaching a managed disk because the managed disks must be co-located in the same zone.
-- **Zone-redundant**. Managed disks support zone-redundant storage (ZRS) which synchronously replicates your managed disk across three availability zones in the region you select. 
+- **Zone-redundant**. Make sure your Azure VMs are in a region that supports Availability Zones so that the ZRS managed disks can be created and attached to the VMs. 
 
 
 ## Downtime requirements
