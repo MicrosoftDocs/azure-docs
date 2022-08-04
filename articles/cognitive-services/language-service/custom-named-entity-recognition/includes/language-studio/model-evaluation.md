@@ -14,15 +14,41 @@ ms.author: aahi
 
 2. Select **Model performance** from the menu on the left side of the screen.
     
-3. In this page you can only view the successfully trained models, F1 score of each model and [model expiry date](../../../concepts/model-lifecycle.md#custom-features). You can click on the model name for more details about its performance.
+3. Select the model you want to view it's performance.
 
-4. You can find the *model-level evaluation metrics* under **Overview**, and the *class-level evaluation metrics* under **Class performance metrics**. See [Evaluation metrics](../../concepts/evaluation-metrics.md#model-level-and-entity-level-evaluation-metrics) for more information.
+*Overview* tab:
 
-    :::image type="content" source="../../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/model-details.png":::
+* In this tab you can view the model's details such as: F1 score, Percesion, Recall, date and time for the training job, total training time and number of training and testing docuemnts included in this training job.  
 
-5. The [confusion matrix](../../concepts/evaluation-metrics.md#confusion-matrix) for the model is located under **Test set confusion matrix**.
+    :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
+
+* You will also see guidance on how to improve the model. When clicking on *view details* a side panel will open to give more guidance on how to improve the model. In this example, *BorrowerAddress* entity is confused with *$none* entity. By clicking on the confused entities, you will be taken to the [data labeling]() page to label more data with the correct entitiy.
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
+    Learn more about model guidance in [evaluation metrics] concepts.
+    
+*Entity type performace*
+
+* This is a snapshot of how your model performed during testing. The metrics here are static and tied to your model, so they won’t update until you train again.
+
+* You can see for each entity, percision, recall, F1 score, training and testing labels.
+
+
+    :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
+
+*Test set details*
+
+* Here you will see the documents included in the test set and the result type for each document. You can use the *Show mismatches only* toggle to show only documents with mismathces, or unselect the toggle to view all document in the test set.
+
+* You can view for each document: labeled text, its respective entity type and what was it predicted with. Also, you will see whether it is a [true positive](), [false positive]() or [false negative](). 
+
+    :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
+    
+    
+    
+    
+    
+
 > [!NOTE]
 > Entities that are neither labeled nor predicted in the test set will not be part of the displayed results.
