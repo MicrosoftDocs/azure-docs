@@ -1,13 +1,13 @@
-When developing locally, make sure the user you want to connect to your Storage account with has the correct permissions. You can assign security roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Roles can be assigned at the following levels:
+When developing locally, make sure that the user account that is accessing blob data has the correct permissions. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Roles can be assigned at the following levels:
 
-* Specific resources, such as a storage account
+* Specific resources, such as a storage account or a blob container
 * Resource group
 * Subscription
 * Management group
 
 In this scenario, you'll assign permissions to your user account at the resource level to follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
-The following example will assign the `Storage Blob Data Contributor` role to your user account, which is a useful general purpose role for working with storage.
+The following example will assign the `Storage Blob Data Contributor` role to your user account, provides both read and write access to blob data in your storage account.
 
 ### [Azure portal](#tab/roles-azure-portal)
 

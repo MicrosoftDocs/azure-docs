@@ -32,7 +32,7 @@ For example, your app can authenticate using your Visual Studio sign-in credenti
 
 You can authenticate your local app to the Blob Storage account you created using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Visual Studio Code, or Azure PowerShell.
+1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
 
     [!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
