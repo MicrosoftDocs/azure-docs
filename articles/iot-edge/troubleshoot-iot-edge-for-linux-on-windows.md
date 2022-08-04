@@ -75,7 +75,7 @@ First, the issue could be related to the VM lifecycle management service (_WSSDA
     ```
 1. If the service is **Running**, the issue is probably related to a networking misconfiguration or lack of resources to create the VM.
 
-Secondly, the issue could be related to lack of resources. You can set the _EflowVmAssignedMemory_ (`-memoryInMb`) and _EflowVmAssignedCPUcores_ (`-cpuCount`) assigned to the VM during deployment using the `Deploy-Eflow` PowerShell cmdlet, or after deployment using the `Set-EflowVm` cmdlet. If these resources aren't available when trying to start the VM, the VM fails to start. To check the resources assigned and available, use the following steps:
+Second, the issue could be related to lack of resources. You can set the _EflowVmAssignedMemory_ (`-memoryInMb`) and _EflowVmAssignedCPUcores_ (`-cpuCount`) assigned to the VM during deployment using the `Deploy-Eflow` PowerShell cmdlet, or after deployment using the `Set-EflowVm` cmdlet. If these resources aren't available when trying to start the VM, the VM fails to start. To check the resources assigned and available, use the following steps:
 
 1. Start an elevated _PowerShell_ session using **Run as Administrator**.
 1. Check the available memory. Ensure that the _FreePhysicalMemory_ is greater than the _EflowVmAssignedMemory_.
@@ -162,13 +162,13 @@ Second, if the GPU is correctly assigned, but still not being able to use it ins
     ```powershell
     Connect-EflowVm
     ```
-1. If you're using a NVIDIA GPU, check the passthrough status using the following command:
+1. If you're using a **NVIDIA GPU**, check the passthrough status using the following command:
     ```bash
     sudo nvidia-smi
     ```
    You should be able to see the GPU card information, driver version, CUDA version, and the GPU system and processes information. 
 
-1. If you're using an Intel iGPU passthrough, check the passthrough status using the following command:
+1. If you're using an **Intel iGPU** passthrough, check the passthrough status using the following command:
     ```bash
     sudo ls -al /dev/dxg
     ```
@@ -176,7 +176,7 @@ Second, if the GPU is correctly assigned, but still not being able to use it ins
     ```Output
     crw-rw-rw- 1 root 10, 60  Sep  8 06:20 /dev/dxg
     ```
-    For more performance and debugging information, see [Witness the power of Intel&reg; iGPU with Azure IoT Edge for Linux on Windows(EFLOW) & OpenVINO&trade; Toolkit](https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Witness-the-power-of-Intel-iGPU-with-Azure-IoT-Edge-for-Linux-on/post/1382405).
+    For more Intel iGPU performance and debugging information, see [Witness the power of Intel&reg; iGPU with Azure IoT Edge for Linux on Windows(EFLOW) & OpenVINO&trade; Toolkit](https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Witness-the-power-of-Intel-iGPU-with-Azure-IoT-Edge-for-Linux-on/post/1382405).
 
 ## Check WSSDAgent logs for issues
 
