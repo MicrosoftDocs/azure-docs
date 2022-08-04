@@ -68,7 +68,7 @@ To migrate a non-zonal managed disk to zonal:
 
 This option shows you how to migrate an existing non-zonal managed disk to a zone-redundant managed disk. A zone redundant managed disk can be attached either to a zonal VM or a non-zonal VM in the same region. 
 
->![IMPORTANT]
+> ![IMPORTANT]
 > ZRS for managed disks has some restrictions. For more information see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
 
 To migrate a non-zonal managed disk to zone-redundant:
