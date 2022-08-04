@@ -22,14 +22,14 @@ The Azure OpenAI service can be used to solve a large number of natural language
 - An Azure OpenAI resource – request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu) before [creating a resource](create-resource.md?pivots=web-portal#create-a-resource)
 - An Apache Spark cluster with SynapseML installed - create a serverless Apache Spark pool [here](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
 
-We recommend [creating a Synapse workspace](../../../synapse-analytics/get-started-create-workspace), but an Azure Databricks, HDInsight, or Spark on Kubernetes, or even a Python environment with the `pyspark` package, will also work.
+We recommend [creating a Synapse workspace](../../../synapse-analytics/get-started-create-workspace.md), but an Azure Databricks, HDInsight, or Spark on Kubernetes, or even a Python environment with the `pyspark` package, will also work.
 
 ## Import this guide as a notebook
 
 The next step is to add this code into your Spark cluster. You can either create a notebook in your Spark platform and copy the code into this notebook to run the demo, or download the notebook and import it into Synapse Analytics.
 
 1. [Download this demo as a notebook](https://github.com/microsoft/SynapseML/blob/master/notebooks/features/cognitive_services/CognitiveServices%20-%20OpenAI.ipynb) (click Raw, then save the file)
-1. Import the notebook [into the Synapse Workspace](../../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#create-a-notebook) or, if using Databricks, [into the Databricks Workspace](../../../databricks/notebooks/notebooks-manage#create-a-notebook.md)
+1. Import the notebook [into the Synapse Workspace](../../../synapse-analytics/spark/apache-spark-development-using-notebooks.md#create-a-notebook) or, if using Databricks, [into the Databricks Workspace](../../../databricks/notebooks/notebooks-manage.md#create-a-notebook.md)
 1. Install SynapseML on your cluster. See the installation instructions for Synapse at the bottom of [the SynapseML website](https://microsoft.github.io/SynapseML/). This requires pasting another cell at the top of the notebook you imported
 1. Connect your notebook to a cluster and follow along, editing and running the cells below.
 
