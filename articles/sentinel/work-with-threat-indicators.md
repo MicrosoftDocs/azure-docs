@@ -202,15 +202,15 @@ The Microsoft Threat Intelligence Matching Analytics matches the log sources i
 | [DNS](./data-connectors-reference.md#windows-dns-server-preview) | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are processed only for IPv4 (`QueryType=”A”`) and IPv6 queries (`QueryType=” AAAA”`).<br><br>To match Microsoft-generated threat intelligence with DNS logs, no manual mapping of columns is needed, as all columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default. |
 | [Syslog](connect-syslog.md) | Matching is currently done for only for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft-generated threat intelligence with Syslog, no manual mapping of columns is needed. The details come in the `SyslogMessage` field of the Syslog by default, and the rule will parse the domain directly from the SyslogMessage. |
 
-#### [IP](#tab/ip)
-
-Microsoft Threat Intelligence Matching Analytics currently matches only with IPv4 indicators. 
+#### [IPv4](#tab/ipv4)
 
 | Log source | Description |
 | --------- | --------- |
 |[CEF](connect-common-event-format.md) |Matching is done for all CEF logs that are ingested in the **CommonSecurityLog** table of log analytics except for ones that have `DeviceVendor` as `Cisco`. <br><br>To match Microsoft generated threat intelligence with CEF logs, no manual mapping needs to be done. The IP is populated in the `DestinationIP` field by default.|
 | [DNS](./data-connectors-reference.md#windows-dns-server-preview) | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). Threat intelligence matching analytics only process DNS queries for IPv4 (`QueryType="A"`). <br><br>To match Microsoft-generated threat intelligence with DNS logs, no manual mapping of columns is needed. All columns are standard from Windows DNS Server. The IPs are in the `IPAddresses` column by default. |
 | [Syslog](connect-syslog.md) | Matching is currently done for only for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft-generated threat intelligence with Syslog, no manual mapping of columns is needed. The details come in the `SyslogMessage` field of the Syslog by default. The rule parses the IP directly from the `SyslogMessage`. |
+
+Microsoft Threat Intelligence Matching Analytics currently matches only with IPv4 indicators. 
 
 #### [Microsoft Defender Threat Intelligence (MDTI)](#tab/microsoft-defender-threat-intelligence)
 | Log source | Description |
