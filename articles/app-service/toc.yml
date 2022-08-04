@@ -191,8 +191,8 @@
       items:
         - name: Configure common settings
           href: configure-common.md
-        - name: Reference Configuration from App Config
-          href: app-service-app-config.references.md
+        - name: Reference settings from App Configuration (preview)
+          href: app-service-app-config-references.md
         - name: Configure ASP.NET
           href: configure-language-dotnet-framework.md
         - name: Configure ASP.NET Core
