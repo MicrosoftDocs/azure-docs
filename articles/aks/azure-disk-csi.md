@@ -286,6 +286,10 @@ test.txt
 > [!IMPORTANT]
 > Azure Disks CSI driver supports resizing PVCs without downtime.
 > Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
+> 
+> az feature register --namespace Microsoft.Compute --name LiveResize
+
+
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
