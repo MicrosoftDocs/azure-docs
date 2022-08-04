@@ -229,7 +229,10 @@ Render the SVG animation along with the synthesized speech to see the mouth move
 
 # [3D blend shapes](#tab/3dblendshapes)
 
-The output json looks like the following sample, where each row of the `BlendShapes` is an array with 55 numbers. Each number in the array can vary between 0 to 1. The order of numbers is in line with the order of 'BlendShapes'.
+
+Each viseme event includes a series of frames in the `Animation` SDK property. These are grouped to best align the facial positions with the audio. Your 3D engine should render each group of `BlendShapes` frames immediately before the corresponding audio chunk. The `FrameIndex` value indicates how many frames have already been rendered prior to the current list of frames.
+
+The output json looks like the following sample. Each frame within `BlendShapes` contains an array of 55 facial positions represented as decimal values between 0 to 1. The decimal values are in the same order as described in the facial positions table below.
 
 ```json
 {
@@ -244,63 +247,63 @@ The output json looks like the following sample, where each row of the `BlendSha
 
 The order of `BlendShapes` is as follows.
 
-| Order | `BlendShapes`       |
-| ----- | ------------------- |
-| 1     | eyeBlinkLeft        |
-| 2     | eyeLookDownLeft     |
-| 3     | eyeLookInLeft       |
-| 4     | eyeLookOutLeft      |
-| 5     | eyeLookUpLeft       |
-| 6     | eyeSquintLeft       |
-| 7     | eyeWideLeft         |
-| 8     | eyeBlinkRight       |
-| 9     | eyeLookDownRight    |
-| 10    | eyeLookInRight      |
-| 11    | eyeLookOutRight     |
-| 12    | eyeLookUpRight      |
-| 13    | eyeSquintRight      |
-| 14    | eyeWideRight        |
-| 15    | jawForward          |
-| 16    | jawLeft             |
-| 17    | jawRight            |
-| 18    | jawOpen             |
-| 19    | mouthClose          |
-| 20    | mouthFunnel         |
-| 21    | mouthPucker         |
-| 22    | mouthLeft           |
-| 23    | mouthRight          |
-| 24    | mouthSmileLeft      |
-| 25    | mouthSmileRight     |
-| 26    | mouthFrownLeft      |
-| 27    | mouthFrownRight     |
-| 28    | mouthDimpleLeft     |
-| 29    | mouthDimpleRight    |
-| 30    | mouthStretchLeft    |
-| 31    | mouthStretchRight   |
-| 32    | mouthRollLower      |
-| 33    | mouthRollUpper      |
-| 34    | mouthShrugLower     |
-| 35    | mouthShrugUpper     |
-| 36    | mouthPressLeft      |
-| 37    | mouthPressRight     |
-| 38    | mouthLowerDownLeft  |
-| 39    | mouthLowerDownRight |
-| 40    | mouthUpperUpLeft    |
-| 41    | mouthUpperUpRight   |
-| 42    | browDownLeft        |
-| 43    | browDownRight       |
-| 44    | browInnerUp         |
-| 45    | browOuterUpLeft     |
-| 46    | browOuterUpRight    |
-| 47    | cheekPuff           |
-| 48    | cheekSquintLeft     |
-| 49    | cheekSquintRight    |
-| 50    | noseSneerLeft       |
-| 51    | noseSneerRight      |
-| 52    | tongueOut           |
-| 53    | headRoll            |
-| 54    | leftEyeRoll         |
-| 55    | rightEyeRoll        |
+| Order | Facial position in `BlendShapes`|
+| --------- | ----------- | 
+| 1 | eyeBlinkLeft|
+| 2 | eyeLookDownLeft|
+| 3 | eyeLookInLeft|
+| 4 | eyeLookOutLeft|
+| 5 | eyeLookUpLeft|
+| 6 | eyeSquintLeft|
+| 7 | eyeWideLeft|
+| 8 | eyeBlinkRight|
+| 9 | eyeLookDownRight|
+| 10 | eyeLookInRight|
+| 11 | eyeLookOutRight|
+| 12 | eyeLookUpRight|
+| 13 | eyeSquintRight|
+| 14 | eyeWideRight|
+| 15 | jawForward|
+| 16 | jawLeft|
+| 17 | jawRight|
+| 18 | jawOpen|
+| 19 | mouthClose|
+| 20 | mouthFunnel|
+| 21 | mouthPucker|
+| 22 | mouthLeft|
+| 23 | mouthRight|
+| 24 | mouthSmileLeft|
+| 25 | mouthSmileRight|
+| 26 | mouthFrownLeft|
+| 27 | mouthFrownRight|
+| 28 | mouthDimpleLeft|
+| 29 | mouthDimpleRight|
+| 30 | mouthStretchLeft|
+| 31 | mouthStretchRight|
+| 32 | mouthRollLower|
+| 33 | mouthRollUpper|
+| 34 | mouthShrugLower|
+| 35 | mouthShrugUpper|
+| 36 | mouthPressLeft|
+| 37 | mouthPressRight|
+| 38 | mouthLowerDownLeft|
+| 39 | mouthLowerDownRight|
+| 40 | mouthUpperUpLeft|
+| 41 | mouthUpperUpRight|
+| 42 | browDownLeft|
+| 43 | browDownRight|
+| 44 | browInnerUp|
+| 45 | browOuterUpLeft|
+| 46 | browOuterUpRight|
+| 47 | cheekPuff|
+| 48 | cheekSquintLeft|
+| 49 | cheekSquintRight|
+| 50 | noseSneerLeft|
+| 51 | noseSneerRight|
+| 52 | tongueOut|
+| 53 | headRoll|
+| 54 | leftEyeRoll|
+| 55 | rightEyeRoll|
 
 ---
 
