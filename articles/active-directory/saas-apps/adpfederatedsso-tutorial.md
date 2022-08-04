@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up ADP** will direct you to the ADP Single Sign-On application. From there, provide the admin credentials to sign in to ADP Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-7.
+1. After adding extension to the browser, click on **Set up ADP** will direct you to the ADP application. From there, provide the admin credentials to sign in to ADP. The browser extension will automatically configure the application for you and automate steps 3-7.
 
 	![Setup configuration](common/setup-sso.png)
 
