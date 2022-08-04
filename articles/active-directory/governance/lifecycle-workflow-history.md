@@ -46,13 +46,13 @@ Like with the User summary page, you are also able to see a summary of workflow 
 The cards for runs are the same as user summary except the total tasks card is not present.
 
 
-Separating processing of the workflow from the tasks is important because in a workflow processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters-preview).
+Separating processing of the workflow from the tasks is important because, in a workflow, processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters-preview).
 
 
 
 ## Detailed summary information 
 
-While basic information is good for total counts, you may need to find information about how specific users have been processed. Below the basic user summary cards you are able to find detailed information about the users processed by the workflow. This detailed data breaks down information given in the summary cards by users so that they can be audited, and you can quickly figure out who you would have to run a workflow for again. 
+While basic information is good for total counts, you may need to find information about how specific users or workflow runs have been processed. Below the basic user summary cards you are able to find detailed information about the users processed by the workflow. This detailed data breaks down information given in the summary cards by users so that they can be audited, and you can quickly figure out who you would have to run a workflow for again. 
 
 
 The detailed information given for users processed are as follows:
@@ -67,8 +67,7 @@ The detailed information given for users processed are as follows:
 
 From the above list you are able to see which specific tasks succeeded or failed for each user.
 
-
-As far as runs goes the detailed information are:
+Runs information that goes into the detailed information are:
 
 - Start date of the workflow instance.
 - Complete date of the workflow instance.
