@@ -58,11 +58,11 @@ Steps:
     | Assign access to | User, group, or service principal |
     | Members | Diagnostic Services Trusted Storage Access |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    :::image type="content" source="media/profiler-bring-your-own-storage/add-role-assignment-page.png" alt-text="Screenshot showing how to add role assignment page in Azure portal.":::
 
 After you added the role, it will appear under the "Role assignments" section, like the below Figure 1.1.
-_![Figure 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
-_Figure 1.1_
+    :::image type="content" source="media/profiler-bring-your-own-storage/figure-11.png" alt-text="Screenshot showing the IAM screen after Role assignments.":::
+    _Figure 1.1_
 
 If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
@@ -246,8 +246,9 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
     ```
 
 1. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure portal. (App Service > Application Insights)
-_![Figure 2.0](media/profiler-bring-your-own-storage/figure-20.png)_
-_Figure 2.0_
+
+    :::image type="content" source="media/profiler-bring-your-own-storage/figure-20.png" alt-text="Screenshot showing the code level diagnostics on Azure portal.":::
+    _Figure 2.0_
 
 ## Troubleshooting
 

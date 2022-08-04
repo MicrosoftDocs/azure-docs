@@ -59,15 +59,15 @@ Subscription owners should assign the `Application Insights Snapshot Debugger` r
 
 After an exception has occurred in your application and a snapshot has been created, you should have snapshots to view. It can take 5 to 10 minutes from an exception occurring to a snapshot ready and viewable from the portal. To view snapshots, in the **Failure** pane, select the **Operations** button when viewing the **Operations** tab, or select the **Exceptions** button when viewing the **Exceptions** tab:
 
-![Failures Page](./media/snapshot-debugger/failures-page.png)
+:::image type="content" source="./media/snapshot-debugger/failures-page.png" alt-text="Screenshot showing the Failures Page in Azure Portal.":::
 
 Select an operation or exception in the right pane to open the **End-to-End Transaction Details** pane, then select the exception event. If a snapshot is available for the given exception, an **Open Debug Snapshot** button appears on the right pane with details for the [exception](../app/asp-net-exceptions.md).
 
-![Open Debug Snapshot button on exception](./media/snapshot-debugger/e2e-transaction-page.png)
+:::image type="content" source="./media/snapshot-debugger/e2e-transaction-page.png" alt-text="Screenshot showing the Open Debug Snapshot button on exception.":::
 
 In the Debug Snapshot view, you see a call stack and a variables pane. When you select frames of the call stack in the call stack pane, you can view local variables and parameters for that function call in the variables pane.
 
-![View Debug Snapshot in the portal](./media/snapshot-debugger/open-snapshot-portal.png)
+:::image type="content" source="./media/snapshot-debugger/open-snapshot-portal.png" alt-text="Screenshot showing the Open debug snapshot highlighted in the Azure portal.":::
 
 Snapshots might include sensitive information, and by default they aren't viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
 
@@ -79,7 +79,7 @@ Snapshots might include sensitive information, and by default they aren't viewab
 
 1. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
 
-    ![View debug snapshot in Visual Studio](./media/snapshot-debugger/open-snapshot-visual-studio.png)
+    :::image type="content" source="./media/snapshot-debugger/open-snapshot-visual-studio.png" alt-text="Screenshot showing the debug snapshot in Visual Studio.":::
 
 The downloaded snapshot includes any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For App Service apps, make sure to enable symbol deployment when you publish your web apps.
 

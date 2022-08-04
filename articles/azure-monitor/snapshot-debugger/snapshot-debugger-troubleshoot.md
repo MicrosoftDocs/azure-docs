@@ -65,11 +65,11 @@ Several common problems result in the Open Debug Snapshot not showing up. Using 
 
 There's a link in the exception pane of the end-to-end trace view that takes you to the Snapshot Health Check.
 
-![Enter snapshot health check](./media/snapshot-debugger/enter-snapshot-health-check.png)
+:::image type="content" source="./media/snapshot-debugger/enter-snapshot-health-check.png" alt-text="Screenshot showing how to enter snapshot health check.":::
 
 The interactive, chat-like interface looks for common problems and guides you to fix them.
 
-![Health Check](./media/snapshot-debugger/health-check.png)
+:::image type="content" source="./media/snapshot-debugger/health-check.png" alt-text="Screenshot showing the interactive Health Check window listing the problems and suggestions how to fix them.":::
 
 If that doesn't solve the problem, then refer to the following manual troubleshooting steps.
 
@@ -316,7 +316,7 @@ When a snapshot is created, the throwing exception is tagged with a snapshot ID.
 1. Select **Search**.
 1. Type `ai.snapshot.id` in the Search text box and press Enter.
 
-![Search for telemetry with a snapshot ID in the portal](./media/snapshot-debugger/search-snapshot-portal.png)
+:::image type="content" source="./media/snapshot-debugger/search-snapshot-portal.png" alt-text="Screenshot showing search for telemetry with a snapshot ID in the portal.":::
 
 If this search returns no results, then, no snapshots were reported to Application Insights in the selected time range.
 
