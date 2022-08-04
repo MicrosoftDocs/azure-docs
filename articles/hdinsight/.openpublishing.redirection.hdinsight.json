@@ -1,9 +1,5 @@
 {
     "redirections": [
-    {   "source_path_from_root": "/articles/hdinsight/storm/breadcrumb/toc.yml",
-        "redirect_url": "/azure/hdinsight/hdinsight-overview",
-        "redirect_document_id": false
-    },
     {   "source_path_from_root": "/articles/hdinsight/storm/apache-storm-overview.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
