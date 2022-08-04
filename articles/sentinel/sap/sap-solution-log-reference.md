@@ -330,9 +330,9 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 | The "SAP User Config" watchlist | SearchKey | Search Key |
 | The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
 | The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
-| The "SAP User Config" watchlist | User AAD Object Id | Azure AD Object ID |   
+| The "SAP User Config" watchlist | User AAD Object ID | Azure AD Object ID |   
 | The "SAP User Config" watchlist | User Identifier | AD User Identifier |
-| The "SAP User Config" watchlist | User On-Prem Sid |  |
+| The "SAP User Config" watchlist | User On-Premises Sid |  |
 | The "SAP User Config" watchlist | User Principal Name |  |
 | The "SAP User Config" watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK  
 | Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
