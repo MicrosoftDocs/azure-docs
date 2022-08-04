@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 # Migrate from existing Run As accounts to managed identity
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on **September 30, 2025**, and there will be no support provided beyond this date. From now through **September 30, 2025**, you can continue to use the Azure Automation Run As Account. However, we recommend you to transition to [managed identities](/automation-security-overview.md#managed-identities) before **September 30, 2025**. See the official announcement here.
+> Azure Automation Run As Account will retire on **September 30, 2023**, and there will be no support provided beyond this date. From now through **September 30, 2023**, you can continue to use the Azure Automation Run As Account. However, we recommend you to transition to [managed identities](/automation-security-overview.md#managed-identities) before **September 30, 2023**. See the official announcement here.
 
  Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate will be generated which will be valid for one year. This adds an overhead of renewing the certificate every year before it expires to prevent the Automation account to stop working. 
 
