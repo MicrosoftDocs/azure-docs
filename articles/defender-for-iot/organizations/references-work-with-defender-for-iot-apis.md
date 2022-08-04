@@ -42,6 +42,7 @@ After generating the token, add an HTTP header titled **Authorization** to your 
 missing v1
 - devices
 - vulnerabilities mitigation
+- appliances
 
 what are these for? is there a reason why they're not documented? P2
 - serial
@@ -67,7 +68,7 @@ nothing missing in v2
 |Version  |APIs  |
 |---------|---------|
 |**No version**     |**Authentication and password management**: <br>  - [set_password (Change password)](api/management-auth-apis.md#set_password-change-password)<br>- [set_password_by_admin (User password update by system admin)](api/management-auth-apis.md#set_password_by_admin-user-password-update-by-system-admin) <br>- [validation (Authenticate user credentials)](api/management-auth-apis.md#validation-authenticate-user-credentials)   |
-|**New in version 1**     |  **Inventory**: <br>- appliances (Retrieve appliance information <br>- [devices (Retrieve all device information)](api/management-inventory-apis.md#devices-retrieve-all-device-information) <br><br>**Alerts**: <br>- [alerts (Retrieve alert information)](api/management-alert-apis.md#alerts-retrieve-alert-information) <br> - [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.md#maintenancewindow-create-alert-exclusions)      |
+|**New in version 1**     |  **Sites** <br>- <!--missing-->appliances (Retrieve appliance information)<br> **Inventory**:  <br>- [devices (Retrieve all device information)](api/management-inventory-apis.md#devices-retrieve-all-device-information) <br><br>**Alerts**: <br>- [alerts (Retrieve alert information)](api/management-alert-apis.md#alerts-retrieve-alert-information) <br> - [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.md#maintenancewindow-create-alert-exclusions)      |
 |**New in version 2**     | **Alerts**: <br>- Updates to  [alerts (Retrieve alert information)](api/management-alert-apis.md#alerts-retrieve-alert-information)<br> - [pcap (Request alert PCAP)](api/management-alert-apis.md#pcap-request-alert-pcap)       |
 |**New in version 3**     | **Integration APIs**: <br>- [connections (Get device connections)](api/management-integration-apis.md#connections-get-device-connections)<br>- [device (Get details for a device)](api/management-integration-apis.md#device-get-details-for-a-device)<br>- [devicecves (Get device CVEs)](api/management-integration-apis.md#devicecves-get-device-cves)<br> - [devices (Create and update devices)](api/management-integration-apis.md#devices-create-and-update-devices)    <br>- [deleteddevices (Get deleted devices)](api/management-integration-apis.md#deleteddevices-get-deleted-devices) <br>- [sensors (Get sensors)](api/management-integration-apis.md#sensors-get-sensors)   |
 

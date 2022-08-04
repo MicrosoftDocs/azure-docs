@@ -13,7 +13,7 @@ This article lists the alert management REST APIs supported for Microsoft Defend
 
 Use this API to retrieve all or filtered alerts from an on-premises management console.
 
-**URI**:  `/external/v1/alerts`
+**URI**:  `/external/v1/alerts` or `/external/v2/alerts`
 
 ### GET
 
@@ -174,7 +174,7 @@ For example, you can use this API to create a forwarding rule that forwards data
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
-| **action** | String, either `handle` or `handleAndLearn` |  | Required |
+| **action** | String, either `handle` or `handleAndLearn` | <!--missing--> | Required |
 
 
 
@@ -200,17 +200,20 @@ Array of JSON objects that represent devices.
 | **content / error** | String | Required | If the request is successful, the content property appears. Otherwise, the error property appears. |
 
 **Possible content values**:
+<!--clarify if we really need 3 columns-->
 
-| Status code | Content value | Description |
+| Status code | Message | Description |
 |--|--|--|
-| 200 | Alert update request finished successfully. | The update request finished successfully. No comments. |
-| 200 | Alert was already handled (**handle**). | The alert was already handled when a handle request for the alert was received.<br />The alert remains **handled**. |
-| 200 | Alert was already handled and learned (**handleAndLearn**). | The alert was already handled and learned when a request to **handleAndLearn** was received.<br />The alert remains in the **handledAndLearn** status. |
-| 200 | Alert was already handled (**handled**).<br />Handle and learn (**handleAndLearn**) was performed on the alert. | The alert was already handled when a request to **handleAndLearn** was received.<br />The alert becomes **handleAndLearn**. |
-| 200 | Alert was already handled and learned (**handleAndLearn**). Ignored handle request. | The alert was already **handleAndLearn** when a request to handle the alert was received. The alert stays **handleAndLearn**. |
-| 500 | Invalid action. | The action that was sent is not a valid action to perform on the alert. |
-| 500 | Unexpected error occurred. | An unexpected error occurred. To resolve the issue, contact Technical Support. |
-| 500 | Couldn't execute request because no alert was found for this UUID. | The specified alert UUID was not found in the system. |
+| **200** | Alert update request finished successfully. | The update request finished successfully. No comments. |
+| **200** | Alert was already handled (**handle**). | The alert was already handled when a handle request for the alert was received.<br />The alert remains **handled**. |
+| **200** | Alert was already handled and learned (**handleAndLearn**). | The alert was already handled and learned when a request to **handleAndLearn** was received.<br />The alert remains in the **handledAndLearn** status. |
+| **200** | Alert was already handled (**handled**).<br />Handle and learn (**handleAndLearn**) was performed on the alert. | The alert was already handled when a request to **handleAndLearn** was received.<br />The alert becomes **handleAndLearn**. |
+| **200** | Alert was already handled and learned (**handleAndLearn**). Ignored handle request. | The alert was already **handleAndLearn** when a request to handle the alert was received. The alert stays **handleAndLearn**. |
+| **500** | Invalid action. | The action that was sent is not a valid action to perform on the alert. |
+| **500** | Unexpected error occurred. | An unexpected error occurred. To resolve the issue, contact Technical Support. |
+| **500** | Couldn't execute request because no alert was found for this UUID. | The specified alert UUID was not found in the system. |
+
+
 
 **Response example**: Successful
 
@@ -247,42 +250,46 @@ curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d
 
 ## maintenanceWindow (Create alert exclusions)
 
+Manages maintenance windows, under which alerts won't be sent. Use this API to define and update stop and start times, devices, or subnets that should be excluded when triggering alerts, or define and update Defender for IoT engines that should be excluded.
+
+For example, during a maintenance window, you might want to stop alert delivery of all alerts, except for malware alerts on critical devices.
+
+The maintenance windows that define with the `maintenanceWindow` API appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule, named with the following syntax: `Maintenance-{token name}-{ticket ID}`.
+
+
+> [!IMPORTANT]
+> This API is supported for maintenance purposes only and for a limited time period, and is not meant to be used instead of [alert exclusion rules](/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time, temporary maintenance operations only.
+
 **URI**: `/external/v1/maintenanceWindow`
 
 ### POST
 
-Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop alert delivery of all alerts, except for malware alerts on critical devices.
-
-The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
-
-> [!IMPORTANT]
-> This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
+Creates a new maintenance window.
 
 # [Request](#tab/maintenanceWindow-request-post)
 
-**Query parameters**:
+**Body parameters**:
 
-|Name  |Description |
-|---------|---------|
-|**ticketId**     | Defines the maintenance ticket ID in the user's systems.        |
-|**ttl**     |  Required. Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.       |
-|**engines**     |  Defines from which security engine to suppress alerts during the maintenance process:<br><br>    - ANOMALY<br>    - MALWARE<br>    - OPERATIONAL<br>    - POLICY_VIOLATION<br>    - PROTOCOL_VIOLATION       |
-|**sensorIds**     | Defines from which Defender for IoT sensor to suppress alerts during the maintenance process. It's the same ID retrieved from /api/v1/appliances (GET).        |
-|**subnets**     |  Defines from which subnet to suppress alerts during the maintenance process. The subnet is sent in the following format: 192.168.0.0/16.       |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**ticketId**     | String. Defines the maintenance ticket ID in the user's systems.  Make sure that the ticket ID is not linked to an existing open window.      | `2987345p98234` | Required |
+|**ttl**     |  Positive integer. Defines the TTL (time to live), which is the duration of the maintenance window, in minutes. After the defined time period is completed, the maintenance window is over and the system behaves normally again.     | `180`| Required|
+|**engines**     | JSON array of strings. Defines which engine to suppress alerts from during the maintenance window. Possible values: <br><br>    - `ANOMALY`<br>    - `MALWARE`<br>    - `OPERATIONAL`<br>    - `POLICY_VIOLATION`<br>    - `PROTOCOL_VIOLATION`       | `ANOMALY,OPERATIONAL`| Optional|
+|**sensorIds**     | JSON array of strings. Defines which sensors to suppress alerts from during the maintenance window. You can get these sensor IDs from the <!--missing APIs--> [/api/v1/appliances (GET)]() API.        | `1,35,63`| Optional |
+|**subnets**     |  JSON array of strings. Defines the subnets to suppress alerts from during the maintenance window. Define each subnet in a CIDR notation.      | `192.168.0.0/16,138.136.80.0/14,112.138.10.0/8`  | Optional|
 
 # [Response](#tab/maintenanceWindow-response-post)
 
-
-|Code  |Description|
-|---------|---------|
-|**201 (Created)**     |  The action was successfully completed.       |
-|**400 (Bad Request)**     |Appears in the following cases: <br><br>   - The **ttl** parameter is not numeric or not positive.<br>   - The **subnets** parameter was defined using a wrong format.<br>   - The **ticketId** parameter is missing.<br>   - The **engine** parameter does not match the existing security engines.         |
-|**404 (Not Found)**     | One of the sensors doesn't exist.        |
-|**409 (Conflict)**     | The ticket ID is linked to another open maintenance window.        |
-|**500 (Internal Server Error)**     |   Any other unexpected error.      |
-
-> [!NOTE]
-> Make sure that the ticket ID is not linked to an existing open window. The following exclusion rule is generated: `Maintenance-{token name}-{ticket ID}`.
+| Status code | Message | Description |
+|--|--|--|
+|**201 (Created)**     | - | The action was successfully completed.       |
+|**400 (Bad Request)**     | No TicketId | API request was missing a `ticketId` value.|
+|**400 (Bad Request)**     | Illegal TTL | API request included a non-positive or non-numeric TTL value. |
+|**400 (Bad Request)**     | Couldn't parse request.  | Issue parsing the body, such as incorrect parameters or invalid values.|
+|**400 (Bad Request)**     | Maintenance window with same parameters already exists. | Appears when an existing maintenance window already exists with the same details. |
+|**404 (Not Found)**     | Unknown sensor ID | One of the sensors listed in the request doesn't exist.        |
+|**409 (Conflict)**     | Ticket ID already has an open window. | The ticket ID is linked to another open maintenance window.        |
+|**500 (Internal Server Error)**     | - | Any other unexpected error.      |
 
 # [Curl command](#tab/maintenanceWindow-post-curl)
 
@@ -291,63 +298,14 @@ The APIs that you define here appear in the on-premises management console's Ale
 **API**:
 
 ```rest
-curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow
+curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://<IP address>/external/v1/maintenanceWindow
 ```
 
 **Example**:
 
 ```rest
-curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
+curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.0/16"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
 ```
-
-
----
-### PUT
-
-Allows you to update the maintenance window duration after you start the maintenance process by changing the **ttl** parameter. The new duration definition overrides the previous one.
-
-This method is useful when you want to set a longer duration than the currently configured duration.
-
-# [Request command](#tab/maintenanceWindow-put-request)
-
-**Query parameters**:
-
-|Name  |Description  |
-|---------|---------|
-|**ticketId**     |   Defines the maintenance ticket ID in the user's systems.      |
-|**ttl**     |  Defines the duration of the window in minutes.       |
-
-# [Response command](#tab/maintenanceWindow-put-response)
-
-**Error codes**:
-
-|Code  |Description  |
-|---------|---------|
-|**200 (OK)**     |  The action was successfully completed.       |
-|**400 (Bad Request)**     | Appears in the following cases:<br><br>   - The **ttl** parameter is not numeric or not positive.<br>   - The **ticketId** parameter is missing.<br>   - The **ttl** parameter is missing.        |
-|**404 (Not Found)**:     |  The ticket ID is not linked to an open maintenance window.       |
-|**500 (Internal Server Error)**     |  Any other unexpected error.       |
-
-> [!NOTE]
-> Make sure that the ticket ID is linked to an existing open window.
-
-
-# [Curl command](#tab/maintenanceWindow-put-curl)
-
-**Type**: PUT
-
-**API**:
-
-```rest
-curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow
-```
-
-**Example**:
-
-```rest
-curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
-```
----
 
 
 ### DELETE
@@ -358,24 +316,21 @@ Closes an existing maintenance window.
 
 **Query parameters**:
 
-|Name  |Description  |
-|---------|---------|
-|**ticketId**     |   Defines the maintenance ticket ID in the user's systems.      |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**ticketId**     |   Defines the maintenance ticket ID in the user's systems.   Make sure that the ticket ID is linked to an existing open window.   | `2987345p98234` |Required |
 
 # [Response](#tab/maintenanceWindow-delete-response)
 
 **Error codes**:
 
-|Code  |Description  |
-|---------|---------|
-|**200 (OK)**     |  The action was successfully completed.       |
-|**400 (Bad Request)**     | The **ticketId** parameter is missing.       |
-|**404 (Not Found)**:     |  The ticket ID is not linked to an open maintenance window.       |
-|**500 (Internal Server Error)**     |  Any other unexpected error.       |
+|Code  | Message |Description  |
+|---------|---------|---------|
+|**200 (OK)**    | - |  The action was successfully completed.       |
+|**400 (Bad Request)** |  No TicketId  | The **ticketId** parameter is missing from the request.       |
+|**404 (Not Found)**:   | Maintenance window not found. |  The ticket ID is not linked to an open maintenance window.       |
+|**500 (Internal Server Error)**  |  - |  Any other unexpected error.       |
 
-
-> [!NOTE]
-> Make sure that the ticket ID is linked to an existing open window.
 
 # [Curl command](#tab/maintenanceWindow-delete-curl)
 
@@ -384,7 +339,7 @@ Closes an existing maintenance window.
 **API**:
 
 ```rest
-curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow
+curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP address>/external/v1/maintenanceWindow
 ```
 
 **Example**:
@@ -394,8 +349,9 @@ curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "A
 ```
 
 ---
-### GET
 
+### GET
+ <!--left off here, already did put-->
 Retrieve a log of all the open, close, and update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
 
 # [Request](#tab/maintenanceWindow-request-put)
@@ -455,6 +411,53 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 ```
 
 ---
+### PUT
+
+Allows you to update the maintenance window duration after you start the maintenance process by changing the `ttl` parameter. The new duration definition overrides the previous one.
+
+This method is useful when you want to set a longer duration than the currently configured duration. For example, if you've originally defined 180 minutes, 90 minutes have passed, and you want to add another 30 minutes, update the `ttl` to `120` minute to reset the duration count.
+
+# [Request command](#tab/maintenanceWindow-put-request)
+
+**Query parameters**:
+
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**ticketId**     |  String. Defines the maintenance ticket ID in the user's systems.      | `2987345p98234` | Required |
+|**ttl**     | Positive integer. Defines the duration of the window in minutes.       |  `210` | Required |
+
+# [Response command](#tab/maintenanceWindow-put-response)
+
+**Error codes**:
+
+|Code  | Message |Description  |
+|---------|---------|---------|
+|**200 (OK)**  | -   |  The action was successfully completed.       |
+|**400 (Bad Request)**   | No TicketId  | The request is missing a `ticketId` value. |
+|**400 (Bad Request)**  | Illegal TTL   | The TTL defined is not numeric or not a positive integer.  |
+|**400 (Bad Request)**  | Couldn't parse request   | The request is missing a `ttl` parameter value.        |
+|**404 (Not Found)**  | Maintenance window not found   |  The ticket ID is not linked to an open maintenance window.       |
+|**500 (Internal Server Error)** | -     |  Any other unexpected error.       |
+
+
+# [Curl command](#tab/maintenanceWindow-put-curl)
+
+**Type**: PUT
+
+**API**:
+
+```rest
+curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP address>/external/v1/maintenanceWindow
+```
+
+**Example**:
+
+```rest
+curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
+```
+---
+
+
 
 
 ## pcap (Request alert PCAP)
