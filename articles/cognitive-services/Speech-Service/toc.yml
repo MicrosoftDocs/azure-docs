@@ -185,11 +185,13 @@ items:
         href: captioning-concepts.md
       - name: Captioning quickstart
         href: captioning-quickstart.md
-    - name: Handle call center scenarios
+    - name: Call center transcription
       items:
       - name: Telephony data
         displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
         href: call-center-transcription.md
+      - name: Post-call transcription and analytics quickstart
+        href: call-center-quickstart.md
       - name: Ingestion Client
         href: ingestion-client.md
     - name: Language learning
