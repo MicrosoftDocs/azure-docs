@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Work with threat indicators in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 You can integrate threat intelligence (TI) into Microsoft Sentinel through the following activities:
 
 - **Import threat intelligence** into Microsoft Sentinel by enabling **data connectors** to various TI [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
@@ -198,24 +196,24 @@ The Microsoft Threat Intelligence Matching Analytics matches the log sources i
 
 | Log source | Description |
 | --------- | --------- |
-| [CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with CEF logs, make sure to map the domain in the `RequestURL` field of the CEF log.|
-| [DNS](./data-connectors-reference.md#windows-dns-server-preview) | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are processed only for IPv4 (`QueryType=”A”`) and IPv6 queries (`QueryType=” AAAA”`).<br><br>To match Microsoft generated threat intelligence with DNS logs, no manual mapping of columns is needed, as all columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default.|
-| [Syslog](connect-syslog.md) | Matching is currently done for only for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft generated threat intelligence with Syslog, no manual mapping of columns is needed. The details come in the `SyslogMessage` field of the Syslog by default, and the rule will parse the domain directly from the SyslogMessage.|
+| [CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with domain indicators in CEF logs, make sure to map the domain in the `RequestURL` field of the CEF log.|
+| [DNS](./data-connectors-reference.md#windows-dns-server-preview) | Matching is done for all DNS logs that are lookup queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are only processed for IPv4 (`QueryType="A"`) and IPv6 queries (`QueryType="AAAA"`).<br><br>To match Microsoft generated threat intelligence with domain indicators in DNS logs, no manual mapping of columns is needed. All columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default.|
+| [Syslog](connect-syslog.md) | Matching is only done for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft generated threat intelligence with domain indicators from Syslog, no manual mapping of columns is needed. The details originate from the `SyslogMessage` field by default and the rule parses the domain directly from it.|
 
 #### [IPv4](#tab/ipv4)
 
 | Log source | Description |
 | --------- | --------- |
-|[CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with CEF logs, no manual mapping needs to be done. The IP is populated in the `DestinationIP` field by default.|
-| [DNS](./data-connectors-reference.md#windows-dns-server-preview) | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). Threat intelligence matching analytics only process DNS queries for IPv4 (`QueryType="A"`). <br><br>To match Microsoft generated threat intelligence with DNS logs, no manual mapping of columns is needed. All columns are standard from Windows DNS Server. The IPs are in the `IPAddresses` column by default.|
-| [Syslog](connect-syslog.md) | Matching is currently done for only for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft generated threat intelligence with Syslog, no manual mapping of columns is needed. The details come in the `SyslogMessage` field of the Syslog by default. The rule parses the IP directly from the `SyslogMessage`.|
+|[CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with IP indicators in CEF logs, no manual mapping needs to be done. The IP is populated in the `DestinationIP` field by default.|
+| [DNS](./data-connectors-reference.md#windows-dns-server-preview) | Matching is done for all DNS logs that are lookup queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are only processed for IPv4 (`QueryType="A"`). <br><br>To match Microsoft generated threat intelligence with IP indicators in DNS logs, no manual mapping of columns is needed. All columns are standard from Windows DNS Server, and the IPs will be in the `IPAddresses` column by default.|
+| [Syslog](connect-syslog.md) | Matching is only done for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft generated threat intelligence with IP indicators from Syslog, no manual mapping of columns is needed. The details originate from the `SyslogMessage` field by default and the rule parses the IP directly from it.|
 
-Microsoft Threat Intelligence Matching Analytics currently matches only with IPv4 indicators. 
+Microsoft Threat Intelligence Matching Analytics only matches IPv4 indicators. 
 
 #### [Microsoft Defender Threat Intelligence (MDTI)](#tab/microsoft-defender-threat-intelligence)
 | Log source | Description |
 | --------- | --------- |
-|[CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with CEF logs, no manual mapping needs to be done. The URL is populated in the `RequestURL` field by default.|
+|[CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with MDTI indicators in CEF logs, no manual mapping needs to be done. The URL is populated in the `RequestURL` field by default.|
 
 ---
 
