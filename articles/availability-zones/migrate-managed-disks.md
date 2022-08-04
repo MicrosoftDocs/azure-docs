@@ -78,7 +78,7 @@ To migrate a non-zonal managed disk to zone-redundant:
 
 1. Create a ZRS managed disk using the following Azure CLI snippet: 
 
-    ```powershell
+    ```azurecli
     # Create a new ZRS Managed Disks using the snapshot Id and the SKU supported   
     storageType=Premium_ZRS 
     location=westus2 
