@@ -1,4 +1,4 @@
-When developing locally, make sure that the user account that is accessing blob data has the correct permissions. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Roles can be assigned at the following levels:
+When developing locally, make sure that the user account that is accessing blob data has the correct permissions. If you plan to use the `DefaultAzureCredential` approach you will need `Storage Account Contributor` and `User Access Administrator` roles or higher. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Roles can be assigned at the following levels:
 
 * Specific resources, such as a storage account or a blob container
 * Resource group

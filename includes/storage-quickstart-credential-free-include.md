@@ -22,7 +22,9 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
 
-For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a managed identity once it has been deployed to Azure. No code changes are required for this transition.
+:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
+
+For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
 ### Assign roles to your Azure AD user
 
@@ -58,6 +60,11 @@ You can authorize access to data in your storage account using the following ste
     > When deployed to Azure, this same application code can also authenticate to other Azure services. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
 
 ## [Connection String](#tab/connection-string)
+
+A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location. 
+
+> [!NOTE]
+> If you plan to use connection strings, you will need the Storage Account Contributor role or higher. You can also use any account with the `Microsoft.Storage/storageAccounts/listkeys/action` permission.
 
 [!INCLUDE [retrieve credentials](retrieve-credentials.md)]
 
