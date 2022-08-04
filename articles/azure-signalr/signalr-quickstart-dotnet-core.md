@@ -38,7 +38,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Create an Azure SignalR resource
 
-[!INCLUDE [azure-signalr-create](../includes/signalr-quickstart-create-instance.md)]
+[!INCLUDE [azure-signalr-create](./includes/signalr-quickstart-create-instance.md)]
 
 ## Create an ASP.NET Core web app
 
