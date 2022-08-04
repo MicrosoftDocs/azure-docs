@@ -7647,11 +7647,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/azure/azure-monitor/agents/agents-overview.md#summary-of-agents",
-      "redirect_url": "/azure/azure-monitor/agents/agents-overview#compare-to-legacy-agents",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/azure/azure-monitor/agents/agents-overview.md#log-analytics-agent",
       "redirect_url": "/azure/azure-monitor/agents/log-analytics-agent",
       "redirect_document_id": true
