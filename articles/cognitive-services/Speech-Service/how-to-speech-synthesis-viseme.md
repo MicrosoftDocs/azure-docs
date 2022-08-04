@@ -238,7 +238,7 @@ The output json looks like the following sample, where each row of the `BlendSha
 
 The order of `BlendShapes` is as follows.
 
-| Order | `BlendShapes` |
+| Order | Facial position in `BlendShapes`|
 | --------- | ----------- | 
 | 1 | eyeBlinkLeft|
 | 2 | eyeLookDownLeft|
