@@ -38,13 +38,13 @@ You can publish your managed application either internally in the service catalo
 
 The service catalog is an internal catalog of approved solutions for users in an organization. You use the catalog to meet organizational standards and offer solutions for the organization. Employees use the catalog to find applications that are recommended and approved by their IT departments. They see the managed applications that other people in their organization share with them.
 
-For information about publishing a managed application to a service catalog, see [Create service catalog application](publish-service-catalog-app.md).
+For information about publishing a managed application to a service catalog, see [Quickstart: Create and publish a managed application definition](publish-service-catalog-app.md).
 
 ### Azure Marketplace
 
-Vendors who want to bill for their services can make a managed application available through Azure Marketplace. After the vendor publishes an application, it's available to users outside the organization. With this approach, a managed service provider (MSP), independent software vendor (ISV), or system integrator (SI) can offer their solutions to all Azure customers.
+Vendors who want to bill for their services can make a managed application available through Azure Marketplace. After the vendor publishes an application, it's available to users outside their organization. With this approach, a managed service provider (MSP), independent software vendor (ISV), or system integrator (SI) can offer their solutions to all Azure customers.
 
-For information about publishing a managed application to Azure Marketplace, see [Create marketplace application](../../marketplace/azure-app-offer-setup.md).
+For information about publishing a managed application to Azure Marketplace, see [Create an Azure application offer](../../marketplace/azure-app-offer-setup.md).
 
 ## Resource groups for managed applications
 
