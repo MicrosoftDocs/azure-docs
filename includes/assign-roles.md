@@ -7,7 +7,7 @@ When developing locally, make sure that the user account that is accessing blob 
 
 In this scenario, you'll assign permissions to your user account at the resource level to follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
-The following example will assign the `Storage Blob Data Contributor` role to your user account, provides both read and write access to blob data in your storage account.
+The following example will assign the `Storage Blob Data Contributor` role to your user account, which provides both read and write access to blob data in your storage account.
 
 ### [Azure portal](#tab/roles-azure-portal)
 
