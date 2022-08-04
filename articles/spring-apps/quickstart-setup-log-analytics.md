@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: felixsong
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 12/09/2021
+ms.date: 8/4/2022
 ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
