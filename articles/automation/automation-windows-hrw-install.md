@@ -289,7 +289,7 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 
 To check version of agent-based Windows Hybrid Runbook Worker, go to the following path:
 
-`C:\ProgramFiles\Microsoft Monitoring Agent\Agent\AzureAutomation\.`
+`C:\ProgramFiles\Microsoft Monitoring Agent\Agent\AzureAutomation\`
 
 The *AzureAutomation* folder has a sub-folder with the version number as the name of the sub-folder.
   
