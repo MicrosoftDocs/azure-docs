@@ -231,7 +231,7 @@ To copy data from Salesforce Marketing Cloud, set the source type in the copy ac
 ```
 
 >[!Note]
-> Contacts tables are not supported.
+> Contacts table is not supported.
 
 ## Lookup activity properties
 
