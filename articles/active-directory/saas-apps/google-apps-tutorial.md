@@ -53,9 +53,9 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 4. **Q: Can I enable single sign-on for only a subset of my Google Cloud / G Suite Connector by Microsoft users?**
 
-    A: Yes, the SSO profiles can be selected per User, Organisational Unit or Group in the Google Workspace.
+    A: Yes, the SSO profiles can be selected per User, Organizational Unit or Group in the Google Workspace.
 
-    ![Screenshot for SSO profile assignment](./media/google-apps-tutorial/profile-assignment.png)
+    ![Screenshot for SSO profile assignment.](./media/google-apps-tutorial/profile-assignment.png)
 
     Select the SSO profile as "none" for the Google Workspace group. This prevents members of this (Google Workspace group) from being redirected to Azure AD for logon.
 
