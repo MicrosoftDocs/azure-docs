@@ -87,6 +87,7 @@ Your target operating system must be up-to-date to enable these extra security f
 
 To validate enabled protections against these vulnerabilities, see [Understanding Get-SpeculationControlSettings PowerShell script output](https://support.microsoft.com/topic/understanding-get-speculationcontrolsettings-powershell-script-output-fd70a80a-a63f-e539-cda5-5be4c9e67c04).
 
+If protections are not enabled, please [contact Azure Support](http://aka.ms/microcodeenablementrequest-supporttechnical) to enable additional controls on your Azure VM.
 
 **Step 2**: To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
 
