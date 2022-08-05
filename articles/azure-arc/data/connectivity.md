@@ -175,6 +175,8 @@ HTTPS
 
 Yes
 
+To use proxy, verify that the agents meet the network requirements. See [Meet network requirements](../kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+
 #### Authentication 
 
 Azure Active Directory
