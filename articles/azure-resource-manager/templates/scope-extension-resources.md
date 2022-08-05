@@ -77,7 +77,74 @@ To apply an extension resource to a resource, use the `scope` property. Set the 
 
 The following example creates a storage account and applies a role to it.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/storageandrole.json" highlight="56":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "The principal to assign the role to"
+      }
+    },
+    "builtInRoleType": {
+      "type": "string",
+      "metadata": {
+        "description": "Built-in role to assign",
+        "allowedValues": [ "Owner", "Contributor", "Reader" ]
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource region"
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "role": [
+      {
+        "Owner": "[concat('/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]"
+      },
+      {
+        "Contributor": "[concat('/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c')]"
+      },
+      {
+        "Reader": "[concat('/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+      }
+    ],
+    "uniqueStorageName": "[concat('storage', guid(resourceGroup().id))]",
+    "storageApiVersion": "2019-04-01"
+  },
+  "resources": [
+    {
+      "name": "[variables('uniqueStorageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "[variables('storageApiVersion')]",
+      "sku": {
+        "name": "Standard_GRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "location": "[parameters('location')]",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2018-09-01-preview",
+      "name": "[guid(concat(parameters('principalId'),  variables('role')[parameters('builtInRoleType')]))]",
+      "scope": "[variables('uniqueStorageName')]",
+      "properties": {
+        "roleDefinitionId": "[variables('role')[parameters('builtInRoleType')]]",
+        "principalId": "[parameters('principalId')]"
+      }
+    }
+  ]
+}
+
+```
 
 The resourceGroup and subscription properties are only allowed on nested or linked deployments. These properties are not allowed on individual resources. Use nested or linked deployments if you want to deploy an extension resource with the scope set to a resource in a different resource group.
 
