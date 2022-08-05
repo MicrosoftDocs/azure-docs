@@ -41,7 +41,7 @@ After you sign up for the Azure account, you need to create a Speech resource in
 It takes a few moments to deploy your new Speech resource. After the deployment is complete, you can start using the Audio Content Creation tool.
 
  > [!NOTE]
-   > If you plan to use neural voices, make sure that you create your resource in [a region that supports neural voices](regions.md#prebuilt-neural-voices).
+   > If you plan to use neural voices, make sure that you create your resource in [a region that supports neural voices](regions.md#speech-service).
 
 ### Step 3: Sign in to Audio Content Creation with your Azure account and Speech resource
 
