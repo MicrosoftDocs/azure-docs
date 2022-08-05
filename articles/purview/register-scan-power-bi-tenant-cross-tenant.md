@@ -64,7 +64,7 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. Check your instance of Azure Key Vault to make sure:
    1. There are no typos in the password.
-   2. Microsoft Purview managed identity has get and list access to secrets.
+   2. Microsoft Purview managed identity has **get** and **list** access to secrets.
 
 1. Review your credential to validate that the:
    1. Client ID matches the _Application (Client) ID_ of the app registration.
@@ -103,7 +103,7 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. Check your instance of Azure Key Vault to make sure:
    1. There are no typos in the password.
-   2. Microsoft Purview managed identity has get and list access to secrets.
+   2. Microsoft Purview managed identity has **get** and **list** access to secrets.
 
 1. Review your credential to validate that the: 
    1. Client ID matches the _Application (Client) ID_ of the app registration.
@@ -206,7 +206,7 @@ To create and run a new scan by using the Azure runtime, perform the following s
 1. Give your scan a name. Then select the option to include or exclude the personal workspaces.
    
    > [!Note]
-   > If you switch the configuration of a scan to include or exclude a personal workspace, you trigger a full scan of the PowerBI source.
+   > If you switch the configuration of a scan to include or exclude a personal workspace, you trigger a full scan of the Power BI source.
 
 1. Select **Azure AutoResolveIntegrationRuntime** from the dropdown list.
 
