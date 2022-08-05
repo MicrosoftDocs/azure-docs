@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 08/05/2022
 ms.author: danlep
 ---
 # How to save and configure your API Management service configuration using Git
@@ -127,20 +127,23 @@ Once the repository is cloned, you can view and work with it in your local file 
 
 ## Update your local repository with the most current service instance configuration
 
-If you make changes to your API Management service instance in the Azure portal or using other Azure tools, you must save these changes to the repository before you can update your local repository with the latest changes. To do this:
+If you make changes to your API Management service instance in the Azure portal or using other Azure tools, you must save these changes to the repository before you can update your local repository with the latest changes. 
 
-1. In the Azure portal, select **Save to repository** on the **Repository** tab for your API Management instance.
+To save changes using the Azure portal, select **Save to repository** on the **Repository** tab for your API Management instance.
+
+Then, to update your local repository:
+
+1. Ensure that you are in the folder for your local repository. If you've just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
+
+    ```
+    cd {name}.scm.azure-api.net/
+    ```
+
 1. In the folder for your local repository, issue the following command.
 
-```
-git pull
-```
-
-Before running `git pull` ensure that you are in the folder for your local repository. If you've just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
-
-```
-cd {name}.scm.azure-api.net/
-```
+    ```
+    git pull
+    ```
 
 ## Push changes from your local repo to the server repo
 To push changes from your local repository to the server repository, you must commit your changes and then push them to the server repository. To commit your changes, open your Git command tool, switch to the directory of your local repository, and issue the following commands.
@@ -175,7 +178,7 @@ The files and folders in the local Git repository contain the configuration info
 | Item | Description |
 | --- | --- |
 | root api-management folder |Contains top-level configuration for the service instance |
-| apiReleases folder |Contains the configuration for the API revisions in the service instance |
+| apiReleases folder |Contains the configuration for the API releases in the service instance |
 | apis folder |Contains the configuration for the APIs in the service instance |
 | apiVersionSets folder |Contains the configuration for the API version sets in the service instance |
 | backends folder |Contains the configuration for the backend resources in the service instance |
@@ -286,7 +289,7 @@ The `portalStyles` folder contains configuration and style sheets for customizin
 * `portalStyles\<style name>.css` - Each `<style name>.css` file contains styles for the developer portal (`Preview.css` and `Production.css` by default).
 
 ### portalTemplates folder
-The `portalTemplates` folder contains templates for customizing the deprecated developer of the service instance.
+The `portalTemplates` folder contains templates for customizing the deprecated developer portal of the service instance.
 
 * `portalTemplates\<template name>\configuration.json` - Configuration of the template. 
 * `portalTemplates\<template name>\<page name>.html` - Original and modified HTML pages of the template. 
