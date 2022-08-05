@@ -5,16 +5,16 @@ description: Learn how to use Azure Machine Learning reinforcement learning (pre
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: Blackmist
-ms.date: 10/21/2021
+ms.author: wenxwei
+author: wenxwei
+ms.date: 08/05/2022
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ---
 
 # Reinforcement learning (preview) with Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!WARNING]
 > Azure Machine Learning reinforcement learning via the [`azureml.contrib.train.rl`](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl) package will no longer be supported after June 2022. We recommend customers use the [Ray on Azure Machine Learning library](https://github.com/microsoft/ray-on-aml) for reinforcement learning experiments with Azure Machine Learning. For an example, see the notebook [Reinforcement Learning in Azure Machine Learning - Pong problem](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb).
@@ -37,7 +37,7 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
  - Azure Machine Learning compute instance
 
-     - Learn how to clone sample notebooks in [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
+     - Learn how to clone sample notebooks in [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md).
          - Clone the **how-to-use-azureml** folder instead of **tutorials**
      - Run the virtual network setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
      - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
@@ -46,7 +46,7 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
     - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
     - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/): `pip install --upgrade azureml-contrib-reinforcementlearning`
-    - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
+    - Create a [workspace configuration file](../how-to-configure-environment.md#workspace).
     - Run the virtual network to open network ports used for distributed reinforcement learning.
 
 
@@ -94,7 +94,7 @@ from azureml.contrib.train.rl import WorkerConfiguration
 
 ### Initialize a workspace
 
-Initialize a [workspace](concept-workspace.md) object from the `config.json` file created in the [prerequisites section](#prerequisites). If you are executing this code in an Azure Machine Learning Compute Instance, the configuration file has already been created for you.
+Initialize a [workspace](../concept-workspace.md) object from the `config.json` file created in the [prerequisites section](#prerequisites). If you are executing this code in an Azure Machine Learning Compute Instance, the configuration file has already been created for you.
 
 ```Python
 ws = Workspace.from_config()
@@ -128,7 +128,7 @@ This example uses separate compute targets for the Ray head and workers nodes. T
 
 You can use a GPU-equipped head cluster to improve deep learning performance. The head node trains the neural network that the agent uses to make decisions. The head node also collects data points from the worker nodes to train the neural network.
 
-The head compute uses a single [`STANDARD_NC6` virtual machine](../virtual-machines/nc-series.md) (VM). It has 6 virtual CPUs to distribute work across.
+The head compute uses a single [`STANDARD_NC6` virtual machine](../../virtual-machines/nc-series.md) (VM). It has 6 virtual CPUs to distribute work across.
 
 
 ```python
@@ -166,11 +166,11 @@ else:
     print(head_compute_target.get_status().serialize())
 ```
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
 ### Worker computing cluster
 
-This example uses four [`STANDARD_D2_V2` VMs](../virtual-machines/nc-series.md) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs.
+This example uses four [`STANDARD_D2_V2` VMs](../../virtual-machines/nc-series.md) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs.
 
 GPUs aren't necessary for the worker nodes since they aren't performing deep learning. The workers run the game simulations and collect data.
 
@@ -245,7 +245,7 @@ The entry script `pong_rllib.py` accepts a list of parameters that defines how t
 
 Specifying the correct `num_workers` makes the most out of your parallelization efforts. Set the number of workers to the same as the number of available CPUs. For this example, you can use the following calculation:
 
-The head node is a [Standard_NC6](../virtual-machines/nc-series.md) with 6 vCPUs. The worker cluster is 4 [Standard_D2_V2 VMs](../cloud-services/cloud-services-sizes-specs.md#dv2-series) with 2 CPUs each, for a total of 8 CPUs. However, you must subtract 1 CPU from the worker count since 1 must be dedicated to the head node role.
+The head node is a [Standard_NC6](../../virtual-machines/nc-series.md) with 6 vCPUs. The worker cluster is 4 [Standard_D2_V2 VMs](../../cloud-services/cloud-services-sizes-specs.md#dv2-series) with 2 CPUs each, for a total of 8 CPUs. However, you must subtract 1 CPU from the worker count since 1 must be dedicated to the head node role.
 
 6 CPUs + 8 CPUs - 1 head CPU = 13 simultaneous workers. Azure Machine Learning uses head and worker clusters to distinguish compute resources. However, Ray does not distinguish between head and workers, and all CPUs are available as worker threads.
 

@@ -1,12 +1,11 @@
 ---
-title: 'Azure Bastion | Microsoft Docs'
+title: 'About Azure Bastion'
 description: Learn about Azure Bastion, which provides secure and seamless RDP/SSH connectivity to your virtual machines without exposing RDP/SSH ports externally.
-services: bastion
 author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 03/17/2022
+ms.date: 08/05/2022
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
@@ -75,6 +74,7 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
 ## Next steps
 
-* [Tutorial: Create an Azure Bastion host and connect to a Windows VM](tutorial-create-host-portal.md).
+* [Quickstart: Deploy Bastion using default settings](quickstart-host-portal.md).
+* [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md).
 * [Learn module: Introduction to Azure Bastion](/learn/modules/intro-to-azure-bastion/).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

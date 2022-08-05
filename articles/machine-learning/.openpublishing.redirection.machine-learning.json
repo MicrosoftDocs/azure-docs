@@ -1491,6 +1491,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-reinforcement-learning.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-use-reinforcement-learning",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/service/how-to-create-dataset-snapshots.md",
         "redirect_url": "/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot",
         "redirect_document_id": false
