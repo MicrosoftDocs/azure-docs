@@ -29,7 +29,7 @@ The benefits of using API surface for developers are:
 - Tenants bring policies and configurations inside your app without extra work
 
 
-You can also use Graph API to implement [chat](graph/api/resources/chat) and [calling](graph/api/resources/call) capabilities on the server side. This article concentrates on the client experience.
+You can also use Graph API to implement [chat](/graph/api/resources/chat) and [calling](/graph/api/resources/call) capabilities on the server side. This article concentrates on the client experience.
 
 ## Use cases
 Here are real-world examples of applications:
@@ -64,7 +64,7 @@ You can use the Azure Communication Services Identity SDK to exchange Azure Acti
 The following articles will guide you in implementing the calling for Teams users:
 1. [Authenticate as Teams user](../quickstarts/manage-teams-identity.md) 
 1. [Add video calling as Teams user to your client app](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
-1. [How-to use calling SDK as Teams user](../how-tos/cte-calling-sdk/manage-calls)
+1. [How-to use calling SDK as Teams user](../how-tos/cte-calling-sdk/manage-calls.md)
 
 #### Chat
 
