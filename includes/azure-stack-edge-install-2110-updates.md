@@ -56,6 +56,6 @@ ms.date: 08/04/2022
 
     Go to the local web UI and then go to **Software update** page. Verify that the device software and Kubernetes are successfully updated and the software version reflects that.
 
-    ![View updated software version in local UI](media/azure-stack-edge-install-2110-updates/portal-update-17.png)
+    ![Screenshot of updated software version in local UI.](media/azure-stack-edge-install-2110-updates/portal-update-17.png)
 
 

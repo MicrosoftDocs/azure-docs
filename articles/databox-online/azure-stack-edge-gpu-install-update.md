@@ -157,7 +157,7 @@ Depending on the software version that you are running, install process may diff
 
     Go to the local web UI and then go to **Software update** page. Verify that the Kubernetes update has successfully installed and the software version reflects that.
 
-    ![Software version after update 17](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
+    ![Screenshot of software version after update 17.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 
 Once the device software and Kubernetes updates are successfully installed, the banner notification disappears. 
@@ -241,7 +241,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**.
 
-    ![update device 6](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
+    ![Screenshot of update device 6.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 ## Next steps
 
