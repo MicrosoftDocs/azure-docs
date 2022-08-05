@@ -62,7 +62,6 @@ For devices enrolled with third-party mobile device management systems, see [Sup
 
 The **Require device to be marked as compliant** control:
    - Only supports Windows 10+, iOS, Android, and macOS devices registered with Azure AD and enrolled with Intune.
-   
    - Considers Microsoft Edge in InPrivate mode a non-compliant device.
 
 > [!NOTE]
