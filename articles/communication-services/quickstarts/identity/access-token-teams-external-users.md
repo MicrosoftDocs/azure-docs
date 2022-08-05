@@ -68,4 +68,4 @@ You might also want to:
  - [Learn about authentication](../../concepts/authentication.md)
  - [Add Teams meeting chat to your app](../chat/meeting-interop.md)
  - [Learn about client and server architecture](../../concepts/client-and-server-architecture.md)
- - [Deploy trusted authentication service hero sample](../.../samples/trusted-auth-sample.md)
+ - [Deploy trusted authentication service hero sample](../../samples/trusted-auth-sample.md)
