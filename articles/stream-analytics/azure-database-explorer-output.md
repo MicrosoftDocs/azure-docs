@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 08/05/2022
 ---
 
 # Azure Data Explorer output from Azure Stream Analytics (Preview)
@@ -17,6 +17,9 @@ Azure Data Explorer supports several ingestion methods, including connectors to 
 For more information about Azure Data Explorer, visit the [What is Azure Data Explorer documentation.](/azure/data-explorer/data-explorer-overview/)
 
 To learn more about how to create an Azure Data Explorer and cluster by using the Azure portal, visit: [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal/)
+
+> [!NOTE] 
+> Azure Data Explorer from Azure Stream Analytics does not support output to Synapse Data Explorer clusters.
 
 ## Output configuration
 
