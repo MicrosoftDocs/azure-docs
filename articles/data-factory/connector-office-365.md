@@ -86,7 +86,7 @@ Use the following steps to create a linked service to Microsoft 365 (Office 365)
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Office and select the Microsoft 365 (Office 365) connector.
+2. Search for Microsoft 365 (Office 365) and select the Microsoft 365 (Office 365) connector.
 
     :::image type="content" source="media/connector-office-365/office-365-connector.png" alt-text="Screenshot of the Microsoft 365 (Office 365) connector.":::    
 
