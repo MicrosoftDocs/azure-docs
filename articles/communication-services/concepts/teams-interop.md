@@ -29,7 +29,7 @@ Azure Communication Services can be used to build custom applications and experi
 
 Azure Communication Services supports two types of Teams interoperability depending on the identity of the user:
 
-- **[Guest/Bring your own identity (BYOI)](#guestbring-your-own-identity).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
+- **[External user/Bring your own identity (BYOI)](#external-userbring-your-own-identity).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
 - **[Teams identity](#teams-identity).** User authentication is controlled by Azure Active Directory and users of your custom application must have Teams licenses. This model allows you to build custom applications for Teams users to enable specialized workflows or experiences that are not possible with the existing Teams clients.
 
 Applications can implement both authentication models and leave the choice of authentication up to the user. The following table compares two models:
@@ -47,7 +47,7 @@ Applications can implement both authentication models and leave the choice of au
 
 \* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
-## Guest/Bring your own identity
+## External user/bring your own identity
 
 The bring your own identity (BYOI) authentication model allows you to build custom applications for non-Teams users to connect and communicate with Teams users. You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. The first scenario that has been enabled allows users of your application to join Microsoft Teams meetings as external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future, we will be enabling additional scenarios including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
 
@@ -69,7 +69,7 @@ There are several ways that users can join a Teams meeting:
 
 - Via Teams clients as authenticated **Teams users**. This includes the desktop, mobile, and web Teams clients.
 - Via Teams clients as unauthenticated **Anonymous users**. 
-- Via custom Communication Services applications as **Guest/BYOI users** using the bring your own identity authentication model. 
+- Via custom Communication Services applications as **External/BYOI users** using the bring your own identity authentication model. 
 - Via custom Communication Services applications as **Teams users** using the Teams identity authentication model.
 
 ![Overview of multiple interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-overview-v2.png)
@@ -83,7 +83,7 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
 Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
 
 ## Pricing
-All usage of Azure Communication Service APIs and SDKs increments [Azure Communication Service billing meters](https://azure.microsoft.com/pricing/details/communication-services/). Interactions with Microsoft Teams, such as joining a meeting or initiating a phone call using a Teams allocated number, will increment these meters but there is no additional fee for the Teams interoperability capability itself, and there is no pricing distinction between the Guest/BYOI and Microsoft 365 authentication options.
+All usage of Azure Communication Service APIs and SDKs increments [Azure Communication Service billing meters](https://azure.microsoft.com/pricing/details/communication-services/). Interactions with Microsoft Teams, such as joining a meeting or initiating a phone call using a Teams allocated number, will increment these meters but there is no additional fee for the Teams interoperability capability itself, and there is no pricing distinction between the External/BYOI and Microsoft 365 authentication options.
 
 If your Azure application has a user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs will be billed to your resource. However, the 10 minutes consumed by the user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
 
@@ -92,10 +92,10 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 
 ## Next steps
 
-Find more details for Guest/BYOI interoperability:
-- [Get access tokens for Guest/BYOI](../quickstarts/access-tokens.md)
-- [Join Teams meeting call as a Guest/BYOI](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-- [Join Teams meeting chat as a Guest/BYOI](../quickstarts/chat/meeting-interop.md)
+Find more details for External/BYOI user interoperability:
+- [Get access tokens for External user/BYOI](../quickstarts/access-tokens.md)
+- [Join Teams meeting call as a External user/BYOI](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Join Teams meeting chat as a External user/BYOI](../quickstarts/chat/meeting-interop.md)
 
 Find more details forTeams user interoperability:
 - [Get access tokens for Teams users](../quickstarts/manage-teams-identity.md)
