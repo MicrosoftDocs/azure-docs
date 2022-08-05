@@ -477,4 +477,4 @@ az ml job download --name <sweep-job> --output-name model
 
 ## Next steps
 * [Track an experiment](how-to-log-view-metrics.md)
-* [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+* [Deploy a trained model](how-to-deploy-managed-online-endpoint-sdk-v2.md)
