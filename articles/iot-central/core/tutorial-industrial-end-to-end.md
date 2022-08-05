@@ -3,7 +3,7 @@ title: Tutorial - Explore an Azure IoT Central industrial scenario | Microsoft D
 description: This tutorial shows you how to deploy an end-to-end industrial IoT solution. You install an IoT Edge gateway, an IoT Central application, and an Azure Data Explorer workspace.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 08/05/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -13,13 +13,13 @@ services: iot-central
 
 # Explore an industrial IoT scenario with IoT Central
 
-The solution shows how to use Azure IoT Central to ingest industrial IoT data from edge resources and then export the data to Azure Data Explorer (ADX) for further analysis. The sample deploys and configures resources such as:
+The solution shows how to use Azure IoT Central to ingest industrial IoT data from edge resources and then export the data to Azure Data Explorer for further analysis. The sample deploys and configures resources such as:
 
 - An Azure virtual machine to host the Azure IoT Edge runtime.
-- An IoT Central application to ingest OPC-UA data, transform it, and export it to ADX.
-- An ADX environment to store, manipulate, and explore the OPC-UA data.
+- An IoT Central application to ingest OPC-UA data, transform it, and then export it to Azure Data Explorer.
+- An Azure Data Explorer environment to store, manipulate, and explore the OPC-UA data.
 
-The following diagram shows the data flow in the scenario and highlights the key capabilities of IoT Central that are relevant to industrial solutions:
+The following diagram shows the data flow in the scenario and highlights the key capabilities of IoT Central relevant to industrial solutions:
 
 :::image type="content" source="media/tutorial-industrial-end-to-end/industrial-iot-architecture.png" alt-text="A diagram that shows the architecture of an industrial I O T scenario.":::
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 - Azure subscription.
 - Local machine to run the **IoT Central Solution Builder** tool. Pre-built binaries are available for Windows and macOS.
-- Local installation of Git. If you need to build the **IoT Central Solution Builder** tool instead of using one of the pre-built binaries.
+- If you need to build the **IoT Central Solution Builder** tool instead of using one of the pre-built binaries, you need a local Git installation.
 - Text editor. If you want to edit the configuration file to customize your solution.
 
 In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
@@ -45,7 +45,7 @@ In this tutorial, you use the Azure CLI to create an app registration in Azure A
 
 ## Setup
 
-To prepare the tool to deploy your solution:
+Complete the following tasks to prepare the tool to deploy your solution:
 
 - Create an Azure Active Directory app registration
 - Install the **IoT Central Solution Builder** tool
@@ -157,10 +157,10 @@ The tool deploys the IoT Edge 1.2 runtime to an Azure virtual machine. The insta
 
 The IoT Edge deployment manifest defines four custom modules:
 
-- [metricscollector](../../iot-edge/how-to-collect-and-transport-metrics.md?view=iotedge-2020-11&tabs=iotcentral&preserve-view=true) - sends metrics from the IoT Edge device to the IoT Central application.
+- [azuremetricscollector](../../iot-edge/how-to-collect-and-transport-metrics.md?view=iotedge-2020-11&tabs=iotcentral&preserve-view=true) - sends metrics from the IoT Edge device to the IoT Central application.
 - [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) - generates simulated OPC-UA data.
-- [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) - forwards OPC-UA data from an OPC-UA server to the **MiabGWModule**.
-- [MiabGwModule](https://github.com/iot-for-all/iotc-miab-gateway) - gateway that sends OPC-UA data to your IoT Central app, and handles commands sent from your IoT Central app.
+- [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) - forwards OPC-UA data from an OPC-UA server to the **miabgateway**.
+- [miabgateway](https://github.com/iot-for-all/iotc-miab-gateway) - gateway that sends OPC-UA data to your IoT Central app, and handles commands sent from your IoT Central app.
 
 You can see the deployment manifest in the tool configuration file. The manifest is part of the device template that the tool adds to your IoT Central application.
 
@@ -168,23 +168,42 @@ You can see the deployment manifest in the tool configuration file. The manifest
 
 The [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) module on the IoT Edge device generates simulated OPC-UA data for the solution. This module implements an OPC-UA server with multiple nodes that generate random data and anomalies. The module also lets you configure user defined nodes.
 
+The [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) module on the IoT Edge device forwards OPC-UA data from an OPC-UA server to the **miabgateway** module.
+
 ### Device templates and devices
 
-The solution uses a single device template called **Manufacturing In A Box Gateway** in your IoT Central application. The device template models the IoT Edge gateway and defines a single module with four interfaces: <!-- TODO: Five? IoT Edge Metrics standard interface for the metrics..? -->
+The solution uses a single device template called **Manufacturing In A Box Gateway** in your IoT Central application. The device template models the IoT Edge gateway and includes the **Manufacturing In A Box Gateway** and **Azure Metrics Collector** modules.
 
-- **IoT Central Module Device Information Interface**. This standard interface defines read-only properties such as **Processor architecture**, **Operating system**, and **Software version** that the device reports to IoT Central.
-- **IoT Central Module Settings**. This interface defines two writable properties that let you switch on telemetry and routing debugging on the IoT Edge device.
-- **IoT Central Module Interface**. This interface defines the telemetry that the IoT Edge device sends such as module status and heartbeat. This telemetry lets you monitor the health of the IoT Edge device.
-- **Manufacturing In A Box Gateway**. This interface lets you manage the downstream OPC-UA servers connected to the gateway. The interface includes commands such as the **Provision OPC Device** command that the tool calls during the configuration process.
+The **Manufacturing In A Box Gateway** module includes the following interfaces:
+
+- **Manufacturing In A Box Gateway Device Interface**. This interface defines read-only properties and events such as **Processor architecture**, **Operating system**, **Software version**, and **Module Started** that the device reports to IoT Central. The interface also defines a **Restart Gateway Module** command and a writable **Debug Telemetry** property.
+- **Manufacturing In A Box Gateway Module Interface**. This interface lets you manage the downstream OPC-UA servers connected to the gateway. The interface includes commands such as the **Provision OPC Device** command that the tool calls during the configuration process.
 
 There are two devices registered in your IoT Central application:
 
-- **opc-anomaly-device**. This device isn't assigned to a device template. The device represents the OPC-UA server implemented in the **opcplc** IoT Edge module. This OPC-UA server generates simulated OPC-UA data. Because the device isn't associated with a device template, IoT Central marks the telemetry as **Unmodeled**. <!-- TODO: Add a screenshot here that shows the unmodeled data. -->
-- **industrial-connect-gw**. This device is assigned to the **Manufacturing In A Box Gateway** device template. Use this device to monitor the health of the gateway and manage the downstream OPC-UA servers. The configuration file run by the tool calls the **cmProvisionOpcDevice** command to provision the downstream OPC-UA server.
+- **opc-anomaly-device**. This device isn't assigned to a device template. The device represents the OPC-UA server implemented in the **opcplc** IoT Edge module. This OPC-UA server generates simulated OPC-UA data. Because the device isn't associated with a device template, IoT Central marks the telemetry as **Unmodeled**.
+- **industrial-connect-gw**. This device is assigned to the **Manufacturing In A Box Gateway** device template. Use this device to monitor the health of the gateway and manage the downstream OPC-UA servers. The configuration file run by the tool calls the **Provision OPC Device** command to provision the downstream OPC-UA server.
 
 ### Data export configuration
 
-The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends the telemetry received from the OPC-UA server to an Azure Data Explorer environment. To identify the telemetry from the OPC-UA server, the data export uses a filter. The data export uses a transformation to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest.
+The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends the telemetry received from the OPC-UA server to an Azure Data Explorer environment. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
+
+```jq
+{
+    schema: "default@v1",
+    applicationId: .applicationId,
+    deviceId: .device.id,
+    deviceName: .device.name,
+    templateId: .device.templateId,
+    messageSource: .messageSource,
+    enqueuedTime: .enqueuedTime,
+    telemetry: .telemetry | map({ key: .name, value: .value }) | from_entries,
+    messageProperties: .messageProperties,
+    enrichments: .enrichments,
+    component: .component,
+    module: .module
+}
+```
 
 ### Azure Data Explorer
 
@@ -195,6 +214,8 @@ The solution uses Azure Data Explore to store and analyze the OPC-UA telemetry. 
 - The **extractOpcTagData** function processes the data as it arrives in the **rawOpcData** table and adds transformed records to the **opcDeviceData** table.
 
 The solution includes several sample queries that generate plots from the data in the **opcDeviceData** table.
+
+<!-- to do: include some of sample queries from scott -->
 
 ## Customize the solution
 
