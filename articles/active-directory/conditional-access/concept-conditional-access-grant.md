@@ -54,13 +54,13 @@ Selecting this checkbox requires users to perform Azure Active Directory (Azure 
 
 Organizations that have deployed Intune can use the information returned from their devices to identify devices that meet specific policy compliance requirements. Intune sends compliance information to Azure AD so Conditional Access can decide to grant or block access to resources. For more information about compliance policies, see [Set rules on devices to allow access to resources in your organization by using Intune](/intune/protect/device-compliance-get-started).
 
-A device can be marked as compliant by Intune (for any device operating system or by a third-party mobile device management system for Windows 10 devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
+A device can be marked as compliant by Intune for any device operating system or by a third-party mobile device management system for Windows 10 devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
 Devices must be registered in Azure AD before they can be marked as compliant. You can find more information about device registration in [What is a device identity?](../devices/overview.md).
 
 For devices enrolled with third-party mobile device management systems, see [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
-The following  requirements are part of the **Require device to be marked as compliant** control:
+The **Require device to be marked as compliant** control:
    - Only supports Windows 10+, iOS, Android, and macOS devices registered with Azure AD and enrolled with Intune.
    
    - Considers Microsoft Edge in InPrivate mode a non-compliant device.
@@ -76,7 +76,7 @@ Organizations can choose to use the device identity as part of their Conditional
 
 When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the required grant control for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **require Multi-Factor Authentication** control instead.
 
-The control:
+The **Require hybrid Azure AD joined device** control:
    - Only supports domain-joined Windows down-level (pre Windows 10) and Windows-current (Windows 10+) devices.
    - Doesn't consider Microsoft Edge in InPrivate mode as a hybrid Azure-AD-joined device.
 
@@ -162,7 +162,7 @@ The following client apps support this setting:
 
 Apps for the app protection policy support the Intune mobile application management feature with policy protection.
 
-The control:
+The **Require app protection policy** control:
 
 - Only supports iOS and Android for device platform condition.
 - Requires a broker app to register the device. On iOS, the broker app is Microsoft Authenticator. On Android, the broker app is Intune Company Portal.
