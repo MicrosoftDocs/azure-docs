@@ -111,4 +111,4 @@ Teams users can join the Teams meeting experience, manage calls, and manage chat
 Find more details in the following articles:
 - [Teams interoperability](./teams-interop.md)
 - [Issue a Teams access token](../quickstarts/manage-teams-identity.md)
-- [Start a call with Teams user as a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+- [Start a call to Teams user as a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
