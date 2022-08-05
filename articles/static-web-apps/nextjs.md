@@ -27,7 +27,7 @@ To enable static export of a Next.js application, add `next export` the to `buil
 }
 ```
 
-If you're using custom build scripts, set `is_static_export` to `true` in the Static Web Apps task of the GitHub Actions/Azure DevOps YAML file.
+If you're using custom build scripts, set `IS_STATIC_EXPORT` to `true` in the Static Web Apps task of the GitHub Actions/Azure DevOps YAML file.
 
 Follow the [deploy static-rendered Next.js websites](deploy-nextjs-ssg.md) tutorial to learn how to deploy a statically exported Next.js application to Azure.
 
@@ -44,5 +44,10 @@ Key features that are available in the preview are:
 - [Image optimization](https://nextjs.org/docs/basic-features/image-optimization)
 - [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration)
 - [Internationalization](https://nextjs.org/docs/advanced-features/i18n-routing)
+- [Middleware](https://nextjs.org/docs/advanced-features/middleware)
+- [Authentication](https://nextjs.org/docs/authentication)
+
+> [!NOTE]
+> When using Hybrid Rendering, Azure Functions is unavailable as this functionality is replaced by Next.js API Routes.
 
 Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutorial to learn how to deploy a hybrid Next.js application to Azure.

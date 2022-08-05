@@ -97,7 +97,7 @@ Before deploying to Azure, you'll need to create a GitHub repo and push the appl
 
 1. On the _Overview_ window, select the *URL* link to open your deployed application.
 
-If the website doesn't load immediately, then the build is still running. Once the workflow is complete, you can refresh the browser to view your web app.
+If the website doesn't load immediately, then the build is still running.
 
 To check the status of the Actions workflow, navigate to the Actions dashboard for your repository:
 
@@ -105,7 +105,9 @@ To check the status of the Actions workflow, navigate to the Actions dashboard f
 https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-app/actions
 ```
 
-Now any changes made to the `main` branch start a new build and deployment of your website.
+Once the workflow is complete, you can refresh the browser to view your web app.
+
+Now any changes made to the `main` branch starts a new build and deployment of your website.
 
 ### Sync changes
 
