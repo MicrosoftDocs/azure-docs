@@ -52,11 +52,11 @@ This section provides you with the steps to create a sample ToU. When you create
 1. In Microsoft Word, create a new document.
 1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-1. Search for and select **Azure Active Directory**. Then select **Security** from the menu on the left-hand side.
+1. Search for and select **Azure Active Directory**. From the menu on the left-hand side select **Security**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. On the left navbar, select **Security**. Then select **Conditional Access**.
+1. Select **Conditional Access**.
 
    ![Conditional Access](./media/require-tou/03.png)
 
