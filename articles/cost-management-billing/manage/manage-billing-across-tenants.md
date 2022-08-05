@@ -40,11 +40,11 @@ Before you begin, make sure you have either the tenant ID, or the primary domain
 1. Search for **Cost Management + Billing**.  
     :::image type="content" source="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" alt-text="Screenshot showing Search in the Azure portal for Cost Management + Billing." lightbox="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" :::
 1. Select **Access control (IAM)** on the left side of the page.
-1. On the Access control (IAM) page, select **Associated billing tenants** at the top of the page.
+1. On the Access control (IAM) page, select **Associated billing tenants** at the top of the page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-associated-tenants.png" alt-text="Screenshot showing the Access control page while adding an associated tenant." lightbox="./media/manage-billing-across-tenants/access-management-associated-tenants.png" :::
 1. On the Associated billing tenants page, select **Add** at the top of the page.
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-list-add.png" alt-text="Screenshot showing the Add option for Associated billing tenants." lightbox="./media/manage-billing-across-tenants/associated-tenants-list-add.png" :::
-1. On the Add tenant pane, enter a tenant ID or domain name, provide a friendly name and then select one or both options for access settings. For more information about access settings, see [Access settings for associated billing tenant](#access-settings-for-associated-billing-tenants).
+1. On the Add tenant page, enter a tenant ID or domain name, provide a friendly name and then select one or both options for access settings. For more information about access settings, see [Access settings for associated billing tenant](#access-settings-for-associated-billing-tenants).  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add.png" alt-text="Screenshot showing associated billing tenants form." lightbox="./media/manage-billing-across-tenants/associated-tenants-add.png" :::
     > [!NOTE]
     > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Azure active directory.
@@ -64,10 +64,10 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 1. Search for **Cost Management + Billing**.  
     :::image type="content" source="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" alt-text="Screenshot showing Search in the Azure portal for cost management + billing" lightbox="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" :::
 1. Select **Access control (IAM)** on the left side of the page.
-1. On the Access control (IAM) page, select **Add** at the top of the page.
+1. On the Access control (IAM) page, select **Add** at the top of the page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" alt-text="Screenshot showing access control page while assigning roles." lightbox="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" :::
 1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups or apps to whom you want to assign roles.
-1. Select **Add**.
+1. Select **Add**.  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" alt-text="Screenshot showing saving a role assignment." lightbox="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" :::
 1. The users receive an email with a link to review the role assignment request. After they accept the role, they have access to your billing account.
 
@@ -75,11 +75,11 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 
 If the users can't receive emails, you can copy the review link and share it with them. Follow the steps in the preceding section then:
 
-1. Select **Manage requests** at the top of the **Access control (IAM)** page.
+1. Select **Manage requests** at the top of the **Access control (IAM)** page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-manage-requests.png" alt-text="Screenshot showing the Manage requests option." lightbox="./media/manage-billing-across-tenants/access-management-manage-requests.png" :::
-1. Select the role assignment request.
+1. Select the role assignment request.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-requests-list.png" alt-text="Screenshot showing billing access requests list." lightbox="./media/manage-billing-across-tenants/access-management-requests-list.png" :::
-1. Copy the request URL.
+1. Copy the request URL.  
     :::image type="content" source="./media/manage-billing-across-tenants/role-assignment-request-details.png" alt-text="Screenshot showing the invitation URL for role assignment request." lightbox="./media/manage-billing-across-tenants/role-assignment-request-details.png" :::
 1. Manually share the link with the user.
 
