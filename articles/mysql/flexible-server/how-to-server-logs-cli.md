@@ -18,7 +18,7 @@ This article shows you how to list and download server flexible server using Azu
 
 This article requires that you're running the Azure CLI version 2.39.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to sign-in to your account using the [az sign-in](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to sign-in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
