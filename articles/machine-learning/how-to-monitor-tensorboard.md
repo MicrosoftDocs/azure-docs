@@ -5,14 +5,12 @@ description: Launch TensorBoard to visualize experiment job histories and identi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: blackmist
-ms.author: larryfr
+ms.author: amipatel
+author: amibp
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
-
-[//]: # (needs PM review; Do URL Links names change if it includes 'Run')
 
 # Visualize experiment jobs and metrics with TensorBoard and Azure Machine Learning
 
