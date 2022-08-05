@@ -18,7 +18,7 @@ This article provides an overview of the Azure Arc agents deployed on the Kubern
 
 Most on-premises datacenters enforce strict network rules that prevent inbound communication on the network boundary firewall. Azure Arc-enabled Kubernetes works with these restrictions by not requiring inbound ports on the firewall. Azure Arc agents only require outbound communication to a [set list of network endpoints](quickstart-connect-cluster.md#meet-network-requirements).
 
-![Diagram showing an architectural overview of the Azure Arc-enabled Kubernetes agents](./media/architectural-overview.png)](./media/architectural-overview.png#lightbox)
+:::image type="content" source="media/architectural-overview.png" alt-text="Diagram showing an architectural overview of the Azure Arc-enabled Kubernetes agents." lightbox="media/architectural-overview.png":::
 
 The following high-level steps are involved in [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md):
 
