@@ -43,7 +43,7 @@ The following table shows supported client-side capabilities available in Azure 
 | Apply background effects                      | ❌ |
 | See together mode video stream                | ❌ |
 
-When Teams external users leaves the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting.
+When Teams external users leave the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting.
 
 ## Server capabilities
 
