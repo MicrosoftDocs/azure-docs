@@ -40,7 +40,7 @@ You can view all registered sources on the **Data Map** tab of the Microsoft Pur
 There are two view types: 
 
 - [The map view](#map-view)
-- [The list view](#list-view)
+- [The list view](#table-view)
 
 ### Map view
 
