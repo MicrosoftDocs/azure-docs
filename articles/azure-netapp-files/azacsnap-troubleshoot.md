@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 06/13/2022
+ms.date: 08/05/2022
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 ---
