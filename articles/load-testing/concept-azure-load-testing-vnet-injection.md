@@ -16,7 +16,7 @@ In this article, you'll learn about the scenarios for deploying Azure Load Testi
 
 This functionality enables the following usage scenarios:
 
-- Generate load to an [endpoint hosted in an Azure virtual network](#scenario-load-test-an-azure-hosted-private-backend-microservice).
+- Generate load to an [endpoint hosted in an Azure virtual network](#scenario-load-test-an-azure-hosted-private-endpoint).
 - Generate load to a [public endpoint with access restrictions](#scenario-load-test-a-public-endpoint-with-access-restrictions), such as restricting client IP addresses.
 - Generate load to an [on-premises service, not publicly accessible, that is connected to Azure via ExpressRoute (hybrid application deployment)](#scenario-load-test-an-on-premises-hosted-service-connected-via-azure-expressroute).
 
@@ -32,7 +32,7 @@ The following diagram provides a technical overview:
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Scenario: Load test an Azure-hosted private backend microservice
+## Scenario: Load test an Azure-hosted private endpoint
 
 In this scenario, you've deployed an application endpoint in a virtual network on Azure, which isn't publicly accessible. For example, the endpoint could be behind an internal load balancer, or running on a VM with a private IP address.
 
