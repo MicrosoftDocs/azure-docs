@@ -51,9 +51,9 @@ If a security principal requires the ability to create objects or drop objects i
 ### SQL security model
 
 Synapse workspace provides a T-SQL endpoint that enables you to query the Lake database using the serverless SQL pool. In addition to the data access, SQL interface enables you to control who can access the tables. You need to enable a user to access the shared Lake databases using the serverless SQL pool. There are two types of users who can access the Lake databases:
-- **Administrators** - You can assign a `Synapse SQL Administrator` workspace role or `sysadmin` server-level role in the serverless SQL pool. This role has full control over all databases. `Synapse Administrator` and `Synapse SQL Administrator` will also have all the permissions on all objects in a serverless SQL pool by default. 
-- **Readers** - you can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
-  - 
+- Administrators - You can assign a `Synapse SQL Administrator` workspace role or `sysadmin` server-level role in the serverless SQL pool. This role has full control over all databases. `Synapse Administrator` and `Synapse SQL Administrator` will also have all the permissions on all objects in a serverless SQL pool by default. 
+- Readers - you can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
+
 Learn more about [setting access control on shared databases here](../sql/shared-databases-access-control.md).
 
 ## Custom SQL objects in Lake databases
