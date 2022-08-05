@@ -95,10 +95,10 @@ The following JSON response illustrates what Azure Video Indexer returns when tr
 
 It's important to note the limitations of Mapped person, to avoid or mitigate the effects of miss matches between people or people who have no matches.
  
-**Precondition** for the matching is that the person that showing in the Observed person was detected and can be found in the People insight.  
+**Precondition** for the matching is that the person that showing in the observed faces was detected and can be found in the People insight.  
 **Pose**: The tracks are optimized to handle observed people who most often appear on the front.  
-**Obstructions**: There may be miss matching between persons and observed people where there are obstruction (people or faces overlapping each other).  
-**Spatial allocation per frame**: There may be miss matching where different people appear in the same spatial position relatively to the frame in a short time.
+**Obstructions**: There is no match between faces and observed people where there are obstruction (people or faces overlapping each other).  
+**Spatial allocation per frame**: There is no match where different people appear in the same spatial position relatively to the frame in a short time.
 
 See the limitations of Observed people: [Trace observed people in a video](observed-people-tracing.md)
 
