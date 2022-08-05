@@ -15,18 +15,19 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Azure Communication services provide a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
+Azure Communication Services provide a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
 
 Here are the main scenarios where rooms are useful:
 
 - **Rooms enable scheduled communication experience.** Rooms help service platforms deliver meeting-style experiences while still being suitably generic for a wide variety of industry applications. Services can schedule and manage rooms for patients seeking medical advice, financial planners working with clients, and lawyers providing legal services. 
-- **Rooms enable invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. Developers can use the "Join Policy" for a room, to either let all or only a subset of users with assigned Communication Services identities to join a room call.
+- **Rooms enable an invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. Developers can use the "Join Policy" for a room, to either let all or only a subset of users with assigned Communication Services identities to join a room call.
 - **Rooms enable structured communications through roles and permissions.** Rooms allow developers to assign predefined roles to users to exercise a higher degree of control and structure in communication. Ensure only presenters can speak and share content in a large meeting or in a virtual conference.
 
-## When to use Rooms
+## When to use rooms
+
 Use rooms when you need any of the following capabilities:
 - Control which users can join room calls.
-- Need scheduling/coordinates that are enabled and expire at a specified time.
+- Need scheduling/coordinates that are enabled and expire at a specified time and date.
 - Need structured communication through roles and permissions for users. 
 
  :::image type="content" source="../media/rooms/room-decision-tree.png" alt-text="Diagram showing decision tree to select a Room.":::
@@ -61,12 +62,12 @@ The picture below illustrates the concept of managing and joining the rooms.
  
 ### Rooms API/SDKs
 
-Rooms are created and managed via rooms APIs or SDKs. Use the Rooms API/SDKs in your server application for `room` operations:
+Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in your server application for `room` operations:
 - Create  
 - Modify
 - Delete
 - Set and update the list of participants
-- Set and modifying the Room validity (up to six months).
+- Set and modify the Room validity
 - Control who gets to join a room, using `roomJoinPolicy`. Details below.
 - Assign roles and permissions to users. Details below.
 
