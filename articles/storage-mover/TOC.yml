@@ -1,0 +1,72 @@
+items:
+- name: Azure Storage Mover documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Storage Mover?
+    href: overview.md
+  expanded: true
+- name: Concepts
+  items: 
+  - name: Planning for a deployment
+    href: deployment-planning.md
+  - name: Resource Hierarchy
+    href: resource-hierarchy.md
+  - name: Scale and performance targets
+    href: performance-targets.md
+  - name: Understanding billing
+    href: billing.md
+  - name: Permissions and data security
+    href: data-security.md
+- name: How-To
+  items: 
+  - name: Deploy
+    items: 
+    - name: Create a storage mover resource
+      href: resource-create.md
+    - name: Deploy a storage mover agent
+      href: agent-deploy.md
+  - name: Network
+    items:
+    - name: Configure agent proxy and firewall settings
+      href: network-firewall-configure.md
+  - name: Manage
+    items:
+      - name: Register or unregister an agent
+        href: agent-manage.md
+      - name: Manage projects
+        href: projects-manage.md
+      - name: Manage job definitions
+        href: job-definitions-manage.md
+      - name: Manage job runs
+        href: job-runs-manage.md
+  - name: Monitor
+    items:
+      - name: Monitor job definitions
+        href: job-definitions-monitor.md
+  - name: Decommission
+    items:
+      - name: Delete the Mover resource
+        href: resource-delete.md
+      - name: Unregister an agent
+        href: agent-manage.md
+  - name: Troubleshoot
+    items:
+      - name: File copy errors
+        href: copy-errors.md
+- name: Tutorials
+  items:
+    - name: InstallStorage Mover modules for PowerShell
+      href: module-install.md
+    - name: Migrate an NFS share to an Azure blob container
+      href: migrate-share-nfs.md
+- name: Resources
+  items:
+  - name: Release notes
+    href: release-notes.md
+  - name: Samples
+    href: https://review.docs.microsoft.com/en-us/samples/browse/?branch=main&expanded=azure
+  - name: Azure Storage Mover release notes
+    href: release-notes.md
+
+  
