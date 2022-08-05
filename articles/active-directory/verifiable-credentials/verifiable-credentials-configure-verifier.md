@@ -115,7 +115,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
    "ClientId": "555555555-0000-0000-0000-000000000000",
    "ClientSecret": "123456789012345678901234567890",
    "VerifierAuthority": "did:ion:EiDJzvzaBMb_EWTWUFEasKzL2nL-BJPhQTzYWjA_rRz3hQ:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJzaWdfMmNhMzY2YmUiLCJwdWJsaWNLZXlKd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwia3R5IjoiRUMiLCJ4IjoiZDhqYmduRkRGRElzR1ZBTWx5aDR1b2RwOGV4Q2dpV3dWUGhqM0N...",
-   "CredentialManifest": " https://verifiedid.did.msidentity.com/v1.0/987654321-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+   "CredentialManifest": " https://verifiedid.did.msidentity.com/v1.0/987654321-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert"
  }
 }
 ```

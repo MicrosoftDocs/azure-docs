@@ -86,7 +86,7 @@ The issuance request payload contains information about your verifiable credenti
     "clientName": "Verifiable Credential Expert Sample"
   },
   "type": "VerifiedCredentialExpert",
-  "manifest": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert",
+  "manifest": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert",
   "claims": {
     "given_name": "Megan",
     "family_name": "Bowen"
@@ -223,8 +223,8 @@ The callback endpoint might be called with an error message. The following table
 
 |Message  |Definition    |
 |---------|---------|
-| `fetch_contract_error*`| Unable to fetch the verifiable credential contract. This error usually happens when the API can't fetch the manifest you specify in the request payload [RequestIssuance object](#issuance-request-payload).|
-| `issuance_service_error*` | The Verifiable Credentials service isn't able to validate requirements, or something went wrong in Verifiable Credentials.|
+| `fetch_contract_error`| Unable to fetch the verifiable credential contract. This error usually happens when the API can't fetch the manifest you specify in the request payload [RequestIssuance object](#issuance-request-payload).|
+| `issuance_service_error` | The Verifiable Credentials service isn't able to validate requirements, or something went wrong in Verifiable Credentials.|
 | `unspecified_error`| This error is uncommon, but worth investigating. |
 
 The following example demonstrates a callback payload when an error occurred:
