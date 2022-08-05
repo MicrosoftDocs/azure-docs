@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devdivchpfy22
 
 # Azure CLI samples
 
-The following table includes links to bash scripts for Azure App Configuration by using the [az appconfig](/azure-docs-cli/latest/docs-ref-autogen/appconfig) commands in the Azure CLI.
+The following table includes links to bash scripts for Azure App Configuration by using the [az appconfig](/cli/azure/appconfig) commands in the Azure CLI.
 
 | Script | Description |
 |-|-|
