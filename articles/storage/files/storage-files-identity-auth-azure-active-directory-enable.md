@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/05/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -60,7 +60,7 @@ To enable Azure AD Kerberos authentication on Azure Files for hybrid user accoun
 
 1. Sign in to the Azure portal and select the storage account you want to enable Azure AD Kerberos authentication for.
 1. Under **Data storage**, select **File shares**.
-1. Under **Active Directory**, select the configuration status (for example, **Not configured**).
+1. Next to **Active Directory**, select the configuration status (for example, **Not configured**).
 1. Under **Azure AD Kerberos (preview)**, select **Set up**.
 1. Select the **Azure AD Kerberos** checkbox.
 1. Optional: If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following PowerShell cmdlets from an on-premises AD-joined client:
@@ -77,7 +77,18 @@ To enable Azure AD Kerberos authentication on Azure Files for hybrid user accoun
 
 ## Grant admin consent to the new service principal
 
-After enabling Azure AD Kerberos authentication, you'll need to grant admin consent to the new application registered in your Azure AD tenant. 
+After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps.
+
+1. Open **Azure Active Directory**.
+2. Select **App registrations** on the left pane.
+3. Select **All Applications**.
+
+   :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png":::
+
+4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+5. Select **API permissions** in the left pane.
+6. Select **Add permissions** at the bottom of the page.
+7. Select **Grant admin consent for "DirectoryName"**.
 
 ## Assign share-level permissions
 
@@ -103,7 +114,7 @@ If you want to use another authentication method, you can disable Azure AD authe
 
 1. Sign in to the Azure portal and select the storage account you want to enable Azure AD Kerberos authentication for.
 1. Under **Data storage**, select **File shares**.
-1. Under **Active Directory**, select the configuration status (for example, **Not configured**).
+1. Next to **Active Directory**, select the configuration status (for example, **Not configured**).
 1. Under **Azure AD Kerberos (preview)**, select **Set up**.
 1. Uncheck the **Azure AD Kerberos** checkbox.
 1. Select **Save**.
