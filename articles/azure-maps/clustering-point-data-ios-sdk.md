@@ -568,7 +568,7 @@ let source = DataSource(options: [
 ])
 
 // Import the geojson data and add it to the data source.
-let url = URL(string: "https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/SamplePoiDataSet.json")!
+let url = URL(string: "https://samples.azuremaps.com/data/geojson/SamplePoiDataSet.json")!
 source.importData(fromURL: url)
 
 // Add data source to the map.
