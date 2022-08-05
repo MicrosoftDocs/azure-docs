@@ -1,27 +1,17 @@
 ---
-title: "Quickstart: Form Recognizer JavaScript SDK (beta) | Preview"
+title: "Quickstart: Form Recognizer JavaScript SDK (beta) | v3.0"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer JavaScript client library SDKs v3.0 (preview)
+description: Form and document processing, data extraction, and analysis using Form Recognizer JavaScript client library SDKs v3.0 
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/22/2022
+ms.date: 08/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
-# Get Started: Form Recognizer JavaScript SDK (beta)
-
->[!NOTE]
-> Form Recognizer beta version—4.0.0-beta.4—is currently in public preview. Some features may not be supported or have limited capabilities.
-
-[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta)
-
-Get started with Azure Form Recognizer using the JavaScript programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
 In this quickstart you'll use the following features to analyze and extract data and values from forms and documents:
 
@@ -396,15 +386,3 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/v3-javascript-sdk-prebuilt-invoice-output.md)
-
-That's it, congratulations!
-
-In this quickstart, you used the Form Recognizer JavaScript SDK to analyze various forms in different ways. Next, explore the Form Recognizer Studio and reference documentation to learn moe about Form Recognizer v3.0 API.
-
-## Next steps
-
->[!div class="nextstepaction"]
-> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

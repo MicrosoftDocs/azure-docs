@@ -76,7 +76,8 @@ The following table lists the supporting container(s) for each Form Recognizer c
 
 #### Recommended CPU cores and memory
 
-> [!Note]
+> [!NOTE]
+>
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
 ##### Read, Layout, and Prebuilt containers

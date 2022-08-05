@@ -140,7 +140,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Next, we're going to add a new step to the workflow. Select the plus button underneath the newly created OneDrive node.
 
-1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice (preview)** from the list.
+1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice ** from the list.
 
 1. Now, you should see a window where you will create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 

@@ -1,52 +1,17 @@
 ---
-title: "Quickstart: Form Recognizer REST API v3.0 | Preview"
+title: "Quickstart: Form Recognizer REST API v3.0 | v3.0"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0 (preview)
+description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0 
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 08/16/2022
 ms.author: lajanuar
 ---
 
-# Get started: Form Recognizer REST API 2022-06-30-preview
-
-<!-- markdownlint-disable MD036 -->
-
->[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
-The current API version is **2022-06-30-preview**.
-
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
-
-Get started with Azure Form Recognizer using the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models using the REST API or by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
-
-## Form Recognizer models
-
- The REST API supports the following models and capabilities:
-
-**Document Analysis**
-
-* 🆕 Read—Analyze and extract printed (typeface) and handwritten text lines, words, locations, and detected languages.
-* 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
-* Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
-
-**Prebuilt Models**
-
-* 🆕 W-2—Analyze and extract fields from US W-2 tax documents (used to report income), using a pre-trained W-2 model.
-* Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
-* Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
-* ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
-* Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
-
-**Custom Models**
-
-* Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
-* Composed custom—Compose a collection of custom models and assign them to a single model ID.
+In this quickstart you'll use the Form Recognizer REST API to analyze and extract data and values from forms and documents:
 
 ## Prerequisites
 
@@ -178,10 +143,10 @@ The prebuilt models extract pre-defined sets of document fields. See [Model data
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, further explore the Form Recognizer Studio and latest reference documentation to learn more about the Form Recognizer API.
+In this quickstart, you used Form Recognizer REST API v3.0 to analyze forms in different ways. Next, further explore the Form Recognizer Studio and latest reference documentation to learn more about the Form Recognizer API.
 
 >[!div class="nextstepaction"]
 > [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

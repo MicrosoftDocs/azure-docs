@@ -13,7 +13,7 @@ ms.custom: cog-serv-seo-aug-2020
 keywords: document processing
 ---
 
-# Form Recognizer error guide v3.0 (preview)
+# Form Recognizer error guide v3.0 
 
 Form Recognizer uses a unified design to represent all errors encountered in the REST APIs.  Whenever an API operation returns a 4xx or 5xx status code, additional information about the error is returned in the response JSON body as follows:
 

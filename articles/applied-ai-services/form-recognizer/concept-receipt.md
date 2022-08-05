@@ -34,7 +34,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-receipt**|
+|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md.md)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|**prebuilt-receipt**|
 
 ### Try Form Recognizer
 
@@ -46,10 +46,10 @@ See how data, including time and date of transactions, merchant information, and
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+#### Form Recognizer Studio 
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API.
+> Form Recognizer studio is available with the v3.0 API.
 
 1. On the Form Recognizer Studio home page, select **Receipts**
 
@@ -108,9 +108,9 @@ You'll need a receipt document. You can use our [sample receipt document](https:
 | Price | Number | Individual price of each item unit| Two-decimal float |
 | TotalPrice | Number | Total price of line item | Two-decimal float |
 
-## Form Recognizer preview v3.0
+## Form Recognizer v3.0
 
- The Form Recognizer preview introduces several new features and capabilities. The **Receipt** model supports single-page hotel receipt processing.
+ Form Recognizer v3.0 introduces several new features and capabilities. The **Receipt** model supports single-page hotel receipt processing.
 
 ### Hotel receipt field extraction
 
@@ -140,9 +140,9 @@ You'll need a receipt document. You can use our [sample receipt document](https:
 
 ### Migration guide and REST API v3.0
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API **](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 
