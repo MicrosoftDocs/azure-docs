@@ -51,6 +51,8 @@ These resources are ephemeral and exist only for the duration of the load test r
 
 ## Configure your virtual network
 
+To test private endpoints, you need an Azure virtual network and at least one subnet. In this section, you'll configure your virtual network and subnet.
+
 ### Create a subnet
 
 When you deploy Azure Load Testing in your virtual network, it's recommended to use different subnets for Azure Load Testing and the application endpoint. This approach enables you to configure network traffic access specifically for each purpose. Learn more about how to [add a subnet to a virtual network](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
@@ -201,7 +203,7 @@ If you're using the [Azure Load Testing REST API](/rest/api/loadtesting/) to sta
         1. For **Destination port**, you have to validate two ports: *29876* and *29877*. Enter one value at a time and move to the next step.
         1. Press **Check** to verify that the network security group isn't blocking traffic.
 
-            :::image type="content" source="media/how-to-test-private-endpoint/test-nsg-connectivity.png" alt-text="Screenshot that shows the N S G Diagnotic page to test network connectivity.":::
+            :::image type="content" source="media/how-to-test-private-endpoint/test-network-security-group-connectivity.png" alt-text="Screenshot that shows the NSG Diagnostic page to test network connectivity.":::
 
             If the traffic status is **Denied**, [configure your virtual network](#configure-your-virtual-network) to allow traffic for the **BatchNodeManagement** service tag.
 
