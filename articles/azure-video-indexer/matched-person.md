@@ -8,6 +8,8 @@ ms.author: juliako
 
 # Matched person (preview)
 
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
+
 Azure Video Indexer matches observed people that were detected in the video with the corresponding faces ("People" insight). To produce the matching algorithm, the bounding boxes for both the faces and the observed people are assigned spatially along the video. The API returns the confidence level of each matching.
 
 The following are some scenarios that benefit from this feature:
