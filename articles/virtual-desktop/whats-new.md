@@ -34,7 +34,7 @@ The FSLogix 2201 hotfix 2 update includes fixes to multi-session VHD mounting, C
 
 ## Japan and Australia metadata service now generally available
 
-The Azure Virtual Desktop metadata database located in Japan and Australia is now generally available. This allows customers to store their Azure Virtual Desktop objects and metadata within a database located within that geographical boundary. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-the-azure-virtual-desktop/ba-p/3570756). 
+The Azure Virtual Desktop metadata database located in Japan and Australia is now generally available. This update allows customers to store their Azure Virtual Desktop objects and metadata within a database located within that geography. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-the-azure-virtual-desktop/ba-p/3570756). 
 
 ## Azure Virtual Desktop moving away from Storage Blob image type
 
@@ -42,7 +42,7 @@ Storage Blob images are created from unmanaged disks, which means they lack the 
 
 ## Azure Virtual Desktop Custom Configuration changing to PowerShell
 
-Starting July 21, 2022, Azure Virtual Desktop will replace the Custom Configuration Azure Resource Manager template parameters for creating host pools, addins session hosts to host pools, and the Getting Started feature (including their respective Azure Resource Manager templates) with a PowerShell script URL parameter stored in a publicly accessible location. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-custom-configuration-breaking-change/m-p/3568069). 
+Starting July 21, 2022, Azure Virtual Desktop will replace the Custom Configuration Azure Resource Manager template parameters for creating host pools, adding session hosts to host pools, and the Getting Started feature with a PowerShell script URL parameter stored in a publicly accessible location. This replacement includes the parameters' respective Azure Resource Manager templates. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-custom-configuration-breaking-change/m-p/3568069). 
 
 ## June 2022
 
@@ -54,7 +54,7 @@ The Azure Virtual Desktop metadata database located in Australia is now in publi
 
 ### Intune user configuration for Windows 11 Enterprise multi-session VMs in public preview
 
-Deploying Intune user configuration policies from Microsoft Endpoint Manager admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following:
+Deploying Intune user configuration policies from Microsoft Endpoint Manager admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
 
 - User scope policies using the Settings catalog.
 - User certificates via Templates.
