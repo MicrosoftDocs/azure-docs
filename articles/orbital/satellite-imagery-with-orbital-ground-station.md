@@ -13,11 +13,11 @@ ms.custom: template-overview
 
 This article is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the AOGS and its core concepts and shows how to schedule contacts. The article also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
-Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. With AOGS, we can capture the Aqua broadcast when the satellite is within line of sight of a ground station.
+Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. 
 
-A *contact* is time reserved at an orbital ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the direct broadcast data. The captured data is sent to an Azure VM as a data stream that is processed using the [RT-STPS](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview) (Real-Time Software Telemetry Processing System) provided by [Direct Readout Laboratory](http://directreadout.sci.gsfc.nasa.gov/) at NASA to generate the Level-0 Production Data Set (PDS) product. Further processing of the Level-0 product is done using IPOPP (International Planetary Observation Processing Package) tool, also provided by DRL to produce higher level products.
+Using AOGS, we capture the Aqua broadcast when the satellite is within line of sight of a ground station by scheduling a *contact*. A *contact* is time reserved at a ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the direct broadcast data. The captured data is sent to an Azure VM as a data stream and processed using the [Real-Time Software Telemetry Processing System](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview)(RT-STPS) tool provided by the [Direct Readout Laboratory](http://directreadout.sci.gsfc.nasa.gov/)(DRL) which generates a Level-0 product. This Level-0 product is processed further using DRL's [International Planetary Observation Processing Package](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=68)(IPOPP) tool to produce higher level products.
 
-In this tutorial, you'll follow these steps to process the Aqua data stream:
+In this tutorial, we will follow these steps to collect and process Aqua data:
 
 > [!div class="checklist"]
 > * [Schedule a contact and collect Aqua direct broadcast data using AOGS](#step-1-schedule-a-contact-and-collect-aqua-direct-broadcast-data-using-aogs).
@@ -42,7 +42,7 @@ At the end of this step, you should have the raw direct broadcast saved as ```.b
 
 ## Step 2: Process Aqua direct broadcast data using RT-STPS
 
-The [Real-time Software Telemetry Processing System (RT-STPS)](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=69) is NASA-provided software for processing Aqua direct broadcast data. The steps below cover installation of RT-STPS(Verson 6.0) on the receiver-vm, and production of Level-0 PDS files from the data collected in the previous step. 
+The [Real-time Software Telemetry Processing System](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=69)(RT-STPS) is a NASA-provided software for processing Aqua direct broadcast data. The steps below cover installation of RT-STPS Verson 6.0 on the receiver-vm, and production of Level-0 Production Data Set(PDS) files from the data collected in the previous step. 
 
 Register with the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/) to download the RT-STPS installation package.
 
