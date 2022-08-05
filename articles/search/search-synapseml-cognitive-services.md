@@ -39,22 +39,26 @@ You'll need multiple Azure resources for this walkthrough. You should use the sa
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier)
 + [Azure Forms Recognizer](../applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md) (any tier)
 + [Azure Cognitive Services Translator](../cognitive-services/translator/how-to-create-translator-resource.md), Single service (any tier)
-+ [Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md), Standard (general-purpose v2), as required by Azure Synapse Analytics.
++ [Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md), Standard or Premium
 + [Azure Synapse Analytics](../synapse-analytics/get-started-create-workspace.md) (any tier)
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>1</sup>
 
 <sup>1</sup> The Azure Databricks quickstart includes multiple steps. Follow just the instructions in the "Create an Azure Databricks workspace" section.
 
+The following screenshot shows a resource group with the required resources.
+
 :::image type="content" source="media/search-synapseml-cognitive-services/resource-group.png" alt-text="Screenshot of the resource group containing all resources." border="true":::
 
-All of these resources support security features in the Microsoft Identity platform, but for simplicity this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service.
+> [!NOTE]
+> All of the above resources support security features in the Microsoft Identity platform.  For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment or share the solution with others, be sure to replace hard-coded keys with integrated security or encrypted keys.
 
 ## Prepare data
 
 The sample data consists of 10 invoices of various composition. A small data set speeds up processing and meets the requirements of minimum tiers, but the approach described in this exercise will work for large volumes of data.
 
-+ HS: I need the invoices. Are the PDFs wrapping JPEG?
-+ HS: I'm using just ADLS GEN2. Should be okay.
++ *HS: I need the invoices. Are the PDFs wrapping JPEG?*
++ *HS: I'll upload them to our sample data repo once I get the files.*
++ *HS: FYI I'm using the ADLS GEN2 that Synapse needs to store the sample data. Should be okay but I'm just mentioning it in case it matters.*
 
 1. Download the sample data from the Azure Search Sample data repository.
 
@@ -94,11 +98,11 @@ Paste the following code into the first cell. Replace the placeholders with endp
 
 This code loads packages and sets up the endpoints and keys for the Azure resources used in this workflow.
 
-+ HS: What is VISION used for?  Do the PDFs contain JPEG???
-+ HS: Where is Forms Recognizer?
-+ HS: what is Project Arcadia?
-+ HS: Can I delete all instances of mmlspark-build-keys?
-+ HS: I need to add endpoints, not just keys -- where and how do I do that?
++ *HS: What is VISION used for?  Do the PDFs contain JPEG???*
++ *HS: Where is Forms Recognizer?*
++ *HS: what is Project Arcadia?*
++ *HS: Can I delete all instances of mmlspark-build-key and openAI?*
++ *HS: I need to add endpoints, not just keys -- where and how do I do that?*
 
 ```python
 import os
@@ -159,9 +163,9 @@ Paste the following code into the third cell. No modifications are required.
 
 This code loads the AnalyzeInvoices transformer and the invoices.
 
-+ HS: SUBSCRIPTION KEY?? Should the key references be more specific. Subscription key is unfamiliar terminoloyg.
-+ HS: IMAGE URL??
-+ HS: ORIGINAL SUBHEAD INCLUDES "DISTRIBUTED" - is this important?
++ *HS: SUBSCRIPTION KEY?? Should the key references be more specific. Subscription key is unfamiliar terminology.*
++ *HS: IMAGE URL?? still not sure how images factor into this demo.*
++ *HS: ORIGINAL SUBHEAD INCLUDES "DISTRIBUTED" - is this important?*
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
@@ -230,7 +234,7 @@ Paste the following code in the sixth cell. No modifications are required.
 
 This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. The generated index will have a document key and use the default values for fields created using the REST API.
 
-+ HS: Is there anyway to add language analyzers?  If not, should we skip the translation step or replace it with a different transformer?
++ *HS: Is there anyway to add language analyzers?  If not, should we skip the translation step or replace it with a different transformer?  It's possible that without the right language analyzers, the results are subpar and will discourage customers from adoption, but that's just a concern on my part, and not sure if it's valid.*
 
 ```python
 from synapse.ml.cognitive import *
@@ -248,14 +252,14 @@ from synapse.ml.cognitive import *
 
 ## Search the index
 
-Paste the following code into the seventh cell. No modifications are required, except that you might want to vary the query syntax to further explore your content.
+Paste the following code into the seventh cell. No modifications are required, except that you might want to vary the [query syntax](query-simple-syntax.md) to further explore your content.
 
-This code calls the Search Documents REST API that queries an index.
+This code calls the [Search Documents REST API](/rest/api/searchservice/search-documents) that queries an index. This particular example is searching for the word "door". Once you know what the field names are in the inferred index, you can add parameters like "select" and "searchFields" to scope the query request and response.
 
 ```python
 import requests
 
-url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2019-05-06".format(search_service, search_index)
+url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2020-06-30".format(search_service, search_index)
 requests.post(url, json={"search": "door"}, headers={"api-key": search_key}).json()
 ```
 
