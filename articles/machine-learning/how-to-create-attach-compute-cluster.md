@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 05/02/2022
+ms.date: 08/05/2022
 ---
 
 # Create an Azure Machine Learning compute cluster
@@ -86,7 +86,6 @@ The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs ar
     
 # [Python](#tab/python)
 
-
 To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties.
     
 * **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
@@ -120,7 +119,53 @@ Where the file *create-cluster.yml* is:
 
 # [Studio](#tab/azure-studio)
 
-For information on creating a compute cluster in the studio, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#amlcompute).
+Create a single or multi node compute cluster for your training, batch inferencing or reinforcement learning workloads. 
+
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
+ 
+1. Under __Manage__, select __Compute__.
+1. If you have no compute targets, select  **Create** in the middle of the page.
+  
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Create compute target":::
+
+1. If you see a list of compute resources, select **+New** above the list.
+
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Select new":::
+
+1. In the tabs at the top, select __Compute cluster__
+
+1. Fill out the form as follows:
+
+    |Field  |Description  |
+    |---------|---------|
+    | Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. Setting the location to a different region than the workspace is in __preview__, and is only available for __compute clusters__, not compute instances.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
+    |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
+    |Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
+    |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+
+1. Select **Next** to proceed to **Advanced Settings** and fill out the form as follows:
+
+    |Field  |Description  |
+    |---------|---------|
+    |Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
+    |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
+    |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
+    | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
+    | Enable SSH access | Use the same instructions as [Enable SSH access](#enable-ssh) for a compute instance (above). |
+    |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources.
+
+1. Select __Create__.
+
+
+### Enable SSH access
+
+SSH access is disabled by default.  SSH access cannot be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+
+[!INCLUDE [enable-ssh](../../includes/machine-learning-enable-ssh.md)]
+
+### Connect with SSH access
+
+[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
 
 ---
 
@@ -249,7 +294,9 @@ To update an existing cluster:
 
 # [Studio](#tab/azure-studio)
 
-See [Set up managed identity in studio](how-to-create-attach-compute-studio.md#managed-identity).
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
+
+During cluster creation or when editing compute cluster details, in the **Advanced settings**, toggle **Assign a managed identity** and specify a system-assigned identity or user-assigned identity.
 
 ---
 

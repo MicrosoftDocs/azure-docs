@@ -290,7 +290,7 @@
         - name: Kubernetes cluster
           displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
           href: how-to-attach-kubernetes-anywhere.md
-        - name: Use studio
+        - name: Manage in studio
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
     - name: Plan and manage costs

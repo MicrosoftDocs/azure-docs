@@ -10,7 +10,7 @@ ms.topic: how-to
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
-ms.date: 05/04/2022
+ms.date: 08/05/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -152,7 +152,9 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
 
-Once the compute instance is created and running, see [Connect with SSH access](how-to-create-attach-compute-studio.md#ssh-access).
+### Connect with SSH
+
+[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
 
 ## Create on behalf of (preview)
 
