@@ -20,7 +20,7 @@ Although Azure Cognitive Search has its own [AI enrichment](cognitive-search-con
 The article starts with forms (invoices) in Azure Storage and includes the following steps:
 
 + Create an Azure Databricks workspace that connects to a Spark cluster containing your data.
-+ Create a Synapse workspace and notebook that loads and transforms data using SynapseML and other resources. Transformations include forms recognition, form analysis and restructuring, and text translation.
++ Create a notebook that loads and transforms data using SynapseML and other resources. Transformations include forms recognition, form analysis and restructuring, and text translation.
 + Infer, build, and load a search index using AzureSearchWriter from SynapseML.
 + Query the search index that contains transformed and multi-lingual content.
 
@@ -39,7 +39,6 @@ You'll need multiple Azure resources for this walkthrough. You should use the sa
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier)
 + [Azure Forms Recognizer](../applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md) (any tier)
 + [Azure Cognitive Services Translator](../cognitive-services/translator/how-to-create-translator-resource.md), Single service (any tier)
-+ TBD - [Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal), Standard (general purpose v2)
 + [Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md), Standard (general-purpose v2), as required by Azure Synapse Analytics.
 + [Azure Synapse Analytics](../synapse-analytics/get-started-create-workspace.md) (any tier)
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>1</sup>
