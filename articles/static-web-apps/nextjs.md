@@ -29,6 +29,23 @@ To enable static export of a Next.js application, add `next export` the to `buil
 
 If you're using custom build scripts, set `IS_STATIC_EXPORT` to `true` in the Static Web Apps task of the GitHub Actions/Azure DevOps YAML file.
 
+Here is an example of the GitHub Actions job that is enabled for static exports:
+
+```yaml
+      - name: Build And Deploy
+        id: swa
+        uses: azure/static-web-apps-deploy@latest
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          app_location: "/" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "public" # Built app content directory - optional
+        env: # Add environment variables here
+          IS_STATIC_EXPORT: true
+```
+
 Follow the [deploy static-rendered Next.js websites](deploy-nextjs-ssg.md) tutorial to learn how to deploy a statically exported Next.js application to Azure.
 
 ## Hybrid Next.js applications (preview)

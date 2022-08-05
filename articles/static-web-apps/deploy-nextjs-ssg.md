@@ -111,13 +111,13 @@ The following steps show how to link your app to Azure Static Web Apps. Once in 
 
 1. On the _Overview_ window, select the *URL* link to open your deployed application.
 
-If the website doesn't load immediately, then the build is still running. Once the workflow is complete, you can refresh the browser to view your web app.
-
-To check the status of the Actions workflow, navigate to the Actions dashboard for your repository:
+If the website doesn't load immediately, then the build is still running. To check the status of the Actions workflow, navigate to the Actions dashboard for your repository:
 
 ```url
 https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 ```
+
+Once the workflow is complete, you can refresh the browser to view your web app.
 
 Now any changes made to the `main` branch start a new build and deployment of your website.
 
@@ -126,6 +126,39 @@ Now any changes made to the `main` branch start a new build and deployment of yo
 When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
 
 Return to the terminal and run the following command `git pull origin main`.
+
+### Configuring Static Rendering
+
+By default, the application will be treated as a hybrid rendered Next.js application, but to continue using it as a static site generator, the deployment task needs to be updated.
+
+1. Open the repository in VS Code
+
+1. Navigate to the GitHub Actions file that Azure Static Web Apps added to your repository at `.github/workflows/azure-static-web-apps-<your side ID>.yml`
+
+1. Update the _Build and Deploy_ job to have an environment variable of `IS_STATIC_EXPORT` set to `true`:
+
+    ```yaml
+        - name: Build And Deploy
+            id: swa
+            uses: azure/static-web-apps-deploy@latest
+            with:
+            azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
+            repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+            action: "upload"
+            app_location: "/" # App source code path
+            api_location: "" # Api source code path - optional
+            output_location: "out" # Built app content directory - optional
+            env: # Add environment variables here
+            IS_STATIC_EXPORT: true
+    ```
+
+1. Commit the changes to git and push them to GitHub
+
+    ```bash
+    git commit -am "Configuring static site generation" && git push
+    ```
+
+Once the build has completed, the site will be statically rendered.
 
 ## Clean up resources
 
