@@ -77,7 +77,7 @@ performed. For instance, a profile would be triggered in the following scenario:
 - The maximum possible size of the Tenured memory region is 1024 mb.
 - Your threshold was set to 75%.
 - A full garbage collection is executed.
-- After the collection is finished the Tenured regions occupancy is above 7668 mb.
+- After the collection is finished, the Tenured regions occupancy is above 7668 mb.
 
 The maximum size of the tenured region is the size it would be if the JVMs' heap grew to its maximum size.
 
@@ -154,7 +154,7 @@ Example configuration:
 
 ```
 
-`memoryTriggeredSettings` This configuration will be used in the event of a memory profile is
+`memoryTriggeredSettings` This configuration will be used if a memory profile is
 requested. This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
@@ -162,7 +162,7 @@ requested. This value can be one of:
 - `profile`. Uses the `profile.jfc` configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
-`cpuTriggeredSettings` This configuration will be used in the event of a cpu profile is requested.
+`cpuTriggeredSettings` This configuration will be used if a cpu profile is requested.
 This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
