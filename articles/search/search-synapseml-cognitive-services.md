@@ -51,13 +51,16 @@ All of these resources support security features in the Microsoft Identity platf
 
 The sample data consists of 10 invoices of various composition. A small data set speeds up processing and meets the requirements of minimum tiers, but the approach described in this exercise will work for large volumes of data.
 
++ HS: I need the invoices. Are the PDFs wrapping JPEG?
++ HS: I'm using just ADLS GEN2. Should be okay.
+
 1. Download the sample data from the Azure Search Sample data repository.
 
 1. Upload the files to a new container in your storage account.
 
 1. Get the connection string and access keys for the account. You'll need it later.
 
-## Create a Spark cluster and install the `synapseml` library
+## Create a Spark cluster and add SynapsemL
 
 1. In Azure portal, find your Azure Databricks workspace and select **Launch workspace**.
 
@@ -75,13 +78,184 @@ The sample data consists of 10 invoices of various composition. A small data set
    1. In Coordinates, enter `com.microsoft.azure:synapseml_2.12:0.10.0`
    1. Select **Install**.
 
-Test your configuration
+## Create a notebook
 
 1. On the left menu, select **Create** > **Notebook**.
 
 1. Give the notebook a name, select **Python** as the default language, and select the cluster that has the `synapseml` library.
 
-1. Paste in the shared code into four consecutive cells.
+1. Create seven consecutive cells. You'll paste code into each one.
+
+## Set up dependencies
+
+Paste the following code into the first cell. Replace the placeholders with endpoints and access keys for each resource.
+
+This code loads packages and sets up the endpoints and keys for the Azure resources used in this workflow.
+
++ HS: What is VISION used for?  Do the PDFs contain JPEG???
++ HS: Where is Forms Recognizer?
++ HS: what is Project Arcadia?
++ HS: Can I delete all instances of mmlspark-build-keys?
++ HS: I need to add endpoints, not just keys -- where and how do I do that?
+
+```python
+import os
+from pyspark.sql.functions import udf, trim, split, explode, col, monotonically_increasing_id, lit
+from pyspark.sql.types import StringType
+from synapse.ml.core.spark import FluentAPI
+
+if os.environ.get("AZURE_SERVICE", None) == "Microsoft.ProjectArcadia":
+    from pyspark.sql import SparkSession
+
+    spark = SparkSession.builder.getOrCreate()
+    from notebookutils.mssparkutils.credentials import getSecret
+
+    os.environ["VISION_API_KEY"] = getSecret("mmlspark-build-keys", "cognitive-api-key")
+    os.environ["AZURE_SEARCH_KEY"] = getSecret("mmlspark-build-keys", "azure-search-key")
+    os.environ["TRANSLATOR_KEY"] = getSecret("mmlspark-build-keys", "translator-key")
+    from notebookutils.visualization import display
+
+
+key = os.environ["VISION_API_KEY"]
+search_key = os.environ["AZURE_SEARCH_KEY"]
+translator_key = os.environ["TRANSLATOR_KEY"]
+openai_key = os.environ["OPENAI_API_KEY"]
+
+search_service = "mmlspark-azure-search"
+search_index = "form-demo-index-3"
+```
+
+## Load data into Spark
+
+Paste the following code into the second cell. Replace the reference to the storage account and container with names used in your resources.
+
+This code creates references to external files in Azure storage and reads them into data frames.
+
+```python
+def blob_to_url(blob):
+    [prefix, postfix] = blob.split("@")
+    container = prefix.split("/")[-1]
+    split_postfix = postfix.split("/")
+    account = split_postfix[0]
+    filepath = "/".join(split_postfix[1:])
+    return "https://{}/{}/{}".format(account, container, filepath)
+
+
+df2 = (spark.read.format("binaryFile")
+    .load("wasbs://ignite2021@mmlsparkdemo.blob.core.windows.net/form_subset/*")
+    .select("path")
+    .limit(10)
+    .select(udf(blob_to_url, StringType())("path").alias("url"))
+    .cache())
+    
+display(df2)
+```
+
+## Apply form recognition
+
+Paste the following code into the third cell. No modifications are required.
+
+This code loads the AnalyzeInvoices transformer and the invoices.
+
++ HS: SUBSCRIPTION KEY?? Should the key references be more specific. Subscription key is unfamiliar terminoloyg.
++ HS: IMAGE URL??
++ HS: ORIGINAL SUBHEAD INCLUDES "DISTRIBUTED" - is this important?
+
+```python
+from synapse.ml.cognitive import AnalyzeInvoices
+
+analyzed_df = (AnalyzeInvoices()
+    .setSubscriptionKey(key)
+    .setLocation("eastus")
+    .setImageUrlCol("url")
+    .setOutputCol("invoices")
+    .setErrorCol("errors")
+    .setConcurrency(5)
+    .transform(df2)
+    .cache())
+
+display(analyzed_df)
+```
+
+## Apply form ontology
+
+Paste the following code into the fourth cell. No modifications are required.
+
+This code loads FormOntologyLearner, a transformer that analyzes the output of form recognition and infers a tabular data structure.
+
+```python
+from synapse.ml.cognitive import FormOntologyLearner
+
+itemized_df = (FormOntologyLearner()
+    .setInputCol("invoices")
+    .setOutputCol("extracted")
+    .fit(analyzed_df)
+    .transform(analyzed_df)
+    .select("url", "extracted.*").select("*", explode(col("Items")).alias("Item"))
+    .drop("Items").select("Item.*", "*").drop("Item"))
+
+display(itemized_df)
+```
+
+## Apply translation
+
+Paste the following code into the fifth cell. No modifications are required.
+
+This code loads Translate, a transformer that calls the Azure Translator in Cognitive Services. The original text, which is in English, is machine-translated into various languages. All of the output is consolidated into "output.translations".
+
+```python
+from synapse.ml.cognitive import Translate
+
+translated_df = (Translate()
+    .setSubscriptionKey(translator_key)
+    .setLocation("eastus")
+    .setTextCol("Description")
+    .setErrorCol("TranslationError")
+    .setOutputCol("output")
+    .setToLanguage(["zh-Hans", "fr", "ru", "cy"])
+    .setConcurrency(5)
+    .transform(itemized_df)
+    .withColumn("Translations", col("output.translations")[0])
+    .drop("output", "TranslationError")
+    .cache())
+
+display(translated_df)
+```
+
+## Create and load an index
+
+Paste the following code in the sixth cell. No modifications are required.
+
+This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. The generated index will have a document key and use the default values for fields created using the REST API.
+
++ HS: Is there anyway to add language analyzers?  If not, should we skip the translation step or replace it with a different transformer?
+
+```python
+from synapse.ml.cognitive import *
+
+(completed_df.withColumn("DocID", monotonically_increasing_id().cast("string"))
+    .withColumn("SearchAction", lit("upload"))
+    .writeToAzureSearch(
+        subscriptionKey=search_key,
+        actionCol="SearchAction",
+        serviceName=search_service,
+        indexName=search_index,
+        keyCol="DocID",
+    ))
+```
+
+## Search the index
+
+Paste the following code into the seventh cell. No modifications are required, except that you might want to vary the query syntax to further explore your content.
+
+This code calls the Search Documents REST API that queries an index.
+
+```python
+import requests
+
+url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2019-05-06".format(search_service, search_index)
+requests.post(url, json={"search": "door"}, headers={"api-key": search_key}).json()
+```
 
 ## Clean up resources
 
