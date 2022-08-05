@@ -46,9 +46,9 @@ In this scenario, you've deployed a publicly available web service in Azure, or 
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-hosted-public-access-restrictions.png" alt-text="Diagram that shows the set-up for load testing a public endpoint hosted on Azure with access restrictions.":::
 
-To restrict access to the endpoint for the load test engines, you need a range of public IP addresses for the test engine virtual machines. You deploy Azure Load Testing in your virtual network and then deploy a  [NAT Gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource). A NAT gateway is a fully managed Azure service that provides source network address translation (SNAT). 
+To restrict access to the endpoint for the load test engines, you need a range of public IP addresses for the test engine virtual machines. You deploy a [NAT Gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource) in the virtual network, and then create and run a load test in the virtual network. A NAT gateway is a fully managed Azure service that provides source network address translation (SNAT).
 
-When you attach the NAT gateway to the subnet in which the load test engines are injected, you can configure the public IP addresses that NAT Gateway exposes for the test engine virtual machines. You can then allowlist these IP addresses for access restriction to your application endpoint.
+Attach the NAT gateway to the subnet in which the load test engines are injected. You can configure the public IP addresses used by the NAT gateway. These load test engine VMs use these IP addresses for generating load. You can then allowlist these IP addresses for restricting access to your application endpoint.
 
 ## Scenario: Load test an on-premises hosted service, connected via Azure ExpressRoute
 
