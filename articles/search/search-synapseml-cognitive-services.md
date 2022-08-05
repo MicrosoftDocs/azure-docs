@@ -45,6 +45,8 @@ You'll need multiple Azure resources for this walkthrough. You should use the sa
 
 <sup>1</sup> The Azure Databricks quickstart includes multiple steps. Follow just the instructions in the "Create an Azure Databricks workspace" section.
 
+:::image type="content" source="media/search-synapseml-cognitive-services/resource-group.png" alt-text="Screenshot of the resource group containing all resources." border="true":::
+
 All of these resources support security features in the Microsoft Identity platform, but for simplicity this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service.
 
 ## Prepare data
