@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Grant
 
-Within a **Conditional Access policy**, an administrator can use access controls to grant or block access to resources.
+Within a Conditional Access policy, an administrator can use access controls to grant or block access to resources.
 
-:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of a Conditional Access policy with a grant control that requires Multi-Factor Authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
+:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of a Conditional Access policy with a grant control that requires multifactor authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
 
 ## Block access
 
@@ -48,11 +48,11 @@ By default, Conditional Access requires all selected controls.
 
 Selecting this checkbox requires users to perform Azure Active Directory (Azure AD) Multi-factor Authentication. You can find more information about deploying Azure AD Multi-Factor Authentication in [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for Multi-Factor Authentication in Conditional Access policies.
+[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multifactor authentication in Conditional Access policies.
 
 ### Require device to be marked as compliant
 
-Organizations that have deployed Intune can use the information returned from their devices to identify devices that meet specific policy compliance requirements. Intune sends compliance information to Azure AD so Conditional Access can decide to grant or block access to resources. For more information about compliance policies, see [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started).
+Organizations that have deployed Intune can use the information returned from their devices to identify devices that meet specific policy compliance requirements. Intune sends compliance information to Azure AD so Conditional Access can decide to grant or block access to resources. For more information about compliance policies, see [Set rules on devices to allow access to resources in your organization by using Intune](/intune/protect/device-compliance-get-started).
 
 A device can be marked as compliant by Intune (for any device operating system or by a third-party mobile device management system for Windows 10 devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
@@ -74,7 +74,7 @@ You can use the Microsoft Defender for Endpoint app with the approved client app
 
 Organizations can choose to use the device identity as part of their Conditional Access policy. Organizations can require that devices are hybrid Azure AD joined by using this checkbox. For more information about device identities, see [What is a device identity?](../devices/overview.md).
 
-When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the grant control required for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **require Multi-Factor Authentication** control instead.
+When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the required grant control for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **require Multi-Factor Authentication** control instead.
 
 The control:
    - Only supports domain-joined Windows down-level (pre Windows 10) and Windows-current (Windows 10+) devices.
@@ -122,8 +122,8 @@ The following client apps support this setting:
 **Remarks**
    - The approved client apps support the Intune mobile application management feature.
    -  The **Require approved client app** requirement:
-   - Only supports the iOS and Android for device platform condition.
-   - Requires a broker app to register the device. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices.
+      - Only supports the iOS and Android for device platform condition.
+      - Requires a broker app to register the device. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices.
 - Conditional Access can't consider Microsoft Edge in InPrivate mode an approved client app.
 - Conditional Access policies that require Microsoft Power BI as an approved client app don't support using Azure AD Application Proxy to connect the Power BI mobile app to the on-premises Power BI Report Server.
 
@@ -173,7 +173,7 @@ See [Require app protection policy and an approved client app for cloud app acce
 
 When user risk is detected, administrators can employ the user risk policy conditions to have the user securely change a password by using Azure AD self-service password reset. Users can perform a self-service password reset to self-remediate. This process will close the user risk event to prevent unnecessary alerts for administrators.
 
-When a user is prompted to change a password, they'll first be required to complete Multi-Factor Authentication. Make sure all users have registered for Multi-Factor Authentication, so they're prepared in case risk is detected for their account.  
+When a user is prompted to change a password, they'll first be required to complete multifactor authentication. Make sure all users have registered for multifactor authentication, so they're prepared in case risk is detected for their account.  
 
 > [!WARNING]
 > Users must have previously registered for self-service password reset before triggering the user risk policy.
