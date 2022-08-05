@@ -17,26 +17,24 @@ Other WP options on Azure:
 
 [WordPress](https://www.wordpress.org) is an open source content management system (CMS) that can be used to create websites, blogs, and other applications. Over 40% of the web uses WordPress from  blogs to major news websites.
 
-In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service on Linux](overview.md#app-service-on-linux) using [Azure portal](https://portal.azure.com). It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins for performance improvements, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression.
+In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service on Linux](overview.md#app-service-on-linux) using the [WordPress on the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins for performance improvements, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression.
 
 > [!IMPORTANT]
-> [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74) Due to this reason, this article deploys WordPress to App Service on Linux.
+> [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
 >
+> **Limitations:**
+> - MySQL Database credentials are configured automatically. See [MySQL password](#mysql-password) for more information.
+> - Modifying the WordPress admin credentials in Application Settings doesn't affect the WordPress install. See [WordPress admin password](#wordpress-admin-password) for more information.
+> - The MySQL Flexible Server is created behind a private [Virtual Network](/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://<sitename>.azurewebsites.net/phpmyadmin
+> - If a custom domain or Content Delivery Network is enabled for Blob Storage, the domain name needs to be updated in "Configuration -> Replace site's hostname with" setting in W3 Total Cache CDN settings.
+>
+>  If you have feedback or ideas to improve this offering, please share with us at [Web Apps · Community (azure.com)](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c) or email us at [wordpressonazure@microsoft.com](mailto:wordpressonazure@microsoft.com).
 
 ## Create WordPress site using Azure portal
 
-1. Sign in to the Azure portal at https://portal.azure.com.
-1. In the Azure portal, click **Create a resource**.
+1. To start creating the WordPress site, browse to [https://ms.portal.azure.com/#create/WordPress.WordPress](https://ms.portal.azure.com/#create/WordPress.WordPress).
 
-     :::image type="content" source="./media/quickstart-wordpress/01-portal-create-resource.png?text=Azure portal create a resource" alt-text="Screenshot of Azure portal create resource":::
-
-1. In **Create a resource**, type **WordPress** in the search and press **enter**.
-
-     :::image type="content" source="./media/quickstart-wordpress/02-portal-create-resource-search-wordpress.png?text=Azure portal Create Resource WordPress Details" alt-text="Screenshot of WordPress in Create Resource search":::
-
-1. Select the **WordPress** product for **App Service**. 
-
-     :::image type="content" source="./media/quickstart-wordpress/03-wordpress-marketplace.png?text=WordPress in Azure Marketplace" alt-text="Screenshot of WordPress in Azure Marketplace":::
+    :::image type="content" source="./media/quickstart-wordpress/01-portal-create-wordpress-on-app-service.png?text=WordPress from Azure Marketplace" alt-text="Screenshot of Create a WordPress site":::
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type **`myResourceGroup`** for the name and select a **Region** you want to serve your app from.
 
@@ -65,7 +63,6 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 1. To access the WordPress Admin page, browse to `/wp-admin` and use the credentials you created in the [WordPress settings step](#wordpress-settings).
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login":::
-
 ## Clean up resources
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
