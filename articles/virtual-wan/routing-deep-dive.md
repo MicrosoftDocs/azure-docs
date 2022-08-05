@@ -48,7 +48,7 @@ After adding the static route hub 1 will contain the `10.2.20.0/22` route as wel
 
 ## Scenario 2: Global Reach and Hub Routing Preference
 
-Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.2.5.0/24`) and hub 2 knows the ExpressRoute prefix from circuit 1 (`10.1.5.0/24`), ExpressRoute routes from remote regions will not be advertised back to on-premises ExpressRoute links. Consequently, so that both ExpressRoute locations can communicate to each other interconnecting them via [ExpressRoute Global Reach][er-gr] is required:
+Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.5.2.0/24`) and hub 2 knows the ExpressRoute prefix from circuit 1 (`10.4.2.0/24`), ExpressRoute routes from remote regions will not be advertised back to on-premises ExpressRoute links. Consequently, so that both ExpressRoute locations can communicate to each other interconnecting them via [ExpressRoute Global Reach][er-gr] is required:
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2.png" alt-text="Virtual WAN design with two ExpressRoute circuits with Global Reach and two V P N branches" :::
 
