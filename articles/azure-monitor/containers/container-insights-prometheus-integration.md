@@ -320,7 +320,7 @@ For Azure Red Hat OpenShift v3.x, edit and save the updated ConfigMaps by runnin
 
 ## Query Prometheus metrics data
 
-To view Prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-query.md#query-prometheus-metrics-data) and [Query config or scraping errors](container-insights-log-query.md#query-config-or-scraping-errors).
+To view Prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-query.md#query-prometheus-metrics-data) and [Query configuration or scraping errors](container-insights-log-query.md#query-configuration-or-scraping-errors).
 
 ## View Prometheus metrics in Grafana
 
