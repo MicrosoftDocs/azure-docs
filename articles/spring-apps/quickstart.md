@@ -194,6 +194,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 ### Bulid and deploy the app
 
+> [!NOTE]
+> If you want to run the project locally, please add **spring.config.import=configserver:** to the **application.propertities** file.
+
 1. Right-click your project in IntelliJ project explorer, then select **Azure** -> **Deploy to Azure Spring Apps**.
 
    :::image type="content" source="media/quickstart/intellij-deploy-azure-1.png" alt-text="Screenshot of IntelliJ IDEA menu showing Deploy to Azure Spring Apps option." lightbox="media/quickstart/intellij-deploy-azure-1.png":::
