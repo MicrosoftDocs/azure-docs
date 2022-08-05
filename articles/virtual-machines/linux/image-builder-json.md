@@ -253,7 +253,7 @@ If Image Builder did not create the staging resource group, but it did create re
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Compute Gallery (SIG) or managed image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a managed image from the VHD, and inject it into the SIG as a Gen2 image.
+The `source` section contains information about the source image that will be used by Image Builder.
 
 The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 
@@ -495,7 +495,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
     "type": "PowerShell",
     "name": "<name>",
     "inline": "<PowerShell syntax to run>",
-    "validExitCodes": "<exit code>",
+    "validExitCodes": <exit code>,
     "runElevated": <true or false>
   }
 ],
@@ -668,7 +668,7 @@ How to use the `validate` property to validate Windows images
           "inline": [
             "<command to run inline>"
           ],
-          "validExitCodes": "<exit code>",
+          "validExitCodes": <exit code>,
           "runElevated": <true or false>,
           "runAsSystem": <true or false>
         },

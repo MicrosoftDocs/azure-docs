@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 07/25/2022
+ms.date: 08/04/2022
 ---
 
 # Common error codes and messages 

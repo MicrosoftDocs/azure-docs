@@ -338,6 +338,8 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
+To perform a slot swap from the production slot, the identity needs (at minimum) permissions to perform the `Microsoft.Web/sites/slotsswap/Action` operation. For more information, see the [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb)
+
 ## Automate with Resource Manager templates
 
 [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots by using Resource Manager templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:

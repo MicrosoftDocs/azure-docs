@@ -48,11 +48,13 @@ In this article, you create these .NET console apps:
 
 In this section, you create a .NET console app, using C#, that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reported a cellular connection.
 
-1. In Visual Studio, select **Create a new project**. In **Create new project**, select **Console App (.NET Framework)**, and then select **Next**.
+1. In Visual Studio, select **File > New > Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
 
-1. In **Configure your new project**, name the project **AddTagsAndQuery**.
+1. In **Configure your new project**, name the project **AddTagsAndQuery**, the select **Next**.
 
-    ![Configure your AddTagsAndQuery project](./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png" alt-text="Screenshot of how to create a new Visual Studio project." lightbox="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png":::
+
+1. Accept the default version of the .NET Framework, then select **Create** to create the project.
 
 1. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then select **Manage NuGet Packages**.
 

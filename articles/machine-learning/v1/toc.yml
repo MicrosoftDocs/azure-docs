@@ -102,6 +102,8 @@
     items:
     - name: Use managed identities for access control
       href: how-to-use-managed-identities.md
+    - name: Authenticate from the SDK v1
+      href: how-to-setup-authentication.md
     - name: Network security
       items:
       - name: Secure inferencing environment (v1)
@@ -234,7 +236,7 @@
           displayName: track production
           href: ../how-to-enable-data-collection.md
         - name: Monitor with Application Insights
-          href: ../how-to-enable-app-insights.md
+          href: how-to-enable-app-insights.md
     - name: Deploy designer models
       displayName: designer, studio
       href: ../how-to-deploy-model-designer.md
