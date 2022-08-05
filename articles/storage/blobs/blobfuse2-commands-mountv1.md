@@ -1,17 +1,17 @@
 ---
-title: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file | Microsoft Docs
+title: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file (preview) | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
+description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file (preview).
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 mountv1 command
+# How to use the BlobFuse2 mountv1 command (preview)
 
 Use the `blobfuse2 mountv1` command to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
 
@@ -115,6 +115,6 @@ The following flags apply only to command `blobfuse2 mountv1` command:
 
 ## See also
 
-- [The Blobfuse2 mount command](blobfuse2-commands-mount.md)
-- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)
-- [The Blobfuse2 command set](blobfuse2-commands.md)
+- [The Blobfuse2 mount command (preview)](blobfuse2-commands-mount.md)
+- [The Blobfuse2 unmount command (preview)](blobfuse2-commands-unmount.md)
+- [The Blobfuse2 command set (preview)](blobfuse2-commands.md)

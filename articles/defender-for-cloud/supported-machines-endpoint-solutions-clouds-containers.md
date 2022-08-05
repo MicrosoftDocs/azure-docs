@@ -213,7 +213,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
-| Runtime protection| Threat detection (workload) | Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
+| Runtime protection <sup>[4](#footnote4)</sup> | Threat detection (workload)| Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
 | Discovery and provisioning | Discovery of unprotected clusters | Arc enabled K8s clusters | Preview | - | Agentless | Free |
 | Discovery and provisioning | Collection of control plane threat data | Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
@@ -224,6 +224,9 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 <sup><a name="footnote2"></a>2</sup> VA can detect vulnerabilities for these [OS packages](#registries-and-images-1). 
 
 <sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images-1).
+
+<sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems-2).
+
 
 ## Additional information
 

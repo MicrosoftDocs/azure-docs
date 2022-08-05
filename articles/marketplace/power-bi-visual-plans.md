@@ -4,8 +4,8 @@ description: Learn how to create plans for a Power BI visual offer in Partner Ce
 author: posurnis
 ms.author: posurnis
 ms.reviewer: pooja.surnis
-ms.service: powerbi
-ms.subservice: powerbi-custom-visuals
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/18/2022
 ---
