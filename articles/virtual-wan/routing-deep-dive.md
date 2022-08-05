@@ -12,7 +12,7 @@ ms.author: jomore
 
 # Virtual WAN Routing Deep Dive
 
-Azure Virtual WAN is a networking solution that encompasses routing across Azure regions between Azure VNets either statically or dynamically, hybrid connectivity to on-premises locations via Point-to-Site VPN, Site-to-Site VPN, ExpressRoute and integrated SDWAN appliances and network security. As such, it offers a rich set of routing functionality that is useful to understand especially in complex topologies.
+[Azure Virtual WAN][vwan-overview] is a networking solution that encompasses routing across Azure regions between Azure VNets either statically or dynamically, hybrid connectivity to on-premises locations via Point-to-Site VPN, Site-to-Site VPN, ExpressRoute and integrated SDWAN appliances and network security. As such, it offers a rich set of routing functionality that is useful to understand especially in complex topologies.
 
 This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them.
 
@@ -104,7 +104,13 @@ Changing back the hub routing preference again to AS Path will return the inter 
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-aspath-hub1.png" alt-text="Effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference A S Path" :::
 
+## Next steps
 
+For more information about Virtual WAN see:
+
+* The Virtual WAN [FAQ](virtual-wan-faq.md)
+
+[vwan-overview]: /azure/virtual-wan/virtual-wan-about
 [vwan-hrp]: /azure/virtual-wan/about-virtual-hub-routing-preference
 [vwan-nva]: /azure/virtual-wan/about-nva-hub
 
