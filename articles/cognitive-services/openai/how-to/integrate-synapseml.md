@@ -1,5 +1,5 @@
 ---
-title: 'How-to - Integrate Azure OpenAI with SynapseML'
+title: 'How-to - Use Azure OpenAI with large datasets'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to integrate Azure OpenAI with SynapseML and Apache Spark to apply large language models at a distributed scale.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: chrhoder
 recommendations: false
 ---
 
-# Integrate Azure OpenAI with SynapseML and Apache Spark
+# Use Azure OpenAI with large datasets
 
 The Azure OpenAI service can be used to solve a large number of natural language tasks through prompting the completion API. To make it easier to scale your prompting workflows from a few examples to large datasets of examples, we have integrated the Azure OpenAI service with the distributed machine learning library [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/). This integration makes it easy to use the [Apache Spark](https://spark.apache.org/) distributed computing framework to process millions of prompts with the OpenAI service. This tutorial shows how to apply large language models at a distributed scale using Azure Open AI and Azure Synapse Analytics.
 
@@ -50,15 +50,6 @@ Next, edit the cell in the notebook to point to your service. In particular, set
 ```python
 import os
 
-# You can ignore this block of code
-# It helps us test this notebook to keep it from breaking
-if os.environ.get("AZURE_SERVICE", None) == "Microsoft.ProjectArcadia":
-    from pyspark.sql import SparkSession
-    from notebookutils.mssparkutils.credentials import getSecret
-    from notebookutils.visualization import display
-    spark = SparkSession.builder.getOrCreate()
-    os.environ["OPENAI_API_KEY"] = getSecret("mmlspark-build-keys", "openai-api-key")
-    
 # Fill in the following lines with your service information
 service_name = "M3Test11"
 deployment_name = "text-davinci-001"
