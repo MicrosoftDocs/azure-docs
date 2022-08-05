@@ -12,9 +12,9 @@ ms.author: jomore
 
 # Virtual WAN Routing Deep Dive
 
-[Azure Virtual WAN][vwan-overview] is a networking solution that allows creating sophisticated networking topologies very easily: it encompasses routing across Azure regions between Azure VNets and on-premises locations via Point-to-Site VPN, Site-to-Site VPN, [ExpressRoute][er] and [integrated SDWAN appliances][vwan-nva], including the option of [securing all this traffic][vwan-secured-hub]. In most scenarios it is not required any deep knowledge of how Virtual WAN internal routing works, but in certain situations it can be useful to understand Virtual WAN routing concepts.
+[Azure Virtual WAN][vwan-overview] is a networking solution that allows creating sophisticated networking topologies very easily: it encompasses routing across Azure regions between Azure VNets and on-premises locations via Point-to-Site VPN, Site-to-Site VPN, [ExpressRoute][er] and [integrated SDWAN appliances][vwan-nva], including the option to [secure the traffic][vwan-secured-hub]. In most scenarios it is not required any deep knowledge of how Virtual WAN internal routing works, but in certain situations it can be useful to understand Virtual WAN routing concepts.
 
-This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them. The scenarios shown in this article are by no means design recommendations, they are just sample topologies specifically designed to demonstrate certain Virtual WAN functionalities.
+This document will explore sample Virtual WAN scenarios that will explain some of the behaviors that organizations might encounter when interconnecting their VNets and branches in complex networks. The scenarios shown in this article are by no means design recommendations, they are just sample topologies specifically designed to demonstrate certain Virtual WAN functionalities.
 
 ## Scenario 1: topology with default routing preference
 
