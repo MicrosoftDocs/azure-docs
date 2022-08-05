@@ -2,7 +2,7 @@
 title: Azure Communication Services Rooms overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Rooms.
-author: FAGHAFFA
+author: farrukhghaffar
 manager: nmurav
 services: azure-communication-services
 
