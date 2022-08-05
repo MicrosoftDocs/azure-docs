@@ -148,7 +148,7 @@ This enables an OIDC Issuer URL of the provider which allows the API server to d
 
 ### Limitations
 
-OIDC issuer is only supported in global region now.
+OIDC issuer is only supported in Azure Public regions now.
 
 > [!WARNING]
 > Enable/disable OIDC Issuer will change the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
