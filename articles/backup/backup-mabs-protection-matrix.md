@@ -1,7 +1,7 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 03/09/2022
+ms.date: 08/04/2022
 ms.topic: conceptual
 author: v-amallick
 ms.service: backup
@@ -55,6 +55,9 @@ The following sections details the protection support matrix for MABS:
 
 >[!NOTE]
 > MABS doesn't support backup of virtual machines with pass-through disks or those that use a remote VHD. We recommend that in these scenarios you use guest-level backup using MABS, and install an agent on the virtual machine to back up the data.
+
+## Operating systems and applications at end of support
+
 
 ## Linux
 
