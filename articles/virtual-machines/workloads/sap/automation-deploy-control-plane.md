@@ -330,9 +330,6 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path depl
 ```bash
 
 az webapp config appsettings set -g <group-name> -n <app-name> --settings \
-AZURE_CLIENT_ID=$appId \
-AZURE_TENANT_ID=$tenant_id \
-AZURE_CLIENT_SECRET=$spn_secret \
 IS_PIPELINE_DEPLOYMENT=false
 
 ```
