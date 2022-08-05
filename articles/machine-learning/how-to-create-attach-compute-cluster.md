@@ -58,7 +58,7 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 * Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-* Compute clusters can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. This preview is not available if you are using a private endpoint-enabled workspace. 
+* Compute clusters can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. This preview isn't available if you're using a private endpoint-enabled workspace. 
 
     > [!WARNING]
     > When using a compute cluster in a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
@@ -67,7 +67,7 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
-* Azure allows you to place _locks_ on resources, so that they cannot be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure ML compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
+* Azure allows you to place _locks_ on resources, so that they can't be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure ML compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
 > Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication.
@@ -119,12 +119,12 @@ Where the file *create-cluster.yml* is:
 
 # [Studio](#tab/azure-studio)
 
-Create a single or multi node compute cluster for your training, batch inferencing or reinforcement learning workloads. 
+Create a single- or multi- node compute cluster for your training, batch inferencing or reinforcement learning workloads. 
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
  
 1. Under __Manage__, select __Compute__.
-1. If you have no compute targets, select  **Create** in the middle of the page.
+1. If you have no compute resources, select  **Create** in the middle of the page.
   
     :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Create compute target":::
 
@@ -139,7 +139,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
     |Field  |Description  |
     |---------|---------|
     | Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. Setting the location to a different region than the workspace is in __preview__, and is only available for __compute clusters__, not compute instances.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
-    |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
+    |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
     |Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
@@ -147,7 +147,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
 
     |Field  |Description  |
     |---------|---------|
-    |Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
+    |Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
     |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
     |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
     | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
@@ -159,7 +159,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
 
 ### Enable SSH access
 
-SSH access is disabled by default.  SSH access cannot be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [enable-ssh](../../includes/machine-learning-enable-ssh.md)]
 
@@ -171,7 +171,7 @@ SSH access is disabled by default.  SSH access cannot be changed after creation.
 
  ## <a id="low-pri-vm"></a> Lower your compute cluster cost
 
-You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. You will have to restart a preempted job. 
+You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs don't have guaranteed availability and may be preempted while in use. You'll have to restart a preempted job. 
 
 Use any of these ways to specify a low-priority VM:
     
@@ -308,7 +308,7 @@ During cluster creation or when editing compute cluster details, in the **Advanc
 
 ## Troubleshooting
 
-There is a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+There's a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
 
 ### Stuck at resizing
 
