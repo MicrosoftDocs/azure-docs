@@ -285,7 +285,7 @@ items:
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
           - name: Azure AD API permissions
-            href: concepts/interop/teams-user/aad-api-permissions.md
+            href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
   - name: Network Traversal (TURN)
