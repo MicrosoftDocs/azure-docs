@@ -66,7 +66,7 @@ To download server logs, perform the following steps.
 
 2. To download multiple log files at one time, under **Name**, select the files you want to download, and then above **Name**, select **Download**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/6-how-to-serverlog.png" alt-text="Server Logs - Download":::
+    :::image type="content" source="./media/how-to-server-logs-portal/6-how-to-serverlog.png" alt-text="Server Logs - Download all":::
 
 
 ## Disable Server Logs
