@@ -89,7 +89,7 @@
       href: tutorial-csharp-facets.md
     - name: 5 - Add results ordering
       href: tutorial-csharp-orders.md
-  - name: Index Azure data
+  - name: Index with indexers
     items:
     - name: Index Azure SQL Database
       href: search-indexer-tutorial.md
@@ -99,6 +99,8 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
+  - name: Index and enrich with SynapseML
+    href: search-synapseml-cognitive-services.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
   - name: Enrich with AI (skills)

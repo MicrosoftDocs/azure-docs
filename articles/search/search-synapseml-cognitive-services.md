@@ -11,14 +11,16 @@ ms.topic: how-to
 ms.date: 08/06/2022
 ---
 
-# Create a search solution using AI-enriched data from Apache Spark and Azure Synapse Analytics
+# Add search to AI-enriched data from Apache Spark using Azure Synapse Analytics
 
-This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark using the SynapseML feature of Azure Synapse Analytics. Transformers in SynapseML automate calls to both Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to transform big data in a Spark cluster and then send it a search index so that you can query the output.
+This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark using the SynapseML feature of Azure Synapse Analytics. Transformers in SynapseML automate calls to both Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to transform big data in a Spark cluster and then send it a search index so that you can query the output. 
+
+Although Azure Cognitive Search has its own [AI enrichment](cognitive-search-concept-intro.md) functionality, this walkthrough bypasses indexers and skillsets in favor of SynapseML transformers. A key takeaway is an introduction to end-to-end workflow that show you how to tap AI resources outside of Cognitive Search.
 
 The article starts with forms (invoices) in Azure Storage and includes the following steps:
 
-+ Create a Synapse workspace that connects to a Spark cluster using Azure Databricks.
-+ Create a notebook that loads and transforms data using SynapseML and other resources. Transformations include forms recognition, form analysis and restructuring, and text translation.
++ Create an Azure Databricks workspace that connects to a Spark cluster containing your data.
++ Create a Synapse workspace and notebook that loads and transforms data using SynapseML and other resources. Transformations include forms recognition, form analysis and restructuring, and text translation.
 + Infer, build, and load a search index using AzureSearchWriter from SynapseML.
 + Query the search index that contains transformed and multi-lingual content.
 
@@ -40,9 +42,9 @@ You'll need multiple Azure resources for this walkthrough. You should use the sa
 + TBD - [Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal), Standard (general purpose v2)
 + [Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md), Standard (general-purpose v2), as required by Azure Synapse Analytics.
 + [Azure Synapse Analytics](../synapse-analytics/get-started-create-workspace.md) (any tier)
-+ [Azure Databricks](../databricks/scenarios/quickstart-create-databricks-workspace-portal.md?tabs=azure-portal#create-an-azure-databricks-workspace) (any tier) <sup>1</sup>
++ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>1</sup>
 
-<sup>1</sup> This quickstart includes multiple steps. Follow just the instructions in the "Create an Azure Databricks workspace" section.
+<sup>1</sup> The Azure Databricks quickstart includes multiple steps. Follow just the instructions in the "Create an Azure Databricks workspace" section.
 
 All of these resources support security features in the Microsoft Identity platform, but for simplicity this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service.
 
@@ -54,7 +56,7 @@ The sample data consists of 10 invoices of various composition. A small data set
 
 1. Upload the files to a new container in your storage account.
 
-1. Get the connection string and access keys for the account.
+1. Get the connection string and access keys for the account. You'll need it later.
 
 ## Create a Spark cluster and install the `synapseml` library
 
@@ -81,8 +83,6 @@ Test your configuration
 1. Give the notebook a name, select **Python** as the default language, and select the cluster that has the `synapseml` library.
 
 1. Paste in the shared code into four consecutive cells.
-
-## Limitations
 
 ## Clean up
 
