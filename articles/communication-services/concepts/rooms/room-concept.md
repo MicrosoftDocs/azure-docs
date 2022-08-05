@@ -46,14 +46,15 @@ Use rooms when you need any of the following capabilities:
 
  **Rooms API/SDK** is used to accomplish actions such as creating a room, adding participants, and setting up schedule etc. Calling SDK is used to initiate the call within a Room from the client side. Most actions available in a one-to-one or group-calls in **Calling SDKs** are also available in room calls. Full list of capabilities offered in Calling SDK is listed in the [Calling SDK Overview](../voice-video-calling/calling-sdk-features.md#detailed-capabilities).
  
-| Capability | Calling SDK | Rooms API/SDK |
-|---------------------------------------------| :--------: | :--------: |
-| Join a room call with voice and video | ✔️ | ❌ |
+| Capability                                   | Calling SDK | Rooms API/SDK |
+|----------------------------------------------|--------|--------|
+| Join a room call with voice and video        | ✔️ | ❌ |
 | List participants that joined the rooms call | ✔️ | ❌ | 
-| Create room | ❌ | ✔️ |
+| Create room                                  | ❌ | ✔️ |
 | List all participants that are invited to the room | ❌ | ✔️ |
-| Add or remove a VoIP participant |  ❌ | ✔️ |
-| Assign roles to room participants |  ❌ | ✔️ |
+| Add or remove a VoIP participant             |  ❌ | ✔️ |
+| Assign roles to room participants            |  ❌ | ✔️ |
+
 The picture below illustrates the concept of managing and joining the rooms.
 
 :::image type="content" source="../media/rooms/rooms-management.png" alt-text="Diagram showing Rooms Management.":::
