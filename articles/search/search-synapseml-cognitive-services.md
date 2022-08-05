@@ -51,7 +51,7 @@ The following screenshot shows a resource group with the required resources.
 :::image type="content" source="media/search-synapseml-cognitive-services/resource-group.png" alt-text="Screenshot of the resource group containing all resources." border="true":::
 
 > [!NOTE]
-> All of the above resources support security features in the Microsoft Identity platform.  For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
+> All of the above resources support security features in the Microsoft Identity platform. For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
 
 ## Prepare data
 
@@ -68,7 +68,9 @@ The sample data consists of 10 invoices of various compositions. A small data se
 
 1. Get the connection string and access keys for the account. You'll need it later.
 
-## Create a Spark cluster and add SynapsemL
+## Create a Spark cluster and notebook
+
+In this section, you'll create the cluster, install the `synapseml` library, and create a notebook to run all of the code.
 
 1. In Azure portal, find your Azure Databricks workspace and select **Launch workspace**.
 
@@ -86,8 +88,6 @@ The sample data consists of 10 invoices of various compositions. A small data se
    1. In Coordinates, enter `com.microsoft.azure:synapseml_2.12:0.10.0`
    1. Select **Install**.
 
-## Create a notebook
-
 1. On the left menu, select **Create** > **Notebook**.
 
 1. Give the notebook a name, select **Python** as the default language, and select the cluster that has the `synapseml` library.
@@ -96,7 +96,7 @@ The sample data consists of 10 invoices of various compositions. A small data se
 
 ## Set up dependencies
 
-Paste the following code into the first cell. Replace the placeholders with endpoints and access keys for each resource.
+Paste the following code into the first cell of your notebook. Replace the placeholders with endpoints and access keys for each resource.
 
 This code loads packages and sets up the endpoints and keys for the Azure resources used in this workflow.
 
@@ -185,7 +185,7 @@ analyzed_df = (AnalyzeInvoices()
 display(analyzed_df)
 ```
 
-## Apply form ontology
+## Apply data restructuring
 
 Paste the following code into the fourth cell. No modifications are required.
 
@@ -234,7 +234,7 @@ translated_df = (Translate()
 display(translated_df)
 ```
 
-## Create and load an index
+## Apply search indexing
 
 Paste the following code in the sixth cell. No modifications are required.
 
