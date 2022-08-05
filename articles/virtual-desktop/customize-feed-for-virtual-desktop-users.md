@@ -39,7 +39,21 @@ To add or change a session host's friendly name:
 
 #### [REST API](#tab/rest-api)
 
-To change the friendly name with REST API, follow the instructions on [Session Host - Update](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and change the *properties.friendlyName* parameter.
+To change the friendly name with REST API, follow the instructions on [Session Host - Update](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
+
+The request should look like the following template with the placeholder values replaced with the information relevant to your deployment.
+
+```rest
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHosts/{sessionHostName}?api-version=2022-02-10-preview
+
+{
+  "properties": {
+    "allowNewSession": true,
+    "assignedUser": "{username}",
+    "friendlyName": "{friendlyname}"
+  }
+}
+```
 
 --- 
 
