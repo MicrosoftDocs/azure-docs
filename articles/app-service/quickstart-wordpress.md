@@ -25,7 +25,7 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 > **Limitations:**
 > - MySQL Database credentials are configured automatically. See [MySQL password](#mysql-password) for more information.
 > - Modifying the WordPress admin credentials in Application Settings doesn't affect the WordPress install. See [WordPress admin password](#wordpress-admin-password) for more information.
-> - The MySQL Flexible Server is created behind a private [Virtual Network](/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://<sitename>.azurewebsites.net/phpmyadmin
+> - The MySQL Flexible Server is created behind a private [Virtual Network](/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
 > - If a custom domain or Content Delivery Network is enabled for Blob Storage, the domain name needs to be updated in "Configuration -> Replace site's hostname with" setting in W3 Total Cache CDN settings.
 >
 >  If you have feedback or ideas to improve this offering, please share with us at [Web Apps · Community (azure.com)](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c) or email us at [wordpressonazure@microsoft.com](mailto:wordpressonazure@microsoft.com).
