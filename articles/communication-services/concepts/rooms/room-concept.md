@@ -110,7 +110,6 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Share a browser tab | ✔️ * | ❌ | ❌ |
 | - Participants can view shared screen | ✔️ | ✔️ | ✔️ |
 | <b>Roster management</b> | | |
-| - List participants | ✔️ | ✔️ | ❌ |
 | - Remove a participant | ✔️ | ❌ | ❌ |
 | <b>Device management</b> | | |
 | - Ask for permission to use audio and/or video | ✔️ | ✔️ | ❌ |
