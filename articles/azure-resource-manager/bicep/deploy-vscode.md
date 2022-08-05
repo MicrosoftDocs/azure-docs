@@ -15,7 +15,7 @@ From an opened Bicep file in VS Code, there are there ways you can find the comm
 
 - Right-click the Bicep file name from the Explorer pane:
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Deploy Bicep File in the Context menu":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Deploy Bicep File in the Context menu explore pane":::
 
     > [!NOTE]
     > Don't right-click the Bicep file listed under **OPEN EDITOR**.
@@ -46,7 +46,7 @@ After you select the command, you follow the wizard to enter the values:
 
     :::image type="content" source="./media/deploy-vscode/bicep-deploy-create-parameter-file.png" alt-text="Create parameter file":::
 
-    If you select **Yes**, a parameter file with the file name **<Bicep-file-name>.parameters.json** is created in the same folder.
+    If you select **Yes**, a parameter file with the file name **&lt;Bicep-file-name>.parameters.json** is created in the same folder.
 
 For more information about VS Code commands, see [Visual Studio Code](./visual-studio-code.md).
 
