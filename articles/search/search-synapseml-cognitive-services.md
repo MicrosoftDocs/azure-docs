@@ -15,7 +15,7 @@ ms.date: 08/06/2022
 
 This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark using the SynapseML feature of Azure Synapse Analytics. Transformers in SynapseML automate calls to both Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to transform big data in a Spark cluster and then send it a search index so that you can query the output. 
 
-Although Azure Cognitive Search has its own [AI enrichment](cognitive-search-concept-intro.md) functionality, this walkthrough bypasses indexers and skillsets in favor of SynapseML transformers. A key takeaway is an introduction to end-to-end workflow that show you how to tap AI resources outside of Cognitive Search.
+Although Azure Cognitive Search has its own [AI enrichment](cognitive-search-concept-intro.md) functionality, this walkthrough bypasses indexers and skillsets in favor of SynapseML transformers. A key takeaway is learning an end-to-end workflow that shows you how to tap AI resources outside of Cognitive Search.
 
 The article starts with forms (invoices) in Azure Storage and includes the following steps:
 
@@ -84,9 +84,15 @@ Test your configuration
 
 1. Paste in the shared code into four consecutive cells.
 
-## Clean up
+## Clean up resources
+
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
 ## Next steps
+
+TBD
 
 ## Internal notes
 
