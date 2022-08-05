@@ -71,15 +71,11 @@ Providing sufficient resources like RAM and compute cores to your agent is impor
 1. Specify values for the agent VM's name and location (preferably in the same location as he VHD). Select **Next**.
 1. Specify the generation of the agent VM - for now, only **Gen 1** is supported.
 1. Provide adequate RAM for the agent VM (3072 MB dynamic RAM provided in our example).
-1. Configure networking (**Not connected** for now).Select **Next**.
-1. Select **Use an existing Virtual Hard Disk** and specify the unpacked agent VHD created earlier.Select **Next**.
+1. Configure networking (**Not connected** for now). Select **Next**.
+1. Select **Use an existing Virtual Hard Disk** and specify the unpacked agent VHD created earlier. Select **Next**.
 1. Select **Finish**.
 
-# [Portal](#tab/portal)
-
-Content for the Azure Portal...
-
-# [PowerShell](#tab/powerhell)
+# [PowerShell](#tab/powershell)
 
 Create the agent using the following sample code.
 
@@ -92,6 +88,10 @@ Validate agent creation using the following sample code.
 ```azurepowershell
 Get-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $agentName 
 ```
+
+# [CLI](#tab/cli)
+
+Content for CLI.
 
 ---
 

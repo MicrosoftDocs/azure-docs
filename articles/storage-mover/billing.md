@@ -37,6 +37,7 @@ How these charges apply depends on the billing model in effect for each Azure St
 There are two distinct billing models in Azure Storage: *provisioned* billing and *pay-as-you-go* billing.
 
 **Pay-as-you-go billing**
+
 * Transactions caused by the Storage Mover service will be billed. Review your specific storage product's pricing pages for details on transactions. It is very difficult to estimate the impact on your bill. The section [estimating storage transaction charges](#estimating-storage-transaction-charges) in this article illustrates the reasons.
 * Capacity charges progressively apply as files move into the cloud and occupy more and more storage capacity.
 
