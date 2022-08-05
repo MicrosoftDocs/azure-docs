@@ -12,13 +12,13 @@ ms.author: jomore
 
 # Virtual WAN Routing Deep Dive
 
-Azure Virtual WAN is a networking solution that encompasses routing between Azure VNets either statically or dynamically, inter-region routing, firewalling and hybrid connectivity to on-premises locations via Point-to-Site VPN, Site-to-Site VPN, ExpressRoute and integrated SDWAN appliances. As such, it offers a rich set of routing functionality that is useful to understand, especially in complex topologies.
+Azure Virtual WAN is a networking solution that encompasses routing across Azure regions between Azure VNets either statically or dynamically, hybrid connectivity to on-premises locations via Point-to-Site VPN, Site-to-Site VPN, ExpressRoute and integrated SDWAN appliances and network security. As such, it offers a rich set of routing functionality that is useful to understand especially in complex topologies.
 
 This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them.
 
 ## Scenario 1: topology with default routing preference
 
-The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub there are VNets connected directly (VNets 11 and 21) and through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP, and VNet 22 is configured with static routes.
+The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub there are VNets connected directly (VNets 11 and 21) and through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP, and VNet 22 is configured with static routes. All VNet and branch connections are associated and propagating to the default route table.
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1.png" alt-text="Virtual WAN design with two ExpressRoute circuits and two V P N branches" :::
 
@@ -40,7 +40,7 @@ After adding the static route hub 1 will contain the `10.2.20.0/22` route as wel
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1-hub1-with-route.png" alt-text="Effective routes in Virtual hub 1" :::
 
-## Global Reach and Hub Routing Preference
+## Scenario 2: Global Reach and Hub Routing Preference
 
 Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.2.5.0/24`) and hub 2 knows the ExpressRoute prefix from circuit 1 (`10.1.5.0/24`), ExpressRoute routes from remote regions will not be advertised back to on-premises ExpressRoute links. Consequently, so that both ExpressRoute locations can communicate to each other interconnecting them via Global Reach is required:
 
@@ -49,6 +49,8 @@ Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.2.5.0/24`) and h
 As explained in [Virtual hub routing preference (Preview)][vwan-hrp] per default Virtual WAN will favor routes coming from ExpressRoute. Since routes are advertised from hub 1 to the ExpressRoute circuit 1, from the ExpressRoute circuit 1 to the circuit 2, and from the ExpressRoute circuit 2 to hub 2 (and vice versa), virtual hubs will prefer this path over the more direct inter hub link now, as the effective routes in hub 1 show:
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2-er-hub1.png" alt-text="Effective routes in Virtual hub 1 with Global Reach and routing preference ExpressRoute" :::
+
+Note that ExpressRoute Global Reach will prepend the ExpressRoute Autonomous System Number (12076) multiple times before sending routes back to Azure to make these route less preferable. However, Virtual WAN default hub routing precedence of ExpressRoute ignores the AS path length when taking routing decision.
 
 The effective routes in hub 2 will be similar:
 
@@ -78,13 +80,13 @@ Note that the IP prefix for hub 2 (`192.168.2.0/23`) still appears reachable ove
 
 However, note that `10.4.2.0/24` is now preferred over the VPN Gateway. This can happen if the routes advertised via VPN have a shorter AS path than the routes advertised over ExpressRoute. After configuring the on-premises VPN devide to prepend its Autonomous System Number (`65501`) to the VPN routes to make the less preferable, hub 1 now selects ExpressRoute as next hop for `10.4.2.0/24`:
 
-:::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2-aspath-hub1-prepend.png" alt-text="Effective routes in Virtual hub 1 with Global Reach and routing preference A S Path" :::
+:::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2-aspath-hub1-prepend.png" alt-text="Effective routes in Virtual hub 1 with Global Reach and routing preference A S Path after prepending" :::
 
 Hub 2 will show a similar table for the effective routes, where the VNets and branches in the other hub now appear with `Remote Hub` as next hop:
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2-aspath-hub2-prepend.png" alt-text="Effective routes in Virtual hub 2 with Global Reach and routing preference A S Path" :::
 
-## Cross-connecting the ExpressRoute circuits to both hubs
+## Scenario 3: Cross-connecting the ExpressRoute circuits to both hubs
 
 In order to add direct links between the Azure regions and the on-premises locations connected via ExpressRoute, it is often desirable connecting an single ExpressRoute circuit to multiple Virtual WAN hubs in a topology some times described as "bow tie", as the following topology shows:
 
