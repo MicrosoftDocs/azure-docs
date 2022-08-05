@@ -15,7 +15,7 @@ ms.date: 9/21/2020
 
 Azure Database for MySQL Flexible Server provides monitoring of servers through Azure Monitor. Monitoring data about your servers helps you troubleshoot and optimize for your workload.
 
-In this article, you will learn about the various metrics available and Server logs for your flexible server that give insight into the behavior of your server.
+In this article, you'll learn about the various metrics available and Server logs for your flexible server that give insight into the behavior of your server.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
@@ -59,10 +59,10 @@ To perform a historical analysis of your data, in the Azure portal, on the Diagn
 
 **Server logs retention**
 
-When logging is enabled for a Azure Database for MySQL flexible server, logs are available up to seven days from their creation.
-If the total size of the available logs exceeds 7GB, then the oldest files are deleted until space is available.
-The 7GB storage limit for server logs is available free of cost and cannot be extended.
-Logs are rotated every 24 hours or 7GB, whichever comes first.
+When logging is enabled for an Azure Database for MySQL flexible server, logs are available up to seven days from their creation.
+If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
+The 7-GB storage limit for server logs is available free of cost and can't be extended.
+Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
 
 ## Next steps
