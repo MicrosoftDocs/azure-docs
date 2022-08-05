@@ -17,7 +17,7 @@ ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
-Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
+Several features of Azure NetApp Files require that you have an Active Directory connection. For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 
 ## <a name="requirements-for-active-directory-connections"></a>Requirements and considerations for Active Directory connections
 
@@ -251,7 +251,7 @@ If you accidentally reset the password of the AD computer account on the AD serv
 
 ### Register the feature
 
-The reset Active Directory computer account password feature is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
+The reset Active Directory computer account password feature is currently in public preview. If you're using this feature for the first time, you need to register the feature first.
 
 1. Register the **reset Active Directory computer account password** feature:   
 ```azurepowershell-interactive
@@ -270,7 +270,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the three dot (`...`) at the end of the row. Select **Reset Active Directory Account**.
 :::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed.." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
+:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
 
 ## Next steps  
 
