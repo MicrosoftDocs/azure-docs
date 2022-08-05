@@ -244,7 +244,7 @@ To create and run a new scan, do the following:
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image showing Power BI scan setup.":::
 
     > [!Note]
-    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
+    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of Power BI source.
 
 3. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem.
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
