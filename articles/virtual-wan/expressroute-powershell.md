@@ -95,7 +95,7 @@ $expressroutegatewayinhub = New-AzExpressRouteGateway -MaxScaleUnits <UInt32> -M
 
 The next step is to get the private peering ID of the ExpressRoute circuit. You can either create a new circuit, or get the ID from an existing circuit. Use one of the following examples.
 
-**New circuit** - This example creates a new ExpressRoute circuit and gets its private peering Id.
+**New circuit** - This example creates a new ExpressRoute circuit and gets its private peering ID.
 
    ```azurepowershell-interactive
    $ExpressRouteCircuit = New-AzExpressRouteCircuit -ResourceGroupName "testRG" -Name "testExpressRouteCircuit" -Location "West Central US" -SkuTier Premium -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
@@ -107,7 +107,7 @@ The next step is to get the private peering ID of the ExpressRoute circuit. You 
    $ExpressRouteCircuitPeeringId = $ExpressRouteCircuit.Peerings[0].Id
    ```
 
-**Existing circuit** - This example gets the details and Private Peering Id from an existing ExpressRoute circuit.
+**Existing circuit** - This example gets the details and Private Peering ID from an existing ExpressRoute circuit.
 
    ```azurepowershell-interactive
 
