@@ -14,11 +14,15 @@ ms.author: jomore
 
 [Azure Virtual WAN][vwan-overview] is a networking solution that encompasses routing across Azure regions between Azure VNets either statically or dynamically, hybrid connectivity to on-premises locations via Point-to-Site VPN, Site-to-Site VPN, ExpressRoute and integrated SDWAN appliances and network security. As such, it offers a rich set of routing functionality that is useful to understand especially in complex topologies.
 
-This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them.
+This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them. The scenarios shown in this article are by no means design recommendations, they are just sample topologies specifically chosen to demonstrate certain Virtual WAN functionalities.
 
 ## Scenario 1: topology with default routing preference
 
-The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub there are VNets connected directly (VNets 11 and 21) and through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP, and VNet 22 is configured with static routes. All VNet and branch connections are associated and propagating to the default route table.
+The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub there are VNets connected directly (VNets 11 and 21) and through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP, and VNet 22 is configured with static routes, so that differences between both options can be shown.
+
+In each hub the VPN and SDWAN appliances server to a dual purpose: on one side the advertise their own individual prefixes (`10.4.1.0/24` over VPN in hub 1 and `10.5.3.0/24` over SDWAN in hub 2), and on the other they advertise the same prefixes as the ExpressRoute circuits in the same region (`10.4.2.0/24` in hub 1 and `10.5.2.0/24` in hub 2). This will be used to demonstrate how the [Virtual WAN hub routing preference][vwan-hrp] works.
+
+All VNet and branch connections are associated and propagating to the default route table. Although the hubs are secured (there is an Azure Firewall deployed in every hub), they are not configured to secure private or Internet traffic. Doing so would result in all connections propagating to the `None` route table, which would remove all non-static routes from the `Default` route table and defeat the purpose of this article since the effective route blade in the portal would be almost empty (with the exception of the static routes to send traffic to the Azure Firewall).
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1.png" alt-text="Virtual WAN design with two ExpressRoute circuits and two V P N branches" :::
 
