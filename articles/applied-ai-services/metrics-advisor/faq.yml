@@ -9,7 +9,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: metrics-advisor
   ms.topic: faq
-  ms.date: 11/05/2020
+  ms.date: 08/05/2022
   ms.author: mbullwin
 title: Metrics Advisor frequently asked questions
 summary: |
@@ -103,7 +103,12 @@ sections:
           How do I detect inconformity with regular (seasonal) patterns as anomalies?
         answer: |
           "Smart detection" is able to learn the pattern of your data including seasonal patterns. It then detects those data points that don't conform to the regular patterns as anomalies. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detection-configuration) for details.
-          
+      
+      - question: |
+          Does Metrics Advisor support datasources that are behind a VNET?
+        answer: |
+          No, Metrics Advisor does not currently support datasources that are behind a VNET.
+              
       - question: |
           How do I detect flat lines as anomalies?
         answer: |
