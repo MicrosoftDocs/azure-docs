@@ -312,7 +312,7 @@ To create and run a new scan, do the following:
 1. Give your scan a name. Then select the option to include or exclude the personal workspaces.
    
     >[!Note]
-    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
+    > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of Power BI source.
 
 1. Select your self-hosted integration runtime from the drop-down list. 
 
