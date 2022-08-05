@@ -96,7 +96,7 @@ To create and run a new scan, follow these steps:
         * Provide the user name in the format of `<username>@<domain>.com` in the User name input field. Learn more from [Use Kerberos authentication for the HDFS connector](#use-kerberos-authentication-for-the-hdfs-connector).
         * Store the user password used to connect to HDFS in the secret key.
 
-    :::image type="content" source="media/register-scan-hdfs/scan.png" alt-text="Screenshot of HDFS scan configurations in Purview." border="true":::
+       :::image type="content" source="media/register-scan-hdfs/scan.png" alt-text="Screenshot of HDFS scan configurations in Purview." border="true":::
 
 1. Select **Test connection**.
 
@@ -276,13 +276,13 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     1. Select the encryption algorithm you want to use when you connect to the KDC server. You can select all the options.
 
-    :::image type="content" source="media/register-scan-hdfs/config-encryption-types-for-kerberos.png" alt-text="Screenshot of the Network security: Configure encryption types allowed for Kerberos pane.":::
+       :::image type="content" source="media/register-scan-hdfs/config-encryption-types-for-kerberos.png" alt-text="Screenshot of the Network security: Configure encryption types allowed for Kerberos pane.":::
 
     1. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
 
-    ```cmd
-    C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
-    ```
+       ```cmd
+       C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+       ```
 
 4.	Create the mapping between the domain account and the Kerberos principal, so that you can use the Kerberos principal in the Windows domain.
 
