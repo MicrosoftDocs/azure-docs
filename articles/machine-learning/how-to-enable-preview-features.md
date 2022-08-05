@@ -56,7 +56,7 @@ Use the following steps to provide feedback on a feature.
 
     :::image type="content" source="./media/how-to-enable-preview-features/provide-feature-feedback.png" alt-text="Screenshot of the preview features panel with feedback highlighted.":::
 
-    The text box will also appear when you turn off a feature.
+    The text box will also appear when you disable a feature.
 
 ## Next steps
 
