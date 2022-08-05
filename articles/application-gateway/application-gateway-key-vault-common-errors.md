@@ -151,8 +151,8 @@ Update certificate referenced from Azure Key Vault:
 $appgw = Get-AzApplicationGateway -ResourceGroupName "<ResourceGroup>" -Name "<AppGatewayName>"
 
 $secret = Get-AzKeyVaultSecret -VaultName "<KeyVaultName>" -Name "<CertificateName>" 
-$secretId = $secret.Id.Replace($secret.Version, "") 
-$cert = Set-AzApplicationGatewaySslCertificate -ApplicationGateway $AppGW -Name "<CertificateName>" -KeyVaultSecretId $secretId 
+$secret.Id = $secret.Id.Replace($secret.Version, "") 
+$cert = Set-AzApplicationGatewaySslCertificate -ApplicationGateway $AppGW -Name "<CertificateName>" -KeyVaultSecret.Id $secretId 
 
 Set-AzApplicationGateway -ApplicationGateway $appgw 
 ```
