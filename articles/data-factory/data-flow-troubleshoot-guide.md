@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 08/04/2022
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
