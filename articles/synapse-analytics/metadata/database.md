@@ -1,5 +1,5 @@
 ---
-title: Shared database
+title: Lake database in serverless SQL pools
 description: Azure Synapse Analytics provides a shared metadata model where creating a Lake database in an Apache Spark pool will make it accessible from its serverless SQL pool engine. 
 services: synapse-analytics 
 ms.service: synapse-analytics  
@@ -12,31 +12,35 @@ ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
 ---
 
-# Azure Synapse Analytics shared Lake database
+# Accessing Lake database using serverless SQL pool
 
-Azure Synapse Analytics allows the different computational workspace engines to share [Lake databases](../database-designer/concepts-lake-database.md) and tables. Currently, the Lake databases and the tables (Parquet or CSV backed) that are created on the Apache Spark pools, [Database templates](../database-designer/concepts-database-templates.md) or Dataverse are automatically shared with the serverless SQL pool engine.
+Azure synapse analytics workspace enables you to create two types of databases on top of Data Lake: 
+- **Lake databases** where you can define your tables on top of lake data using Apache Spark notebooks, Database templates, or Data Verse. These tables will be available for querying using T-SQL (Transact-SQL) language using the serverless SQL pool. 
+-	**SQL databases** where you can define your own databases and tables directly using the serverless SQL pools. You can use T-SQL CREATE DATABASE, CREATE EXTERNAL TABLE to define the objects and add additional SQL views, procedures, and inline-table-value functions on top of the tables. 
 
-A Lake database will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom SQL objects (external tables, views, procedures, functions, schema, users) directly in a Lake database using the serverless SQL pool.
-
-The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a Lake database called `default`. 
-You can't create a Lake database and then create another database with the same name in the serverless SQL pool.
-
-The Lake databases are created in the serverless SQL pool asynchronously. There will be a delay until they appear.
+Azure Synapse Analytics allows you to create [Lake databases](../database-designer/concepts-lake-database.md) and tables using Spark or Database designer, and then analyze data in the Lake databases using the serverless SQL pool. The Lake databases and the tables (Parquet or CSV backed) that are created on the Apache Spark pools, [Database templates](../database-designer/concepts-database-templates.md) or Data verse are automatically available for querying with the serverless SQL pool engine. The Lake databases and tables that are modified will be available in serverless SQL pool after some time. There will be a delay until the changes made in Spark or Database designed appear in serverless.
 
 ## Manage Lake database
 
 To manage Spark created Lake databases, you can use Apache Spark pools or [Database designer](../database-designer/create-empty-lake-database.md). For example, create or delete a Lake database through a Spark pool job.
 
+The Spark default database, called `default`, is available in the serverless SQL pool context as a Lake database called `default`. 
+You can't create a Lake database and or the objects in the Lake databases using the serverless SQL pool.
+
 Objects in the Lake databases cannot be modified from a serverless SQL pool. Use [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases.
 
 >[!NOTE]
->You cannot create multiple databases with the same name from different pools. If a SQL database in the serverless SQL pool is created, you won't be able to create a Lake database with the same name. Respectively, if you create a Lake database, you won't be able to create a serverless SQL pool database with the same name.
+> You cannot create Lake and SQL databases with the same name. If a SQL database in the serverless SQL pool is created, you won't be able to create a Lake database with the same name. Respectively, if you create a Lake database, you won't be able to create a serverless SQL pool database with the same name.
 
 ## Security model
 
-The Lake databases and tables will be secured at the underlying storage level.
+The Lake databases and tables are secured at two levels:
+- The underlying storage layer by assigning RBAC/ABAC role or ACL permissions to the Azure AD users.
+- The SQL layer where you can define could an Azure AD user select data from the tables that are referencing the lake data.
 
-The security principal who creates a database is considered the owner of that database, and has all the rights to the database and its objects. `Synapse Administrator` and `Synapse SQL Administrator` will also have all the permissions on synchronized objects in a serverless SQL pool by default. Creating custom objects (including users) in synchronized SQL databases is not allowed. 
+## Lake security model
+
+Access to Lake database files is controlled using the Lake permissions on storage layer. Only Azure AD users can use tables in the Lake databases, and they can access the data in the lake using their own identities.
 
 To give a security principal, such as a user, Azure AD app, or a security group, access to the underlying data used for external tables, you need to give them `read (R)` permissions on files (such as the table's underlying data files) and `execute (X)` on the folder where the files are stored + on every parent folder up to the root. You can read more about these permissions on [Access control lists(ACLs)](../../storage/blobs/data-lake-storage-access-control.md) page. 
 
@@ -46,17 +50,56 @@ If a security principal requires the ability to create objects or drop objects i
 
 ### SQL security model
 
-Synapse workspace provides a T-SQL endpoint that enables you to query the Lake database using the serverless SQL pool. As a prerequisite, you need to enable a user to access the shared Lake databases using the serverless SQL pool. There are two ways to allow a user to access the Lake databases:
-- You can assign a `Synapse SQL Administrator` workspace role or `sysadmin` server-level role in the serverless SQL pool. This role has full control over all databases (note that the Lake databases are still read-only even for the administrator role).
-- You can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
-
+Synapse workspace provides a T-SQL endpoint that enables you to query the Lake database using the serverless SQL pool. In addition to the data access, SQL interface enables you to control who can access the tables. You need to enable a user to access the shared Lake databases using the serverless SQL pool. There are two types of users who can access the Lake databases:
+- **Administrators** - You can assign a `Synapse SQL Administrator` workspace role or `sysadmin` server-level role in the serverless SQL pool. This role has full control over all databases. `Synapse Administrator` and `Synapse SQL Administrator` will also have all the permissions on all objects in a serverless SQL pool by default. 
+- **Readers** - you can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
+  - 
 Learn more about [setting access control on shared databases here](../sql/shared-databases-access-control.md).
 
-## Custom SQL metadata objects
+## Custom SQL objects in Lake databases
 
-Lake databases do not allow creation of custom T-SQL objects, such as schemas, users, procedures, views, and the external tables created on custom locations. If you need to create additional T-SQL objects that reference the shared tables in the Lake database, you have two options:
-- Create a custom SQL database (serverless) that will contain the custom schemas, views, and functions that will reference Lake database external tables using the 3-part names.
-- Instead of Lake database use SQL database (serverless) that will reference data in the lake. SQL database (serverless) enables you to create external tables that can reference data in the lake same way as the Lake database, but it allows creation of additional SQL objects. A drawback is that these objects are not automatically available in Spark.
+Lake databases allow creation of custom T-SQL objects, such as schemas, procedures, views, and the inline table-value functions (iTVFs). In order to create custom SQL objects, you **MUST** create a schema where you will place the objects. Custom SQL objects cannot be placed in `dbo` schema because it is reserved for the lake tables that are defined in Spark, Database designer, or Data Verse.
+
+The following example shows how to create custom view, procedure, and iTVF in the report schema:
+
+```sql
+CREATE SCHEMA reports
+GO
+
+CREATE OR ALTER VIEW reports.GreenReport
+AS SELECT puYear, puMonth,
+			fareAmount = SUM(fareAmount),
+			tipAmount = SUM(tipAmount),
+			mtaTax = SUM(mtaTax)
+FROM dbo.green
+GROUP BY puYear, puMonth
+GO
+
+CREATE OR ALTER PROCEDURE reports.GreenReportSummary
+AS BEGIN
+SELECT puYear, puMonth,
+			fareAmount = SUM(fareAmount),
+			tipAmount = SUM(tipAmount),
+			mtaTax = SUM(mtaTax)
+FROM dbo.green
+GROUP BY puYear, puMonth
+END
+GO
+
+CREATE OR ALTER FUNCTION reports.GreenDataReportMonthly(@year int)
+RETURNS TABLE
+RETURN ( SELECT puYear = @year, puMonth,
+				fareAmount = SUM(fareAmount),
+				tipAmount = SUM(tipAmount),
+				mtaTax = SUM(mtaTax)
+		FROM dbo.green
+		WHERE puYear = @year
+		GROUP BY puMonth )
+GO
+```
+
+>[!IMPORTANT]
+> You must create custom SQL schema where you will place your SQL objects. The custom SQL objects cannot be placed in the `dbo` schema. The `dbo` schema is reserved for the lake tables that are originally created in Spark or database designer.
 
 ## Examples
 
