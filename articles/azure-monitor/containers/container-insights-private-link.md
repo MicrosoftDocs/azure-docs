@@ -7,7 +7,7 @@ ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: aul
 ---
 
-# Enable monitoring for existing Azure Kubernetes Service (AKS) cluster
+# Configure private link for 
 This article describes how to set up Container insights to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
 
 If you're connecting an existing AKS cluster to an Azure Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription in which the Log Analytics workspace was created. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
@@ -415,7 +415,7 @@ az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWo
 1.	Disable monitoring with the following command:
 
   ```cli
-  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> 
   ```
 
 2.	Upgrade cluster to system managed identity with the following command:
@@ -451,6 +451,33 @@ AKS Clusters with system assigned identity must first disable monitoring and the
   az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
   ```
 
+## Private link
+To enable network isolation by connecting your cluster to the Log Analytics workspace using [private link](../logs/private-link-security.md), your cluster must be using managed identity authentication with the Azure Monitor agent. 
+
+1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your AMPLS.
+2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call.
+
+    ```rest
+    PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
+    {
+    "properties": {
+        "dataCollectionEndpointId": "{data-collection-endpoint-resource-id}"
+        }
+    }
+    ```
+
+    Following is an example of this API call.
+
+    ```rest
+    PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
+
+    {
+    "properties": {
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myDataCollectionEndpoint"
+        }
+    }
+    ```
+
 ## Limitations
 
 - Enabling managed identity authentication (preview) is not currently supported using Terraform or Azure Policy.
@@ -461,3 +488,4 @@ AKS Clusters with system assigned identity must first disable monitoring and the
 * If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](container-insights-troubleshoot.md)
 
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
+
