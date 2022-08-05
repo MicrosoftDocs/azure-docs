@@ -46,7 +46,7 @@ By default, Conditional Access requires all selected controls.
 
 ### Require Multi-Factor Authentication
 
-Selecting this checkbox requires users to perform Azure Active Directory (Azure AD) Multi-factor Authentication. You can find more information about deploying Azure AD Multi-Factor Authentication in [Planning a cloud-based Azure AD Multifactor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Selecting this checkbox requires users to perform Azure Active Directory (Azure AD) Multi-factor Authentication. You can find more information about deploying Azure AD Multi-Factor Authentication in [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for Multi-Factor Authentication in Conditional Access policies.
 
@@ -54,9 +54,9 @@ Selecting this checkbox requires users to perform Azure Active Directory (Azure 
 
 Organizations that have deployed Intune can use the information returned from their devices to identify devices that meet specific policy compliance requirements. Intune sends compliance information to Azure AD so Conditional Access can decide to grant or block access to resources. For more information about compliance policies, see [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started).
 
-A device can be marked as compliant by Intune (for any device operating system [OS]) or by a third-party mobile device management system for Windows 10 devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
+A device can be marked as compliant by Intune (for any device operating system or by a third-party mobile device management system for Windows 10 devices. You can find a list of supported third-party mobile device management systems in [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
-Devices must be registered in Azure AD before they can be marked as compliant. You can find more information about device registration in [What is a device identity](../devices/overview.md).
+Devices must be registered in Azure AD before they can be marked as compliant. You can find more information about device registration in [What is a device identity?](../devices/overview.md).
 
 For devices enrolled with third-party mobile device management systems, see [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
@@ -74,9 +74,9 @@ You can use the Microsoft Defender for Endpoint app with the approved client app
 
 Organizations can choose to use the device identity as part of their Conditional Access policy. Organizations can require that devices are hybrid Azure AD joined by using this checkbox. For more information about device identities, see [What is a device identity?](../devices/overview.md).
 
-When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the grant control required for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **require multi-factor authentication grant** control instead.
+When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the grant control required for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **require Multi-Factor Authentication** control instead.
 
-The following  requirements are part of the **Require hybrid Azure AD joined device** control:
+The control:
    - Only supports domain-joined Windows down-level (pre Windows 10) and Windows-current (Windows 10+) devices.
    - Doesn't consider Microsoft Edge in InPrivate mode as a hybrid Azure-AD-joined device.
 
@@ -162,7 +162,7 @@ The following client apps support this setting:
 
 Apps for the app protection policy support the Intune mobile application management feature with policy protection.
 
-The following requirements are part of the **Require app protection policy** control:
+The control:
 
 - Only supports iOS and Android for device platform condition.
 - Requires a broker app to register the device. On iOS, the broker app is Microsoft Authenticator. On Android, the broker app is Intune Company Portal.
@@ -171,7 +171,7 @@ See [Require app protection policy and an approved client app for cloud app acce
 
 ### Require password change
 
-When user risk is detected, administrators can employ the user risk policy conditions to have the user securely change a password with Azure AD self-service password reset. Users can perform a self-service password reset to self-remediate. This process will close the user risk event to prevent unnecessary alerts for administrators.
+When user risk is detected, administrators can employ the user risk policy conditions to have the user securely change a password by using Azure AD self-service password reset. Users can perform a self-service password reset to self-remediate. This process will close the user risk event to prevent unnecessary alerts for administrators.
 
 When a user is prompted to change a password, they'll first be required to complete Multi-Factor Authentication. Make sure all users have registered for Multi-Factor Authentication, so they're prepared in case risk is detected for their account.  
 
@@ -190,7 +190,7 @@ If your organization has created terms of use, other options might be visible un
 
 ### Custom controls (preview)
 
-Custom controls is a preview capability of the Azure Active Directory. When using custom controls, your users are redirected to a compatible service to satisfy authentication requirements outside of Azure Active Directory. For more information, check out the [Custom controls](controls.md) article.
+Custom controls is a preview capability of Azure AD. When using custom controls, your users are redirected to a compatible service to satisfy authentication requirements that are separate from Azure AD. For more information, check out the [Custom controls](controls.md) article.
 
 ## Next steps
 
