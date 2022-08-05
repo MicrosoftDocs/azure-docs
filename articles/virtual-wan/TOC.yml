@@ -83,6 +83,8 @@
         href: scenario-secured-hub-app-gateway.md
       - name: Microsoft 365 - ExpressRoute private peering
         href: scenario-365-expressroute-private.md
+    - name: Virtual WAN routing deep dive
+      href: routing-deep-dive.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
