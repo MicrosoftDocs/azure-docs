@@ -12,7 +12,9 @@ ms.author: jomore
 
 # Virtual WAN Routing Deep Dive
 
-blah blah
+Azure Virtual WAN is a networking solution that encompasses routing between Azure VNets either statically or dynamically, inter-region routing, firewalling and hybrid connectivity to on-premises locations via Point-to-Site VPN, Site-to-Site VPN, ExpressRoute and integrated SDWAN appliances. As such, it offers a rich set of routing functionality that is useful to understand, especially in complex topologies.
+
+This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them.
 
 ## Scenario 1: topology with default routing preference
 
@@ -27,6 +29,8 @@ Here are the effective routes in hub 1:
 The route 10.1.20.0/22 is injected by the NVA in VNet12 to cover both indirect spokes VNet121 (10.1.21.0/24) and VNet122 (10.1.22.0/24). VNets and branches in the remote hub are visible with a next hop of `hub2`, and it can be seen in the AS path that the Autonomous System Number `65520` has been prepended two times to these interhub routes.
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1-hub2.png" alt-text="Effective routes in Virtual WAN hub 2" :::
+
+Note that in hub 2 there is an integrated SDWAN Network Virtual Appliance. For more details on supported NVAs for this integration please visit [About NVAs in a Virtual WAN hub][vwan-nva]. Note that the route to the SDWAN branch `10.5.3.0/24` has a next hop of `VPN_S2S_Gateway`. This type of next hop can indicate today either routes coming from an Azure Virtual Network Gateway or from NVAs integrated in the hub.
 
 In hub 2 the route for `10.2.20.0/22` to the indirect spokes VNet221 (10.2.21.0/24) and VNet222 (10.2.22.0/24) is installed as a static route, as indicated by the origin `defaultRouteTable`. If you check in the effective routes for hub 1, that route is not there. The reason is because static routes are not propagated via BGP, but need to be configured in every hub. Hence, a static route is required in hub 1 to provide connectivity between the VNets and branches in hub 1 to the indirect spokes in hub 2 (VNet221 and VNet222):
 
@@ -100,5 +104,6 @@ Changing back the hub routing preference again to AS Path will return the inter 
 
 
 [vwan-hrp]: /azure/virtual-wan/about-virtual-hub-routing-preference
+[vwan-nva]: /azure/virtual-wan/about-nva-hub
 
 
