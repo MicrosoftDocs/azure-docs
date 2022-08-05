@@ -5,9 +5,9 @@ description: Learn how to use Azure Machine Learning reinforcement learning (pre
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: Blackmist
-ms.date: 10/21/2021
+ms.author: wenxwei
+author: wenxwei
+ms.date: 08/05/2022
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ---
