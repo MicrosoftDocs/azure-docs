@@ -71,7 +71,7 @@ In Azure Machine Learning, logging models has the following advantages:
 > * You can deploy them on real-time or batch endpoints without providing an scoring script nor an environment.
 > * When deployed, Model's deployments have a Swagger generated automatically and the __Test__ feature can be used in Azure ML studio.
 > * Models can be used as pipelines inputs directly.
-> * You can use the [Responsable AI dashbord (preview)](how-to-responsible-ai-dashboard.md).
+> * You can use the [Responsible AI dashbord (preview)](how-to-responsible-ai-dashboard.md).
 
 Models can get logged by:
 
@@ -87,7 +87,7 @@ mlflow..sklearn.log_model(sklearn_estimator, "classifier")
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
-> Azure ML SDK v1 don't have the *model* concept.
+> Azure ML SDK v1 doesn't have the *model* concept.
 
 # [Using the outputs folder](#tab/outputs)
 
