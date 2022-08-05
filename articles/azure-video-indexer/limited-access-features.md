@@ -22,6 +22,17 @@ Customers and partners who wish to use Limited Access features of Azure Video In
 
 The Azure Video Indexer service is made available to customers and partners under the terms governing their subscription to Microsoft Azure Services (including the [Service Specific Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms)). Please review these terms carefully as they contain important conditions and obligations governing your use of Azure Video Indexer. 
 
+## Limited access features
+
+This section talks about limited access features in Azure Video Indexer.
+
+|When did I create the account?|Trial Account (Free)|	Paid Account <br/>(classic or ARM-based)|
+|---|---|---|
+|Existing VI accounts <br/><br/>created before June 21, 2022|Able to access face identification, customization and celebrities recognition till June 2023. <br/><br/>**Recommended**: Move to a paid account and afterward fill in the [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMkZIOUE1R0YwMkU0M1NMUTA0QVNXVDlKNiQlQCN0PWcu) and based on the eligibility criteria we will enable the features also after the grace period. |Able to access face identification, customization and celebrities recognition till June 2023\*.<br/><br/>**Recommended**: fill in the [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMkZIOUE1R0YwMkU0M1NMUTA0QVNXVDlKNiQlQCN0PWcu) and based on the eligibility criteria we will enable the features also after the grace period. <br/><br/>We proactively sent emails to these customers + AEs.|
+|New VI accounts <br/><br/>created after June 21, 2022	|Not able the access face identification, customization and celebrities recognition as of today. <br/><br/>**Recommended**: Move to a paid account and afterward fill in the [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMkZIOUE1R0YwMkU0M1NMUTA0QVNXVDlKNiQlQCN0PWcu). Based on the eligibility criteria we will enable the features (after max 10 days).|Azure Video Indexer disables the access face identification, customization and celebrities recognition as of today by default, but gives the option to enable it. <br/><br/>**Recommended**: Fill in the [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMkZIOUE1R0YwMkU0M1NMUTA0QVNXVDlKNiQlQCN0PWcu) and based on the eligibility criteria we will enable the features (after max 10 days).|
+
+\*In Brazil South we also disabled the face detection.
+
 ## Help and support 
 
 FAQ about Limited Access can be found [here](https://aka.ms/limitedaccesscogservices).
