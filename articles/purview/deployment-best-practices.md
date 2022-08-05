@@ -100,21 +100,21 @@ Once your organization agrees on the high-level objectives and goals, there will
 
 Some example questions that you may run into during the initial phase:
 
-1. What are the main data sources and data systems in our organization?
-1. [What data sources are supported?](microsoft-purview-connector-overview.md) 
-1. For data sources that aren't supported yet by Microsoft Purview, what are my options?
-1. [How should we budget for Microsoft Purview?](concept-guidelines-pricing.md)
-1. [How many Microsoft Purview instances do we need?](concept-best-practices-accounts.md)
-1. [Who will use Microsoft Purview, and what roles will they have?](catalog-permissions.md)
-1. [Who can scan new data sources?](catalog-permissions.md)
-1. [Who can modify content inside of Microsoft Purview?](catalog-permissions.md)
-1. What processes can I use to improve the data quality in Microsoft Purview?
-1. How to bootstrap the platform with existing critical assets, [glossary terms](concept-best-practices-glossary.md), and contacts?
-1. How to integrate with existing systems?
-1. [How can we secure Microsoft Purview?](concept-best-practices-security.md)
-1. How can we gather feedback and build a sustainable process?
-1. [What can we do in a disaster situation?](concept-best-practices-migration.md)
-1. [We're already using Azure Data Catalog, can we migrate to Microsoft Purview?](../data-catalog/data-catalog-migration-to-azure-purview.md)
+- What are the main data sources and data systems in our organization?
+- [What data sources are supported?](microsoft-purview-connector-overview.md) 
+- For data sources that aren't supported yet by Microsoft Purview, what are my options?
+- [How should we budget for Microsoft Purview?](concept-guidelines-pricing.md)
+- [How many Microsoft Purview instances do we need?](concept-best-practices-accounts.md)
+- [Who will use Microsoft Purview, and what roles will they have?](catalog-permissions.md)
+- [Who can scan new data sources?](catalog-permissions.md)
+- [Who can modify content inside of Microsoft Purview?](catalog-permissions.md)
+- What processes can I use to improve the data quality in Microsoft Purview?
+- How to bootstrap the platform with existing critical assets, [glossary terms](concept-best-practices-glossary.md), and contacts?
+- How to integrate with existing systems?
+- [How can we secure Microsoft Purview?](concept-best-practices-security.md)
+- How can we gather feedback and build a sustainable process?
+- [What can we do in a disaster situation?](concept-best-practices-migration.md)
+- [We're already using Azure Data Catalog, can we migrate to Microsoft Purview?](../data-catalog/data-catalog-migration-to-azure-purview.md)
 
 Even if you might not have the answer to most of these questions right away, gathering questions can help your organization to frame this project and ensure all “must-have” requirements can be met.
 
