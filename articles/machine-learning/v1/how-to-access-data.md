@@ -68,7 +68,7 @@ For a low code experience, see how to use the [Azure Machine Learning studio to 
 Datastores currently support storing connection information to the storage services listed in the following matrix. 
 
 > [!TIP]
-> **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move-data-to-supported-azure-storage-solutions) to a supported Azure storage solution. 
+> **For unsupported storage solutions** (those not listed in the table below), you may run into issues connecting and working with this data. [Move your data](#move-data-to-supported-azure-storage-solutions) to a supported Azure storage solution. Doing this may also help with additional scenarios, like saving data egress cost during ML experiments.
 
 | Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](/rest/api/azureml/) | VS Code
 ---|---|---|---|---|---|---
