@@ -9,7 +9,10 @@ ms.topic: conceptual
 ms.date: 06/10/2022
 ms.author: cherylmc
 ---
+
 # VPN Gateway FAQ
+
+See [About VPN Gateway](vpn-gateway-about-vpngateways.md) for the VPN Gateway overview.
 
 ## <a name="connecting"></a>Connecting to virtual networks
 

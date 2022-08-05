@@ -16,7 +16,7 @@ Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using 
 
 The Azure Cosmos account is the fundamental unit of global distribution and high availability. Your Azure Cosmos account contains a unique DNS name and you can manage an account by using the Azure portal or the Azure CLI, or by using different language-specific SDKs. For more information, see [how to manage your Azure Cosmos account](how-to-manage-database-account.md). For globally distributing your data and throughput across multiple Azure regions, you can add and remove Azure regions to your account at any time. You can configure your account to have either a single region or multiple write regions. For more information, see [how to add and remove Azure regions to your account](how-to-manage-database-account.md). You can configure the [default consistency](consistency-levels.md) level on an account.
 
-## Elements in an Azure Cosmos account
+## Elements in an Azure Cosmos DB account
 
 An Azure Cosmos container is the fundamental unit of scalability. You can virtually have an unlimited provisioned throughput (RU/s) and storage on a container. Azure Cosmos DB transparently partitions your container using the logical partition key that you specify in order to elastically scale your provisioned throughput and storage.
 
@@ -30,7 +30,7 @@ The following image shows the hierarchy of different entities in an Azure Cosmos
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
 
-## Azure Cosmos databases
+## Azure Cosmos DB databases
 
 You can create one or multiple Azure Cosmos databases under your account. A database is analogous to a namespace. A database is the unit of management for a set of Azure Cosmos containers. The following table shows how a database is mapped to various API-specific entities:
 
@@ -52,7 +52,7 @@ You can interact with an Azure Cosmos database with Azure Cosmos APIs as describ
 |Create new database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
 |Update database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
 
-## Azure Cosmos containers
+## Azure Cosmos DB containers
 
 An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container are automatically grouped into logical partitions, which are distributed across physical partitions, based on the partition key. The throughput on a container is evenly distributed across the physical partitions. To learn more about partitioning and partition keys, see [Partition data](partitioning-overview.md). 
 
@@ -86,7 +86,7 @@ A container is specialized into API-specific entities as shown in the following 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
-### Properties of an Azure Cosmos container
+### Properties of an Azure Cosmos DB container
 
 An Azure Cosmos container has a set of system-defined properties. Depending on which API you use, some properties might not be directly exposed. The following table describes the list of system-defined properties:
 
@@ -103,7 +103,7 @@ An Azure Cosmos container has a set of system-defined properties. Depending on w
 |uniqueKeyPolicy | User-configurable | Used to ensure the uniqueness of one or more values in a logical partition. For more information, see [Unique key constraints](unique-keys.md). | Yes | No | No | No | Yes |
 |AnalyticalTimeToLive | User-configurable | Provides the ability to delete items automatically from a container after a set time period. For details, see [Time to Live](analytical-store-introduction.md). | Yes | No | Yes | No | No |
 
-### Operations on an Azure Cosmos container
+### Operations on an Azure Cosmos DB container
 
 An Azure Cosmos container supports the following operations when you use any of the Azure Cosmos APIs:
 
@@ -115,7 +115,7 @@ An Azure Cosmos container supports the following operations when you use any of 
 | Update a container | Yes | Yes | Yes | Yes | NA | NA |
 | Delete a container | Yes | Yes | Yes | Yes | NA | NA |
 
-## Azure Cosmos items
+## Azure Cosmos DB items
 
 Depending on which API you use, an Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the mapping of API-specific entities to an Azure Cosmos item:
 

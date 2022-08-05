@@ -219,7 +219,7 @@ The guest configuration feature can be used outside of Azure Policy assignments.
 For example,
 [Azure AutoManage](../../../automanage/automanage-virtual-machines.md)
 creates guest configuration assignments, or you might
-[assign configurations when you deploy machines](guest-configuration-create-assignment.md).
+[assign configurations when you deploy machines](../../machine-configuration/machine-configuration-create-assignment.md).
 
 To view all guest configuration assignments across your tenant, from the Azure
 portal open the **Guest Assignments** page. To view detailed compliance
