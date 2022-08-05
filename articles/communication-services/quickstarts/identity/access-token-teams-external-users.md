@@ -16,7 +16,7 @@ ms.custom: mode-other
 
 # Quickstart: Create and manage access tokens for Teams external users
 
-Teams external users are authenticated as Azure Communication Services users in Teams. With access token for Azure Communication Services user you can use chat and calling SDKs to join Teams meeting audio, video and chat as Teams external user. The quickstart here is identical to [identity and access token management of Azure Communication Services users](../access-tokens.md). 
+Teams external users are authenticated as Azure Communication Services users in Teams. With an access token for Azure Communication Services users, you can use chat and calling SDKs to join Teams meeting audio, video, and chat as Teams external user. The quickstart here is identical to [identity and access token management of Azure Communication Services users](../access-tokens.md). 
 
 In this quickstart, you'll learn how to use the Azure Communication Services SDKs to create identities and manage your access tokens. For production use cases, we recommend that you generate access tokens on a [server-side service](../../concepts/client-and-server-architecture.md).
 
@@ -42,13 +42,13 @@ In this quickstart, you'll learn how to use the Azure Communication Services SDK
 
 ## Use identity for monitoring and metrics
 
-The user ID is intended to act as a primary key for logs and metrics that are collected through Azure Monitor. To view all of a user's calls, for example, you can set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a single user. 
+The user ID is a primary key for logs and metrics collected through Azure Monitor. To view all of a user's calls, for example, you can set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a single user. 
 
 Learn more about [authentication concepts](../../concepts/authentication.md), call diagnostics through [log analytics](../../concepts/analytics/log-analytics.md), and [metrics](../../concepts/metrics.md) that are available to you.
 
 ## Clean up resources
 
-To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting a resource group also deletes any other resources that are associated with it. For more information, see the "Clean up resources" section of [Create and manage Communication Services resources](../create-communication-resource.md#clean-up-resources).
+Delete the resource or resource group to clean up and remove a Communication Services subscription. Deleting a resource group also deletes any other resources that are associated with it. For more information, see the "Clean up resources" section of [Create and manage Communication Services resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
