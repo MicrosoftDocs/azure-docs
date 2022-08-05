@@ -40,7 +40,7 @@ Floating IP can be configured on a Load Balancer rule via the Azure portal, REST
 In order to function, the Guest OS for the virtual machine needs to be configured to receive all traffic bound for the frontend IP and port of the load balancer. To accomplish this requires:
 * a loopback network interface to be added
 * configuring the loopback with the frontend IP address of the load balancer
-* ensure the system can send/receive packets on interfaces that do not have the IP address assigned to that interface (on Windows, this requires setting interfaces to use the "weak host" model; on Linux this model is normally used by default)
+* ensure the system can send/receive packets on interfaces that don't have the IP address assigned to that interface (on Windows, this requires setting interfaces to use the "weak host" model; on Linux this model is normally used by default)
 The host firewall also needs to be open to receiving traffic on the frontend IP port.
 
 > [!NOTE]
