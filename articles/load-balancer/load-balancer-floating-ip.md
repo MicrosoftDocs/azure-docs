@@ -29,9 +29,9 @@ If you want to reuse the backend port across multiple rules, you must enable Flo
 When Floating IP is enabled, Azure changes the IP address mapping to the Frontend IP address of the Load Balancer frontend instead of backend instance's IP. Without Floating IP, Azure exposes the VM instances' IP. Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for more flexibility. Learn more [here](load-balancer-multivip-overview.md).
 
 In the diagrams below, you see how IP address mapping works before and after enabling Floating IP:
-:::image type="content" source="media/load-balancer-floating-ip/load-balancer-floatingip-before.png" alt-text="This diagram shows network traffic through a load balancer before Floating IP is enabled.":::
+:::image type="content" source="media/load-balancer-floating-ip/load-balancer-floating-ip-before.png" alt-text="This diagram shows network traffic through a load balancer before Floating IP is enabled.":::
 
-:::image type="content" source="media/load-balancer-floating-ip/load-balancer-floatingip-after.png" alt-text="This diagram shows network traffic through a load balancer after Floating IP is enabled.":::
+:::image type="content" source="media/load-balancer-floating-ip/load-balancer-floating-ip-after.png" alt-text="This diagram shows network traffic through a load balancer after Floating IP is enabled.":::
 
 Floating IP can be configured on a Load Balancer rule via the Azure portal, REST API, CLI, PowerShell, or other client. In addition to the rule configuration, you must also configure your virtual machine's Guest OS in order to use Floating IP.
 
