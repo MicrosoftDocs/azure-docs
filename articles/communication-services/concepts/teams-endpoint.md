@@ -97,7 +97,7 @@ The following table show supported use cases for Teams users with Azure Communic
 | Send a message to 1:1 chat, group chat or Teams meeting chat| ✔️ |
 | Get messages from 1:1 chat, group chat or Teams meeting chat | ✔️ |
 
-- [1] Teams user users may join a Teams webinar. However, the presenter and attendee roles aren't honored for Teams users. Thus Teams users on Azure Communication Services SDKs could perform actions not intended for attendees, such as screen sharing, turning their camera on/off, or unmuting themselves if your application provides UX for those actions.
+- [1] Teams users may join a Teams webinar. However, the presenter and attendee roles aren't honored for Teams users. Thus Teams users on Azure Communication Services SDKs could perform actions not intended for attendees, such as screen sharing, turning their camera on/off, or unmuting themselves if your application provides UX for those actions.
 
 ## Pricing
 Teams users can join the Teams meeting experience, manage calls, and manage chats via existing Teams desktop, mobile, and web clients or Graph API without additional charge. Teams users using Azure Communication Services SDKs will pay
