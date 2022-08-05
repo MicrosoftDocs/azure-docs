@@ -101,7 +101,7 @@ You must configure MedTech to map it to the device you want to receive data from
 
 ### Configuring destination mappings
 
-Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings).
+Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md).
 
 For step-by-step destination property mapping, see [Configure destination properties](deploy-iot-connector-in-azure.md#configure-destination-properties
 ).
@@ -142,7 +142,7 @@ The data is sent to an Event Hub instance so that it can wait until MedTech serv
 
 For more information about Event Hubs, see [Event Hubs](../../event-hubs/event-hubs-about.md).
 
-For more information on Event Hubs data retention, see [Event Hubs quotas](../../event-hubs/event-hubs-quotas)
+For more information on Event Hubs data retention, see [Event Hubs quotas](../../event-hubs/event-hubs-quotas.md)
 
 ### Data Sent from Event Hubs to MedTech
 
