@@ -24,7 +24,7 @@ With outbound rules, you have full declarative control over outbound internet co
 
 Outbound rules will only be followed if the backend VM doesn't have an instance-level public IP address (ILPIP).
 
-![Load Balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+:::image type="content" source="media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png" alt-text="This diagram shows configuration of SNAT ports on VMs w/ outbound load balancer rules.":::
 
 With outbound rules, you can explicitly define outbound **SNAT** behavior.
 
