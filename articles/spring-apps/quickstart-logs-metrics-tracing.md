@@ -44,7 +44,7 @@ You can use log streaming in the Azure CLI with the following command.
 az spring app logs -n solar-system-weather -f
 ```
 
-You will see output similar to the following example:
+You'll see output similar to the following example:
 
 ```output
 => ConnectionId:0HM2HOMHT82UK => RequestPath:/weatherforecast RequestId:0HM2HOMHT82UK:00000003, SpanId:|e8c1682e-46518cc0202c5fd9., TraceId:e8c1682e-46518cc0202c5fd9, ParentId: => Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController.Get (Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather)
@@ -71,7 +71,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 1. Edit the query to remove the Where clauses that limit the display to warning and error logs.
 
-1. Then select `Run`, and you will see logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
+1. Then select `Run`, and you'll see logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png" alt-text="Screenshot of a Logs Analytics query." lightbox="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png":::
 
@@ -138,7 +138,7 @@ You can use log streaming in the Azure CLI with the following command.
 az spring app logs -s <service instance name> -g <resource group name> -n gateway -f
 ```
 
-You will see logs like this:
+You'll see logs like this:
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png" alt-text="Screenshot of CLI log output." lightbox="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png":::
 
@@ -177,7 +177,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Logs opening page." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
 
-1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
+1. Then you'll see filtered logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query.png" alt-text="Screenshot of filtered logs." lightbox="media/quickstart-logs-metrics-tracing/logs-query.png":::
 
