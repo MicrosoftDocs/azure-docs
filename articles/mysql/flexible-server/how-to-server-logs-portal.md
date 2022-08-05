@@ -1,6 +1,6 @@
 ---
 title: 'How to enable and download server logs for Azure Database for MySQL - Flexible Server'
-description: This article describes how to download and list server logs using Azure Portal.
+description: This article describes how to download and list server logs using Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -23,7 +23,7 @@ In this tutorial, you’ll learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you an existing Azure Database for MySQL flexible server. If you need to create a new server, see [Create an Azure Database for MySQL flexible server](./quickstart-create-server-portal.md).
+To complete this tutorial, you need an existing Azure Database for MySQL flexible server. If you need to create a new server, see [Create an Azure Database for MySQL flexible server](./quickstart-create-server-portal.md).
 
 ## Enable Server logs
 
@@ -60,7 +60,7 @@ To download server logs, perform the following steps.
 
     :::image type="content" source="./media/how-to-server-logs-portal/4-how-to-serverlog.png" alt-text="Server Logs - Download":::
 
-    For HA enabled Azure database for MySQL Flexible server, server logs for standby server can be identified by additional four-letter identifier after the hostname of the server as shown below.
+    For HA enabled Azure database for MySQL Flexible server, server logs for standby server can be identified by another four-letter identifier after the hostname of the server as shown below.
 
     :::image type="content" source="./media/how-to-server-logs-portal/5-how-to-serverlog.png" alt-text="Server Logs - HA -logs":::
 
@@ -71,9 +71,9 @@ To download server logs, perform the following steps.
 
 ## Disable Server Logs
 
-1. From your Azure portal, select Server logs from Monitoring server blade.
+1. From your Azure portal, select Server logs from Monitoring server pane.
 
-2. For disabling Server logs to file, Uncheck Enable. (This will disable logging for all the log_types available)
+2. For disabling Server logs to file, Uncheck Enable. (The setting will disable logging for all the log_types available)
 
     :::image type="content" source="./media/how-to-server-logs-portal/7-how-to-serverlog.png" alt-text="Server Logs - Disable":::
 

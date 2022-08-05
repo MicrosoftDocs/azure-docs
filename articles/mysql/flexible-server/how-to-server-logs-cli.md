@@ -66,5 +66,5 @@ az mysql flexible-server server-logs download --resource-group <myresourcegroup>
 ```
 
 ## Next Steps
-- To enable and disable Server logs from portal, click [here.](./how-to-server-logs-portal.md)
+- To enable and disable Server logs from portal, you can refer to the [article].(./how-to-server-logs-portal.md)
 - Learn more about [Configure slow logs using Azure CLI](./tutorial-query-performance-insights.md#configure-slow-query-logs-by-using-the-azure-cli)
