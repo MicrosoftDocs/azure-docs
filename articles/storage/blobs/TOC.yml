@@ -328,16 +328,16 @@ items:
         items:
         - name: Manage containers (Azure portal)
           href: blob-containers-portal.md
-        - name: Manage containers (CLI)
-          href: blob-containers-cli.md
         - name: Manage containers (PowerShell)
           href: blob-containers-powershell.md
+        - name: Manage containers (CLI)
+          href: blob-containers-cli.md
       - name: Create and manage blobs
         items:
-        - name: Manage blobs (CLI)
-          href: blob-cli.md
         - name: Manage blobs (PowerShell)
           href: blob-powershell.md
+        - name: Manage blobs (CLI)
+          href: blob-cli.md
         - name: Use blob index tags
           href: storage-blob-index-how-to.md
         - name: Enable blob inventory reports
