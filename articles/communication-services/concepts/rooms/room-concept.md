@@ -103,7 +103,6 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Show call state (Early media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected | ✔️ | ✔️ | ✔️ |
 | - Show if a participant is muted | ✔️ | ✔️ | ✔️ |
 | - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
-| - Mute other participants | ✔️ | ❌ | ❌ |
 | <b>Screen sharing</b> | | |
 | - Share screen | ✔️ *  | ❌ | ❌ |
 | - Share an application | ✔️ * | ❌ | ❌ |
