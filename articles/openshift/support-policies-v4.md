@@ -22,7 +22,8 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * The cluster must have a minimum of three worker nodes and three manager nodes.
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
 * Don't have taints that prevent OpenShift components to be scheduled.
-* Don't remove or modify the cluster Prometheus and Alertmanager services.
+* Don't remove or modify the cluster Prometheus service.
+* Don't remove or modify the cluster Alertmanager service or Default receiver. It *is* supported to create additional receivers to notify external systems.
 * Don't remove Service Alertmanager rules.
 * Security groups can't be modified. Any attempt to modify security groups will be reverted.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
