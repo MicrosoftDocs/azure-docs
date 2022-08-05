@@ -46,7 +46,7 @@ At the end of this article you run two .NET console apps:
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-* The sample applications you run in this article are written using C#. For the Azure IoT C# samples, we recommend you have the .NET Core SDK 3.1 or greater on your development machine.
+* The sample applications you run in this article are written using C# with .NET Core.
 
     You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
@@ -256,7 +256,7 @@ You can use the portal to view the uploaded file in the storage container you co
 1. Select the folder named after your device.
 1. Select the blob that you uploaded your file to. In this article, it's the blob named **TestPayload.txt**.  
 
-    :::image type="content" source="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png" alt-text="Screenshot of selecting the uploaded file in the Azure portal.":::
+    :::image type="content" source="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png" alt-text="Screenshot of selecting the uploaded file in the Azure portal." lightbox="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png":::
 
 1. View the blob properties on the page that opens. You can select **Download** to download the file and view its contents locally.
 

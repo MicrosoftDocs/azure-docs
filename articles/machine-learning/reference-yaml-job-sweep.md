@@ -7,9 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
-author: blackmist
-ms.author: larryfr
+ms.author: amipatel
+author: amibp
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ---
