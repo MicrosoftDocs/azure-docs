@@ -431,6 +431,36 @@ image_model:
 
 ---
 
+## Automatically sweeping model hyperparameters (AutoMode)
+
+It is generally hard to predict the best model architecture and hyperparameters for a dataset. Additionally, in some cases the human time allocated to tuning hyperparameters may be limited. With support for computer vision tasks, you can specify a number of runs and the AutoMode feature will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter space, a sampling method or an early termination policy.
+
+### Triggering Automode
+
+You can run AutoMode sweeps by setting `max_trials` to a value greater than 1 in `limits`, as shown in the example below.
+
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+limits:
+  max_trials: 10
+  max_concurrent_trials: 2
+  timeout_minutes: 60
+```
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+```python
+# Trigger AutoMode
+image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
+```
+
+Note how `max_trials` and `max_concurrent_trials` are specified in the top level limits section as opposed to the sweep section, which is for regular sweeps. The search space, sampling method, early termination policy and fixed settings should not be specified. The time budget for the AutoML job can still be set but we recommend doing this only if each trial may take a long time.
+
+---
+
 ##  Incremental training (optional)
 
 Once the training run is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
