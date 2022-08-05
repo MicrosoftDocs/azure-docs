@@ -6,19 +6,19 @@ services: virtual-wan
 author: erjosito
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/08/2022
 ms.author: jomore
 ---
 
 # Virtual WAN Routing Deep Dive
 
-[Azure Virtual WAN][vwan-overview] is a networking solution that encompasses routing across Azure regions between Azure VNets either statically or dynamically, hybrid connectivity to on-premises locations via Point-to-Site VPN, Site-to-Site VPN, ExpressRoute and integrated SDWAN appliances and network security. As such, it offers a rich set of routing functionality that is useful to understand especially in complex topologies.
+[Azure Virtual WAN][vwan-overview] is a networking solution that allows creating sophisticated networking topologies very easily: it encompasses routing across Azure regions between Azure VNets and on-premises locations via Point-to-Site VPN, Site-to-Site VPN, [ExpressRoute][er] and [integrated SDWAN appliances][vwan-nva], including the option of [securing all this traffic][vwan-secured-hub]. In most scenarios it is not required any deep knowledge of how Virtual WAN internal routing works, but in certain situations it can be useful to understand Virtual WAN routing concepts.
 
-This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them. The scenarios shown in this article are by no means design recommendations, they are just sample topologies specifically chosen to demonstrate certain Virtual WAN functionalities.
+This document will explore a relatively complex Virtual WAN scenario that will demonstrate some of the routing challenges that organizations might encounter when interconnecting their VNets and branches, and how to fix them. The scenarios shown in this article are by no means design recommendations, they are just sample topologies specifically designed to demonstrate certain Virtual WAN functionalities.
 
 ## Scenario 1: topology with default routing preference
 
-The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub there are VNets connected directly (VNets 11 and 21) and through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP, and VNet 22 is configured with static routes, so that differences between both options can be shown.
+The first scenario in this article will analyze a topology with two Virtual WAN hubs, one ExpressRoute circuit connected to each hub, one branch connected over VPN to hub 1, and a second branch connected via SDWAN to an NVA deployed inside of hub 2. In each hub there are VNets connected directly (VNets 11 and 21) and indirectly through an NVA (VNets 121, 122, 221 and 222). VNet 12 exchanges routing information with hub 1 via BGP (see [BGP peering with a virtual hub][vwan-bgp]), and VNet 22 is configured with static routes, so that differences between both options can be shown.
 
 In each hub the VPN and SDWAN appliances server to a dual purpose: on one side the advertise their own individual prefixes (`10.4.1.0/24` over VPN in hub 1 and `10.5.3.0/24` over SDWAN in hub 2), and on the other they advertise the same prefixes as the ExpressRoute circuits in the same region (`10.4.2.0/24` in hub 1 and `10.5.2.0/24` in hub 2). This will be used to demonstrate how the [Virtual WAN hub routing preference][vwan-hrp] works.
 
@@ -26,17 +26,19 @@ All VNet and branch connections are associated and propagating to the default ro
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1.png" alt-text="Virtual WAN design with two ExpressRoute circuits and two V P N branches" :::
 
-Here are the effective routes in hub 1:
+Out of the box the Virtual WAN hubs will exchange information between each other so that communication across regions is enabled. You can inspect the effective routes in Virtual WAN route tables: for example, the following picture shows  the effective routes in hub 1:
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1-hub1-no-route.png" alt-text="Effective routes in Virtual WAN hub 1" :::
 
-The route 10.1.20.0/22 is injected by the NVA in VNet12 to cover both indirect spokes VNet121 (10.1.21.0/24) and VNet122 (10.1.22.0/24). VNets and branches in the remote hub are visible with a next hop of `hub2`, and it can be seen in the AS path that the Autonomous System Number `65520` has been prepended two times to these interhub routes.
+These effective routes will be then advertised by Virtual WAN to branches, and will inject them into the VNets connected to the virtual hubs, making the use of User Define Routes unnecessary. When inspecting the effective routes in a virtual hub the "Next Hop Type" and "Origin" fields will indicate where the routes are coming from. For example, a Next Hop Type of "Virtual Network Connection" indicates that the prefix is defined in a VNet directly connected to Virtual WAN (VNets 11 and 12 in the previous screenshot)
+
+The route 10.1.20.0/22 is injected by the NVA in VNet 12 over BGP (hence the Next Hop Type "HubBgpConnection", see [BGP Peering with a Virtual Hub][vwan-bgp]) to cover both indirect spokes VNet 121 (10.1.21.0/24) and VNet 122 (10.1.22.0/24). VNets and branches in the remote hub are visible with a next hop of `hub2`, and it can be seen in the AS path that the Autonomous System Number `65520` has been prepended two times to these interhub routes.
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1-hub2.png" alt-text="Effective routes in Virtual WAN hub 2" :::
 
 Note that in hub 2 there is an integrated SDWAN Network Virtual Appliance. For more details on supported NVAs for this integration please visit [About NVAs in a Virtual WAN hub][vwan-nva]. Note that the route to the SDWAN branch `10.5.3.0/24` has a next hop of `VPN_S2S_Gateway`. This type of next hop can indicate today either routes coming from an Azure Virtual Network Gateway or from NVAs integrated in the hub.
 
-In hub 2 the route for `10.2.20.0/22` to the indirect spokes VNet221 (10.2.21.0/24) and VNet222 (10.2.22.0/24) is installed as a static route, as indicated by the origin `defaultRouteTable`. If you check in the effective routes for hub 1, that route is not there. The reason is because static routes are not propagated via BGP, but need to be configured in every hub. Hence, a static route is required in hub 1 to provide connectivity between the VNets and branches in hub 1 to the indirect spokes in hub 2 (VNet221 and VNet222):
+In hub 2 the route for `10.2.20.0/22` to the indirect spokes VNet 221 (10.2.21.0/24) and VNet 222 (10.2.22.0/24) is installed as a static route, as indicated by the origin `defaultRouteTable`. If you check in the effective routes for hub 1, that route is not there. The reason is because static routes are not propagated via BGP, but need to be configured in every hub. Hence, a static route is required in hub 1 to provide connectivity between the VNets and branches in hub 1 to the indirect spokes in hub 2 (VNets 221 and 222):
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-1-add-route.png" alt-text="Adding static route to Virtual WAN hub 1" :::
 
@@ -46,7 +48,7 @@ After adding the static route hub 1 will contain the `10.2.20.0/22` route as wel
 
 ## Scenario 2: Global Reach and Hub Routing Preference
 
-Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.2.5.0/24`) and hub 2 knows the ExpressRoute prefix from circuit 1 (`10.1.5.0/24`), ExpressRoute routes from remote regions will not be advertised back to on-premises ExpressRoute links. Consequently, so that both ExpressRoute locations can communicate to each other interconnecting them via Global Reach is required:
+Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.2.5.0/24`) and hub 2 knows the ExpressRoute prefix from circuit 1 (`10.1.5.0/24`), ExpressRoute routes from remote regions will not be advertised back to on-premises ExpressRoute links. Consequently, so that both ExpressRoute locations can communicate to each other interconnecting them via [ExpressRoute Global Reach][er-gr] is required:
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2.png" alt-text="Virtual WAN design with two ExpressRoute circuits with Global Reach and two V P N branches" :::
 
@@ -104,7 +106,7 @@ Going back to the default hub routing preference of ExpressRoute, the routes to 
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-er-hub1.png" alt-text="Effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference ExpressRoute" :::
 
-Changing back the hub routing preference again to AS Path will return the inter hub routes to normal:
+Changing back the hub routing preference again to AS Path will return the inter hub routes to the optimal path using the direct connection between hubs 1 and 2:
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-3-aspath-hub1.png" alt-text="Effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference A S Path" :::
 
@@ -115,7 +117,9 @@ For more information about Virtual WAN see:
 * The Virtual WAN [FAQ](virtual-wan-faq.md)
 
 [vwan-overview]: /azure/virtual-wan/virtual-wan-about
+[vwan-secured-hub]: /azure/firewall-manager/secured-virtual-hub
 [vwan-hrp]: /azure/virtual-wan/about-virtual-hub-routing-preference
 [vwan-nva]: /azure/virtual-wan/about-nva-hub
-
-
+[vwan-bgp]: /azure/virtual-wan/scenario-bgp-peering-hub
+[er]: /azure/expressroute/expressroute-introduction
+[er-gr]: /azure/expressroute/expressroute-global-reach
