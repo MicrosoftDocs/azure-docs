@@ -76,8 +76,10 @@ Some Azure-attached services are only available when they can be directly reache
 There are three connections required to services available on the Internet. These connections include:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
+- [Helm chart (direct connected mode)](#helm-chart-direct-connected-mode)
 - [Azure Resource Manager APIs](#azure-resource-manager-apis)
 - [Azure monitor APIs](#azure-monitor-apis)
+- [Azure Arc data processing service ](#Azure-arc-data-processing-service)
 
 All HTTPS connections to Azure and the Microsoft Container Registry are encrypted using SSL/TLS using officially signed and verifiable certificates.
 
@@ -111,7 +113,7 @@ Yes
 
 None
 
-### Helm chart used to create data controller in direct connected mode
+### Helm chart (direct connected mode)
 
 The helm chart used to provision the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry.
 
@@ -150,18 +152,6 @@ A computer running Azure Data Studio, or Azure CLI that is connecting to Azure.
 
 - `login.microsoftonline.com`
 - `management.azure.com`
-- `san-af-eastus-prod.azurewebsites.net`
-- `san-af-eastus2-prod.azurewebsites.net`
-- `san-af-australiaeast-prod.azurewebsites.net`
-- `san-af-centralus-prod.azurewebsites.net`
-- `san-af-westus2-prod.azurewebsites.net`
-- `san-af-westeurope-prod.azurewebsites.net`
-- `san-af-southeastasia-prod.azurewebsites.net`
-- `san-af-koreacentral-prod.azurewebsites.net`
-- `san-af-northeurope-prod.azurewebsites.net`
-- `san-af-westeurope-prod.azurewebsites.net`
-- `san-af-uksouth-prod.azurewebsites.net`
-- `san-af-francecentral-prod.azurewebsites.net`
 
 #### Protocol
 
@@ -221,3 +211,36 @@ Azure Active Directory
 > For now, all browser HTTPS/443 connections to the data controller for running the command `az arcdata dc export` and Grafana and Kibana dashboards are SSL encrypted using self-signed certificates.  A feature will be available in the future that will allow you to provide your own certificates for encryption of these SSL connections.
 
 Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc-enabled data services.
+
+### Azure Arc data processing service
+
+Points to the data processing service endpoint in connection 
+
+#### Connection target
+
+- `san-af-eastus-prod.azurewebsites.net`
+- `san-af-eastus2-prod.azurewebsites.net`
+- `san-af-australiaeast-prod.azurewebsites.net`
+- `san-af-centralus-prod.azurewebsites.net`
+- `san-af-westus2-prod.azurewebsites.net`
+- `san-af-westeurope-prod.azurewebsites.net`
+- `san-af-southeastasia-prod.azurewebsites.net`
+- `san-af-koreacentral-prod.azurewebsites.net`
+- `san-af-northeurope-prod.azurewebsites.net`
+- `san-af-westeurope-prod.azurewebsites.net`
+- `san-af-uksouth-prod.azurewebsites.net`
+- `san-af-francecentral-prod.azurewebsites.net`
+
+#### Protocol
+
+HTTPS
+
+#### Can use proxy
+
+Yes
+
+To use proxy, verify that the agents meet the network requirements. See [Meet network requirements](../kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+
+#### Authentication
+
+None
