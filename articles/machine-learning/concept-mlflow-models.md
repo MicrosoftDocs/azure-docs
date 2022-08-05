@@ -64,7 +64,7 @@ with open(filename, 'wb') as f:
 
 ### Models
 
-A model in MLflow is also an artifact. However, we make stronger assumptions about this type of artifacts. Such assumptions provides a clear contract between the saved files and what they mean. When you log your models as artifacts (simple files), you need to know what the model builder meant for each of them in order to know how to load the model for inference. On the contrary, MLflow models can be loaded using the contract specified in the [The MLModel format](concept-mlflow-models.md#the-mlmodel-format).
+A model in MLflow is also an artifact. However, we make stronger assumptions about this type of artifacts. Such assumptions provide a clear contract between the saved files and what they mean. When you log your models as artifacts (simple files), you need to know what the model builder meant for each of them in order to know how to load the model for inference. On the contrary, MLflow models can be loaded using the contract specified in the [The MLModel format](concept-mlflow-models.md#the-mlmodel-format).
 
 In Azure Machine Learning, logging models has the following advantages:
 > [!div class="checklist"]
@@ -104,6 +104,8 @@ mlflow.sklearn.save_model(sklearn_estimator, "outputs/classifier")
 ## The MLmodel format
 
 MLflow adopts the MLmodel format as a way to create a contract between the artifacts and what they represent. The MLmodel format stores assets in a folder. Among them, there is a particular file named MLmodel. This file is the single source of truth about how a model can be loaded and used.
+
+![a sample MLflow model in MLmodel format](media/concept-mlflow-models/mlflow-mlmodel.png)
 
 The following example shows how the `MLmodel` file for a computer version model trained with `fastai` may look like:
 
