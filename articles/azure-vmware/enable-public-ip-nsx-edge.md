@@ -85,14 +85,15 @@ A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT)
 Logging can be enabled by way of the logging slider. For more information on NSX-T NAT configuration and options, see the 
 [NSX-T NAT Administration Guide](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-7AD2C384-4303-4D6C-A44A-DEF45AA18A92.html)
 
-## No NAT rule for specific address ranges
+### No NAT rule for specific address ranges
 
 A No NAT rule can be used to exclude certain matches from performing Network Address Translation.  This policy can be used to allow private IP traffic to bypass the NAT rule.
 
 1. From your Azure VMware Solution private cloud, select **vCenter Credentials**.
 2.	Locate your NSX-T URL and credentials.
-3.	Log in to **VMWare NSX-T** and then select **3  NAT Rules**. 
-1. Select the T1 Router and then select **ADD NAT RULE**.         
+3.	Log in to **VMWare NSX-T** and then select **NAT Rules**. 
+1. Select the T1 Router and then select **ADD NAT RULE**.
+1. The **Source IP** is **Any** and **Destination IP** is the Azure VMware Solution reserved Public IP.         
 1. Select **SAVE**.
 
 ### Inbound Internet Access for VMs
