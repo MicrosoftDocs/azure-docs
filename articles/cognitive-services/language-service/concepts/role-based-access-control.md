@@ -47,7 +47,7 @@ These custom roles only apply to Language authoring resources.
 > [!NOTE]
 > * All prebuilt capabilities are accessible to all roles.
 > * The "Owner" and "Contributor" roles take priority over custom language roles.
-> * Azure Active Directory (AAD) is only used for custom Language roles.
+> * Azure Active Directory (Azure AD) is only used for custom Language roles.
 
 ### Cognitive Services Language reader
 

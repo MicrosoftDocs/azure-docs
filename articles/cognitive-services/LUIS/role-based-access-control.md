@@ -44,7 +44,7 @@ These custom roles only apply to authoring (Language Understanding Authoring) an
 
 > [!NOTE]
 > * "Owner" and "Contributor" roles take priority over the custom LUIS roles.
-> * Azure Active Directory (AAD) is only used with custom LUIS roles.
+> * Azure Active Directory (Azure AD) is only used with custom LUIS roles.
 
 
 ### Cognitive Services LUIS reader
