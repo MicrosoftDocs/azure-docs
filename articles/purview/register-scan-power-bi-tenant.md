@@ -63,7 +63,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 1. Make sure Power BI tenant ID is entered correctly during the registration.
-1. Make sure your [PowerBI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
 1. From Azure portal, validate if Microsoft Purview account Network is set to public access.
 1. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
 1. In Azure Active Directory tenant, create a security group.
@@ -75,7 +75,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 1. Make sure Power BI tenant ID is entered correctly during the registration.
-1. Make sure your [PowerBI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
 1. From Azure portal, validate if Microsoft Purview account Network is set to public access.
 1. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
 1. Check your Azure Key Vault to make sure:
@@ -107,7 +107,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 1. Make sure Power BI tenant ID is entered correctly during the registration.
-1. Make sure your [PowerBI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
+1. Make sure your [Power BI Metadata model is up to date by enabling metadata scanning.](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning)
 1. Check your Azure Key Vault to make sure:
    1. There are no typos in the password.
    2. Microsoft Purview Managed Identity has get/list access to secrets.
