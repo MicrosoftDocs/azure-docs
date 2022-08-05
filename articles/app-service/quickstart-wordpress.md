@@ -20,13 +20,10 @@ Other WP options on Azure:
 In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service on Linux](overview.md#app-service-on-linux) using the [WordPress on the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins for performance improvements, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression.
 
 > [!IMPORTANT]
-> [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
->
-> **Limitations:**
+> - [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
 > - The MySQL Flexible Server is created behind a private [Virtual Network](/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
-> - If a custom domain or Content Delivery Network is enabled for Blob Storage, the domain name needs to be updated in "Configuration -> Replace site's hostname with" setting in W3 Total Cache CDN settings.
 >
->  If you have feedback to improve this offering, submit your ideas at [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c).
+>  If you have feedback to improve this WordPress offering on App Service, submit your ideas at [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c).
 
 ## Create WordPress site using Azure portal
 
