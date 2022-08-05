@@ -1,7 +1,7 @@
 ---
 title: Use Search with SynapseML
 titleSuffix: Azure Cognitive Search
-description: Add full text search to big data on Apache Spark that's been loaded and transformed through SynapseML. In this walkthrough, you'll load invoice files into data frames, apply machine learning through SynapseML, then send it into a generated search index..
+description: Add full text search to big data on Apache Spark that's been loaded and transformed through SynapseML. In this walkthrough, you'll load invoice files into data frames, apply machine learning through SynapseML, then send it into a generated search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,28 +13,29 @@ ms.date: 08/06/2022
 
 # Add search to AI-enriched data from Apache Spark using Azure Synapse Analytics
 
-This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark that's been transformed using the SynapseML feature of Azure Synapse Analytics. Transformers in SynapseML integrate with Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to transform data in a Spark cluster and then send it a search index so that you can query the output. 
+This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark that's been transformed using the SynapseML feature of Azure Synapse Analytics. Transformers in SynapseML integrate with Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to apply machine learning to content in a Spark cluster. You'll then send it to a search index so that you can query the output. 
 
-Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md) capabilities, this walkthrough uses SynapseML transformers instead of indexers and skillsets. A key takeaway is learning an end-to-end workflow that shows you how to tap AI capabilities outside of Cognitive Search.
+Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough uses SynapseML transformers instead of indexers and skillsets. A key takeaway from this exercise is learning an end-to-end workflow that shows you how to tap AI capabilities outside of Cognitive Search.
 
-The article starts with forms (invoices) in Azure Storage and includes the following steps:
+The article starts with forms (invoices) in Azure Storage. It includes the following steps:
 
-+ Create an Azure Databricks workspace that connects to a Spark cluster containing your data.
-+ Create a notebook that loads and transforms data using SynapseML and other resources. Transformations include forms recognition, form analysis and restructuring, and text translation.
++ Create an Azure Databricks workspace that connects to a Spark cluster.
++ Create a notebook that loads and transforms data using SynapseML. Other Azure resources are accessed behind the scenes. Transformations include forms recognition, form analysis and restructuring, and text translation.
 + Infer, build, and load a search index using AzureSearchWriter from SynapseML.
 + Query the search index that contains transformed and multi-lingual content.
 
-The search corpus is created and hosted in Azure Cognitive Search, and all queries execute locally over the search corpus. SynapseML provides transformers that wrap other Azure resources, including Azure Forms Recognizer, Azure Translator, and Azure Cognitive Search.
+The search corpus is created and hosted in Azure Cognitive Search, and all queries execute on your search service. SynapseML provides transformers that wrap other Azure resources, including Azure Forms Recognizer, Azure Translator, and Azure Cognitive Search.
 
 You'll call these SynapseML transformers in this walkthrough:
 
 + [synapse.ml.cognitive.AnalyzeInvoices](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices)
 + [synapse.ml.cognitive.FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer)
++ [synapse.ml.cognitive.Translate](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#translate)
 + [synpase.ml.cognitive.AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch)
 
 ## Prerequisites
 
-You'll need multiple Azure resources for this walkthrough. You should use the same subscription and region, and put everything into one resource group for simple clean up later. The following links are for portal installs.
+You'll need multiple Azure resources. If possible, use the same subscription and region, and put everything into one resource group for simple cleanup later. The following links are for portal installs.
 
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier)
 + [Azure Forms Recognizer](../applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md) (any tier)
@@ -50,15 +51,16 @@ The following screenshot shows a resource group with the required resources.
 :::image type="content" source="media/search-synapseml-cognitive-services/resource-group.png" alt-text="Screenshot of the resource group containing all resources." border="true":::
 
 > [!NOTE]
-> All of the above resources support security features in the Microsoft Identity platform.  For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment or share the solution with others, be sure to replace hard-coded keys with integrated security or encrypted keys.
+> All of the above resources support security features in the Microsoft Identity platform.  For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
 
 ## Prepare data
 
-The sample data consists of 10 invoices of various composition. A small data set speeds up processing and meets the requirements of minimum tiers, but the approach described in this exercise will work for large volumes of data.
+The sample data consists of 10 invoices of various compositions. A small data set speeds up processing and meets the requirements of minimum tiers, but the approach described in this exercise will work for large volumes of data.
 
-+ *HS: I need the invoices. Are the PDFs wrapping JPEG?*
-+ *HS: I'll upload them to our sample data repo once I get the files.*
-+ *HS: FYI I'm using the ADLS GEN2 that Synapse needs to store the sample data. Should be okay but I'm just mentioning it in case it matters.*
++ *HS: I need the invoices. Are the PDFs wrapping JPEG images of each invoice, and is that why we need Computer Vision?*
++ *HS: I'll upload the sample files to the Azure Search sample data repo once I get them.*
++ *HS: FYI I'm using the same ADLS GEN2 that Synapse needs to store the sample data. Should be okay but I'm just mentioning it in case it matters. The endpoint looks the same for both regular blob storage and ADLS Gen2.*
++ *HS: I'll add at least 1 screenshot for each section, but I'm only mentioning it in this one.*
 
 1. Download the sample data from the Azure Search Sample data repository.
 
@@ -100,7 +102,7 @@ This code loads packages and sets up the endpoints and keys for the Azure resour
 
 + *HS: What is VISION used for?  Do the PDFs contain JPEG???*
 + *HS: Where is Forms Recognizer?*
-+ *HS: what is Project Arcadia?*
++ *HS: what is Project Arcadia? Is there a more standard way to set up the spark session?*
 + *HS: Can I delete all instances of mmlspark-build-key and openAI?*
 + *HS: I need to add endpoints, not just keys -- where and how do I do that?*
 
@@ -161,12 +163,11 @@ display(df2)
 
 Paste the following code into the third cell. Replace the region in `setLocation` with the location of your Azure Forms Recognizer resource. No other modifications are required.
 
-This code loads the AnalyzeInvoices transformer and the invoices.
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and the invoices from your storage account.
 
-+ *HS: SUBSCRIPTION KEY?? Should the key references be more specific. Subscription key is unfamiliar terminology.*
-+ *HS: IMAGE URL?? still not sure how images factor into this demo.*
++ *HS: SUBSCRIPTION KEY? Should the key references be more specific. Subscription key is unfamiliar terminology.*
++ *HS: IMAGE URL? Still not sure how images factor into this demo.*
 + *HS: ORIGINAL SUBHEAD INCLUDES "DISTRIBUTED" - is this important?*
-+ *HS: What's the best link for AnalyzeInvoices?*
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
@@ -190,7 +191,7 @@ Paste the following code into the fourth cell. No modifications are required.
 
 This code loads FormOntologyLearner, a transformer that analyzes the output of form recognition and infers a tabular data structure.
 
-+ *HS: FormOntologyLearner isn't documented on github.io*
++ *HS: FormOntologyLearner isn't documented on github.io. Can you stub out something quickly as a short term fix? It's better to keep the cross links between github.io and docs.microsoft.com and not add a third site.*
 
 ```python
 from synapse.ml.cognitive import FormOntologyLearner
@@ -210,7 +211,9 @@ display(itemized_df)
 
 Paste the following code into the fifth cell. Replace the region in `setLocation` with the location of your Azure Translator service. No other modifications are required.
 
-This code loads Translate, a transformer that calls the Azure Translator in Cognitive Services. The original text, which is in English, is machine-translated into various languages. All of the output is consolidated into "output.translations".
+This code loads [Translate](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#translate), a transformer that calls the Azure Translator in Cognitive Services. The original text, which is in English, is machine-translated into various languages. All of the output is consolidated into "output.translations".
+
++ *HS: All of the translations in a single column/field is a terrible design for Azure Search because the response will return the entire field. If you search on a chinese string, you'll get back all of the other translations in the same field that contains the match on the chinese string. In other words, there's no way to parse the contents of a single field and send back part of it. This is why I'm suggesting that this demo is limited to just one language.*
 
 ```python
 from synapse.ml.cognitive import Translate
@@ -237,7 +240,7 @@ Paste the following code in the sixth cell. No modifications are required.
 
 This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. The generated index will have a document key and use the default values for fields created using the REST API.
 
-+ *HS: Is there anyway to add language analyzers?  If not, should we skip the translation step or replace it with a different transformer?  It's possible that without the right language analyzers, the results are subpar and will discourage customers from adoption, but that's just a concern on my part, and not sure if it's valid.*
++ *HS: Is there anyway to add language analyzers or otherwise customize the index that's created? It's possible that without the right language analyzers, the lexical analysis that the search engine does will product subpar results and will discourage customers from adoption.*
 
 ```python
 from synapse.ml.cognitive import *
