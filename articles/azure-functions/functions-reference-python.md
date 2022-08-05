@@ -406,7 +406,7 @@ The *host.json* file must also be updated to include an HTTP `routePrefix` value
 }
 ```
 
-Update the Python code file *init.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
+Update the Python code file *__init__.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
 
 # [ASGI](#tab/asgi)
 
