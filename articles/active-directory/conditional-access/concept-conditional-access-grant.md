@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 08/05/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
@@ -187,6 +187,10 @@ The following restrictions apply when you configure a policy by using the passwo
 ### Terms of use
 
 If your organization has created terms of use, other options might be visible under grant controls. These options allow administrators to require acknowledgment of terms of use as a condition of accessing the resources that the policy protects. You can find more information about terms of use in [Azure Active Directory terms of use](terms-of-use.md).
+
+### Custom controls (preview)
+
+Custom controls is a preview capability of the Azure Active Directory. When using custom controls, your users are redirected to a compatible service to satisfy authentication requirements outside of Azure Active Directory. For more information, check out the [Custom controls](controls.md) article.
 
 ## Next steps
 
