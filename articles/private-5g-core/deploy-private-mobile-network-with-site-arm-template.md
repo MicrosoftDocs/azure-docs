@@ -93,7 +93,7 @@ The following Azure resources are defined in the template.
     |**Data Network Name**  | Enter the name of the data network. |    
     |**Core Network Technology**  | Enter *5GC* for 5G, or *EPC* for 4G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
-    | **Dns Addresses** | Enter the DNS server addresses. You can omit this if you don't want to configure a custom DNS server for the UEs in this data network. |
+    | **Dns Addresses** | Enter the DNS server addresses. You can omit this if you don't want to configure a DNS server for the UEs in this data network. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
 
 1. Select **Review + create**.

@@ -53,7 +53,7 @@ In this step, you'll create the mobile network site resource representing the ph
     - Use the same value for both the **S1-MME subnet** and **S1-U subnet** fields (if this site will support 4G UEs).
     - Use the same value for both the **S1-MME gateway** and **S1-U gateway** fields (if this site will support 4G UEs).
 
-1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. If you decided not to configure a custom DNS server, untick the **Specify DNS addresses for UEs?** checkbox.
+1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. If you decided not to configure a DNS server, untick the **Specify DNS addresses for UEs?** checkbox.
 
     :::image type="content" source="media/create-a-site/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Add data network screen.":::
 
