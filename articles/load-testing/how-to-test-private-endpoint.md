@@ -106,7 +106,7 @@ Azure Load Testing requires both inbound and outbound access for the injected VM
 
 ## Configure your load test script
 
-The test engines, which run the Apache JMeter script, are attached to the virtual network that contains the application endpoint. To load test the application endpoint, you can refer to it in the JMX file by using the private IP address or [name resolution in your network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+The test engine VMs, which run the JMeter script, are injected in the virtual network that contains the application endpoint. You can now refer directly to the endpoint in the JMX file by using the private IP address or use [name resolution in your network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 For example, for an endpoint with IP address 10.179.0.7, in a virtual network with subnet range 10.179.0.0/18, the JMX file could have this information:
 
