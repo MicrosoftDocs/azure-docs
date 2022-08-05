@@ -15,7 +15,7 @@ ms.date: 07/25/2022
 
 # Enable preview features for Azure Machine Learning
 
-In Azure Machine Learning, new features and improvements are often first released as preview features before they're made generally available (GA). As new features are introduced, you can turn them on or off in the Azure Machine Learning studio per your convenience. That way, you get a chance to use the latest features, evaluate how they fit your work needs and provide feedback to shape the product.
+In Azure Machine Learning, new features and improvements are often first released as preview features before they're made generally available (GA). As new features are introduced, you can turn them on or off in the Azure Machine Learning studio at your convenience. That way, you get a chance to use the latest features, evaluate how they fit your work needs and provide feedback to shape the product. Your feedback is very valuable and it helps us constantly improve the product.
 
 Some preview features provide access to entire new functionality while others may reflect a change to the user interface, but little or no change in functionality.
 
