@@ -250,7 +250,7 @@ The pipelines use a custom task to perform cleanup activities post deployment. T
 
    :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
 
-1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_, _Read & write_ is selected for _Code_, and _Read, create, & manage_ is selected for _Variable Groups_. Write down the created token value.
+1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_, _Read & write_ is selected for _Code_, _Read & execute_ is selected for _Build_, and _Read, create, & manage_ is selected for _Variable Groups_. Write down the created token value.
 
    :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
@@ -429,7 +429,9 @@ az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https:
 ---
 After updating the reply-urls, run the pipeline.
 
-By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
+By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, navigate to the app service resource. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
+
+You will also need to grant reader permissions to the app service system-assigned managed identity. Navgiate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality will not work.
 
 You should now be able to visit the web app, and use it to deploy SAP workload zones and SAP system infrastructure.
 

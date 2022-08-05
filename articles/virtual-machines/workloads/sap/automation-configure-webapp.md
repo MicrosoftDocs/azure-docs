@@ -69,8 +69,9 @@ For full instructions on setting up the web app using Azure Devops, see [Use SAP
 
 ### Summary of steps required to access the web app after deploying the control plane:
 1. Update the app registration reply URLs.
-2. Run the webb app deployment pipeline you set up in step 1 above.
-3. (Optionally) add an additional access policy to the app service.
+2. Assign the reader role with the subscription scope to the app service system assigned managed identity.
+3. Run the web app deployment pipeline.
+4. (Optionally) add an additional access policy to the app service.
 
 ## Deploy via Azure CLI (cloudshell)
 
@@ -81,42 +82,43 @@ For full instructions on setting up the web app using the Azure CLI, see [Deploy
 
 ### Summary of steps required to access the web app after deploying the control plane:
 1. Update the app registration reply URLs.
-2. Generate a zip file of the web app code.
-3. Deploy the software to the app service.
-4. Configure the application settings.
-5. (Optionally) add an additional access policy to the app service.
+2. Assign the reader role with the subscription scope to the app service system assigned managed identity.
+3. Generate a zip file of the web app code.
+4. Deploy the software to the app service.
+5. Configure the application settings.
+6. (Optionally) add an additional access policy to the app service.
 
 
 ## Using the web app
 
-The web app allows you to create SAP workload zone (landscape) objects and system infrastructure objects. These are essentially another representation of a configuration file.
+The web app allows you to create SAP workload zone objects and system infrastructure objects. These are essentially another representation of a configuration file.
 In the case of deploying using Azure Devops, you have ability to deploy these workload zones and system infrastructures right from the web app.
 In the case of deploying using the Azure CLI, you can download the parameter file for any landscape or system object you create, and use that in your command line deployments.
 
 ### Creating a landscape or system object from scratch
-1. Navigate to the "Landscape" or "System" tab at the top of the website.
+1. Navigate to the "Workload zones" or "Systems" tab at the top of the website.
 2. Click "Create New" in the bottom left corner.
 3. Fill out the required parameters in the "Basic" and "Advanced" tabs, and any additional parameters you desire.
 4. Certain parameters will be dropdowns populated with existing azure resources.
-   * If no results are shown for a dropdown, you probably need to specify another dropdown before you can see any options.
+   * If no results are shown for a dropdown, you probably need to specify another dropdown before you can see any options. Or, see step 2 above regarding the system assigned managed identity.
        - The subscription parameter must be specified before any other dropdown functionality is enabled
        - The network_arm_id parameter must be specified before any subnet dropdown functionality is enabled
 5. Click submit in the bottom left hand corner
 
-### Creating a landscape or system object from a file
+### Creating a workload zone or system object from a file
 1. Navigate to the "File" tab at the top of the website.
 2. Your options are
    * Create a new file from scratch there in browser. It should be in the .tfvars file format. Click save.
    * Import an existing .tfvars file, and (optionally) edit it before saving.
    * Use an existing template, and (optionally) edit it before saving.
 3. Make sure your file conforms to the correct naming conventions.
-4. Next to the file you would like to convert to a landscape or system object, click "Convert".
-5. The landscape or system object will appear in its respective tab.
+4. Next to the file you would like to convert to a workload zone or system object, click "Convert".
+5. The workload zone or system object will appear in its respective tab.
 
-### Deploying a landscape or system object (Azure Devops deployment)
-1. Navigate to the Landscape or System tab.
-2. Next to the landscape or system you would like to deploy, click "Deploy".
-   * If you would like to deploy a file, first convert it to a landscape or system object.
+### Deploying a workload zone or system object (Azure Devops deployment)
+1. Navigate to the Workload zones or Systems tab.
+2. Next to the workload zone or system you would like to deploy, click "Deploy".
+   * If you would like to deploy a file, first convert it to a workload zone or system object.
 4. Specify the necessary parameters, and confirm it is the correct object.
 5. Click deploy.
 6. The web app will automatically generate a .tfvars file from the object, update your Devops repository, and kick off the workload zone or system (infrastructure) pipeline. Monitor the deployment back in Azure Devops.
