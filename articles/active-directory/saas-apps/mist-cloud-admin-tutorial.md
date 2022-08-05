@@ -77,7 +77,7 @@ To configure and test Azure AD SSO with Mist Cloud Admin SSO, perform the follow
 
 1. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    ![Screenshot shows to add identity provider.](./media/mist-cloud-admin-tutorial/reply-url.png)
+    ![Screenshot shows to to Reply URL value.](./media/mist-cloud-admin-tutorial/reply-url.png)
 
 
 ## Configure Azure AD SSO
