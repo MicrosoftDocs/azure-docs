@@ -77,18 +77,6 @@
         href: tutorial-python-deploy-static-web-app.md
       - name: Explore the code
         href: tutorial-python-search-query-integration.md                
-  - name: Create a C# app
-    items:
-    - name: 1 - Basic search page
-      href: tutorial-csharp-create-first-app.md
-    - name: 2 - Add results paging
-      href: tutorial-csharp-paging.md
-    - name: 3 - Add type-ahead
-      href: tutorial-csharp-type-ahead-and-suggestions.md
-    - name: 4 - Add facets
-      href: tutorial-csharp-facets.md
-    - name: 5 - Add results ordering
-      href: tutorial-csharp-orders.md
   - name: Index with indexers
     items:
     - name: Index Azure SQL Database
@@ -99,10 +87,10 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
-  - name: Index with SynapseML
-    href: search-synapseml-cognitive-services.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
+  - name: Enrich with SynapseML
+    href: search-synapseml-cognitive-services.md
   - name: Enrich with AI (skills)
     items:
     - name: C#
@@ -116,7 +104,19 @@
   - name: Create a custom analyzer
     href: tutorial-create-custom-analyzer.md
   - name: Query from Power Apps   
-    href: search-howto-powerapps.md  
+    href: search-howto-powerapps.md
+  - name: Create a C# app
+    items:
+    - name: 1 - Basic search page
+      href: tutorial-csharp-create-first-app.md
+    - name: 2 - Add results paging
+      href: tutorial-csharp-paging.md
+    - name: 3 - Add type-ahead
+      href: tutorial-csharp-type-ahead-and-suggestions.md
+    - name: 4 - Add facets
+      href: tutorial-csharp-facets.md
+    - name: 5 - Add results ordering
+      href: tutorial-csharp-orders.md
 - name: Samples
   items:
   - name: C# samples
