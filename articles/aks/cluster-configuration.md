@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/09/2020
+ms.date: 08/05/2022
 ms.author: jpalma
 author: palma21
 ---
@@ -145,6 +145,10 @@ As you work with the node resource group, keep in mind that you can't:
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys. 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Limitations
+
+OIDC issuer is only supported in global region now.
 
 > [!WARNING]
 > Enable/disable OIDC Issuer will change the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
