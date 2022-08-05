@@ -1,7 +1,7 @@
 ---
 title: IoT Prototyping Device Selection List
 description: This document provides guidance on choosing a hardware device for prototyping IoT solutions.
-author: Jen.Fox
+author: JenFox
 ms.author: jefo
 ms.service: iot-develop
 ms.topic: conceptual
