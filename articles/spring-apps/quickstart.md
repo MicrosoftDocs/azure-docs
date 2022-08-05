@@ -84,16 +84,16 @@ az spring app create -n hellospring -s <service instance name> -g <Name of Resou
 
 ### Clone the Spring Boot sample project
 
-1. Clone the [Spring Boot sample project](http://github.com/hangwang97/hellospring.git) from github.
+1. Clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from github.
 
    ```azurecli-interactive
-   git clone http://github.com/hangwang97/hellospring.git
+   git clone https://github.com/spring-guides/gs-spring-boot.git
    ```
 
 1. Change into the project folder.
 
    ```azurecli-interactive
-   cd hellospring
+   cd gs-spring-boot/complete
    ```
 
 ### Build the local app
@@ -106,10 +106,10 @@ mvn clean package -DskipTests
 
 ### Deploy the local app on Azure Spring Apps
 
-Deploy the Jar file for the app(`target/hellospring-0.0.1-SNAPSHOT.jar` on Windows):
+Deploy the Jar file for the app(`target/spring-boot-complete-0.0.1-SNAPSHOT.jar` on Windows):
 
 ```azurecli-interactive
-az spring app deploy -n hellospring -s <service instance name> -g <Name of Resource Group> --artifact-path target/hellospring-0.0.1-SNAPSHOT.jar
+az spring app deploy -n hellospring -s <service instance name> -g <Name of Resource Group> --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
 ```
 
 It takes a few minutes to finish deploying the application.
@@ -232,6 +232,46 @@ To deploy a simple Spring Boot web app to Azure Spring Apps, follow the steps in
 Once deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
 
 :::image type="content" source="media/quickstart/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="media/quickstart/access-app-browser.png":::
+
+## (Optional) Streaming logs in real time
+
+#### [CLI](#tab/Azure-CLI)
+
+Use the following command to get real-time logs from the App.
+
+```azurecli
+az spring app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
+```
+
+Logs appear in the results:
+
+:::image type="content" source="media/spring-cloud-quickstart-java/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="media/spring-cloud-quickstart-java/streaming-logs.png":::
+
+>[!TIP]
+> Use `az spring app logs -h` to explore more parameters and log stream functionalities.
+
+#### [IntelliJ](#tab/IntelliJ)
+
+1. Select **Azure Explorer**, then **Spring Cloud**.
+1. Right-click the running app.
+1. Select **Streaming Logs** from the drop-down list.
+1. Select instance.
+
+    :::image type="content" source="media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png":::
+
+1. The streaming log will be visible in the output window.
+
+    :::image type="content" source="media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png":::
+
+#### [Visual Studio Code](#tab/VS-Code)
+
+To get real-time application logs with Visual Studio Code, follow the steps in [Stream your application logs](https://code.visualstudio.com/docs/java/java-spring-cloud#_stream-your-application-logs).
+
+---
+
+For advanced logs analytics features, visit the **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
+
+:::image type="content" source="media/spring-cloud-quickstart-java/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="media/spring-cloud-quickstart-java/logs-analytics.png":::
 
 ## Clean up resources
 
