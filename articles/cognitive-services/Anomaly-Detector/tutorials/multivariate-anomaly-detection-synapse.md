@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics
 
-Use this tutorial to detect anomalies among multiple variables in Azure Synapse Analytics in very large datasets and databases. This solution is perfect for scenarios like equipment predictive maintenance. The underlying power comes from the integration with [SynapseML](https://microsoft.github.io/SynapseML/), an open-source library that aims to simplify the creation of massively scalable machine learning pipelines, and it can be installed and used on any Spark 3 infrastructure including your **local machine**, **Databricks**, **Synapse Analytics**, and others.
+Use this tutorial to detect anomalies among multiple variables in Azure Synapse Analytics in very large datasets and databases. This solution is perfect for scenarios like equipment predictive maintenance. The underlying power comes from the integration with [SynapseML](https://microsoft.github.io/SynapseML/), an open-source library that aims to simplify the creation of massively scalable machine learning pipelines. It can be installed and used on any Spark 3 infrastructure including your **local machine**, **Databricks**, **Synapse Analytics**, and others.
 
 For more information, see [SynapseML estimator for Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_cognitive/#fitmultivariateanomaly).
 
@@ -22,34 +22,34 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Use Azure Synapse Analytics to detect anomalies among multiple variables in Synapse Analytics.
-> * Train a multivariate anomaly detector model and do inference in separate notebooks in Synapse Analytics.
+> * Train a multivariate anomaly detector model and inference in separate notebooks in Synapse Analytics.
 > * Get anomaly detection result and root cause analysis for each anomaly.
 
 ## Prerequisites
 
-In this section, you'll create the following resources in Azure portal:
+In this section, you'll create the following resources in the Azure portal:
 
 * An **Anomaly Detector** resource to get access to the capability of Multivariate Anomaly Detector.
 * An **Azure Synapse Analytics** resource to use the Synapse Studio.
 * A **Storage account** to upload your data for model training and anomaly detection.
-* A **Key Vault** resource to hold the key of Anomaly Detector and the connection string of Storage Account.
+* A **Key Vault** resource to hold the key of Anomaly Detector and the connection string of the Storage Account.
 
 ### Create Anomaly Detector and Azure Synapse Analytics resources
 
-* [Create a resource for Azure Synapse Analytics](https://portal.azure.com/#create/Microsoft.Synapse) in Azure portal, fill in all the required items.
+* [Create a resource for Azure Synapse Analytics](https://portal.azure.com/#create/Microsoft.Synapse) in the Azure portal, fill in all the required items.
 * [Create an Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resource in the Azure portal.
-* Sign in [Azure Synapse Analytics](https://web.azuresynapse.net/) using your subscription and Workspace name.
+* Sign in to [Azure Synapse Analytics](https://web.azuresynapse.net/) using your subscription and Workspace name.
 
     ![An image of the Synapse Analytics landing page.](../media/multivariate-anomaly-detector-synapse/synapse-workspace-welcome-page.png)
 
-### Create a Storage account resource
+### Create a storage account resource
 
-* [Create a Storage account resource](https://portal.azure.com/#create/Microsoft.StorageAccount) in Azure portal. After your storage account is built, **create a container** to store intermediate data, since SynapseML will transform your original data to a schema that Multivariate Anomaly Detector supports. (Refer to Multivariate Anomaly Detector [input schema](../how-to/multivariate-how-to.md#input-data-schema))
+* [Create a storage account resource](https://portal.azure.com/#create/Microsoft.StorageAccount) in the Azure portal. After your storage account is built, **create a container** to store intermediate data, since SynapseML will transform your original data to a schema that Multivariate Anomaly Detector supports. (Refer to Multivariate Anomaly Detector [input schema](../how-to/multivariate-how-to.md#input-data-schema))
 
     > [!NOTE]
-    > For the purposes of this example only we are setting the security on the container to allow anonymous read access for containers and blobs since it will only contain our example .csv data. For anything other than demo purposes this is not recommended.
+    > For the purposes of this example only we are setting the security on the container to allow anonymous read access for containers and blobs since it will only contain our example .csv data. For anything other than demo purposes this is **not recommended**.
 
-    ![An image of the creating a container in storage account.](../media/multivariate-anomaly-detector-synapse/create-a-container.png)
+    ![An image of the creating a container in a storage account.](../media/multivariate-anomaly-detector-synapse/create-a-container.png)
 
 ### Create a Key Vault to hold Anomaly Detector Key and storage account connection string
 
@@ -59,8 +59,8 @@ In this section, you'll create the following resources in Azure portal:
 
         ![An image of granting permission to Synapse.](../media/multivariate-anomaly-detector-synapse/grant-synapse-permission.png)
 
-* Create a secret in Key Vault to hold Anomaly Detector key
-    1. Go to your Anomaly Detector resource, go to **Anomaly Detector** > **Keys and Endpoint**. Then copy either of the two keys to the clipboard.
+* Create a secret in Key Vault to hold the Anomaly Detector key
+    1. Go to your Anomaly Detector resource, **Anomaly Detector** > **Keys and Endpoint**. Then copy either of the two keys to the clipboard.
     2. Go to **Key Vault** > **Secret** to create a new secret. Specify the name of the secret, and then paste the key from the previous step into the **Value** field. Finally, select **Create**.
 
         ![An image of the creating a secret.](../media/multivariate-anomaly-detector-synapse/create-a-secret.png)
@@ -118,7 +118,7 @@ In this section, you'll create the following resources in Azure portal:
     }
     ```
 
-2. Import necessary modules and libraries.
+2. Import the necessary modules and libraries.
 
     ```python
     from synapse.ml.cognitive import *
@@ -132,7 +132,7 @@ In this section, you'll create the following resources in Azure portal:
     import synapse.ml
     ```
 
-3. Load your data. Compose your data as following format, and upload it to a cloud storage that Spark supports like Storage Account(in this sample). The timestamp column should be in `ISO8601` format, and the feature columns should be `string` type. **Download sample data [here](https://sparkdemostorage.blob.core.windows.net/mvadcsvdata/spark-demo-data.csv)**.
+3. Load your data. Compose your data in the following format, and upload it to a cloud storage that Spark supports like an Azure Storage Account. The timestamp column should be in `ISO8601` format, and the feature columns should be `string` type. **Download sample data [here](https://sparkdemostorage.blob.core.windows.net/mvadcsvdata/spark-demo-data.csv)**.
 
     ```python
         df = spark.read.format("csv").option("header", True).load("wasbs://[container_name]@[storage_account_name].blob.core.windows.net/[csv_file_name].csv")
@@ -232,7 +232,7 @@ model.cleanUpIntermediateData()
 
 ## Use trained model in another notebook with model ID (optional)
 
-If you have the needs to run training code and inference code in separate notebooks in Synapse, you could first get the model ID and use that ID to load model in another notebook by creating a new object.
+If you have the need to run training code and inference code in separate notebooks in Synapse, you could first get the model ID and use that ID to load the model in another notebook by creating a new object.
 
 1. Get the model ID in the training notebook.
 
@@ -240,7 +240,7 @@ If you have the needs to run training code and inference code in separate notebo
     model.getModelId()
     ```
 
-2. Load Model in inference notebook.
+2. Load the model in inference notebook.
     
     ```python
     retrievedModel = (DetectMultivariateAnomaly()
@@ -260,13 +260,15 @@ If you have the needs to run training code and inference code in separate notebo
 ## Learn more
 
 ### About Anomaly Detector
+
 * Learn about [what is Multivariate Anomaly Detector](../overview-multivariate.md).
 * SynapseML documentation with [Multivariate Anomaly Detector feature](https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_cognitive/#fitmultivariateanomaly).
 * Recipe: [Cognitive Services - Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/next/features/cognitive_services/CognitiveServices).
 * Need support? [Join the Anomaly Detector Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Ci-wb6-iNDoBoNxrnEk9VURjNXUU1VREpOT0U1UEdURkc0OVRLSkZBNC4u).
 
 ### About Synapse
+
 * Quick start: [Configure prerequisites for using Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse#create-a-key-vault-and-configure-secrets-and-access).
 * Visit [SynpaseML new website](https://microsoft.github.io/SynapseML/) for the latest docs, demos, and examples.
-* Learn more about [Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/).
+* Learn more about [Synapse Analytics](/azure/synapse-analytics/).
 * Read about the [SynapseML v0.9.5 release](https://github.com/microsoft/SynapseML/releases/tag/v0.9.5) on GitHub.
