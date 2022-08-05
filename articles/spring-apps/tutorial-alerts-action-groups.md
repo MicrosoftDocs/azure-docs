@@ -3,7 +3,7 @@ title: "Tutorial: Monitor Azure Spring Apps resources using alerts and action gr
 description: Learn how to use Spring app alerts.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java, event-tier1-build-2022

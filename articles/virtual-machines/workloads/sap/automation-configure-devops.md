@@ -116,7 +116,7 @@ Save the app registration id and password values for later.
 Azure Pipelines are implemented as YAML files and they're stored in the 'deploy/pipelines' folder in the repository. 
 ## Control plane deployment pipeline
 
-Create the control plane deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the control plane deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
@@ -128,7 +128,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## SAP workload zone deployment pipeline
 
-Create the SAP workload zone pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP workload zone pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
@@ -140,7 +140,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## SAP system deployment pipeline
 
-Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
@@ -167,7 +167,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## SAP software acquisition pipeline
 
-Create the SAP software acquisition pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP software acquisition pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
@@ -179,7 +179,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## SAP configuration and software installation pipeline
 
-Create the SAP configuration and software installation pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP configuration and software installation pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                              |
 | ------- | -------------------------------------------------- |
@@ -191,7 +191,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## Deployment removal pipeline
 
-Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
@@ -203,7 +203,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## Deployment removal pipeline using Azure Resource Manager
 
-Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
@@ -218,7 +218,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## Repository updater pipeline
 
-Create the Repository updater pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the Repository updater pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |

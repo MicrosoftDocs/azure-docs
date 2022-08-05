@@ -495,7 +495,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
     "type": "PowerShell",
     "name": "<name>",
     "inline": "<PowerShell syntax to run>",
-    "validExitCodes": "<exit code>",
+    "validExitCodes": <exit code>,
     "runElevated": <true or false>
   }
 ],
@@ -668,7 +668,7 @@ How to use the `validate` property to validate Windows images
           "inline": [
             "<command to run inline>"
           ],
-          "validExitCodes": "<exit code>",
+          "validExitCodes": <exit code>,
           "runElevated": <true or false>,
           "runAsSystem": <true or false>
         },

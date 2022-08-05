@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 08/02/2022
 ---
 
 # Plan a SaaS offer for the commercial marketplace
@@ -326,6 +326,8 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 - [SaaS offer overview](https://go.microsoft.com/fwlink/?linkid=2196417)
 - [SaaS Offer Technical Overview](https://go.microsoft.com/fwlink/?linkid=2196315)
 - [Publishing a SaaS offer](https://go.microsoft.com/fwlink/?linkid=2196318)
+- [Configuring SaaS Pricing in Partner Center: Publisher Overview](https://go.microsoft.com/fwlink/?linkid=2201523)
+- [Configuring SaaS Pricing in Partner Center: Publisher Demo](https://go.microsoft.com/fwlink/?linkid=2201524)
 - [A SaaS Accelerator Hands-on Tour - The Basics](https://go.microsoft.com/fwlink/?linkid=2196164)
 - [SaaS Accelerator Architecture](https://go.microsoft.com/fwlink/?linkid=2196167)
 - [Installing the SaaS Accelerator With the Install Script](https://go.microsoft.com/fwlink/?linkid=2196326)

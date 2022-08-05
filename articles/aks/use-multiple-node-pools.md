@@ -170,22 +170,6 @@ az aks nodepool add \
     --node-vm-size Standard_Dpds_v5
 ```
 
-### Add a confidential VM (with AMD SEV-SNP support) node pool (preview)
-AKS node pools now support the generally available [confidential VM sizes (DCav5/ECav5)](https://aka.ms/AMD-ACC-VMs-GA-Inspire-2022) to create confidential VM node pools. Confidential VMs with AMD SEV-SNP support bring a new set of security features to protect date-in-use with full VM memory encryption. This enables confidential VM node pools to target the migration of highly sensitive container workloads to AKS without any code refactoring while benefiting from the full AKS feature support. To learn more, check out our [latest offering](../confidential-computing/confidential-node-pool-aks.md).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-Add a confidential node pool using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the name *cvmnodepool*, and use the `--node-vm-size` parameter to specify the *Standard_DC2as_v5* size:
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --name cvmnodepool \
-    --node-count 3 \
-    --node-vm-size Standard_DC2as_v5 \
-```
-
 ### Add a node pool with a unique subnet
 
 A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
@@ -197,7 +181,7 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 
 * All subnets assigned to node pools must belong to the same virtual network.
 * System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
-* If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. The `aks-preview` Azure CLI extension (version 0.5.66+) now supports running `az aks update -g <resourceGroup> -n <clusterName>` without any optional arguments. This command will perform an update operation without making any changes, which can recover a cluster stuck in a failed state.
+* If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error-out on the agent pool add now though we originally allowed it. The `aks-preview` Azure CLI extension (version 0.5.66+) now supports running `az aks update -g <resourceGroup> -n <clusterName>` without any optional arguments. This command will perform an update operation without making any changes, which can recover a cluster stuck in a failed state.
 * In clusters with Kubernetes version < 1.23.3, kube-proxy will SNAT traffic from new subnets, which can cause Azure Network Policy to drop the packets.
 * Windows nodes will SNAT traffic to the new subnets until the node pool is reimaged.
 * Internal load balancers default to one of the node pool subnets (usually the first subnet of the node pool at cluster creation). To override this behavior, you can [specify the load balancer's subnet explicitly using an annotation][internal-lb-different-subnet].
