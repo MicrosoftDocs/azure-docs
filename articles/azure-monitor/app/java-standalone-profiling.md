@@ -12,8 +12,8 @@ ms.custom: devx-track-java
 The Application Insights Java Profiler provides a system for:
 
 1. Generating on demand JDK Flight Recorder (JFR) profiles from the running JVM.
-2. Generating JFR profiles automatically when certain trigger conditions are met from the running JVM
-   , such as CPU or memory breaching a configured threshold.
+2. Generating JFR profiles automatically when certain trigger conditions are met from the running JVM, such as CPU or
+   memory breaching a configured threshold.
 
 ## Overview
 
@@ -45,41 +45,48 @@ UI.
 
 ### Pre-requisites
 
-In order to profile a Java application it is required that:
+In order to profile a Java application, it's required that:
 
 - Your JVM has the Java Flight Recorder (JFR) capability.
-    - `<Insert Required java versions here>`
-- You are using an Application Insights Agent that has the profiling capability
-    - `<Insert agent version>`
+    - Java 8 update 262+
+    - Java 11+
+- You're using an Application Insights Agent that has the profiling capability
+    - Application Insights Java Agent version 3.0.3+
 
 ### Triggers
 
-For more detailed description of the various triggers available
+For more detailed description of the various triggers available,
 see [sampling overrides](../profiler/profiler-overview.md).
 
 The ApplicationInsights Java Agent
 monitors CPU and memory consumption and if it breaches a configured threshold a profile is triggered.
-Both thresholds are a percentage. 
+Both thresholds are a percentage.
 
 #### CPU
-For CPU the threshold is a percentage of the usage of all available
-cores on the system, for instance, if your machine has saturated 1 core of an 8 core machine the CPU
-percentage would be considered 12.5%. 
+
+For CPU, the threshold is a percentage of the usage of all available
+cores on the system, for instance, if your machine has saturated one core of an eight core machine the CPU
+percentage would be considered 12.5%.
 
 #### Memory
-For memory the percentage is the current Tenured memory region (OldGen) occupancy
-against the maximum possible size of the region, this is evaluated after a tenured collection has been performed.
-If the maximum possible size of the Tenured memory region is 1024mb (this is the size it could be if the JVMs heap grew
-to its maximum size), and your threshold was set to 75%, then in order to trigger the occupancy of the Tenured region
-would need to be greater than 768mb after a collection that operates on the Tenured region (such as G1 Mixed collection
-or a Full GC).
+
+For memory, the percentage is the current Tenured memory region (OldGen) occupancy
+against the maximum possible size of the region, the occupancy is evaluated after a tenured collection has been
+performed. For instance, a profile would be triggered in the following scenario:
+
+- The maximum possible size of the Tenured memory region is 1024 mb.
+- Your threshold was set to 75%.
+- A full garbage collection is executed.
+- After the collection is finished the Tenured regions occupancy is above 7668 mb.
+
+The maximum size of the tenured region is the size it would be if the JVMs' heap grew to its maximum size.
 
 ### Installation
 
 The following steps will guide you through enabling the profiling component on the agent and
-configuring resource limits which will trigger a profile if breached.
+configuring resource limits that will trigger a profile if breached.
 
-1. Inside the `applicationinsights.json` configuration of your process enable the profiler by
+1. Inside the `applicationinsights.json` configuration of your process, enable the profiler by
    setting the `preview.profiler.enabled` setting:
    ```json
       {
@@ -101,7 +108,7 @@ configuring resource limits which will trigger a profile if breached.
 > [!WARNING]
 > Currently the Java profiler does not support the "Sampling" trigger, configuring this will have no effect.
 
-Once this has been completed, the agent will monitor the resource usage of your process and
+Once these steps have been completed, the agent will monitor the resource usage of your process and
 trigger a profile when the threshold is exceeded. Once a profile has been triggered and completed, it will be
 viewable from the
 Application Insights instance within the Performance -> Profiler section. From that screen the
@@ -114,12 +121,12 @@ Configuration of the profiler triggering settings, such as thresholds and profil
 within the ApplicationInsights UI under the Performance, Profiler, Triggers UI as
 described in [Installation](#installation).
 
-Additionally, a number of parameters can be configured using environment variables and the
+Additionally, many parameters can be configured using environment variables and the
 `applicationinsights.json` configuration file.
 
 #### Configuring Profile Contents
 
-If you wish to provide a custom profile configuration, alter the `memoryTriggeredSettings`
+If you wish to provide a custom profile configuration, alter the `memoryTriggeredSettings`,
 and `cpuTriggeredSettings` to provide the path to a `.jfc` file with your required configuration.
 Profiles can be generated/edited in the JDK Mission Control (JMC) user
 interface under the `Window->Flight Recording Template Manager` menu and control over individual
@@ -148,7 +155,7 @@ Example configuration:
 ```
 
 `memoryTriggeredSettings` This configuration will be used in the event of a memory profile is
-requested. This can be one of:
+requested. This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
   Warning section above for details.
@@ -156,7 +163,7 @@ requested. This can be one of:
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
 `cpuTriggeredSettings` This configuration will be used in the event of a cpu profile is requested.
-This can be one of:
+This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
   Warning section above for details.
