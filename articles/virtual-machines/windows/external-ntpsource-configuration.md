@@ -23,6 +23,8 @@ Time synchronization in Active Directory should be managed by only allowing the 
 >[!NOTE]
 >Due to Azure Security configurations, the following settings must be applied on the PDC using the **Local Group Policy Editor**.
 
+To check current time source in your PDC run from an elevated command prompt w32tm /query /source
+
 1. From *Start* run *gpedit.msc*
 2. Navigate to the *Global Configuration Settings* policy under *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service*.
 3. Set it to *Enabled* and configure the *AnnounceFlags* parameter to **5**.
@@ -32,25 +34,19 @@ Time synchronization in Active Directory should be managed by only allowing the 
 >[!IMPORTANT]
 >You must mark the VMIC provider as *Disabled* in the Local Registry. Remember that serious problems might occur if you modify the registry incorrectly. Therefore, make sure that you follow these steps carefully. For added protection, back up the registry before you modify it. Then, you can restore the registry if a problem occurs. For how to backup and restore the Windows Registry follow the steps below.
 
-##Back up the registry manually
+## Back up the registry manually
 
-Select Start, type regedit.exe in the search box, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+- Select Start, type regedit.exe in the search box, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+- In Registry Editor, locate and click the registry key or subkey that you want to back up.
+- Select File -> Export.
+- In the Export Registry File dialog box, select the location to which you want to save the backup copy, and then type a name for the backup file in the File name field.
+- Select Save.
 
-In Registry Editor, locate and click the registry key or subkey that you want to back up.
+## Restore a manual back up
 
-Select File -> Export.
-
-In the Export Registry File dialog box, select the location to which you want to save the backup copy, and then type a name for the backup file in the File name field.
-
-Select Save.
-
-##Restore a manual back up
-
-Select Start, type regedit.exe, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-
-In Registry Editor, click File -> Import.
-
-In the Import Registry File dialog box, select the location to which you saved the backup copy, select the backup file, and then click Open.
+- Select Start, type regedit.exe, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+- In Registry Editor, click File -> Import.
+- In the Import Registry File dialog box, select the location to which you saved the backup copy, select the backup file, and then click Open.
 
 To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In the *Registry Editor* navigate to *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders* -> On key *VMICTimeProvider* set the value to **0**
 
@@ -60,6 +56,8 @@ To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In th
 ## GPO for Clients
 
 Configure the following Group Policy Object to enable your clients to synchronize time with the Domain Controller:
+
+To check current time source in your clients run from an elevated command prompt w32tm /query /source
 
 1. From a Domain Controller go to *Start* run *gpmc.msc*
 2. Browse to the Forest and Domain where you want to create the GPO.
