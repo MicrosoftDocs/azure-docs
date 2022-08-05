@@ -1,7 +1,7 @@
 ---
-title: Capabilities for Teams guests
+title: Capabilities for Teams external user
 titleSuffix: An Azure Communication Services concept document
-description: Calling capabilities of Azure Communication Services support for Teams guests
+description: Calling capabilities of Azure Communication Services support for Teams external users
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
@@ -10,9 +10,9 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Capabilities for Teams guests
+# Capabilities for Teams external users
 
-In this article, you will learn which capabilities are supported for Teams guests using Azure Communication Services SDKs.
+In this article, you will learn which capabilities are supported for Teams external users using Azure Communication Services SDKs.
 
 ## Client capabilities
 The following table shows supported client-side capabilities available in Azure Communication Services SDKs:
@@ -43,7 +43,7 @@ The following table shows supported client-side capabilities available in Azure 
 | Apply background effects                      | ❌ |
 | See together mode video stream                | ❌ |
 
-When Teams guest leaves the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting.
+When Teams external users leaves the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting.
 
 ## Server capabilities
 
@@ -70,9 +70,9 @@ The following table shows supported Teams capabilities:
 
 ## Next steps
 
-- [Authenticate as Teams guest](../../../quickstarts/access-tokens.md)
-- [Join Teams meeting audio and video as Teams guest](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
-- [Join Teams meeting chat as Teams guest](../../../quickstarts/chat/meeting-interop.md)
+- [Authenticate as Teams external user](../../../quickstarts/access-tokens.md)
+- [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)
 - [Communicate as Teams user](../../teams-endpoint.md).
 
