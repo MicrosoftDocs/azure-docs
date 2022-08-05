@@ -20,16 +20,14 @@ This article outlines how to register Hadoop Distributed File System (HDFS), and
 |---|---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No | No|
 
-When scanning HDFS source, Microsoft Purview supports:
-
-- Extracting technical metadata including HDFS:
+When scanning HDFS source, Microsoft Purview supports extracting technical metadata including HDFS:
 
     - Namenode
     - Folder
     - File
     - Resource set
 
-When setting up scan, you can choose to scan the entire HDFS or selective folders.
+When setting up scan, you can choose to scan the entire HDFS or selective folders. Learn about the supported file format [here](microsoft-purview-connector-overview.md#file-types-supported-for-scanning).
 
 ## Prerequisites
 
@@ -39,6 +37,7 @@ When setting up scan, you can choose to scan the entire HDFS or selective folder
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.20.8235.2.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure JRE or OpenJDK is installed on the self-hosted integration runtime machine for parsing Parquet and ORC files. Learn more from [here](manage-integration-runtimes.md#java-runtime-environment-installation).
     * To set up your environment to enable Kerberos authentication, see the [Use Kerberos authentication for the HDFS connector](#use-kerberos-authentication-for-the-hdfs-connector) section.
 
 ## Register
