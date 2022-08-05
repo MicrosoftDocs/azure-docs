@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/05/2022
 tags: connectors
 ---
 
@@ -56,6 +56,10 @@ For technical information based on the connector's Swagger description, such as 
 
 This example uses the Dataverse trigger that starts your workflow when a row is added, updated, or deleted.
 
+> [!NOTE]
+> The Dataverse connector has operation-specific parameters and database-specific parameters. For example, 
+> when you select a table, the parameters available for that table vary and differ from other tables.
+
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
@@ -99,6 +103,10 @@ This example uses the Dataverse trigger that starts your workflow when a row is 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 This example uses the Dataverse action that adds a new row to your database.
+
+> [!NOTE]
+> The Dataverse connector has operation-specific parameters and database-specific parameters. For example, 
+> when you select a table, the parameters available for that table vary and differ from other tables.
 
 ### [Consumption](#tab/consumption)
 
@@ -168,6 +176,18 @@ For more information about `$filter` system query options, review [Query data us
 
 ### [Standard](#tab/standard)
 
+1. On the designer, in the action, open the **Add new parameter** list, and select the **Filter rows** property.
+
+   ![Screenshot showing designer for Standard workflow and "Filter rows" property.](./media/connect-common-data-service/dataverse-action-filter-rows-standard.png)
+
+1. In the **Filter rows** property that now appears in the action, enter an ODATA query expression, for example:
+
+   `statuscode eq 1`
+
+   ![Screenshot showing designer for Standard workflow and "Filter rows" property with ODATA query.](./media/connect-common-data-service/dataverse-action-filter-rows-query-standard.png)
+
+For more information about `$filter` system query options, review [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
+
 ---
 
 ## Return rows based on a sort order
@@ -188,13 +208,27 @@ For more information about `$orderby` system query options, review [Query data u
 
 ### [Standard](#tab/standard)
 
+1. On the designer, in the action, open the **Add new parameter** list, and select the **Sort By** property.
+
+   ![Screenshot showing designer for Standard workflow and "Sort By" property.](./media/connect-common-data-service/dataverse-action-sort-by-standard.png)
+
+1. In the **Sort By** property that now appears in the action, enter the column name to use for sorting, for example, **name**:
+
+   ![Screenshot showing designer for Standard workflow and "Sort By" property with column name.](./media/connect-common-data-service/dataverse-action-sort-by-column-standard.png)
+
+For more information about `$orderby` system query options, review [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
+
 ---
 
 ## Field data types
 
 In a trigger or action, a field value's data type must match the field's required data type. This requirement applies whether you manually enter the value or select the value from the dynamic content list.
 
-The following table describes some field types and the data types that those fields require for their values.
+> [!NOTE]
+> The Dataverse connector has operation-specific parameters and database-specific parameters. For example, 
+> when you select a table, the parameters available for that table vary and differ from other tables.
+
+For example, suppose that you have a table named **Tasks**. This table has fields that apply only to that table, while other tables have their own fields. For the example **Tasks** table, the following table describes some sample field types and the data types that those fields require for their values.
 
 | Field | Data type | Description |
 |-------|-----------|-------------|
@@ -204,13 +238,21 @@ The following table describes some field types and the data types that those fie
 | Field that references another entity row | Primary key | Requires both a row ID, such as a GUID, and a lookup type, which means that values from the dynamic content list won't work, for example, these properties: <br><br>- **Owner**: Must be a valid user ID or a team row ID. <br>- **Owner Type**: Must be a lookup type such as `systemusers` or `teams`, respectively. <br><br>- **Regarding**: Must be a valid row ID such as an account ID or a contact row ID. <br>- **Regarding Type**: Must be a lookup type such as `accounts` or `contacts`, respectively. <br><br>- **Customer**: Must be a valid row ID such as an account ID or contact row ID. <br>- **Customer Type**: Must be the lookup type, such as `accounts` or `contacts`, respectively. |
 ||||
 
-This example shows how the **Create a new row** action creates a new "Tasks" row that's associated with other entity rows, specifically a user row and an account row. The action specifies the IDs and lookup types for those entity rows by using values that match the expected data types for the relevant properties.
+For the example **Tasks** table, suppose you use the **Add a new row** action to create a new row that's associated with other entity rows, specifically a user row and an account row. So, in this action, you must specify the IDs and lookup types for those entity rows by using values that match the expected data types for the relevant properties.
 
-* Based on the **Owner** property, which specifies a user ID, and the **Owner Type** property, which specifies the `systemusers` lookup type, the action associates the new "Tasks" row with a specific user.
+* Based on the **Owner** property, which specifies a user ID, and the **Owner Type** property, which specifies the `systemusers` lookup type, the action associates the new row with a specific user.
 
-* Based on the **Regarding** property, which specifies a row ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new "Tasks" row with a specific account.
+* Based on the **Regarding** property, which specifies a row ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new row with a specific account.
 
-![Create "Tasks" row associated with IDs and lookup types](./media/connect-common-data-service/create-new-row-task-properties.png)
+### [Consumption](#tab/consumption)
+
+![Screenshot showing the "Add a new row" action in Consumption code view now with a new 'tasks' row associated with IDs and lookup types.](./media/connect-common-data-service/add-a-new-row-task-properties-consumption.png)
+
+### [Standard](#tab/standard)
+
+![Screenshot showing the "Add a new row" action in Standard code view now with a new 'tasks' row associated with IDs and lookup types.](./media/connect-common-data-service/add-a-new-row-task-properties-standard.png)
+
+---
 
 ## Troubleshooting problems
 
