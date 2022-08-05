@@ -13,12 +13,9 @@ You can use [Visual Studio Code with the Bicep extension](./visual-studio-code.m
 
 From an opened Bicep file in VS Code, there are there ways you can find the command:
 
-- Right-click the Bicep file name from the Explorer pane:
+- Right-click the Bicep file name from the Explorer pane, not the one under **OPEN EDITORS**:
 
     :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Deploy Bicep File in the Context menu explore pane":::
-
-    > [!NOTE]
-    > Don't right-click the Bicep file listed under **OPEN EDITOR**.
 
 - Right-click anywhere inside a Bicep file, and then select **Deploy Bicep File**.
 
