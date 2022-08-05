@@ -222,13 +222,13 @@ This checklist is a starting point for firewall rules:
    | FQDN (\* = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
    | `mcr.microsoft.com`  | 443 | Microsoft Container Registry |
-   | `\*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
+   | `*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
    | `*.cdn.azcr.io` | 443 | Deploy modules from the Marketplace to devices |
    | `global.azure-devices-provisioning.net`  | 443 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) access (optional) |
-   | `\*.azurecr.io` | 443 | Personal and third-party container registries |
-   | `\*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
-   | `\*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
-   | `\*.docker.io`  | 443 | Docker Hub access (optional) |
+   | `*.azurecr.io` | 443 | Personal and third-party container registries |
+   | `*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
+   | `*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
+   | `*.docker.io`  | 443 | Docker Hub access (optional) |
 
 <sup>1</sup>Open port 8883 for secure MQTT or port 5671 for secure AMQP. If you can only make connections via port 443 then either of these protocols can be run through a WebSocket tunnel.
 
