@@ -118,8 +118,8 @@ To back up more than one database at once, use the --database switch and list th
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
 ```
 
-### Restore your MySQL database using command-line or MySQL Workbench
-Once you have created the target database, you can use the mysql command or MySQL Workbench to restore the data into the specific newly created database from the dump file.
+### Restore your MySQL database using command-line 
+Once you have created the target database, you can use the mysql command  to restore the data into the specific newly created database from the dump file.
 ```bash
 mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
@@ -137,6 +137,8 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_b
 ```
 ---
 
+>[!Note]
+>You can also use [MySQL Workbench client utility to restore MySQL database](./concepts-migrate-import-export.md#import-and-export-data-by-using-mysql-workbench).
 ## Dump and restore using PHPMyAdmin
 Follow these steps to dump and restore a database using PHPMyadmin.
 
