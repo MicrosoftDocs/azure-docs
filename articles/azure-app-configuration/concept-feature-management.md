@@ -4,14 +4,14 @@ description: Turn features on and off using Azure App Configuration
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devdivchpfy22
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 08/05/2022
 ---
 
 # Feature management overview
 
-Traditionally, shipping a new application feature requires a complete redeployment of the application itself. Testing a feature often requires multiple deployments of the application.  Each deployment may change the feature or expose the feature to different customers for testing.  
+Traditionally, shipping a new application feature requires a complete redeployment of the application itself. Testing a feature often requires multiple deployments of the application. Each deployment might change the feature or expose the feature to different customers for testing.  
 
 Feature management is a modern software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles*, *feature switches*, and so on) to dynamically administer a feature's lifecycle.
 
@@ -21,7 +21,7 @@ Feature management helps developers address the following problems:
 * **Test in production**: Use feature flags to grant early access to new functionality in production. For example, you can limit access to team members or to internal beta testers. These users will experience the full-fidelity production experience instead of a simulated or partial experience in a test environment.
 * **Flighting**: Use feature flags to incrementally roll out new functionality to end users. You can target a small percentage of your user population first and increase that percentage gradually over time.
 * **Instant kill switch**: Feature flags provide an inherent safety net for releasing new functionality. You can turn application features on and off without redeploying any code. If necessary, you can quickly disable a feature without rebuilding and redeploying your application.
-* **Selective activation**: Use feature flags to segment your users and deliver a specific set of features to each group. You may have a feature that works only on a certain web browser. You can define a feature flag so that only users of that browser can see and use the feature. With this approach, you can easily expand the supported browser list later without having to make any code changes.
+* **Selective activation**: Use feature flags to segment your users and deliver a specific set of features to each group. You might have a feature that works only on a certain web browser. You can define a feature flag so that only users of that browser can see and use the feature. With this approach, you can easily expand the supported browser list later without having to make any code changes.
 
 ## Basic concepts
 
@@ -70,7 +70,7 @@ if (featureFlag) {
 
 ## Feature flag repository
 
-To use feature flags effectively, you need to externalize all the feature flags used in an application. This allows you to change feature flag states without modifying and redeploying the application itself.
+To use feature flags effectively, you need to externalize all the feature flags used in an application. This approach allows you to change feature flag states without modifying and redeploying the application itself.
 
 Azure App Configuration provides a centralized repository for feature flags. You can use it to define different kinds of feature flags and manipulate their states quickly and confidently. You can then use the App Configuration libraries for various programming language frameworks to easily access these feature flags from your application.
 
