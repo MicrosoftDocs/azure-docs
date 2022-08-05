@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Verify allow tracing setting
 
-The **Allow tracing** setting for the subscription used for your API must be enabled. To verify in the portal, navigate to your API Management instance and select **Subscriptions**.
+To trace request processing, enable the **Allow tracing** setting for the subscription used to debug your API. To verify in the portal, navigate to your API Management instance and select **Subscriptions**.
 
    :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Allow tracing for subscription":::
 

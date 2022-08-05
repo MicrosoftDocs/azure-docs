@@ -64,7 +64,7 @@ In these cases, you don't need to create a product and add APIs to it first.
 Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
 
 > [!WARNING]
-> The all-access subscription enables access to every API in an API Management service instance and should only be used by authorized users. Never use this subscription for routine access to APIs or embed the all-access subscription key in a client application.
+> The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
 
 > [!NOTE]
 > If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to requests from that subscription.
