@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Configure scraping of Prometheus metrics with Container insights
 
-[Prometheus](https://prometheus.io/) is a popular open-source metric monitoring solution and is a part of the [Cloud Native Compute Foundation](https://www.cncf.io/). Container insights provides a seamless onboarding experience to collect Prometheus metrics. Typically, to use Prometheus, you need to set up and manage a Prometheus server with a store. By integrating with Azure Monitor, a Prometheus server isn't required. You only need to expose the Prometheus metrics endpoint through your exporters or pods (application). Then the containerized agent for Container insights can scrape the metrics for you.
+[Prometheus](https://prometheus.io/) is a popular open-source metric monitoring solution and is a part of the [Cloud Native Compute Foundation](https://www.cncf.io/). Container insights provides a seamless onboarding experience to collect Prometheus metrics. Typically, to use Prometheus, you need to set up and manage a Prometheus server with a store. If you integrate with Azure Monitor, a Prometheus server isn't required. You only need to expose the Prometheus metrics endpoint through your exporters or pods (application). Then the containerized agent for Container insights can scrape the metrics for you.
 
 ![Diagram that shows container monitoring architecture for Prometheus.](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -29,12 +29,12 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 
 Active scraping of metrics from Prometheus is performed from one of two perspectives:
 
-* **Cluster-wide**: HTTP URL and discover targets from listed endpoints of a service. For example, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
+* **Cluster-wide**: HTTP URL and discover targets from listed endpoints of a service, for example, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
 * **Node-wide**: HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus_data_collection_settings.node]*.
 
 | Endpoint | Scope | Example |
 |----------|-------|---------|
-| Pod annotation | Cluster-wide | annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
+| Pod annotation | Cluster-wide | Annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
 | URL/endpoint | Per-node and/or cluster-wide | `http://myurl:9101/metrics` |
 
@@ -43,17 +43,17 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 |Scope | Key | Data type | Value | Description |
 |------|-----|-----------|-------|-------------|
 | Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
-| | `urls` | String | Comma-separated array | HTTP endpoint (either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of node IP address. Must be all uppercase.) |
-| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. Fully qualified domain names must be used here. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`.|
+| | `urls` | String | Comma-separated array | HTTP endpoint (either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of a node IP address. Must be all uppercase.) |
+| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. Fully qualified domain names must be used here. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`|
 | | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, the Container insights agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. `monitor_kubernetes_pods` must be set to `true`. |
+| | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod, and `monitor_kubernetes_pods` must be set to `true`. |
 | | `prometheus.io/scheme` | String | http or https | Defaults to scraping over HTTP. If necessary, set to `https`. | 
-| | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path isn't `/metrics`, define it with this annotation. |
-| | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If port isn't set, it will default to 9102. |
+| | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path from which to fetch metrics. If the metrics path isn't `/metrics`, define it with this annotation. |
+| | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If the port isn't set, it will default to 9102. |
 | | `monitor_kubernetes_pods_namespaces` | String | Comma-separated array | An allowlist of namespaces to scrape metrics from Kubernetes pods.<br> For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of node IP address. Must be all uppercase.) |
-| Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, and h. |
-| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allowlist first. |
+| Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of a node IP address. Must be all uppercase.) |
+| Node-wide or cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, and h. |
+| Node-wide or cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allowlist first. |
 
 ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You can't have another ConfigMaps overruling the collections.
 
@@ -148,7 +148,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-The configuration change can take a few minutes to finish before taking effect. You must restart all omsagent pods manually. When the restarts are finished, a message appears that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect. You must restart all omsagent pods manually. When the restarts are finished, a message appears that's similar to the following and includes the result `configmap "container-azm-ms-agentconfig" created`.
 
 ## Configure and deploy ConfigMaps - Azure Red Hat OpenShift v3
 
@@ -159,7 +159,7 @@ This section includes the requirements and steps to successfully configure your 
 
 ### Prerequisites
 
-Before you start, confirm you are a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you are a member of the *osa-customer-admins* group, run the following command:
+Before you start, confirm you're a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you're a member of the *osa-customer-admins* group, run the following command:
 
 ``` bash
   oc get groups
@@ -277,11 +277,11 @@ For the following Kubernetes environments:
 - Azure Stack or on-premises
 - Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
 
-Run the command `kubectl apply -f <config3. map_yaml_file.yaml>`.
+run the command `kubectl apply -f <config3. map_yaml_file.yaml>`.
 
-For an example, run the command `Example: kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.  
+For an example, run the command `Example: kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.
 
-The configuration change can take a few minutes to finish before taking effect. Then all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods. Not all pods restart at the same time. When the restarts are finished, a popup message appears that's similar to the following and includes the result 'configmap "container-azm-ms-agentconfig' created to indicate the configmap resource was created.
+The configuration change can take a few minutes to finish before taking effect. Then all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods. Not all pods restart at the same time. When the restarts are finished, a message appears that's similar to the following and includes the result "configmap 'container-azm-ms-agentconfig' created" to indicate the configmap resource was created.
 
 ## Verify configuration
 
@@ -320,7 +320,7 @@ For Azure Red Hat OpenShift v3.x, edit and save the updated ConfigMaps by runnin
 
 ## Query Prometheus metrics data
 
-To view prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-query.md#query-prometheus-metrics-data) and [Query config or scraping errors](container-insights-log-query.md#query-config-or-scraping-errors).
+To view Prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-query.md#query-prometheus-metrics-data) and [Query config or scraping errors](container-insights-log-query.md#query-config-or-scraping-errors).
 
 ## View Prometheus metrics in Grafana
 
@@ -339,7 +339,7 @@ InsightsMetrics
 | render barchart
 ```
 
-The output will show results similar to the following screenshot.
+The output will show results similar to the following example.
 
 ![Screenshot that shows the log query results of data ingestion volume.](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
@@ -354,7 +354,7 @@ InsightsMetrics
 | render barchart
 ```
 
-The output will show results similar to the following screenshot.
+The output will show results similar to the following example.
 
 ![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
