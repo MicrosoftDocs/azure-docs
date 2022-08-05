@@ -16,24 +16,36 @@ ms.custom: "it-pro, seodec18, fasttrack-edit"
 ms.collection: M365-identity-device-management
 ---
 
-# Add branding to your organization's Azure Active Directory sign-in page
-Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Microsoft 365, which uses Azure AD as your identity provider.
+# Customize the user sign-in experience
 
->[!NOTE]
->Adding custom branding requires you to have either Azure Active Directory Premium 1, Premium 2, or Office 365 (for Office 365 apps) licenses. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure Active Directory Forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
+Create a consistent experience when users sign into your organization's web-based apps, such as Microsoft 365, which uses Azure Active Directory (Azure AD) as your identity provider. The sign-in process can include your company logo and color scheme, a streamlined sign-in option, and your organization's privacy policy information.
 
-## Customize your Azure AD sign-in page
-You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/contoso.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
+## License requirements
 
-Your custom branding won't immediately appear when your users go to sites such as, www\.office.com. Instead, the user has to sign-in before your customized branding appears. After the user has signed in, the branding may take 15 minutes or longer to appear. 
+Adding custom branding and configuring the keep me signed in (KMSI) option requires one of the following licenses:
 
-> [!NOTE]
-> **All branding elements are optional and will remain default when unchanged.** For example, if you specify a banner logo with no background image, the sign-in page will show your logo with a default background image from the destination site such as Microsoft 365.<br><br>Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or business guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
+- Azure AD Premium 1
+- Azure AD Premium 2
+- Custom branding only: Office 365 (for Office apps)
+- KMSI only: Basic
+- KMSI only: Microsoft 365
 
-### To configure your branding for the first time
+For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).
+
+Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. 
+
+## Add branding to the sign-in experience
+
+You can customize the sign-in pages that use Azure AD as the identity provider when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/contoso.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
+
+Custom branding appears after users sign in. If users start the sign-in process at a site like www\.office.com they will not see the branding. After users sign in, the branding may take 15 minutes or longer to appear.
+
+**All branding elements are optional. Default settings will remain, if unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or business guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
+
+### Configure custom branding for the first time
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory**, and then select **Company branding**, and then select **Configure**.
+2. Select **Azure Active Directory** > **Company branding** > **Configure**.
 
     ![Contoso - Company branding page, Configure option highlighted](media/customize-branding/company-branding-configure-button.png)
 
@@ -42,87 +54,77 @@ Your custom branding won't immediately appear when your users go to sites such a
     >[!IMPORTANT]
     >All the custom images you add on this page have image size (pixels), and potentially file size (KB), restrictions. Because of these restrictions, you'll most-likely need to use a photo editor to create the right-sized images.
 
-    - **General settings**
+          ![Configure company branding page, with general settings completed](media/customize-branding/configure-company-branding-general-settings.png)
 
-        ![Configure company branding page, with general settings completed](media/customize-branding/configure-company-branding-general-settings.png)
-
-        - **Language.** The language is automatically set as your default and can't be changed.
+    - **Language** The language is automatically set as your default and can't be changed.
         
-        - **Sign-in page background image.** Select a .png or .jpg image file to appear as the background for your sign-in pages. The image will be anchored to the center of the browser, and will scale to the size of the viewable space. You can't select an image larger than 1920x1080 pixels in size or that has a file size more than 300,000 bytes.
+    - **Sign-in page background image** Select a .png or .jpg image file to appear as the background for your sign-in pages. The image will be anchored to the center of the browser, and will scale to the size of the viewable space. You can't select an image larger than 1920x1080 pixels in size or that has a file size more than 300,000 bytes.
         
-            It's recommended to use images without a strong subject focus, e.g., an opaque white box appears in the center of the screen, and could cover any part of the image depending on the dimensions of the viewable space.
+        We recommended using images without a strong subject focus because an opaque white box appears in the center of the screen, and could cover any part of the image depending on the dimensions of the viewable space.
 
-        - **Banner logo.** Select a .png or .jpg version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
+    - **Banner logo** Select a .png or .jpg version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
-            The image can't be taller than 60 pixels or wider than 280 pixels, and the file shouldn’t be larger than 10KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
+        The image can't be taller than 60 pixels or wider than 280 pixels, and the file shouldn’t be larger than 10 KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small. 
 
-        - **Username hint.** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
+    - **Username hint** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
 
-        - **Sign-in page text and formatting.** Type the text that appears on the bottom of the sign-in page. You can use this text to communicate additional information, such as the phone number to your help desk or a legal statement. This text must be Unicode and not exceed 1024 characters.
+    - **Sign-in page text** Type the text that appears on the bottom of the sign-in page. You can use this text to communicate additional information, such as the phone number to your help desk or a legal statement. This text must be Unicode and can't exceed 1024 characters.
 
-           You can customize the sign-in page text you entered. To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline or clickable link. Use the following syntax to add formatting to text: 
+       To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline or clickable link. Use the following syntax to add formatting to text: 
 
-          > Hyperlink: `[text](link)` 
+       > Hyperlink: `[text](link)` 
+        
+       > Bold: `**text**` or `__text__` 
           
-          > Bold: `**text**` or `__text__` 
+       > Italics: `*text*` or `_text_` 
           
-          > Italics: `*text*` or `_text_` 
-          
-          > Underline: `++text++` 
+       > Underline: `++text++` 
          
-          > [!IMPORTANT]
-          > Hyperlinks that are added with sign-in page text render as text in native environments, like in desktop and mobile applications.
+       > [!IMPORTANT]
+       > Hyperlinks that are added with sign-in page text render as text in native environments, like in desktop and mobile applications.
 
     - **Advanced settings**
             
         ![Configure company branding page, with advanced settings completed](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
-        - **Sign-in page background color.** Specify the hexadecimal color (for example, white is #FFFFFF) that will appear in place of your background image in low-bandwidth connection situations. We recommend using the primary color of your banner logo or your organization color.
+        - **Sign-in page background color** Specify the hexadecimal color (#FFFFFF) that will appear in place of your background image in low-bandwidth connection situations. We recommend using the primary color of your banner logo or your organization color.
 
-        - **Square logo image.** Select a .png (preferred) or .jpg image of your organization's logo to appear to users during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases it may also appear in the consent dialog.
+        - **Square logo image** Select a .png (preferred) or .jpg image of your organization's logo to appear during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases it may also appear in the consent dialog.
         
-            The image can't be larger than 240x240 pixels in size and must have a file size of less than 10 KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
+            The image can't be larger than 240x240 pixels and must have a file size of less than 10 KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
     
-        - **Square logo image, dark theme.** Same as the square logo image above. This logo image takes the place of the square logo image when used with a dark background, such as with Windows 10 Azure AD joined screens during the out-of-box experience (OOBE).  If your logo looks good on white, dark blue, and black backgrounds, you don't need to add this image. 
+        - **Square logo image, dark theme** Same as the square logo image above. This logo image takes the place of the square logo image when used with a dark background, such as with Windows 10 Azure AD joined screens during the out-of-box experience (OOBE). If your logo looks good on white, dark blue, and black backgrounds, you don't need to add this image. 
         
             >[!IMPORTANT]
-            > Transparent logos are supported with the square logo image. However, the color palette used in the transparent logo could conflict with backgrounds (such as, white, light grey, dark grey, and black backgrounds) used within Microsoft 365 apps and services that consume the square logo image. Solid color backgrounds may need to be used to ensure the square image logo is rendered correctly in all situations.
+            > Transparent logos are supported with the square logo image. The color palette used in the transparent logo could conflict with backgrounds (such as, white, light grey, dark grey, and black backgrounds) used within Microsoft 365 apps and services that consume the square logo image. Solid color backgrounds may need to be used to ensure the square image logo is rendered correctly in all situations.
         
-        - **Show option to remain signed in.** You can choose to let your users remain signed in to Azure AD until explicitly signing out. If you choose **No**,  this option is hidden, and users must sign in each time the browser is closed and reopened.
+        - **Show option to remain signed in** You can choose to let your users remain signed in to Azure AD until explicitly signing out. If you uncheck this option, users must sign in each time the browser is closed and reopened. This feature is covered in detail in the [Configure Stay signed in?' prompt](#configure-the-stay-signed-in-prompt) section of this article.
 
-            This capability is only available on the default branding object and not on any language-specific object. To learn more about configuring and troubleshooting the option to remain signed in, see [Configure the 'Stay signed in?' prompt for Azure AD accounts](keep-me-signed-in.md)
-        
-            >[!NOTE]
-            >Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you set this option to **No**, your users may see additional and unexpected prompts to sign-in.
-   
-
-3. After you've finished adding your branding, select **Save**.
+3. After you've finished adding your branding, select **Save** in the upper-left corner of the configuration panel.
 
     This process creates your first custom branding configuration, and it becomes the default for your tenant. The default custom branding configuration serves as a fallback option for all language-specific branding configurations. The configuration can't be removed after you create it.
     
     >[!IMPORTANT]
     >To add more corporate branding configurations to your tenant, you must choose **New language** on the **Contoso - Company branding** page. This opens the **Configure company branding** page, where you can follow the same steps as above.
 
-## Update your custom branding
-After you've created your custom branding, you can go back and change anything you want.
+### Update custom branding
 
-### To edit your custom branding
+If custom branding has been added to your tenant, you can add, remove, or change the details already provided. Refer to the details and descriptions of each setting in the [Configure custom branding for the first time](#configure-custom-branding-for-the-first-time) section of this article.
+
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory**, and then select **Company branding**, and then select **Configure**.
+2. Select **Azure Active Directory** > **Company branding** > **Configure**.
 
     ![Contoso - Company branding page, with default configuration shown](media/customize-branding/company-branding-default-config.png)
 
-3. On the **Configure company branding** page, add, remove, or change any of the information, based on the descriptions in the [Customize your Azure AD sign-in page](#customize-your-azure-ad-sign-in-page) section of this article.
+3. On the **Configure company branding** page edit any necessary details.
 
 4. Select **Save**.
 
    It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
-## Add language-specific company branding to your directory
+### Add language-specific company branding
 You can't change your original configuration's language from your default language. However, if you need a configuration in a different language, you can create a new configuration.
-
-### To add a language-specific branding configuration
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
@@ -138,8 +140,20 @@ You can't change your original configuration's language from your default langua
 
     ![Contoso - Company branding page, with the new language configuration shown](media/customize-branding/company-branding-french-config.png)
 
-## Add your custom branding to pages
-Add your custom branding to pages by modifying the end of the URL with the text, `?whr=yourdomainname`. This specific modification works on different types of pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign in page.
+### Configure the 'Stay signed in?' prompt
+
+You can customize the **Stay signed in?** prompt after a user successfully signs in without adding any other custom branding. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent [refresh token](../develop/developer-glossary.md#refresh-token). For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
+
+The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
+
+KMSI is only available on the default custom branding. It cannot be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see additional and unexpected prompts to sign in.
+
+![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/keep-me-signed-in/kmsi-workflow.png)
+
+See the [License requirements](#license-requirements) section for using the KMSI service.
+
+## Add custom branding to pages
+Add your custom branding to other pages that use Azure AD as the identity provider by modifying the end of the URL with the text with `?whr=yourdomainname`. This specific modification works on different types of pages, including the Multi-Factor Authentication (MFA) setup page, the Self-service Password Reset (SSPR) setup page, and the sign-in page.
 
 Whether an application supports customized URLs for branding or not depends on the specific application, and should be checked before attempting to add a custom branding to a page.
 
@@ -150,3 +164,7 @@ Whether an application supports customized URLs for branding or not depends on t
 
 **Original URL:** https://aka.ms/SSPR<br>
 **Custom URL:** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
+
+## Next steps
+
+- Provide feedback on the [Azure Active Directory Forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
