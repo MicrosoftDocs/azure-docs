@@ -30,9 +30,29 @@ Time synchronization in Active Directory should be managed by only allowing the 
 5. Double click the *Configure Windows NTP Client* policy and set it to *Enabled*, configure the parameter *NTPServer* to point to an IP address of a time server followed by ,0x9 for example: 131.107.13.100,0x9 and configure *Type* to NTP. For all the other parameters you can use the default values, or use custom ones according to you corporate needs.
 
 >[!IMPORTANT]
->You must mark the VMIC provider as *Disabled* in the Local Registry. Remember that serious problems might occur if you modify the registry incorrectly. Therefore, make sure that you follow these steps carefully. For added protection, back up the registry before you modify it. Then, you can restore the registry if a problem occurs. For more information about how to back up and restore the registry, follow the [How to back up and restore the registry in Windows](https://support.microsoft.com/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) guide.
+>You must mark the VMIC provider as *Disabled* in the Local Registry. Remember that serious problems might occur if you modify the registry incorrectly. Therefore, make sure that you follow these steps carefully. For added protection, back up the registry before you modify it. Then, you can restore the registry if a problem occurs. For how to backup and restore the Windows Registry follow the steps below.
 
-From *Start* type *regedit* -> In the *Registry Editor* navigate to *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders* -> On key *VMICTimeProvider* set the value to **0**
+##Back up the registry manually
+
+Select Start, type regedit.exe in the search box, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+
+In Registry Editor, locate and click the registry key or subkey that you want to back up.
+
+Select File -> Export.
+
+In the Export Registry File dialog box, select the location to which you want to save the backup copy, and then type a name for the backup file in the File name field.
+
+Select Save.
+
+##Restore a manual back up
+
+Select Start, type regedit.exe, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+
+In Registry Editor, click File -> Import.
+
+In the Import Registry File dialog box, select the location to which you saved the backup copy, select the backup file, and then click Open.
+
+To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In the *Registry Editor* navigate to *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders* -> On key *VMICTimeProvider* set the value to **0**
 
 >[NOTE]
 >It can take up to 15 minutes for these changes to reflect in the system.
