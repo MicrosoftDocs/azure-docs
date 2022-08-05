@@ -183,7 +183,7 @@ You can use Microsoft Graph to create and manage the custom attributes then set 
 
 Custom attributes (directory extensions) in the Microsoft Graph API are named by using the convention `extension_{appId-without-hyphens}_{extensionProperty-name}` where `{appId-without-hyphens}` is the stripped version of the **appId** (called Client ID on the Azure AD B2C portal) for the `b2c-extensions-app` with only characters 0-9 and A-Z. For example, if the **appId** of the `b2c-extensions-app` application is `25883231-668a-43a7-80b2-5685c3f874bc` and the attribute name is `loyaltyId`, then the custom attribute will be named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
 
-Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft-graph-operations.md#application-extension-properties) using the Microsoft Graph API. 
+Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft-graph-operations.md#application-extension-directory-extension-properties) using the Microsoft Graph API. 
 
 ## Remove extension attribute
 
