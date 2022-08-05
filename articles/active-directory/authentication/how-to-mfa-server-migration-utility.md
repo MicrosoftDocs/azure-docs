@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 08/05/2022
 
 ms.author: justinha
 author: justinha
@@ -29,8 +29,8 @@ admins can use the MFA Server Migration Utility to target single users or groups
 - The MFA Server Migration Utility requires a new preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You shouldn't update the WebSDK or User Portal, even if prompted. Installing the update _doesn't_ start the migration automatically.
 - The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure MFA for testing purposes using the staged migration tool. Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
-- If you’re running MFA Server on an IIS Server, reach out to mfamigration@microsoft.com before deploying the preview. You may have to move certain applications to an Application Proxy.
 - Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each).
+
 ## Migration guide
 
 |Phase | Steps |
