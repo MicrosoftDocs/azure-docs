@@ -13,6 +13,10 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (July 2022)
+
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+
 ## Update (June 2022)
 
 - Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
