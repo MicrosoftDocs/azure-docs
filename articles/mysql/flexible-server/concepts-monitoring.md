@@ -20,7 +20,7 @@ In this article, you will learn about the various metrics available and Server l
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-# Metrics
+## Metrics
 
 Metrics are numerical values that describe some aspect of the resources of your server at a particular time. Monitoring your server's resources helps you troubleshoot and optimize your workload by allowing you to monitor what matters the most to you. Monitoring the right metrics helps you keep the performance, reliability, and availability of your server and applications.
 
@@ -50,7 +50,7 @@ These metrics are available for Azure Database for MySQL:
 |Queries|queries|Count|Total number of queries executed per minute on your server. Total count of queries per minute on your server from your database workload and Azure MySQL processes.|
 
 
-# Server logs
+## Server logs
 
 In Azure Database for MySQL Server – Flexible Server, users can configure and download server logs to assist with troubleshooting efforts. With this feature enabled, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal and Azure CLI to download the files to work with them.
 The server logs feature is disabled by default. For information about how to enable server logs, see [How to enable and download server logs for Azure Database for MySQL - Flexible Server](./how-to-server-logs-portal.md)

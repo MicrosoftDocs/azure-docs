@@ -1,3 +1,13 @@
+---
+title: 'Monitoring - List and Download Server logs using Azure CLI'
+description: This article describes how to download and list server logs using Azure CLI.
+ms.service: mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
+author: code-sidd
+ms.author: sisawant
+ms.date: 08/05/2022
+---
 # List and Download Server logs using Azure CLI
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
@@ -8,7 +18,7 @@ This article shows you how to list and download server flexible server using Azu
 
 This article requires that you're running the Azure CLI version 2.39.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to sign-in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to sign-in to your account using the [az sign-in](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
@@ -20,9 +30,9 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-# List Server logs using Azure CLI
+## List Server logs using Azure CLI
 
-Once you are configured the prerequisites and connected to your required subscription.
+Once you're configured the prerequisites and connected to your required subscription.
 You can list the server logs from your flexible server by below command.
 
 
@@ -41,13 +51,13 @@ LastModifiedTime | Name  | ResourceGroup | SizeInKb  | TypePropertiesType  | Url
 
 
 Above list shows LastModifiedTime, Name, ResourceGroup, SizeInKb and Download Url of the Server Logs available.
-Default LastModifiedTime is set to 72 hours, for listing files older than 72 hours, use flag *--file-last-written <hours>*
+Default LastModifiedTime is set to 72 hours, for listing files older than 72 hours, use flag `--file-last-written <Time:HH>`
 
 ```azurecli
 az mysql flexible-server server-logs list --resource-group <myresourcegroup>  --server-name <serverlogdemo> --out table --file-last-written <144>
 ```
 
-# Downloading Server logs using Azure CLI
+## Downloading Server logs using Azure CLI
 
 Below command will download the mentioned server logs to your current directory.
 
@@ -55,6 +65,6 @@ Below command will download the mentioned server logs to your current directory.
 az mysql flexible-server server-logs download --resource-group <myresourcegroup> --server-name <serverlogdemo>  --name <mysql-slow-serverlogdemo-2022073111.log>
 ```
 
-# Next Steps
+## Next Steps
 - To enable and disable Server logs from portal, click [here.](./how-to-server-logs-portal.md)
 - Learn more about [Configure slow logs using Azure CLI](./tutorial-query-performance-insights.md#configure-slow-query-logs-by-using-the-azure-cli)
