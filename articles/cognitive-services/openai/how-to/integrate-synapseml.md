@@ -35,14 +35,7 @@ The next step is to add this code into your Spark cluster. You can either create
 
 ## Fill in your service information
 
-Next, edit the cell in the notebook to point to your service. In particular, set the following variables to the appropriate values for your Azure OpenAI service.
-
-| Variable | Value |
-| -------- | ----- |
-| `service_name` | The name of your Azure OpenAI resource. |
-| `deployment_name` | The name of your Azure OpenAI deployment. |
-| `location` | The location or region ID for your resource. |
-| `key` | The key for your resource. |
+Next, edit the cell in the notebook to point to your service. In particular, set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI service.
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
@@ -50,13 +43,13 @@ Next, edit the cell in the notebook to point to your service. In particular, set
 ```python
 import os
 
-# Fill in the following lines with your service information
-service_name = "M3Test11"
-deployment_name = "text-davinci-001"
-location = "eastus"
-key = os.environ["OPENAI_API_KEY"] # please replace this with your key as a string
+# Replace the following values with your Azure OpenAI service information
+resource_name = "RESOURCE_NAME"      # The name of your Azure OpenAI resource.
+deployment_name = "DEPLOYMENT_NAME"  # The name of your Azure OpenAI deployment.
+location = "RESOURCE_LOCATION"       # The location or region ID for your resource.
+key = "RESOURCE_API_KEY"             # The key for your resource.
 
-assert key is not None and service_name is not None
+assert key is not None and resource_name is not None
 ```
 
 ## Create a dataset of prompts
@@ -86,7 +79,7 @@ completion = (
     OpenAICompletion()
     .setSubscriptionKey(key)
     .setDeploymentName(deployment_name)
-    .setUrl("https://{}.openai.azure.com/".format(service_name))
+    .setUrl("https://{}.openai.azure.com/".format(resource_name))
     .setMaxTokens(200)
     .setPromptCol("prompt")
     .setErrorCol("error")
@@ -140,7 +133,7 @@ batch_completion = (
     OpenAICompletion()
     .setSubscriptionKey(key)
     .setDeploymentName(deployment_name)
-    .setUrl("https://{}.openai.azure.com/".format(service_name))
+    .setUrl("https://{}.openai.azure.com/".format(resource_name))
     .setMaxTokens(200)
     .setBatchPromptCol("batchPrompt")
     .setErrorCol("error")
