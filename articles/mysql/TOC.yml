@@ -210,6 +210,12 @@
         href: flexible-server/tutorial-configure-audit.md
       - name: Alerts
         href: flexible-server/how-to-alert-on-metric.md  
+      - name: Configuring Server logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-server-logs-cli.md
     - name: Replication
       items:
       - name: Configure data-in replication
