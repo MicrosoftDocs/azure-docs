@@ -33,11 +33,11 @@ To enable the server logs feature, perform the following steps.
 
 2. On the left pane, under **Monitoring**, select **Server logs**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-serverlog.png" alt-text="Azure Database for MySQL - Server Logs":::
+    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-serverlog.png" alt-text="Screenshot showing Azure Database for My SQL - Server Logs.":::
 
 3. To enable server logs, under **Server logs**, select **Enable**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/2-how-to-serverlog.png" alt-text="Enable - Server Logs":::
+    :::image type="content" source="./media/how-to-server-logs-portal/2-how-to-serverlog.png" alt-text="Screenshot showing Enable Server Logs.":::
 
 >[!Note]
 > You can also enable server logs in the Azure portal, on the [Server parameters](./how-to-configure-server-parameters-portal.md) pane for your server, by setting the value of the log_output parameter to FILE.
@@ -45,7 +45,7 @@ To enable the server logs feature, perform the following steps.
 
 4. To enable the slow_query_log log, under **Select logs to enable**, select **slow_query_log**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/3-how-to-serverlog.png" alt-text="Select slow_log - Server Logs":::
+    :::image type="content" source="./media/how-to-server-logs-portal/3-how-to-serverlog.png" alt-text="Screenshot showing select slow log - Server Logs.":::
 
 To configure slow_logs on your Azure Database for MySQL flexible server, see [Query Performance Insight.](./tutorial-query-performance-insights.md)
 
@@ -58,15 +58,15 @@ To download server logs, perform the following steps.
 
 1. Under **Name**, select the log file you want to download, and then, under **Action**, select **Download**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/4-how-to-serverlog.png" alt-text="Server Logs - Download":::
+    :::image type="content" source="./media/how-to-server-logs-portal/4-how-to-serverlog.png" alt-text="Screenshot showing Server Logs - Download.":::
 
     For HA enabled Azure database for MySQL Flexible server, server logs for standby server can be identified by another four-letter identifier after the hostname of the server as shown below.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/5-how-to-serverlog.png" alt-text="Server Logs - HA -logs":::
+    :::image type="content" source="./media/how-to-server-logs-portal/5-how-to-serverlog.png" alt-text="Screenshot showing server Logs - HA logs.":::
 
 2. To download multiple log files at one time, under **Name**, select the files you want to download, and then above **Name**, select **Download**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/6-how-to-serverlog.png" alt-text="Server Logs - Download all":::
+    :::image type="content" source="./media/how-to-server-logs-portal/6-how-to-serverlog.png" alt-text="Screenshot showing server Logs - Download all.":::
 
 
 ## Disable Server Logs
@@ -75,11 +75,11 @@ To download server logs, perform the following steps.
 
 2. For disabling Server logs to file, Uncheck Enable. (The setting will disable logging for all the log_types available)
 
-    :::image type="content" source="./media/how-to-server-logs-portal/7-how-to-serverlog.png" alt-text="Server Logs - Disable":::
+    :::image type="content" source="./media/how-to-server-logs-portal/7-how-to-serverlog.png" alt-text="Screenshot showing server Logs - Disable.":::
 
 3. Select Save
 
-    :::image type="content" source="./media/how-to-server-logs-portal/8-how-to-serverlog.png" alt-text="Server Logs - Save":::
+    :::image type="content" source="./media/how-to-server-logs-portal/8-how-to-serverlog.png" alt-text="Screenshot showing server Logs - Save.":::
 
 
 ## Next steps
