@@ -13,20 +13,20 @@ ms.date: 08/06/2022
 
 # Add search to AI-enriched data from Apache Spark using Azure Synapse Analytics
 
-This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark that's been transformed using the SynapseML feature of Azure Synapse Analytics. Transformers in SynapseML integrate with Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to apply machine learning to content in a Spark cluster. You'll then send it to a search index so that you can query the output. 
+This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark that's been transformed using the SynapseML feature of Azure Synapse Analytics. SynapseML has transformers that integrate with Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to apply machine learning to content in a Spark cluster, and then send it to a search index so that you can query the output. 
 
 Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough uses SynapseML transformers instead of indexers and skillsets. A key takeaway from this exercise is learning an end-to-end workflow that shows you how to tap AI capabilities outside of Cognitive Search.
 
 The article starts with forms (invoices) in Azure Storage. It includes the following steps:
 
-+ Create an Azure Databricks workspace that connects to a Spark cluster.
-+ Create a notebook that loads and transforms data using SynapseML. Other Azure resources are accessed behind the scenes. Transformations include forms recognition, form analysis and restructuring, and text translation.
++ Create an Azure Databricks workspace that connects to a Spark session.
++ Create a notebook that loads and transforms the invoices using SynapseML. Transformations include form recognition, form analysis and restructuring, and text translation.
 + Infer, build, and load a search index using AzureSearchWriter from SynapseML.
 + Query the search index that contains transformed and multi-lingual content.
 
-The search corpus is created and hosted in Azure Cognitive Search, and all queries execute on your search service. SynapseML provides transformers that wrap other Azure resources, including Azure Forms Recognizer, Azure Translator, and Azure Cognitive Search.
+The search corpus is created and hosted in Azure Cognitive Search, and all queries execute on your search service. 
 
-You'll call these SynapseML transformers in this walkthrough:
+SynapseML provides transformers that wrap other Azure resources, including Azure Forms Recognizer, Azure Translator, and Azure Cognitive Search. You'll call these SynapseML transformers in this walkthrough:
 
 + [synapse.ml.cognitive.AnalyzeInvoices](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices)
 + [synapse.ml.cognitive.FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer)
@@ -96,7 +96,7 @@ In this section, you'll create the cluster, install the `synapseml` library, and
 
 ## Set up dependencies
 
-Paste the following code into the first cell of your notebook. Replace the placeholders with endpoints and access keys for each resource.
+Paste the following code into the first cell of your notebook. Replace the placeholders with endpoints and access keys for each resource. No other modifications are required, so run the code when you're ready.
 
 This code loads packages and sets up the endpoints and keys for the Azure resources used in this workflow.
 
@@ -135,7 +135,7 @@ search_index = "placeholder-search-index-name"
 
 ## Load data into Spark
 
-Paste the following code into the second cell. Replace the placeholders for the container and storage account with valid names.
+Paste the following code into the second cell. Replace the placeholders for the container and storage account with valid names. No other modifications are required, so run the code when you're ready.
 
 This code creates references to external files in Azure Storage and reads them into data frames.
 
@@ -161,9 +161,9 @@ display(df2)
 
 ## Apply form recognition
 
-Paste the following code into the third cell. Replace the region in `setLocation` with the location of your Azure Forms Recognizer resource. No other modifications are required.
+Paste the following code into the third cell. Replace the region in `setLocation` with the location of your Azure Forms Recognizer resource. No other modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and the invoices from your storage account.
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices.
 
 + *HS: SUBSCRIPTION KEY? Should the key references be more specific. Subscription key is unfamiliar terminology.*
 + *HS: IMAGE URL? Still not sure how images factor into this demo.*
@@ -187,11 +187,11 @@ display(analyzed_df)
 
 ## Apply data restructuring
 
-Paste the following code into the fourth cell. No modifications are required.
+Paste the following code into the fourth cell and run it. No modifications are required.
 
 This code loads FormOntologyLearner, a transformer that analyzes the output of form recognition and infers a tabular data structure.
 
-+ *HS: FormOntologyLearner isn't documented on github.io. Can you stub out something quickly as a short term fix? It's better to keep the cross links between github.io and docs.microsoft.com and not add a third site.*
++ *HS: FormOntologyLearner isn't documented on github.io. Can you stub out something quickly as a short term fix? It's better to keep the cross-links to just github.io and docs.microsoft.com, and not add a third site.*
 
 ```python
 from synapse.ml.cognitive import FormOntologyLearner
@@ -209,11 +209,11 @@ display(itemized_df)
 
 ## Apply translations
 
-Paste the following code into the fifth cell. Replace the region in `setLocation` with the location of your Azure Translator service. No other modifications are required.
+Paste the following code into the fifth cell. Replace the region in `setLocation` with the location of your Azure Translator service. No other modifications are required, so run the code when you're ready.
 
 This code loads [Translate](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#translate), a transformer that calls the Azure Translator in Cognitive Services. The original text, which is in English, is machine-translated into various languages. All of the output is consolidated into "output.translations".
 
-+ *HS: All of the translations in a single column/field is a terrible design for Azure Search because the response will return the entire field. If you search on a chinese string, you'll get back all of the other translations in the same field that contains the match on the chinese string. In other words, there's no way to parse the contents of a single field and send back part of it. This is why I'm suggesting that this demo is limited to just one language.*
++ *HS: Having all of the translations in a single column/field is a terrible design for Azure Search because the response will return the entire field. If you search on a chinese string, you'll get back all of the other translations in the same field that contains the match on the chinese string. In other words, there's no way to parse the contents of a single field and send back part of it. You might want to limit this demo to just one language translation, or change the output translations statement to include multiple columns.*
 
 ```python
 from synapse.ml.cognitive import Translate
@@ -236,11 +236,11 @@ display(translated_df)
 
 ## Apply search indexing
 
-Paste the following code in the sixth cell. No modifications are required.
+Paste the following code in the sixth cell and then run it. No modifications are required.
 
-This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. The generated index will have a document key and use the default values for fields created using the REST API.
+This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
 
-+ *HS: Is there anyway to add language analyzers or otherwise customize the index that's created? It's possible that without the right language analyzers, the lexical analysis that the search engine does will product subpar results and will discourage customers from adoption.*
++ *HS: Is there anyway to add language analyzers or otherwise customize the index that's created? It's possible that without the right language analyzer, the lexical analysis that the search engine performs will produce subpar results that discourages customers from adoption.*
 
 ```python
 from synapse.ml.cognitive import *
@@ -256,9 +256,9 @@ from synapse.ml.cognitive import *
     ))
 ```
 
-## Search the index
+## Query the index
 
-Paste the following code into the seventh cell. No modifications are required, except that you might want to vary the [query syntax](query-simple-syntax.md) to further explore your content.
+Paste the following code into the seventh cell and then run it. No modifications are required, except that you might want to vary the [query syntax](query-simple-syntax.md) to further explore your content.
 
 This code calls the [Search Documents REST API](/rest/api/searchservice/search-documents) that queries an index. This particular example is searching for the word "door". Once you know what the field names are in the inferred index, you can add parameters like "select" and "searchFields" to scope the query request and response.
 
