@@ -5,6 +5,36 @@ ms.topic: include
 ms.date: 01/24/2022
 ms.author: eur
 ---
+### 2022-July release
+
+#### Prebuilt Neural TTS Voice
+
+* Added 5 new voices of `zh-CN` Chinese (Mandarin, Simplified) and 1 new voice of `en-US` English (United States) in Public Preview. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+
+| Language | Locale  | Gender | Voice name| Style support|
+|---|---|---|---|---|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyiNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaozhenNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|
+
+*  Supported styles and roles for the added neural voices.
+
+|Voice|Styles|Style degree|Roles|
+|-----|-----|-----|-----|
+|zh-CN-XiaomengNeural <sup>Public preview</sup>|`chat`|Supported||
+|zh-CN-XiaoyiNeural <sup>Public preview</sup>|`affectionate`, `angry`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
+|zh-CN-XiaozhenNeural <sup>Public preview</sup>|`angry`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Supported||
+|zh-CN-YunxiaNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `fearful`, `sad`|Supported||
+|zh-CN-YunzeNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|Supported|Supported|
+
+#### Get facial position with viseme
+
+* Supported blend shapes which enables to drive the facial movements of a 3D character that you designed. Learn more on [how to get facial position with viseme](../../how-to-speech-synthesis-viseme.md).
+* SSML updated to support viseme element. See [speech synthesis markup](../../speech-synthesis-markup.md#viseme-element).
+
 ### 2022-June release
 
 #### Prebuilt Neural TTS Voice
