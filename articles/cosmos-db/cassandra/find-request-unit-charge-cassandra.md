@@ -7,8 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.devlang: csharp, java
-ms.custom: devx-track-csharp, devx-track-java
+ms.devlang: csharp, java, golang
+ms.custom: devx-track-csharp, devx-track-java, devx-track-golang
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -21,7 +21,7 @@ This article presents the different ways you can find the [request unit](../requ
 
 When you perform operations against the Azure Cosmos DB Cassandra API, the RU charge is returned in the incoming payload as a field named `RequestCharge`. You have multiple options for retrieving the RU charge.
 
-## Use the .NET SDK
+## [.NET SDK](#tab/dotnet-sdk)
 
 When you use the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/), you can retrieve the incoming payload under the `Info` property of a `RowSet` object:
 
@@ -32,7 +32,7 @@ double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["Reques
 
 For more information, see [Quickstart: Build a Cassandra app by using the .NET SDK and Azure Cosmos DB](manage-data-dotnet.md).
 
-## Use the Java SDK
+## [Java SDK](#tab/java-sdk)
 
 When you use the [Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core), you can retrieve the incoming payload by calling the `getExecutionInfo()` method on a `ResultSet` object:
 
@@ -43,6 +43,22 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 For more information, see [Quickstart: Build a Cassandra app by using the Java SDK and Azure Cosmos DB](manage-data-java.md).
 
+## [GOCQL Driver](#tab/gocql-driver)
+
+When you use the [GOCQL driver](https://github.com/gocql/gocql), you can retrieve the incoming payload by calling the `GetCustomPayload()` method on a [`Iter`](https://pkg.go.dev/github.com/gocql/gocql#Iter) type:
+
+```go
+query := session.Query(fmt.Sprintf("SELECT * FROM <keyspace.table> where <value> = ?", keyspace, table)).Bind(<value>)
+iter := query.Iter()
+requestCharge := iter.GetCustomPayload()["RequestCharge"]
+requestChargeBits := binary.BigEndian.Uint64(requestCharge)
+requestChargeValue := math.Float64frombits(requestChargeBits)
+fmt.Printf("%v\n", requestChargeValue)
+```
+
+For more information, see [Quickstart: Build a Cassandra app by using GOCQL and Azure Cosmos DB](manage-data-go.md).
+
+---
 ## Next steps
 
 To learn about optimizing your RU consumption, see these articles:
