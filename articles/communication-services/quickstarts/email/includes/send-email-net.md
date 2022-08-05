@@ -62,6 +62,7 @@ using System.Threading.Tasks;
 
 using Azure;
 using Azure.Communication.Email;
+using Azure.Communication.Email.Models;
 
 namespace SendEmail
 {
@@ -94,6 +95,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
+#### Option 1: Authenticate using a connection string
+
  Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```csharp
@@ -102,6 +105,25 @@ The following classes and interfaces handle some of the major features of the Az
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 EmailClient emailClient = new EmailClient(connectionString);
 ```
+
+#### Option 2: Authenticate using Azure Active Directory
+
+To authenticate using Azure Active Directory, install the Azure.Identity library package for .NET by using the `dotnet add package` command.
+
+```console
+dotnet add package Azure.Identity
+```
+
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal-from-cli.md).
+
+```csharp
+// This code demonstrates how to authenticate to your Communication Service resource using
+// DefaultAzureCredential and the environment variables AZURE_CLIENT_ID, AZURE_TENANT_ID,
+// and AZURE_CLIENT_SECRET.
+string resourceEndpoint = "<ACS_RESOURCE_ENDPOINT>";
+EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new DefaultAzureCredential());
+```
+
 ## Send an email message
 
 To send an Email message, you need to
@@ -117,7 +139,7 @@ Replace with your domain details and modify the content, recipient details as re
 //Replace with your domain and modify the content, recipient details as required
 
 EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
-emailContent.PlainText = "This email meessage is sent from Azure Communication Service Email using .NET SDK.";
+emailContent.PlainText = "This email message is sent from Azure Communication Service Email using .NET SDK.";
 List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@contoso.com") { DisplayName = "Friendly Display Name" }};
 EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
 EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);

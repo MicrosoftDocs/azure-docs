@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.custom: event-tier1-build-2022
-ms.date: 05/16/2022
+ms.date: 07/21/2022
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
 ---
@@ -883,6 +883,20 @@ If the dataset is valid, [create a support ticket](../../azure-portal/supportabi
 
 Now you can continue using the Delta Lake folder with Spark pool. You'll provide copied data to Microsoft support if you're allowed to share this information. The Azure team will investigate the content of the `delta_log` file and provide more information about possible errors and workarounds.
 
+### Resolving Delta logs failed
+
+The following error indicates that serverless SQL pool cannot resolve Delta logs:
+```
+Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.
+```   
+The most common cause is that `last_checkpoint_file` in `_delta_log` folder is larger than 200 bytes due to the `checkpointSchema` field added in Spark 3.3. 
+	  
+There are two options available to circumvent this error:
+* Modify appropriate config in Spark notebook and generate a new checkpoint, so that `last_checkpoint_file` gets re-created. In case you are using Azure Databricks, the config modification is the following: `spark.conf.set("spark.databricks.delta.checkpointSchema.writeThresholdLength", 0);`
+* Downgrade to Spark 3.2.1.
+
+Our engineering team is currently working on a full support for Spark 3.3.
+
 ## Performance
 
 Serverless SQL pool assigns the resources to the queries based on the size of the dataset and query complexity. You can't change or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and you might have to identify the root causes.
@@ -1022,13 +1036,13 @@ Some general system constraints might affect your workload:
 
 | Property | Limitation |
 |---|---|
-| Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#synapse-workspace-limits). |
+| Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-limits-for-workspaces). |
 | Maximum number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool). |
 | Maximum number of databases synchronized from Apache Spark pool | Not limited. |
 | Maximum number of databases objects per database | The sum of the number of all objects in a database can't exceed 2,147,483,647. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects). |
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|
 | Maximum query duration | 30 minutes. |
-| Maximum size of the result set | Up to 200 GB shared between concurrent queries. |
+| Maximum size of the result set | Up to 400 GB shared between concurrent queries. |
 | Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ### Can't create a database in serverless SQL pool

@@ -22,7 +22,19 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+- The sample application you run in this quickstart is written using C#. You need the .NET SDK 6.0 or greater on your development machine.
+
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
+
+    You can verify the current version of C# on your development machine using the following command:
+
+    ```cmd/sh
+    dotnet --version
+    ```
+
+- Download and unzip the [IoT C# Samples](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 ## Review the template
 
@@ -45,8 +57,6 @@ This section provides the steps to deploy the template, create a virtual device,
     > Select the button below to start the deployment of the template. While it's running, set up the arm-read-write application to run.
 
     [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-auto-route-messages%2Fazuredeploy.json)
-
-1. Download and unzip the [IoT C# Samples](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Open a command window and go to the folder where you unzipped the IoT C# Samples. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
 

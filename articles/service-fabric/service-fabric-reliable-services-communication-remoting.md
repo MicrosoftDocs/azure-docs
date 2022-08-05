@@ -1,10 +1,14 @@
 ---
 title: Service remoting by using C# in Service Fabric
 description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
-ms.topic: conceptual
-ms.date: 05/17/2022
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Service remoting in C# with Reliable Services
 
 > [!div class="op_single_selector"]
@@ -63,6 +67,9 @@ class MyService : StatelessService, IMyService
 >
 
 ## Call remote service methods
+
+> [!NOTE]
+> If you are using more than one partition, the ServiceProxy.Create() must be provided the appropriate ServicePartitionKey. This is not needed for a one partition scenario.
 
 Calling methods on a service by using the remoting stack is done by using a local proxy to the service through the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class. The `ServiceProxy` method creates a local proxy by using the same interface that the service implements. With that proxy, you can call methods on the interface remotely.
 

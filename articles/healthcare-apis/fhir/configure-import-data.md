@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 06/06/2022
 ms.author: ranku
 ---
 
@@ -78,3 +78,5 @@ In this article, you've learned the FHIR service supports $import operation and 
 
 >[!div class="nextstepaction"]
 >[Copy data from FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

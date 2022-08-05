@@ -29,6 +29,8 @@
   items:
   - name: Plan and manage costs 
     href: plan-manage-costs.md
+  - name: Increase rate limit
+    href: autoscale.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
   - name: Manage resources
@@ -139,7 +141,11 @@
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?query=cognitive%20services
   - name: Responsible use of AI
-    href: responsible-use-of-ai-overview.md
+    items:
+    - name: Responsible use of AI overview
+      href: responsible-use-of-ai-overview.md
+    - name: Limited Access features
+      href: cognitive-services-limited-access.md
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance

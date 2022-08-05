@@ -46,4 +46,4 @@ Learn more about [Defender for IoT](../defender-for-iot/index.yml).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Microsoft Defender for Containers in a Multi-Cloud Environment](episode-nine.md)
+> [Microsoft Defender for Containers in a Multicloud Environment](episode-nine.md)

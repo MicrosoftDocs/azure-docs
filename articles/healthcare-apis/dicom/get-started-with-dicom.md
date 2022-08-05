@@ -5,7 +5,7 @@ author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 05/03/2022
+ms.date: 06/03/2022
 ms.author: aersoy
 ms.custom: mode-api
 ---
@@ -77,3 +77,5 @@ This article described the basic steps to get started using the DICOM service. F
 
 >[!div class="nextstepaction"]
 >[Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -1,8 +1,9 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2022
@@ -24,8 +25,8 @@ You can provision throughput at a container-level or a database-level in terms o
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 <sup>1</sup> |
-| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 <sup>1</sup> |
+| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 <sup>1</sup> |
+| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 <sup>1</sup> |
 | Maximum RUs per partition (logical & physical) | 10,000 |
 | Maximum storage across all items per (logical) partition | 20 GB <sup>2</sup>|
 | Maximum number of distinct (logical) partition keys | Unlimited |
@@ -77,8 +78,8 @@ In summary, here are the minimum provisioned RU limits when using manual through
 
 | Resource | Limit |
 | --- | --- |
-| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. |
+| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 |
+| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 RU/s for first 25 containers. |
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
@@ -92,9 +93,9 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | --- | --- |
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 1 TB  |
-| Maximum storage per container (Cassandra API)| 1 TB  |
+| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB (default)<sup>1</sup>  |
+| Maximum storage per container (Cassandra API)| 30 GB (default)<sup>1</sup>  |
+
 
 <sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
 
@@ -163,6 +164,7 @@ An Azure Cosmos item can represent either a document in a collection, a row in a
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
 | Maximum level of nesting for embedded objects / arrays | 128 |
 | Maximum TTL value |2147483647 |
+| Maximum precision/range for numbers in [JSON (to ensure safe interoperability)](https://www.rfc-editor.org/rfc/rfc8259#section-6) | [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754) |
 
 <sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
 

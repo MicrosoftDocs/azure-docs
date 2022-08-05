@@ -2,11 +2,11 @@
 title: 'Azure Peering Service: How to measure connection telemetry '
 description: In this tutorial learn how to measure connection telemetry.
 services: peering-service
-author: derekolo
+author: halkazwini
 ms.service: peering-service
 ms.topic: tutorial
 ms.date: 05/18/2020
-ms.author: derekol
+ms.author: halkazwini
 # Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
 # Tutorial: Measure Peering Service connection telemetry

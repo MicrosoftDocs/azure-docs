@@ -1,13 +1,13 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB
 description: Learn about partitioning, logical, physical partitions in Azure Cosmos DB, best practices when choosing a partition key, and how to manage logical partitions
-author: deborahc
-ms.author: dech
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.custom: cosmos-db-video
-ms.reviewer: wiassaf
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
@@ -94,11 +94,16 @@ For **all** containers, your partition key should:
 
 * Be a property that has a value which does not change. If a property is your partition key, you can't update that property's value.
 
+* Should only contain `String` values - or numbers should ideally be converted into a `String`, if there is any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it is immutable and requires data migration  to change it later.  
+
 * Have a high cardinality. In other words, the property should have a wide range of possible values.
 
 * Spread request unit (RU) consumption and data storage evenly across all logical partitions. This ensures even RU consumption and storage distribution across your physical partitions.
 
 If you need [multi-item ACID transactions](database-transactions-optimistic-concurrency.md#multi-item-transactions) in Azure Cosmos DB, you will need to use [stored procedures or triggers](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). All JavaScript-based stored procedures and triggers are scoped to a single logical partition.
+
+> [!NOTE]
+> If you only have one physical partition, the value of the partition key may not be relevant as all queries will target the same physical partition. 
 
 ## Partition keys for read-heavy containers
 

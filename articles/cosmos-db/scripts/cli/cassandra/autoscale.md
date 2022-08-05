@@ -1,8 +1,9 @@
 ---
 title: Azure Cosmos DB Cassandra API keyspace and table with autoscale
 description: Use Azure CLI to create an Azure Cosmos DB Cassandra API account, keyspace, and table with autoscale.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample

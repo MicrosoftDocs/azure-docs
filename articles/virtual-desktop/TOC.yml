@@ -35,7 +35,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Getting started with Azure Virtual Desktop
+  - name: Getting started feature
     href: getting-started-feature.md
 - name: Tutorials
   items:
@@ -49,7 +49,7 @@
     href: set-up-service-alerts.md
 - name: Concepts
   items:
-  - name: Azure Virtual Desktop environment
+  - name: Azure Virtual Desktop terminology
     href: environment-setup.md
   - name: Disaster recovery concepts 
     href: disaster-recovery-concepts.md
@@ -64,7 +64,7 @@
       - name: AD DS and Azure AD
         href: /azure/architecture/example-scenario/wvd/multi-forest?context=/azure/virtual-desktop/context/context
       - name: AD DS, Azure AD, and Azure AD DS
-        href: /azure/architecture/example-scenario/wvd/multi-forest?context=/azure/virtual-desktop/context/context
+        href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?context=/azure/virtual-desktop/context/context
   - name: Network connectivity
     items:
       - name: Understanding network connectivity
@@ -103,7 +103,7 @@
     href: store-fslogix-profile.md
   - name: Scale session hosts
     items:
-    - name: Autoscale (preview)
+    - name: Autoscale
       items:
       - name: How autoscale works
         href: autoscale-scenarios.md
@@ -143,7 +143,7 @@
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
       - name: Screen capture protection
         href: screen-capture-protection.md
-  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+  - name: Azure Virtual Desktop for Azure Stack HCI
     items:
       - name: Overview (preview)
         href: azure-stack-hci-overview.md
@@ -151,7 +151,7 @@
         href: azure-stack-hci-faq.yml
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
-  - name: Fair Share technologies enabled by default
+  - name: Fair Share technologies
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
@@ -203,7 +203,7 @@
     href: delete-host-pool.md
   - name: Set up email discovery
     href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
-  - name: Create a profile container
+  - name: FSLogix Profile Container
     items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
@@ -211,16 +211,12 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure NetApp Files and MSIX app attach
         href: create-netapp-files.md
-      - name: Use Azure Files and Azure AD DS
-        href: create-profile-container-adds.md
-      - name: Use Azure Files and AD DS
-        href: create-file-share.md
+      - name: Use Azure Files and Active Directory
+        href: fslogix-profile-container-configure-azure-files-active-directory.md
       - name: Use Azure Files and Azure AD
         href: create-profile-container-azure-ad.md
       - name: Install Office with FSLogix app containers
         href: fslogix-office-app-rule-editor.md
-      - name: Authorize an account to use Azure Files
-        href: azure-files-authorization.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -257,7 +253,7 @@
           href: set-up-scaling-script.md
   - name: Manage agent updates
     items:
-      - name: Scheduled Agent Updates (preview)
+      - name: Scheduled Agent Updates
         href: scheduled-agent-updates.md
       - name: Set up diagnostics to monitor agent updates
         href: agent-updates-diagnostics.md
@@ -289,7 +285,7 @@
     href: set-up-mfa.md
   - name: Configure AD FS single sign-on
     href: configure-adfs-sso.md
-  - name: Configure automatic updates
+  - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
     href: multimedia-redirection.md
@@ -317,10 +313,14 @@
     href: drain-mode.md
   - name: Network connectivity
     items:
+    - name: Check access to required URLs
+      href: required-url-check-tool.md
     - name: Use Azure Firewall to protect Azure Virtual Desktop
       href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
-  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+  - name: Azure Virtual Desktop for Azure Stack HCI
     href: azure-stack-hci.md
+  - name: Set up Windows Sandbox
+    href: sandbox.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -355,16 +355,12 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
 - name: Reference
   items:
-  - name: Desktop virtualization - Microsoft Cloud Adoption Framework for Azure
-    href: /azure/cloud-adoption-framework/scenarios/wvd
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: PowerShell
     href: /powershell/module/az.desktopvirtualization
   - name: REST API
     href: /rest/api/desktopvirtualization/
-  - name: Terraform
-    href: /azure/developer/terraform/configure-azure-virtual-desktop
 - name: Resources
   items:
   - name: User experience estimator
@@ -373,13 +369,21 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning paths
     href: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+  - name: Framework and architectures
+    items:
+    - name: Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/scenarios/wvd
+    - name: Azure Architecture Center
+      href: /azure/architecture/browse/?expanded=azure&products=azure-virtual-desktop
   - name: How-to videos
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
-  - name: Microsoft Tech Community - Azure Virtual Desktop
+  - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum
   - name: Azure Virtual Desktop roadmap
     href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
-    href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
+    href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
+  - name: Terraform samples
+    href: /azure/developer/terraform/configure-azure-virtual-desktop
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/

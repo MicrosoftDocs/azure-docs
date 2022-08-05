@@ -19,8 +19,7 @@ An AI system includes not only the technology, but also the people who will use 
 
 Microsoft provides *Transparency Notes* to help you understand how our AI technology works. This includes the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. You can use Transparency Notes when developing or deploying your own system, or share them with the people who will use or be affected by your system.
 
-Transparency Notes are part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI Principles](https://
-www.microsoft.com/ai/responsible-ai).
+Transparency Notes are part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI Principles](https://www.microsoft.com/ai/responsible-ai).
 
 ## Introduction to Personalizer
 
@@ -42,7 +41,7 @@ For more information, see:
 |**Rewards**| A measure of how the user responded to the Rank API's returned reward action ID, as a score between 0 to 1. The 0 to 1 value is set by your business logic, based on how the choice helped achieve your business goals of personalization. The learning loop doesn't store this reward as individual user history. |
 |**Exploration**| The Personalizer service is exploring when, instead of returning the best action, it chooses a different action for the user. The Personalizer service avoids drift, stagnation, and can adapt to ongoing user behavior by exploring. |
 
-For more information, and additional key terms, please refer to the [Personalizer Terminology](/terminology.md) and [conceptual documentation](how-personalizer-works.md).
+For more information, and additional key terms, please refer to the [Personalizer Terminology](terminology.md) and [conceptual documentation](how-personalizer-works.md).
 
 ## Example use cases
 

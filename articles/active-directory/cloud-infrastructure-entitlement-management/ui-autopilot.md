@@ -4,8 +4,7 @@ description: How to view rules in the Autopilot dashboard in Permissions Managem
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
@@ -13,10 +12,6 @@ ms.author: kenwith
 ---
 
 # View rules in the Autopilot dashboard
-
-> [!IMPORTANT]
-> Micorosft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 The **Autopilot** dashboard in Permissions Management provides a table of information about **Autopilot rules** for administrators.
 

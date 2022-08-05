@@ -3,7 +3,7 @@ title: Use the REST API to add device templates in Azure IoT Central
 description: How to use the IoT Central REST API to add device templates in an application
 author: v-krishnag
 ms.author: v-krishnag
-ms.date: 12/17/2021
+ms.date: 06/17/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -22,7 +22,7 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Device templates
 
-A device template contains a device model, cloud property definitions, customizations, and view definitions. The REST API lets you manage the device model, cloud property definitions, and customizations. Use the UI to create and manage views.
+A device template contains a device model, cloud property definitions, and view definitions. The REST API lets you manage the device model and cloud property definitions. Use the UI to create and manage views.
 
 The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
@@ -41,7 +41,7 @@ The IoT Central REST API lets you:
 Use the following request to create and publish a new device template. Default views are automatically generated for device templates created this way.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -178,7 +178,7 @@ The request body has some required fields:
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
 > [!TIP]
-> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions, customizations, and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
+> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 
@@ -316,7 +316,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device template from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -448,7 +448,7 @@ The response to this request looks like the following example:
 ## Update a device template
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -724,7 +724,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device template:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 ## List device templates
@@ -732,7 +732,7 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?a
 Use the following request to retrieve a list of device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example: 

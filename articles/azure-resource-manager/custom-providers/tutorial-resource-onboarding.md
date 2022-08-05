@@ -24,7 +24,7 @@ In this tutorial, there are two pieces that need to be deployed: **the custom pr
 
 The template will use these resources:
 
-* [Microsoft.CustomProviders/resourceProviders](/azure/templates/microsoft.customproviders/resourcproviders)
+* [Microsoft.CustomProviders/resourceProviders](/azure/templates/microsoft.customproviders/resourceproviders)
 * [Microsoft.Logic/workflows](/azure/templates/microsoft.logic/workflows)
 * [Microsoft.CustomProviders/associations](/azure/templates/microsoft.customproviders/associations)
 

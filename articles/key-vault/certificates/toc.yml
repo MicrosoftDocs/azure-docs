@@ -28,6 +28,8 @@ items:
     href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
+  - name: Spring
+    href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
 - name: Samples
   items:
   - name: Key Vault Code Samples
@@ -54,12 +56,12 @@ items:
     href: tutorial-rotate-certificates.md
   - name: Integrating Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
-  - name: Troubleshooting - Import certificates
-    href: import-cert-faqs.yml
   - name: Export certificate from key vault
     href: how-to-export-certificate.md
 - name: Reference
   items:
+  - name: Frequently asked questions
+    href: faq.yml
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -68,6 +70,8 @@ items:
     href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
   - name: Java
     href: /java/api/overview/azure/keyvault
+  - name: Spring
+    href: /azure/developer/java/spring-framework/spring-cloud-azure-appendix#azure-key-vault-certificates-properties
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python

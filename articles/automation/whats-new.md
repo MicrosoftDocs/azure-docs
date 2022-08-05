@@ -2,7 +2,7 @@
 title: What's new in Azure Automation
 description: Significant updates to Azure Automation updated each month.
 services: automation
-ms.subservice: 
+ms.subservice:
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: references_regions
@@ -13,8 +13,11 @@ ms.custom: references_regions
 Azure Automation receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
+- New features
+- Improvements to existing features
 - Known issues
 - Bug fixes
+
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
@@ -36,9 +39,9 @@ Azure Automation can send diagnostic audit logs in addition to runbook job statu
 To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](./automation-role-based-access-control.md#reader) for more information.
 
 
-### Restore deleted Automation Accounts 
+### Restore deleted Automation Accounts
 
-**Type:** New change 
+**Type:** New change
 
 Users can now restore an Automation account deleted within 30 days. Read [here](./delete-account.md?tabs=azure-portal#restore-a-deleted-automation-account) for more information.
 
@@ -49,7 +52,7 @@ Users can now restore an Automation account deleted within 30 days. Read [here](
 
 **Type:** New feature
 
-New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md).
+New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md#common-azure-vm-management-operations).
 
 - Stop-Azure-VM-On-Alert
 - Restart-Azure-VM-On-Alert
@@ -57,15 +60,15 @@ New scripts are added to the Azure Automation [GitHub repository](https://github
 - ScaleDown-Azure-VM-On-Alert
 - ScaleUp-Azure-VM-On-Alert
 
-## November 2021 
+## November 2021
 
-### General Availability of Managed Identity for Azure Automation 
+### General Availability of Managed Identity for Azure Automation
 
 **Type:** New feature
 
 Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Azure China cloud. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./automation-security-overview.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
 
-### Preview support for PowerShell 7.1 
+### Preview support for PowerShell 7.1
 
 **Type:** New feature
 
@@ -109,7 +112,7 @@ Azure Automation now supports Az modules by default. New Automation accounts cre
 
 **Type:** Plan for change
 
-Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy guest configuration. For more information, see [Azure Policy guest configuration](../governance/policy/concepts/guest-configuration.md).
+Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy guest configuration. For more information, see [Azure Policy guest configuration](../governance/machine-configuration/overview.md).
 
 ## July 2021
 

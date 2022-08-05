@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot slow requests in Azure Cosmos DB .NET SDK
 description: Learn how to diagnose and fix slow requests when you use Azure Cosmos DB .NET SDK.
-author: j82w
+author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/09/2022
-ms.author: jawilley
+ms.date: 07/08/2022
+ms.author: maquaran
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot slow requests in Azure Cosmos DB .NET SDK
@@ -43,7 +43,7 @@ If you need to verify that a database or container exists, don't do so by callin
 * You are not measuring latency while debugging the application (no debuggers attached).
 * The volume of operations is high, don't use bulk for less than 1000 operations. Your provisioned throughput dictates how many operations per second you can process, your goal with bulk would be to utilize as much of it as possible.
 * Monitor the container for [throttling scenarios](troubleshoot-request-rate-too-large.md). If the container is getting heavily throttled it means the volume of data is larger than your provisioned throughput, you need to either scale up the container or reduce the volume of data (maybe create smaller batches of data at a time).
-* You are correctly using the `async/await` pattern to process all concurrent Tasks and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
+* You are correctly using the `async/await` pattern to [process all concurrent Tasks](tutorial-sql-api-dotnet-bulk-import.md#step-6-populate-a-list-of-concurrent-tasks) and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
@@ -100,7 +100,7 @@ The timeouts include diagnostics, which contain the following, for example:
 
 },
 {
-"dateUtc": "2021-11-17T23:38:28.3115496Z",
+"dateUtc": "2021-11-17T23:38:38.3115496Z",
 "cpu": 16.731,
 "memory": 9024120.000,
 "threadInfo": {

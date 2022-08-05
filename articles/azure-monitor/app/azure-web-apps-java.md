@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: java
 ms.custom: "devx-track-java"
+ms.reviewer: abinetabate
 ---
 
 # Application Monitoring for Azure App Service and Java
@@ -78,7 +79,7 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
     * Upload the Java agent jar file to App Service
         * Get the latest version of [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli)
         * Get the latest version of [Application Insights Java agent](./java-in-process-agent.md)
-        * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#configure-the-maven-plugin) to deploy through Maven plugin
+        * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#3---configure-the-maven-plugin) to deploy through Maven plugin
     * Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, JAVA_OPTS, and set its value to `-javaagent:D:/home/{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`
     * Disable Application Insights via Application Insights tab
     * Restart the app

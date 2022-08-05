@@ -7,6 +7,7 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 4/4/2022
 ms.custom: devx-track-azurepowershell
+ms.reviewer: harelbr
 ---
 # Create a metric alert with a Resource Manager template
 

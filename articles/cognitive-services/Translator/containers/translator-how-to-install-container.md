@@ -53,7 +53,7 @@ All Cognitive Services containers require three primary elements:
 
 * **EULA accept setting**. An end-user license agreement (EULA) set with a value of `Eula=accept`.
 
-* **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource _Keys and Endpoint_ page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
+* **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource **Keys and Endpoint** page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 
 > [!IMPORTANT]
 >
@@ -165,7 +165,7 @@ There are several ways to validate that the container is running:
 
 #### English &leftrightarrow; German
 
-Navigate to the swagger page: `<http://localhost:5000/swagger/index.html>`
+Navigate to the swagger page: `http://localhost:5000/swagger/index.html`
 
 1. Select **POST /translate**
 1. Select **Try it out**

@@ -1,11 +1,11 @@
 ---
 title: Data-in replication - Azure Database for MySQL Flexible
 description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible service.
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 06/08/2021
 ---
 

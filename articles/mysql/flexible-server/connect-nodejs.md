@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Connect using Node.js - Azure Database for MySQL - Flexible Server'
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
-author: shreyaaithal
-ms.author: shaithal
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
-ms.devlang: javascript
 ms.topic: quickstart
+author: shreyaaithal
+ms.author: shaithal
+ms.devlang: javascript
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
 ms.date: 01/27/2022
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL - Flexible Server

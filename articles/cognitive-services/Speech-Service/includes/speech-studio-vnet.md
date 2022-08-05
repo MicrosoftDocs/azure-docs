@@ -37,7 +37,7 @@ The following table describes Custom Speech project accessibility per Speech res
 | Speech resource network security setting | Speech Studio project accessibility |
 |--|--|
 | All networks | No restrictions |
-| Selected Networks and Private Endpoints | Accessible from allowed IP addresses |
+| Selected Networks and Private Endpoints | Accessible from allowed public IP addresses |
 | Disabled | Not accessible |
 
 If you select **Selected Networks and private endpoints**, then you will see a tab with **Virtual networks** and **Firewall** access configuration options. In the **Firewall** section, you must allow at least one public IP address and use this address for the browser connection with Speech Studio. 

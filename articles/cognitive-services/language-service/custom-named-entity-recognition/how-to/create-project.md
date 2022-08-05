@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -46,7 +46,7 @@ You can create a resource in the following ways:
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from the Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
 
 [!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 
@@ -67,9 +67,9 @@ Once your resource and storage container are configured, create a new custom NER
 
 [!INCLUDE [Language Studio project creation](../includes/language-studio/create-project.md)]
 
-### [Rest APIs](#tab/rest-api)
+### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [Rest APIs project creation](../includes/rest-api/create-project.md)]
+[!INCLUDE [REST APIs project creation](../includes/rest-api/create-project.md)]
 
 ---
 
@@ -81,7 +81,7 @@ If you have already labeled data, you can use it to get started with the service
 
 [!INCLUDE [Import project](../includes/language-studio/import-project.md)]
 
-### [Rest APIs](#tab/rest-api)
+### [REST APIs](#tab/rest-api)
 
 [!INCLUDE [Import project](../includes/rest-api/import-project.md)]
 
@@ -93,9 +93,9 @@ If you have already labeled data, you can use it to get started with the service
 
 [!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
-### [Rest APIs](#tab/rest-api)
+### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [Rest APIs project details](../includes/rest-api/project-details.md)]
+[!INCLUDE [REST APIs project details](../includes/rest-api/project-details.md)]
 
 ---
 
@@ -103,9 +103,9 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Delete project using the Language studio](../includes/language-studio/delete-project.md)]
+[!INCLUDE [Delete project using Language studio](../includes/language-studio/delete-project.md)]
 
-### [Rest APIs](#tab/rest-api)
+### [REST APIs](#tab/rest-api)
 
 [!INCLUDE [Delete project using the REST API](../includes/rest-api/delete-project.md)]
 

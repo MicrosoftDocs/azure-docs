@@ -2,6 +2,7 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
+ms.service: azure-vmware
 ms.date: 06/28/2021
 ---
 

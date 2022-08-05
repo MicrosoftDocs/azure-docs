@@ -12,6 +12,9 @@
     href: quickstart-create-traffic-manager-profile-powershell.md
   - name: Create a Traffic Manager profile - Azure CLI
     href: quickstart-create-traffic-manager-profile-cli.md
+  - name: Create a Traffic Manager profile - Bicep
+    displayName: ARM , Resource Manager, Template
+    href: quickstart-create-traffic-manager-profile-bicep.md
   - name: Create a Traffic Manager profile - ARM Template
     displayName: Resource Manager
     href: quickstart-create-traffic-manager-profile-template.md

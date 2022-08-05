@@ -11,6 +11,8 @@ ms.date: 04/28/2022
 
 # Build scalable apps
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 > [!NOTE]
 > This article is for you if:
 >
@@ -24,7 +26,7 @@ ms.date: 04/28/2022
 
 This series covers how to build scalable relational apps with Hyperscale (Citus).
 
-If you're building an app that a single node database node (8vcore, 32-GB RAM
+If you're building an app that a single node database node (64vcore, 256-GB RAM
 and 512-GB storage) can handle for the near future (~6 months), then you can
 start with the Hyperscale (Citus) **Basic Tier**. Later, you can add more
 nodes, rebalance your, data and scale out seamlessly.
