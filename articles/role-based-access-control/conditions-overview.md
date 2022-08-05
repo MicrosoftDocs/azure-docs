@@ -97,18 +97,17 @@ Here is what the condition looks like in code:
 
 For more information about the format of conditions, see [Azure role assignment condition format and syntax](conditions-format.md).
 
-## Features of conditions
+## Status of condition features
 
-Here's a list of the primary features of conditions:
+Some features of conditions are still in preview. The following table lists the status of condition features:
 
 | Feature | Status | Date |
 | --- | --- | --- |
-| [Resource and request attributes](conditions-format.md#attributes) are generally available for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [About the ABAC Preview](../storage/common/authorize-data-access.md#about-the-abac-preview). | GA | August 2022 |
-| Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is Current Version, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
+| Add conditions using the [condition editor in the Azure portal](conditions-role-assignments-portal.md) | GA | August 2022 |
+| Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), and [REST API](conditions-role-assignments-rest.md) | GA | August 2022 |
+| Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage). | GA | August 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
-| Add conditions to blob storage data role assignments | Preview | May 2021 |
-| Use attributes on a resource in a condition | Preview | May 2021 |
-| Use attributes that are part of the action request in a condition | Preview | May 2021 |
+| Use resource and request attributes in a condition | Preview | May 2021 |
 
 ## Conditions and Privileged Identity Management (PIM)
 
