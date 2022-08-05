@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/18/2022
+ms.date: 07/25/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -52,10 +52,43 @@ During the preview:
 ## Prerequisites
 
 You need to create a [new direct shared gallery ](./create-gallery.md#create-a-direct-shared-gallery). A direct shared gallery has the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+
+## How sharing with direct shared gallery works
+
+First you create a gallery under `Microsoft.Compute/Galleries` and choose `groups` as a sharing option.
+
+When you are ready, you share your gallery with subscriptions and tenants. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can share the gallery. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/SharedGalleries`. Only subscriptions and tenants you have shared with can interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, you should consider the private resource as your handle to the public proxy resources. The subscriptions and tenants you have shared your gallery with will see the gallery name as the subscription ID where the gallery was created, followed by the gallery name.
+
 ### [Portal](#tab/portaldirect)
 
+> [!NOTE]
+> **Known issue**: In the Azure portal, If you get an error "Failed to update Azure compute gallery", please verify if you have owner (or) compute gallery sharing admin permission on the gallery.
+>
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
+1. In the **Azure Compute Gallery** page, click **Add**.
+1. On the **Create Azure Compute Gallery** page, select the correct subscription.
+1. Complete all of the details on the page.
+1. At the bottom of the page, select **Next: Sharing method**.
+    :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
+1. On the **Sharing** tab, select **RBAC + share directly**.
+
+   :::image type="content" source="media/create-gallery/share-direct.png" alt-text="Screenshot showing the option to share using both role-based access control and share directly.":::
+
+1. When you are done, select **Review + create**.
+1. After validation passes, select **Create**.
+1. When the deployment is finished, select **Go to resource**.
+
+
+To share the gallery:
+
+1. On the page for the gallery, select **Sharing** from the left menu.
+1. Under **Direct sharing settings**, select **Add**.
+
+   :::image type="content" source="media/create-gallery/direct-share-add.png" alt-text="Screenshot showing the option to share with a subscription or tenant.":::
+
+1. If you would like to share with someone within your organization, for **Type** select *Subscription* or *Tenant* and choose the appropriate item from the **Tenants and subscriptions** drop-down. If you want to share with someone outside of your organization, select either *Subscription outside of my organization* or *Tenant outside of my organization* and then paste or type the ID into the text box.
+1. When you are done adding items, select **Save**.
 
 
 ### [CLI](#tab/clidirect)

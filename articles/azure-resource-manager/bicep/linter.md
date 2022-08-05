@@ -2,7 +2,7 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 07/29/2022
 ---
 
 # Use Bicep linter
@@ -29,10 +29,11 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
+- [prefer-unquoted-property-names](./linter-rule-prefer-unquoted-property-names.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
-- [use-stable-resource-identifier](./linter-rule-use-stable-resource-identifier.md)
+- [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 
 You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
@@ -62,6 +63,18 @@ The following screenshot shows the linter in the command line. The output from t
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 
 You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub action to attempt a bicep build. Errors will fail the pipelines.
+
+## Silencing false positives
+
+Sometimes a rule can have false positives. For example you may need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+In this case you can disable the warning for one line only, not the entire document, by adding `#disable-next-line <rule name>` before the line with the warning.
+
+```bicep
+#disable-next-line no-hardcoded-env-urls //Direct download link to my toolset
+scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
+```
+
+It is good practice to add a comment explaining why the rule does not apply to this line.
 
 ## Next steps
 

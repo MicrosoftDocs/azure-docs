@@ -17,7 +17,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 
 In this article, learn how to enable MLflow to connect to Azure Machine Learning while working in an Azure Databricks workspace. You can leverage this configuration for tracking, model management and model deployment.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training job metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
@@ -29,6 +29,7 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 * An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
+
 
 ## Install libraries
 
@@ -42,7 +43,12 @@ In the **Package** field, type azureml-mlflow and then select install. Repeat th
 
 ## Track Azure Databricks runs with MLflow
 
-Azure Databricks can be configured to track experiments using MLflow in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking), or exclusively on Azure Machine Learning. By default, dual-tracking is configured for you when you linked your Azure Databricks workspace.
+Azure Databricks can be configured to track experiments using MLflow in two ways:
+
+- [Track in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking)](#dual-tracking-on-azure-databricks-and-azure-machine-learning)
+- [Track exclusively on Azure Machine Learning](#tracking-exclusively-on-azure-machine-learning-workspace)
+
+By default, dual-tracking is configured for you when you linked your Azure Databricks workspace.
 
 ### Dual-tracking on Azure Databricks and Azure Machine Learning
 
@@ -134,10 +140,24 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
    > [!IMPORTANT]
    > `DefaultAzureCredential` will try to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in `azure.identity` package.
-
+   
+   # [Using an environment variable](#tab/env)
+   
+   Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your cluster. This has the advantage of doing the configuration only once per compute cluster. In Azure Databricks, you can configure environment variables using the cluster configuration page.
+   
+   ![Configure the environment variables in an Azure Databricks cluster](./media/how-to-use-mlflow-azure-databricks/env.png)
+   
+   After the environment variable is configured, any experiment running in such cluster will be tracked in Azure Machine Learning.
+   
+   > [!NOTE]
+   > You can get the tracking URL for your Azure Machine Learning workspace by: 
+   > 1. Navigate to [Azure ML studio](https://ml.azure.com)
+   > 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+   > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
+   
    # [Building the MLflow tracking URI](#tab/build)
 
-   The Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
+   For workspaces not deployed in a private network, the Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
 
    ```python
    import mlflow
@@ -156,7 +176,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
    > 1. Navigate to [Azure ML studio](https://ml.azure.com)
    > 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
    > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
-
+   
    ---
 
 #### Experiment's names in Azure Machine Learning
@@ -167,9 +187,14 @@ When MLflow is configured to exclusively track experiments in Azure Machine Lear
 mlflow.set_experiment(experiment_name="experiment-name")
 ```
 
+### Tracking parameters, metrics and artifacts
+
+You can use then MLflow in Azure Databricks in the same way as you're used to. For details see [Log & view metrics and log files](how-to-log-view-metrics.md).
+
 ## Logging models with MLflow
 
 After your model is trained, you can log it to the tracking server with the `mlflow.<model_flavor>.log_model()` method. `<model_flavor>`, refers to the framework associated with the model. [Learn what model flavors are supported](https://mlflow.org/docs/latest/models.html#model-api). In the following example, a model created with the Spark library MLLib is being registered:
+
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model")
@@ -272,5 +297,5 @@ The [Training models in Azure Databricks and deploying them on Azure ML](https:/
 ## Next steps
 * [Deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
 * [Manage your models](concept-model-management-and-deployment.md).
-* [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
+* [Track experiment jobs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
 * Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/).

@@ -43,7 +43,7 @@ Applications can implement both authentication models and leave the choice of au
 |Chat is available via | Communication Services Chat SDKs | Graph API |
 |Join Teams meetings | Yes | Yes |
 |Make and receive calls as Teams users | No | Yes |
-|PSTN support| Not supported for Communication Services users in Teams meetings | Teams phone system, calling plan, direct routing, operator connect|
+|PSTN support| Not supported for Communication Services users in Teams meetings | Microsoft Teams Phone, calling plan, direct routing, operator connect|
 
 \* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
@@ -92,9 +92,11 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get access tokens for Guest/BYOI](../quickstarts/access-tokens.md)
-> [Join Teams meeting call as a Guest/BYOI](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-> [Join Teams meeting chat as a Guest/BYOI](../quickstarts/chat/meeting-interop.md)
-> [Get access tokens for Teams users](../quickstarts/manage-teams-identity.md)
-> [Make a call as a Teams users to a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+Find more details for Guest/BYOI interoperability:
+- [Get access tokens for Guest/BYOI](../quickstarts/access-tokens.md)
+- [Join Teams meeting call as a Guest/BYOI](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Join Teams meeting chat as a Guest/BYOI](../quickstarts/chat/meeting-interop.md)
+
+Find more details forTeams user interoperability:
+- [Get access tokens for Teams users](../quickstarts/manage-teams-identity.md)
+- [Make a call as a Teams users to a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)

@@ -52,7 +52,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
     There should be no delay in the extension resource getting deleted from Azure Resource Manager. After that, validate that there are no pods called "azuredefender-XXXXX" on the cluster by running the following command with the `kubeconfig` file pointed to your cluster: 
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -A --selector app=defender
     ```
 
     It might take a few minutes for the pods to be deleted.
