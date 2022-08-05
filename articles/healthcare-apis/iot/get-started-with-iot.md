@@ -87,9 +87,9 @@ After you have fulfilled the prerequisites and provisioned your services, the ne
 
 ### Configuring MedTech service to ingest data
 
-MedTech service must be configured to ingest data it will receive from an event hub. First you must begin the official deployment process at the Azure portal. For more information about configuring MedTech service using the Azure portal, see [Deployment using the Azure portal](deploy-iot-connector-in-azure#prerequisites).
+MedTech service must be configured to ingest data it will receive from an event hub. First you must begin the official deployment process at the Azure portal. For more information about configuring MedTech service using the Azure portal, see [Deployment using the Azure portal](deploy-iot-connector-in-azure.md#prerequisites).
 
-Once you have starting using the portal and added MedTech service to your workspace, you must then configure MedTech service to ingest data from an event hub. For more information about configuring MedTech service to ingest data, see [Configure the MedTech service to ingest data](deploy-iot-connector-in-azure#configure-the-medtech-service-to-ingest-data).
+Once you have starting using the portal and added MedTech service to your workspace, you must then configure MedTech service to ingest data from an event hub. For more information about configuring MedTech service to ingest data, see [Configure the MedTech service to ingest data](deploy-iot-connector-in-azure.md#configure-the-medtech-service-to-ingest-data).
 
 ### Configuring device mappings
 
@@ -97,42 +97,40 @@ You must configure MedTech to map it to the device you want to receive data from
 
 - Azure Health Data Services provides an open source tool you can use called [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper) that will help you map your device's data structure to a form that MedTech can use. For more information on device content mapping, see [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/main/docs/Configuration.md#device-content-mapping). 
 
-- When you are deploying MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the Device mapping properties](deploy-iot-connector-in-azure#configure-the-device-mapping-properties).
+- When you are deploying MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the Device mapping properties](deploy-iot-connector-in-azure.md#configure-the-device-mapping-properties).
 
 ### Configuring destination mappings
 
 Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings).
 
-For step-by-step destination property mapping, see [Configure destination properties](deploy-iot-connector-in-azure#configure-destination-properties
+For step-by-step destination property mapping, see [Configure destination properties](deploy-iot-connector-in-azure.md#configure-destination-properties
 ).
-
-For more technical details on FHIR destination mappings, see [FHIR Mapping](https://github.com/microsoft/iomt-fhir/blob/main/docs/Configuration.md#fhir-mapping).
 
 ### Create and deploy the MedTech service
 
-If you have completed the prerequisites, provisioning, and configuration, you are now ready to deploy the MedTech service. Create and deploy your MedTech service by following deployment the procedure at [Create your MedTech service](deploy-iot-connector-in-azure#create-your-medtech-service).
+If you have completed the prerequisites, provisioning, and configuration, you are now ready to deploy the MedTech service. Create and deploy your MedTech service by following deployment the procedure at [Create your MedTech service](deploy-iot-connector-in-azure.md#create-your-medtech-service).
 
 ## Step 4: Connect to required services (post deployment)
 
-When you complete the final [deployment procedure](deploy-iot-connector-in-azure#create-your-medtech-service) and don't get any errors, you must link MedTech service to an Event Hubs and the FHIR service. This will enable a connection from MedTech service to an Event Hubs instance and the FHIR service, so that data can flow smoothly from device to FHIR Observation. In order to do this, the Event Hubs instance for device message flow must be granted access via role assignment, so MedTech service can receive Event Hubs data. You must also grant access to The FHIR service via role assignments in order for MedTech to receive the data. There are two parts of the process to connect to required services.
+When you complete the final [deployment procedure](deploy-iot-connector-in-azure.md#create-your-medtech-service) and don't get any errors, you must link MedTech service to an Event Hubs and the FHIR service. This will enable a connection from MedTech service to an Event Hubs instance and the FHIR service, so that data can flow smoothly from device to FHIR Observation. In order to do this, the Event Hubs instance for device message flow must be granted access via role assignment, so MedTech service can receive Event Hubs data. You must also grant access to The FHIR service via role assignments in order for MedTech to receive the data. There are two parts of the process to connect to required services.
 
-For more information about granting access via role assignments, see [Granting the MedTech service access to the device message event hub and FHIR service](deploy-iot-connector-in-azure#granting-the-medtech-service-access-to-the-device-message-event-hub-and-fhir-service).
+For more information about granting access via role assignments, see [Granting the MedTech service access to the device message event hub and FHIR service](deploy-iot-connector-in-azure.md#granting-the-medtech-service-access-to-the-device-message-event-hub-and-fhir-service).
 
 ### Granting access to the device message event hub
 
-The Event Hubs instance for device message event hub must be granted access using managed identity in order for the MedTech service to receive data sent to the event hub from a device. The step-by-step procedure for doing this is at [Granting access to the device message event hub](deploy-iot-connector-in-azure#granting-access-to-the-device-message-event-hub).
+The Event Hubs instance for device message event hub must be granted access using managed identity in order for the MedTech service to receive data sent to the event hub from a device. The step-by-step procedure for doing this is at [Granting access to the device message event hub](deploy-iot-connector-in-azure.md#granting-access-to-the-device-message-event-hub).
 
-For more information about authorizing access to Event Hubs resources, see [Authorize access with Azure Active Directory](https://docs.microsoft.com/en-us/azure/event-hubs/authorize-access-azure-active-directory).
+For more information about authorizing access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).
 
-For more information about application roles, see [Authentication and Authorization for Azure Health Data Services](../authentication-authorization.mds/authentication-authorization).
+For more information about application roles, see [Authentication and Authorization for Azure Health Data Services](../authentication-authorization.md).
 
 ### Granting access to FHIR service
 
-You must also grant access via role assignments to the FHIR service. This will enable FHIR service to receive data from the MedTech service by granting access using managed identity. The step-by-step procedure for doing this is at [Granting access to the FHIR service](deploy-iot-connector-in-azure#granting-access-to-the-fhir-service).
+You must also grant access via role assignments to the FHIR service. This will enable FHIR service to receive data from the MedTech service by granting access using managed identity. The step-by-step procedure for doing this is at [Granting access to the FHIR service](deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).
 
 For more information about assigning roles to the FHIR services, see [Configure Azure RBAC role for Azure Health Data Services](../configure-azure-rbac.md).
 
-For more information about application roles, see [Authentication and Authorization for Azure Health Data Services](../authentication-authorization.mds/authentication-authorization).
+For more information about application roles, see [Authentication and Authorization for Azure Health Data Services](../authentication-authorization.md).
 
 ## Step 5: Send the data for processing
 
@@ -166,7 +164,7 @@ For more details on the data flow through MedTech, see [MedTech service data flo
 
 ## Step 6: Verify the processed data
 
-You can verify that the data was processed correctly by checking to see if there is now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](./how-to-use-device-mappings.md) or the [FHIR destination mapping](how-to-use-fhir-mappings.md).
+You can verify that the data was processed correctly by checking to see if there is now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](how-to-use-device-mappings.md) or the [FHIR destination mapping](how-to-use-fhir-mappings.md).
 
 ### Metrics
 
