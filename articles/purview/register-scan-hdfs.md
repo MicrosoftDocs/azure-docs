@@ -22,10 +22,10 @@ This article outlines how to register Hadoop Distributed File System (HDFS), and
 
 When scanning HDFS source, Microsoft Purview supports extracting technical metadata including HDFS:
 
-    - Namenode
-    - Folder
-    - File
-    - Resource set
+- Namenode
+- Folder
+- File
+- Resource set
 
 When setting up scan, you can choose to scan the entire HDFS or selective folders. Learn about the supported file format [here](microsoft-purview-connector-overview.md#file-types-supported-for-scanning).
 
@@ -34,7 +34,7 @@ When setting up scan, you can choose to scan the entire HDFS or selective folder
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active [Microsoft Purview account](create-catalog-portal.md).
 - You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.20.8235.2.
+- Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.20.8235.2.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
     * Ensure JRE or OpenJDK is installed on the self-hosted integration runtime machine for parsing Parquet and ORC files. Learn more from [here](manage-integration-runtimes.md#java-runtime-environment-installation).
