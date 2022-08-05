@@ -99,7 +99,7 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
-  - name: Index and enrich with SynapseML
+  - name: Index with SynapseML
     href: search-synapseml-cognitive-services.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
