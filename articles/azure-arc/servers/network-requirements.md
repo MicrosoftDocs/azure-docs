@@ -97,6 +97,9 @@ The table below lists the URLs that must be available in order to install and us
 
 ---
 
+> [!NOTE]
+> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET /urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the <location> placeholder.
+
 ## Transport Layer Security 1.2 protocol
 
 To ensure the security of data in transit to Azure, we strongly encourage you to configure machine to use Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.
