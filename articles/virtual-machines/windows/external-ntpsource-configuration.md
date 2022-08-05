@@ -50,7 +50,7 @@ To check current time source in your PDC run from an elevated command prompt w32
 
 To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In the *Registry Editor* navigate to *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders* -> On key *VMICTimeProvider* set the value to **0**
 
->[NOTE]
+>[!NOTE]
 >It can take up to 15 minutes for these changes to reflect in the system.
 
 ## GPO for Clients
