@@ -63,7 +63,7 @@ On the **Register sources (HDFS)** screen, follow these steps:
 
 1. Finish to register the data source.
 
-    :::image type="content" source="media/register-scan-hdfs/register-sources.png" alt-text="register HDFS source" border="true":::
+    :::image type="content" source="media/register-scan-hdfs/register-sources.png" alt-text="Screenshot of HDFS source registration in Purview." border="true":::
 
 ## Scan
 
@@ -71,7 +71,7 @@ Follow the steps below to scan HDFS to automatically identify assets. For more i
 
 ### Authentication for a scan
 
-The supported authentication type for a HDFS source is **Kerberos authentication**.
+The supported authentication type for an HDFS source is **Kerberos authentication**.
 
 ### Create and run scan
 
@@ -96,7 +96,7 @@ To create and run a new scan, follow these steps:
         * Provide the user name in the format of `<username>@<domain>.com` in the User name input field. Learn more from [Use Kerberos authentication for the HDFS connector](#use-kerberos-authentication-for-the-hdfs-connector).
         * Store the user password used to connect to HDFS in the secret key.
 
-    :::image type="content" source="media/register-scan-hdfs/scan.png" alt-text="set up HDFS scan" border="true":::
+    :::image type="content" source="media/register-scan-hdfs/scan.png" alt-text="Screenshot of HDFS scan configurations in Purview." border="true":::
 
 1. Select **Test connection**.
 
@@ -270,15 +270,15 @@ Kadmin> addprinc <username>@<REALM.COM>
 
 3.	Select the encryption algorithm that's used in Kerberos.
 
-    a. Select **Server Manager** > **Group Policy Management** > **Domain** > **Group Policy Objects** > **Default or Active Domain Policy**, and then select **Edit**.
+    1. Select **Server Manager** > **Group Policy Management** > **Domain** > **Group Policy Objects** > **Default or Active Domain Policy**, and then select **Edit**.
 
-    b. On the **Group Policy Management Editor** pane, select **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Local Policies** > **Security Options**, and then configure **Network security: Configure Encryption types allowed for Kerberos**.
+    1. On the **Group Policy Management Editor** pane, select **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Local Policies** > **Security Options**, and then configure **Network security: Configure Encryption types allowed for Kerberos**.
 
-    c. Select the encryption algorithm you want to use when you connect to the KDC server. You can select all the options.
+    1. Select the encryption algorithm you want to use when you connect to the KDC server. You can select all the options.
 
-    :::image type="content" source="media/register-scan-hdfs/config-encryption-types-for-kerberos.png" alt-text="Screenshot of the &quot;Network security: Configure encryption types allowed for Kerberos&quot; pane":::
+    :::image type="content" source="media/register-scan-hdfs/config-encryption-types-for-kerberos.png" alt-text="Screenshot of the Network security: Configure encryption types allowed for Kerberos pane.":::
 
-    d. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
+    1. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
 
     ```cmd
     C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
@@ -286,15 +286,15 @@ Kadmin> addprinc <username>@<REALM.COM>
 
 4.	Create the mapping between the domain account and the Kerberos principal, so that you can use the Kerberos principal in the Windows domain.
 
-    a. Select **Administrative tools** > **Active Directory Users and Computers**.
+    1. Select **Administrative tools** > **Active Directory Users and Computers**.
 
-    b. Configure advanced features by selecting **View** > **Advanced Features**.
+    1. Configure advanced features by selecting **View** > **Advanced Features**.
 
-    c. On the **Advanced Features** pane, right-click the account to which you want to create mappings and, on the **Name Mappings** pane, select the **Kerberos Names** tab.
+    1. On the **Advanced Features** pane, right-click the account to which you want to create mappings and, on the **Name Mappings** pane, select the **Kerberos Names** tab.
 
-    d. Add a principal from the realm.
+    1. Add a principal from the realm.
 
-       :::image type="content" source="media/register-scan-hdfs/map-security-identity.png" alt-text="Screenshot of the &quot;Security Identity Mapping&quot; pane":::
+       :::image type="content" source="media/register-scan-hdfs/map-security-identity.png" alt-text="Screenshot of the Security Identity Mapping pane.":::
 
 **On the self-hosted integration runtime machine:**
 
