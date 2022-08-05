@@ -91,7 +91,7 @@ Consider these details:
 * The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as though they were added as related text.
 * It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a region that has dedicated hardware for training.
 
-A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 20 hours of audio. However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition will only be as good as the data that you provide. You should only upload only high-quality transcripts.
+A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 20 hours of audio. However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition will only be as good as the data that you provide. You should upload only high-quality transcripts.
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise is not helpful, it shouldn't limit or degrade your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
@@ -154,7 +154,7 @@ Here are key details about the supported Markdown format:
 |`@list`|A list of items that can be referenced in an example sentence.|Maximum of 10 lists. Maximum of 4,000 items per list.|
 |`speech:phoneticlexicon`|A list of phonetic pronunciations according to the [Universal Phone Set](customize-pronunciation.md). Pronunciation is adjusted for each instance where the word appears in a list or training sentence. For example, if you have a word that sounds like "cat" and you want to adjust the pronunciation to "k ae t", you would add `- cat/k ae t` to the `speech:phoneticlexicon` list.|Maximum of 15,000 entries. Maximum of 2 pronunciations per word.|
 |`#ExampleSentences`|A pound symbol (`#`) delimits a section of example sentences. The section heading can only contain letters, digits, and underscores. Example sentences should reflect the range of speech that your model should expect. A training sentence can refer to items under a `@list` by using surrounding left and right curly braces (`{@list name}`). You can refer to multiple lists in the same training sentence, or none at all.|Maximum of 50,000 example sentences|
-|`//`|Comments follow a double slash (`//`) .|Not applicable|
+|`//`|Comments follow a double slash (`//`).|Not applicable|
 
 Here's an example structured text file:
 
