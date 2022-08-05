@@ -197,6 +197,8 @@ items:
       href: register-scan-erwin-source.md
     - name: Google BigQuery
       href: register-scan-google-bigquery-source.md
+    - name: HDFS
+      href: register-scan-hdfs.md
     - name: Hive Metastore Database
       href: register-scan-hive-metastore-source.md
     - name: Looker
