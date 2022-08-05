@@ -23,57 +23,55 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 > [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
 >
 > **Limitations:**
-> - MySQL Database credentials are configured automatically. See [MySQL password](#mysql-password) for more information.
-> - Modifying the WordPress admin credentials in Application Settings doesn't affect the WordPress install. See [WordPress admin password](#wordpress-admin-password) for more information.
 > - The MySQL Flexible Server is created behind a private [Virtual Network](/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
 > - If a custom domain or Content Delivery Network is enabled for Blob Storage, the domain name needs to be updated in "Configuration -> Replace site's hostname with" setting in W3 Total Cache CDN settings.
 >
->  If you have feedback or ideas to improve this offering, please share with us at [Web Apps · Community (azure.com)](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c) or email us at [wordpressonazure@microsoft.com](mailto:wordpressonazure@microsoft.com).
+>  If you have feedback to improve this offering, submit your ideas at [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c).
 
 ## Create WordPress site using Azure portal
 
 1. To start creating the WordPress site, browse to [https://ms.portal.azure.com/#create/WordPress.WordPress](https://ms.portal.azure.com/#create/WordPress.WordPress).
 
-    :::image type="content" source="./media/quickstart-wordpress/01-portal-create-wordpress-on-app-service.png?text=WordPress from Azure Marketplace" alt-text="Screenshot of Create a WordPress site":::
+    :::image type="content" source="./media/quickstart-wordpress/01-portal-create-wordpress-on-app-service.png?text=WordPress from Azure Marketplace" alt-text="Screenshot of Create a WordPress site.":::
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type **`myResourceGroup`** for the name and select a **Region** you want to serve your app from.
 
-     :::image type="content" source="./media/quickstart-wordpress/04-wordpress-basics-project-details.png?text=Azure portal WordPress Project Details" alt-text="Screenshot of WordPress project details":::
+     :::image type="content" source="./media/quickstart-wordpress/04-wordpress-basics-project-details.png?text=Azure portal WordPress Project Details" alt-text="Screenshot of WordPress project details.":::
 
 1. Under **Instance details**, type a globally unique name for your web app and choose **Linux** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for app and database SKUs for given hosting plans. You can view [hosting plans details in the announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/the-new-and-better-wordpress-on-app-service/ba-p/3202594). For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
 
-     :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
+     :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details.":::
 
 1. <a name="wordpress-settings"></a>Under **WordPress Settings**, type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** here is used for WordPress administrative sign-in only.
 
-     :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings":::
+     :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings.":::
 
 1. Select the **Advanced** tab. Under **Additional Settings** choose your preferred **Site Language** and  **Content Distribution**. If you're unfamiliar with a [Content Delivery Network](../cdn/cdn-overview.md) or [Blob Storage](../storage/blobs/storage-blobs-overview.md), select **Disabled**. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
 
-    :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings":::
+    :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings.":::
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  
-    :::image type="content" source="./media/quickstart-wordpress/09-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button":::
+    :::image type="content" source="./media/quickstart-wordpress/09-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button.":::
 
 1. Browse to your site URL and verify the app is running properly. The site may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser.
 
-    :::image type="content" source="./media/quickstart-wordpress/wordpress-sample-site.png?text=WordPress sample site" alt-text="Screenshot of WordPress site":::
+    :::image type="content" source="./media/quickstart-wordpress/wordpress-sample-site.png?text=WordPress sample site" alt-text="Screenshot of WordPress site.":::
 
 1. To access the WordPress Admin page, browse to `/wp-admin` and use the credentials you created in the [WordPress settings step](#wordpress-settings).
 
-    :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login":::
+    :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login.":::
 ## Clean up resources
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
 
 1. From your App Service *overview* page, click the *resource group* you created in the [Create WordPress site using Azure portal](#create-wordpress-site-using-azure-portal) step.
 
-    :::image type="content" source="./media/quickstart-wordpress/resource-group.png" alt-text="Resource group in App Service overview page":::
+    :::image type="content" source="./media/quickstart-wordpress/resource-group.png" alt-text="Resource group in App Service overview page.":::
 
 1. From the *resource group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
-    :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group":::
+    :::image type="content" source="./media/quickstart-wordpress/delete-resource-group.png" alt-text="Delete resource group.":::
 ## MySQL password
 
 The [Application Settings](reference-app-settings.md#wordpress) for MySQL database credentials are used by WordPress to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](reference-app-settings.md#wordpress) also need to be updated. The [Application Settings for MySQL database](reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html#known-limitations).
