@@ -31,5 +31,5 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 | V.Small | Standard_DS2_v2 | Standard_F2s_v2 | Standard_E2s_v3 | Standard_NC4as_T4_v3 |
 | Small | Standard_DS3_v2 | Standard_F4s_v2 |  Standard_E4s_v3 | Standard_NC6s_v2 <br/> Standard_NC6s_v3 <br/> Standard_NC8as_T4_v3 |
 | Medium | Standard_DS4_v2 | Standard_F8s_v2 | Standard_E8s_v3 | Standard_NC12s_v2 <br/> Standard_NC12s_v3 <br/> Standard_NC16as_T4_v3 |
-| Large | Standard_DS5_v2	 | Standard_F16s_v2	 | Standard_E16s_v3 | Standard_NC24s_v2 <br/> Standard_NC24s_v3 <br/> Standard_NC64as_T4_v3 |
+| Large | Standard_DS5_v2 | Standard_F16s_v2 | Standard_E16s_v3 | Standard_NC24s_v2 <br/> Standard_NC24s_v3 <br/> Standard_NC64as_T4_v3 |
 | X-Large| - | Standard_F32s_v2 <br/> Standard_F48s_v2 <br/> Standard_F64s_v2 <br/> Standard_F72s_v2 | Standard_E32s_v3 <br/> Standard_E48s_v3 <br/> Standard_E64s_v3 | - |
