@@ -7,10 +7,10 @@ ms.collection: windows
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/05/2022
-ms.author: NDVALPHA
+ms.author: ndelvillar
 ---
 
-# Time sync for Windows VMs in Azure
+# Configure time sync for Windows VMs in Azure
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
