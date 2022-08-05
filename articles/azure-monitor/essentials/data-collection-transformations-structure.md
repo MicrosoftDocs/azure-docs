@@ -1,5 +1,5 @@
 ---
-title: KQL limitations in data collection transformations
+title: Structure of transformation in Azure Monitor (preview)
 description: Structure of transformation in Azure Monitor including limitations of KQL allowed in a transformation.
 ms.topic: conceptual
 ms.date: 06/29/2022
