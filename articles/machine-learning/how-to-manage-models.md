@@ -40,7 +40,7 @@ The code snippets in this section cover how to:
 
 These snippets use `custom` and `mlflow`.
 
-- `custom` is a type that refers to a model file.
+- `custom` is a type that refers to a model file or folder trained with a custom standard not currently supported by Azure ML.
 - `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained models are in a folder that contains the *MLmodel* file, the *model* file, the *conda dependencies* file, and the *requirements.txt* file.
 
 ### Register your model as an asset in Machine Learning by using the CLI
