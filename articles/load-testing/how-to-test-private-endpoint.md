@@ -6,9 +6,9 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 08/01/2022
+ms.date: 08/05/2022
 ms.topic: how-to
-
+ms.custom: references_regions
 ---
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
@@ -35,6 +35,9 @@ When you start the load test, Azure Load Testing service injects the following A
 - An Azure Load Balancer.
 
 These resources are ephemeral and exist only for the duration of the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-your-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
+
+> [!NOTE]
+> Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, and North Europe.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
