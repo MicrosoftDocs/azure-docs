@@ -8,7 +8,7 @@ author: code-sidd
 ms.author: sisawant
 ms.date: 08/05/2022
 ---
-# How to enable and download server logs for Azure Database for MySQL - Flexible Server
+# Enable, list and download server logs for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
