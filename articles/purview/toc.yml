@@ -383,6 +383,8 @@ items:
   items:
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
+    - name: Available source metadata
+      href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Supported classifications
