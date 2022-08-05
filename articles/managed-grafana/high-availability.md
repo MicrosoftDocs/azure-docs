@@ -20,7 +20,7 @@ Microsoft is not providing or setting up disaster recovery for this service. In 
 
 ## Zone redundancy
 
-Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located within one Azure datacenter. The Managed Grafana Standard tier supports *zone redundancy*, which provides protection against zonal outages.
+Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located in a region based on system resource availability, and could end up being in a same Azure datacenter
 
 ### With zone redundancy enabled
 
