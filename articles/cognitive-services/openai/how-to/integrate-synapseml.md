@@ -111,7 +111,7 @@ Your output should look something like the following example; note that the comp
 
 ### Improve throughput with request batching
 
-The example above makes several requests to the service, one for each prompt. To complete multiple prompts in a single request, use batch mode. First, in the OpenAICompletion object, instead of setting the Prompt column to "Prompt", specify "batchPrompt" for the BatchPrompt column.
+The example above makes several requests to the service, one for each prompt. To complete multiple prompts in a single request, use batch mode. First, in the `OpenAICompletion` object, instead of setting the Prompt column to "Prompt", specify "batchPrompt" for the BatchPrompt column.
 To do so, create a dataframe with a list of prompts per row.
 
 > [!NOTE]
@@ -126,7 +126,7 @@ batch_df = spark.createDataFrame(
 ).toDF("batchPrompt")
 ```
 
-Next we create the OpenAICompletion object. Rather than setting the prompt column, set the batchPrompt column if your column is of type `Array[String]`.
+Next we create the `OpenAICompletion` object. Rather than setting the prompt column, set the batchPrompt column if your column is of type `Array[String]`.
 
 ```python
 batch_completion = (
