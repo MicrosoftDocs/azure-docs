@@ -55,16 +55,16 @@ This scenario focuses on [VM insights](../vm/vminsights-overview.md), which is t
 - Predefined trending performance charts and workbooks that you can use to analyze core performance metrics from the virtual machine's guest operating system.
 - Dependency map that displays processes running on each virtual machine and the interconnected components with other machines and external sources.
 
-## Agents
-Any monitoring tool, such as Azure Monitor, requires an agent installed on a machine to collect data from its guest operating system. Azure Monitor currently has multiple agents that collect different data, send data to different locations, and support different features. VM insights manages the deployment and configuration of the agents that most customers will use. Different agents are described in the following table in case you require the particular scenarios that they support. For a detailed description and comparison of the different agents, see [Overview of Azure Monitor agents](../agents/agents-overview.md).
+## Azure Monitor agent
+Any monitoring tool, such as Azure Monitor, requires an agent installed on a machine to collect data from its guest operating system. Azure Monitor uses the [Azure Monitor agent](../agents/agents-overview.md), which supports virtual machines in Azure, other cloud environments, and on-premises. The Azure Monitor agent replaces legacy agents that are still available but should only be used if you require particular functionality not yet available with Azure Monitor agent. Most users will be able to use Azure Monitor without the legacy agents.
 
-> [!NOTE]
-> The Azure Monitor agent will completely replace the Log Analytics agent, diagnostic extension, and Telegraf agent once it gains required functionality. These other agents are still required for features such as VM insights, Microsoft Defender for Cloud, and Microsoft Sentinel.
+The legacy agents include the following:
 
-- [Azure Monitor agent](../agents/agents-overview.md): Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Metrics and Logs. When it fully supports VM insights, Microsoft Defender for Cloud, and Microsoft Sentinel, then it will completely replace the Log Analytics agent and diagnostic extension.
-- [Log Analytics agent](../agents/log-analytics-agent.md): Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Logs. Supports VM insights and monitoring solutions. This agent is the same agent used for System Center Operations Manager.
-- [Dependency agent](vminsights-dependency-agent-maintenance.md): Collects data about the processes running on the virtual machine and their dependencies. Relies on the Log Analytics agent to transmit data into Azure and supports VM insights, Service Map, and Wire Data 2.0 solutions.
-- [Azure Diagnostic extension](../agents/diagnostics-extension-overview.md): Available for Azure Monitor virtual machines only. Can send data to Azure Event Hubs and Azure Storage.
+- [Log Analytics agent](../agents/log-analytics-agent.md): Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Logs. This agent is the same agent used for System Center Operations Manager.
+- [Azure Diagnostic extension](../agents/diagnostics-extension-overview.md): Available for Azure Monitor virtual machines only. Sends data to Azure Event Hubs and Azure Storage.
+
+See [Supported services and features](../agents/agents-overview.md#supported-services-and-features) for the current features supported by Azure Monitor agent. See [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for details on migrating to the Azure Monitor agent if you already have the Log Analytics agent deployed.
+
 
 ## Next steps
 
