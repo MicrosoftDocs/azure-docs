@@ -159,7 +159,7 @@ map.layers.add(layer, "labels");
 val source = DataSource()
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json")
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/US_States_Population_Density.json")
 
 //Add data source to the map.
 map.sources.add(source)
