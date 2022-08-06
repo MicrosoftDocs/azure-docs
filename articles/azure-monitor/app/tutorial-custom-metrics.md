@@ -21,7 +21,7 @@ If you'd like to follow along with the guidance in this article, certain pre-req
 
 * Visual Studio 2022
 * Visual Studio Workloads: ASP.NET and web development, Data storage and processing, and Azure development
-* .Net 6.0
+* .NET 6.0
 * Azure subscription and user account (with the ability to create and delete resources)
 * Deploy the [completed sample application (`2 - Completed Application`)](./tutorial-asp-net-core.md) or an existing ASP.NET Core application with the [Application Insights for ASP.NET Core](./asp-net-core.md#install-the-application-insights-nuget-package) NuGet package installed and [configured to gather server-side telemetry](./asp-net-core.md#enable-application-insights-server-side-telemetry).
 
@@ -81,19 +81,9 @@ namespace AzureCafe.Controllers
 
 ## TrackMetric
 
-> [!NOTE]
-> `Microsoft.ApplicationInsights.TelemetryClient.TrackMetric` isn't the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the `GetMetric(..)` overloads to get a metric object for accessing SDK pre-aggregation capabilities.
->
-> If you're implementing your own pre-aggregation logic, you can use the `TrackMetric()` method to send the resulting aggregates. If your application requires sending a separate telemetry item on every occasion without aggregation across time, you likely have a use case for event telemetry. See `TelemetryClient.TrackEvent
-(Microsoft.ApplicationInsights.DataContracts.EventTelemetry)`.
-
 Application Insights can chart metrics that aren't attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
-To send metrics to Application Insights, you can use the `TrackMetric(..)` API. There are two ways to send a metric:
-
-* **Single value**. Every time you perform a measurement in your application, you send the corresponding value to Application Insights.
-
-  For example, assume you have a metric that describes the number of items in a container. During a particular time period, you first put three items into the container and then you remove two items. Accordingly, you would call `TrackMetric` twice. First, you would pass the value `3` and then pass the value `-2`. Application Insights stores both values for you.
+To send metrics to Application Insights, you can use the `TrackMetric(..)` API. We will cover the recommended way to send a metric:
 
 * **Aggregation**. When you work with metrics, every single measurement is rarely of interest. Instead, a summary of what happened during a particular time period is important. Such a summary is called _aggregation_.
 
@@ -147,7 +137,7 @@ To send metrics to Application Insights, you can use the `TrackMetric(..)` API. 
 
    4. Repeat adding reviews as desired to generate additional telemetry.
 
-### View logs in Application Insights
+### View metrics in Application Insights
 
 1. Go to the **Application Insights** resource in the [Azure Portal](https://portal.azure.com).
 
@@ -212,7 +202,7 @@ When running the sample code, you'll see that no telemetry is being sent from th
 
    4. Repeat adding reviews as desired to generate additional telemetry.
 
-### View logs in Application Insights
+### View metrics in Application Insights
 
 1. Go to the **Application Insights** resource in the [Azure Portal](https://portal.azure.com).
 
@@ -232,6 +222,9 @@ When running the sample code, you'll see that no telemetry is being sent from th
 The examples in the previous section show zero-dimensional metrics. Metrics can also be multi-dimensional. We currently support up to 10 dimensions.
 
 By default multi-dimensional metrics within the Metric explorer experience aren't turned on in Application Insights resources.
+
+>[!NOTE]
+> This is a preview feature and additional billing may apply in the future.
 
 ### Enable multi-dimensional metrics
 
