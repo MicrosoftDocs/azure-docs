@@ -30,7 +30,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-- [secure-secrets-in-params](./linter-rule-secure-secrets-in-params.md)
+- [secure-secrets-in-params](./linter-rule-secure-secrets-in-parameters.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
