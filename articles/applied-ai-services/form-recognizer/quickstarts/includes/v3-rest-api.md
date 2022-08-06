@@ -27,7 +27,7 @@ In this quickstart you'll use the Form Recognizer REST API to analyze and extrac
 * A Form Recognizer (single-service) or Cognitive Services (multi-service) resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -50,7 +50,7 @@ Before you run the cURL command, make the following changes:
 1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the table below for each feature.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 #### POST request
 
@@ -75,7 +75,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-
 
 You'll receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
-:::image type="content" source="../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
+:::image type="content" source="../../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
 ### Get analyze results (GET Request)
 
@@ -139,4 +139,4 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 #### Supported document fields
 
-The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
+The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
