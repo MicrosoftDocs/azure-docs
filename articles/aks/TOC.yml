@@ -536,7 +536,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
-      href: /python/api/overview/azure/containerservice
+      href: /python/api/overview/azure/container-service
     - name: Java
       href: /java/api/overview/azure/containerservice
     - name: Node.js
