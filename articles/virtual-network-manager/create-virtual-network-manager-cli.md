@@ -118,9 +118,7 @@ Create a network group using static membership with [az network manager group cr
 az network manager group create \
     --name "myNetworkGroup" \
     --network-manager-name "myAVNM" \
-    --group-members resource-id="/subscriptions/{subscriptionId}/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA" \
-    --group-members resource-id="/subscriptions/{subscriptionId}/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetB" \
-    --group-members resource-id="/subscriptions/{subscriptionId}/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetC" \
+    --member-type "Microsoft.Network/virtualNetworks" \
     --resource-group "myAVNMResourceGroup"
 ```
 
