@@ -140,13 +140,3 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 #### Supported document fields
 
 The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
-
-## Next steps
-
-In this quickstart, you used Form Recognizer REST API v3.0 to analyze forms in different ways. Next, further explore the Form Recognizer Studio and latest reference documentation to learn more about the Form Recognizer API.
-
->[!div class="nextstepaction"]
-> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
-
-> [!div class="nextstepaction"]
-> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

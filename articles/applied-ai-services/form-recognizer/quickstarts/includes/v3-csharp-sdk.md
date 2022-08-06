@@ -35,11 +35,11 @@ In this quickstart, you'll use the following features to analyze and extract dat
 * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -85,29 +85,29 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 1. On the start page, choose Create a new project.
 
-    :::image type="content" source="../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+    :::image type="content" source="../../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
+    :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
+    :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
+    :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
 
 ### Install the client library with NuGet
 
  1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
+    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-     :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
+     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
  1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.4*** from the dropdown menu and install the package in your project.
 <!-- --- -->
@@ -259,7 +259,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### General document model output
 
@@ -377,7 +377,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Layout model output
 
@@ -533,7 +533,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Prebuilt model output
 
