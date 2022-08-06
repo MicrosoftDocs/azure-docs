@@ -2,7 +2,7 @@
 title: Application Insights custom metrics with .NET and .NET Core
 description: Learn how to use Application Insights to capture locally pre-aggregated metrics for .NET and .NET Core applications.
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 08/03/2022
 ms.devlang: csharp
 ms.reviewer: casocha
 ---
