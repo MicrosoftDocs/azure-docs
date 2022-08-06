@@ -59,7 +59,7 @@ rm ./manifest.json
 
 ## Deploy via Azure DevOps (pipelines)
 
-For full instructions on setting up the web app using Azure DevOps, see [Use SAP Deployment Automation Framework from Azure DevOps Services](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/automation-configure-devops?branch=main)
+For full instructions on setting up the web app using Azure DevOps, see [Use SAP Deployment Automation Framework from Azure DevOps Services](automation-configure-devops.md)
 
 ### Summary of steps required to set up the web app before deploying the control plane:
 1. Add the web app deployment pipeline (deploy/pipelines/21-deploy-web-app.yaml).
@@ -75,7 +75,7 @@ For full instructions on setting up the web app using Azure DevOps, see [Use SAP
 
 ## Deploy via Azure CLI (Cloud Shell)
 
-For full instructions on setting up the web app using the Azure CLI, see [Deploy the control plane](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/automation-deploy-control-plane?branch=main&tabs=linux)
+For full instructions on setting up the web app using the Azure CLI, see [Deploy the control plane](automation-deploy-control-plane.md)
 
 ### Summary of steps required to set up the web app before deploying the control plane:
 1. Export the environment variables TF_VAR_app_registration_app_id, TF_VAR_webapp_client_secret, and TF_VAR_use_webapp="true".
