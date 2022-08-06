@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Azure Communication Services provide a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
+Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
 
 Here are the main scenarios where rooms are useful:
 
@@ -86,13 +86,13 @@ Rooms can be set to operate in two levels of control over who is allowed to join
 
 ## Predefined participant roles and permissions
 
-Room participants can be assigned one of the following roles: <b>Presenter</b>, <b>Attendee</b> and <b>Consumer</b>. By default, a user is assigned an <b>Attendee</b> role, if no other role is assigned. 
+Room participants can be assigned one of the following roles: **Presenter**, **Attendee** and **Consumer**. By default, a user is assigned an **Attendee** role, if no other role is assigned. 
 
-The tables below provide detailed capabilities mapped to the roles. At a high level, <b>Presenter</b> role has full control, <b>Attendee</b> capabilities are limited to audio and video, while <b>Consumer</b> can only receive audio, video and screen sharing.
+The tables below provide detailed capabilities mapped to the roles. At a high level, **Presenter** role has full control, **Attendee** capabilities are limited to audio and video, while **Consumer** can only receive audio, video and screen sharing.
 
 | Capability | Role: Presenter | Role: Attendee | Role: Consumer
 |---------------------------------------------| :--------: | :--------: | :--------: |
-| <b>Mid call controls</b> | | |
+| **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
@@ -103,14 +103,14 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Show call state (Early media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected | ✔️ | ✔️ | ✔️ |
 | - Show if a participant is muted | ✔️ | ✔️ | ✔️ |
 | - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
-| <b>Screen sharing</b> | | |
+| **Screen sharing** | | |
 | - Share screen | ✔️ *  | ❌ | ❌ |
 | - Share an application | ✔️ * | ❌ | ❌ |
 | - Share a browser tab | ✔️ * | ❌ | ❌ |
 | - Participants can view shared screen | ✔️ | ✔️ | ✔️ |
-| <b>Roster management</b> | | |
+| **Roster management** | | |
 | - Remove a participant | ✔️ | ❌ | ❌ |
-| <b>Device management</b> | | |
+| **Device management** | | |
 | - Ask for permission to use audio and/or video | ✔️ | ✔️ | ❌ |
 | - Get camera list | ✔️ | ✔️ | ❌ |
 | - Set camera | ✔️ | ✔️ | ❌ |
@@ -121,7 +121,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Get speakers list | ✔️ * | ✔️ * | ✔️ * |
 | - Set speaker | ✔️ * | ✔️ * | ✔️ * |
 | - Get selected speaker | ✔️ | ✔️ | ✔️ |
-| <b>Video rendering</b> | | |
+| **Video rendering** | | |
 | - Render a video in multiple places (local camera or remote stream) | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Render remote video stream | ✔️ | ✔️ | ✔️ |
