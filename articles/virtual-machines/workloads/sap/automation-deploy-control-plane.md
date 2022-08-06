@@ -87,9 +87,14 @@ $env:TF_VAR_webapp_client_secret=(az ad app credential reset `
 
 $env:TF_VAR_use_webapp="true"
 
-rm ./manifest.json
+del manifest.json
 
 ```
+
+# [Azure DevOps](#tab/devops)
+
+It is currently not possible to perform this action from Azure DevOps   
+
 ---
 
 
@@ -308,6 +313,9 @@ az ad app update `
     --web-redirect-uris $webapp_url/ $webapp_url/.auth/login/aad/callback
 
 ```
+# [Azure DevOps](#tab/devops)
+
+It is currently not possible to perform this action from Azure DevOps
 ---
 
 > [!TIP]
@@ -333,7 +341,7 @@ az webapp config appsettings set -g <group-name> -n <app-name> --settings \
 IS_PIPELINE_DEPLOYMENT=false
 
 ```
----
+
 
 ## Accessing the web app
 
