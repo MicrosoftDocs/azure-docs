@@ -17,6 +17,12 @@ ms.date: 05/24/2022
 [Azure Database for MySQL - Flexible Server](./overview.md) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+## August 2022
+
+**Server logs for Azure Database for MySQL - Flexible Server** 
+
+ Server Logs will help customers to emit the server logs to server storage space in file format, which you can later download. Slow query logs are supported with server logs which can help customers in performance troubleshooting and query tuning.Customers have ability to store logs up to a week or up-to 7 GB of logs size. You can configure or download them from [Azure portal](./how-to-server-logs-portal.md) or [Azure CLI](./how-to-server-logs-cli.md).[Learn more](./concepts-monitoring.md#server-logs)
+
 
 ## June 2022
 
