@@ -25,6 +25,8 @@ items:
         href: quickstarts/identity/service-principal-from-cli.md
       - name: Quick-create identities for testing
         href: quickstarts/identity/quick-create-identity.md
+      - name: Create identities and tokens in Azure Logic Apps
+        href: quickstarts/identity/logic-app.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -33,6 +35,8 @@ items:
         href: quickstarts/chat/meeting-interop.md
       - name: Using Chat SDK with React Native
         href: quickstarts/chat/react-native.md
+      - name: Send Chat messages in Azure Logic Apps
+        href: quickstarts/chat/logic-app.md
   - name: Email
     items:
       - name: Create an Email Communication Services resource
@@ -45,6 +49,8 @@ items:
         href: quickstarts/email/connect-email-communication-resource.md
       - name: Send an Email
         href: quickstarts/email/send-email.md
+      - name: Send an Email in Azure Logic Apps
+        href: quickstarts/email/logic-app.md        
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -165,6 +171,8 @@ items:
         href: concepts/telephony/direct-routing-provisioning.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
+      - name: Inbound telephony calling capabilities
+        href: concepts/telephony/inbound-calling-capabilities.md
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -242,8 +250,20 @@ items:
     items:
       - name: Overview
         href: concepts/teams-interop.md
-      - name: Join a Teams meeting
-        href: concepts/join-teams-meeting.md
+      - name: Communication as Teams guest
+        items:        
+          - name: Overview
+            href: concepts/interop/guest/overview.md
+          - name: Capabilities
+            href: concepts/interop/guest/capabilities.md
+          - name: Teams client experience
+            href: concepts/interop/guest/teams-client-experience.md
+          - name: Teams controls
+            href: concepts/interop/guest/teams-administration.md
+          - name: User privacy
+            href: concepts/interop/guest/privacy.md
+          - name: Known issues
+            href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
         items:
           - name: Overview
@@ -265,13 +285,17 @@ items:
   - name: Azure Government
     href: concepts/government.md
   - name: Pricing
-    href: concepts/pricing.md
-  - name: Email Pricing
-    href: concepts/email-pricing.md
-  - name: SMS Pricing
-    href: concepts/sms-pricing.md
-  - name: PSTN Pricing
-    href: concepts/pstn-pricing.md
+    items:
+      - name: Pricing overview
+        href: concepts/pricing.md
+      - name: Email Pricing
+        href: concepts/email-pricing.md
+      - name: SMS Pricing
+        href: concepts/sms-pricing.md
+      - name: PSTN Pricing
+        href: concepts/pstn-pricing.md
+      - name: Teams interoperability Pricing
+        href: concepts/pricing/teams-interop-pricing.md        
   - name: Push notifications
     href: concepts/notifications.md
   - name: Azure Advisor

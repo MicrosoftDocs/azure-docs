@@ -114,7 +114,7 @@ CommunicationRoom roomResult = roomsClient.getRoom(roomId);
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```java
 OffsetDateTime validFrom = OffsetDateTime.of(2022, 2, 1, 5, 30, 20, 10, ZoneOffset.UTC);
@@ -148,6 +148,19 @@ try {
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
+
+### Get list of participants
+
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+
+```java
+try {
+    ParticipantsCollection participants = roomsClient.listParticipants(roomId);
+    System.out.println("Participants: \n" + participants.getParticipants());
+} catch (Exception ex) {
+    System.out.println(ex);
+}
+```
 
 ### Remove participants
 

@@ -114,6 +114,8 @@
       href: microservices-dapr-azure-resource-manager.md
     - name: Background processing
       href: background-processing.md
+    - name: Create an Azure Files storage mount
+      href: storage-mounts-azure-files.md
 - name: Reference
   items:
     - name: ARM and YAML specifications

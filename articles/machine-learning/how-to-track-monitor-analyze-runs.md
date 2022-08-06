@@ -5,8 +5,8 @@ description: Learn how to start, monitor, and track your machine learning experi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: swinner95
-ms.author: shwinne
+ms.author: amipatel
+author: amibp
 ms.reviewer: sgilley
 ms.date: 06/24/2022
 ms.topic: how-to
@@ -34,7 +34,7 @@ This article shows how to do the following tasks:
 > * If you're looking for information on monitoring training jobs from the CLI or SDK v2, see [Track experiments with MLflow and CLI v2](how-to-use-mlflow-cli-runs.md).
 > * If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
 >
-> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md)F.
+> If you're looking for information on monitoring models deployed to online endpoints, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 ## Prerequisites
 
@@ -139,13 +139,6 @@ To cancel a job in the studio, using the following steps:
 
 1. See [how to create and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
-## Example notebooks
-
-The following notebooks demonstrate the concepts in this article:
-
-* To learn more about the logging APIs, see the [logging API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
-
-* For more information about managing jobs with the Azure Machine Learning SDK, see the [manage jobs notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
 ## Next steps
 
