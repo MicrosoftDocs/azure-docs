@@ -412,19 +412,19 @@ AKS Clusters with service principal must first disable monitoring and then upgra
 az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
 ```
 
-1.	Disable monitoring with the following command:
+2.	Disable monitoring with the following command:
 
   ```cli
   az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
   ```
 
-2.	Upgrade cluster to system managed identity with the following command:
+3.	Upgrade cluster to system managed identity with the following command:
 
   ```cli
   az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity --workspace-resource-id <workspace-resource-id>
   ```
 
-3.	Enable Monitoring addon with managed identity authentication option using Log Analytics workspace resource ID obtained in the first step:
+4.	Enable Monitoring addon with managed identity authentication option using Log Analytics workspace resource ID obtained in the first step:
 
   ```cli
   az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
@@ -439,7 +439,7 @@ AKS Clusters with system assigned identity must first disable monitoring and the
   az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
   ```
 
-1.	Disable monitoring with the following command:
+2.	Disable monitoring with the following command:
 
   ```cli
   az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name>
