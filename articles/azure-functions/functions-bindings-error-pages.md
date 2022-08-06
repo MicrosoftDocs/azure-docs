@@ -57,12 +57,13 @@ There are two kinds of retries available for your functions: built-in retry beha
 | RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) | 
 | Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](../service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) | 
 |Timer | [Retry policies](#retry-policies) | Function-level |
+| HTTP | [Retry policies](#retry-policies) | Function-level |
 
 ### Retry policies
 
-Starting with version 3.x of the Azure Functions runtime, you can define a retry policies for Timer and Event Hubs triggers that are enforced by the Functions runtime. The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
+Starting with version 3.x of the Azure Functions runtime, you can define a retry policies for Timer,HTTP and Event Hubs triggers that are enforced by the Functions runtime. The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
 
-A retry policy is evaluated when a Timer or Event Hubs triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. Event Hubs checkpoints won't be written until the retry policy for the execution has completed. Because of this behavior, progress on the specific partition is paused until the current batch has completed.
+A retry policy is evaluated when a Timer, HTTP or Event Hubs triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. Event Hubs checkpoints won't be written until the retry policy for the execution has completed. Because of this behavior, progress on the specific partition is paused until the current batch has completed.
 
 #### Retry strategies
 
