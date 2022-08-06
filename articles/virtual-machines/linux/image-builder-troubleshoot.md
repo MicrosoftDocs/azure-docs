@@ -105,7 +105,7 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 ```
 #### Cause
 
-In most cases, the resource deployment failure error occurs because of missing permissions.
+In most cases, the resource deployment failure error occurs because of missing permissions. This error may also be caused by a conflict with the staging resource group.
 
 #### Solution
 
@@ -113,6 +113,8 @@ Depending on your scenario, VM Image Builder might need permissions to:
 - The source image or Azure Compute Gallery (formerly Shared Image Gallery) resource group.
 - The distribution image or Azure Compute Gallery resource.
 - The storage account, container, or blob that the `File` customizer is accessing. 
+
+Also, ensure the staging resource group name is uniquely specified for each image template.
 
 For more information about configuring permissions, see [Configure VM Image Builder permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure VM Image Builder permissions by using PowerShell](image-builder-permissions-powershell.md).
 
