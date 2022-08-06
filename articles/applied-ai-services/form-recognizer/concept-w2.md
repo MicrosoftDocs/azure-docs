@@ -28,7 +28,7 @@ The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following t
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
+|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
 ### Try Form Recognizer
 
@@ -122,7 +122,7 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 > [!div class="checklist"]
 >
 > * [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)
-> * [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md.md#prebuilt-model)
+> * [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)
 > * [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)
 > * [**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)
 > * [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>

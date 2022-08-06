@@ -69,7 +69,7 @@ landingContent:
         - text: REST API
           url: quickstarts/get-started-v3-sdk-rest-api.md
         - text: C# SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md.md
+          url: quickstarts/get-started-v3-sdk-rest-api.md
         - text: Java SDK
           url: quickstarts/try-v3-java-sdk.md
         - text: JavaScript SDK
@@ -90,7 +90,7 @@ landingContent:
           - text: Build a custom model (v3.0)
             url:  how-to-guides/build-custom-model-v3.md
           - text: Compose custom models (v3.0)
-            url: compose-custom-models-preview.md
+            url: compose-custom-models-v3.md
           - text: Install and run Form Recognizer containers
             url: containers/form-recognizer-container-install-run.md
           - text: Create and use managed identities

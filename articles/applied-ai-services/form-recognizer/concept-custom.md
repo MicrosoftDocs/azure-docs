@@ -78,7 +78,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
-|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-v3-sdk-rest-api.md.md)</li><li>[Python SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|***custom-model-id***|
+|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[Python SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|***custom-model-id***|
 
 ### Try Form Recognizer
 

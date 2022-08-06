@@ -24,7 +24,7 @@ keywords: document processing
 > * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
-> * *See* our [**REST API**](get-started-v3-sdk-rest-api.md) or [**C#**](get-started-v3-sdk-rest-api.md.md), [**Java**](try-v3-java-sdk.md), [**JavaScript**](get-started-v3-sdk-rest-api.md), or [Python](get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the v3.0 version.
+> * *See* our [**REST API**](get-started-v3-sdk-rest-api.md) or [**C#**](get-started-v3-sdk-rest-api.md), [**Java**](try-v3-java-sdk.md), [**JavaScript**](get-started-v3-sdk-rest-api.md), or [Python](get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the v3.0 version.
 
 The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
