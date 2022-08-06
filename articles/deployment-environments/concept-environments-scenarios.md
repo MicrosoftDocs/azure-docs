@@ -66,5 +66,5 @@ A **scaled deployment** consists of weeks of reviewing and planning with an inte
 
 ## Next steps
 
-- To get started with the service, [Tutorial: Create and configure the Azure Deployment Environments dev center](./tutorial-create-and-configure-devcenter.md)
+- To get started with the service, [Quickstart: Create and configure the Azure Deployment Environments dev center](./quickstart-create-and-configure-devcenter.md)
 - Learn more about [Azure Deployment Environments key concepts](./concept-environments-key-concepts.md)

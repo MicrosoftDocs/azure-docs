@@ -68,5 +68,5 @@ Start using Azure Deployment Environments:
 
 - Learn about the [key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
 - [Azure Deployment Environments scenarios](./concept-environments-scenarios.md).
-- [Tutorial: Create and configure a dev center](./tutorial-create-and-configure-devcenter.md).
-- [Tutorial: Create and configure project](./tutorial-create-and-configure-projects.md).
+- [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
+- [Quickstart: Create and configure project](./quickstart-create-and-configure-projects.md).

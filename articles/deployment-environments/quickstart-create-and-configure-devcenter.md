@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Set up an Azure Deployment Environments Dev center'
-description: 'This quickstart shows you how to configure the Azure Deployment Environments (ADE) service. You'll create a Dev center, attach an Identity, attach a Catalog, and create Environment types.'
+description: This quickstart shows you how to configure the Azure Deployment Environments (ADE) service. You'll create a Dev center, attach an Identity, attach a Catalog, and create Environment types.
 author: anandmeg
 ms.author: meghaanand
 ms.topic: quickstart
 ms.service: deployment-environments
-ms.date: 07/22/2022
+ms.date: 08/05/2022
 ms.custom: devdivchpfy22
 ---
 

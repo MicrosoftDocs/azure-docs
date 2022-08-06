@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Set up an Azure Deployment Environments Project'
-description: 'This quickstart shows you how to create and configure an Azure Deployment Environments Project and associate it with a Dev center.'
+description: This quickstart shows you how to create and configure an Azure Deployment Environments Project and associate it with a Dev center.
 services: Azure Deployment Environments
 author: anandmeg
 ms.service: deployment-environments
