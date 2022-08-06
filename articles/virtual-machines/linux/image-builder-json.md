@@ -239,7 +239,7 @@ If the `stagingResourceGroup` field is not specified or specified with an empty 
 
 #### The stagingResourceGroup field is specified with a resource group that exists
 
-If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
+If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
 
 #### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
 
