@@ -63,8 +63,8 @@ items:
   - name: Composed models
     items:
      - name: Compose models v3.0
-       href: compose-custom-models-preview.md
-     - name: Compose models v2.1 (GA)
+       href: compose-custom-models-v3.md
+     - name: Compose models v2.1
        href: compose-custom-models-v2.1.md
   - name: Back up and recover models
     href: disaster-recovery.md

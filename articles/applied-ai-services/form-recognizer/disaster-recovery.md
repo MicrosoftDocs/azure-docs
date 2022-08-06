@@ -96,7 +96,7 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
 ```
 
-### [Form Recognizer REST API v2.1 (GA)](#tab/v21)
+### [Form Recognizer REST API v2.1 ](#tab/v21)
 
 ## Generate Copy authorization request
 
@@ -162,7 +162,7 @@ GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operati
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-### [Form Recognizer v2.1 (GA)](#tab/v21)
+### [Form Recognizer v2.1 ](#tab/v21)
 
 Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 

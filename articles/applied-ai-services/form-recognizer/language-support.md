@@ -94,7 +94,7 @@ This section lists the supported languages for extracting printed texts using ve
 |Kurukh (Devanagari) | `kru`|Welsh | `cy`
 |Kyrgyz (Cyrillic)  | `ky`
 
-### Print text (GA)
+### Print text 
 
 This section lists the supported languages for extracting printed texts in the latest GA version.
 

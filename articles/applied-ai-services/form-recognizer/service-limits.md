@@ -54,7 +54,7 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api
 
 <sup>3</sup> Open a support request to increase the monthly training limit.
 
-# [Form Recognizer v2.1 (GA)](#tab/v21)
+# [Form Recognizer v2.1 ](#tab/v21)
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
