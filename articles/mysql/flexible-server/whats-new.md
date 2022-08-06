@@ -21,14 +21,14 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 **Server logs for Azure Database for MySQL - Flexible Server** 
 
- Server Logs will help customers to emit the server logs to server storage space in file format, which you can later download. Slow query logs are supported with server logs which can help customers in performance troubleshooting and query tuning.Customers have ability to store logs up to a week or up-to 7 GB of logs size. You can configure or download them from [Azure portal](./how-to-server-logs-portal.md) or [Azure CLI](./how-to-server-logs-cli.md).[Learn more](./concepts-monitoring.md#server-logs)
+ Server Logs will help customers to emit the server logs to server storage space in file format, which you can later download. Slow query logs are supported with server logs, which can help customers in performance troubleshooting and query tuning. Customers have ability to store logs up to a week or up-to 7 GB of logs size. You can configure or download them from [Azure portal](./how-to-server-logs-portal.md) or [Azure CLI](./how-to-server-logs-cli.md).[Learn more](./concepts-monitoring.md#server-logs)
 
 
 ## June 2022
 
 **Known Issues**
 
-On few servers where audit or slow logs are enabled, you may no longer see logs being uploaded to data sinks configured under diagnostics settings. Please verify whether your logs have the latest updated timestamp for the events, based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you have configured. If your server is affected by this issue, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue. Alternatively, you can wait for our next deployment cycle, during which we will apply a permanent fix in all regions.
+On few servers where audit or slow logs are enabled, you may no longer see logs being uploaded to data sinks configured under diagnostics settings. Please verify whether your logs have the latest updated timestamp for the events, based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you've configured. If your server is affected by this issue, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue. Alternatively, you can wait for our next deployment cycle, during which we'll apply a permanent fix in all regions.
 
 ## May 2022
 
@@ -36,11 +36,11 @@ On few servers where audit or slow logs are enabled, you may no longer see logs 
     Azure Database for MySQL – Flexible Server Business Critical service tier is now generally available. Business Critical service tier is ideal for Tier 1 production workloads that require low latency, high concurrency, fast failover, and high scalability, such as gaming, e-commerce, and Internet-scale applications, to learn more about [Business Critical service Tier](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/announcing-azure-database-for-mysql-flexible-server-for-business/ba-p/3361718).
 
 - **Announcing the addition of new Burstable compute instances for Azure Database for MySQL - Flexible Server**
-    We are announcing the addition of new Burstable compute instances to support customers’ auto-scaling compute requirements from 1 vCore up to 20 vCores. learn more about [Compute Option for Azure Database for MySQL - Flexible Server](./concepts-compute-storage.md).
+    We're announcing the addition of new Burstable compute instances to support customers’ auto-scaling compute requirements from 1 vCore up to 20 vCores. learn more about [Compute Option for Azure Database for MySQL - Flexible Server](./concepts-compute-storage.md).
 
 - **Known issues**
-  - The Reserved instances (RI) feature in Azure Database for MySQL – Flexible server is not working properly for the Business Critical service tier, after its rebranding from the Memory Optimized service tier. Specifically, instance reservation has stopped working, and we are currently working to fix the issue.
-  - Private DNS integration details are not displayed on few Azure Database for MySQL Database flexible servers which have HA option enabled. This issue does not have any impact on availability of the server or name resolution. We are working on a permanent fix to resolve the issue and it will be available in the next deployment. Meanwhile, if you want to view the Private DNS Zone details, you can either search under [Private DNS zones](../../dns/private-dns-getstarted-portal.md) in the Azure portal or you can perform a [manual failover](concepts-high-availability.md#planned-forced-failover) of the HA enabled flexible server and refresh the Azure portal.
+  - The Reserved instances (RI) feature in Azure Database for MySQL – Flexible server isn't working properly for the Business Critical service tier, after its rebranding from the Memory Optimized service tier. Specifically, instance reservation has stopped working, and we're currently working to fix the issue.
+  - Private DNS integration details aren't displayed on few Azure Database for MySQL Database flexible servers, which have HA option enabled. This issue doesn't have any impact on availability of the server or name resolution. We're working on a permanent fix to resolve the issue and it will be available in the next deployment. Meanwhile, if you want to view the Private DNS Zone details, you can either search under [Private DNS zones](../../dns/private-dns-getstarted-portal.md) in the Azure portal or you can perform a [manual failover](concepts-high-availability.md#planned-forced-failover) of the HA enabled flexible server and refresh the Azure portal.
 
 ## April 2022
 
@@ -54,7 +54,7 @@ On few servers where audit or slow logs are enabled, you may no longer see logs 
 
 - **Deprecation of TLSv1 or TLSv1.1 protocols with Azure Database for MySQL - Flexible Server (8.0.28)**
 
-    Starting version 8.0.28, MySQL community edition supports TLS protocol TLSv1.2 or TLSv1.3 only. Azure Database for MySQL – Flexible Server will also stop supporting TLSv1 and TLSv1.1 protocols, to align with modern security standards. You will no longer be able to configure TLSv1 or TLSv1.1 from the server parameter blade for newly created resources as well as for resources created previously. The default will be TLSv1.2. Resources created before the upgrade will still support communication through TLS protocol TLSv1 or TLSv1.1 through 1 May 2022. 
+    Starting version 8.0.28, MySQL community edition supports TLS protocol TLSv1.2 or TLSv1.3 only. Azure Database for MySQL – Flexible Server will also stop supporting TLSv1 and TLSv1.1 protocols, to align with modern security standards. You'll no longer be able to configure TLSv1 or TLSv1.1 from the server parameter pane for newly created resources as well as for resources created previously. The default will be TLSv1.2. Resources created before the upgrade will still support communication through TLS protocol TLSv1 or TLSv1.1 through 1 May 2022. 
 
 ## March 2022
 
