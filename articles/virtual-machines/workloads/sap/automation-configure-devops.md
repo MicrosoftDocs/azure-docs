@@ -34,7 +34,7 @@ Start by importing the SAP Deployment Automation Framework GitHub repository int
 
 Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-If you're unable to import a repository, you can create the 'sap-automation' repository and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
+If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
 
 ### Create the repository for manual import
 
@@ -276,7 +276,7 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | `POOL`                             | `<Agent Pool name>`                     | Use the Agent pool defined in the previous step.                                            |
 | `advice.detachedHead`              | false                                   |                                                                                             |
 | `skipComponentGovernanceDetection` | true                                    |                                                                                             |
-| `tf_version`                       | 1.1.7                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
+| `tf_version`                       | 1.2.6                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
 
 Save the variables.
 
@@ -301,20 +301,22 @@ As each environment may have different deployment credentials you'll need to cre
 
 Create a new variable group 'SDAF-MGMT' for the control plane environment using the Library page in the Pipelines section. Add the following variables:
 
-| Variable              | Value                                                              | Notes                                                    |
-| --------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
-| Agent                 | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
-| ARM_CLIENT_ID         | Enter the Service principal application ID.                        |                                                          |
-| ARM_CLIENT_SECRET     | Enter the Service principal password.                              | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | Enter the target subscription ID.                                  |                                                          |
-| ARM_TENANT_ID         | Enter the Tenant ID for the service principal.                     |                                                          |
-| AZURE_CONNECTION_NAME | Previously created connection name.                                |                                                          |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
-| FENCING_SPN_ID        | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments.               |
-| FENCING_SPN_PWD       | Enter the service principal password for the fencing agent.        | Required for highly available deployments.               |
-| FENCING_SPN_TENANT    | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments.               |
-| TF_VAR_app_registration_app_id  | App registration application ID                          | Required if deploying the web app                        |
-| TF_VAR_webapp_client_secret     | App registration password                                | Required if deploying the web app                        |
+| Variable                        | Value                                                              | Notes                                                    |
+| ------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
+| Agent                           | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
+| ARM_CLIENT_ID                   | Enter the Service principal application ID.                        |                                                          |
+| ARM_CLIENT_SECRET               | Enter the Service principal password.                              | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID             | Enter the target subscription ID.                                  |                                                          |
+| ARM_TENANT_ID                   | Enter the Tenant ID for the service principal.                     |                                                          |
+| AZURE_CONNECTION_NAME           | Previously created connection name.                                |                                                          |
+| sap_fqdn                        | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
+| FENCING_SPN_ID                  | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments.               |
+| FENCING_SPN_PWD                 | Enter the service principal password for the fencing agent.        | Required for highly available deployments.               |
+| FENCING_SPN_TENANT              | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments.               |
+| `PAT`                           | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous           |
+| `POOL`                          | `<Agent Pool name>`                                                | Use the Agent pool defined in the previous               |
+| TF_VAR_app_registration_app_id  | App registration application ID                                    | Required if deploying the web app                        |
+| TF_VAR_webapp_client_secret     | App registration password                                          | Required if deploying the web app                        |
 
 Save the variables.
 
@@ -431,7 +433,7 @@ After updating the reply-urls, run the pipeline.
 
 By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, navigate to the app service resource. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
 
-You will also need to grant reader permissions to the app service system-assigned managed identity. Navgiate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality will not work.
+You will also need to grant reader permissions to the app service system-assigned managed identity. Navgiate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
 
 You should now be able to visit the web app, and use it to deploy SAP workload zones and SAP system infrastructure.
 

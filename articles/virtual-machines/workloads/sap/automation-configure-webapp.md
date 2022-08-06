@@ -1,6 +1,6 @@
 ---
 title: Configure a Deployer UX Web Application for SAP Deployment Automation Framework
-description: Configure a web app as a part of the control plane to assist in creating and deploying SAP workload zones and systems on Azure.
+description: Configure a web app as a part of the control plane to help creating and deploying SAP workload zones and systems on Azure.
 author: wsheehan
 ms.author: wsheehan
 ms.reviewer: wsheehan
@@ -17,7 +17,7 @@ As a part of the SAP automation framework control plane, you can optionally crea
 
 ## Create an app registration 
 
-If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
+If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
 
 # [Linux](#tab/linux)
 Replace MGMT with your environment as necessary.
@@ -57,11 +57,11 @@ rm ./manifest.json
 ```
 ---
 
-## Deploy via Azure Devops (pipelines)
+## Deploy via Azure DevOps (pipelines)
 
-For full instructions on setting up the web app using Azure Devops, see [Use SAP Deployment Automation Framework from Azure DevOps Services](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/automation-configure-devops?branch=main)
+For full instructions on setting up the web app using Azure DevOps, see [Use SAP Deployment Automation Framework from Azure DevOps Services](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/automation-configure-devops?branch=main)
 
-### Summary of additional steps required to set up the web app before deploying the control plane:
+### Summary of steps required to set up the web app before deploying the control plane:
 1. Add the web app deployment pipeline (deploy/pipelines/21-deploy-web-app.yaml).
 2. Add the variables TF_VAR_app_registration_app_id and TF_VAR_webapp_client_secret to your environment specific variable group before deployment.
 3. Assign the administrator role to the build service using the Security tab in your environment specific variable group.
@@ -73,11 +73,11 @@ For full instructions on setting up the web app using Azure Devops, see [Use SAP
 3. Run the web app deployment pipeline.
 4. (Optionally) add an additional access policy to the app service.
 
-## Deploy via Azure CLI (cloudshell)
+## Deploy via Azure CLI (Cloud Shell)
 
 For full instructions on setting up the web app using the Azure CLI, see [Deploy the control plane](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/automation-deploy-control-plane?branch=main&tabs=linux)
 
-### Summary of additional steps required to set up the web app before deploying the control plane:
+### Summary of steps required to set up the web app before deploying the control plane:
 1. Export the environment variables TF_VAR_app_registration_app_id, TF_VAR_webapp_client_secret, and TF_VAR_use_webapp="true".
 
 ### Summary of steps required to access the web app after deploying the control plane:
@@ -91,34 +91,34 @@ For full instructions on setting up the web app using the Azure CLI, see [Deploy
 
 ## Using the web app
 
-The web app allows you to create SAP workload zone objects and system infrastructure objects. These are essentially another representation of a configuration file.
-In the case of deploying using Azure Devops, you have ability to deploy these workload zones and system infrastructures right from the web app.
-In the case of deploying using the Azure CLI, you can download the parameter file for any landscape or system object you create, and use that in your command line deployments.
+The web app allows you to create SAP workload zone objects and system infrastructure objects. These are essentially another representation of the Terraform configuration file.
+If deploying using Azure Pipelines, you have ability to deploy these workload zones and system infrastructures right from the web app.
+If deploying using the Azure CLI, you can download the parameter file for any landscape or system object you create, and use that in your command line deployments.
 
 ### Creating a landscape or system object from scratch
 1. Navigate to the "Workload zones" or "Systems" tab at the top of the website.
 2. Click "Create New" in the bottom left corner.
 3. Fill out the required parameters in the "Basic" and "Advanced" tabs, and any additional parameters you desire.
-4. Certain parameters will be dropdowns populated with existing azure resources.
+4. Certain parameters will be dropdowns populated with existing Azure resources.
    * If no results are shown for a dropdown, you probably need to specify another dropdown before you can see any options. Or, see step 2 above regarding the system assigned managed identity.
        - The subscription parameter must be specified before any other dropdown functionality is enabled
        - The network_arm_id parameter must be specified before any subnet dropdown functionality is enabled
-5. Click submit in the bottom left hand corner
+5. Select submit in the bottom left hand corner
 
 ### Creating a workload zone or system object from a file
 1. Navigate to the "File" tab at the top of the website.
 2. Your options are
-   * Create a new file from scratch there in browser. It should be in the .tfvars file format. Click save.
-   * Import an existing .tfvars file, and (optionally) edit it before saving.
+   * Create a new file from scratch there in browser. 
+   * Import an existing.tfvars file, and (optionally) edit it before saving.
    * Use an existing template, and (optionally) edit it before saving.
 3. Make sure your file conforms to the correct naming conventions.
 4. Next to the file you would like to convert to a workload zone or system object, click "Convert".
 5. The workload zone or system object will appear in its respective tab.
 
-### Deploying a workload zone or system object (Azure Devops deployment)
+### Deploying a workload zone or system object (Azure DevOps Pipelines deployment)
 1. Navigate to the Workload zones or Systems tab.
 2. Next to the workload zone or system you would like to deploy, click "Deploy".
    * If you would like to deploy a file, first convert it to a workload zone or system object.
-4. Specify the necessary parameters, and confirm it is the correct object.
+4. Specify the necessary parameters, and confirm it's the correct object.
 5. Click deploy.
-6. The web app will automatically generate a .tfvars file from the object, update your Devops repository, and kick off the workload zone or system (infrastructure) pipeline. Monitor the deployment back in Azure Devops.
+6. The web app will automatically generate a '.tfvars' file from the object, update your Azure DevOps repository, and kick off the workload zone or system (infrastructure) pipeline. You can monitor the deployment in the Azure DevOps Portal.
