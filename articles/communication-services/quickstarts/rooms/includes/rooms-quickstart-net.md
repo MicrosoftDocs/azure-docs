@@ -78,7 +78,7 @@ RoomModel getCommunicationRoom = getRoomResponse.Value;
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```csharp
 var validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
@@ -111,6 +111,15 @@ ParticipantsCollection addedParticipantsRoom = addParticipantResponse.Value;
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
+
+### Get list of participants
+
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+
+```csharp
+Response<ParticipantsCollection> getParticipantsResponse = await roomsClient.GetParticipantsAsync(roomId);
+ParticipantsCollection roomParticipants = getParticipantsResponse.Value;
+```
 
 ### Remove participants
 
