@@ -93,7 +93,7 @@ del manifest.json
 
 # [Azure DevOps](#tab/devops)
 
-It is currently not possible to perform this action from Azure DevOps   
+It is currently not possible to perform this action from Azure DevOps.
 
 ---
 
@@ -158,7 +158,6 @@ xcopy /E sap-automation\samples\WORKSPACES WORKSPACES
 ```
 
 
-
 ```powershell
 
 
@@ -173,14 +172,13 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 ```
 
 
-
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
 > Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
 # [Azure DevOps](#tab/devops)
 
-Open (https://dev.azure.com) and and go to your Azure DevOps project.
+Open (https://dev.azure.com) and go to your Azure DevOps project.
 
 > [!NOTE]
 > Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
@@ -315,7 +313,7 @@ az ad app update `
 ```
 # [Azure DevOps](#tab/devops)
 
-It is currently not possible to perform this action from Azure DevOps
+It is currently not possible to perform this action from Azure DevOps.
 ---
 
 > [!TIP]
