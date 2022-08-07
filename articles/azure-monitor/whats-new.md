@@ -19,7 +19,8 @@ This article lists significant changes to Azure Monitor documentation.
 ### Agents
 | Article | Description |
 |:---|:---|
-|[Using data collection endpoints with Azure Monitor agent](articles/azure-monitor/agents/azure-monitor-agent-data-collection-endpoint.md)|Rewritten to better describe configuration of network isolation
+|[Azure Monitor Agent overview](agents/agents-overview.md)| Restructure of the Agents section. A single Azure Monitor Agent is replacing all of Azure Monitor's legacy monitoring agents.
+|[Enable network isolation for the Azure Monitor agent](agents/azure-monitor-agent-data-collection-endpoint.md)|Rewritten to better describe configuration of network isolation
 
 ### Application Insights
 
