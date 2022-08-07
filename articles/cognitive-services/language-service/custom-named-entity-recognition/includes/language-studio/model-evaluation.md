@@ -76,13 +76,11 @@ A confusion matrix is an N x N matrix used for evaluating the performance of a c
 You can view the confusion matrix in *normalized* or *raw count* view.
 
 
-
 * All values: Will show the confusion matrix for all entities.
 
 * Only errors: Will show the confusion matrix for entities with errors only.
 
 * Only matches: Will show the confusion matrix for entities with correct predections only.
-
 
 ---
 
