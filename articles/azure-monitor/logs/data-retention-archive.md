@@ -17,7 +17,12 @@ Each workspace has a default retention policy that's applied to all tables. You 
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-During the interactive retention period, data is available for monitoring, troubleshooting and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
+During the interactive retention period, data is available for monitoring, troubleshooting and analytics. 
+
+When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. Archived data stays in the same table together with the data that's available for interactive queries. When you change the archive settings on a table, Log Analytics archives the relevant data immediately. You don't incur a charge for archiving data, only for data retention, based on how much data you retain and how long you retain the data. 
+
+You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
+ 
 
 > [!NOTE]
 > The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
@@ -85,7 +90,7 @@ The request body includes the values in the following table.
 
 **Example**
 
-This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months.
+This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years, which means that the archive duration is 23 months.
 
 **Request**
 
@@ -123,7 +128,7 @@ Status code: 200
 
 To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` parameters.
 
-This example sets table's interactive retention to 30 days, and the total retention to two years. This means the archive duration is 23 months:
+This example sets table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
 
 ```azurecli
 az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name AzureMetrics --retention-time 30 --total-retention-time 730
