@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2022
+ms.date: 08/04/2022
 ---
 
 # Source transformation in mapping data flow
@@ -84,7 +84,7 @@ After you've added a source, configure via the **Source settings** tab. Here you
 
 Development values for dataset parameters can be configured in [debug settings](concepts-data-flow-debug-mode.md). (Debug mode must be turned on.)
 
-:::image type="content" source="media/data-flow/source1.png" alt-text="Screenshot that shows the Source settings tab.":::
+:::image type="content" source="media/data-flow/source-1.png" alt-text="Screenshot that shows the Source settings tab.":::
 
 **Output stream name**: The name of the source transformation.
 
@@ -117,7 +117,7 @@ The **Source options** tab contains settings specific to the connector and forma
 
 Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types, such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat .csv files rather than Parquet files), you can define the data types for each field in the source transformation.
 
-:::image type="content" source="media/data-flow/source3.png" alt-text="Screenshot that shows settings on the Projection tab.":::
+:::image type="content" source="media/data-flow/source-3.png" alt-text="Screenshot that shows settings on the Projection tab.":::
 
 If your text file has no defined schema, select **Detect data type** so that the service will sample and infer the data types. Select **Define default format** to autodetect the default data formats.
 

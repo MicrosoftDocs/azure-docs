@@ -31,6 +31,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/whats-new-microsoft-365-government.md",
+      "redirect_url": "/azure/active-directory/fundamentals/whats-new",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
       "redirect_document_id": false
@@ -48,6 +53,11 @@
     {
       "source_path_from_root": "/articles/active-directory/authentication/how-to-nudge-authenticator-app.md",
       "redirect_url": "/azure/active-directory/authentication/how-to-mfa-registration-campaign",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
+      "redirect_url":"/azure/active-directory/develop/workload-identity-federation-create-trust",
       "redirect_document_id": false
     },
     {
@@ -10820,7 +10830,13 @@
       "source_path": "articles/active-directory/manage-apps/howto-enforce-signed-saml-authentication.md",
       "redirect_url": "/azure/active-directory/manage-apps/howto-saml-token-encryption",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
+      "redirect_url": "/azure/active-directory/manage-apps/delete-recover-faq",
+      "redirect_document_id": false
     }
+
 
   ]
 }

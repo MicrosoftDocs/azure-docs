@@ -8,6 +8,8 @@ ms.author: kumud
 
 # Customizing content models in Azure Video Indexer
 
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
+
 Azure Video Indexer allows you to customize some of its models to be adapted to your specific use case. These models include [brands](customize-brands-model-overview.md), [language](customize-language-model-overview.md), and [person](customize-person-model-overview.md). You can easily customize these models using the Azure Video Indexer website or API.
 
 This article gives links to articles that explain the benefits of each type of customization. The article also links to how-to guides that show how you can implement the customization of each model.

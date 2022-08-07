@@ -56,7 +56,7 @@ As you're creating private endpoints, consider the following:
  
 - Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- The subscription from the private-link resource must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
+- The subscription that contains the private link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
  
 ## Private-link resource 
 A private-link resource is the destination target of a specified private endpoint. The following table lists the available resources that support a private endpoint: 
@@ -66,7 +66,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
 | Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
-| Azure Batch | Microsoft.Batch/batchAccounts | batch account |
+| Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | Azure Cognitive Services | Microsoft.CognitiveServices/accounts | account |
@@ -105,7 +105,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure SQL Database | Microsoft.Sql/servers | SQL Server (sqlServer) |
 | Azure Storage | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)<BR> Dfs (dfs, dfs_secondary) |
 | Azure File Sync | Microsoft.StorageSync/storageSyncServices | File Sync Service |
-| Azure Synapse | Microsoft.Synapse/privateLinkHubs | synapse |
+| Azure Synapse | Microsoft.Synapse/privateLinkHubs | web |
 | Azure Synapse Analytics | Microsoft.Synapse/workspaces | SQL, SqlOnDemand, Dev | 
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |

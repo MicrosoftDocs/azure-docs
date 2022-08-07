@@ -9,38 +9,36 @@ ms.subservice: baremetal-sap
 ms.date: 07/21/2022
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
+# Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions with PowerShell so that I can create resources with PowerShell.
 ---
 
-# Quickstart: Deploy Azure Monitor for SAP solutions with Azure PowerShell (preview)
+# Quickstart: deploy Azure Monitor for SAP solutions with PowerShell (preview)
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-This article describes how you can create Azure Monitor for SAP solutions (AMS) resources using the
-[Az.HanaOnAzure](/powershell/module/az.hanaonazure/#sap-hana-on-azure) PowerShell module.
+Get started with Azure Monitor for SAP solutions (AMS) by using the 
+[Az.HanaOnAzure](/powershell/module/az.hanaonazure/#sap-hana-on-azure) PowerShell module to create AMS resources. You'll create a resource group, set up monitoring, and create a provider instance.
 
 This content only applies to the AMS (classic) version of the service.
-> [!CAUTION]
-> Azure Monitor for SAP solutions is currently in public preview. This preview version is provided without a service level agreement. It's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Requirements
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module. You'll also need to connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can choose to use Cloud Shell. For more information on Cloud Shell, see [Overview of Azure Cloud Shell](../../../cloud-shell/overview.md).
+- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module. You'll also need to connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../../cloud-shell/overview.md).
 
-> [!IMPORTANT]
-> While the **Az.HanaOnAzure** PowerShell module is in preview, you must install it separately using the `Install-Module` cmdlet. Once this PowerShell module becomes generally available, it becomes part of future Az PowerShell module releases and available natively from within Azure Cloud Shell.
+- While the **Az.HanaOnAzure** PowerShell module is in preview, you must install it separately using the `Install-Module` cmdlet. Once this PowerShell module becomes generally available, it becomes part of future Az PowerShell module releases and available natively from within Azure Cloud Shell.
 
-```azurepowershell-interactive
-Install-Module -Name Az.HanaOnAzure
-```
+    ```azurepowershell-interactive
+    Install-Module -Name Az.HanaOnAzure
+    ```
 
-If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
+- If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
-```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-```
+    ```azurepowershell-interactive
+    Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+    ```
 
 ## Create a resource group
 
