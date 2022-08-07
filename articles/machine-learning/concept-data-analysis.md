@@ -8,17 +8,17 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 05/10/2022
+ms.date: 08/08/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
 # Understand your datasets (preview)
 
-Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they're trained on. When feature distribution in a dataset is skewed, this can cause a model to incorrectly predict datapoints belonging to an underrepresented group or to be optimized along an inappropriate metric. For example, while training a housing price prediction AI, the training set was representing 75% of newer houses that have less than median prices. As a result, it was much less successful in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about the historic value of the house. Upon incorporating that data augmentation, results improved.
+Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they are trained on. When feature distribution in a dataset is skewed, this can cause a model to incorrectly predict data points belonging to an underrepresented group or to be optimized along an inappropriate metric. For example, while training a housing price prediction AI, the training set was representing 75% of newer houses that have less than median prices. As a result, it was much less accurate in successfully identifying more expensive historic houses. The fix was to add older and expensive houses to the training data and augment the features to include insights about the historic value of the house. Upon incorporating that data augmentation, results improved.
 
-The Data Explorer component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) helps visualize datasets based on predicted and actual outcomes, error groups, and specific features. This enables you to identify issues of over- and underrepresentation and to see how data is clustered in the dataset. Data visualizations consist of aggregate plots or individual datapoints.
+The Data Explorer component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) helps visualize datasets based on predicted and actual outcomes, error groups, and specific features. This enables you to identify issues of over- and under-representation and to see how data is clustered in the dataset. Data visualizations consist of aggregate plots or individual data points.
 
-## When to use Data Explorer
+## When to use data explorer?
 
 Use Data Explorer when you need to:
 
@@ -29,5 +29,6 @@ Use Data Explorer when you need to:
 
 ## Next steps
 
-- Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI ](how-to-responsible-ai-dashboard-ui.md)
+- Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI](how-to-responsible-ai-dashboard-ui.md).
+- Explore the [supported data explorer visualizations](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard#data-explorer) of the Responsible AI dashboard.
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.

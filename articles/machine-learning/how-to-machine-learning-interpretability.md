@@ -6,14 +6,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: mithigpe
-author: minthigpen
-ms.reviewer: Luis.Quintanilla
+ms.author: mesameki
+author: lgayhardt
+ms.reviewer: lgayhardt
 ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022
-ms.date: 05/10/2022
+ms.date: 08/08/2022
 ---
 
-# Model interpretablity (preview)
+# Model interpretability (preview)
 
 This article describes methods you can use for model interpretability in Azure Machine Learning.
 
@@ -24,29 +24,29 @@ This article describes methods you can use for model interpretability in Azure M
 
 When machine learning models are used in ways that impact people’s lives, it is critically important to understand what influences the behavior of models. Interpretability helps answer questions in scenarios such as model debugging (Why did my model make this mistake? How can I improve my model?), human-AI collaboration (How can I understand and trust the model’s decisions?), and regulatory compliance (Does my model satisfy legal requirements?).  
 
-The interpretability component of the [Responsible AI dashboard](LINK TO CONCEPT DOC RESPONSIBLE AI DASHBOARD) contributes to the “diagnose” stage of the model lifecycle workflow by generating human-understandable descriptions of the predictions of a Machine Learning model. It provides multiple views into a model’s behavior: global explanations (e.g., what features affect the overall behavior of a loan allocation model) and local explanations (e.g., why a customer’s loan application was approved or rejected). One can also observe model explanations for a selected cohort as a subgroup of data points. This is valuable when, for example, assessing fairness in model predictions for individuals in a particular demographic group. The local explanation tab of this component also represents a full data visualization which is great for general eyeballing the data and looking at differences between correct and incorrect predictions of each cohort.
+The interpretability component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) contributes to the “diagnose” stage of the model lifecycle workflow by generating human-understandable descriptions of the predictions of a Machine Learning model. It provides multiple views into a model’s behavior: global explanations (e.g., what features affect the overall behavior of a loan allocation model) and local explanations (e.g., why a customer’s loan application was approved or rejected). One can also observe model explanations for a selected cohort as a subgroup of data points. This is valuable when, for example, assessing fairness in model predictions for individuals in a particular demographic group. The local explanation tab of this component also represents a full data visualization which is great for general eyeballing the data and looking at differences between correct and incorrect predictions of each cohort.
 
-The capabilities of this component are founded by [InterpretML](https://interpret.ml/) capabilities on generating model explanations.
+The capabilities of this component are founded by the [InterpretML](https://interpret.ml/) package, generating model explanations.
 
 Use interpretability when you need to...
 + Determine how trustworthy your AI system’s predictions are by understanding what features are most important for the predictions.
 + Approach the debugging of your model by understanding it first and identifying if the model is using healthy features or merely spurious correlations.
 + Uncover potential sources of unfairness by understanding whether the model is predicting based on sensitive features or features highly correlated with them.
-+ Build end user trust in your model’s decisions by generating local explanations to illustrate their outcomes.
++ Build trust with end-users in your model’s decisions by generating local explanations to illustrate their outcomes.
 + Complete a regulatory audit of an AI system to validate models and monitor the impact of model decisions on humans.
 
 ## How to interpret your model?
 In machine learning, **features** are the data fields used to predict a target data point. For example, to predict credit risk, data fields for age, account size, and account age might be used. In this case, age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and account age do not affect the prediction values significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what features are most important in the model.
 
 Using the classes and methods in the Responsible AI dashboard using SDK v2 and CLI v2, you can:
-+ Explain model prediction by generating feature importance values for the entire model (global explanation) and/or individual datapoints (local explanation).
-+ Achieve model interpretability on real-world datasets at scale
-+ Use an interactive visualization dashboard to discover patterns in data and explanations at training time
++ Explain model prediction by generating feature importance values for the entire model (global explanation) and/or individual data points (local explanation).
++ Achieve model interpretability on real-world datasets at scale.
++ Use an interactive visualization dashboard to discover patterns in data and explanations at training time.
 
 Using the classes and methods in the SDK v1, you can:
-+ Explain model prediction by generating feature importance values for the entire model and/or individual datapoints.
++ Explain model prediction by generating feature importance values for the entire model and/or individual data points.
 + Achieve model interpretability on real-world datasets at scale, during training and inference.
-+ Use an interactive visualization dashboard to discover patterns in data and explanations at training time
++ Use an interactive visualization dashboard to discover patterns in data and explanations at training time.
 
 The model interpretability classes are made available through the following SDK v1 package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install))
 
@@ -55,7 +55,7 @@ The model interpretability classes are made available through the following SDK 
 Use `pip install azureml-interpret` for general use.
 
 ## Supported model interpretability techniques
-The Responsible AI dashboard and `azureml-interpret` use the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source Python package for training interpretable models and helping to explain opaque-box AI systems. Opaque-box models are those for which we have no information about their internal workings. interpret-Community serves as the host for this SDK's supported explainers.
+The Responsible AI dashboard and `azureml-interpret` use the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open-source Python package for training interpretable models and helping to explain opaque-box AI systems. Opaque-box models are those for which we have no information about their internal workings. interpret-Community serves as the host for this SDK's supported explainers.
 
 [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for the following supported explainers, and currently supports the following interpretability techniques:
 
@@ -108,9 +108,8 @@ You can run explanation remotely on Azure Machine Learning Compute and log the e
 
 ## Next steps
 
-- See the how-to guide for generating a Responsible AI dashboard with model interpretability via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI ](how-to-responsible-ai-dashboard-ui.md)
-- See the [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) generate a Responsible AI scorecard based on the insights observed in the Responsible AI dashboard.
+- Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI](how-to-responsible-ai-dashboard-ui.md).
+- Explore the [supported interpretability visualizations](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard#feature-importances-model-explanations) of the Responsible AI dashboard.
+- Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
 - See the [how-to](how-to-machine-learning-interpretability-aml.md) for enabling interpretability for models training both locally and on Azure Machine Learning remote compute resources.
 - Learn how to enable [interpretability for automated machine learning models](how-to-machine-learning-interpretability-automl.md).
-- See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) for additional scenarios. 
-- If you're interested in interpretability for text scenarios, see [Interpret-text](https://github.com/interpretml/interpret-text), a related open source repo to [Interpret-Community](https://github.com/interpretml/interpret-community/), for interpretability techniques for NLP. `azureml.interpret` package does not currently support these techniques but you can get started with an [example notebook on text classification](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).
