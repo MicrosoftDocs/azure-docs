@@ -19,7 +19,7 @@ Each workspace has a default retention policy that's applied to all tables. You 
 
 During the interactive retention period, data is available for monitoring, troubleshooting and analytics. 
 
-When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. Archived data stays in the same table together with the data that's available for interactive queries. When you change the archive settings on a table, Log Analytics archives the relevant data immediately. You don't incur a charge for archiving data, only for data retention, based on how much data you retain and how long you retain the data. 
+When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. Archived data stays in the same table, together with the data that's available for interactive queries. When you change the archive settings on a table, Log Analytics archives the relevant data immediately. You don't incur a charge for archiving data, only for data retention, based on how much data you retain and how long you retain the data. 
 
 You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
  
