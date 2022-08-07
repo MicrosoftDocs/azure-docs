@@ -17,9 +17,14 @@ Each workspace has a default retention policy that's applied to all tables. You 
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-During the interactive retention period, data is available for monitoring, troubleshooting and analytics. 
+During the interactive retention period, data is available for monitoring, troubleshooting and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. 
 
-When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. Archived data stays in the same table, together with the data that's available for interactive queries. When you change the archive settings on a table, Log Analytics archives the relevant data immediately. You don't incur a charge for archiving data, only for data retention, based on how much data you retain and how long you retain the data. 
+Archived data stays in the same table, together with the data that's available for interactive queries. 
+When you set a total retention period that's longer than the interactive retention period, Log Analytics automatically archives the relevant data immediately at the end of the retention period. 
+
+If you change the archive settings on a table with existing data, the relevant data in the table is also effected immediately. For example, if you have an existing table with a 30-day interactive retention period and no archive period and you change the retention policy to 15-days of interactive retention and one year total retention, Log Analytics immediately archives any data that's older than 15 days. The data stays in the same table, but Log Analytics immediately removes the archived data from its cache.     
+
+You don't incur a charge for archiving data, only for data retention, based on how much data you retain and how long you retain the data. 
 
 You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
  
