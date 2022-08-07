@@ -124,6 +124,8 @@
     items:
     - name: Create custom security initiatives and policies
       href: custom-security-policies.md
+    - name: Manage assessments and standards
+      href: how-to-manage-assessments-standards.md
     - name: Review your security recommendations
       href: review-security-recommendations.md
     - name: Remediate recommendations
