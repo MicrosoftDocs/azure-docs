@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 08/07/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -231,10 +231,13 @@ To turn number matching off, you will need to PATCH remove **numberMatchingRequi
 
 ## Enable number matching in the portal
 
-To enable number matching in the Azure AD portal, complete the following steps:
+To enable number matching in the Azure portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. Select the target users, click the three dots on the right, and click **Configure**.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
+1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Under the **Manage** menu header, select **Authentication methods**, then **Policies**.
+1. From the list of policies, select **Microsoft Authenticator**.
+1. Select the target users, click the three dots on the right, and choose **Configure**.
    
    ![Screenshot of configuring number match.](media/howto-authentication-passwordless-phone/configure.png)
 
