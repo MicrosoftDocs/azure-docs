@@ -35,7 +35,7 @@ ms.author: aahi
 
 * This is a snapshot of how your model performed during testing. The metrics here are static and tied to your model, so they won’t update until you train again.
 
-* You can see for each entity, percision, recall, F1 score, training and testing labels.
+* You can see for each entity, percision, recall, F1 score, number of training and testing labels.
 
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
@@ -44,7 +44,7 @@ ms.author: aahi
 
 * Here you will see the documents included in the **test set** and the result entity type for each document. You can use the *Show mismatches only* toggle to show only documents with mismathces, or unselect the toggle to view all document in the test set.
 
-* For each document, you can view: labeled text, its respective entity type and what was it predicted with. Also, you will see whether it is a [true positive](../../concepts/evaluation-metrics.md), [false positive](../../concepts/evaluation-metrics.md) or [false negative](../../concepts/evaluation-metrics.md). 
+* For each document, you can view: labeled text, its respective labeled entity type and what entity it was predicted with. Also, you will see whether it is a [true positive](../../concepts/evaluation-metrics.md), [false positive](../../concepts/evaluation-metrics.md) or [false negative](../../concepts/evaluation-metrics.md). 
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
@@ -59,7 +59,7 @@ This snapshot shows how entities are distributed across your training and testin
 
 * *Documents with at least one label*: This view will show for each entity, the number of occurances for this entitiy across the training and testing sets.
 
-* *Total instances throughout documents*: 
+* *Total instances throughout documents*: This view will show for each entity, the labeled occurances accross training and testing sets.
 
 
 **Table view**
