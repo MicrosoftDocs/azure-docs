@@ -29,7 +29,7 @@ ms.author: aahi
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
-    Learn more about model guidance and confusion matrix in [evaluation metrics](../../concepts/evaluation-metrics.md) concepts.
+    Learn more about model guidance and confusion matrix in [model performance](../../concepts/evaluation-metrics.md) concepts.
 ---
 ### [Entity type performance](#tab/entity-performance)
 
