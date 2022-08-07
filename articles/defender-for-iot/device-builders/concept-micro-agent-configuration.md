@@ -102,6 +102,14 @@ Configure the micro agent using the following collector-specific properties and 
 | **Process_Mode** | `1` = Auto <br>`2` = Netlink <br>`3`= Polling | Determines the Process collector mode. In `Auto` mode, the agent first tries to enable the Netlink mode. <br><br>If that fails, it will automatically fall back / switch to the Polling mode.| `1` |
 | **Process_CacheSize** | Positive integer | The number of Process events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost).| `256` |
 
+
+### Logs collector-specific settings
+
+| Setting Name | Setting options | Description | Default |
+|--|--|--|--|
+| **LogCollector_Disabled** | `True`/`False` | Disables the Logs collector. | `False` |
+| **LogCollector_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send Log events. | `Low` |
+
 ## Next steps
 
 For more information, see:
