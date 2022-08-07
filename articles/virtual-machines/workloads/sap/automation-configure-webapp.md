@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure the Control Plane UX Web Application
 
-As a part of the SAP automation framework control plane, you can optionally create an interactive web application that will assist you in creating and deploying SAP workload zones and systems.
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that will assist you in creating the required configuration files and deploying SAP workload zones and systems using Azure DevOps Pipelines.
 
 :::image type="content" source="./media/automation-deployment-framework/webapp-front-page.png" alt-text="Web app front page":::
 
