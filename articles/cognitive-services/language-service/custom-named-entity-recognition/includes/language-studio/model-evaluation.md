@@ -16,6 +16,9 @@ ms.author: aahi
     
 3. Select the model you want to view it's performance.
 
+> [!NOTE]
+> Entities that are neither labeled nor predicted in the test set will not be part of the displayed results.
+
 ### [Overview](#tab/overview)
 
 * In this tab you can view the model's details such as: F1 score, Percesion, Recall, date and time for the training job, total training time and number of training and testing docuemnts included in this training job.  
@@ -26,10 +29,9 @@ ms.author: aahi
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
-    Learn more about model guidance and confusion matrix in [evaluation metrics]() concepts.
+    Learn more about model guidance and confusion matrix in [evaluation metrics](../../concepts/evaluation-metrics.md) concepts.
 ---
 ### [Entity type performance](#tab/entity-performance)
-*Entity type performace*
 
 * This is a snapshot of how your model performed during testing. The metrics here are static and tied to your model, so they won’t update until you train again.
 
@@ -40,11 +42,9 @@ ms.author: aahi
 ---
 ### [Test set details](#tab/test-set)
 
-*Test set details*
+* Here you will see the documents included in the **test set** and the result entity type for each document. You can use the *Show mismatches only* toggle to show only documents with mismathces, or unselect the toggle to view all document in the test set.
 
-* Here you will see the documents included in the test set and the result type for each document. You can use the *Show mismatches only* toggle to show only documents with mismathces, or unselect the toggle to view all document in the test set.
-
-* You can view for each document: labeled text, its respective entity type and what was it predicted with. Also, you will see whether it is a [true positive](), [false positive]() or [false negative](). 
+* For each document, you can view: labeled text, its respective entity type and what was it predicted with. Also, you will see whether it is a [true positive](../../concepts/evaluation-metrics.md), [false positive](../../concepts/evaluation-metrics.md) or [false negative](../../concepts/evaluation-metrics.md). 
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
@@ -57,7 +57,7 @@ This snapshot shows how entities are distributed across your training and testin
 
 **Graph view**
 
-* *Documents with at least one label*: 
+* *Documents with at least one label*: This view will show for each entity, the number of occurances for this entitiy across the training and testing sets.
 
 * *Total instances throughout documents*: 
 
@@ -66,23 +66,23 @@ This snapshot shows how entities are distributed across your training and testin
 
 For each *entity*, you can view: tags per entity in training set, tagged documents in training set, tags per entity in testing set, tagged documents in testing set, tags per entity total and tagged documents total.
 
+
+
 ---
 ### [Confusion matrix](#tab/confusion-matrix) 
 
 A confusion matrix is an N x N matrix used for evaluating the performance of a classification model, where N is the number of target entities. The matrix compares the actual target values with those predicted by the machine learning model to show how well the extraction model is performing and what kinds of errors it is making.
 
-You can view the confusion matrix in *raw count* or *normalized* view.
+You can view the confusion matrix in *normalized* or *raw count* view.
 
 
 
-* All values:
+* All values: Will show the confusion matrix for all entities.
 
-* Only errors:
+* Only errors: Will show the confusion matrix for entities with errors only.
 
-* Only matches: 
+* Only matches: Will show the confusion matrix for entities with correct predections only.
 
 
 ---
 
-> [!NOTE]
-> Entities that are neither labeled nor predicted in the test set will not be part of the displayed results.
