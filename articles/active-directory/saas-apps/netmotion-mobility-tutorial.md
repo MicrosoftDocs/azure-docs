@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<MobilityServerName>.<CustomerDomain>.<extension>/`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [NetMotion Mobility Client support team](nm-support@absolute.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [NetMotion Mobility Client support team](mailto:nm-support@absolute.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -130,11 +130,11 @@ In this section, a user called B.Simon is created in NetMotion Mobility. NetMoti
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to NetMotion Mobility Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to NetMotion Mobility Sign on URL where you can initiate the login flow. 
 
-* Go to NetMotion Mobility Sign-on URL directly and initiate the login flow from there.
+* Go to NetMotion Mobility Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the NetMotion Mobility tile in the My Apps, this will redirect to NetMotion Mobility Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the NetMotion Mobility tile in the My Apps, this will redirect to NetMotion Mobility Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
