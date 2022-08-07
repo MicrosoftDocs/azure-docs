@@ -215,10 +215,10 @@ You'll be charged for each day you retain data. The cost of retaining data for p
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Classic Application Insights resources
-Data workspace-based Application Insights resources is stored in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. Classic Application Insights resources though, have separate retention settings.
+## Set data retention for Classic Application Insights resources
+Workspace-based Application Insights resources store data in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. However, classic Application Insights resources have separate retention settings.
 
-The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
+The default retention for Application Insights resources is 90 days. You can select different retention periods for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
 
 To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
 
