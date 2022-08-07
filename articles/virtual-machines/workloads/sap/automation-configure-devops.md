@@ -79,7 +79,7 @@ Push the changes back to the repository by selecting the source control icon and
 
 ## Set up the web app
 
-The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
+The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
 
 # [Linux](#tab/linux)
 Replace MGMT with your environment as necessary.
@@ -108,7 +108,7 @@ az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query
 rm ./manifest.json
 ```
 ---
-Save the app registration id and password values for later.
+Save the app registration ID and password values for later.
 
 
 ## Create Azure Pipelines
@@ -280,7 +280,7 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 
 Save the variables.
 
-Or alternatively you can use the Azure DevOps CLI to setup the groups.
+Or alternatively you can use the Azure DevOps CLI to set up the groups.
 
 ```bash
 s-user="<SAP Support user account name>"
@@ -433,7 +433,7 @@ After updating the reply-urls, run the pipeline.
 
 By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, navigate to the app service resource. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions).
 
-You will also need to grant reader permissions to the app service system-assigned managed identity. Navgiate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
+You will also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
 
 You should now be able to visit the web app, and use it to deploy SAP workload zones and SAP system infrastructure.
 
