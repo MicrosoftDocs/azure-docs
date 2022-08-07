@@ -84,7 +84,7 @@ All of these watchlists identify sensitive actions or data that can be carried o
 Threat Monitoring for SAP solution uses User Master data gathered from SAP systems to identify which users, profiles, and roles should be considered sensitive. Some sample data is included in the watchlists, though we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly.
 
 ## Start enabling analytics rules
-By default, all analytics rules provided in the Threat Monitoring for SAP solution are disabled. When you install the solution, it's best if you don't enable all the rules at once so you don't end up with a lot of noise. Instead, use a staged approach, enabling rules over time, ensuring you are not receiving noise or false positives. Ensure alerts are operationalized, that is, have a response plan for each of the alerts. We consider the following rules to be easiest to implement, so best to start with them:
+By default, all analytics rules provided in the Threat Monitoring for SAP solution are disabled. When you install the solution, it's best if you don't enable all the rules at once so you don't end up with a lot of noise. Instead, use a staged approach, enabling rules over time, ensuring you are not receiving noise or false positives. Ensure alerts are operationalized, that is, have a response plan for each of the alerts. We consider the following rules to be easiest to implement, so best to start with those:
 
 1. Deactivation of Security Audit Log
 1. Client Configuration Change
@@ -96,4 +96,23 @@ By default, all analytics rules provided in the Threat Monitoring for SAP soluti
 1. System configuration change
 1. Brute force (RFC)
 1. Function module tested
+1. The SAP audit log monitoring analytics rules
+
+#### Configuring the SAP audit log monitoring analytics rules
+The two SAP Audit log monitor rules are delivered as ready to run out of the box, and allow for further finetuning using watchlists:
+- **SAP_Dynamic_Audit_Log_Monitor_Configuration**
+  The **SAP_Dynamic_Audit_Log_Monitor_Configuration** is a watchlist detailing all available SAP standard audit log message IDs and can be extended to contain additional message IDs you might create on your own using ABAP enhancements on their SAP NetWeaver systems.This watchlist allows for customizing an SAP message ID (=event type), at different levels:
+    -	Severities per production/ non-production systems -for example debugging is “High” in production systems, but “Disabled” for other systems
+    -	Assigning different thresholds for production/ non-production systems- which are considered as “speed limits”. Setting a threshold of 60 events an hour, will trigger an incident if more than 30 events were observed within 30 minutes
+    -	Assigning Rule Types- either “Deterministic” or “AnomaliesOnly” determines by which manner this event is considered
+    -	Roles and Tags to Exclude- specific users can be excluded from specific event types. This field can either accept SAP roles, SAP profiles or Tags:
+        -	Listing SAP roles or SAP profiles ([see User Master data collection](sap-solution-deploy-alternate.md#configuring-user-master-data-collection)) would exclude any user bearing those roles/ profiles from these event types for the same SAP system. For example, specifying the “BASIC_BO_USERS” ABAP role for the RFC related event types will ensure Business Objects users will not trigger incidents when making massive RFC calls.
+        - Listing tags to be used as identifiers. Tagging an event type works just like specifying SAP roles or profiles, except that tags can be created within the Sentinel workspace, allowing the SOC personnel freedom in excluding users per activity without the dependency on the SAP team. For example, the audit message IDs AUB (authorization changes) and AUD (User master record changes) are assigned with the tag “MassiveAuthChanges”. Users assigned with this tag are excluded from the checks for these activities. Runing the workspace function **SAPAuditLogConfigRecommend** will produce a list of recommended tags to be assigned to users, such as 'Add the tags ["GenericTablebyRFCOK"] to user SENTINEL_SRV using the SAP_User_Config watchlist'
+- **SAP_User_Config** 
+  This configuration-based watchlist is there to allow for specifying user related tags and other active directory identifiers for the SAP user. Tags are then used for identifying the user in specific contexts. For example, assigning the user GRC_ADMIN with the tag “MassiveAuthChanges” will prevent incidents from being created on user master record and authorization events made by GRC_ADMIN.
+
+More information is available [in this blog](https://aka.ms/Sentinel4sapDynamicDeterministicAuditRuleBlog )
+
+
+
 
