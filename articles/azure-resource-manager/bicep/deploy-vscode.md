@@ -15,33 +15,33 @@ From an opened Bicep file in VS Code, there are there ways you can find the comm
 
 - Right-click the Bicep file name from the Explorer pane, not the one under **OPEN EDITORS**:
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Screenshot of Deploying Bicep File in the Context menu from the explore pane":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Screenshot of Deploying Bicep File in the Context menu from the explore pane.":::
 
 - Right-click anywhere inside a Bicep file, and then select **Deploy Bicep File**.
 
 - Select **Command Palette** from the **View** menu, and then select **Bicep: Deploy Bicep File**.
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-command-palette.png" alt-text="Screenshot of Deploy Bicep File in the Context menu":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-command-palette.png" alt-text="Screenshot of Deploy Bicep File in the Context menu.":::
 
 After you select the command, you follow the wizard to enter the values:
 
 1. Sign in to Azure and select subscription.
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-subscription.png" alt-text="Screenshot of Select subscription":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-subscription.png" alt-text="Screenshot of Select subscription.":::
 
 1. Select or create a resource group.
 
 1. Select a parameter file or select **None** to enter the parameter values.
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameter file":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
 
 1. If you choose **None**, enter the parameter values.
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-enter-parameter-values.png" alt-text="Screenshot of Enter parameter values":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-enter-parameter-values.png" alt-text="Screenshot of Enter parameter values.":::
 
     After you enter the values, you have the option to create a parameters file from values used in this deployment:
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-create-parameter-file.png" alt-text="Screenshot of Create parameter file":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-create-parameter-file.png" alt-text="Screenshot of Create parameter file.":::
 
     If you select **Yes**, a parameter file with the file name **&lt;Bicep-file-name>.parameters.json** is created in the same folder.
 
