@@ -11,13 +11,20 @@ ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: identity
+zone_pivot_groups: acs-programming-languages-csharp-python
 ---
 
 # Sign an HTTP request
 
 In this tutorial, you'll learn how to sign an HTTP request with an HMAC signature.
 
-[!INCLUDE [Sign an HTTP request C#](./includes/hmac-header-csharp.md)]
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Sign an HTTP request with C#](./includes/hmac-header-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Sign an HTTP request with Python](./includes/hmac-header-python.md)]
+::: zone-end
 
 ## Clean up resources
 
