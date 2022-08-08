@@ -278,7 +278,7 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
 
 Force delete allows you to forcefully delete your virtual machine, reducing delete latency and immediately freeing up attached resources. For VMs that do not require graceful shutdown, Force Delete will delete the VM as fast as possible while relieving the logical resources from the VM, bypassing the graceful shutdown and some of the cleanup operations. Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
-### [Portal](#tab/portal3)
+### [Portal](#tab/portal4)
 
 When you go to delete an existing VM, you will find an option to apply force delete in the delete pane.  
 
@@ -288,7 +288,7 @@ When you go to delete an existing VM, you will find an option to apply force del
 1. In the **Delete virtual machine** pane, select the checkbox for **Apply force delete**. 
 1. Select **Ok**.  
 
-### [CLI](#tab/cli3)
+### [CLI](#tab/cli4)
 
 Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm?view=azure-cli-latest#az-vm-delete&preserve-view=true). 
 
@@ -299,7 +299,7 @@ az vm delete \
     --force-deletion
 ```
 
-### [PowerShell](#tab/powershell3)
+### [PowerShell](#tab/powershell4)
 
 Use the `-ForceDeletion` parameter for [Remove-AzVm](/powershell/module/az.compute/remove-azvm). 
 
@@ -310,7 +310,7 @@ Remove-AzVm `
     -ForceDeletion $true
 ```
 
-### [REST](#tab/rest3)
+### [REST](#tab/rest4)
 
 You can use the Azure REST API to apply force delete to your virtual machines. Use the `forceDeletion` parameter for [Virtual Machines - Delete](/rest/api/compute/virtual-machines/delete).
 
@@ -320,7 +320,7 @@ You can use the Azure REST API to apply force delete to your virtual machines. U
 
 Force delete allows you to forcefully delete your **Uniform** virtual machine scale sets, reducing delete latency and immediately freeing up attached resources. . Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
-### [Portal](#tab/portal4)
+### [Portal](#tab/portal5)
 
 When you go to delete an existing virtual machine scale set, you will find an option to apply force delete in the delete pane.  
 
@@ -330,7 +330,7 @@ When you go to delete an existing virtual machine scale set, you will find an op
 1. In the **Delete virtual machine scale set** pane, select the checkbox for **Apply force delete**. 
 1. Select **Ok**.  
 
-### [CLI](#tab/cli4)
+### [CLI](#tab/cli5)
 
 Use the `--force-deletion` parameter for [az vmss delete](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete&preserve-view=true). 
 
@@ -341,7 +341,7 @@ az vmss delete \
     --force-deletion
 ```
 
-### [PowerShell](#tab/powershell4)
+### [PowerShell](#tab/powershell5)
 
 Use the `-ForceDeletion` parameter for [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). 
 
@@ -352,7 +352,7 @@ Remove-AzVmss `
     -ForceDeletion $true
 ```
 
-### [REST](#tab/rest4)
+### [REST](#tab/rest5)
 
 You can use the Azure REST API to apply force delete to your virtual machine scale set. Use the `forceDeletion` parameter for [Virtual Machines Scale Sets - Delete](/rest/api/compute/virtual-machine-scale-sets/delete).
 
