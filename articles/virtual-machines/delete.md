@@ -171,8 +171,17 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
 ## Update the delete behavior on an existing VM
 
-You can use the Azure REST API to patch a VM to change the behavior when you delete a VM. The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
+You can change the behavior when you delete a VM. The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
 
+### [CLI](#tab/cli3)
+
+The following example sets the delete option to `detach` so you can reuse the disk later.
+
+```azure-cli-interactive
+az resource update --resource-group myResourceGroup --name myVM --resource-type virtualMachines --namespace Microsoft.Compute --set properties.storageProfile.osDisk.deleteOption=detach
+```
+
+### [REST](#tab/rest3)
 
 ```rest
 PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01 
