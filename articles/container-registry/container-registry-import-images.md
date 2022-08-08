@@ -266,6 +266,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry.
 
 ### Cross-tenant import with username and password
+
 For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry.
 
 ### [Azure CLI](#tab/azure-cli)
@@ -327,6 +328,8 @@ In the target tenant, pass the access token as a password to the `Import-AzConta
 Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myResourceGroup -SourceRegistryUri sourceregistry.azurecr.io -SourceImage sourcerrepo:tag -Password <access-token>
 ```
 
+> [!NOTE]
+> Cross-tenant doesn't work across the clouds.
 ---
 
 ## Import from a non-Azure private container registry
