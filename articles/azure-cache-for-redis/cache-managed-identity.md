@@ -153,7 +153,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
    :::image type="content" source="media/cache-managed-identity/blob-data.png"  alt-text="storag blob data contributor list":::
 
 > [!NOTE]
-> Adding an Azure Cache for Redis instance as a storage blog data contributor through system-assigned identity will conveniently add the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to implement. If not using managed identity and authorizing to storage account via key, then having firewall exceptions on the storage account shall tend to break the persistence/import-export process.
+> Adding an Azure Cache for Redis instance as a storage blog data contributor through system-assigned identity will conveniently add the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to implement. If you are not using managed identity and instead authorizing to storage account via key, then having firewall exceptions on the storage account tends to break the persistence and import-export processes.
 
 ## Use managed identity to access a storage account
 
