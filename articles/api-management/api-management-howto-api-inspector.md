@@ -45,7 +45,7 @@ To trace request processing, enable the **Allow tracing** setting for the subscr
 1. Select  **Demo Conference API** from your API list.
 1. Select the **Test** tab.
 1. Select the **GetSpeakers** operation.
-1. Confirm that the HTTP request header includes **Ocp-Apim-Trace: True** and a valid value for **Ocp-Apim-Subscription-Key**. If it doesn't, select **+ Add header** to add the header.
+1. Confirm that the HTTP request header includes **Ocp-Apim-Trace: True** to enable tracing, and a valid value for **Ocp-Apim-Subscription-Key**. If it doesn't, select **+ Add header** to add the header.
 1. Select **Send** to make an API call.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Configure API tracing":::
@@ -69,7 +69,7 @@ To trace request processing, enable the **Allow tracing** setting for the subscr
     > [!TIP]
     > Each step also shows the elapsed time since the request is received by API Management.
 
-1. On the **Message** tab, the **ocp-apim-trace-location** header shows the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace.
+1. On the **Message** tab, the **ocp-apim-trace-location** header shows the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace. Trace data can be accessed for up to 24 hours.
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-message-1.png" alt-text="Trace location in Azure Storage":::
 ## Next steps
