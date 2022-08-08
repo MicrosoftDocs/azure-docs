@@ -21,7 +21,7 @@ Experiments and runs in Azure Machine Learning can be queried using MLflow clien
 
 MLflow client allows you to:
 
-* Create, delete and search for experiments in a workspace
+* Create, delete and search for experiments in a workspace.
 * Start, stop, cancel and query runs for experiments.
 * Track and retrieve metrics, parameters, artifacts and models from runs.
 
@@ -57,12 +57,12 @@ The MLflow client exposes several methods to retrieve runs, including options to
 | Filtering runs with string comparators (params, tags, and attributes): `=` and `!=` | **&check;** | **&check;**<sup>2</sup> |
 | Filtering runs with string comparators (params, tags, and attributes): `LIKE`/`ILIKE` | **&check;** |  |
 | Filtering runs with comparators `AND` | **&check;** | **&check;** |
-| Filtering runs with comparators `OR` | **&check;** |  |
+| Filtering runs with comparators `OR` |  |  |
 | Renaming experiments | **&check;** |  |
 
 > [!NOTE]
 > - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure ML.
-> - <sup>2</sup> `!=` for tags not supported
+> - <sup>2</sup> `!=` for tags not supported.
 
 ## Getting all the experiments
 
@@ -144,13 +144,13 @@ You can also order by metrics to know which run generated the best results:
   
 ### Filtering runs
 
-You can also look for a run with a specific combination in the hyperparameters using the parameter `filter_string`. Use `params` to access run's parameters and `metrics` to access metrics logged in the run:
+You can also look for a run with a specific combination in the hyperparameters using the parameter `filter_string`. Use `params` to access run's parameters and `metrics` to access metrics logged in the run. MLflow supports expressions joined by the AND keyword (the syntax does not support OR):
 
   ```python
   mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
                      filter_string="params.num_boost_round='100'")
   ```
-  
+
 ### Filter runs by status
 
 You can also filter experiment by status. It becomes useful to find runs that are running, completed, canceled or failed. In MLflow, `status` is an `attribute`, so we can access this value using the expression `attributes.status`. The following table shows the possible values:
