@@ -158,7 +158,16 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-widgets.png" alt-text="Screenshot showing the sensor health widgets.":::
 
-    - **Unhealthy** means that the sensor is
+    - **Unhealthy** indicates one of the following scenarios:
+
+        - Sensor traffic to Azure isn't stable
+        - Sensor fails regular sanity tests
+        - No traffic detected by the sensor
+        - Sensor software version is no longer supported
+        - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
+
+        For more information, see our [Sensor health message reference](sensor-health-messages.md).
+
     - **Updatable** means that the sensor has an older version, and there are software updates available to install
     - **Unsupported** means that the sensor has a software version install that is no longer supported.
 
@@ -173,18 +182,6 @@ This procedure describes how to view sensor health data from the Azure portal. S
     For example:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-details-health.png" alt-text="Screenshot of the sensor details page showing health information.":::
-
-### Sensor health issues
-
-Defender for IoT will indicate a sensor health issue for any of the following scenarios:
-
-- Sensor traffic to Azure isn't stable
-- Sensor fails regular sanity tests
-- No traffic detected by the sensor
-- Sensor software version is no longer supported
-- A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
-
-For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
 ## Upload a diagnostics log for support (Public preview)
 
