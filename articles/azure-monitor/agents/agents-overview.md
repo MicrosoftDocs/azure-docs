@@ -2,7 +2,7 @@
 title: Azure Monitor Agent overview
 description: Overview of the Azure Monitor Agent, which collects monitoring data from the guest operating system of virtual machines.
 ms.topic: conceptual
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.date: 7/21/2022
 ms.custom: references_regions
