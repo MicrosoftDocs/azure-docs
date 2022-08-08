@@ -209,6 +209,10 @@ items:
         href: concepts/detailed-call-flows.md
       - name: Known issues
         href: concepts/known-issues.md
+  - name: Rooms
+    items:
+      - name: Rooms overview
+        href: concepts/rooms/room-concept.md
   - name: UI Library
     items:
       - name: UI Library overview
