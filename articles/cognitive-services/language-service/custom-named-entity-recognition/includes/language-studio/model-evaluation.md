@@ -13,8 +13,8 @@ ms.author: aahi
 1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
 
 2. Select **Model performance** from the menu on the left side of the screen.
-    
-3. Select the model you want to view it's performance.
+
+3. In this page you can only view the successfully trained models, F1 score for each model and [model expiration date](../../../concepts/model-lifecycle.md). You can click on the model name for more details about its performance.
 
 > [!NOTE]
 > Entities that are neither labeled nor predicted in the test set will not be part of the displayed results.
