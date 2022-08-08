@@ -98,7 +98,7 @@ Support | Details
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure.The following table summarizes the requirements for setting up agentless dependency analysis:
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
 
 Support | Details
 --- | ---
