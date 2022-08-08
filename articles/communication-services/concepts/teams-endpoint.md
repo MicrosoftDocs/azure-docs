@@ -62,9 +62,9 @@ You can use the Azure Communication Services Identity SDK to exchange Azure Acti
 ![Diagram of the process to integrate the calling capabilities into your product with Azure Communication Services.](./media/teams-identities/teams-identity-calling-overview.svg)
 
 The following articles will guide you in implementing the calling for Teams users:
-1. [Authenticate as Teams user](../quickstarts/manage-teams-identity.md) 
-1. [Add video calling as Teams user to your client app](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
-1. [How-to use calling SDK as Teams user](../how-tos/cte-calling-sdk/manage-calls.md)
+- [Authenticate as Teams user](../quickstarts/manage-teams-identity.md) 
+- [Add video calling as Teams user to your client app](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+- [How-to use calling SDK as Teams user](../how-tos/cte-calling-sdk/manage-calls.md)
 
 #### Chat
 
@@ -73,10 +73,10 @@ Use Graph API to integrate chat capabilities into your product.
 ![Diagram of the process to integrate the chat capabilities into your product with Graph API.](./media/teams-identities/teams-identity-chat-overview.png)
 
 (/graph/api/channel-post-messages) documentation. The following articles will guide you in implementing the chat for Teams users:
-1. [Authenticate as Teams user](/graph/auth-v2-user) 
-1. [Send message as Teams user](/graph/api/chat-post-messages)
-1. [Receive message as Teams user on webhook](/graph/teams-changenotifications-chatMessage) and then push message to the client with, for example, [SignalR](/azure/azure-signalr/signalr-overview).
-1. [Poll messages for Teams user](/graph/api/chat-list-messages)
+- [Authenticate as Teams user](/graph/auth-v2-user) 
+- [Send message as Teams user](/graph/api/chat-post-messages)
+- [Receive message as Teams user on webhook](/graph/teams-changenotifications-chatMessage) and then push message to the client with, for example, [SignalR](/azure/azure-signalr/signalr-overview).
+- [Poll messages for Teams user](/graph/api/chat-list-messages)
 
 ## Supported use cases
 
