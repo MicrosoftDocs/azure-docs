@@ -77,7 +77,7 @@ Configure data collection settings for Defender for IoT in your IoT hub, such as
 
     Select **Access to raw security data** to export raw security events from your devices to the Log Analytics workspace that you'd selected above.
 
-1. In the **Advcanced settings** area, the following options are selected by default. Clear the selection as needed:
+1. In the **Advanced settings** area, the following options are selected by default. Clear the selection as needed:
 
     - **In-depth security recommendations and custom alerts**. Allows Defender for IoT access to the device's twin data in order to generate alerts based on that data.
 
