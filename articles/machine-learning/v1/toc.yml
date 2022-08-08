@@ -210,7 +210,7 @@
         - name: Azure Cognitive Search
           href: ../how-to-deploy-model-cognitive-search.md
         - name: FPGA inference
-          href: ../how-to-deploy-fpga-web-service.md
+          href: how-to-deploy-fpga-web-service.md
     - name: Profile models
       displayName: profile resource requirement
       href: ../how-to-deploy-profile-model.md
