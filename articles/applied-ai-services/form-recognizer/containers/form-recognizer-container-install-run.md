@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 12/16/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
-ms.custom: ignite-fall-2021
 ---
 
 # Install and run Form Recognizer v2.1-preview containers
