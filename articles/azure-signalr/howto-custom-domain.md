@@ -61,7 +61,7 @@ If you're using Azure role-based access control as Key Vault permission model:
    :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
 
 1. Go to your Key Vault resource.
-1. In the menu pane, select **Access control (IAM) **.
+1. In the menu pane, select **Access control (IAM)**.
 1. Click **Add**. Select **Add role assignment**.
 
    :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
