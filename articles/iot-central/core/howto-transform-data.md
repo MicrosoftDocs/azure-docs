@@ -3,7 +3,7 @@ title: Transform data for Azure IoT Central | Microsoft Docs
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way into IoT Central and on the way out. The scenarios described use IoT Edge and Azure Functions.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -35,7 +35,7 @@ The following table shows three example transformation types:
 |------------------------|-------------|----------|-------|
 | Message Format         | Convert to or manipulate JSON messages. | CSV to JSON  | At ingress. IoT Central only accepts value JSON messages. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md). |
 | Computations           | Math functions that [Azure Functions](../../azure-functions/index.yml) can execute. | Unit conversion from Fahrenheit to Celsius.  | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. Transforming the data lets you use IoT Central features such as visualizations and jobs. |
-| Message Enrichment     | Enrichments from external data sources not found in device properties or telemetry. To learn more about internal enrichments, see [Export IoT data to cloud destinations using data export](howto-export-data.md) | Add weather information to messages using [location data](howto-use-location-data.md) from devices. | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. |
+| Message Enrichment     | Enrichments from external data sources not found in device properties or telemetry. To learn more about internal enrichments, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). | Add weather information to messages using [location data](howto-use-location-data.md) from devices. | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. |
 
 ## Prerequisites
 
@@ -583,7 +583,7 @@ To set up the data export to send data to your Device bridge:
 
 ### Verify
 
-The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and NPM installed on your local machine. If you don't want to install these prerequisites, use the[Azure Cloud Shell](https://shell.azure.com/) that has them preinstalled.
+The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and NPM installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) that has them preinstalled.
 
 To run a sample device that tests the scenario:
 

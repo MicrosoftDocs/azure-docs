@@ -99,7 +99,7 @@ Follow the steps below to deploy the cluster from the Azure CLI.
 
    For command details, see [az aks create](/cli/azure/aks#az-aks-create).
 
-   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/kubernetes-walkthrough.md).
+   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md).
 
 1. Get credentials
 
@@ -160,7 +160,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create Azure Arc-enabled SQL Managed Instance
+## Create an instance of Azure Arc-enabled SQL Managed Instance
 
 Now, we can create the Azure MI for indirectly connected mode with the following command: 
 

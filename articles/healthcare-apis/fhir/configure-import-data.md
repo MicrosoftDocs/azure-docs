@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 06/06/2022
 ms.author: ranku
 ---
 
@@ -47,7 +47,7 @@ The final step is to set the import configuration of the FHIR service, which con
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-To specify the Azure Storage account, you need to use [Rest API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
+To specify the Azure Storage account, you need to use [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 
 To get the request URL and body, browse to the Azure portal of your FHIR service. Select **Overview**, and then **JSON View**.
 
@@ -78,3 +78,5 @@ In this article, you've learned the FHIR service supports $import operation and 
 
 >[!div class="nextstepaction"]
 >[Copy data from FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

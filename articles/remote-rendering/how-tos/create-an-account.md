@@ -81,12 +81,10 @@ The steps in this paragraph have to be performed for each storage account that s
    If you don't have owner permissions to this storage account, the **Add a role assignment** option will be disabled.
 
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Storage Blob Data Contributor |
-    | Assign access to | User, group, or service principal |
-    | Members | Remote Rendering Account |
+   1. Select the **Storage Blob Data Contributor** role and click **Next**.
+   1. Choose to assign access to a **Managed Identity**. 
+   1. Select **Select members**, select your subscription, select **Remote Rendering Account**, select your remote rendering account, and then click **Select**.
+   1. Select **Review + assign** and select **Review + assign** again.
 
     ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -94,7 +92,7 @@ The steps in this paragraph have to be performed for each storage account that s
 > If your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 > [!IMPORTANT]
-> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) for details.
+> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#symptom---role-assignment-changes-are-not-being-detected) for details.
 
 ## Next steps
 

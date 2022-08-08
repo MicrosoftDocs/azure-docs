@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 05/09/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
@@ -47,7 +47,7 @@ Here is what the condition looks like in code:
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
  )
  OR 
  (
@@ -94,7 +94,10 @@ For more information about conditions, see [What is Azure attribute-based access
     | --- | --- | --- |
     | Baker text file | Project | Baker |
     | Cascade text file | Project | Cascade |
- 
+
+    > [!TIP]
+    > For information about the characters that are allowed for blob index tags, see [Setting blob index tags](../storage/blobs/storage-manage-find-blobs.md#setting-blob-index-tags).
+
 ## Step 4: Assign Storage Blob Data Reader role with a condition
 
 1. Open a new tab and sign in to the [Azure portal](https://portal.azure.com).
@@ -121,7 +124,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
     The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition.
  
-1. Click **Read content from a blob with tag conditions** and then click **Select**.
+1. Click **Read a blob** and then click **Select**.
 
 1. In the **Build expression** section, click **Add**.
 
@@ -149,7 +152,7 @@ For more information about conditions, see [What is Azure attribute-based access
     ```
     (
      (
-      !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})
+      !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
      )
      OR 
      (
@@ -210,7 +213,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 1. Set the `Condition` property of the role assignment object. Be sure to use your attribute set name.
 
     ```powershell
-    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
+    $groupRoleAssignment.Condition="((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>]))"
     ```
 
 1. Set the `ConditionVersion` property of the role assignment object.
@@ -308,7 +311,7 @@ You can also use Azure CLI to add role assignments conditions. The following com
 1. Update the `condition` property. Be sure to use your attribute set name.
 
     ```azurecli
-    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
+    "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List' })) OR (@Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Engineering_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]))",
     ```
 
 1. Update the `conditionVersion` property.

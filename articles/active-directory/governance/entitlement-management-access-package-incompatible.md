@@ -3,7 +3,7 @@ title: Configure separation of duties for an access package in Azure AD entitlem
 description: Learn how to configure separation of duties enforcement for requests for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/15/2021
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -123,6 +123,10 @@ Follow these steps to view the list of users who have assignments to two access 
 1.  Users who are listed in both files will have already-existing incompatible assignments.
 
 ### Identifying users who already have incompatible access programmatically
+
+You can retrieve assignments to an access package using Microsoft Graph, that are scoped to just those users who also have an assignment to another access package.  A user in an administrative role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list additional access](/graph/api/accesspackageassignment-additionalaccess?view=graph-rest-beta&preserve-view=true).
+
+### Identifying users who already have incompatible access using PowerShell
 
 You can also query the users who have assignments to an access package with the `Get-MgEntitlementManagementAccessPackageAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
 

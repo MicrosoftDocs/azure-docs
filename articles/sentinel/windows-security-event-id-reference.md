@@ -17,9 +17,9 @@ When ingesting security events from Windows devices using the [Windows Security 
 
     The **Common** event set may contain some types of events that aren't so common.  This is because the main point of the **Common** set is to reduce the volume of events to a more manageable level, while still maintaining full audit trail capability.
 
-- **Minimal** - A small set of events that might indicate potential threats. This set does not contain a full audit trail. It covers only events that might indicate a successful breach, and other important events that have very low rates of occurrence. For example, it contains successful and failed user logons (event IDs 4624, 4625), but it doesn't contain sign-out information (4634) which, while important for auditing, is not meaningful for breach detection and has relatively high volume. Most of the data volume of this set is comprised of sign-in events and process creation events (event ID 4688).
+- **Minimal** - A small set of events that might indicate potential threats. This set does not contain a full audit trail. It covers only events that might indicate a successful breach, and other important events that have very low rates of occurrence. For example, it contains successful and failed user logons (event IDs 4624, 4625), but it doesn't contain sign-out information (4634) which, while important for auditing, is not meaningful for breach detection and has relatively high volume. Most of the data volume of this set consists of sign-in events and process creation events (event ID 4688).
 
-- **Custom** - A set of events determined by you, the user, and defined in a data collection rule using XPath queries. [Learn more about data collection rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries).
+- **Custom** - A set of events determined by you, the user, and defined in a data collection rule using XPath queries. [Learn more about data collection rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries).
 
 ## Event ID reference
 

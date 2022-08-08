@@ -111,7 +111,7 @@ For example:
     | where GroupMembership !contains "Developers"
     ```
 
-The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
+The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 
@@ -160,6 +160,6 @@ For example:
 Learn more about UEBA, investigations, and hunting:
 
 - [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
-- [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md)
+- [Microsoft Sentinel UEBA reference](ueba-reference.md)
 - [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

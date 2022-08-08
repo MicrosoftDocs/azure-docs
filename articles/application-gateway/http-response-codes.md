@@ -74,7 +74,7 @@ An HTTP 408 response can be observed when client requests to the frontend listen
 
 #### 499 – Client closed the connection
 
-An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed when a large response is returned to the client, but the client may have closed or refreshed their browser/application before the server had a chance to finish responding.
+An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed when a large response is returned to the client, but the client may have closed or refreshed their browser/application before the server had a chance to finish responding. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
 
 
 ## 5XX response codes (server error)
@@ -83,13 +83,13 @@ An HTTP 499 response is presented if a client request that is sent to applicatio
 
 #### 500 – Internal Server Error
 
-Azure Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code, because this issue is an internal error to the service. For information on how to open a support case, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code, because this issue is an internal error to the service. For information on how to open a support case, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 #### 502 – Bad Gateway
 
 HTTP 502 errors can have several root causes, for example:
 - NSG, UDR, or custom DNS is blocking access to backend pool members.
-- Back-end VMs or instances of [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) aren't responding to the default health probe.
+- Back-end VMs or instances of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) aren't responding to the default health probe.
 - Invalid or improper configuration of custom health probes.
 - Azure Application Gateway's [back-end pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
 - None of the VMs or instances in [virtual machine scale set are healthy](application-gateway-troubleshooting-502.md#unhealthy-instances-in-backendaddresspool).

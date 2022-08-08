@@ -3,7 +3,7 @@ title: Azure role-based access control in Azure Cosmos DB
 description: Learn how Azure Cosmos DB provides database protection with Active directory integration (Azure RBAC).
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 05/11/2022
 author: ThomasWeiss
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
@@ -56,9 +56,7 @@ When this feature is enabled, changes to any resource can only be made from a us
 
 ### Check list before enabling
 
-This setting will prevent any changes to any Cosmos resource from any client connecting using account keys including any Cosmos DB SDK, any tools that connect via account keys, or from the Azure portal. To prevent issues or errors from applications after enabling this feature, check if  applications or Azure portal users perform any of the following actions before enabling this feature, including:
-
-- Any change to the Cosmos account including any properties or adding or removing regions.
+This setting will prevent any changes to any Cosmos resource from any client connecting using account keys including any Cosmos DB SDK, any tools that connect via account keys. To prevent issues or errors from applications after enabling this feature, check if  applications perform any of the following actions before enabling this feature, including:
 
 - Creating, deleting child resources such as databases and containers. This includes resources for other APIs such as Cassandra, MongoDB, Gremlin, and table resources.
 

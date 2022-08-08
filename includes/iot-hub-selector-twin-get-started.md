@@ -39,13 +39,12 @@ Tags and properties cannot contain arrays, but objects can be nested.
 
 The following illustration shows device twin organization:
 
-![Device twin image showing functionality](./media/iot-hub-selector-twin-get-started/twin.png)
+:::image type="content" source="./media/iot-hub-selector-twin-get-started/twin.png" alt-text="Screenshot of a device twin concept diagram.":::
 
 Additionally, the solution back end can query device twins based on all the above data.
 For more information about device twins, see [Understand device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md). For more information about querying, see [IoT Hub query language](../articles/iot-hub/iot-hub-devguide-query-language.md).
 
-
-This tutorial shows you how to:
+This article shows you how to:
 
 * Create a back-end app that adds tags to a device twin, and a simulated device app that reports its connectivity channel as a reported property on the device twin.
 

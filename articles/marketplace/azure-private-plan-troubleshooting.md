@@ -63,7 +63,7 @@ While troubleshooting the Azure Subscription Hierarchy, keep these things in min
 
 ## Troubleshooting Checklist
 
-- ISV to ensure the SaaS private plan is using the correct tenant ID for the customer - [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). For VMs use the [Azure Subscription ID.](/azure/azure-portal/get-subscription-tenant-id)
+- ISV to ensure the SaaS private plan is using the correct tenant ID for the customer - [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). For VMs use the [Azure Subscription ID.](../azure-portal/get-subscription-tenant-id.md)
 - ISV to ensure that the Customer is not buying through a CSP. Private Plans are not available on a CSP-managed subscription.
 - Customer to ensure customer is logging in with an email ID that is registered under the same tenant ID (use the same user ID they used in step #1 above)
 - ISV to ask the customer to find the Private Plan in Azure Marketplace: [Private plans in Azure Marketplace](/marketplace/private-plans)

@@ -60,7 +60,7 @@ Container images are stored inside of container registries. You can easily creat
 
 3) Choose the subscription you would like to use to create your container registry and build your image, and then press enter to continue.
 
-4) Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to step 7.  
+4) Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to creating and deloying to the container app.  
 
 5) Enter a unique name for the new registry such as *msdocscapps123*, where 123 are unique numbers of your own choosing, and then press enter. Container registry names must be globally unique across all over Azure. 
 
@@ -120,7 +120,7 @@ Now that you have a container app environment in Azure you can create a containe
 
 9) Choose **External** to configure the HTTP traffic that the endpoint will accept.
 
-10) Enter a value of 3000 for the port, and then select **Enter** to complete the workflow. This value should be set to the port number that your container uses, which in the case of the sample app is 3000.
+10) Enter a value of 3500 for the port, and then select **Enter** to complete the workflow. This value should be set to the port number that your container uses, which in the case of the sample app is 3500.
 
 During this process, Visual Studio Code and Azure create the container app for you.  The published Docker image you created earlier is also be deployed to the app.  Once this process finishes, Visual Studio Code displays a notification with a link to browse to the site.  Click this link, and to view your app in the browser. 
 

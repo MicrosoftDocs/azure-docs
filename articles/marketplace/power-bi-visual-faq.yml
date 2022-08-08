@@ -26,7 +26,6 @@ sections:
           | Availability of your offers in Partner Center | No changes. If your offer is in draft or published state in the Office Store, it will continue to be in same state after the move to the commercial marketplace. |
           | Acquisitions and deployments | No changes. Your customers can continue discovering, downloading, and deploying your offers with no interruptions. |
           | Analytics | The **Marketplace insights** dashboard in Partner Center will be enhanced to show information on consent clicks and platform (website and client) for your Power BI visual offers. Use this information to understand sources driving traffic, clicks, and conversions for your offers. |
-          |
           
           
       - question: |
@@ -55,7 +54,6 @@ sections:
           | Marketplace listings | Offer listing |
           | Availability | Availability |
           | Product management | Offer management |
-          |
 
 
       - question: |

@@ -22,14 +22,13 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *my-sample-resource-group* in the *westus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name my-sample-resource-group --location westus
 ```
 
@@ -42,7 +41,7 @@ az group create --name my-sample-resource-group --location westus
 
 Create an IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command.
 
-The following example creates an IoT hub named *my-sample-hub* in the *westus* location. An IoT hub name must be globally unique in Azure, so you may want to add a unique prefix or suffix to the example name, or choose a new name altogether. Make sure your name follows proper naming conventions for an IoT hub: it should be 3-50 characters in length, and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
+The following example creates an IoT hub named *my-sample-hub* in the *westus* location. An IoT hub name must be globally unique in Azure, so you may want to add a unique prefix or suffix to the example name, or choose a new name altogether. Make sure your name follows proper naming conventions for an IoT hub: it should be 3-50 characters in length, and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
 ```azurecli-interactive 
 az iot hub create --name my-sample-hub --resource-group my-sample-resource-group --location westus
@@ -50,17 +49,18 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 ## Create a Device Provisioning Service
 
-Create a Device Provisioning Service with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command. 
+Create a Device Provisioning Service with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command.
 
 The following example creates a provisioning service named *my-sample-dps* in the *westus* location. You will also need to choose a globally unique name for your own provisioning service. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
-```azurecli-interactive 
+```azurecli-interactive
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
 ```
 
 > [!TIP]
 > The example creates the provisioning service in the West US location. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `--location "West US"`.
 >
+> For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md).
 
 ## Get the connection string for the IoT hub
 

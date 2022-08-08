@@ -2,7 +2,8 @@
 title: Reports in Container insights
 description: Describes reports available to analyze data collected by Container insights.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 05/24/2022
+ms.reviewer: aul
 ---
 
 # Reports in Container insights
@@ -32,6 +33,9 @@ To create a custom workbook based on any of these workbooks, select the **View W
     - Eight performance charts show key performance indicators to help measure and identify disk I/O bottlenecks.
 
 - **GPU**: Interactive GPU usage charts for each GPU-aware Kubernetes cluster node.
+
+>[!NOTE]
+> As per the Kubernetes [upstream announcement](https://kubernetes.io/blog/2020/12/16/third-party-device-metrics-reaches-ga/#nvidia-gpu-metrics-deprecated), GPU metrics collection will be disabled out of the box, please read instructions on how to continue collecting your GPU metrics [here](./container-insights-gpu-monitoring.md)
 
 ## Resource Monitoring workbooks
 

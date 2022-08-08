@@ -2,10 +2,10 @@
 title: Understanding Azure Virtual Desktop network connectivity
 titleSuffix: Azure
 description: Learn about Azure Virtual Desktop network connectivity
-author: gundarev
+author: femila
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: denisgun
+ms.author: femila
 ---
 
 # Understanding Azure Virtual Desktop network connectivity

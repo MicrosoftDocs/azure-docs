@@ -14,7 +14,7 @@ The extension-based onboarding is only for **User** Hybrid Runbook Workers. This
 
 For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
-You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure machine or a non-Azure machine through servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
 Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
@@ -35,7 +35,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 | Windows | Linux (x64)|
 |---|---|
-| &#9679; Windows Server 2019 (including Server Core), <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 <br><br> | &#9679; Debian GNU/Linux 7 and 8, <br> &#9679; Ubuntu 18.04, and 20.04 LTS, <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 7 and 8 <br> &#9679; Ubuntu 18.04, and 20.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
 
 ### Other Requirements
 
@@ -67,6 +67,20 @@ If you use a proxy server for communication between Azure Automation and machine
 > [!NOTE]
 > You can set up the proxy settings by PowerShell cmdlets or API.
 
+ To install the extension using cmdlets:
+ 
+1. Get the automation account details using the below API call.
+
+   ```http
+   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+
+   ```
+
+   The API call will provide the value with the key: `AutomationHybridServiceUrl`. Use the URL in the next step to enable extension on the VM.
+
+1. Install the Hybrid Worker Extension on the VM by running the following PowerShell cmdlet (Required module: Az.Compute). Use the `properties.automationHybridServiceUrl` provided by the above API call  
+  
+
 **Proxy server settings**
 # [Windows](#tab/windows)
 
@@ -82,6 +96,17 @@ $protectedsettings = @{
 "ProxyPassword" = "password";
 };
 ```
+**Azure VMs**
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Settings $settings
+```
+
+**Azure Arc-enabled VMs**
+
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Setting $settings -NoWait
+```
 
 # [Linux](#tab/linux)
 
@@ -93,6 +118,18 @@ $settings = @{
     "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
 };
 ```
+**Azure VMs**
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Settings $settings
+```
+
+**Azure Arc-enabled VMs**
+
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Setting $settings -NoWait
+```
+
 ---
 
 ### Firewall use
@@ -127,14 +164,14 @@ To create a hybrid worker group in the Azure portal, follow these steps:
 
 1. From the **Basics** tab, in the **Name** text box, enter a name for your Hybrid worker group.
 
-1. For the **Use run as credential** option:
+1. For the **Use Hybrid Worker Credentials** option:
 
-   - If you select **No**, the hybrid extension will be installed using the local system account.
-   - If you select **Yes**, then from the drop-down list, select the credential asset.
+   - If you select **Default**, the hybrid extension will be installed using the local system account.
+   - If you select **Custom**, then from the drop-down list, select the credential asset.
 
 1. Select **Next** to advance to the **Hybrid workers** tab. You can select Azure virtual machines or Azure Arc-enabled servers to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later.
 
-   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/basics-tab-portal.png" alt-text="Screenshot showing to entering name and credentials in basics tab.":::
+   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/basics-tab-portal.png" alt-text="Screenshot showing to enter name and credentials in basics tab.":::
 
 1. Select **Add machines** to go to the **Add machines as hybrid worker** page. You'll only see machines that aren't part of any other hybrid worker group.
 
@@ -585,7 +622,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 1. Get the automation account details using this API call.
 
    ```http
-   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/HybridWorkerExtension?api-version=2021-06-22
 
    ```
 
@@ -594,7 +631,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 1. Install the Hybrid Worker Extension on Azure VM by using the following API call. 
   
     ```http
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}?api-version=2021-11-01
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/HybridWorkerExtension?api-version=2021-11-01
 
     ```
    
@@ -654,6 +691,13 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/move/action | Moves Hybrid Runbook Worker from one Worker Group to another.
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
 
+## Check version of Hybrid Worker
+To check the version of the extension-based Hybrid Runbook Worker:
+
+|OS types | Paths | Description|
+|--- |--- |--- |
+|**Windows** |`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\`| The path has *version* folder that has the version information. |
+|**Linux** | `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>` | The folder name ends with *version* information. |
 
 ## Next steps
 

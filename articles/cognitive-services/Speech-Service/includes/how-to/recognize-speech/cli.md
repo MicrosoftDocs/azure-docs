@@ -8,14 +8,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-## Download and install
-
-[!INCLUDE [SPX Setup](../../spx-setup.md)]
-
 ## Speech-to-text from a microphone
 
 Plug in and turn on your PC microphone. Turn off any apps that might also use the microphone. Some computers have a built-in microphone, whereas others require configuration of a Bluetooth device.

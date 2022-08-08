@@ -9,7 +9,7 @@ manager: kavithag
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux

@@ -194,10 +194,11 @@ To detect which categories your issue is in, run the most appropriate Azure CLI 
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
-The two common types of issue that cause device data to not appear in IoT Central are:
+The three common types of issue that cause device data to not appear in IoT Central are:
 
 - Device template to device data mismatch.
 - Data is invalid JSON.
+- Old versions of IoT Edge cause telemetry from components to display incorrectly as unmodeled data.
 
 ### Device template to device data mismatch
 
@@ -242,6 +243,10 @@ If you chose to create a new template that models the data correctly, migrate de
 If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
+
+### IoT Edge version
+
+To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from components in IoT Edge modules displays as *_unmodeleddata*.
 
 ## Next steps
 

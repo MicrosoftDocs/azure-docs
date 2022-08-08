@@ -2,37 +2,41 @@
 title: Migrate databases at scale using Azure PowerShell / CLI
 description: Learn how to use Azure PowerShell or CLI to migrate databases at scale using the capabilities of Azure SQL migration extension in Azure Data Studio with Azure Database Migration Service.
 services: database-migration
-author: mokabiru
-ms.author: mokabiru
+author: croblesm
+ms.author: roblescarlos
 manager: 
 ms.reviewer: randolph.west
 ms.service: dms
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/28/2022
+ms.date: 04/26/2022
 ms.custom: 
 ---
 
 # Migrate databases at scale using automation (Preview)
 
-The [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to assess, get Azure recommendations and migrate your SQL Server databases to Azure. Using automation with [Azure PowerShell](/powershell/module/az.datamigration) or [Azure CLI](/cli/azure/datamigration), you can leverage the capabilities of the extension with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
+The [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to assess, get Azure recommendations and migrate your SQL Server databases to Azure. Using automation with [Azure PowerShell](/powershell/module/az.datamigration) or [Azure CLI](/cli/azure/datamigration), you can use the capabilities of the extension with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
 
 The following sample scripts can be referenced to suit your migration scenario using Azure PowerShell or Azure CLI:
 
 |Scripting language  |Migration scenario  |Azure Samples link  |
 |---------|---------|---------|
 |PowerShell     |SQL Server assessment         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-assessment](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-assessment.md)         |
-|PowerShell     |SQL Server to Azure SQL Managed Instance (using file share)         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-mi-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-mi-fileshare.md)         |
-|PowerShell     |SQL Server to Azure SQL Managed Instance (using Azure storage)         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-mi-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-mi-blob.md)           |
-|PowerShell     |SQL Server to SQL Server on Azure Virtual Machines (using file share)          |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-vm-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-vm-fileshare.md)         |
-|PowerShell     |SQL Server to SQL Server on Azure Virtual Machines (using Azure Storage)         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-vm-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-vm-blob.md)         |
+|PowerShell     |Azure recommendation (SKU) for SQL Server         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-sku-recommendation](https://github.com/Azure-Samples/data-migration-sql/blob/main/PowerShell/sql-server-sku-recommendation.md)         |
+|PowerShell     |SQL Server to **Azure SQL Managed Instance** (using file share)         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-mi-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-mi-fileshare.md)         |
+|PowerShell     |SQL Server to **Azure SQL Managed Instance** (using Azure storage)         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-mi-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-mi-blob.md)           |
+|PowerShell     |SQL Server to **SQL Server on Azure Virtual Machines** (using file share)          |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-vm-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-vm-fileshare.md)         |
+|PowerShell     |SQL Server to **SQL Server on Azure Virtual Machines** (using Azure Storage)         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-vm-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-vm-blob.md)         |
+|PowerShell     |SQL Server to **Azure SQL Database**         |[Azure-Samples/data-migration-sql/PowerShell/sql-server-to-sql-db](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/sql-server-to-sql-db.md)        |
 |PowerShell     |Sample: End-to-End migration automation         |[Azure-Samples/data-migration-sql/PowerShell/scripts/](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/scripts/)         |
 |PowerShell     |Sample: End-to-End migration automation for multiple databases         |[Azure-Samples/data-migration-sql/PowerShell/scripts/multiple%20databases/](https://github.com/Azure-Samples/data-migration-sql/tree/main/PowerShell/scripts/multiple%20databases/)         |
 |CLI     |SQL Server assessment         |[Azure-Samples/data-migration-sql/CLI/sql-server-assessment](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-assessment.md)         |
-|CLI     |SQL Server to Azure SQL Managed Instance (using file share)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-mi-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-mi-fileshare.md)         |
-|CLI     |SQL Server to Azure SQL Managed Instance (using Azure storage)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-mi-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-mi-blob.md)         |
-|CLI     |SQL Server to SQL Server on Azure Virtual Machines (using file share)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-vm-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-vm-fileshare.md)         |
-|CLI     |SQL Server to SQL Server on Azure Virtual Machines (using Azure Storage)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-vm-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-vm-blob.md)         |
+|CLI     |Azure recommendation (SKU) for SQL Server         |[Azure-Samples/data-migration-sql/CLI/sql-server-sku-recommendation](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-sku-recommendation.md)         |
+|CLI     |SQL Server to **Azure SQL Managed Instance** (using file share)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-mi-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-mi-fileshare.md)         |
+|CLI     |SQL Server to **Azure SQL Managed Instance** (using Azure storage)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-mi-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-mi-blob.md)         |
+|CLI     |SQL Server to **SQL Server on Azure Virtual Machines** (using file share)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-vm-fileshare](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-vm-fileshare.md)         |
+|CLI     |SQL Server to **SQL Server on Azure Virtual Machines** (using Azure Storage)         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-vm-blob](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-vm-blob.md)         |
+|CLI     |SQL Server to **Azure SQL Database**         |[Azure-Samples/data-migration-sql/CLI/sql-server-to-sql-db](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/sql-server-to-sql-db.md)        |
 |CLI     |Sample: End-to-End migration automation         |[Azure-Samples/data-migration-sql/CLI/scripts/](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/scripts/)         |
 |CLI     |Sample: End-to-End migration automation for multiple databases         |[Azure-Samples/data-migration-sql/CLI/scripts/multiple%20databases/](https://github.com/Azure-Samples/data-migration-sql/tree/main/CLI/scripts/multiple%20databases/)         |
 
@@ -41,12 +45,12 @@ The following sample scripts can be referenced to suit your migration scenario u
 Pre-requisites that are common across all supported migration scenarios using Azure PowerShell or Azure CLI are:
 
 * Have an Azure account that is assigned to one of the built-in roles listed below:
-    - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
-    - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
+    - Contributor for the target Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database (and Storage Account to upload your database backup files from SMB network share).
+    - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database.
     - Owner or Contributor role for the Azure subscription.
     > [!IMPORTANT]
     > Azure account is only required when running the migration steps and is not required for assessment or Azure recommendation steps process.
-* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart) or [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart)
+* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart) or [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 
     > [!IMPORTANT]
     > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
@@ -112,9 +116,10 @@ $migOpId = az datamigration sql-managed-instance show --managed-instance-name "m
 az datamigration sql-managed-instance cutover --managed-instance-name "mySQLMI" --resource-group "myRG" --target-db-name "AdventureWorks2008" --migration-operation-id $migOpId
 ```
 
-> [!TIP] 
-> If you receive the error "The subscription is not registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions.", run 
-> ```azurepowershell    Register-AzResourceProvider -ProviderNamespace "Microsoft.DataMigration".   ```
+If you receive the error "The subscription is not registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions.", run this command:
+```azurepowershell
+   Register-AzResourceProvider -ProviderNamespace "Microsoft.DataMigration"
+```
 
 ## Next steps
 

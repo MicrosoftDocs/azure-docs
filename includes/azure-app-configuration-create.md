@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 1/31/2020
 ---
 
-1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the home page, select **Create a resource**. In the **Search the Marketplace** box, enter *App Configuration* and select <kbd>Enter</kbd>.
+1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the home page, select **Create a resource**. In the **Search services and marketplace** box, enter *App Configuration* and select <kbd>Enter</kbd>.
     
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-search.png" alt-text="Search for App Configuration":::
     

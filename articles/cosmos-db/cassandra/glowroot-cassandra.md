@@ -27,7 +27,7 @@ Glowroot is an application performance management tool used to optimize and moni
 
 ## Run Glowroot central collector with Cosmos DB endpoint
 Once the endpoint configuration has been completed. 
-1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot/wiki/Central-Collector-Installation#central-collector-installation)
+1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot)
 2. In the glowroot-central.properties file, populate the following properties from your Cosmos DB Cassandra API endpoint
     * cassandra.contactPoints
     * cassandra.username

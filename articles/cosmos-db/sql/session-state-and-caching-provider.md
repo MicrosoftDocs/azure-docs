@@ -5,7 +5,7 @@ author: StefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 07/06/2022
 ---
 
 # Use Azure Cosmos DB as an ASP.NET session state and caching provider
@@ -62,7 +62,10 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Where you specify the database and container you want the session state to be stored and optionally, create them if they don't exist.
+Where you specify the database and container you want the session state to be stored and optionally, create them if they don't exist using the `CreateIfNotExists` attribute.
+
+> [!IMPORTANT]
+> If you provide an existing container instead of using `CreateIfNotExists`, make sure it has [time to live enabled](how-to-time-to-live.md).
 
 You can customize your SDK client configuration by using the `CosmosClientBuilder` or if your application is already using a `CosmosClient` for other operations with Cosmos DB, you can also inject it into the provider:
 
@@ -81,7 +84,7 @@ After this, you can use ASP.NET Core sessions like with any other provider and u
 
 ##  Distributed cache scenarios
 
-Given that the Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true), it can also be used for any application that requires distributed cache, not just for web application that require a performant and distributed session state provider.
+Given that the Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true), it can also be used for any application that requires distributed cache, not just for web applications that require a performant and distributed session state provider.
 
 Distributed caches require data consistency to provide independent instances to be able to share that cached data. When using the Cosmos DB provider, you can:
 

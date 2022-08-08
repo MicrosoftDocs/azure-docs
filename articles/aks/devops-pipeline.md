@@ -124,7 +124,7 @@ After the pipeline run is finished, explore what happened and then go see your a
 
 1. Select **View environment**.
 
-1. Select the instance if your app for the namespace you deployed to. If you stuck to the defaults we mentioned above, then it will be the **myapp** app in the **default** namespace.
+1. Select the instance of your app for the namespace you deployed to. If you stuck to the defaults we mentioned above, then it will be the **myapp** app in the **default** namespace.
 
 1. Select the **Services** tab.
 

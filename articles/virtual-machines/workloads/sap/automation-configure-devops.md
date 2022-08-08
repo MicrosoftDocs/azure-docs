@@ -11,7 +11,9 @@ ms.service: virtual-machines-sap
 
 # Use SAP Deployment Automation Framework from Azure DevOps Services
 
+Using Azure DevOps will streamline the deployment process by providing pipelines that can be executed to perform both the infrastructure deployment and the configuration and SAP installation activities.
 You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application. 
+
 ## Sign up for Azure DevOps Services
 
 To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account. 
@@ -32,7 +34,7 @@ Start by importing the SAP Deployment Automation Framework GitHub repository int
 
 Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-If you are unable to import a repository, you can create the 'sap-automation' repository and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
+If you're unable to import a repository, you can create the 'sap-automation' repository, and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
 
 ### Create the repository for manual import
 
@@ -51,7 +53,7 @@ Clone the repository to a local folder by clicking the  _Clone_ button in the Fi
 
 ### Manually importing the repository content using a local clone
 
-In case you were not able to import the content from the SAP Deployment Automation Framework GitHub repository you can download the content manually and add it to the folder of your local clone of the Azure DevOps repository.
+You can also download the content from the SAP Deployment Automation Framework repository manually and add it to your local clone of the Azure DevOps repository.
 
 Navigate to 'https://github.com/Azure/SAP-automation' repository and download the repository content as a ZIP file by clicking the _Code_ button and choosing _Download ZIP_. 
 
@@ -62,20 +64,59 @@ Open the local folder in Visual Studio code, you should see that there are chang
 :::image type="content" source="./media/automation-devops/automation-vscode-changes.png" alt-text="Picture showing that source code has changed":::
 
 Select the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
+
 ### Create configuration root folder
 
-Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'.
+> [!IMPORTANT]
+   > In order to ensure that your configuration files are not overwritten by changes in the SAP Deployment Automation Framework, store them in a separate folder hierarchy.
 
-Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you just created, this will allow you to experiment with sample deployments.
 
-Push the changes to Azure DevOps repos by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
+Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'. These will contain the configuration files for the different components of the SAP Deployment Automation Framework. 
+
+Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you created, this will allow you to experiment with sample deployments.
+
+Push the changes back to the repository by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
+
+## Set up the web app
+
+The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
+
+# [Linux](#tab/linux)
+Replace MGMT with your environment as necessary.
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json 
+
+TF_VAR_app_registration_app_id=$(az ad app create --display-name MGMT-webapp-registration --enable-id-token-issuance true --sign-in-audience AzureADMyOrg --required-resource-access @manifest.json --query "appId" | tr -d '"')
+
+echo $TF_VAR_app_registration_app_id
+
+az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
+
+rm manifest.json
+```
+# [Windows](#tab/windows)
+Replace MGMT with your environment as necessary.
+```powershell
+Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
+
+$TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --enable-id-token-issuance true --sign-in-audience AzureADMyOrg --required-resource-access ./manifest.json --query "appId").Replace('"',"")
+
+echo $TF_VAR_app_registration_app_id
+
+az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
+
+rm ./manifest.json
+```
+---
+Save the app registration ID and password values for later.
+
 
 ## Create Azure Pipelines
 
 Azure Pipelines are implemented as YAML files and they're stored in the 'deploy/pipelines' folder in the repository. 
 ## Control plane deployment pipeline
 
-Create the control plane deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the control plane deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
@@ -87,7 +128,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## SAP workload zone deployment pipeline
 
-Create the SAP workload zone pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP workload zone pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
@@ -99,7 +140,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## SAP system deployment pipeline
 
-Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
@@ -109,9 +150,24 @@ Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pi
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP system deployment (infrastructure)' by choosing 'Rename/Move' from the three-dot menu on the right.
 
+## SAP web app deployment pipeline
+
+Create the SAP web app deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting | Value                                            |
+| ------- | ------------------------------------------------ |
+| Branch  | main                                             |
+| Path    | `deploy/pipelines/21-deploy-web-app.yaml`        |
+| Name    | Web app deployment                               |
+
+Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Web app deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+> [!NOTE]
+> In order for the web app to function correctly, the SAP workload zone deployment and SAP system deployment pipelines must be named as specified.
+
 ## SAP software acquisition pipeline
 
-Create the SAP software acquisition pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP software acquisition pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
@@ -123,7 +179,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## SAP configuration and software installation pipeline
 
-Create the SAP configuration and software installation pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the SAP configuration and software installation pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                              |
 | ------- | -------------------------------------------------- |
@@ -135,7 +191,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## Deployment removal pipeline
 
-Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
@@ -147,7 +203,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## Deployment removal pipeline using Azure Resource Manager
 
-Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
@@ -162,7 +218,7 @@ Save the Pipeline, to see the Save option select the chevron next to the Run but
 
 ## Repository updater pipeline
 
-Create the Repository updater pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+Create the Repository updater pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
@@ -182,9 +238,26 @@ The pipelines use a custom task to run Ansible. The custom task can be installed
 
 The pipelines use a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the pipelines.
 
+
+## Preparations for self-hosted agent    
+
+
+1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
+
+1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
+
+1. From your home page, open your user settings, and then select _Personal access tokens_.
+
+   :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+
+1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_, _Read & write_ is selected for _Code_, _Read & execute_ is selected for _Build_, and _Read, create, & manage_ is selected for _Variable Groups_. Write down the created token value.
+
+   :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
+
 ## Variable definitions
 
 The deployment pipelines are configured to use a set of predefined parameter values. In Azure DevOps the variables are defined using variable groups.
+
 
 ### Common variables
 
@@ -192,18 +265,32 @@ There's a set of common variables that are used by all the deployment pipelines.
 
 Create a new variable group 'SDAF-General' using the Library page in the Pipelines section. Add the following variables:
 
-| Variable                           | Value                                   | Notes                                                            |
-| ---------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
-| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                  |
-| Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.                    |
-| Branch                             | main                                    |                                                                  |
-| S-Username                         | `<SAP Support user account name>`       |                                                                  |
-| S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon        |
-| `advice.detachedHead`              | false                                   |                                                                  |
-| `skipComponentGovernanceDetection` | true                                    |                                                                  |
-| `tf_version`                       | 1.1.7                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)                                            |
+| Variable                           | Value                                   | Notes                                                                                       |
+| ---------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                                             |
+| Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.        |
+| Branch                             | main                                    |                                                                                             |
+| S-Username                         | `<SAP Support user account name>`       |                                                                                             |
+| S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon.                                   |
+| `PAT`                              | `<Personal Access Token>`               | Use the Personal Token defined in the previous step.                                        |
+| `POOL`                             | `<Agent Pool name>`                     | Use the Agent pool defined in the previous step.                                            |
+| `advice.detachedHead`              | false                                   |                                                                                             |
+| `skipComponentGovernanceDetection` | true                                    |                                                                                             |
+| `tf_version`                       | 1.2.6                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
 
 Save the variables.
+
+Or alternatively you can use the Azure DevOps CLI to set up the groups.
+
+```bash
+s-user="<SAP Support user account name>"
+s-password="<SAP Support user password>"
+
+az devops login
+
+az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password --output yaml
+
+```
 
 > [!NOTE]
 > Remember to assign permissions for all pipelines using _Pipeline permissions_.
@@ -214,22 +301,32 @@ As each environment may have different deployment credentials you'll need to cre
 
 Create a new variable group 'SDAF-MGMT' for the control plane environment using the Library page in the Pipelines section. Add the following variables:
 
-| Variable              | Value                                           | Notes                                                    |
-| --------------------- | ----------------------------------------------- | -------------------------------------------------------- |
-| Agent                 | 'Azure Pipelines' or the name of the agent pool | Note, this pool will be created in a later step.         |
-| ARM_CLIENT_ID         | Enter the Service principal application id.     |                                                          |
-| ARM_CLIENT_SECRET     | Enter the Service principal password.           | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | Enter the target subscription id.               |                                                          |
-| ARM_TENANT_ID         | Enter the Tenant id for the service principal.  |                                                          |
-| AZURE_CONNECTION_NAME | Previously created connection name              |                                                          |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
+| Variable                        | Value                                                              | Notes                                                    |
+| ------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
+| Agent                           | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
+| ARM_CLIENT_ID                   | Enter the Service principal application ID.                        |                                                          |
+| ARM_CLIENT_SECRET               | Enter the Service principal password.                              | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID             | Enter the target subscription ID.                                  |                                                          |
+| ARM_TENANT_ID                   | Enter the Tenant ID for the service principal.                     |                                                          |
+| AZURE_CONNECTION_NAME           | Previously created connection name.                                |                                                          |
+| sap_fqdn                        | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
+| FENCING_SPN_ID                  | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments.               |
+| FENCING_SPN_PWD                 | Enter the service principal password for the fencing agent.        | Required for highly available deployments.               |
+| FENCING_SPN_TENANT              | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments.               |
+| `PAT`                           | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous           |
+| `POOL`                          | `<Agent Pool name>`                                                | Use the Agent pool defined in the previous               |
+| TF_VAR_app_registration_app_id  | App registration application ID                                    | Required if deploying the web app                        |
+| TF_VAR_webapp_client_secret     | App registration password                                          | Required if deploying the web app                        |
 
 Save the variables.
 
 > [!NOTE]
 > Remember to assign permissions for all pipelines using _Pipeline permissions_.
 >
+> For use with the web app, assign the administrator role to the build service using _Security_.
+>
 > You can use the clone functionality to create the next environment variable group.
+
 
 ## Create a service connection
 
@@ -254,27 +351,12 @@ Enter a Service connection name, for instance 'Connection to MGMT subscription' 
 
 You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as a self-hosted agent.
 
-### Prerequisites
-
-1. Connect to your Azure DevOps instance Sign-in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and note the URL to the Azure DevOps project.
-
-1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
-
-1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
-
-1. From your home page, open your user settings, and then select _Personal access tokens_.
-
-   :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
-
-1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. Write down the created token value.
-
-   :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
 ## Deploy the Control Plane
 
 Newly created pipelines might not be visible in the default view. Select on recent tab and go back to All tab to view the new pipelines.
 
-Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. 
+Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. Make sure to check "deploy the web app infrastructure" if you would like to set up the web app.
 
 Wait for the deployment to finish.
 
@@ -327,7 +409,35 @@ Accept the license and when prompted for server URL, enter the URL you captured 
 When prompted enter the application pool name, you created in the previous step. Accept the default agent name and the default work folder name.
 The agent will now be configured and started.
 
+
+## Deploy the web app
+
+Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. The "Deploy web app" pipeline will publish the application's software to that infrastructure. 
+
+Before running the Deploy web app pipeline, first update the reply-url values for the app registration. As a result of running the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable named "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
+
+# [Linux](#tab/linux)
+
+```bash
+webapp_url_base=<WEBAPP_URL_BASE>
+az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https://${webapp_url_base}.azurewebsites.net --web-redirect-uris https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+```
+# [Windows](#tab/windows)
+
+```powershell
+$webapp_url_base="<WEBAPP_URL_BASE>"
+az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https://${webapp_url_base}.azurewebsites.net --web-redirect-uris https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+```
+---
+After updating the reply-urls, run the pipeline.
+
+By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, navigate to the app service resource. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions).
+
+You will also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
+
+You should now be able to visit the web app, and use it to deploy SAP workload zones and SAP system infrastructure.
+
 ## Next step
 
 > [!div class="nextstepaction"]
-> [DevOps Hands on Lab](automation-devops-tutorial.md)
+> [DevOps hands on lab](automation-devops-tutorial.md)

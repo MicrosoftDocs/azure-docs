@@ -19,7 +19,7 @@ ms.custom: devx-track-python
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable a back-end application to configure a device and provide visibility on the device's conditions, module identities and module twins provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, they allow for isolated configuration and conditions for each component.
 >
 
-At the end of this tutorial, you have three Python apps:
+At the end of this article, you have three Python apps:
 
 * **CreateModule**, which creates a device identity, a module identity, and associated security keys to connect your device and module clients.
 
@@ -31,11 +31,9 @@ At the end of this tutorial, you have three Python apps:
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Get the IoT hub connection string
 
@@ -182,9 +180,9 @@ In this section, you create a Python service app that updates the module twin de
 
 In this section, you create a Python app to get the module twin desired properties update on your device.
 
-1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** in the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities**, select **myFirstModule**. Copy the module connection string. You need it in a following step.
+1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **Devices** in the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities**, select **myFirstModule**. Select the copy icon for **Connection string (primary key)**. You need this connection string in a following step.
 
-   ![Azure portal module detail](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
+   :::image type="content" source="./media/iot-hub-python-python-module-twin-getstarted/module-detail.png" alt-text="Screenshot of the Module Identity Details page in the Azure portal.":::
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 

@@ -383,10 +383,7 @@ In JavaScript, the [MediaDevices.enumerateDevices()](https://developer.mozilla.o
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
+- [Explore samples on GitHub](https://aka.ms/csspeech/samples)
 
 - [Customize acoustic models](./how-to-custom-speech-train-model.md)
 - [Customize language models](./how-to-custom-speech-train-model.md)

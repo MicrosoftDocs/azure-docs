@@ -4,6 +4,7 @@ description: This sample CLI script creates an Azure Database for MySQL server a
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
