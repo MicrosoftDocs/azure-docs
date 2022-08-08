@@ -59,16 +59,6 @@ landingContent:
             url: delete-contact.md     
             
   # Card
-  - title: Learn how to downlink from a public satellite
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Schedule a contact with NASA's AQUA public satellite
-            url: downlink-aqua.md
-          - text: Collect and process AQUA satellite payload
-            url: satellite-imagery-with-orbital-ground-station.md 
-
-  # Card
   - title: Concepts
     linkLists:
       - linkListType: concept
@@ -81,3 +71,21 @@ landingContent:
             url: geospatial-reference-architecture.md
           - text: Spacecraft object
             url: spacecraft-object.md
+
+  # Card
+  - title: Azure Orbital Analytics
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Orbital Analytics?
+            url: overview-analytics.md
+      - linkListType: concept
+        links:
+          - text: Geospatial reference architecture
+            url: geospatial-reference-architecture.md
+      - linkListType: tutorial
+        links:
+          - text: Schedule a contact with NASA's AQUA public satellite
+            url: downlink-aqua.md
+          - text: Collect and process AQUA satellite payload
+            url: satellite-imagery-with-orbital-ground-station.md 
