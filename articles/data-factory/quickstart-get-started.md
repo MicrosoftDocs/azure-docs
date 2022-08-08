@@ -53,8 +53,11 @@ Select the button below to be redirected to the custom deployment configuration 
    :::image type="content" source="media/quickstart-get-started/open-data-factory-studio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
 1. Click on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/> and select the **Pipeline** created by the template.  Then check the source data by clicking **Open**.
    :::image type="content" source="media/quickstart-get-started/view-pipeline.png" alt-text="Screenshot of the Azure Data Factory Studio showing the pipeline created by the template.":::
+
    In the source dataset, click **Browse**, and you can see the moviesDB2.csv file has been uploaded into the input folder already.
+
    :::image type="content" source="media/quickstart-get-started/source-dataset-browse.png" alt-text="Screenshot of the source dataset highlighting the Browse button where the user can see the input file created for the demo.":::
+
    :::image type="content" source="media/quickstart-get-started/input-contents.png" alt-text="Screenshot of the contents of the input folder showing the moviesDB2.csv file used in the demo.":::
 
 ## Step 3: Trigger the pipeline to run
