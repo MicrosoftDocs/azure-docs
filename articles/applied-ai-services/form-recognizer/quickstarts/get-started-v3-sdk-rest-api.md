@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-formre
 recommendations: false
 ---
 
-# Get started with a Form Recognizer SDK or the REST API v3.0
+# Quickstart: Form Recognizer SDKs | REST API v3.0
 
 Get started with the latest version of Azure Form Recognizer. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Form Recognizer models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
