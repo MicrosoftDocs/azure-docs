@@ -121,7 +121,7 @@ az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <r
 
 # [Portal](#tab/azure-portal)
 
-For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](../how-to-create-attach-compute-cluster.md##set-up-managed-identity).
+For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](../how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
 ---
 

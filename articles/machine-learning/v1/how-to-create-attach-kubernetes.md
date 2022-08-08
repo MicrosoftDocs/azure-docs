@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
-ms.author: ssambare
-author:  shivanissambare
+ms.author: larryfr
+author:  larryfr
 ms.reviewer: larryfr
 ms.date: 04/21/2022
 ---
@@ -290,9 +290,9 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 
 For more information, see the [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az-ml-computetarget-attach-aks) reference.
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
-For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
+For information on attaching an AKS cluster in the studio, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
 ---
 
@@ -433,7 +433,7 @@ To detach the existing cluster to your workspace, use the following command. Rep
 az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 In Azure Machine Learning studio, select __Compute__, __Inference clusters__, and the cluster you wish to remove. Use the __Detach__ link to detach the cluster.
 
