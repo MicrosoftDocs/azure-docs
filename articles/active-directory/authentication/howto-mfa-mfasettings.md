@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 08/07/2022
 
 ms.author: justinha
 author: justinha
@@ -47,7 +47,7 @@ The following settings are available:
 To configure account lockout settings, complete these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Account lockout**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Account lockout**.
 1. Enter the values for your environment, and then select **Save**.
 
     ![Screenshot that shows the account lockout settings in the Azure portal.](./media/howto-mfa-mfasettings/account-lockout-settings.png)
@@ -62,7 +62,7 @@ To block a user, complete the following steps.
 
 [Watch a short video that describes this process.](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
 
-1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
+1. Browse to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Block/unblock users**.
 1. Select **Add** to block a user.
 1. Enter the user name for the blocked user in the format `username@domain.com`, and then provide a comment in the **Reason** box.
 1. Select **OK** to block the user.
@@ -71,7 +71,7 @@ To block a user, complete the following steps.
 
 To unblock a user, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Block/unblock users**.
 1. In the **Action** column next to the user, select **Unblock**.
 1. Enter a comment in the **Reason for unblocking** box.
 1. Select **OK** to unblock the user.
@@ -90,7 +90,7 @@ The following fraud alert configuration options are available:
 
 To enable and configure fraud alerts, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Fraud alert**.
 1. Set **Allow users to submit fraud alerts** to **On**.
 1. Configure the **Automatically block users who report fraud** or **Code to report fraud during initial greeting** setting as needed.
 1. Select **Save**.
@@ -138,7 +138,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Be sure to include the header row in your CSV file.
 
-An administrator can sign in to the Azure portal, go to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the CSV file.
+An administrator can sign in to the Azure portal, go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **OATH tokens**, and upload the CSV file.
 
 Depending on the size of the CSV file, it might take a few minutes to process. Select **Refresh** to get the status. If there are any errors in the file, you can download a CSV file that lists them. The field names in the downloaded CSV file are different from those in the uploaded version.
 
@@ -159,7 +159,7 @@ In the United States, if you haven't configured MFA caller ID, voice calls from 
 
 To configure your own caller ID number, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
 1. Set the **MFA caller ID number** to the number you want users to see on their phones. Only US-based numbers are allowed.
 1. Select **Save**.
 
@@ -217,7 +217,7 @@ You can use the following sample scripts to create your own custom messages. The
 
 To use your own custom messages, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
+1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
 1. Select **Add greeting**.
 1. Choose the **Type** of greeting, such as **Greeting (standard)** or  **Authentication successful**.
 1. Select the **Language**. See the previous section on [custom message language behavior](#custom-message-language-behavior).
@@ -228,7 +228,7 @@ To use your own custom messages, complete the following steps:
 
 Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure AD portal.
 
-You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
+You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 
 ### Trusted IPs
 

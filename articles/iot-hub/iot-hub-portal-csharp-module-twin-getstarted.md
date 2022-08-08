@@ -33,25 +33,27 @@ In this article, you will learn:
 
 * Visual Studio.
 
+* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
 ## Create a module identity in the portal
 
 Within one device identity, you can create up to 20 module identities. To add an identity, follow these steps:
 
-1. For the device you created in the previous section, choose **Add Module Identity** to create your first module identity.
+1. From your existing device in the Azure portal, choose **Add Module Identity** to create your first module identity.
 
 1. Enter the name *myFirstModule*. Save your module identity.
 
-    ![Add module identity](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png":::
 
     Your new module identity appears at the bottom of the screen. Select it to see module identity details.
 
-    ![See module identity details](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png" alt-text="Screenshot that shows the Module Identity Details menu.":::
 
-Save the **Connect string - primary key**. You use it in the next section to you set up your module on the device.
+Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
 ## Update the module twin using .NET device SDK
 
@@ -63,9 +65,11 @@ To create an app that updates the module twin reported properties, follow these 
 
 1. In Visual Studio, select **Create a new project**, then choose **Console App (.NET Framework)**, and select **Next**.
 
-1. In **Configure your new project**, enter *UpdateModuleTwinReportedProperties* as the **Project name**. Select **Create** to continue.
+1. In **Configure your new project**, enter *UpdateModuleTwinReportedProperties* as the **Project name**. Select **Next** to continue.
 
-    ![Configure your a visual studio project](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
+   :::image type="content" source="./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png" alt-text="Screenshot showing the 'Configure your new project' popup.":::
+
+1. Keep the default .NET framework, then select **Create**.
 
 ### Install the latest Azure IoT Hub .NET device SDK
 
@@ -75,21 +79,9 @@ Module identity and module twin is in public preview. It's only available in the
 
 1. Select **Browse**, and then select **Include prerelease**. Search for *Microsoft.Azure.Devices.Client*. Select the latest version and install.
 
-    ![Install Azure IoT Hub .NET service SDK preview](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png" alt-text="Screenshot showing how to install the Microsoft.Azure.Devices.Client.":::
 
-    Now you have access to all the module features.
-
-### Get your module connection string
-
-You need the module connection string for your console app. Follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to your IoT hub and select **IoT Devices**. Open **myFirstDevice** and you see that **myFirstModule** was successfully created.
-
-1. Select **myFirstModule** under **Module Identities**. In **Module Identity Details**, copy the **Connection string (primary key)**.
-
-    ![Azure portal module detail](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+   Now you have access to all the module features.
 
 ### Create UpdateModuleTwinReportedProperties console app
 
@@ -103,7 +95,7 @@ To create your app, follow these steps:
   using Newtonsoft.Json;
   ```
 
-2. Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
+2. Add the following fields to the **Program** class. Replace the placeholder value with the module connection string you saved previously.
 
   ```csharp
   private const string ModuleConnectionString = "<Your module connection string>";

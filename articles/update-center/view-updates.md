@@ -1,8 +1,7 @@
 ---
 title: Check update compliance in Update management center (preview)
 description: The article details how to use Azure Update management center (preview) in the Azure portal to assess update compliance for supported machines.
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 ms.date: 04/21/2022
 ms.topic: conceptual
 author: SnehaSudhir 
