@@ -2,7 +2,8 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 04/04/2022
+ms.date: 08/08/2022
+ms.author: edbayansh
 ms.reviewer: bwren
 ---
 
@@ -20,13 +21,18 @@ This article lists significant changes to Azure Monitor documentation.
 | Article | Description |
 |:---|:---|
 |[Azure Monitor Agent overview](agents/agents-overview.md)| Restructure of the Agents section. A single Azure Monitor Agent is replacing all of Azure Monitor's legacy monitoring agents.
-|[Enable network isolation for the Azure Monitor agent](agents/azure-monitor-agent-data-collection-endpoint.md)|Rewritten to better describe configuration of network isolation
+|[Enable network isolation for the Azure Monitor agent](agents/azure-monitor-agent-data-collection-endpoint.md)|Rewritten to better describe configuration of network isolation.
+
+### Alerts
+| Article | Description |
+|:---|:---|
+|[Azure Monitor Alerts Overview](alerts/alerts-overview.md)|Updated the logic for the time to resolve behavior in stateful log alerts.
 
 ### Application Insights
 
 | Article | Description |
 |:---|:---|
-|[Azure Monitor Application Insights Java](app/java-in-process-agent.md)|OpenTelemetry-based auto-instrumentation for Java applications has an updated Supported Custom Telemetry table
+|[Azure Monitor Application Insights Java](app/java-in-process-agent.md)|OpenTelemetry-based auto-instrumentation for Java applications has an updated Supported Custom Telemetry table.
 |[Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)|Clarification has been added that valueCount and itemCount have a minimum value of 1.
 |[Telemetry sampling in Azure Application Insights](app/sampling.md)|Sampling documentation has been updated to warn of the potential impact on alerting accuracy.
 |[Azure Monitor Application Insights Java (redirect to OpenTelemetry)](app/java-in-process-agent-redirect.md)|Java Auto-Instrumentation now redirects to OpenTelemetry documentation.
@@ -42,8 +48,8 @@ This article lists significant changes to Azure Monitor documentation.
 
 | Article | Description |
 |:---|:---|
-| [How-to guide for setting up autoscale for a web app with a custom metric](autoscale/autoscale-custom-metric.md) |General rewrite to improve clarity|
-[Overview of autoscale in Microsoft Azure](autoscale/autoscale-overview.md)|General rewrite to improve clarity|
+| [How-to guide for setting up autoscale for a web app with a custom metric](autoscale/autoscale-custom-metric.md) |General rewrite to improve clarity.|
+[Overview of autoscale in Microsoft Azure](autoscale/autoscale-overview.md)|General rewrite to improve clarity.|
 
 ### Containers
 
@@ -56,11 +62,11 @@ This article lists significant changes to Azure Monitor documentation.
 
 | Article | Description |
 |:---|:---|
-|[Tutorial - Editing Data Collection Rules](essentials/data-collection-rule-edit.md)|New article|
-|[Data Collection Rules in Azure Monitor](essentials/data-collection-rule-overview.md)|General rewrite to improve clarity|
-|[Data collection transformations](essentials/data-collection-transformations.md)|General rewrite to improve clarity|
-|[Data collection in Azure Monitor](essentials/data-collection.md)|New article|
-|[How to Migrate from Diagnostic Settings Storage Retention to Azure Storage Lifecycle Policy](essentials/migrate-to-azure-storage-lifecycle-policy.md)|New article|
+|[Tutorial - Editing Data Collection Rules](essentials/data-collection-rule-edit.md)|New article.|
+|[Data Collection Rules in Azure Monitor](essentials/data-collection-rule-overview.md)|General rewrite to improve clarity.|
+|[Data collection transformations](essentials/data-collection-transformations.md)|General rewrite to improve clarity.|
+|[Data collection in Azure Monitor](essentials/data-collection.md)|New article.|
+|[How to Migrate from Diagnostic Settings Storage Retention to Azure Storage Lifecycle Policy](essentials/migrate-to-azure-storage-lifecycle-policy.md)|New article.|
 
 ### Logs
 |[Logs ingestion API in Azure Monitor (Preview)](logs/logs-ingestion-api-overview.md)|Custom logs API renamed to Logs ingestion API.
