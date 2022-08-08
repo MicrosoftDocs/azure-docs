@@ -539,7 +539,7 @@ A customer quality assurance role can view project dashboards, preview datasets,
 
 # [Vendor QA](#tab/vendor-qa)
 
-A vendor quality assurance role can perform a a customer quality assurance role, but cannot preview the dataset.
+A vendor quality assurance role can perform a customer quality assurance role, but cannot preview the dataset.
 
 `vendor_qa_role.json`:
 ```json
