@@ -73,7 +73,6 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-
 ## Step 5. Configure automatic user provisioning to Ideagen Cloud 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Ideagen Cloud based on user and/or group assignments in Azure AD.
