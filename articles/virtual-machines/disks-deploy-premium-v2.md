@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 (preview) managed disk
 description: Learn how to deploy a Premium SSD v2 (preview).
 author: roygara
 ms.author: rogarana
-ms.date: 07/18/2022
+ms.date: 08/03/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
@@ -159,7 +159,10 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
 # [Azure portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+> [!IMPORTANT]
+> Premium SSD v2 managed disks can only be deployed and managed in the Azure portal from the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
+
+1. Sign in to the Azure portal with the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. On the **Basics** page, select a [supported region](#regional-availability) and set **Availability options** to **Availability zone**.
 1. Select one of the zones.
@@ -210,6 +213,10 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 # [Azure portal](#tab/portal)
 
+> [!IMPORTANT]
+> Premium SSD v2 managed disks can only be deployed and managed in the Azure portal from the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
+
+1. Sign in to the Azure portal with the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
 1. Navigate to your disk and select **Size + Performance**.
 1. Change the values to your desire.
 1. Select **Resize**.

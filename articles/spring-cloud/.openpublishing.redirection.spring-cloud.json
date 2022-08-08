@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "index.yml",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "access-app-virtual-network.md",
             "redirect_url": "/azure/spring-apps/access-app-virtual-network",
             "redirect_document_id": false
