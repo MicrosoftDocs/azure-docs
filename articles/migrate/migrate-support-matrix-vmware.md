@@ -79,7 +79,7 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-**Supported servers** | Currently supported only for servers running SQL Server in your VMware environment. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
+**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.

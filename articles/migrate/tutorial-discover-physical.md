@@ -104,7 +104,7 @@ For Windows servers, use a domain account for domain-joined servers, and a local
     > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
 
 
-> [!Note]
+    > [!Note]
     > To discover SQL Server databases on Windows Servers, both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager. Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
 
 
