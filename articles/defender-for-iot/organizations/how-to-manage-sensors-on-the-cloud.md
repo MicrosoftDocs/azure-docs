@@ -1,7 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 06/30/2022
+ms.date: 08/08/2022
 ms.topic: how-to
 ---
 
@@ -11,10 +11,10 @@ This article describes how to view and manage sensors with [Defender for IoT in 
 
 ## Purchase sensors or download software for sensors
 
-This procedure describes how to use the Azure portal to contact vendors for pre-configured appliances, or how to download software for you to install on your own appliances. 
+This procedure describes how to use the Azure portal to contact vendors for pre-configured appliances, or how to download software for you to install on your own appliances.
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Sensor**.
-
+ 
 1. Do one of the following:
 
     - To buy a pre-configured appliance, select **Contact** under **Buy preconfigured appliance**. This opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances. For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
@@ -29,15 +29,15 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
         1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
-
 ## Onboard sensors
 
 Onboard a sensor by registering it with Microsoft Defender for IoT. For OT sensors, you'll also need to download a sensor activation file.
 
 Select one of the following tabs, depending on the type of network you're working with.
+
 # [OT sensors](#tab/ot)
 
-**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. 
+**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP.
 
 For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md) and [Defender for IoT installation](how-to-install-software.md), or our [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md).
 
@@ -104,22 +104,25 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 ## Sensor management options from the Azure portal
 
-Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. From the **Sites and sensors** page, do any of the following:
+Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. Select a specific sensor name to drill down to more details for that sensor.
 
-|Task  |Steps  |
+Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page.
+
+|Tas |Description  |
 |---------|---------|
-| **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md). |
-|**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see: <br><br>-[Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update Defender for IoT OT monitoring software](update-ot-software.md#download-and-apply-a-new-activation-file)   |
-|**Export sensor data**     |Select **Export** at the top of the page.  A CSV file is downloaded with details about all sensors listed.       |
-|**Download an activation file**     |   From the **...** options menu at the right of a sensor row. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
-|**Edit a sensor zone**    | From the **...** options menu at the right of a sensor row, select **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
-|**Edit automatic threat intelligence updates**     | From the **...** options menu at the right of a sensor row, select **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
-|**Delete a sensor**     |  Delete sensors only if you're no longer working with them.  From the **...** options menu at the right of a sensor row, select **Delete sensor**.      |
+|**Push threat intelligence updates**     | OT sensors only. Available for bulk actions from the **Sites and sensors** toolbar, for individual sensors from the **...** options menu, or from a sensor details page.     <br>For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).   |
+|**Prepare an OT sensor to update to software version 22.x or higher**     |   Individual, OT sensors only. Available from the **Sites and sensors** toolbar, the **...** options menu, or a sensor details page. <br>For more information, see: <br>- [Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update Defender for IoT OT monitoring software](update-ot-software.md#download-and-apply-a-new-activation-file)   |
+|**Recover a password**     | Individual, OT sensors only. Available from the **...** options menu or a sensor details page. Enter the secret identifier obtained on the sensor's sign-in screen.      |
+|**Export sensor data**     |  Available from the **Sites and sensors** toolbar only, to download a CSV file with details about all the sensors listed.       |
+|**Download an activation file**     |   Individual, OT sensors only. Available from the **...** options menu or a sensor details page.      |
+|**Edit a sensor zone**     |    For individual sensors only, from the **...** options menu or a sensor details page.  Select **Edit**, and then elect a new zone from the **Zone** menu or select **Create new zone**. Select **Submit** to save your changes.    |
+|**Create an activation command**     | Individual, Enterprise IoT sensors only. Available from the **...** options menu or a sensor details page.  Select **Edit** and   then select **Create activation command**. For more information, see [Install an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#install-the-sensor).        |
+|**Edit automatic threat intelligence updates**     | Individual, OT sensors only. Available from the **...** options menu or a sensor details page.  Select **Edit** and then toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes. |
+|**Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 
+## Reactivate an OT sensor
 
-## Reactivate a sensor
-
-You may need to reactivate your sensor because you want to:
+You may need to reactivate an OT sensor because you want to:
 
 - **Work in cloud-connected mode instead of locally managed mode**: After reactivation, existing sensor detections are displayed in the sensor console, and newly detected alert information is delivered through Defender for IoT in the Azure portal. This information can be shared with other Azure services, such as Microsoft Sentinel.
 
@@ -149,15 +152,25 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
 **To view overall sensor health**:
 
-1. From Defender for IoT in the Azure portal, select **Sites and sensors** and then check the overall health score in the widget above the grid.
+1. From Defender for IoT in the Azure portal, select **Sites and sensors** and then check the overall health score in the widget above the grid. For example:
 
-1. To check on specific sensors, filter the sensors shown by sensor health, and select one or more sensor health issues to verify.
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-widgets.png" alt-text="Screenshot showing the sensor health widgets.":::
+
+    - **Unhealthy** means that the sensor is
+    - **Updatable** means that the sensor has an older version, and there are software updates available to install
+    - **Unsupported** means that the sensor has a software version install that is no longer supported.
+
+1. To check on specific sensor issues, filter the grid by sensor health, and select one or more issues to verify. For example:
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-filter.png" alt-text="Screenshot of the sensor health filter.":::
 
 1. Expand the filtered sites and sensors now displayed in the grid, and use the **Sensor health** column to learn more at a high level.
 
-1. To drill down further and understand recommended actions, select a sensor name to open the sensor details page.
+1. To drill down further and understand recommended actions, select a sensor name to open the sensor details page. On the sensor details **Overview** page, expand the **Health** section and any messages listed there to learn more. The **Recommendation** column on the right lists recommended actions for handling the health issue.
 
-1. On the sensor details **Overview** page, expand the **Health** section and any messages listed there to learn more. The **Recommendation** column on the right lists recommended actions for handling the health issue.
+    For example:
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-details-health.png" alt-text="Screenshot of the sensor details page showing health information.":::
 
 ### Sensor health issues
 
@@ -188,7 +201,6 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 1. For your selected sensor, select the **...** options menu on the right > **Send diagnostic files to support (Preview)**. For example:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
-
 
 ## Next steps
 
