@@ -4,7 +4,7 @@ description: Troubleshoot common issues that you might encounter with Azure File
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 7/28/2022
+ms.date: 8/08/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -46,16 +46,16 @@ To run AFSDiag, perform the steps below:
     ```
 
 2. Reproduce the issue. When you're finished, enter **D**.
-3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
+3. A .zip file that contains logs and trace files is saved to the output directory that you specified.
 
 ## Common troubleshooting subject areas
 
 For more detailed information, choose the subject area that you'd like to troubleshoot.
 
-- [Agent installation and server registration](file-sync-troubleshoot-installation.md)
+- [Agent installation and server registration issues](file-sync-troubleshoot-installation.md)
 - [Sync group management (including cloud endpoint and server endpoint creation)](file-sync-troubleshoot-sync-group-management.md)
 - [Sync errors](file-sync-troubleshoot-sync-errors.md)
-- [Cloud tiering](file-sync-troubleshoot-cloud-tiering.md)
+- [Cloud tiering issues](file-sync-troubleshoot-cloud-tiering.md)
 
 Some issues can be related to more than one subject area.
 
@@ -63,3 +63,4 @@ Some issues can be related to more than one subject area.
 - [Monitor Azure File Sync](file-sync-monitoring.md)
 - [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure file shares performance issues](../files/storage-troubleshooting-files-performance.md)
