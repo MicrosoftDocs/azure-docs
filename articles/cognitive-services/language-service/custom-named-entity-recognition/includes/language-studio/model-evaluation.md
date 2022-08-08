@@ -61,11 +61,13 @@ This snapshot shows how entities are distributed across your training and testin
 
 * *Total instances throughout documents*: This view will show for each entity, the labeled occurances accross training and testing sets.
 
+  :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
 
 **Table view**
 
 For each *entity*, you can view: tags per entity in training set, tagged documents in training set, tags per entity in testing set, tagged documents in testing set, tags per entity total and tagged documents total.
 
+  :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
 
 
 ---
@@ -75,6 +77,7 @@ A confusion matrix is an N x N matrix used for evaluating the performance of a c
 
 You can view the confusion matrix in *normalized* or *raw count* view.
 
+  :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
 
 * All values: Will show the confusion matrix for all entities.
 
