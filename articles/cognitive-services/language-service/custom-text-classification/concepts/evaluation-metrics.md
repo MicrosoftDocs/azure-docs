@@ -114,15 +114,15 @@ If you want to optimize for general purpose scenarios or when precision and reca
 
 After you trained your model, you will see some guidance and recommendation on how to improve the model. It's recommended to have a model covering all points in the guidance section.
 
-* Training set has enough data : When an entity type has fewer than 15 labeled instances in the training data, it can lead to lower accuracy due to the model not being adequately trained on these cases. In this case, consider adding more labeled data in the training set. You can check the *data distribution* tab for more guidance.
+* Training set has enough data : When a class type has fewer than 15 labeled instances in the training data, it can lead to lower accuracy due to the model not being adequately trained on these cases.
 
-* All entity types are present in test set: When the testing data lacks labeled instances for an entity type, the model’s test performance may become less comprehensive due to untested scenarios. You can check the *test set data distribution* tab for more guidance.
+* All class types are present in test set: When the testing data lacks labeled instances for a class type, the model’s test performance may become less comprehensive due to untested scenarios.
 
-* Entity types are balanced within training and test sets: When sampling bias causes an inaccurate representation of an entity type’s frequency, it can lead to lower accuracy due to the model expecting that entity type to occur too often or too little. You can check the *data distribution* tab for more guidance.
+* Class types are balanced within training and test sets: When sampling bias causes an inaccurate representation of a class type’s frequency, it can lead to lower accuracy due to the model expecting that class type to occur too often or too little.
 
-* Entity types are evenly distributed between training and test sets: When the mix of entity types doesn’t match between training and test sets, it can lead to lower testing accuracy due to the model being trained differently from how it’s being tested. You can check the *data distribution* tab for more guidance.
+* Class types are evenly distributed between training and test sets: When the mix of class types doesn’t match between training and test sets, it can lead to lower testing accuracy due to the model being trained differently from how it’s being tested.
 
-* Unclear distinction between entity types in training set: When the training data is similar for multiple entity types, it can lead to lower accuracy because the entity types may be frequently misclassified as each other. Review the following entity types and consider merging them if they’re similar. Otherwise, add more examples to better distinguish them from each other. You can check the *confusion matrix* tab for more guidance.
+* Class types in training set are clearly distinct: When the training data is similar for multiple class types, it can lead to lower accuracy because the class types may be frequently misclassified as each other.
 
 ## Confusion matrix
 
