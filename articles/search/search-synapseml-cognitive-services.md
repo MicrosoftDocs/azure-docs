@@ -8,30 +8,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/06/2022
+ms.date: 08/08/2022
 ---
 
 # Add search to AI-enriched data from Apache Spark using Azure Synapse Analytics
 
-This Azure Cognitive Search article explains how to add full text search to big data from Apache Spark that's been transformed using the SynapseML feature of Azure Synapse Analytics. SynapseML has transformers that integrate with Cognitive Services and Cognitive Search. By stepping through this exercise, you'll learn how to apply machine learning to content in a Spark cluster, and then send it to a search index so that you can query the output. 
+This is an Azure Cognitive Search article that explains how to add data exploration and full text search to a SynapseML solution. 
 
-Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough uses SynapseML transformers instead of indexers and skillsets. A key takeaway from this exercise is learning an end-to-end workflow that shows you how to tap AI capabilities outside of Cognitive Search.
+[SynapseML](https://microsoft.github.io/SynapseML/) is a component of [Azure Synapse Analytics](/azure/synapse-analytics) that supports machine learning over big data on Apache Spark. One of the ways in which machine learning is exposed  is through *transformers*, or modules that perform specialized tasks. Transformers tap into a wide range of AI capabilities, but in this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
 
-The article starts with forms (invoices) in Azure Storage. It includes the following steps:
+In this walkthrough, you'll set up a workbook that does the following:
 
-+ Create an Azure Databricks workspace that connects to a Spark session.
-+ Create a notebook that loads and transforms the invoices using SynapseML. Transformations include form recognition, form analysis and restructuring, and text translation.
-+ Infer, build, and load a search index using AzureSearchWriter from SynapseML.
-+ Query the search index that contains transformed and multi-lingual content.
+> [!div class="checklist"]
+> + Loads various forms (invoices) into a data frame
+> + Analyzes them to determine their features
+> + Assembles the output into a tabular data structure
+> + Writes the output to a search index in Azure Cognitive Search, where you can explore and search over the content you created
 
-The search corpus is created and hosted in Azure Cognitive Search, and all queries execute on your search service. 
-
-SynapseML provides transformers that wrap other Azure resources, including Azure Forms Recognizer, Azure Translator, and Azure Cognitive Search. You'll call these SynapseML transformers in this walkthrough:
-
-+ [synapse.ml.cognitive.AnalyzeInvoices](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices)
-+ [synapse.ml.cognitive.FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.FormOntologyTransformer)
-+ [synapse.ml.cognitive.Translate](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#translate)
-+ [synpase.ml.cognitive.AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch)
+> [!NOTE]
+> Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough uses SynapseML to access AI capabilities outside of Cognitive Search. Since you're not using indexers or skills in this approach, you're not limited by their constraints.
 
 ## Prerequisites
 
@@ -39,7 +34,6 @@ You'll need multiple Azure resources. If possible, use the same subscription and
 
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier)
 + [Azure Forms Recognizer](../applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md) (any tier)
-+ [Azure Cognitive Services Translator](../cognitive-services/translator/how-to-create-translator-resource.md), Single service (any tier)
 + [Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md), Standard or Premium
 + [Azure Synapse Analytics](../synapse-analytics/get-started-create-workspace.md) (any tier)
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>1</sup>
