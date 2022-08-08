@@ -8,9 +8,11 @@ ms.author: eur
 
 In this quickstart, you perform sentiment analysis and conversation summarization of call center transcriptions.
 
-The quickstart uses the following Azure Cognitive Services features:
-- [Batch transcription in Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/batch-transcription):
-- [Speaker separation/diarization in Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/batch-transcription):
-- [Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language](/azure/cognitive-services/language-service/personally-identifiable-information/overview): 
-- [Sentiment analysis and opinion mining in Azure Cognitive Service for Language](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview):
-- [Conversation summarization in Azure Cognitive Service for Language](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization):
+The following Azure Cognitive Service for Speech features are used:
+- [Batch transcription](/azure/cognitive-services/speech-service/batch-transcription): Submit a batch of audio files for transcription.
+- [Speaker separation/diarization](/azure/cognitive-services/speech-service/batch-transcription): Diarize mono 16khz 16 bit PCM wav files to separate multiple speakers. 
+
+The following Azure Cognitive Service for Language features are used:
+- [Personally Identifiable Information (PII) detection](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in unstructured text.
+- [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze and associate positive or negative sentiment with specific aspects of the transcriptions.
+- [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize what each conversation participant said about the predefined issues and resolutions.

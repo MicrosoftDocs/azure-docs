@@ -20,7 +20,7 @@ Connection options include:
 Input options include:
 
 - `--input URL`: Input audio from URL. Required. 
-- `--stereo`: Use stereo audio format. If stereo isn't specified, mono is assumed. 
+- `--stereo`: Use stereo audio format. If stereo isn't specified, then mono 16khz 16 bit PCM wav files are assumed. Mono files will be diarized for multiple speakers. The 2-channel stereo files should have 1 speaker per channel, so they will not be diarized.
 - `--certificate`: The PEM certificate file. Required for C++. 
 
 Language options include:
