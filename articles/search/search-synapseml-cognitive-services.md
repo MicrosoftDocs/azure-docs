@@ -158,7 +158,6 @@ This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/Sy
 
 + *HS: SUBSCRIPTION KEY? Should the key references be more specific. Subscription key is unfamiliar terminology.*
 + *HS: IMAGE URL? Still not sure how images factor into this demo.*
-+ *HS: ORIGINAL SUBHEAD INCLUDES "DISTRIBUTED" - is this important?*
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
