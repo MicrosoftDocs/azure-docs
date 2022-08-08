@@ -23,7 +23,7 @@ In the list of global Azure regions, there are several regions that serve specif
 * Azure Government regions **US-Arizona** and **US-Virginia**.
 * Azure China 21Vianet region **China-East-2**.
 
-Azure Machine Learning is still in development in Airgap Regions. 
+Azure Machine Learning is still in development in Air-gap Regions. 
 
 The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
 ## Azure Government	
