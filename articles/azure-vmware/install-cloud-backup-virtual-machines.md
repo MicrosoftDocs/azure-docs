@@ -49,19 +49,20 @@ You'll need to install Cloud Backup for Virtual Machines through the Azure porta
     | MaintenanceUserPassword | Password of the appliance maintenance user. |
 
     >[!IMPORTANT]
-    >You can also install Cloud Backup for Virtual Machines using DHCP by running the package `NetAppCBSApplianceUsingDHCP`. If you install Cloud Backup for Virtual Machines using DHCP, you do not need to provide the values for the PrimaryDNS, Gateway, Netmask and ApplianceIPAddress fields. These values will be automatically generated. 
+    >You can also install Cloud Backup for Virtual Machines using DHCP by running the package `NetAppCBSApplianceUsingDHCP`. If you install Cloud Backup for Virtual Machines using DHCP, you don't need to provide the values for the PrimaryDNS, Gateway, Netmask, and ApplianceIPAddress fields. These values will be automatically generated. 
 
 1. Check **Notifications** or the **Run Execution Status** tab to see the progress. For more information about the status of the execution, see [Run command in Azure VMware Solution](concepts-run-command.md).  
     
-On successful execution, the Cloud Backup for Virtual Machines will automatically be displayed in the VMware vSphere client. 
+Upon successful execution, the Cloud Backup for Virtual Machines will automatically be displayed in the VMware vSphere client. 
 
 ## Upgrade Cloud Backup for Virtual Machines 
 
 You can execute this run command to upgrade the Cloud Backup for Virtual Machines to the next available version. 
 
-Before you initiate the upgrade, you must:
-* Back up the MySQL database of Cloud Backup for Virtual Machines. 
-* Take snapshot copies of Cloud Backup for Virtual Machines. 
+>[!IMPORTANT]
+> Before you initiate the upgrade, you must:
+> * Back up the MySQL database of Cloud Backup for Virtual Machines. 
+> * Take snapshot copies of Cloud Backup for Virtual Machines. 
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Invoke-UpgradeNetAppCBSAppliance**.
 
@@ -73,9 +74,10 @@ Before you initiate the upgrade, you must:
 
 You can execute the run command to uninstall Cloud Backup for Virtual Machines. 
 
-Before you initiate the upgrade, you must:
-* Backup the MySQL database of Cloud Backup for Virtual Machines. 
-* Ensure that there are no other VMs installed in the VMware vSphere tag: `AVS_ANF_CLOUD_ADMIN_VM_TAG`. All VMs with this tag will be deleted when you uninstall.
+> [!IMPORTANT]
+> Before you initiate the upgrade, you must:
+> * Backup the MySQL database of Cloud Backup for Virtual Machines. 
+> * Ensure that there are no other VMs installed in the VMware vSphere tag: `AVS_ANF_CLOUD_ADMIN_VM_TAG`. All VMs with this tag will be deleted when you uninstall.
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Uninstall-NetAppCBSAppliance**.
 
@@ -89,7 +91,7 @@ You can execute this command to reset the vCenter account password:
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Invoke-ResetNetAppCBSApplianceVCenterPasswordA**.
 
-1. Provide the required values, and then select **Run**. 
+1. Provide the required values, then select **Run**. 
 
 1. Check **Notifications** or the **Run Execution Status** pane to monitor the progress.
 

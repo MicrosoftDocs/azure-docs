@@ -3,7 +3,7 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 07/25/2022
+ms.date: 08/10/2022
 ---
 
 # Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines
@@ -37,7 +37,7 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 3.	On the **New Backup Policy** page, select the vCenter Server that will use the policy, then enter the policy name and a description.
 * **Only alphanumeric characters and underscores (_) are supported in VM, datastore, cluster, policy, backup, or resource group names.** Other special characters are not supported. 
 4.	Specify the retention settings.
-    The maximum retention value is 255 backups. If the "Backups to keep" option is selected during the backup operation, Cloud Backup for Virtual Machines will retain backups with the specified retention count and delete the backups that exceed the retention count.
+    The maximum retention value is 255 backups. If the **"Backups to keep"** option is selected during the backup operation, Cloud Backup for Virtual Machines will retain backups with the specified retention count and delete the backups that exceed the retention count.
 5.	Specify the frequency settings.
     The policy specifies the backup frequency only. The specific protection schedule for backing up is defined in the resource group. Therefore, two or more resource groups can share the same policy and backup frequency but have different backup schedules.
 6.	**Optional:** In the **Advanced** fields, select the fields that are needed. The Advanced field details are listed in the following table.
@@ -142,8 +142,8 @@ Backup operations are performed on all the resources defined in a resource group
     1.1 If the resource group has multiple policies configured, then in the **Backup Now** dialog box, select the policy you want to use for this backup operation.
 1. Select **OK** to initiate the backup.
     >[!NOTE]
-    >You cannot rename a backup once it is created. 
-1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the window or on the dashboard Job Monitor for more details.
+    >You can't rename a backup once it is created. 
+1. **Optional:** Monitor the operation progress by selecting **Recent Tasks** at the bottom of the window or on the dashboard Job Monitor for more details.
     If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning and is marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it is possible that some of the VMs were successfully paused. In the job monitor, the failed VM details will show the paused as failed.
 
 ## Next steps

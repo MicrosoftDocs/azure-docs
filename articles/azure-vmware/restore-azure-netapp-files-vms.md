@@ -3,7 +3,7 @@ title: Restore VMs using Cloud Backup for Virtual Machines
 description: Learn how to restore virtual machines from a cloud backup to the vCenter. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 07/25/2022
+ms.date: 08/10/2022
 ---
 
 # Restore VMs using Cloud Backup for Virtual Machines
@@ -22,7 +22,7 @@ When you restore a VM, you can overwrite the existing content with the backup co
 
 You can restore VMs to the original datastore mounted on the original ESXi host (this overwrites the original VM).
 
-### Prerequisites
+## Prerequisites
 
 * A backup must exist. <br>
 You must have created a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
@@ -45,22 +45,23 @@ You must have created a backup of the VM using the Cloud Backup for Virtual Mach
 ### Restore a VM from a backup
 
 1.	In the VMware vSphere web client GUI, select **Menu** in the toolbar. Select **Inventory** and then  **Virtual Machines and Templates**.
-1.	In the left navigation, right-click a Virtual Machine, then select **NetApp Cloud Backup** in the drop-down list. Select **Restore** to initiate the wizard.
+1.	In the left navigation, right-click a Virtual Machine, then select **NetApp Cloud Backup**. In the drop-down list, select **Restore** to initiate the wizard.
 1.	In the Restore wizard, on the **Select Backup** page, select the backup snapshot copy that you want to restore.
-    You can search for a specific backup name or a partial backup name, or you can filter the backup list by selecting the filter icon and then choosing a date and time range, selecting whether you want backups that contain VMware snapshots, whether you want mounted backups, and the location. Select **OK** to return to the wizard.
+    > [!NOTE]
+    > You can search for a specific backup name or a partial backup name, or you can filter the backup list by selecting the filter icon and then choosing a date and time range, selecting whether you want backups that contain VMware snapshots, whether you want mounted backups, and the location. Select **OK** to return to the wizard.
 1. On the **Select Scope** page, select **Entire Virtual Machine** in the **Restore scope** field, then select **Restore location**, and then enter the destination ESXi information where the backup should be mounted.
 1. When restoring partial backups, the restore operation skips the Select Scope page.
 1. Enable **Restart VM** checkbox if you want the VM to be powered on after the restore operation.
 1. On the **Select Location** page, select the location for the primary or secondary location.
 1. Review the **Summary** page and then select **Finish**.
-1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the screen.
+1. **Optional:** Monitor the operation progress by selecting Recent Tasks at the bottom of the screen.
 1. Although the VMs are restored, they are not automatically added to their former resource groups. Therefore, you must manually add the restored VMs to the appropriate resource groups.
 
 ## Restore deleted VMs from backups
 
 You can restore a deleted VM from a datastore primary or secondary backup to an ESXi host that you select. You can also restore VMs to the original datastore mounted on the original ESXi host, which creates a clone of the VM.
 
-### Prerequisites
+## Prerequisites
 
 * You must have added the Azure cloud Subscription account.
     The user account in vCenter must have the minimum vCenter privileges required for Cloud Backup for Virtual Machines.
@@ -74,19 +75,19 @@ You cannot restore a datastore, but you can restore any VM in the datastore.
 ### Restore deleted VMs
 
 1. Select **Menu** and then select the **Inventory** option.
-1. Select a datastore, then select the **Configure** tab, and then select **Backups in the Cloud Backup for Virtual Machines** section.
-1. Select (double-click) on a backup to see a list of all VMs that are included in the backup.
+1. Select a datastore, then select the **Configure** tab, then the **Backups in the Cloud Backup for Virtual Machines** section.
+1. Select (double-click) a backup to see a list of all VMs that are included in the backup.
 1. Select the deleted VM from the backup list and then select **Restore**.
 1. On the **Select Scope** page, select **Entire Virtual Machine** in the **Restore scope field**, then select the restore location, and then enter the destination ESXi information where the backup should be mounted.
 1. Enable **Restart VM** checkbox if you want the VM to be powered on after the restore operation.
 1. On the **Select Location** page, select the location of the backup that you want to restore to.
-1. Review the **Summary** page and then select **Finish**.
+1. Review the **Summary** page, then select **Finish**.
 
 ## Restore VMDKs from backups
 
 You can restore existing VMDKs or deleted or detached VMDKs from either a primary or secondary backup. You can restore one or more VMDKs on a VM to the same datastore.
 
-### Prerequisites
+## Prerequisites
 
 * A backup must exist.
     You must have created a backup of the VM using the Cloud Backup for Virtual Machines.
@@ -100,13 +101,13 @@ You can restore existing VMDKs or deleted or detached VMDKs from either a primar
 
 ### Restore VMDKs
 
-1. In the VMware vSphere web client GUI, select Menu in the toolbar. Then select **Inventory** and then  **Virtual Machines and Templates**.
-1. In the left navigation, right-click a VM, then select **NetApp Cloud Backup**. In the drop-down list, and then select **Restore**.
-1. In the Restore wizard, on the **Select Backup** page, select the backup copy from which you want to restore. To find the backup, either:
+1. In the VMware vSphere web client GUI, select **Menu** in the toolbar. Select **Inventory**, then **Virtual Machines and Templates**.
+1. In the left navigation, right-click a VM and select **NetApp Cloud Backup**. In the drop-down list, select **Restore**.
+1. In the Restore wizard, on the **Select Backup** page, select the backup copy from which you want to restore. To find the backup, do one of the following options:
     * Search for a specific backup name or a partial backup name
-    * Filter the backup list by selecting the filter icon and selecting a date and time range, selecting whether you want backups that contain VMware snapshots, whether you want mounted backups, and primary location.
+    * Filter the backup list by selecting the filter icon and a date and time range. Select if you want backups that contain VMware snapshots, if you want mounted backups, and primary location.
     Select **OK** to return to the wizard.
-1. On the **Select Scope** page, select **Particular virtual disk** in the Restore scope field, then select the virtual disk and destination datastore
+1. On the **Select Scope** page, select **Particular virtual disk** in the Restore scope field, then select the virtual disk and destination datastore.
 1. On the **Select Location** page, select the snapshot copy that you want to restore.
 1. Review the **Summary** page and then select **Finish**.
 1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the screen.
