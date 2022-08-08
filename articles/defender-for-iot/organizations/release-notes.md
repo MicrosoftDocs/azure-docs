@@ -112,7 +112,8 @@ Now you can add any of the following parameters to your query to fine tune your 
 - “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**.
 - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
-For more information, see [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
+For more information, see [Management console APIs - Version 3](references-work-with-defender-for-iot-apis.md#version-3-3).
+
 
 ### OT appliance hardware profile updates
 
