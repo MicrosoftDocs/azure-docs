@@ -145,7 +145,7 @@ Run the command that you received and saved when you registered the Enterprise I
 
 **To install the sensor**:
 
-1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
+1. Sign in to the sensor's CLI using a terminal, such as PuTTY, or MobaXterm.
 
 1. Run the command that you saved from [setting up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
 

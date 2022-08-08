@@ -1,6 +1,8 @@
 ---
 title: Overview of Microsoft Defender for Servers 
 description: Learn about the benefits and features of Microsoft Defender for Servers.
+author: bmansheim
+ms.author: benmansheim
 ms.date: 06/22/2022
 ms.topic: conceptual
 ---
@@ -10,6 +12,7 @@ Microsoft Defender for Servers is one of the plans provided by Microsoft Defende
 
 - Watch a [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
 - Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+- [Enable Defender for Servers on your subscriptions](enable-enhanced-security.md).
 
 ## Defender for Servers plans
 
@@ -35,6 +38,7 @@ The following table summarizes what's included in each plan.
 | **Unified view** | The Defender for Cloud portal displays Defender for Endpoint alerts. You can then drill down into Defender for Endpoint portal, with additional information such as the alert process tree, the incident graph, and a detailed machine timeline showing historical data up to six months.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Automatic MDE provisioning** | Automatic provisioning of Defender for Endpoint on Azure, AWS, and GCP resources. | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Microsoft threat and vulnerability management** |  Discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, without needing  other agents or periodic scans. [Learn more](deploy-vulnerability-assessment-tvm.md). | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Security Policy and Regulatory Compliance** | Customize a security policy for your subscription and also compare the configuration of your resources with requirements in industry standards, regulations, and benchmarks. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Integrated vulnerability assessment powered by Qualys** | Use the Qualys scanner for real-time identification of vulnerabilities in Azure and hybrid VMs. Everything's handled by Defender for Cloud. You don't need a Qualys license or even a Qualys account. [Learn more](deploy-vulnerability-assessment-vm.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Log Analytics 500 MB free data ingestion** | Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Threat detection** | Defender for Cloud detects threats at the OS level, network layer, and control plane. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |

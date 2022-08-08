@@ -129,7 +129,7 @@ For example, you may have more devices that require monitoring if you're increas
 
 1. Select the **I accept the terms** option, and then select **Save**.
 
-Changes to your plan will take effect one hour after confirming the change. Billing for these changes will be reflected at the beginning of the month following confirmation of the change.
+Changes to your plan will take effect one hour after confirming the change.  This change will appear on your next monthly statement, and you will be charged based on the length of time each plan was in effect.
 
 > [!NOTE]
 > **For an on-premises management console:**
@@ -137,7 +137,7 @@ Changes to your plan will take effect one hour after confirming the change. Bill
 
 ## Cancel a Defender for IoT plan from a subscription
 
-You may need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a new payment entity. Your changes take effect one hour after confirmation. Your upcoming monthly bill will reflect this change.
+You may need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a new payment entity. Your changes take effect one hour after confirmation. This change will be reflected in your upcoming monthly statement, and you will only be charged for the time that the subscription was active.
 This option removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT services.
 
 Delete all sensors that are associated with the subscription prior to removing the plan. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).

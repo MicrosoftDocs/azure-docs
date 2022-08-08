@@ -179,6 +179,8 @@
     - name: Prepare data for computer vision with AutoML
       displayName: nlp, auto ML, automl, SDK
       href: how-to-prepare-datasets-for-automl-images-v1.md
+    - name: Reinforcement learning
+      href: how-to-use-reinforcement-learning.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
@@ -236,7 +238,7 @@
           displayName: track production
           href: ../how-to-enable-data-collection.md
         - name: Monitor with Application Insights
-          href: ../how-to-enable-app-insights.md
+          href: how-to-enable-app-insights.md
     - name: Deploy designer models
       displayName: designer, studio
       href: ../how-to-deploy-model-designer.md
