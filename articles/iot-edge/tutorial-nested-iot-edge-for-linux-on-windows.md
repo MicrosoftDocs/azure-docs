@@ -54,7 +54,9 @@ To create a hierarchy of IoT Edge devices, you'll need:
 * Two Windows devices running Azure IoT Edge for Linux on Windows. Both devices should be deployed using an **external virtual switch**.
 
 > [!TIP]
-> It is possible to use **internal** or **default** virtual switch if a port forwarding is configured on the Windows host OS. However, for the simplicity of this tutorial, both devices should use an **external** virtual switch and be connected to the same external network. For more information about netowrking, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md) and [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
+> It is possible to use **internal** or **default** virtual switch if a port forwarding is configured on the Windows host OS. However, for the simplicity of this tutorial, both devices should use an **external** virtual switch and be connected to the same external network. 
+>
+> For more information about netowrking, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md) and [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 >
 > If you need to set up the EFLOW devices on a DMZ, see [How to configure Azure IoT Edge for Linux on Windows Industrial IoT & DMZ configuration](how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md).
 
@@ -64,7 +66,8 @@ To create a hierarchy of IoT Edge devices, you'll need:
   * 443: Used between parent and child edge hubs for REST API calls and to pull docker container images.
   * 5671, 8883: Used for AMQP and MQTT.
 
-  For more information on EFLOW virtual machine firewall, see [IoT Edge for Linux on Windows security](iot-edge-for-linux-on-windows-security.md).
+> [!TIP]
+> For more information on EFLOW virtual machine firewall, see [IoT Edge for Linux on Windows security](iot-edge-for-linux-on-windows-security.md).
 
 ## Configure your IoT Edge device hierarchy
 
@@ -170,9 +173,8 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles c
 
 Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the configuration bundles to each device. You'll first need to copy the configuration bundle to the Windows host OS of each EFLOW device and then copy it to the EFLOW VM. 
 
->[!EARNING]
-> Be sure to send the correct configuration bundle to each device.
-
+> [!WARNING]
+> Be sure to send the correct configuration bundle to each device. 
 
 ##### Top-layer device configuration
 
@@ -195,11 +197,13 @@ Each device needs its corresponding configuration bundle. You can use a USB driv
     ```
 
 1. Get the EFLOW virtual machine IP address - Check for the _inet addr_ field.
-  ```bash
-   ifconfig eth0
-   ```
-   >[!NOTE]
-   > On the **top layer device**, you will receive a prompt to enter the hostname. Supply the appropriate IP or FQDN. You can use either, but be consistent in your choice across devices. 
+
+    ```bash
+    ifconfig eth0
+    ```
+
+    > [!NOTE]
+    > On the **top layer device**, you will receive a prompt to enter the hostname. Supply the appropriate IP or FQDN. You can use either, but be consistent in your choice across devices. 
 
 1. Run the _install.sh_ script - When asked the _hostname_ use the IP address obtained in the previous step.
    ```bash
@@ -210,32 +214,35 @@ Each device needs its corresponding configuration bundle. You can use a USB driv
    ![Installing the configuration bundles will update the config.toml files on your device and restart all IoT Edge services automatically](./media/tutorial-nested-iot-edge/configuration-install-output.png)
 
 1. Apply the correct certificate permissions and restart the IoT Edge runtime.
+
    ```bash
    sudo chmod -R 755 /etc/aziot/certificates/
    sudo iotedge system restart
    ```
 
 1. Check that all IoT Edge services are running correctly. 
-  ```bash
-   sudo iotedge system status
-   ```
+
+    ```bash
+    sudo iotedge system status
+    ```
 
 1. Finally, add the appropriate firewall rules to enable connectivity between the lower-layer device and top-layer device.
-   ```bash
-   sudo iptables -A INPUT -p tcp --dport 5671 -j ACCEPT
-   sudo iptables -A INPUT -p tcp --dport 8883 -j ACCEPT
-   sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-   sudo iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-   sudo iptables-save | sudo tee /etc/systemd/scripts/ip4save
-   ```
 
-If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-parent-device).
+    ```bash
+    sudo iptables -A INPUT -p tcp --dport 5671 -j ACCEPT
+    sudo iptables -A INPUT -p tcp --dport 8883 -j ACCEPT
+    sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+    sudo iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables-save | sudo tee /etc/systemd/scripts/ip4save
+    ```
 
 1. Run the configuration and connectivity checks on your devices.
 
-   ```bash
-   sudo iotedge check
-   ```
+    ```bash
+    sudo iotedge check
+    ```
+
+If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-parent-device).
 
 ##### Lower-layer device configuration
 
@@ -265,36 +272,37 @@ If you want a closer look at what modifications are being made to your device's 
     If everything was correctly configured, you should be able to see the ping responses from the top-layer device. 
 
 1. Get the EFLOW virtual machine IP address - Check for the _inet addr_ field.
-  ```bash
-   ifconfig eth0
-   ```
-   >[!NOTE]
-   > On the **lower layer device**, you will receive a prompt to enter the hostname and the parent hostname. Supply the appropriate **top-layer device** IP or FQDN. You can use either, but be consistent in your choice across devices.sudo
+
+    ```bash
+    ifconfig eth0
+    ```
+
+    >[!NOTE]
+    > On the **lower layer device**, you will receive a prompt to enter the hostname and the parent hostname. Supply the appropriate **top-layer device** IP or FQDN. You can use either, but be consistent in your choice across devices.sudo
 
 1. Run the _install.sh_ script - When asked the _hostname_ use the IP address obtained in the previous step.
-   ```bash
-   sudo sh ./install.sh
+    ```bash
+    sudo sh ./install.sh
+    ```
 
 1. Apply the correct certificate permissions and restart the IoT Edge runtime.
-   ```bash
-   sudo chmod -R 755 /etc/aziot/certificates/
-   sudo iotedge system restart
-   ```
+    ```bash
+    sudo chmod -R 755 /etc/aziot/certificates/
+    sudo iotedge system restart
+    ```
 
 1. Check that all IoT Edge services are running correctly. 
-  ```bash
-   sudo iotedge system status
-   ```
-  
-If you completed the above steps correctly, you can check your devices are configured correctly.
+    ```bash
+    sudo iotedge system status
+    ```
 
 1. Run the configuration and connectivity checks on your devices. For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
 
-   ```bash
-   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
-   ```
+    ```bash
+    sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
+    ```
 
-Once you're satisfied your configurations are correct on each device, you're ready to proceed.
+If you completed the above steps correctly, you can check your devices are configured correctly. Once you're satisfied your configurations are correct on each device, you're ready to proceed.
 
 ## Deploy modules to your devices
 
