@@ -524,20 +524,171 @@ The automated ML training runs generates output model files, evaluation metrics,
 > [!TIP]
 > Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-run-results) section.
 
-For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md#metrics-for-image-models-preview)
+For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md#metrics-for-image-models-preview).
 
 ## Register and deploy model
 
-Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric).
+Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  Note: If you want to change the inference settings that are described below you need to download the model and change settings.json and register using the updated model folder.
 
-You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
-Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and select the **Deploy**.  
+### Get the best run
 
-![Select model from the automl runs in studio UI  ](./media/how-to-auto-train-image-models/select-model.png)
+# [Python SDK v2 (preview)](#tab/SDK-v2)
 
-You can configure the model deployment endpoint name and the inferencing cluster to use for your model deployment in the **Deploy a model** pane.
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
-![Deploy configuration](./media/how-to-auto-train-image-models/deploy-image-model.png)
+### create a local folder and download
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_folder)]
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
+    
+### register the model
+
+Register the model either using the azureml path or your locally downloaded path. 
+
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+ az ml model create --name od-fridge-items-mlflow-model --version 1 --path azureml://jobs/$best_run/outputs/artifacts/outputs/mlflow-model/ --type mlflow_model --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
+
+After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-managed-online-endpoint-sdk-v2)
+
+### Configure online endpoint
+
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+name: od-fridge-items-endpoint
+auth_mode: key
+```
+    
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
+
+### Create the endpoint
+
+Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+```azurecli
+az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
+
+### Configure online deployment
+
+A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class. You can use either GPU or CPU VM SKUs for your deployment cluster.
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+name: od-fridge-items-mlflow-deploy
+endpoint_name: od-fridge-items-endpoint
+model: azureml:od-fridge-items-mlflow-model@latest
+instance_type: Standard_DS3_v2
+instance_count: 1
+liveness_probe:
+    failure_threshold: 30
+    success_threshold: 1
+    timeout: 2
+    period: 10
+    initial_delay: 2000
+readiness_probe:
+    failure_threshold: 10
+    success_threshold: 1
+    timeout: 10
+    period: 10
+    initial_delay: 2000 
+```
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
+
+
+### Create the deployment
+
+Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml online-deployment create --file .\create_deployment.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
+
+### update traffic:
+By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point should not exceed 100%.
+
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fridge-items-mlflow-deploy=100' --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
+   
+
+Alternatively You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
+Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and click on **Deploy** and select **Deploy to real-time endpoint** .  
+
+![Deploy configuration](./media/how-to-auto-train-image-models/deploy-endpoint.png)
+
+this is how your review page looks like. we can select instance type, instance count and set traffic percentage for the current deployment.
+
+![Deploy configuration](./media/how-to-auto-train-image-models/review-deploy1.png)
+![Deploy configuration](./media/how-to-auto-train-image-models/review-deploy2.png)
+
+### Update inference settings
+
+In the previous step, we downloaded a file `mlflow-model/artifacts/settings.json` from the best model. which can be used to update the inference settings before registering the model. Although its's recommended to use the same parameters as training for best performance.
+
+Each of the tasks (and some models) have a set of parameters. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
+
+| Task | Parameter name | Default  |
+|--------- |------------- | --------- |
+|Image classification (multi-class and multi-label) | `valid_resize_size`<br>`valid_crop_size` | 256<br>224 |
+|Object detection | `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img` | 600<br>1333<br>0.3<br>0.5<br>100 |
+|Object detection using `yolov5`| `img_size`<br>`model_size`<br>`box_score_thresh`<br>`nms_iou_thresh` | 640<br>medium<br>0.1<br>0.5 |
+|Instance segmentation| `min_size`<br>`max_size`<br>`box_score_thresh`<br>`nms_iou_thresh`<br>`box_detections_per_img`<br>`mask_pixel_score_threshold`<br>`max_number_of_polygon_points`<br>`export_as_image`<br>`image_type` | 600<br>1333<br>0.3<br>0.5<br>100<br>0.5<br>100<br>False<br>JPG|
+
+For a detailed description on task specific hyperparameters, please refer to [Hyperparameters for computer vision tasks in automated machine learning](./reference-automl-images-hyperparameters.md).
+    
+If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](./how-to-use-automl-small-object-detect.md).
+
+
+
+
+## Example notebooks
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
+
+
 
 ## Code examples
 # [CLI v2](#tab/CLI-v2)
