@@ -354,6 +354,8 @@
       items:
       - name: Admin user name not literal
         href: linter-rule-admin-username-should-not-be-literal.md
+      - name: Artifacts parameters
+        href: linter-rule-artifacts-parameters.md
       - name: Max outputs
         href: linter-rule-max-outputs.md
       - name: Max parameters
@@ -384,6 +386,8 @@
         href: linter-rule-prefer-unquoted-property-names.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
+      - name: Secure secrets in parameters
+        href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
         href: linter-rule-simplify-interpolation.md
       - name: Use explicit values for module location parameters

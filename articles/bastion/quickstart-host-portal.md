@@ -2,14 +2,13 @@
 title: 'Quickstart: Deploy Bastion with default settings'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Bastion with default settings from the Azure portal.
-services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
 ms.date: 08/02/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021, mode-other
-#Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
+
 ---
 
 # Quickstart: Deploy Azure Bastion with default settings
@@ -78,22 +77,22 @@ When you deploy from VM settings, Bastion is automatically configured with defau
 When you create Azure Bastion using default settings, the settings are configured for you. You can't modify or specify additional values for a default deployment. After deployment completes, you can always go to the bastion host **Configuration** page to select additional settings and features. For example, the default SKU is the Basic SKU. You can later upgrade to the Standard SKU to support more features. For more information, see [About configuration settings](configuration-settings.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment. 
-1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**. You can view some of the values that will be used when creating the bastion host for your virtual network. Select **Create Azure Bastion using defaults**. 
+1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment.
+1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**. When the **Bastion** page opens, it checks to see if you have enough available address space to create the AzureBastionSubnet. If you don't, you'll see settings to allow you to add more address space to your VNet to meet this requirement.
+1. On the **Bastion** page, you can view some of the values that will be used when creating the bastion host for your virtual network. Select **Create Azure Bastion using defaults** to deploy bastion using default settings.
 
    :::image type="content" source="./media/quickstart-host-portal/deploy-bastion.png" alt-text="Screenshot of Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion.png":::
 
 1. Bastion begins deploying. This can take around 10 minutes to complete.
 
-   :::image type="content" source="./media/quickstart-host-portal/creating-bastion.png" alt-text="Screenshot of Bastion resources being created." lightbox="./media/quickstart-host-portal/creating-bastion.png":::
-
 ## <a name="connect"></a>Connect to a VM
 
 When the Bastion deployment is complete, the screen changes to the **Connect** page.
 
-1. Type the username and password for your virtual machine. Then, select **Connect**.
+1. Type your authentication credentials. Then, select **Connect**.
 
    :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Screenshot shows the Connect using Azure Bastion dialog." lightbox="./media/quickstart-host-portal/connect-vm.png":::
+
 1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
 
    * When you connect, the desktop of the VM may look different than the example screenshot.
@@ -121,7 +120,8 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can continue with the following steps if you want to copy and paste to your VM.
+In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
 
 > [!div class="nextstepaction"]
-> [Copy and paste to a Windows VM](bastion-vm-copy-paste.md)
+> [VM connections](vm-about.md)
+> [Azure Bastion configuration settings and features](configuration-settings.md).

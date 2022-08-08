@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/05/2022
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -34,7 +34,7 @@ The transact publishing option is currently supported for the following offer ty
 
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
-| Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
+| Azure Application <br>(Managed application) | Monthly | Yes | Usage-based and flat rate |
 | Azure Virtual Machine | Monthly [1] | No | Usage-based, BYOL |
 | Software as a service (SaaS) | One-time upfront monthly, annual [2,3] | Yes | Flat rate, per user, usage-based. |
 | Dynamics 365 apps on Dataverse and Power Apps [4] | Monthly and annual | No | Per user |
@@ -82,12 +82,17 @@ Use this flowchart to determine the appropriate *transactable* offer type and pr
 
 Generally, SaaS offers are a good fit if your customers just want to subscribe to your service and use it online. With SaaS, the publisher (you) host the software in your cloud infrastructure, managing technical infrastructure, app software, and data management responsibilities.
 
-Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own cloud infrastructure.
+Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own Azure cloud infrastructure.
 
 [![Illustration showing a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).<br>
-&nbsp;&nbsp;&nbsp;<sup>(2)</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.<br>
-&nbsp;&nbsp;&nbsp;<sup>(3)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
+
+[1] Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).
+
+[2] VM offer images can be included in the Azure App offer to increase pricing and deployment flexibility.
+
+[3] This can include your own VM offers.
+
+[4] Customer pays additional infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
 ### Usage-based and subscription pricing
 
