@@ -57,7 +57,7 @@ Azure Stack Edge Pro FPGA has the following capabilities:
 
 ## Components
 
-The Azure Stack Edge Pro FPGA solution comprises of Azure Stack Edge resource, Azure Stack Edge Pro FPGA physical device, and a local web UI.
+The Azure Stack Edge Pro FPGA solution comprises Azure Stack Edge resource, Azure Stack Edge Pro FPGA physical device, and a local web UI.
 
 * **Azure Stack Edge Pro FPGA physical device**: A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
     

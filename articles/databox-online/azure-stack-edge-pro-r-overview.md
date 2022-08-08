@@ -57,7 +57,7 @@ Here are the various scenarios where Azure Stack Edge Pro R can be used for rapi
 
 ## Components
 
-The Azure Stack Edge Pro R solution comprises of an Azure Stack Edge resource, Azure Stack Edge Pro R rugged, physical device, and a local web UI.
+The Azure Stack Edge Pro R solution comprises an Azure Stack Edge resource, Azure Stack Edge Pro R rugged, physical device, and a local web UI.
 
 - **Azure Stack Edge Pro R physical device** - A 1-node compute and storage device contained in a rugged transit case. An optional Uninterruptible Power Supply (UPS) is also available.
 

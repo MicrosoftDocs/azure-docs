@@ -71,7 +71,7 @@ The Network Adapters used are:
 |Network Daughter Card (rNDC) |QLogic FastLinQ 41264 Dual Port 25GbE SFP+, Dual Port 1GbE, rNDC|
 |PCI Network Adapter |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 Adapter|
 
-Please consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) are not included in the delivery of Azure Stack Edge. 
+Please consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) is not included in the delivery of Azure Stack Edge. 
 
 ## Storage specifications
 

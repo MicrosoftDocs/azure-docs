@@ -43,7 +43,7 @@ There are two options for adding the NVIDIA device plugin:
 
 ### Update your cluster to use the AKS GPU image (preview)
 
-AKS provides is providing a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
+AKS provides a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
 Register the `GPUDedicatedVHDPreview` feature:
 
