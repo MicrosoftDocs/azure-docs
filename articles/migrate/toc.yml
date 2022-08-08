@@ -46,10 +46,20 @@
         href: tutorial-assess-webapps.md
       - name: Assess servers for migration to AVS
         href: tutorial-assess-vmware-azure-vmware-solution.md
-    - name: Assess servers in Hyper-V environment for migration to Azure VMs
-      href: tutorial-assess-hyper-v.md
+    - name: Assess servers in Hyper-V environment 
+      items:
+      - name: Assess servers for migration to Azure VMs
+        href: tutorial-assess-hyper-v.md
+      - name: Assess SQL instances for migration to Azure SQL
+        href: tutorial-assess-sql.md
+    - name: Assess physical servers
+      items:
+      - name: Assess servers for migration to Azure VMs
+        href: tutorial-assess-physical.md
+      - name: Assess SQL instances for migration to Azure SQL
+        href: tutorial-assess-sql.md
     - name: Assess physical servers for migration to Azure
-      href: tutorial-assess-physical.md
+      href: 
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure

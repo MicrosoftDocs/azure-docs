@@ -126,8 +126,8 @@
         href: ./samples/pci-dss-3-2-1.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
-      - name: New Zealand ISM Restricted
-        href: ./samples/new-zealand-ism.md
+      - name: New Zealand ISM Restricted v3.5
+        href: ./samples/NZ_ISM_Restricted_v3_5.md
       - name: NIST SP 800-53 Rev. 5
         href: ./samples/nist-sp-800-53-r5.md
       - name: NIST SP 800-53 Rev. 4

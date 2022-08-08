@@ -179,6 +179,8 @@
     - name: Prepare data for computer vision with AutoML
       displayName: nlp, auto ML, automl, SDK
       href: how-to-prepare-datasets-for-automl-images-v1.md
+    - name: Reinforcement learning
+      href: how-to-use-reinforcement-learning.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
@@ -204,11 +206,11 @@
         - name: Local
           href: ../how-to-deploy-local-container-notebook-vm.md
         - name: GPU inference
-          href: ../how-to-deploy-inferencing-gpus.md
+          href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search
           href: ../how-to-deploy-model-cognitive-search.md
         - name: FPGA inference
-          href: ../how-to-deploy-fpga-web-service.md
+          href: how-to-deploy-fpga-web-service.md
     - name: Profile models
       displayName: profile resource requirement
       href: ../how-to-deploy-profile-model.md
