@@ -2829,7 +2829,9 @@
       - name: H5mag
         href: h5mag-provisioning-tutorial.md
       - name: Ideo
-        href: ideo-provisioning-tutorial.md        
+        href: ideo-provisioning-tutorial.md
+      - name: Ideagen Cloud
+        href: ideagen-cloud-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: iPass SmartConnect
