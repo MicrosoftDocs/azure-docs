@@ -20,10 +20,10 @@ This is an Azure Cognitive Search article that explains how to add data explorat
 In this walkthrough, you'll set up a workbook that does the following:
 
 > [!div class="checklist"]
-> + Loads various forms (invoices) into a data frame
-> + Analyzes them to determine their features
-> + Assembles the output into a tabular data structure
-> + Writes the output to a search index in Azure Cognitive Search, where you can explore and search over the content you created
+> + Load various forms (invoices) into a data frame
+> + Analyze them to determine their features
+> + Assemble the output into a tabular data structure
+> + Write the output to a search index in Azure Cognitive Search, where you can explore and search over the content you created
 
 > [!NOTE]
 > Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough uses SynapseML to access AI capabilities outside of Cognitive Search. Since you're not using indexers or skills in this approach, you're not limited by their constraints.
@@ -34,11 +34,11 @@ You'll need multiple Azure resources. If possible, use the same subscription and
 
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier)
 + [Azure Forms Recognizer](../applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md) (any tier)
++ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>1</sup>
 + [Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md), Standard or Premium
 + [Azure Synapse Analytics](../synapse-analytics/get-started-create-workspace.md) (any tier)
-+ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>1</sup>
 
-<sup>1</sup> The Azure Databricks quickstart includes multiple steps. Follow just the instructions in the "Create an Azure Databricks workspace" section.
+<sup>1</sup> The Azure Databricks link includes multiple steps. Follow just the workspace creation instructions in the "Create an Azure Databricks workspace" section.
 
 The following screenshot shows a resource group with the required resources.
 
@@ -52,9 +52,6 @@ The following screenshot shows a resource group with the required resources.
 The sample data consists of 10 invoices of various compositions. A small data set speeds up processing and meets the requirements of minimum tiers, but the approach described in this exercise will work for large volumes of data.
 
 + *HS: I need the invoices. Are the PDFs wrapping JPEG images of each invoice, and is that why we need Computer Vision?*
-+ *HS: I'll upload the sample files to the Azure Search sample data repo once I get them.*
-+ *HS: FYI I'm using the same ADLS GEN2 that Synapse needs to store the sample data. Should be okay but I'm just mentioning it in case it matters. The endpoint looks the same for both regular blob storage and ADLS Gen2.*
-+ *HS: I'll add at least 1 screenshot for each section, but I'm only mentioning it in this one.*
 
 1. Download the sample data from the Azure Search Sample data repository.
 
