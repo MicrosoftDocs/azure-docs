@@ -187,8 +187,8 @@ A composed model is created by taking a collection of custom models and assignin
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  | 
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |  
 | [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ | 
-| [prebuilt-idDocument](concept-id-document.md#field-extraction) | ✓ |   |   |  | ✓ |   |  | ✓ | 
-| [prebuilt-businessCard](concept-business-card.md#field-extraction)  | ✓  |   |   |  | ✓ |   |  | ✓ | 
+| [prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ | 
+| [prebuilt-businessCard](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ | 
 | [Custom](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ | 
 
 ## Input requirements
