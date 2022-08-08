@@ -22,7 +22,7 @@ The following steps show how to use the Azure portal to create a lab plan.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** at the top left of the screen.
 1. Select **All services** in the left menu.  Search for **Lab plans**.
-1. Select the **Lab plans (preview)** tile, select **Create**.
+1. Select the **Lab plans** tile, select **Create**.
 
     :::image type="content" source="./media/quick-create-lab-plan-portal/select-lab-plans-service.png" alt-text="Screenshot that shows the Lab plan tile for Azure Marketplace.":::
 
