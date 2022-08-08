@@ -4,16 +4,24 @@ titleSuffix: Azure API Management
 description: How to customize the API Management developer portal with custom functionality such as custom widgets.
 author: dlepow
 ms.author: danlep
-ms.date: 08/05/2022
+ms.date: 08/08/2022
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Extend the developer portal with custom features
 
-This article explains three ways to add functionality such as custom widgets to your API Management [developer portal](api-management-howto-developer-portal.md). For example, you might want to integrate your developer portal with a custom support system and need to add a custom control to the developer portal.
+This article explains three ways to add functionality such as custom widgets to your API Management [developer portal](api-management-howto-developer-portal.md). For example, you might want to integrate your developer portal with a custom support system and need to add a custom control.
 
-The following table summarizes the three options. Later sections of the article provide more detail.
+The following table summarizes three options, with links to more detail.
+
+
+|Method   |Description  |
+|---------|---------|
+|[Custom HTML code widget](#use-custom-html-code-widget)     | - Easy way for API publishers to add custom logic for basic use cases<br/><br/>- Copy and paste widget HTML code into a form and developer portal renders in an iframe<br/><br/>- No code management features in portal        |
+|[Create and upload custom widget](#create-and-upload-custom-widgets)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold provided to help developers create widget and upload to developer portal<br/><br/>- Supports workflows for source control, versioning, and code reuse<br/><br/>        |
+|[Self-host developer portal]()     | - Legacy extensibility option to customize source code of the entire portal core<br/><br/> - Gives complete flexibility for customizing portal experience<br/><br/>- Customer responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade       |
+
 
 ## Use Custom HTML code widget
 
@@ -38,12 +46,12 @@ The managed developer portal includes a **Custom HTML code** widget that enables
 > [!NOTE]
 > Microsoft does not support the HTML code you add in the Custom HTML Code widget.
 
-## Create and upload custom widgets
+## Create and upload custom widget
 
 ### Prerequisites 
  
-* Active [Developer portal](api-management-howto-developer-portal.md) 
-* Installed [Node.JS runtime](https://nodejs.org/en/) locally 
+* Active [eveloper portal](api-management-howto-developer-portal.md) 
+* Install [Node.JS runtime](https://nodejs.org/en/) locally 
 * Basic knowledge of programming and web development
 
 ### Create widget
@@ -75,7 +83,7 @@ The managed developer portal includes a **Custom HTML code** widget that enables
     Your browser should open a new tab with your developer portal connected to your widget in development mode.  
 
     > [!NOTE]
-    > If the tab doesn't open, go to your API Management service in the Azure portal and open developer portal in editor mode (as a user). Add `/?MS_APIM_CW_localhost_port=3000` to the URL. Make sure the development server started on port 3000. To do that, check output on the console where you started the server in the previous step. It should dispaly the port the server is running on (for example, `http://127.0.0.1:3001`). 
+    > If the tab doesn't open, go to your API Management service in the Azure portal and open developer portal in editor mode (as a user). Add `/?MS_APIM_CW_localhost_port=3000` to the URL, amd make sure the development server started. To do that, check output on the console where you started the server in the previous step. It should dispaly the port the server is running on (for example, `http://127.0.0.1:3001`). 
     > 
 
 1. Implement the code of the widget and test it locally. The code of the widget is located in the `src` folder. The widget code is in the following subfolders: 
