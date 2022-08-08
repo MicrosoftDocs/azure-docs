@@ -8,12 +8,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Install Bicep tools
 
-Let's make sure your environment is set up for working with Bicep files. There are two main tasks you need to perform:
-
-* author Bicep files
-* deploy Bicep files
-
-For those tasks, we recommend any of the following options:
+Let's make sure your environment is set up for working with Bicep files. To author and deploy Bicep files, we recommend any of the following options:
 
 | Tasks | Options | Bicep CLI installation |
 | ------ | ------- | ----------- |
@@ -21,7 +16,7 @@ For those tasks, we recommend any of the following options:
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
 |  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
-|  | [Air-gapped cloud](#install-on-air-gapped-cloud) | manual |
+|  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
 ## VS Code and Bicep extension
 
