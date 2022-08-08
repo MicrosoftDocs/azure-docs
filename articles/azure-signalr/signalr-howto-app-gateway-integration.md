@@ -95,8 +95,8 @@ Now, we already setup the Virtual Network, SignalR Service and Application Gatew
 
     :::image type="content" source="./media/signalr-howto-app-gateway-integration/step11.png" alt-text="Setup the health probe for the Azure SignalR.":::
 * Go to the Overview blade of **_AG1_**, and find out the Frontend public IP address 
-* Open http://<frontend-public-IP-address>, and it should return 403.
-* Open http://<frontend-public-IP-address>/api/v1/health, and it should return 200. 
+* Open `http://<frontend-public-IP-address>`, and it should return 403.
+* Open `http://<frontend-public-IP-address>/api/v1/health`, and it should return 200. 
 * Go back to the network access control blade of **_ASRS1_** and disable the server connection in public network.  
 
 ## Run a Chat Application Locally  

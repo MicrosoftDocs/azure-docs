@@ -134,8 +134,9 @@
     - name: Event Grid integration
       href: signalr-howto-event-grid-integration.md
     - name: Integrate with reverse proxies
-      href: signalr-howto-reverse-proxy-overview.md
       items:
+        - name: Overview
+          href: signalr-howto-reverse-proxy-overview.md
         - name: Integrate with App Gateway
           href: signalr-howto-app-gateway-integration.md
   - name: Monitor
