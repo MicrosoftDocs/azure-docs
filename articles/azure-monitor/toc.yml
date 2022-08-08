@@ -1611,6 +1611,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+  - name: Azure alerts management SDK for Python
+    href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates
     items:
     - name: Azure Monitor
