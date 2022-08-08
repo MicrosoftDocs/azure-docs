@@ -22,7 +22,7 @@ Within a Conditional Access policy, an administrator can use access controls to 
 
 ## Block access
 
-The control for blocking access considers any assignments and prevents access based on the **Conditional Access policy** configuration.
+The control for blocking access considers any assignments and prevents access based on the Conditional Access policy configuration.
 
 **Block access** is a powerful control that you should apply with appropriate knowledge. Policies with block statements can have unintended side effects. Proper testing and validation are vital before you enable the control at scale. Administrators should use tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
 
@@ -58,8 +58,6 @@ A device can be marked as compliant by Intune for any device operating system or
 
 Devices must be registered in Azure AD before they can be marked as compliant. You can find more information about device registration in [What is a device identity?](../devices/overview.md).
 
-For devices enrolled with third-party mobile device management systems, see [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
-
 The **Require device to be marked as compliant** control:
    - Only supports Windows 10+, iOS, Android, and macOS devices registered with Azure AD and enrolled with Intune.
    - Considers Microsoft Edge in InPrivate mode a non-compliant device.
@@ -67,23 +65,23 @@ The **Require device to be marked as compliant** control:
 > [!NOTE]
 > On Windows 7, iOS, Android, macOS, and some third-party web browsers, Azure AD identifies the device by using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser, the user is prompted to select the certificate. The user must select this certificate before they can continue to use the browser.
 
-You can use the Microsoft Defender for Endpoint app with the approved client app policy in Intune to set the device compliance policy to Conditional Access policies. There's no exclusion required for the Microsoft Defender for Endpoint app while you're setting up Conditional Access. Although Microsoft Defender for Endpoint on Android and iOS  (App ID - dd47d17a-3194-4d86-bfd5-c6ae6f5651e3) isn't an approved app, it has permission to report device security posture. This permission enables the flow of compliance information to Conditional Access.
+You can use the Microsoft Defender for Endpoint app with the approved client app policy in Intune to set the device compliance policy to Conditional Access policies. There's no exclusion required for the Microsoft Defender for Endpoint app while you're setting up Conditional Access. Although Microsoft Defender for Endpoint on Android and iOS (app ID dd47d17a-3194-4d86-bfd5-c6ae6f5651e3) isn't an approved app, it has permission to report device security posture. This permission enables the flow of compliance information to Conditional Access.
 
 ### Require hybrid Azure AD joined device
 
 Organizations can choose to use the device identity as part of their Conditional Access policy. Organizations can require that devices are hybrid Azure AD joined by using this checkbox. For more information about device identities, see [What is a device identity?](../devices/overview.md).
 
-When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the required grant control for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **require Multi-Factor Authentication** control instead.
+When you use the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the required grant control for the managed device or a device state condition isn't supported. This is because the device that is performing authentication can't provide its device state to the device that is providing a code. Also, the device state in the token is locked to the device performing authentication. Use the **Require Multi-Factor Authentication** control instead.
 
 The **Require hybrid Azure AD joined device** control:
-   - Only supports domain-joined Windows down-level (pre Windows 10) and Windows-current (Windows 10+) devices.
-   - Doesn't consider Microsoft Edge in InPrivate mode as a hybrid Azure-AD-joined device.
+   - Only supports domain-joined Windows down-level (before Windows 10) and Windows current (Windows 10+) devices.
+   - Doesn't consider Microsoft Edge in InPrivate mode as a hybrid Azure AD-joined device.
 
 ### Require approved client app
 
 Organizations can require that an approved client app is used  to access selected cloud apps. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile device management solution.
 
-To apply this grant control, the device must be registered in Azure AD, which requires using a broker app. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator app or the Microsoft Company portal app for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the appropriate app store to install the required broker app.
+To apply this grant control, the device must be registered in Azure AD, which requires using a broker app. The broker app can be Microsoft Authenticator for iOS, or either Microsoft Authenticator or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the appropriate app store to install the required broker app.
 
 The following client apps support this setting:
 
@@ -122,7 +120,7 @@ The following client apps support this setting:
    - The approved client apps support the Intune mobile application management feature.
    -  The **Require approved client app** requirement:
       - Only supports the iOS and Android for device platform condition.
-      - Requires a broker app to register the device. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices.
+      - Requires a broker app to register the device. The broker app can be Microsoft Authenticator for iOS, or either Microsoft Authenticator or Microsoft Company Portal for Android devices.
 - Conditional Access can't consider Microsoft Edge in InPrivate mode an approved client app.
 - Conditional Access policies that require Microsoft Power BI as an approved client app don't support using Azure AD Application Proxy to connect the Power BI mobile app to the on-premises Power BI Report Server.
 
@@ -132,7 +130,7 @@ See [Require approved client apps for cloud app access with Conditional Access](
 
 In your Conditional Access policy, you can require that an [Intune app protection policy](/intune/app-protection-policy) is present on the client app before access is available to the selected cloud apps.
 
-To apply this grant control, Conditional Access requires that the device is registered in Azure AD, which requires using a broker app. The broker app can be either the Microsoft Authenticator for iOS, or the Microsoft Company portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the app store to install the broker app.
+To apply this grant control, Conditional Access requires that the device is registered in Azure AD, which requires using a broker app. The broker app can be either Microsoft Authenticator for iOS or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the app store to install the broker app.
 
 Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the SDK documentation.
 
@@ -189,7 +187,7 @@ If your organization has created terms of use, other options might be visible un
 
 ### Custom controls (preview)
 
-Custom controls is a preview capability of Azure AD. When using custom controls, your users are redirected to a compatible service to satisfy authentication requirements that are separate from Azure AD. For more information, check out the [Custom controls](controls.md) article.
+Custom controls is a preview capability of Azure AD. When you use custom controls, your users are redirected to a compatible service to satisfy authentication requirements that are separate from Azure AD. For more information, check out the [Custom controls](controls.md) article.
 
 ## Next steps
 
