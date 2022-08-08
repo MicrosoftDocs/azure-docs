@@ -25,7 +25,8 @@ In this article, you'll learn to block high risk network ports using [Azure Virt
 
 ## Deploy virtual network environment
 
-For this How-to, you'll need a virtual network environment that includes virtual networks that can be segregated for allowing and blocking specific network traffic. You may use the following table or your own configuration of virtual networks:
+For this how-to, you'll need a virtual network environment that includes virtual networks that can be segregated for allowing and blocking specific network traffic. You may use the following table or your own configuration of virtual networks:
+
 | Name | IPv4 address space | subnet |
 | ---- | ----| ---- |
 | vnetA-gen | 10.0.0.0/16 | default - 10.0.1.0/24 |
@@ -38,7 +39,7 @@ For this How-to, you'll need a virtual network environment that includes virtual
 
 Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal).
 
-## Create a virtual network manager
+## Create a Virtual Network Manager
 
 In this section, you'll deploy a Virtual Network Manager instance with the Security admin feature in your organization.
 
@@ -46,22 +47,22 @@ In this section, you'll deploy a Virtual Network Manager instance with the Secur
 
 1. On the *Basics* tab, enter or select the information for your organization:
 
-    :::image type="content" source="media/how-to-block-high-risk-ports/network-manager-basics-thmb.png" alt-text="Screenshot of Create a network manager Basics page." lightbox="media/how-to-block-high-risk-ports/network-manager-basics.png":::
+    :::image type="content" source="media/how-to-block-high-risk-ports/network-manager-basics-thumb.png" alt-text="Screenshot of Create a network manager Basics page." lightbox="media/how-to-block-high-risk-ports/network-manager-basics.png":::
 
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select the subscription you want to deploy Azure Virtual Network Manager to. |
-    | Resource group | Select or create a resource group to store Azure Virtual Network Manager. This example will use the **myAVNMResourceGroup** previously created.
+    | Resource group | Select or create a resource group to store Azure Virtual Network Manager. This example will use the **myAVNMResourceGroup** previously created. |
     | Name | Enter a name for this Azure Virtual Network Manager instance. This example will use the name **myAVNM**. |
     | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
     | Description | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it will be managing. |
-    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage. This example will use a subscription-level scope.
+    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage. This example will use a subscription-level scope. |
     | [Features](concept-network-manager-scope.md#features) | Select the features you want to enable for Azure Virtual Network Manager. Available features are *Connectivity*, *SecurityAdmin*, or *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
 
 1. Select **Review + create** and then select **Create** once validation has passed.
 1. Select **Go to resource** when deployment is complete and review the virtual network manager configuration
 
-## Create a Network Group
+## Create a network group
 
 With your virtual network manager created, you now create a network group to encapsulate the VNets you want to protect. This will include all of the VNets in the organization as a general all-encompassing rule to block high risk network ports is needed. You'll manually add all of the VNets.
 1. Select **Network Groups**, under **Settings**.
@@ -69,7 +70,7 @@ With your virtual network manager created, you now create a network group to enc
 1. On the *Network groups* page, select the network group you created.
 1. Select **Add**, under **Static Membership** to manually add all the VNets.
 1. On the **Add static members** page, select all of the virtual networks you wish to include, and select **Add**.
-    :::image type="content" source="media/how-to-block-high-risk-ports/add-members-manual-network-group.png" alt-text="Add Static Members page showing manual selection of virtual networks.":::
+    :::image type="content" source="media/how-to-block-high-risk-ports/add-members-manual-network-group.png" alt-text="Screenshot of Add Static Members page showing manual selection of virtual networks.":::
 
 ## Create a security admin configuration denying traffic
 
@@ -152,9 +153,9 @@ With traffic blocked across all of your VNets, you need an exception to allow tr
 1. Select **+ Create**, enter a *name* for the application network group, and select **Add**.
 1. Under **Define Dynamic Membership**, select **Define**.
 1. Enter or select the values to allow traffic to your application virtual network. 
-    :::image type="content" source="media/how-to-block-high-risk-ports/define-dynamic-network-group.png" alt-text="Define Network Group page with a condition for selecting virtual networks for group membership.":::
+    :::image type="content" source="media/how-to-block-high-risk-ports/define-dynamic-network-group.png" alt-text="Screenshot of Define Network Group page with a condition for selecting virtual networks for group membership.":::
 1. Select **Preview Resources** to review the **Effective Virtual Networks** included, and select **Close**.
-    :::image type="content" source="media/how-to-block-high-risk-ports/effective-virtual-networks.png" alt-text="Effective Virtual Networks page showing virtual networks dynamically included in network group.":::
+    :::image type="content" source="media/how-to-block-high-risk-ports/effective-virtual-networks.png" alt-text="Screenshot of Effective Virtual Networks page showing virtual networks dynamically included in network group.":::
 1. Select **Save**.
 
 ## Create an exception Security Admin Rule collection and Rule
@@ -172,7 +173,7 @@ In this section, you create a new rule collection that will allow high-risk traf
 1. Enter or select the values to allow specific network traffic to your application network group, and select **add** when completed.
 1. Repeat the add rule process for all traffic needing an exception.
 1. Select **Save** when you're done.
-## Redeploy the Security Admin Configuration
+## Redeploy the security admin configuration
 
 To apply the new rule collection, you'll redeploy your security admin configuration since it was modified by adding a rule collection.
 
