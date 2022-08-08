@@ -78,7 +78,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
-|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|***custom-model-id***|
+|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[Python SDK](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|***custom-model-id***|
 
 ### Try Form Recognizer
 
@@ -89,10 +89,10 @@ Try extracting data from your specific or unique documents using custom models. 
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+#### Form Recognizer Studio 
 
 > [!NOTE]
-> Form Recognizer Studio is available with the preview (v3.0) API.
+> Form Recognizer Studio is available with the v3.0 API.
 
 1. On the **Form Recognizer Studio** home page, select **Custom form**.
 
@@ -126,10 +126,10 @@ This table compares the supported data extraction areas:
 
 |Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
 |--|:--:|:--:|:--:|:--:|:--:|
-|Custom template| ✔ | ✔ | ✔ |&#10033; | ✔ |
+|Custom template| ✔ | ✔ | ✔ | ✔ | ✔ |
 |Custom neural| ✔| ✔ |**n/a**| **n/a** | **n/a** |
 
-**Table symbols**: ✔—supported; ✱—preview; **n/a—currently unavailable
+**Table symbols**: ✔—supported; **n/a—currently unavailable
 
 > [!TIP]
 > When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.
@@ -141,8 +141,8 @@ The following table describes the features available with the associated tools a
 | Document type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
 | Custom form 2.1 | [Form Recognizer 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Form Recognizer SDK](quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
-| Custom template 3.0 | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
-| Custom neural | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom template 3.0 | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom neural | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 
 > [!NOTE]
@@ -169,15 +169,15 @@ The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) doesn't support 
 
 ## Supported languages and locales
 
- The Form Recognizer preview version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
+ The Form Recognizer v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
 
-## Form Recognizer v3.0 (preview)
+## Form Recognizer v3.0 
 
- Form Recognizer v3.0 (preview) introduces several new features and capabilities:
+ Form Recognizer v3.0  introduces several new features and capabilities:
 
 * **Custom model API (v3.0)**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
-* [Form Recognizer v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the preview version in your applications and workflows.
-* [REST API (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument): This API shows you more about the preview version and new capabilities.
+* [Form Recognizer v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
+* [REST API ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
 
 ### Try signature detection
 

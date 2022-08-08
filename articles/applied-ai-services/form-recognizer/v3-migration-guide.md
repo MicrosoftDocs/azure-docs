@@ -12,15 +12,15 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Form Recognizer v3.0 migration | Preview
+# Form Recognizer v3.0 migration
 
 > [!IMPORTANT]
 >
 > Form Recognizer REST API v3.0 introduces breaking changes in the REST API request and analyze response JSON.
 
-Form Recognizer v3.0 (preview) introduces several new features and capabilities:
+Form Recognizer v3.0  introduces several new features and capabilities:
 
-* [Form Recognizer REST API](quickstarts/try-v3-rest-api.md) has been redesigned for better usability.
+* [Form Recognizer REST API](quickstarts/get-started-v3-sdk-rest-api.md) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, and key-value pairs, from forms and documents.
 * [**Custom document model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
@@ -367,7 +367,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 ## Next steps
 
-In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API for any of the preview features.
+In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs.
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)

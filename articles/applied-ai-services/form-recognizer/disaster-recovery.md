@@ -34,7 +34,7 @@ The process for copying a custom model consists of the following steps:
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
-### [Form Recognizer REST API v3.0 (Preview)](#tab/v30)
+### [Form Recognizer REST API v3.0 ](#tab/v30)
 
 ## Generate Copy authorization request
 
@@ -96,7 +96,7 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
 ```
 
-### [Form Recognizer REST API v2.1 (GA)](#tab/v21)
+### [Form Recognizer REST API v2.1 ](#tab/v21)
 
 ## Generate Copy authorization request
 
@@ -155,14 +155,14 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ## Track Copy progress
 
-### [Form Recognizer v3.0 (Preview)](#tab/v30)
+### [Form Recognizer v3.0 ](#tab/v30)
 
 ```
 GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-### [Form Recognizer v2.1 (GA)](#tab/v21)
+### [Form Recognizer v2.1 ](#tab/v21)
 
 Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 

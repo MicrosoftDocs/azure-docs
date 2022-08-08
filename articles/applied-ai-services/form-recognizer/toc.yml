@@ -24,29 +24,21 @@ items:
      items:
      - name: Sample Labeling tool
        href: quickstarts/try-sample-label-tool.md
-     - name: Client libraries and REST API
+     - name: Form Recognizer SDKs and REST API v2.1
        href: quickstarts/get-started-sdk-rest-api.md
-   - name: "Form Recognizer v3.0 | Preview"
+   - name: "Form Recognizer v3.0"
      items:
-       - name: Form Recognizer Studio (preview)
+       - name: Form Recognizer Studio | v3.0
          href: quickstarts/try-v3-form-recognizer-studio.md
-       - name: REST API (preview)
-         href: quickstarts/try-v3-rest-api.md
-       - name: C# SDK (preview)
-         href: quickstarts/try-v3-csharp-sdk.md
-       - name: Java SDK (preview)
-         href: quickstarts/try-v3-java-sdk.md
-       - name: JavaScript SDK (preview)
-         href: quickstarts/try-v3-javascript-sdk.md
-       - name:  Python SDK (preview)
-         href: quickstarts/try-v3-python-sdk.md
+       - name: Form Recognizer SDKs and REST API v3.0
+         href: quickstarts/get-started-v3-sdk-rest-api.md
 - name: How-to guides
   items:
   - name: Create a Form Recognizer resource
     href:  create-a-form-recognizer-resource.md
   - name: Check my usage and estimate the cost
     href: how-to-guides/estimate-cost.md
-  - name: Migrate to Form Recognizer v3.0 (preview)
+  - name: Migrate to Form Recognizer v3.0
     href: v3-migration-guide.md
   - name: Use the prebuilt-read model
     href: how-to-guides/use-prebuilt-read.md
@@ -70,10 +62,10 @@ items:
       href: how-to-guides/build-custom-model-v3.md
   - name: Composed models
     items:
-     - name: Compose models v3.0 (preview)
-       href: compose-custom-models-preview.md
-     - name: Compose models v2.1 (GA)
-       href: compose-custom-models.md
+     - name: Compose models v3.0
+       href: compose-custom-models-v3.md
+     - name: Compose models v2.1
+       href: compose-custom-models-v2-1.md
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Use containers
@@ -126,13 +118,13 @@ items:
   items:
   - name: Model overview
     href: concept-model-overview.md
-  - name: Form Recognizer Studio | preview
+  - name: Form Recognizer Studio | v3.0
     href: concept-form-recognizer-studio.md
-  - name: General document model | preview
+  - name: General document model | v3.0
     href: concept-general-document.md
-  - name: W-2 form model | preview
+  - name: W-2 form model | v3.0
     href: concept-w2.md
-  - name: Read model | preview
+  - name: Read model | v3.0
     href: concept-read.md
   - name: Layout model
     href: concept-layout.md
@@ -181,9 +173,9 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Error codes and messages v3.0 (preview)
-    href: preview-error-guide.md
-  - name: Azure Form Recognizer REST API v3.0 (preview)
+  - name: Error codes and messages v3.0
+    href: v3-error-guide.md
+  - name: Azure Form Recognizer REST API v3.0
     items:
     - name: REST API v3.0 reference
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument

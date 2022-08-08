@@ -1,27 +1,17 @@
 ---
-title: "Quickstart: Form Recognizer Python SDK (beta) | Preview"
+title: "Quickstart: Form Recognizer Python SDK (beta) | v3.0"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer Python client library SDKs v3.0 (preview)
+description: Form and document processing, data extraction, and analysis using Form Recognizer Python client library SDKs v3.0 
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: quickstart
-ms.date: 06/24/2022
+ms.topic: include
+ms.date: 08/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
-# Get started: Form Recognizer Python SDK (beta)
-
->[!NOTE]
-> Form Recognizer beta version—3.2.0b5—is currently in public preview. Some features may not be supported or have limited capabilities.
-
-[Reference documentation](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/samples)
-
-Get started with Azure Form Recognizer using the Python programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
 In this quickstart you'll use the following features to analyze and extract data and values from forms and documents:
 
@@ -44,11 +34,11 @@ In this quickstart you'll use the following features to analyze and extract data
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -74,7 +64,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 <!-- markdownlint-disable MD036 -->
 
@@ -402,14 +392,14 @@ ___
 Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
-> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
 
 > [!div class="checklist"]
 >
 > * Analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URL value to the `invoiceUrl` variable at the top of the file.
 > * To analyze a given file at a URI, you'll use the `begin_analyze_document_from_url` method and pass `prebuilt-invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
-> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
+> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
 **Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
@@ -730,15 +720,3 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md)
-
-That's it, congratulations!
-
-In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the Form Recognizer Studio and reference documentation to learn more about Form Recognizer v3.0 API.
-
-## Next steps
-
->[!div class="nextstepaction"]
-> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

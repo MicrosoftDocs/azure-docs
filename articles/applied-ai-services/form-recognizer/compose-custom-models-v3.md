@@ -12,10 +12,10 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Compose custom models v3.0 | Preview
+# Compose custom models v3.0
 
 > [!NOTE]
-> This how-to guide references Form Recognizer v3.0 (preview). To use Form Recognizer v2.1 (GA), see [Compose custom models v2.1](compose-custom-models.md).
+> This how-to guide references Form Recognizer v3.0 . To use Form Recognizer v2.1 , see [Compose custom models v2.1](compose-custom-models-v2-1.md).
 
 A composed model is created by taking a collection of custom models and assigning them to a single model ID. You can assign up to 100 trained custom models to a single composed model ID. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis. Composed models are useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
@@ -232,7 +232,7 @@ Once you've built your composed model, you can use it to analyze forms and docum
 
 ## Manage your composed models
 
-You can manage a custom models at each stage in its life cycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
+You can manage a custom model at each stage in its life cycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
 
 |Programming language| Code sample |
 |--|--|
@@ -251,16 +251,16 @@ Try one of our Form Recognizer quickstarts:
 > [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md)
 
 > [!div class="nextstepaction"]
-> [REST API](quickstarts/try-v3-rest-api.md)
+> [REST API](quickstarts/get-started-v3-sdk-rest-api.md)
 
 > [!div class="nextstepaction"]
-> [C#](quickstarts/try-v3-csharp-sdk.md)
+> [C#](quickstarts/get-started-v3-sdk-rest-api.md#prerequisites)
 
 > [!div class="nextstepaction"]
 > [Java](quickstarts/try-v3-java-sdk.md)
 
 > [!div class="nextstepaction"]
-> [JavaScript](quickstarts/try-v3-javascript-sdk.md)
+> [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
 
 > [!div class="nextstepaction"]
-> [Python](quickstarts/try-v3-python-sdk.md)
+> [Python](quickstarts/get-started-v3-sdk-rest-api.md)

@@ -1,52 +1,17 @@
 ---
-title: "Quickstart: Form Recognizer REST API v3.0 | Preview"
+title: "Quickstart: Form Recognizer REST API v3.0 | v3.0"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0 (preview)
+description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0 
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: quickstart
-ms.date: 06/28/2022
+ms.topic: include
+ms.date: 08/16/2022
 ms.author: lajanuar
 ---
 
-# Get started: Form Recognizer REST API 2022-06-30-preview
-
-<!-- markdownlint-disable MD036 -->
-
->[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
-The current API version is **2022-06-30-preview**.
-
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
-
-Get started with Azure Form Recognizer using the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models using the REST API or by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
-
-## Form Recognizer models
-
- The REST API supports the following models and capabilities:
-
-**Document Analysis**
-
-* 🆕 Read—Analyze and extract printed (typeface) and handwritten text lines, words, locations, and detected languages.
-* 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
-* Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
-
-**Prebuilt Models**
-
-* 🆕 W-2—Analyze and extract fields from US W-2 tax documents (used to report income), using a pre-trained W-2 model.
-* Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
-* Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
-* ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
-* Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
-
-**Custom Models**
-
-* Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
-* Composed custom—Compose a collection of custom models and assign them to a single model ID.
+In this quickstart you'll use the Form Recognizer REST API to analyze and extract data and values from forms and documents:
 
 ## Prerequisites
 
@@ -62,11 +27,11 @@ To learn more about Form Recognizer features and development options, visit our 
 * A Form Recognizer (single-service) or Cognitive Services (multi-service) resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Analyze documents and get results
 
@@ -85,7 +50,7 @@ Before you run the cURL command, make the following changes:
 1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the table below for each feature.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 #### POST request
 
@@ -110,7 +75,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-
 
 You'll receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
-:::image type="content" source="../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
+:::image type="content" source="../../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
 ### Get analyze results (GET Request)
 
@@ -174,14 +139,4 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 #### Supported document fields
 
-The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
-
-## Next steps
-
-In this quickstart, you used the Form Recognizer REST API preview (v3.0) to analyze forms in different ways. Next, further explore the Form Recognizer Studio and latest reference documentation to learn more about the Form Recognizer API.
-
->[!div class="nextstepaction"]
-> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
-
-> [!div class="nextstepaction"]
-> [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.

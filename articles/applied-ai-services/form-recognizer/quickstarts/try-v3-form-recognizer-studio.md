@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Form Recognizer Studio | Preview"
+title: "Quickstart: Form Recognizer Studio | v3.0"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer Studio (preview)
+description: Form and document processing, data extraction, and analysis using Form Recognizer Studio 
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,12 +12,11 @@ ms.author: lajanuar
 ms.custom: ignite-fall-2021, mode-ui
 ---
 
-# Get started: Form Recognizer Studio | Preview
+# Get started: Form Recognizer Studio | v3.0
 
->[!NOTE]
-> Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
+
+[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK preview](get-started-v3-sdk-rest-api.md) and other quickstarts.
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-preview3.gif" alt-text="Selecting the Layout API to analyze a newspaper document in the Form Recognizer Studio.":::
 
@@ -206,7 +205,7 @@ To label for signature detection: (Custom form only)
 ## Next steps
 
 * Follow our [**Form Recognizer v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
-* Explore our [**preview SDK quickstarts**](try-v3-python-sdk.md) to try the preview features in your applications using the new SDKs.
-* Refer to our [**preview REST API quickstarts**](try-v3-rest-api.md) to try the preview features using the new RESt API.
+* Explore our [**v3.0 SDK quickstarts**](get-started-v3-sdk-rest-api.md) to try the v3.0 features in your applications using the new SDKs.
+* Refer to our [**v3.0 REST API quickstarts**](get-started-v3-sdk-rest-api.md) to try the v3.0 features using the new REST API.
 
 [Get started with the Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).

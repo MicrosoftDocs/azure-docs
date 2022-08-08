@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer general document model | Preview
+title: Form Recognizer general document model
 titleSuffix: Azure Applied AI Services
-description: Concepts related to data extraction and analysis using prebuilt general document preview model
+description: Concepts related to data extraction and analysis using prebuilt general document v3.0 model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,9 +13,9 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer general document model (preview)
+# Form Recognizer general document model 
 
-The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
+The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the v3.0 API.  For more information on using the v3.0 API, see our [migration guide](v3-migration-guide.md).
 
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
@@ -44,7 +44,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources |
 |----------|-------------------------|
-|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|
+|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|
 
 ### Try Form Recognizer
 
@@ -58,10 +58,10 @@ You'll need the following resources:
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+#### Form Recognizer Studio 
 
 > [!NOTE]
-> Form Recognizer studio and the general document model are available with the preview (v3.0) API.
+> Form Recognizer studio and the general document model are available with the v3.0 API.
 
 1. On the Form Recognizer Studio home page, select **General documents**
 
@@ -104,9 +104,9 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ## Next steps
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 > [!div class="nextstepaction"]
 > [Try the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)

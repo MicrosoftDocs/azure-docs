@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Form Recognizer C# SDK (beta) | Preview"
+title: "Quickstart: Form Recognizer C# SDK (beta) | v3.0"
 titleSuffix: Azure Applied AI Services
-description: 'Form and document processing, data extraction, and analysis using Form Recognizer C# client library SDKs v3.0 (preview)'
+description: 'Form and document processing, data extraction, and analysis using Form Recognizer C# client library SDKs v3.0 '
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: quickstart
-ms.date: 06/22/2022
+ms.topic: include
+ms.date: 08/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -15,17 +15,6 @@ recommendations: false
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD029 -->
-
-# Get started: Form Recognizer C# SDK (beta)
-
->[!NOTE]
-> Form Recognizer beta version—4.0.0-beta.4 (.NET)—is currently in public preview. Some features may not be supported or have limited capabilities.
-
-[Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
-
-Get started with Azure Form Recognizer using the C# programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
 In this quickstart, you'll use the following features to analyze and extract data and values from forms and documents:
 
@@ -46,11 +35,11 @@ In this quickstart, you'll use the following features to analyze and extract dat
 * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -96,29 +85,29 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 1. On the start page, choose Create a new project.
 
-    :::image type="content" source="../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+    :::image type="content" source="../../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
+    :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
+    :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
+    :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
 
 ### Install the client library with NuGet
 
  1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
+    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-     :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
+     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
  1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.4*** from the dropdown menu and install the package in your project.
 <!-- --- -->
@@ -145,7 +134,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     * [**Prebuilt model**](#prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 <!-- ### [.NET Command-line interface (CLI)](#tab/cli)
 
@@ -270,7 +259,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### General document model output
 
@@ -388,7 +377,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Layout model output
 
@@ -417,14 +406,14 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
-> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
 
 > [!div class="checklist"]
 >
 > * Analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URI value to the `Uri invoiceUri` variable at the top of the Program.cs file.
 > * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
-> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
+> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
 **Add the following code sample to your Program.cs file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
@@ -544,7 +533,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Prebuilt model output
 
@@ -561,15 +550,3 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-prebuilt-invoice-output.md).
-
-That's it, congratulations!
-
-In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the Form Recognizer Studio and reference documentation to learn about Form Recognizer API in more depth.
-
-## Next steps
-
->[!div class="nextstepaction"]
-> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

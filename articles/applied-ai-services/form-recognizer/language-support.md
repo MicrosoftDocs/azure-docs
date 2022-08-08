@@ -20,30 +20,30 @@ This article covers the supported languages for text and field **extraction (by 
 
 ## Read, layout, and custom form (template) model
 
-The following lists include the currently GA languages in for the v2.1 version and the most recent v3.0 preview. These languages are supported by Read, Layout, and Custom form (template) model features.
+The following lists include the currently GA languages in for the v2.1 version and the most recent v3.0 version. These languages are supported by Read, Layout, and Custom form (template) model features.
 
 > [!NOTE]
 > **Language code optional**
 >
 > Form Recognizer's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-To use the preview languages, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md).
+To use the v3.0-supported languages, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 SDK and REST API quickstarts](quickstarts/get-started-v3-sdk-rest-api.md).
 
-### Handwritten text (preview and GA)
+### Handwritten text (v3.0 and v2.1)
 
 The following table lists the supported languages for extracting handwritten texts.
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
-|English|`en`|Japanese (preview) |`ja`|
-|Chinese Simplified (preview)  |`zh-Hans`|Korean (preview)|`ko`|
-|French (preview) |`fr`|Portuguese (preview)|`pt`|
-|German (preview) |`de`|Spanish (preview) |`es`|
-|Italian (preview) |`it`|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
 
-### Print text (preview)
+### Print text 
 
-This section lists the supported languages for extracting printed texts in the latest preview.
+This section lists the supported languages for extracting printed texts using version v3.0.
 
 |Language| Code (optional) |Language| Code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -94,7 +94,7 @@ This section lists the supported languages for extracting printed texts in the l
 |Kurukh (Devanagari) | `kru`|Welsh | `cy`
 |Kyrgyz (Cyrillic)  | `ky`
 
-### Print text (GA)
+### Print text 
 
 This section lists the supported languages for extracting printed texts in the latest GA version.
 
