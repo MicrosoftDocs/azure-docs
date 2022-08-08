@@ -3,7 +3,7 @@ title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
 ms.date: 08/08/2022
-ms.author: edbayansh
+ms.author: edbaynash
 ms.reviewer: bwren
 ---
 
@@ -18,12 +18,14 @@ This article lists significant changes to Azure Monitor documentation.
 |[Sources of data in Azure Monitor](data-sources.md)|Updated with Azure Monitor agent and Logs ingestion API.|
 
 ### Agents
+
 | Article | Description |
 |:---|:---|
 |[Azure Monitor Agent overview](agents/agents-overview.md)| Restructure of the Agents section. A single Azure Monitor Agent is replacing all of Azure Monitor's legacy monitoring agents.
 |[Enable network isolation for the Azure Monitor agent](agents/azure-monitor-agent-data-collection-endpoint.md)|Rewritten to better describe configuration of network isolation.
 
 ### Alerts
+
 | Article | Description |
 |:---|:---|
 |[Azure Monitor Alerts Overview](alerts/alerts-overview.md)|Updated the logic for the time to resolve behavior in stateful log alerts.
@@ -69,11 +71,13 @@ This article lists significant changes to Azure Monitor documentation.
 |[How to Migrate from Diagnostic Settings Storage Retention to Azure Storage Lifecycle Policy](essentials/migrate-to-azure-storage-lifecycle-policy.md)|New article.|
 
 ### Logs
+
 |[Logs ingestion API in Azure Monitor (Preview)](logs/logs-ingestion-api-overview.md)|Custom logs API renamed to Logs ingestion API.
 |[Tutorial - Send data to Azure Monitor Logs using REST API (Resource Manager templates)](logs/tutorial-logs-ingestion-api.md)|Custom logs API renamed to Logs ingestion API.
 |[Tutorial - Send data to Azure Monitor Logs using REST API (Azure portal)](logs/tutorial-logs-ingestion-portal.md)|Custom logs API renamed to Logs ingestion API.
 
 ### Virtual Machines
+
 |[What is VM insights?](vm/vminsights-overview.md)|All VM insights content updated for new support of Azure Monitor agent.
 
 
