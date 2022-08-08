@@ -1426,10 +1426,10 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-fpga-web-service.md",
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-fpga-web-service",
         "redirect_url": "/azure/machine-learning/v1/how-to-deploy-fpga-web-service",
         "redirect_document_id": true
-    },
+    }
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-custom-docker-image.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-custom-docker-image",
@@ -1654,11 +1654,6 @@
         "source_path_from_root": "/articles/machine-learning/service/concept-automated-ml.md",
         "redirect_url": "/azure/machine-learning/concept-automated-ml",
         "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/machine-learning/service/concept-accelerate-with-fpgas.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-fpga-web-service",
-        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/azure-machine-learning-release-notes.md",
