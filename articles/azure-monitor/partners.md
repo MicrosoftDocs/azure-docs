@@ -215,7 +215,18 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ![New Relic logo.](./media/partners/newrelic.png)
 
-See the [New Relic documentation](https://newrelic.com/solutions/partners/azure).
+New Relic provides integration monitoring with Microsoft Azure products, giving a comprehensive view of your ecosystem as it changes. New Relic for Microsoft Azure teams instrument everything for better visibility into applications, managed services, infrastructure, containers, microservices, and more. Performance metrics and events across the entire solution stack can be collected, correlated, and delivered back as actionable insights that empower DevOps teams to confidently adapt with changes.
+
+Azure customers can now choose the New Relic Observability Platform for visibility into cloud migrations, digital transformations, and cloud native applications. This includes storing all their telemetry data in Azure.
+
+With NewRelic Azure monitoring, you'll be able to:
+
+ - Full-stack monitoring gives you comprehensive visibility across the software stack in one unified experience.
+ - Quickly identify, triage, and delegate application and infrastructure issues between engineers and ITOps teams, reducing friction.
+ - Focus on work that most impacts the customer experience by identifying which services and systems are performing poorly.
+ - See how service dependencies impact the complete solution through cross application tracing via service maps in New Relic APM.
+
+For more information, see the [New Relic documentation](https://newrelic.com/solutions/partners/azure).
 
 ## OpsGenie
 
