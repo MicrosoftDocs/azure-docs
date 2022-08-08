@@ -73,7 +73,7 @@ For each *entity*, you can view: tags per entity in training set, tagged documen
 ---
 ### [Confusion matrix](#tab/confusion-matrix) 
 
-A confusion matrix is an N x N matrix used for evaluating the performance of a classification model, where N is the number of target entities. The matrix compares the actual target values with those predicted by the machine learning model to show how well the extraction model is performing and what kinds of errors it is making.
+A [confusion matrix](../../concepts/evaluation-metrics.md#confusion-matrix) is an N x N matrix used for evaluating the performance of a classification model, where N is the number of target entities. The matrix compares the actual target values with those predicted by the machine learning model to show how well the extraction model is performing and what kinds of errors it is making.
 
 You can view the confusion matrix in *normalized* or *raw count* view.
 
