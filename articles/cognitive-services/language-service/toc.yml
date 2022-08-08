@@ -63,7 +63,7 @@ items:
     href: custom-text-classification/language-support.md
   - name: Custom text classification FAQ
     href: custom-text-classification/faq.md
-  - name: Samples
+  - name: SDK Samples
     items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
@@ -98,10 +98,8 @@ items:
       href: custom-text-classification/how-to/tag-data.md
     - name: Train a model
       href: custom-text-classification/how-to/train-model.md
-    - name: View model performance
+    - name: Model performance (preview)
       href: custom-text-classification/how-to/view-model-evaluation.md
-    - name: Improve a model
-      href: custom-text-classification/how-to/improve-model.md
     - name: Deploy a model
       href: custom-text-classification/how-to/deploy-model.md
     - name: Classify text
@@ -154,7 +152,7 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: Custom NER FAQ
     href: custom-named-entity-recognition/faq.md
-  - name: Samples
+  - name: SDK Samples
     items:
     - name: Java
       href: https://aka.ms/sdk-samples-java
@@ -190,10 +188,8 @@ items:
       href: custom-named-entity-recognition/how-to/use-autotagging.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
-    - name: View model performance
+    - name: Model performance (preview)
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
-    - name: Improve a model
-      href: custom-named-entity-recognition/how-to/improve-model.md
     - name: Deploy a model
       href: custom-named-entity-recognition/how-to/deploy-model.md
     - name: Extract entities from text
