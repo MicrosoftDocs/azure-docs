@@ -42,7 +42,7 @@ The following table helps you determine whether Power Automate or Logic Apps is 
 
 ## Compare Azure Functions and Azure Logic Apps
 
-Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, whereas Azure Logic Apps provides serverless workflows. Both can create complex *orchestrations*. An orchestration is a collection of functions or steps, called *actions* in Logic Apps, that are executed to accomplish a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
+Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, whereas Azure Logic Apps provides serverless workflows. Both can create complex *orchestrations*. An orchestration is a collection of functions or steps, which are called *actions* in Azure Logic Apps, that are executed to accomplish a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
 For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
 
@@ -83,7 +83,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 | **Supported languages**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |**Package managers**|NPM and NuGet|NuGet<sup>2</sup>|
 
-<sup>1</sup> WebJobs (without the WebJobs SDK) supports C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, and more. This is not a comprehensive list. A WebJob can run any program or script that can run in the App Service sandbox.
+<sup>1</sup> WebJobs (without the WebJobs SDK) supports languages such as C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, and more. A WebJob can run any program or script that can run in the App Service sandbox.
 
 <sup>2</sup> WebJobs (without the WebJobs SDK) supports NPM and NuGet.
 
@@ -104,7 +104,7 @@ For other scenarios where you want to run code snippets for integrating Azure or
 
 You don't have to choose just one of these services. They integrate with each other as well as they do with external services.
 
-A flow can call a logic app. A logic app can call a function, and a function can call a logic app. See, for example, [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
+A Power Automate flow call an Azure Logic Apps workflow. An Azure Logic Apps workflow can call a function in Azure Functions, and vice versa. For example, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
 
 The integration between Power Automate, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services.
 
@@ -117,8 +117,8 @@ You can get more information on integration services by using the following link
 
 ## Next steps
 
-Get started by creating your first flow, logic app, or function app. Select any of the following links:
+Get started by creating your first flow, logic app workflow, or function app. Select any of the following links:
 
 * [Get started with Power Automate](/power-automate/getting-started)
-* [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create your first Azure function](./functions-get-started.md)
