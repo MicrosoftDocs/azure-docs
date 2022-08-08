@@ -23,6 +23,7 @@ Azure Virtual Network Manager provides two different types of configurations you
 A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than network security group (NSG) rules and will get evaluated before NSG rules. Also note that security admin rules don't change your NSG rules. See the below illustration.
 
 :::image type="content" source="./media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram of how traffic is evaluated with security admin rules and NSG.":::
+
 ### Management at scale
 
 When you apply a security admin configuration to a network group – a collection of VNets that were selected either manually or conditionally – then all of the resources in the selected network groups’ VNets have those security admin rules applied to them, regardless a network group contains dozens or hundreds of VNets matters not, since a security admin configuration would apply its rules to all the VNets in the selected network groups.
@@ -30,7 +31,7 @@ This protection encapsulates not only existing resources, but extends even to ne
 Then, if new security risks are identified, new security admin rules can still protect your resources at scale. You can create security admin rules to protect against the new risk, then apply them to network groups – essentially, hundreds of VNets at once.
 ### Protect high-risk ports
 
-Based on the industry study and suggestions from Microsoft, below is what we recommend customers restrict the traffic from outside using security admin rules. These ports are often used for the management of resources or unsecure/unencrypted data transmission and shouldn't be exposed to the internet.
+Based on the industry study and suggestions from Microsoft, below is what we recommend customers restrict the traffic from outside using security admin rules. These ports are often used for the management of resources or unsecure/unencrypted data transmission and shouldn't be exposed to the internet. However, there are times when certain virtual networks and their resources will need to allow traffic for management or other processes. You can create exceptions where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
 
 |Port |	Protocol | Description |
 | --- | ---- | ------- |
@@ -54,10 +55,11 @@ Based on the industry study and suggestions from Microsoft, below is what we rec
 | 5800| TCP | VNC Remote Frame Buffer over HTTP | 
 | 5900| TCP | VNC Remote Frame Buffer over HTTP | 
 | 11211	 | UDP	 | Memcached |
+
+Learn how to block 
 ## Security Admin Rules vs. NSGs
 
-Security admin rules are similar to NSG rules in structure and the parameters they intake, but as we’ve explored so far, they’re not the exact same construct. The first difference is intended audience – admin rules are intended to be used by network admins of a central governance team, thereby delegating NSG rules to individual application or service teams to further specify security as needed. With these intentions, admin rules were designed to have a higher priority than NSGs and therefore be evaluated before NSG rules. Admin rules also include an additional action type of “Always Allow”, which allows the specified traffic through to its intended destination and terminates further (and possibly conflicting) evaluation by NSGs rules. Admin rules are also applied not only to a network group’s existing VNets but also to newly provisioned resources, as described in the previous section. Admin rules are currently applied at the VNet level, whereas NSGs can be associated at the subnet and NIC level.
-Let’s boil down these differences and similarities:
+Security admin rules are similar to NSG rules in structure and the parameters they intake, but as we’ve explored so far, they’re not the exact same construct. The first difference is intended audience – admin rules are intended to be used by network admins of a central governance team, thereby delegating NSG rules to individual application or service teams to further specify security as needed. With these intentions, admin rules were designed to have a higher priority than NSGs and therefore be evaluated before NSG rules. Admin rules also include an additional action type of “Always Allow”, which allows the specified traffic through to its intended destination and terminates further (and possibly conflicting) evaluation by NSGs rules. Admin rules are also applied not only to a network group’s existing VNets but also to newly provisioned resources, as described in the previous section. Admin rules are currently applied at the VNet level, whereas NSGs can be associated at the subnet and NIC level. The table below shows these these differences and similarities:
 
 | Rule Type | Target Audience | Applied On | Evaluation Order | Action Types | Parameters |
 | --- | ---- | ---- | ---- | ---- | ---- | 
