@@ -55,7 +55,7 @@ You can mix and match services when you build an orchestration, calling function
 | **Actions** | Each activity is an Azure function; write code for activity functions |[Large collection of ready-made actions](/connectors/connector-reference/connector-reference-logicapps-connectors)|
 | **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor logs](../logic-apps/monitor-logic-apps-log-analytics.md), [Microsoft Defender for Cloud](../logic-apps/healthy-unhealthy-resource.md) |
 | **Management** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
-| **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Runs in Azure, locally, or on premises. For more information, see [What is Azure Logic Apps](../logic-apps-overview.md#resource-environment-differences). |
+| **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Runs in Azure, locally, or on premises. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md#resource-environment-differences). |
 
 <a name="function"></a>
 
