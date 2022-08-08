@@ -40325,23 +40325,23 @@
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-rest-api.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/includes/v3-rest-api",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api",
       "redirect_document_id": false
     },{
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-csharp-sdk.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/includes/v3-csharp-sdk",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api",
       "redirect_document_id": false
     },{
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-java-sdk.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/includes/v3-java-sdk",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api",
       "redirect_document_id": false
     },{
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-javascript-sdk.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/includes/v3-javascript-sdk",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api",
       "redirect_document_id": false
     },{
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/includes/v3-python-sdk",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api",
       "redirect_document_id": false
     },
     {
@@ -40355,13 +40355,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom-models-preview.md",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/compose-custom-models-preview.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/compose-custom-models-v3",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom-models.md",
-      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-custom-models-v2-1",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/compose-custom-models.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/compose-custom-models-v2-1",
       "redirect_document_id": false
     }
   
