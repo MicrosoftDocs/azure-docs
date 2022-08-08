@@ -33,7 +33,7 @@ To use Language Studio, you will need an Azure Language resource for authenticat
     > * We recommend turning the **Managed Identity** option **on**, to authenticate your requests across Azure.
     > * If you use the free pricing tier, you can keep using the Language service even after your Azure free trial or service credit expires. 
 
-    :::image type="content" source="../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/create-new-resource.png":::
+    :::image type="content" source="../media/create-new-resource.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/create-new-resource.png":::
 
 4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language service. For example, select **Find linked entities**.
 
