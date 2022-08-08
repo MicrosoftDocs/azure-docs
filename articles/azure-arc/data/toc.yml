@@ -288,3 +288,5 @@ items:
       href: https://azurearcjumpstart.io
     - name: Pre-release testing
       href: preview-testing.md
+    - name: Support policy
+      href: support-policy.md
