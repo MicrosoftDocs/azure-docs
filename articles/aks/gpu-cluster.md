@@ -408,8 +408,8 @@ For more information about running machine learning (ML) workloads on Kubernetes
 
 For information on using Azure Kubernetes Service with Azure Machine Learning, see the following articles:
 
-* [Deploy a model to Azure Kubernetes Service][azureml-aks].
-* [Deploy a deep learning model for inference with GPU][azureml-gpu].
+* [Configure a Kubernetes cluster for ML model training or deployment][azureml-aks].
+* [Deploy a model with an online endpoint][azureml-deploy].
 * [High-performance serving with Triton Inference Server][azureml-triton].
 
 <!-- LINKS - external -->
@@ -434,7 +434,7 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azureml-aks]: ../machine-learning/v1/how-to-deploy-azure-kubernetes-service.md
-[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
+[azureml-aks]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
+[azureml-deploy]: ../machine-learning/how-to-deploy-managed-online-endpoints.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
 [aks-container-insights]: monitor-aks.md#container-insights

@@ -26,7 +26,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 > [!IMPORTANT]
 > When using the Azure ML __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure ML __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-managed-online-endpoints.md).
 
-> For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md). 
+> For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md). 
 
 > [!TIP]
 > Although the code snippets in this article use a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
@@ -44,7 +44,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
     * To learn how to register models, see [Deploy Models](how-to-deploy-and-where.md#registermodel).
 
-    * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](how-to-train-tensorflow.md).
+    * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](../how-to-train-tensorflow.md).
 
 * A general understanding of [How and where to deploy models](how-to-deploy-and-where.md).
 
@@ -53,7 +53,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -274,7 +274,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-For more information on creating a client application, see [Create client to consume deployed web service](how-to-consume-web-service.md).
+For more information on creating a client application, see [Create client to consume deployed web service](../how-to-consume-web-service.md).
 
 ## Clean up the resources
 
@@ -291,5 +291,5 @@ aks_target.delete()
 ## Next steps
 
 * [Deploy model on FPGA](how-to-deploy-fpga-web-service.md)
-* [Deploy model with ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
-* [Train TensorFlow DNN Models](how-to-train-tensorflow.md)
+* [Deploy model with ONNX](../concept-onnx.md#deploy-onnx-models-in-azure)
+* [Train TensorFlow DNN Models](../how-to-train-tensorflow.md)
