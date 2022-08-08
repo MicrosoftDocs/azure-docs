@@ -40,7 +40,7 @@ In this section, you'll create the following resources in the Azure portal:
 * [Create an Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resource in the Azure portal.
 * Sign in to [Azure Synapse Analytics](https://web.azuresynapse.net/) using your subscription and Workspace name.
 
-    ![An image of the Synapse Analytics landing page.](../media/multivariate-anomaly-detector-synapse/synapse-workspace-welcome-page.png)
+    ![A screenshot of the Synapse Analytics landing page.](../media/multivariate-anomaly-detector-synapse/synapse-workspace-welcome-page.png)
 
 ### Create a storage account resource
 
@@ -49,7 +49,7 @@ In this section, you'll create the following resources in the Azure portal:
     > [!NOTE]
     > For the purposes of this example only we are setting the security on the container to allow anonymous read access for containers and blobs since it will only contain our example .csv data. For anything other than demo purposes this is **not recommended**.
 
-    ![An image of the creating a container in a storage account.](../media/multivariate-anomaly-detector-synapse/create-a-container.png)
+    ![A screenshot of the creating a container in a storage account.](../media/multivariate-anomaly-detector-synapse/create-a-container.png)
 
 ### Create a Key Vault to hold Anomaly Detector Key and storage account connection string
 
@@ -57,18 +57,18 @@ In this section, you'll create the following resources in the Azure portal:
     1. Create a [key vault](https://portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
     2. Go to Key Vault > Access policies, and grant the [Azure Synapse workspace](/azure/data-factory/data-factory-service-identity?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) permission to read secrets from Azure Key Vault.
 
-        ![An image of granting permission to Synapse.](../media/multivariate-anomaly-detector-synapse/grant-synapse-permission.png)
+        ![A screenshot of granting permission to Synapse.](../media/multivariate-anomaly-detector-synapse/grant-synapse-permission.png)
 
 * Create a secret in Key Vault to hold the Anomaly Detector key
     1. Go to your Anomaly Detector resource, **Anomaly Detector** > **Keys and Endpoint**. Then copy either of the two keys to the clipboard.
     2. Go to **Key Vault** > **Secret** to create a new secret. Specify the name of the secret, and then paste the key from the previous step into the **Value** field. Finally, select **Create**.
 
-        ![An image of the creating a secret.](../media/multivariate-anomaly-detector-synapse/create-a-secret.png)
+        ![A screenshot of the creating a secret.](../media/multivariate-anomaly-detector-synapse/create-a-secret.png)
 
 * Create a secret in Key Vault to hold Connection String of Storage account
     1. Go to your Storage account resource, select **Access keys** to copy one of your Connection strings.
 
-        ![An image of copying connection string.](../media/multivariate-anomaly-detector-synapse/copy-connection-string.png)
+        ![A screenshot of copying connection string.](../media/multivariate-anomaly-detector-synapse/copy-connection-string.png)
 
     2. Then go to **Key Vault** > **Secret** to create a new secret. Specify the name of the secret (like *myconnectionstring*), and then paste the Connection string from the previous step into the **Value** field. Finally, select **Create**.
 
@@ -78,11 +78,11 @@ In this section, you'll create the following resources in the Azure portal:
 
 1. Sign in [Azure Synapse Analytics](https://web.azuresynapse.net/) and create a new Notebook for coding.
 
-    ![An image of creating notebook in Synapse.](../media/multivariate-anomaly-detector-synapse/create-a-notebook.png)
+    ![A screenshot of creating notebook in Synapse.](../media/multivariate-anomaly-detector-synapse/create-a-notebook.png)
 
 2. Select **Manage pools** in the page of notebook to create a new Apache Spark pool if you don’t have one.
 
-    ![An image of creating spark pool.](../media/multivariate-anomaly-detector-synapse/create-spark-pool.png)
+    ![A screenshot of creating spark pool.](../media/multivariate-anomaly-detector-synapse/create-spark-pool.png)
 
 ### Writing code in notebook
 
@@ -144,11 +144,11 @@ In this section, you'll create the following resources in the Azure portal:
         df.show(10)
     ```
 
-    ![An image of raw data.](../media/multivariate-anomaly-detector-synapse/raw-data.png)
+    ![A screenshot of raw data.](../media/multivariate-anomaly-detector-synapse/raw-data.png)
 
 4. Train a multivariate anomaly detection model.
 
-    ![An image of training parameter.](../media/multivariate-anomaly-detector-synapse/training-parameter.png)
+    ![A screenshot of training parameter.](../media/multivariate-anomaly-detector-synapse/training-parameter.png)
 
     ```python
         #Input your key vault name and anomaly key name in key vault.
@@ -219,7 +219,7 @@ In this section, you'll create the following resources in the Azure portal:
     ```
 
     The inference results will look as followed. The `severity` is a number between 0 and 1, showing the severe degree of an anomaly. The last three columns indicate the    `contribution score` of each sensor, the higher the number is, the more anomalous the sensor is. 
-        ![An image of inference result.](../media/multivariate-anomaly-detector-synapse/inference-result.png)
+        ![A screenshot of inference result.](../media/multivariate-anomaly-detector-synapse/inference-result.png)
 
 ## Clean up intermediate data (optional)
 
