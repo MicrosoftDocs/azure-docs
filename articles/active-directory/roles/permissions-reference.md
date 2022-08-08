@@ -2383,6 +2383,12 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 
 \* A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has 0 Global Administrators.
 
+> [!NOTE]
+> The ability to reset a password includes the ability to update the following sensitive attributes required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
+> - businessPhones
+> - mobilePhone
+> - otherMails
+
 ## Who can update sensitive attributes
 
 Some administrators can update the following sensitive attributes for some users. All users can read these sensitive attributes.
