@@ -110,7 +110,7 @@ Phishing,"demo, csv",MDTI article - Franken-Phish domainname,Entity appears in M
 
 ### JSON template structure
 
-1. There is only one JSON template for all indicator types.
+1. There is only one JSON template for all indicator types. The JSON template is based on STIX 2.1 format.
 
 1. The `pattern` element supports indicator types of: file, ipv4-addr, ipv6-addr, domain-name, url, user-account, email-addr, and windows-registry-key types.
 
@@ -128,7 +128,7 @@ Here's an example ipv4-addr indicator using the JSON template.
       "type": "indicator",
       "id": "indicator--dbc48d87-b5e9-4380-85ae-e1184abf5ff4",
       "spec_version": "2.1",
-      "pattern": "([ipv4-addr:value = '198.168.100.5' ] AND [ipv4-addr:value = '198.168.100.10']) WITHIN 300 SECONDS",
+      "pattern": "[ipv4-addr:value = '198.168.100.5']",
       "pattern_type": "stix",
       "created": "2022-07-27T12:00:00.000Z",
       "modified": "2022-07-27T12:00:00.000Z",
@@ -159,5 +159,5 @@ Here's an example ipv4-addr indicator using the JSON template.
 
 This article has shown you how to manually bolster your threat intelligence by importing indicators gathered in flat files. Check out these links to learn how indicators power other analytics in Microsoft Sentinel.
 - [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md)
-- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence.md)
+- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 - [Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md)

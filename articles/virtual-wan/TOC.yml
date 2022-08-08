@@ -123,8 +123,12 @@
     href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
-    - name: Create an ExpressRoute connection
-      href: virtual-wan-expressroute-portal.md
+    - name: Create an ExpressRoute association
+      items:
+      - name: Azure portal
+        href: virtual-wan-expressroute-portal.md
+      - name: Azure PowerShell
+        href: expressroute-powershell.md
     - name: Configure ExpressRoute encryption
       href: vpn-over-expressroute.md
   - name: Site-to-site
@@ -180,7 +184,9 @@
       - name: Certificate authentication clients
         items:
         - name: Windows clients
-          href: vpn-client-certificate-windows.md      
+          href: vpn-client-certificate-windows.md
+        - name: macOS and iOS clients
+          href: point-to-site-vpn-client-cert-mac.md    
         - name: Install client certificates
           href: install-client-certificates.md
       - name: VPN client profiles
