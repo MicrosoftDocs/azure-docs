@@ -15,9 +15,9 @@ ms.custom: contperf-fy21q2, devx-track-python, deploy, sdkv1, event-tier1-build-
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel) from [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
+In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel) from [Azure Machine Learning](../overview-what-is-azure-machine-learning.md).
 
 ## What are FPGAs?
 
@@ -32,7 +32,7 @@ You can reconfigure FPGAs for different types of machine learning models. This f
 |Processor| Abbreviation |Description|
 |---|:-------:|------|
 |Application-specific integrated circuits|ASICs|Custom circuits, such as Google's Tensor Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
-|Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|
+|Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They're also flexible and reconfigurable over time, to implement new logic.|
 |Graphics processing units|GPUs|A popular choice for AI computations. GPUs offer parallel processing capabilities, making it faster at image rendering than CPUs.|
 |Central processing units|CPUs|General-purpose processors, the performance of which isn't ideal for graphics and video processing.|
 
@@ -50,7 +50,7 @@ Azure FPGAs are integrated with Azure Machine Learning. Azure can parallelize pr
 
 To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
 
-The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA. PB6 VM is automatically provisioned by Azure Machine Learning during model deployment to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
+The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA. PB6 VM is automatically provisioned by Azure Machine Learning during model deployment to an FPGA. It's only used with Azure ML, and it can't run arbitrary bitstreams. For example, you won't be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 ## Deploy models on FPGAs
 
@@ -60,9 +60,9 @@ In this example, you create a TensorFlow graph to preprocess the input image, ma
 
 ### Prerequisites
 
-- An Azure subscription. If you do not have one, create a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) account (free Azure accounts are not eligible for FPGA quota).
+- An Azure subscription. If you don't have one, create a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) account (free Azure accounts aren't eligible for FPGA quota).
 
-- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed, as described in [Create a workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed, as described in [Create a workspace](../how-to-manage-workspace.md).
  
 - The hardware-accelerated models package:  `pip install --upgrade azureml-accel-models[cpu]`    
     
@@ -151,7 +151,7 @@ Begin by using the [Azure Machine Learning SDK for Python](/python/api/overview/
    print(output_tensors)
    ```
 
-   The following models are available listed with their classifier output tensors for inference if you used the default classifier.
+   The following models are listed with their classifier output tensors for inference if you used the default classifier.
 
    + Resnet50, QuantizedResnet50
      ```python
@@ -178,7 +178,7 @@ Begin by using the [Azure Machine Learning SDK for Python](/python/api/overview/
 
 Before you can deploy to FPGAs, convert the model to the [ONNX](https://onnx.ai/) format.
 
-1. [Register](concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
+1. [Register](../concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
    ```python
    from azureml.core.model import Model
@@ -221,7 +221,7 @@ Before you can deploy to FPGAs, convert the model to the [ONNX](https://onnx.ai/
 
 ### Containerize and deploy the model
 
-Next, create a Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include Azure Kubernetes Service (AKS) in the cloud or an  edge device such as [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md).  You can also add tags and descriptions for your registered Docker image.
+Next, create a Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include Azure Kubernetes Service (AKS) in the cloud or an  edge device such as [Azure Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md).  You can also add tags and descriptions for your registered Docker image.
 
    ```python
    from azureml.core.image import Image
@@ -295,7 +295,7 @@ Next, create a Docker image from the converted model and all dependencies.  This
 
 #### Deploy to a local edge server
 
-All [Azure Data Box Edge devices](../databox-online/azure-stack-edge-overview.md) contain an FPGA for running the model. Only one model can be running on the FPGA at one time. To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
+All [Azure Azure Stack Edge devices](../../databox-online/azure-stack-edge-overview.md) contain an FPGA for running the model. Only one model can be running on the FPGA at one time. To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ### Consume the deployed model
 
@@ -358,7 +358,7 @@ converted_model.delete()
 
 ## Next steps
 
-+ Learn how to [secure your web services](./v1/how-to-secure-web-service.md) document.
++ Learn how to [secure your web services](how-to-secure-web-service.md) document.
 
 + Learn about FPGA and [Azure Machine Learning pricing and costs](https://azure.microsoft.com/pricing/details/machine-learning/).
 
