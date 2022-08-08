@@ -214,6 +214,8 @@ private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
     };
 
     call = await callAgent.StartCallAsync(callees, startCallOptions);
+    call.OnRemoteParticipantsUpdated += Call_OnRemoteParticipantsUpdated;
+    call.OnStateChanged += Call_OnStateChanged;
 }
 ```
 
@@ -266,8 +268,6 @@ private async void Agent_OnCallsUpdated(object sender, CallsUpdatedEventArgs arg
             await AddVideoStreams(remoteParticipant.VideoStreams);
             remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
         }
-        call.OnRemoteParticipantsUpdated += Call_OnRemoteParticipantsUpdated;
-        call.OnStateChanged += Call_OnStateChanged;
     }
 }
 
