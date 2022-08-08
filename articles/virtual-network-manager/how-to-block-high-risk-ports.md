@@ -29,7 +29,7 @@ For this how-to, you'll need a virtual network environment that includes virtual
 
 | Name | IPv4 address space | subnet |
 | ---- | ----| ---- |
-| vnetA-gen | 10.0.0.0/16 | default - 10.0.1.0/24 |
+| vnetA-gen | 10.0.0.0/16 | default - 10.0.0.0/24 |
 | vnetB-gen | 10.1.0.0/16 | default - 10.1.0.0/24 |
 | vnetC-gen | 10.2.0.0/16 | default - 10.2.0.0/24 |
 | vnetD-app | 10.3.0.0/16 | default - 10.3.0.0/24 |
