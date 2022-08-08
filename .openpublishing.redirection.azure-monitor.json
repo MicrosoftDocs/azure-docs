@@ -302,13 +302,33 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-page.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-instances.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-page",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-states.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-page",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-activity-log.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
             "redirect_document_id": false
         },
         {

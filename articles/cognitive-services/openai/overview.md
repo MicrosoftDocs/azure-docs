@@ -31,8 +31,6 @@ The Azure OpenAI service provides REST API access to OpenAI's powerful language 
 | Regional availability | South Central US, <br> West Europe |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
-
-
 ## Responsible AI
 
 At Microsoft, we're committed to the advancement of AI driven by principles that put people first. Generative models such as the ones available in the Azure OpenAI service have significant potential benefits, but without careful design and thoughtful mitigations, such models have the potential to generate incorrect or even harmful content. Microsoft has made significant investments to help guard against abuse and unintended harm, which includes requiring applicants to show well-defined use cases, incorporating Microsoft’s <a href="https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank">principles for responsible AI use</a>, building content filters to support customers, and providing responsible AI implementation guidance to onboarded customers.
@@ -54,24 +52,26 @@ All solutions using the Azure OpenAI service are also required to go through a u
 ## Key concepts
 
 ### Prompts & Completions
+
 The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input  **prompt** containing the English text command, and the model will generate a text **completion**.
 
 Here's an example of a simple prompt and completion:
 
->**Prompt**: 
+>**Prompt**:
         ```
         """
         count to 5 in a for loop
         """
         ```
 >
->**Completion**: 
+>**Completion**:
         ```
         for i in range(1, 6):
             print(i)
         ```
 
 ### Tokens
+
 OpenAI Enterprise processes text by breaking it down into tokens. Tokens can be words or just chunks of characters. For example, the word “hamburger” gets broken up into the tokens “ham”, “bur” and “ger”, while a short and common word like “pear” is a single token. Many tokens start with a whitespace, for example “ hello” and “ bye”.
 
 The total number of tokens processed in a given request depends on the length of your input, output and request parameters. The quantity of tokens being processed will also affect your response latency and throughput for the models.
@@ -80,9 +80,9 @@ The total number of tokens processed in a given request depends on the length of
 
 The Azure OpenAI service is a new product offering on Azure. You can get started with the Azure OpenAI service the same way as any other Azure product where you [create a resource](how-to/create-resource.md), or instance of the service, in your Azure Subscription. You can read more about Azure's [resource management design](../../azure-resource-manager/management/overview.md).
 
-
 ### Deployments
-Once you create an Azure OpenAI Resource, you must deploy a model before you can start making API calls and generating text. This action can be done using the Deployment APIs. These APIs allow you to specify the model you wish to use. 
+
+Once you create an Azure OpenAI Resource, you must deploy a model before you can start making API calls and generating text. This action can be done using the Deployment APIs. These APIs allow you to specify the model you wish to use.
 
 ### In-context learning
 
@@ -91,6 +91,7 @@ The models used by the Azure OpenAI service use natural language instructions an
 There are three main approaches for in-context learning: Few-shot, one-shot and zero-shot. These approaches vary based on the amount of task-specific data that is given to the model:
 
 **Few-shot**: In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The following example shows a few-shot prompt where we provide multiple examples:
+
 ```
     Convert the questions to a command:
     Q: Ask Constance if we need some bread
@@ -109,9 +110,8 @@ There are three main approaches for in-context learning: Few-shot, one-shot and 
     A: 
 ```
 
-The number of examples typically range from 0 to 100 depending on how many can fit in the maximum input length for a single prompt. Maximum input length can vary depending on the specific models you use. Few-shot learning enables a major reduction in the amount of task-specific data required for accurate predictions. This approach will typically perform less accurately than a fine-tuned model. 
+The number of examples typically range from 0 to 100 depending on how many can fit in the maximum input length for a single prompt. Maximum input length can vary depending on the specific models you use. Few-shot learning enables a major reduction in the amount of task-specific data required for accurate predictions. This approach will typically perform less accurately than a fine-tuned model.
 
-    
 **One-shot**: This case is the same as the few-shot approach except only one example is provided. 
 
 **Zero-shot**: In this case, no examples are provided to the model and only the task request is provided.
@@ -121,10 +121,6 @@ The number of examples typically range from 0 to 100 depending on how many can f
 The service provides users access to several different models. Each model provides a different capability and price point. The base GPT-3 models are known as Davinci, Curie, Babbage and Ada in decreasing order of intelligence and speed.
 
 The Codex series of models are a descendant of GPT-3 and have been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
-
-## Terms of use
-
-The use  of Azure OpenAI service is governed by the terms of service that were agreed to upon onboarding. You may only use this service for the use case provided. You must complete another review before using the Azure OpenAI service in a "live" or production scenario, within your company, or with your customers (as compared to use solely for internal evaluation).
 
 ## Next steps
 
