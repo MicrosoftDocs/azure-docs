@@ -46,7 +46,7 @@ In this section, you'll deploy a Virtual Network Manager instance with the Secur
 
 1. On the *Basics* tab, enter or select the information for your organization:
 
-    :::image type="content" source="media/how-to-block-high-risk-ports/network-manager-basics-thmb.png" alt-text="Screenshot of Create a network manager Basics page." lightbox="media/how-to-block-high-risk-ports/network-manager-basics-.png":::
+    :::image type="content" source="media/how-to-block-high-risk-ports/network-manager-basics-thmb.png" alt-text="Screenshot of Create a network manager Basics page." lightbox="media/how-to-block-high-risk-ports/network-manager-basics.png":::
 
     | Setting | Value |
     | ------- | ----- |
