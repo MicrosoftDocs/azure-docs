@@ -83,6 +83,8 @@ landingContent:
         links:
           - text: Geospatial reference architecture
             url: geospatial-reference-architecture.md
+          - text: Spaceborne data analysis with Azure Synapse Analytics
+            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics  
       - linkListType: tutorial
         links:
           - text: Schedule a contact with NASA's AQUA public satellite
