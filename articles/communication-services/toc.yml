@@ -17,8 +17,6 @@ items:
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
-      - name: Manage access tokens for Teams users
-        href: quickstarts/manage-teams-identity.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
       - name: Authenticate with Azure AD (Azure CLI)
@@ -31,8 +29,6 @@ items:
     items:
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md
-      - name: Join your chat app to a Teams meeting
-        href: quickstarts/chat/meeting-interop.md
       - name: Using Chat SDK with React Native
         href: quickstarts/chat/react-native.md
       - name: Send Chat messages in Azure Logic Apps
@@ -77,10 +73,6 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Add video calling as Teams user to your client app
-      href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md
-    - name: Join your calling client app to a Teams meeting
-      href: quickstarts/voice-video-calling/get-started-teams-interop.md
     - name: Use the call automation APIs
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
@@ -101,6 +93,22 @@ items:
       href: quickstarts/ui-library/get-started-composites.md
     - name: Design with UI Library Design Kit
       href: quickstarts/ui-library/get-started-ui-kit.md
+  - name: Teams interoperability
+    items:
+      - name: Communication as external user
+        items:
+        - name: Manage access tokens for external users
+          href: quickstarts/identity/access-token-teams-external-users.md 
+        - name: Add Teams meeting video to your client app
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
+        - name: Add Teams meeting chat to your client app
+          href: quickstarts/chat/meeting-interop.md          
+      - name: Communication as Teams user
+        items:                
+        - name: Manage access tokens for Teams users
+          href: quickstarts/manage-teams-identity.md                
+        - name: Add video calling as Teams user to your client app
+          href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md          
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -209,6 +217,10 @@ items:
         href: concepts/detailed-call-flows.md
       - name: Known issues
         href: concepts/known-issues.md
+  - name: Rooms
+    items:
+      - name: Rooms overview
+        href: concepts/rooms/room-concept.md
   - name: UI Library
     items:
       - name: UI Library overview
@@ -250,7 +262,7 @@ items:
     items:
       - name: Overview
         href: concepts/teams-interop.md
-      - name: Communication as Teams guest
+      - name: Communication as external user
         items:        
           - name: Overview
             href: concepts/interop/guest/overview.md
@@ -276,6 +288,8 @@ items:
             href: concepts/interop/teams-user-calling.md
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
+          - name: Azure AD API permissions
+            href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
   - name: Network Traversal (TURN)
