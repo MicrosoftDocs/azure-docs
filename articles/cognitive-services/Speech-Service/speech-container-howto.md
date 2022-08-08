@@ -55,8 +55,8 @@ The following table describes the minimum and recommended allocation of resource
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
-| Custom speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
+| Speech-to-text | 4 core, 4-GB memory | 8 core, 6-GB memory |
+| Custom speech-to-text | 4 core, 4-GB memory | 8 core, 6-GB memory |
 | Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |
 | Neural text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
 
