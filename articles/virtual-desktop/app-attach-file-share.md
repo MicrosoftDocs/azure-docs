@@ -47,7 +47,7 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
 
 - Separate the storage fabric for MSIX app attach from FSLogix profile containers.
 - All VM system accounts and user accounts must have read-only permissions to access the file share.
-- Any disaster recovery plans for Azure Virtual Desktop must include replicating the MSIX app attach file share in your secondary failover location. To learn more about disaster recovery, see [Set up a business continuity and disaster recovery plan](disaster-recovery.md).
+- Any disaster recovery plans for Azure Virtual Desktop must include replicating the MSIX app attach file share in your secondary failover location. To learn more about disaster recovery, see [Set up a business continuity and disaster recovery plan](disaster-recovery.md). You will also need to ensure your file share path is accessible in the secondary location, the use of [DFS Namespaces](https://docs.microsoft.com/en-us/windows-server/storage/dfs-namespaces/dfs-overview) may help by providing a single share name across different file shares. 
 
 ## How to set up the file share
 
