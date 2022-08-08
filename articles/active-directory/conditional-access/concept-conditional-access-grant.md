@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 08/05/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -191,6 +191,10 @@ Restrictions when you configure a policy using the password change control.
 ### Terms of use
 
 If your organization has created terms of use, other options may be visible under grant controls. These options allow administrators to require acknowledgment of terms of use as a condition of accessing the resources protected by the policy. More information about terms of use can be found in the article, [Azure Active Directory terms of use](terms-of-use.md).
+
+### Custom controls (preview)
+
+Custom controls is a preview capability of the Azure Active Directory. When using custom controls, your users are redirected to a compatible service to satisfy authentication requirements outside of Azure Active Directory. For more information, check out the [Custom controls](controls.md) article.
 
 ## Next steps
 

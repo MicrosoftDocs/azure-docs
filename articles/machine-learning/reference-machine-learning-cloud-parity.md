@@ -23,7 +23,7 @@ In the list of global Azure regions, there are several regions that serve specif
 * Azure Government regions **US-Arizona** and **US-Virginia**.
 * Azure China 21Vianet region **China-East-2**.
 
-Azure Machine Learning is still in devlopment in Airgap Regions. 
+Azure Machine Learning is still in development in air-gap Regions. 
 
 The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
 ## Azure Government	
@@ -67,6 +67,7 @@ The information in the rest of this document provides information on what featur
 | Network isolation for managed online endpoints                             | Public Preview       | NO                 | NO          |
 | **Compute** |   | | |
 | [quota management across workspaces](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
+| [Kubernetes compute](./how-to-attach-kubernetes-anywhere.md)                                         | GA                   | NO                | NO         |
 | **[Data for machine learning](concept-data.md)** |   | | |
 | Create, view, or edit datasets and datastores from the SDK                  | GA                   | YES                | YES         |
 | Create, view, or edit datasets and datastores from the UI                   | GA                   | YES                | YES         |
@@ -75,7 +76,7 @@ The information in the rest of this document provides information on what featur
 | **Machine learning lifecycle** |   | | |
 | [Model profiling](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
 | [The Azure ML CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
-| [FPGA-based Hardware Accelerated Models](how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
+| [FPGA-based Hardware Accelerated Models](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
 | [Integrate Azure Stream Analytics with Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Public Preview       | NO                 | NO          |
@@ -92,13 +93,13 @@ The information in the rest of this document provides information on what featur
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
 | **Training** |   | | |
 | [Experimentation log streaming](how-to-track-monitor-analyze-runs.md)                                              | GA                   | YES                | YES         |
-| [Reinforcement Learning](how-to-use-reinforcement-learning.md)                                                     | Public Preview       | NO                 | NO          |
+| [Reinforcement Learning](./v1/how-to-use-reinforcement-learning.md)                                                     | Public Preview       | NO                 | NO          |
 | [Experimentation UI](how-to-track-monitor-analyze-runs.md)                                                         | Public Preview                   | YES                | YES         |
 | [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
 | Managed online endpoints | GA | YES | YES |
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
-| [Azure Stack Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
+| [Azure Stack Edge with FPGA](./v1/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
 | [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
 | [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
@@ -179,6 +180,7 @@ The information in the rest of this document provides information on what featur
 | Network isolation for managed online endpoints                             | Preview       | NO                 | N/A          |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
+| [Kubernetes compute](./how-to-attach-kubernetes-anywhere.md)                                         | GA                   | NO                | NO         |
 | **Data for machine learning** | | | |
 | Create, view, or edit datasets and datastores from the SDK                  | GA               | YES       | N/A        |
 | Create, view, or edit datasets and datastores from the UI                   | GA               | YES       | N/A        |

@@ -292,7 +292,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 You can use the portal to view the uploaded file in the storage container you configured:
 
-![Uploaded file](media/iot-hub-java-java-upload/uploaded-file.png)
+:::image type="content" source="media/iot-hub-java-java-upload/uploaded-file.png" alt-text="Screenshot showing a file that had been uploaded to your storage container." lightbox="media/iot-hub-java-java-upload/uploaded-file.png":::
 
 ## Receive a file upload notification
 
@@ -402,7 +402,7 @@ In this section, you create a Java console app that receives file upload notific
 4. Save and close the `pom.xml` file.
 
 5. Get the IoT Hub service connection string.
-    [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+   [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 6. Using a text editor, open the `my-app\src\main\java\com\mycompany\app\App.java` file and replace the code with the following.
 

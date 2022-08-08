@@ -40,15 +40,11 @@ At the end of this article, you run the Python console app:
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
@@ -188,11 +184,11 @@ Now you're ready to run the application.
 
 2. The following screenshot shows the output from the **FileUpload** app:
 
-    ![Output from simulated-device app](./media/iot-hub-python-python-file-upload/run-device-app.png)
+    :::image type="content" source="./media/iot-hub-python-python-file-upload/run-device-app.png" alt-text="Screenshot showing output from running the FileUpload app." border="true" lightbox="./media/iot-hub-python-python-file-upload/run-device-app.png":::
 
 3. You can use the portal to view the uploaded file in the storage container you configured:
 
-    ![Uploaded file](./media/iot-hub-python-python-file-upload/view-blob.png)
+    :::image type="content" source="./media/iot-hub-python-python-file-upload/view-blob.png" alt-text="Screenshot of the container in the Azure portal that shows the uploaded file." border="true" lightbox="./media/iot-hub-python-python-file-upload/view-blob.png":::
 
 ## Next steps
 
