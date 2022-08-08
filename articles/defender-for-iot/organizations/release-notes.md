@@ -59,7 +59,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## August
+## August 2022
 
 - [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
 
