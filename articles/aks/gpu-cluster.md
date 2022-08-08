@@ -93,7 +93,7 @@ az aks nodepool add \
     --max-count 3
 ```
 
-The above command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group. The command also sets the VM size for the nodes in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, specifies a specialized AKS GPU image nodes on your new node pool, and specifies a *sku=gpu:NoSchedule* taint for the node pool.
+The above command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group. The command also sets the VM size for the node in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, specifies a specialized AKS GPU image nodes on your new node pool, and specifies a *sku=gpu:NoSchedule* taint for the node pool.
 
 > [!NOTE]
 > A taint and VM size can only be set for node pools during node pool creation, but the autoscaler settings can be updated at any time.
