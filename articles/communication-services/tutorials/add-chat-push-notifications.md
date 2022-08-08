@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 >This Push Notification feature is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 This tutotial will guide you to enable Push Notification in your IOS App by using Azure Communication Chat SDK.  
-Push notifications let clients to be notified for incoming messages in a chat thread in situations where the mobile app is not running in the foreground. Azure Communication Services supports two version of push notification. 
+Push notifications alert clients of incoming messages in a chat thread in situations where the mobile app is not running in the foreground. Azure Communication Services supports two version of push notifications. 
 
 - `Basic Version` : The user will be able to see a badge number of 1 on the app’s icon, receive a notification sound and see a pop-up alert banner. 
 - `Advanced Version`: Except for the features supported in basic version, the Contoso will be able to customize the title & message preview section in alert banner. 
@@ -137,16 +137,16 @@ The second method is used to retrieve the valid keys previously stored. You have
 In protocol extension, chat SDK provides the implementation of `decryptPayload(notification:) -> PushNotificationEvent` method which you can take advantage of. Please refer to the  [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTestNotificationExtension/NotificationService.swift) to see the related implementation in  `NotificationService.swift`.
 
 ## Testing
-1. Create a Chat Thread with User A and User B. We will let User A receive push notifications from User B later. 
+1. Create a Chat Thread with User A and User B. 
 
-2. Download the Sample App Repo and follow the above steps. 
+2. Download the Sample App Repo and follow the above steps in the prerequisites and implementation section. 
 
-3. Imagine that yourself is User A. Put User A’s <ACESS_TOEKN> and <ACS_RESOURCE_ENDPOINT> into `AppSettings.plist`. 
+3. Put User A’s <ACESS_TOEKN> and <ACS_RESOURCE_ENDPOINT> into `AppSettings.plist`. 
 
 4. Set “Enable Bitcode” to “No” for two Pods targets – AzureCommunicationChat and Trouter. 
 
 5. Plug the IOS device into your mac, run the program and click “allow” when asked to authorize push notification on device. 
 
-6. Let User B sends a message to the thread created in step 1. You (User A) should be able to receive a push notification in your IOS device. 
+6. As User B, send a chat message. You (User A) should be able to receive a push notification in your IOS device. 
 
 
