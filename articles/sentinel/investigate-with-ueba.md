@@ -64,7 +64,7 @@ A common example of a false positive is when impossible travel activity is detec
 
 ### Analyze a false positive
 
-For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, navigate from the incident to the user entity page. Use the data displayed there to determine whether the locations captured are included in the user's commonly-known locations.
+For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, navigate from the incident to the user entity page. Use the data displayed there to determine whether the locations captured are included in the user's commonly known locations.
 
 For example:
 
@@ -127,7 +127,7 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 
 1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](entity-pages.md) to drill down further. 
 
-    For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign in history to understand whether the failures were anomalous.
+    For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign-in history to understand whether the failures were anomalous.
 
 > [!TIP]
 > You can also run the **Anomalous Failed Logon** [hunting query](hunting.md) to monitor all of an organization's anomalous failed logins. Use the results from the query to start investigations into possible password spray attacks.

@@ -54,7 +54,7 @@ This skill-up training is a level-400 training that's based on the [Microsoft Se
 
 * Although the skill-up training is extensive, it naturally has to follow a script and can't expand on every topic. See the referenced documentation for information about each article.
 * You can now become certified with the new certification [SC-200: Microsoft Security Operations Analyst](/learn/certifications/exams/sc-200), which covers Microsoft Sentinel.  For a broader, higher-level view of the Microsoft Security suite, you might also want to consider [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/learn/certifications/exams/sc-900) or [AZ-500: Microsoft Azure Security Technologies](/learn/certifications/exams/az-500).
-* If you're already skilled up on Microsoft Sentinel, keep track of [what's new](whats-new.md) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier view into upcoming releases. 
+* If you're already skilled up on Microsoft Sentinel, keep track of [what's new](whats-new.md) or join the [Microsoft Cloud Security Private Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier view into upcoming releases. 
 * Do you have a feature idea to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 * Are you a premier customer? You might want the on-site or remote, four-day _Microsoft Sentinel Fundamentals Workshop_. Contact your Customer Success Account Manager for more details.
 * Do you have a specific issue? Ask (or answer others) on the [Microsoft Sentinel Tech Community](https://techcommunity.microsoft.com/t5/microsoft-sentinel/bd-p/MicrosoftSentinel). Or you can email your question or issue to us at <MicrosoftSentinel@microsoft.com>.
@@ -257,9 +257,9 @@ Use watchlists to help you with following scenarios:
 
 * **Investigate threats and respond to incidents quickly**: Rapidly import IP addresses, file hashes, and other data from CSV files. After you import the data, use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and general queries.
 
-* **Import business data as a watchlist**: For example, import lists of users with privileged system access, or terminated employees. Then, use the watchlist to create allow lists and block lists to detect or prevent those users from logging in to the network.
+* **Import business data as a watchlist**: For example, import lists of users with privileged system access, or terminated employees. Then, use the watchlist to create allowlists and blocklists to detect or prevent those users from logging in to the network.
 
-* **Reduce alert fatigue**: Create allow lists to suppress alerts from a group of users, such as users from authorized IP addresses who perform tasks that would normally trigger the alert. Prevent benign events from becoming alerts.
+* **Reduce alert fatigue**: Create allowlists to suppress alerts from a group of users, such as users from authorized IP addresses who perform tasks that would normally trigger the alert. Prevent benign events from becoming alerts.
 
 * **Enrich event data**: Use watchlists to enrich your event data with name-value combinations that are derived from external data sources.
 
