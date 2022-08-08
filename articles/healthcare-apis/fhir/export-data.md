@@ -36,7 +36,7 @@ In some situations, there's a potential for a job to be stuck in a bad state whi
 The FHIR service supports `$export` at the following levels:
 * [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET {{fhirurl}}/$export`
 * [Patient](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET {{fhirurl}}/Patient/$export`
-* [Group of patients*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) – The FHIR service exports all related resources but doesn't export the characteristics of the group: `GET {{fhirurl}}/Group/[ID]/$export`
+* [Group of patients*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) – *The FHIR service exports all referenced resources but doesn't export the characteristics of the group resource itself: `GET {{fhirurl}}/Group/[ID]/$export`
 
 When data is exported, a separate file is created for each resource type. The FHIR service will create a new file when the size of a single exported file exceeds 64 MB. The result is that you may get multiple files for a resource type, which will be enumerated (e.g., `Patient-1.ndjson`, `Patient-2.ndjson`). 
 
