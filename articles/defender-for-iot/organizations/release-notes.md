@@ -65,13 +65,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ### Sensor health from the Azure portal (Public preview)
 
-For sensor versions 22.1.3 and higher, you can use the new sensor health widgets and table column data to monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+For OT sensor versions 22.1.3 and higher, you can use the new sensor health widgets and table column data to monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
 
 :::image type="content" source="media/release-notes/sensor-health.png" alt-text="Screenshot showing the new sensor health widgets." lightbox="media/release-notes/sensor-health.png":::
 
 We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
 
-For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).
+For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
 
 ## July 2022
 

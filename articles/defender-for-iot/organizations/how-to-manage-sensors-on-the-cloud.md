@@ -121,7 +121,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
-
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally-managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support (Public preview)](#upload-a-diagnostics-log-for-support-public-preview).|
 ## Reactivate an OT sensor
 
 You may need to reactivate an OT sensor because you want to:
@@ -156,7 +156,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
 1. From Defender for IoT in the Azure portal, select **Sites and sensors** and then check the overall health score in the widget above the grid. For example:
 
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-widgets.png" alt-text="Screenshot showing the sensor health widgets.":::
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-widgets.png" alt-text="Screenshot showing the sensor health widgets." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-widgets.png":::
 
     - **Unhealthy** indicates one of the following scenarios:
 
@@ -173,15 +173,17 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
 1. To check on specific sensor issues, filter the grid by sensor health, and select one or more issues to verify. For example:
 
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-filter.png" alt-text="Screenshot of the sensor health filter.":::
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-filter.png" alt-text="Screenshot of the sensor health filter." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-health-filter.png":::
 
 1. Expand the filtered sites and sensors now displayed in the grid, and use the **Sensor health** column to learn more at a high level.
 
-1. To drill down further and understand recommended actions, select a sensor name to open the sensor details page. On the sensor details **Overview** page, expand the **Health** section and any messages listed there to learn more. The **Recommendation** column on the right lists recommended actions for handling the health issue.
+1. To drill down further and understand recommended actions, select a sensor name to open the sensor details page.
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-details-health.png" alt-text="Screenshot of the sensor details page showing health information.":::
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-details-health.png" alt-text="Screenshot of the sensor details page showing health information." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-details-health.png":::
+
+    On the sensor details **Overview** page, expand the **Health** section and any messages listed there to learn more. The **Recommendation** column on the right lists recommended actions for handling the health issue.
 
 ## Upload a diagnostics log for support (Public preview)
 
