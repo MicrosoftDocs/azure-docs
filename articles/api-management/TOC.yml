@@ -369,7 +369,7 @@
           - name: .NET
             href: /dotnet/api/overview/azure/apimanagement
           - name: JavaScript
-            href: /javascript/api/overview/azure/apimanagement
+            href: /javascript/api/overview/azure/api-management
           - name: Java
             href: /java/api/overview/azure/apimanagement
           - name: Python
