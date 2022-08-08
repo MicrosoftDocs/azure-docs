@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/21/2022
+ms.date: 08/05/2022
 ms.author: radeltch
 
 ---
@@ -108,7 +108,7 @@ The example configurations and installation commands use the following instance 
 > [!IMPORTANT]
 > The configuration with simple mount structure is only supported on SLES for SAP Applications 15 and higher releases.
 
-:::image type="complex" source="./media/high-availability-guide-suse/high-availability-guide-suse-nfs-simple-mount.png" alt-text="SAP NetWeaver High Availability with simple mount and NFS ":::
+:::image type="complex" source="./media/high-availability-guide-suse/high-availability-guide-suse-nfs-simple-mount.png" alt-text="Diagram that shows SAP NetWeaver High Availability with simple mount and NFS. ":::
    This diagram shows a typical SAP Netweaver HA architecture with simple mount. The "sapmnt" and "saptrans" file systems are deployed on Azure native NFS: NFS shares on Azure Files or NFS volumes on ANF. The SAP central services are protected by a Pacemaker cluster. The clustered VMs are behind an Azure load balancer. The file systems are not managed by the Pacemaker cluster, in contrast to the classic Pacemaker configuration.  
 :::image-end:::
 
@@ -121,10 +121,10 @@ This document assumes that you've already deployed an [Azure Virtual Network](..
 2. For your virtual IPs, deploy and configure an [Azure load balancer](../../../load-balancer/load-balancer-overview.md). It's recommended to use a [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
    1. Create the frontend IP addresses
       1. IP address 10.27.0.9 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         1. Enter the name of the new frontend IP pool (for example **frontend.NW1.ASCS**)
-         1. Set the Assignment to Static and enter the IP address (for example **10.27.0.9**)
-         1. Click OK
+         * Open the load balancer, select frontend IP pool, and click Add
+         * Enter the name of the new frontend IP pool (for example **frontend.NW1.ASCS**)
+         * Set the Assignment to Static and enter the IP address (for example **10.27.0.9**)
+         * Click OK
       1. IP address 10.27.0.10 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.27.0.10** and **frontend.NW1.ERS**)
    1. Create a single backend pool. 
@@ -137,20 +137,20 @@ This document assumes that you've already deployed an [Azure Virtual Network](..
       
    1. Create the health probes
       1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         1. Enter the name of the new health probe (for example **health.NW1.ASCS**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5  
-         1. Click OK
+         * Open the load balancer, select health probes, and click Add
+         * Enter the name of the new health probe (for example **health.NW1.ASCS**)
+         * Select TCP as protocol, port 620**00**, keep Interval 5  
+         * Click OK
       1. Port 621**01** for ASCS ERS
             * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.NW1.ERS**)
    1. Load-balancing rules
       1. Create load balancing rules for ASCS
-         1. Open the load balancer, select Load-balancing rules and click Add
-         1. Enter the name of the new load balancer rule (for example **lb.NW1.ASCS**)
-         1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**)
-         1. Select **HA ports**
-         1. **Make sure to enable Floating IP**
-         1. Click OK
+         * Open the load balancer, select Load-balancing rules and click Add
+         * Enter the name of the new load balancer rule (for example **lb.NW1.ASCS**)
+         * Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**)
+         * Select **HA ports**
+         * **Make sure to enable Floating IP**
+         * Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
       
       > [!IMPORTANT]
@@ -197,8 +197,7 @@ It's recommended to access your Azure Storage account through an [Azure Private 
 
 1. Select **Next**.
 
-1. In the **Advanced** tab, deselect **Require secure transfer for REST API 
-2. **. If you don't deselect this option, you can't mount the NFS share to your VM. The mount operation will time out.
+1. In the **Advanced** tab, deselect **Require secure transfer for REST API**. If you don't deselect this option, you can't mount the NFS share to your VM. The mount operation will time out.
 
 1. Select **Next**.
 
@@ -275,7 +274,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 
 #### Deploy Azure NetApp Files resources  
 
-First, check if Azure NetApp files is available in your region of choice: [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). 
+First, check if Azure NetApp files service is available in your region of choice: [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). 
 
 1. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
 2. Set up Azure NetApp Files capacity pool, following the [instructions on how to set up Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
@@ -306,6 +305,8 @@ When considering Azure NetApp Files for the SAP Netweaver High Availability arch
 - Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers). 
 
 ## Setting up (A)SCS
+
+Next, you will prepare and install the SAP (A)SCS / ERS instances.     
 
 ### Create Pacemaker cluster
 
