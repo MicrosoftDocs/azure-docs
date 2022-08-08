@@ -292,24 +292,21 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 
 # [Latest version](#tab/current)
 
-Release note for `3.3.0-amd64-<locale>`:
+Release note for `3.4.0-amd64-<locale>`:
 
 **Features**
 * Security upgrade.
-* Speech components upgrade.
-* Bug Fixes.
-* Upgraded speech models.
 * Support for latest model versions.
 
 
 | Image Tags                    | Notes                                                                                                |
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
 | `latest`                      | Container image with the `en-US` locale.                                                             |
-| `3.3.0-amd64-<locale>`        | Replace `<locale>` with one of the available locales, listed below. For example `3.2.0-amd64-en-us`. |
+| `3.4.0-amd64-<locale>`        | Replace `<locale>` with one of the available locales, listed below. For example `3.4.0-amd64-en-us`. |
 
 This container has the following locales available.
 
-| Locale for v3.2.0           | Notes                                    | Digest                                                                    |
+| Locale for v3.4.0           | Notes                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
 | `ar-ae`                     | Container image with the `ar-AE` locale. | `sha256:403e61a814dc2a96709ee3eebc6a01f36e0fa046554f3c877c80396320757e15` |
 | `ar-bh`                     | Container image with the `ar-BH` locale. | `sha256:49460c5ff58f9ac6374a033230b7ce2a5cf6c00c3861464cbb8068cea61e9b7f` |
@@ -399,6 +396,15 @@ This container has the following locales available.
 
 
 # [Previous version](#tab/previous)
+
+Release note for `3.3.0-amd64-<locale>`:
+
+**Features**
+* Security upgrade.
+* Speech components upgrade.
+* Bug Fixes.
+* Upgraded speech models.
+* Support for latest model versions.
 
 Release note for `3.2.0-amd64-<locale>`:
 
