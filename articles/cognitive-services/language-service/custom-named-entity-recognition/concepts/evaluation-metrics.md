@@ -132,7 +132,7 @@ You can use the Confusion matrix to identify entities that are too close to each
 
 The highlighted diagonal in the image below is the correctly predicted entities, where the predicted tag is the same as the actual tag.
 
-:::image type="content" source="../media/confusion-matrix-example.png" alt-text="A screenshot of an example confusion matrix" lightbox="../media/confusion-matrix-example.png":::
+:::image type="content" source="../media/confusion.png" alt-text="A screenshot of an example confusion matrix" lightbox="../media/confusion.png":::
 
 You can calculate the entity-level and model-level evaluation metrics from the confusion matrix:
 
