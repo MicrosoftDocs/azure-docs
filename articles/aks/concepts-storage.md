@@ -3,7 +3,7 @@ title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
 services: container-service
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 03/08/2022
 
 ---
 
@@ -43,7 +43,7 @@ Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types includ
 > [!TIP]
 >For most production and development workloads, use Premium SSD. 
 
-Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
+Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single node. For storage volumes that can be accessed by pods on multiple nodes simultaneously, use Azure Files.
 
 ### Azure Files
 Use *Azure Files* to mount an SMB 3.1.1 share or NFS 4.1 share backed by an Azure storage accounts to pods. Files let you share data across multiple nodes and pods and can use:
