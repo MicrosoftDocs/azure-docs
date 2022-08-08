@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual 
-ms.date: 05/24/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -111,7 +111,7 @@ So what does it actually mean to have high precision or high recall for a certai
 
 After you trained your model, you will see some guidance and recommendation on how to improve the model. It's recommended to have a model covering all points in the guidance section.
 
-* Training set has enough data : When an entity type has fewer than 15 labeled instances in the training data, it can lead to lower accuracy due to the model not being adequately trained on these cases. In this case, consider adding more labeled data in the training set. You can check the *data distribution* tab for more guidance.
+* Training set has enough data: When an entity type has fewer than 15 labeled instances in the training data, it can lead to lower accuracy due to the model not being adequately trained on these cases. In this case, consider adding more labeled data in the training set. You can check the *data distribution* tab for more guidance.
 
 * All entity types are present in test set: When the testing data lacks labeled instances for an entity type, the model’s test performance may become less comprehensive due to untested scenarios. You can check the *test set data distribution* tab for more guidance.
 

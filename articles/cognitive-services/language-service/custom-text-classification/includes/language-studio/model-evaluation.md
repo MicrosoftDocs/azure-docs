@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/05/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ---
 
@@ -20,7 +20,7 @@ ms.author: aahi
 
 ### [Overview](#tab/overview)
 
-* In this tab you can view the model's details such as: F1 score, Percesion, Recall, date and time for the training job, total training time and number of training and testing docuemnts included in this training job.  
+* In this tab you can view the model's details such as: F1 score, precision, recall, date and time for the training job, total training time and number of training and testing documents included in this training job.  
 
     :::image type="content" source="../../media/overview.png" alt-text="A screenshot of overview." lightbox="../../media/overview.png":::
 
@@ -34,13 +34,13 @@ ms.author: aahi
 
 * This is a snapshot of how your model performed during testing. The metrics here are static and tied to your model, so they won’t update until you train again.
 
-* You can see for each class, percision, recall, F1 score, number of training and testing labels.
+* You can see the precision, recall, F1 score, and number of training and testing labels for each class.
 
     :::image type="content" source="../../media/class-performance.png" alt-text="A screenshot of entity performance." lightbox="../../media/class-performance.png":::
 ---
 ### [Test set details](#tab/test-set)
 
-* Here you will see the documents included in the **test set** and the result class for each document. You can use the *Show mismatches only* toggle to show only documents with mismathces, or unselect the toggle to view all document in the test set.
+* Here you will see the documents included in the **test set** and the result class for each document. You can use the *Show mismatches only* toggle to show only documents with mismatches, or unselect the toggle to view all document in the test set.
 
 * For each document, you can view: labeled text, its respective labeled class and what class it was predicted with. Also, you will see whether it is a [true positive](../../concepts/evaluation-metrics.md), [false positive](../../concepts/evaluation-metrics.md) or [false negative](../../concepts/evaluation-metrics.md). 
 
@@ -55,7 +55,7 @@ This snapshot shows how entities are distributed across your training and testin
 
 **Graph view**
 
-*Documents with at least one label*: This view will show for each class, the number of occurances for this class across the training and testing sets.
+*Documents with at least one label*: This view will show for each class, the number of occurrences for this class across the training and testing sets.
 
   :::image type="content" source="../../media/graph-view.png" alt-text="A screenshot showing distribution in graph view." lightbox="../../media/graph-view.png":::
 
@@ -82,7 +82,7 @@ You can view the confusion matrix in *normalized* or *raw count* view.
 
 * Only errors: Will show the confusion matrix for classes with errors only.
 
-* Only matches: Will show the confusion matrix for classes with correct predections only.
+* Only matches: Will show the confusion matrix for classes with correct predictions only.
 
 ---
 

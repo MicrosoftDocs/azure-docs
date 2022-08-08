@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/09/2022
+ms.date: 08/08/2022
 ms.author: aahi
 ---
 
@@ -21,11 +21,11 @@ ms.author: aahi
 
 ### [Overview](#tab/overview)
 
-* In this tab you can view the model's details such as: F1 score, Percesion, Recall, date and time for the training job, total training time and number of training and testing docuemnts included in this training job.  
+* In this tab you can view the model's details such as: F1 score, precision, recall, date and time for the training job, total training time and number of training and testing documents included in this training job.  
 
     :::image type="content" source="../../media/overview.png" alt-text="A screenshot of overview." lightbox="../../media/overview.png":::
 
-* You will also see [guidance](../../concepts/evaluation-metrics.md#guidance) on how to improve the model. When clicking on *view details* a side panel will open to give more guidance on how to improve the model. In this example, *BorrowerAddress* and *BorrowerName* entities are confused with *$none* entity. By clicking on the confused entities, you will be taken to the [data labeling](../../how-to/tag-data.md) page to label more data with the correct entitiy.
+* You will also see [guidance](../../concepts/evaluation-metrics.md#guidance) on how to improve the model. When clicking on *view details* a side panel will open to give more guidance on how to improve the model. In this example, *BorrowerAddress* and *BorrowerName* entities are confused with *$none* entity. By clicking on the confused entities, you will be taken to the [data labeling](../../how-to/tag-data.md) page to label more data with the correct entity.
 
     :::image type="content" source="../../media/overview-guidance.png" alt-text="A screenshot showing guidance." lightbox="../../media/overview-guidance.png":::
     
@@ -35,14 +35,14 @@ ms.author: aahi
 
 * This is a snapshot of how your model performed during testing. The metrics here are static and tied to your model, so they won’t update until you train again.
 
-* You can see for each entity, percision, recall, F1 score, number of training and testing labels.
+* You can see for each entity, precision, recall, F1 score, number of training and testing labels.
 
 
     :::image type="content" source="../../media/entity-type-performace.png" alt-text="A screenshot of entity performance." lightbox="../../media/entity-type-performace.png":::
 ---
 ### [Test set details](#tab/test-set)
 
-* Here you will see the documents included in the **test set** and the result entity type for each document. You can use the *Show mismatches only* toggle to show only documents with mismathces, or unselect the toggle to view all document in the test set.
+* Here you will see the documents included in the **test set** and the result entity type for each document. You can use the *Show mismatches only* toggle to show only documents with mismatches, or unselect the toggle to view all document in the test set.
 
 * For each document, you can view: labeled text, its respective labeled entity type and what entity it was predicted with. Also, you will see whether it is a [true positive](../../concepts/evaluation-metrics.md), [false positive](../../concepts/evaluation-metrics.md) or [false negative](../../concepts/evaluation-metrics.md). 
 
@@ -57,9 +57,9 @@ This snapshot shows how entities are distributed across your training and testin
 
 **Graph view**
 
-* *Documents with at least one label*: This view will show for each entity, the number of occurances for this entitiy across the training and testing sets.
+* *Documents with at least one label*: This view will show for each entity, the number of occurrences for this entity across the training and testing sets.
 
-* *Total instances throughout documents*: This view will show for each entity, the labeled occurances accross training and testing sets.
+* *Total instances throughout documents*: This view will show for each entity, the labeled occurrences across training and testing sets.
 
   :::image type="content" source="../../media/dataset-graph.png" alt-text="A screenshot showing distribution in graph view." lightbox="../../media/dataset-graph.png":::
 
@@ -83,7 +83,7 @@ You can view the confusion matrix in *normalized* or *raw count* view.
 
 * Only errors: Will show the confusion matrix for entities with errors only.
 
-* Only matches: Will show the confusion matrix for entities with correct predections only.
+* Only matches: Will show the confusion matrix for entities with correct predictions only.
 
 ---
 
