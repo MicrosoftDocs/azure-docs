@@ -97,7 +97,7 @@ Command component examples are available in the examples GitHub repository. Sele
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components). Several are shown below.
 
-## Hello world command component
+## YAML: Hello world command component
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
 
