@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot Customer managed key 
-description: Learn how to rotate, update, revoke a customer managed keys.
+description: Tutorial to troubleshoot the most common issues from a registry enabled with a Customer managed key.
+author: tejaswikolli-web
 ms.topic: tutorial
 ms.date: 08/5/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli
@@ -12,7 +13,7 @@ This article is part four in a four-part tutorial series. In [part one](containe
 
 ## Troubleshoot Customer managed key
 
-
+This article helps you to troubleshoot and resolve most common issues such as authentication issues, accidental deletions of keys, etc.
 ## Removing managed identity
 
 If you try to remove a user-assigned or a system-assigned managed identity that you have used to configure encryption for your registry, you may see an error:
