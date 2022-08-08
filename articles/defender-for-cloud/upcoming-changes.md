@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 07/28/2022
+ms.date: 08/08/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -24,6 +24,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
 | [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
+| [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation) | September 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -129,6 +130,16 @@ The new release will bring the following capabilities:
     |Guest accounts with read permissions on Azure resources should be removed|fde1c0c9-0fd2-4ecc-87b5-98956cbc1095|
     |Blocked accounts with owner permissions on Azure resources should be removed|050ac097-3dda-4d24-ab6d-82568e7a50cf|
     |Blocked accounts with read and write permissions on Azure resources should be removed| 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
+
+### Legacy Assessments APIs deprecation
+
+The following APIs are set to be deprecated:
+
+- Security Tasks
+- Security Statuses
+- Security Summaries
+
+These APIs will be replaced with ARG-based solution which are currently in preview. All data that is exposed by these legacy APIs will also be available in the new APIs.
 
 ## Next steps
 
