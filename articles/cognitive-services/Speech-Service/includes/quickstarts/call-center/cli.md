@@ -6,4 +6,9 @@ ms.date: 08/02/2022
 ms.author: eur
 ---
 
-We haven't yet included a call center quickstart for the Speech CLI. Please select another programming language to get started. 
+[!INCLUDE [Header](header.md)]
+
+We haven't yet included a call center quickstart for the Speech CLI. Please select another programming language or one of the studio links above to get started. 
+
+> [!TIP]
+> To deploy quickly to Azure with a no-code approach, try the [Ingestion Client](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-speech-cli) for the Speech CLI.

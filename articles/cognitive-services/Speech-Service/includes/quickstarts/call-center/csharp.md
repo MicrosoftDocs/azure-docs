@@ -33,14 +33,14 @@ Follow these steps to run post-call transcription analysis:
     ```
 1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```dotnetcli
-    dotnet run --certificate "YourPathTo\\cacert.pem" --input "https://github.com/Azure-Samples/cognitive-services-speech-sdk/raw/main/scenarios/call-center/sampledata/Call1_separated_16k_health_insurance.wav" --speechKey YourResourceKey --speechRegion YourResourceRegion --languageKey YourResourceKey --languageEndpoint YourResourceEndpoint --stereo --output call.output.txt > call.json.txt
+    dotnet run --input "https://github.com/Azure-Samples/cognitive-services-speech-sdk/raw/main/scenarios/call-center/sampledata/Call1_separated_16k_health_insurance.wav" --speechKey YourResourceKey --speechRegion YourResourceRegion --languageKey YourResourceKey --languageEndpoint YourResourceEndpoint --stereo --output call.output.txt > call.json.txt
     ```
     Replace `YourResourceKey` with your Cognitive Services resource key, replace `YourResourceRegion` with your Cognitive Services resource [region](~/articles/cognitive-services/speech-service/regions.md) (such as `eastus`), and replace `YourResourceEndpoint` with your Cognitive Services endpoint. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
 
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
-    The default console output is a combination of the JSON responses from the batch transcription (Speech), sentiment (Language), and conversation summarization (Language) APIs. If you specify --output FILE, a better formatted version of the results are written to the file. 
+    The default console output is a combination of the JSON responses from the [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) (Speech), [sentiment](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview) (Language), and [conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization) (Language) APIs. If you specify `--output FILE`, a better formatted version of the results is written to the file. 
 
 ## Usage and arguments
 
