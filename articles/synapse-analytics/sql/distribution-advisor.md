@@ -53,7 +53,7 @@ EXEC dbo.read_dist_recommendation;
 go
 ```
 
-To see which queries were analyzed by DA, run [the e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
+To see which queries were analyzed by DA, run [the e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/e2e_queries_used_for_recommendations.sql).
 
 ### 2b. Run the advisor on selected queries
 
@@ -122,7 +122,7 @@ But not the second resultset containing the table change T-SQL commands:
 
  - Check the output of `CommandToInvokeAdvisorString` above. 
 
- - Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing `WHERE` clause in: [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql).
+ - Remove queries that may not be valid anymore which may have been added here from either the hand-selected queries or from the DMV by editing `WHERE` clause in: [Queries Considered by DA](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/e2e_queries_used_for_recommendations.sql).
 
 ### 3. Error during post-processing of recommendation output
     
@@ -137,7 +137,7 @@ Invalid length parameter passed to the LEFT or SUBSTRING function.
 ##### 3b. Mitigation:
 Ensure that you have the most up to date version of the stored procedure from GitHub:
 
- - [e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/DistributionAdvisor/e2e_queries_used_for_recommendations.sql)
+ - [e2e_queries_used_for_recommendations.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/e2e_queries_used_for_recommendations.sql)
 
  - [CreateDistributionAdvisor_PublicPreview.sql script available for download from GitHub](https://github.com/microsoft/Azure_Synapse_Toolbox/blob/master/Distribution_Advisor/CreateDistributionAdvisor_PublicPreview.sql)
 
