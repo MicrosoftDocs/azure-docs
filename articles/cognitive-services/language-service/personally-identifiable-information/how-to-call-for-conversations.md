@@ -31,7 +31,7 @@ Currently the conversational PII preview API only supports English language.
 
 ### Region support
 
-Currently the conversational PII preview API supports the following regions: East US, North Europe and UK south.
+Currently the conversational PII preview API supports all Azure regions supported by the Language service.
 
 ## Submitting data
 
