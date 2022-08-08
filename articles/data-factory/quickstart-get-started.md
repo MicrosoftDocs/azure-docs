@@ -51,7 +51,7 @@ Select the button below to be redirected to the custom deployment configuration 
    :::image type="content" source="media/quickstart-get-started/resource-group-contents.png" alt-text="A screenshot of the contents of the resource group created for the demo.":::
 1. Select the data factory in the resource group and then select the **Open Azure Data Factory Studio** button to continue.
    :::image type="content" source="media/quickstart-get-started/open-data-factory-studio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
-1. Click on the **Author** tab <img src="media/quickstart-get-started/author-button.png"/> and select the **Pipeline** created by the template.  Then check the source data by clicking **Open**.
+1. Click on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/> and select the **Pipeline** created by the template.  Then check the source data by clicking **Open**.
    :::image type="content" source="media/quickstart-get-started/view-pipeline.png" alt-text="Screenshot of the Azure Data Factory Studio showing the pipeline created by the template.":::
    In the source dataset, click **Browse**, and you can see the moviesDB2.csv file has been uploaded into the input folder already.
    :::image type="content" source="media/quickstart-get-started/source-dataset-browse.png" alt-text="Screenshot of the source dataset highlighting the Browse button where the user can see the input file created for the demo.":::
@@ -65,7 +65,7 @@ Select the button below to be redirected to the custom deployment configuration 
 
 ## Monitor the pipeline
 
-1. Select the **Monitor** tab <a href="media/quickstart-get-started/monitor-button.png"/>.
+1. Select the **Monitor** tab <a href="media/quickstart-get-started/monitor-button.png" alt="Monitor tab" />.
 1. You see the activity runs associated with the pipeline run.  In this quickstart, the pipeline has only one activity of type: Copy.  As such, you see a run for that activity.
 
 ## Verify the output file
@@ -79,7 +79,7 @@ The pipeline automatically creates an output folder in the blob container.  Then
 
 ## Clean up resources
 
-You can clean up all the resources you created in this quickstart in two ways.  You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group), which includes all the resources created in it.  Or if you want to keep other resources intact, delete only the data factory you created in this tutorial.
+You can clean up all the resources you created in this quickstart in two ways.  You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep other resources intact, delete only the data factory you created in this tutorial.
 
 Deleting a resource group deletes all the resources, including data factories, created within it.  Run the following command to delete the entire resource group:
 
@@ -95,8 +95,8 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 ## Next Steps
 
-In this quickstart, you created an Azure Data Factory using an Azure Resource Manager (ARM) template and validated the deploymjent.  To learn more about Azure Data Factory and ARM, continue on to the articles below.
+In this quickstart, you created an Azure Data Factory using an Azure Resource Manager (ARM) template and validated the deployment.  To learn more about Azure Data Factory and ARM, continue on to the articles below.
 
-- Browse all of the [Azure Data Factory documentation](./).
-- Learn more about [Azure Resource Manager](..azure-resource-manager/management/overview).
+- Browse all of the [Azure Data Factory documentation](.).
+- Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Get other [Azure Data Factory ARM templates](/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
