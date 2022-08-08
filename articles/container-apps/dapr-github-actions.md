@@ -12,24 +12,23 @@ ms.custom: template-tutorial
 
 # Tutorial: Deploy a Dapr application to Azure Container Apps using GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you use the GitHub Actions integration with Azure Container Apps to generate a workflow for deploying revision-scope changes on a microservice application that uses [Dapr](https://docs.dapr.io). 
+[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you will see how revision-scope changes to a Container App using [Dapr](https://docs.dapr.io) can be deployed using a GitHub Actions workflow. 
 
 Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation. Azure Container Apps integrates with a [managed version of Dapr](./dapr-overview.md).
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
->
-> - Run a GitHub Actions workflow for deploying the baseline application to Azure Container Apps.
+> - Configure a GitHub Actions workflow for deploying the end-to-end solution to Azure Container Apps.
 > - Modify the source code with a [revision-scope change](revisions.md#revision-scope-changes) to trigger the Build and Deploy GitHub workflow.
-> - View the new active Container Apps revisions.
+> - Learn how revisions are created for container apps in multi-revision mode.
 
-The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-microservice) consists of three microservices, each Dapr-enabled for service to service communication and state persistence. GitHub Actions and Bicep are used for CI/CD, which deploys each microservice as its own container app. 
+The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-microservice) consists of three Dapr-enabled microservices and uses Dapr APIs for service-to-service communication and state management. 
 
 :::image type="content" source="media/dapr-github-actions/arch.png" alt-text="Diagram demonstrating microservices app.":::
 
 > [!NOTE]
-> This tutorial focuses on the baseline solution deployment outlined below. If you're interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice#build-and-run).
+> This tutorial focuses on the baseline solution deployment outlined below. If you're interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice/build-and-run.md).
 
 ## Prerequisites
 
@@ -38,6 +37,7 @@ The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-
 - Contributor or Owner permissions on the Azure subscription.
 - A GitHub account. 
   - If you don't have one, sign up for [free](https://github.com/join).
+- Install [Git](https://github.com/git-guides/install-git).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Set up the environment
@@ -141,15 +141,14 @@ The GitHub Actions workflow YAML file in the `/.github/workflows/` folder execut
 | **Authentication**     | Log in to Azure                                                    |
 | **Deploy using bicep** | 1. Create a resource group  <br>2. Deploy Azure Resources for the solution using bicep            |
 
-The following resources deploy via the bicep template in the `/deploy` path of the repository:
+The following resources are deployed via the bicep template in the `/deploy` path of the repository:
 
 - Log Analytics workspace
 - Application Insights
-- Container app environment
-- Store API container app
+- Container apps environment
 - Order service container app
 - Inventory container app
-- Cosmos DB
+- Azure Cosmos DB
 
 ### Create a service principal
 
@@ -190,33 +189,6 @@ The output is the role assignment credentials that provide access to your resour
 
 Copy the JSON object output and save it to a file on your machine. You use this file as you authenticate from GitHub.
 
-### Create a GitHub Personal Access Token (PAT)
-
-Since you're using a private GitHub Container Registry to host the container images, you need to generate a GitHub PAT with the `write:packages` scope. With this scope, you can:
-
-- Upload and download your container images within the GitHub Action workflow
-- Connect to your registry from Azure Container Apps, later in the tutorial.
-
-Navigate to GitHub and verify you're logged in.  
-
-1. In the upper-right corner of any GitHub page, click your profile photo, then click **Settings**.
-1. In the left sidebar, click **Developer Settings** > **Personal Access Tokens**.
-1. Click **Generate new token**. You may be asked to enter your GitHub password.
-
-   :::image type="content" source="media/dapr-github-actions/pat-generate.png" alt-text="Screenshot of the Personal Access Token page and generate new token button.":::
-
-1. In the **Note** field, provide a descriptive name.
-1. Leave the **Expiration** value at default.
-1. Select the `write:packages` and `read:packages` scopes.
-
-   :::image type="content" source="media/dapr-github-actions/name-scope.png" alt-text="Screenshot of creating a new token name and selecting the write packages scope.":::
-
-1. Scroll down and click **Generate token**.
-1. Copy the PAT value and **save it elsewhere**. You will not be able to view it again on GitHub after this initial creation.
-
-   :::image type="content" source="media/dapr-github-actions/save-token.png" alt-text="Screenshot of an example of the GitHub personal access token.":::
-
-
 ### Configure GitHub Secrets
 
 1. While in GitHub, browse to your forked repository for this tutorial.
@@ -230,20 +202,17 @@ Navigate to GitHub and verify you're logged in.
 
    | Name | Value |
    | ---- | ----- |
-   | `PACKAGES_TOKEN` | The PAT you saved in the previous step |
    | `AZURE_CREDENTIALS` | The JSON output you saved earlier from the service principal creation |
    | `RESOURCE_GROUP` | Set as **my-containerapp-store** |
-
-   :::image type="content" source="media/dapr-github-actions/create-secret-pat.png" alt-text="Screenshot of creating a new secret, like the packages token secret.":::
 
    :::image type="content" source="media/dapr-github-actions/secrets.png" alt-text="Screenshot of all three secrets once created.":::
 
 ### Trigger the GitHub Action
 
-To build and deploy the initial solution to Azure Container Apps, run the "Build and deploy baseline" workflow.
+To build and deploy the initial solution to Azure Container Apps, run the "Build and deploy" workflow.
 
 1. Open the **Actions** tab in your GitHub repository.
-1. In the left side menu, select the **Build and Deploy** baseline workflow.
+1. In the left side menu, select the **Build and Deploy** workflow.
 
    :::image type="content" source="media/dapr-github-actions/run-workflow.png" alt-text="Screenshot of the Actions tab in GitHub and running the workflow.":::
 
@@ -288,12 +257,12 @@ After the workflow successfully completes, verify the application is running in 
 
 ## Modify the source code to trigger a new revision
 
-Once the source code is changed and committed, the GitHub build/deploy workflow builds and pushes a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in a new container app revision. 
+Container Apps run in single-revision mode by default. In the Container Apps bicep module, we explicitly set the revision mode to multiple. This means that once the source code is changed and committed, the GitHub build/deploy workflow builds and pushes a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in a new container app revision. 
 
 > [!NOTE]
-> A new revision is created for a container app when the update contains [revision-scope](revisions.md#revision-scope-changes) changes. [Application-scope](revisions.md#application-scope-changes) changes do not create a new revision.
+> [Application-scope](revisions.md#application-scope-changes) changes do not create a new revision.
 
-For this tutorial, you add a **Delete Order** operation to your store. 
+To demonstrate the inner-loop experience for creating revisions via GitHub actions, you will make a change to the frontend application and commit this change to your repo. 
 
 1. Return to the console, and navigate into the *node-service/views* directory in the forked repository.
 
@@ -327,7 +296,7 @@ For this tutorial, you add a **Delete Order** operation to your store.
    ```
    ---
 
-1. At the bottom of the file, add the following code to create a delete order form:
+1. At the bottom of the file, uncomment the following code to enable deleting an order from the Dapr state store.
 
    ```jade
    h2= 'Delete Order'
@@ -340,114 +309,6 @@ For this tutorial, you add a **Delete Order** operation to your store.
      div.actions
        input(type='submit', value='View')
    ```
-1. Save the file.
-
-1. In the console, navigate to *node-service/routes*.
-
-   # [Bash](#tab/bash)
-   
-   ```azurecli
-   cd .. 
-   cd routes/
-   ```
-   
-   # [PowerShell](#tab/powershell)
-   
-   ```azurecli
-   cd .. 
-   cd routes/
-   ```
-   ---
-
-1. Open *orders.js*:
-
-   # [Bash](#tab/bash)
-   
-   ```azurecli
-      code orders.js .
-   ```
-   
-   # [PowerShell](#tab/powershell)
-   
-   ```azurecli
-      code orders.js .
-   ```
-   ---
-
-1. Add a route for the delete action after the create action in the file. With the following route, a Dapr service invocation calls to the `python-service` to delete the order from the Cosmos DB state store:
-
-   ```js
-   router.post('/delete', async function(req, res ) {
-   
-     var data = await axios.delete(`${daprSidecar}/order?id=${req.body.id}`, {
-       headers: {'dapr-app-id': `${orderService}`}
-     });
-     
-     res.setHeader('Content-Type', 'application/json');
-     res.send(`${JSON.stringify(data.data)}`);
-   });
-   ```
-
-1. Save the file.
-
-1. Navigate to the *python-service*:
-
-   # [Bash](#tab/bash)
-   
-   ```azurecli
-   cd ../..
-   cd python-service/
-   ```
-   
-   # [PowerShell](#tab/powershell)
-   
-   ```azurecli
-   cd ../..
-   cd python-service/
-   ```
-   ---
-
-1. Open *app.py*:
-
-   # [Bash](#tab/bash)
-   
-   ```azurecli
-      code app.py .
-   ```
-   
-   # [PowerShell](#tab/powershell)
-   
-   ```azurecli
-      code app.py .
-   ```
-   ---
-
-1. Add the endpoint for deleting an order under the create endpoint:
-
-   ```python
-   @app.route('/order', methods=['DELETE'])
-   def deleteOrder():
-       app.logger.info('delete called in the order service')
-       with DaprClient() as d:
-           d.wait(5)
-           id = request.args.get('id')
-           if id:
-               # Delete the order status from Cosmos DB via Dapr
-               try: 
-                   d.delete_state(store_name='orders', key=id)
-                   return f'Item {id} successfully deleted', 200
-               except Exception as e:
-                   app.logger.info(e)
-                   return abort(500)
-               finally:
-                   app.logger.info('completed order delete')
-           else:
-               resp = jsonify('Order "id" not found in query string')
-               resp.status_code = 400
-               return resp
-   ```
-
-1. Save the file.
 
 1. Stage the changes and push to the `main` branch of your fork using git. 
 
@@ -488,7 +349,7 @@ For this tutorial, you add a **Delete Order** operation to your store.
 
     | Revision | Description |
     | -------- | ----------- |
-    | **Inactive** | Created when the base application was first deployed |
+    | **Inactive** | Created when the application was first deployed |
     | **Active** | Created when you added the Delete Order operation and pushed the changes |
 
     :::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
@@ -497,7 +358,7 @@ For this tutorial, you add a **Delete Order** operation to your store.
 
    :::image type="content" source="media/dapr-github-actions/revision-details.png" alt-text="Screenshot of the revision details for the active node app revision.":::
 
-   Since our container app is in **single revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. 
+   Since our container app is in **multiple revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. 
 
 1. View the new revision in action by refreshing the node-app UI.
 
@@ -526,33 +387,6 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 
 ---
 
-Make sure to also hard-delete the API Management resource included in the tutorial. Run the following REST `get` command with your subscription ID to retrieve the API Management resource name and location:
-
-# [Bash](#tab/bash)
-
-```azurecli
-az rest -m get --header "Accept=application/json" -u ‘https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.ApiManagement/deletedservices?api-version=2021-08-01'
-```
-
-Run the REST `delete` command with your subscription ID and the API Management resource name and location to purge:
-
-```azurecli
-az rest -m delete --header "Accept=application/json" -u 'https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{APIMname}?api-version=2021-08-01'
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az rest -m get --header "Accept=application/json" -u ‘https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.ApiManagement/deletedservices?api-version=2021-08-01'
-```
-
-Run the REST `delete` command to purge the API Management resource:
-
-```powershell
-az rest -m delete --header "Accept=application/json" -u 'https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{APIMname}?api-version=2021-08-01'
-```
-
----
 
 ## Next steps
 

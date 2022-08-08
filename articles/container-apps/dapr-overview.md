@@ -204,7 +204,7 @@ scopes:
 Now that you've learned about Dapr and some of the challenges it solves:
 
 - Try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
-- Walk through a tutorial [using a GitHub Actions workflow to demonstrate revision-scope changes on a Dapr container app][dapr-github-actions].
+- Walk through a tutorial [using GitHub Actions to automate changes for a multi-revision, Dapr-enabled container app][dapr-github-actions].
 
 <!-- Links Internal -->
 [dapr-quickstart]: ./microservices-dapr.md
