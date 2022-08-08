@@ -13,9 +13,6 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 Earlier versions of the Blob Storage trigger for Azure Functions polled the container for updates, which often resulted in delayed execution. By using the latest version of the extension, you can reduce latency by instead triggering on an event subscription to the same blob container. The event subscription uses Event Grid to forward changes in the blob container as events for your function to consume. This article demonstrates how to use Visual Studio Code to locally develop a function that runs based events raised when a blob is added to a container. You'll locally verify the function before deploying your project to Azure.
 
-> [!NOTE]
-> Both the Blob Storage trigger using an event subscription and the Storage Extension for Visual Studio Code are currently in preview.
-
 > [!div class="checklist"]
 > * Create a general storage v2 account in Azure Storage.
 > * Create a container in blob storage.
@@ -42,6 +39,11 @@ Earlier versions of the Blob Storage trigger for Azure Functions polled the cont
 [!INCLUDE [functions-requirements-vs-code-java](../../includes/functions-requirements-vs-code-java.md)]
 ::: zone-end  
 + The [ngrok](https://ngrok.com/) utility, which provides a way for Azure to call into your locally running function.
+
++ The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code.
+
+> [!NOTE]
+> The Storage Extension for Visual Studio Code is currently in preview.
 
 ## Create a storage account
 
