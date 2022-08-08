@@ -70,14 +70,14 @@ The FHIR service supports the following query parameters for filtering exported 
 | `_since` | Yes | Allows you to only export resources that have been modified since the time provided. |
 | `_type` | Yes | Allows you to specify which types of resources will be included. For example, `_type=Patient` would return only patient resources.|
 | `_typeFilter` | Yes | To request finer-grained filtering, you can use `_typeFilter` along with the `_type` parameter. The value of the `_typeFilter` parameter is a comma-separated list of FHIR queries that further restrict the results. |
-| `_container` | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder in that container. If the container isn't specified, the data will be exported to a new container. |
+| `_container` | No |  Specifies the name of the container in the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder in that container. If the container isn't specified, the data will be exported to a new container with an auto-generated name. |
 
 > [!Note]
 > Only storage accounts in the same subscription as that for the FHIR service are allowed to be registered as the destination for `$export` operations.
     
 ## Next steps
 
-In this article, you've learned about exporting FHIR resources using the `$export` operation. For information about how to set up and use de-identified export or other export options, see
+In this article, you've learned about exporting FHIR resources using the `$export` operation. For information about how to set up and use additional options for export, see
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
