@@ -65,7 +65,7 @@ Support | Details
 --- | ---
 **Supported servers** | You can perform software inventory on up to 10,000 servers running across vCenter Server(s) added to each Azure Migrate appliance.
 **Operating systems** | Servers running all Windows and Linux versions are supported.
-**Server requirements** | For software inventory, VMware Tools must be installed and running on your servers.The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
+**Server requirements** | For software inventory, VMware Tools must be installed and running on your servers. The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
 **vCenter Server account** | To interact with the servers for software inventory, the vCenter Server read-only account that's used for assessment must have privileges for guest operations on VMware VMs.
 **Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
 **Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory.
@@ -113,7 +113,7 @@ Support | Details
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure.The following table summarizes the requirements for setting up agentless dependency analysis:
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
 
 Support | Details
 --- | ---
