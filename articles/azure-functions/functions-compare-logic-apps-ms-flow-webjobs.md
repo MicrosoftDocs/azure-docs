@@ -42,11 +42,11 @@ The following table helps you determine whether Power Automate or Logic Apps is 
 
 ## Compare Azure Functions and Azure Logic Apps
 
-Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, whereas Azure Logic Apps provides serverless workflows. Both can create complex *orchestrations*. An orchestration is a collection of functions or steps, which are called *actions* in Azure Logic Apps, that are executed to accomplish a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
+Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, whereas Azure Logic Apps is a serverless workflow integration platform. Both can create complex *orchestrations*. An orchestration is a collection of functions, or *actions* in Azure Logic Apps, that you can run to complete a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Azure Logic Apps, you create orchestrations by using a GUI or editing configuration files.
 
-You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these:
+You can mix and match services when you build an orchestration, such as calling functions from logic app workflows and calling logic app workflows from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some key differences between these services:
 
 |  | Durable Functions | Logic Apps |
 | --- | --- | --- |
@@ -102,11 +102,11 @@ For other scenarios where you want to run code snippets for integrating Azure or
 
 ## Power Automate, Logic Apps, Functions, and WebJobs together
 
-You don't have to choose just one of these services. They integrate with each other as well as they do with external services.
+You don't have to choose just one of these services. They integrate with each other as well as with external services.
 
-A Power Automate flow call an Azure Logic Apps workflow. An Azure Logic Apps workflow can call a function in Azure Functions, and vice versa. For example, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
+A Power Automate flow can call an Azure Logic Apps workflow. An Azure Logic Apps workflow can call a function in Azure Functions, and vice versa. For example, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
 
-The integration between Power Automate, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services.
+Between Power Automate, Logic Apps, and Functions, the integration experience between these services continues to improve over time. You can build a component in one service and use that component in the other services.
 
 You can get more information on integration services by using the following links:
 
