@@ -120,12 +120,12 @@ This document assumes that you've already deployed an [Azure Virtual Network](..
  
 2. For your virtual IPs, deploy and configure an [Azure load balancer](../../../load-balancer/load-balancer-overview.md). It's recommended to use a [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
    1. Create the frontend IP addresses
-      1. IP address 10.27.0.9 for the ASCS
+      1. IP address 10.27.0.9 for the ASCS instance  
          * Open the load balancer, select frontend IP pool, and click Add
          * Enter the name of the new frontend IP pool (for example **frontend.NW1.ASCS**)
          * Set the Assignment to Static and enter the IP address (for example **10.27.0.9**)
          * Click OK
-      1. IP address 10.27.0.10 for the ASCS ERS
+      1. IP address 10.27.0.10 for the ERS instance  
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.27.0.10** and **frontend.NW1.ERS**)
    1. Create a single backend pool. 
       1. Open the load balancer, select backend pools, and click Add
@@ -141,7 +141,7 @@ This document assumes that you've already deployed an [Azure Virtual Network](..
          * Enter the name of the new health probe (for example **health.NW1.ASCS**)
          * Select TCP as protocol, port 620**00**, keep Interval 5  
          * Click OK
-      1. Port 621**01** for ASCS ERS
+      1. Port 621**01** for the ERS instance  
             * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.NW1.ERS**)
    1. Load-balancing rules
       1. Create load balancing rules for ASCS
@@ -151,6 +151,7 @@ This document assumes that you've already deployed an [Azure Virtual Network](..
          * Select **HA ports**
          * **Make sure to enable Floating IP**
          * Click OK
+      1. Create load balancing rules for ERS
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
       
       > [!IMPORTANT]
@@ -312,7 +313,7 @@ Next, you will prepare and install the SAP (A)SCS / ERS instances.
 
 Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) to create a basic Pacemaker cluster for SAP (A)SCS.
 
-### Prepare for Installation
+### Prepare for installation
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 
