@@ -34,7 +34,7 @@ A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge Pro
 
 | Specification           | Value                      |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](../machine-learning/v1/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
 ## Power supply unit specifications
 
@@ -71,7 +71,7 @@ The Network Adapters used are:
 |Network Daughter Card (rNDC) |QLogic FastLinQ 41264 Dual Port 25GbE SFP+, Dual Port 1GbE, rNDC|
 |PCI Network Adapter |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 Adapter|
 
-Please consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) is not included in the delivery of Azure Stack Edge. 
+Please consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) are not included in the delivery of Azure Stack Edge. 
 
 ## Storage specifications
 
