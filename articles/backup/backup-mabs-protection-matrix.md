@@ -1,7 +1,7 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 08/04/2022
+ms.date: 08/08/2022
 ms.topic: conceptual
 author: v-amallick
 ms.service: backup
@@ -35,14 +35,16 @@ The following sections details the protection support matrix for MABS:
 
 ## Applications Backup
 
-| **Workload**               | **Version**                                                  | **Azure Backup Server   installation**                       | **Supported Azure Backup Server** | **Protection and recovery**                                  |
+| **Workload**               | **Version**                                                  | **Azure Backup Server   installation**                       | **Azure Backup Server** | **Protection and recovery**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
 | Client  computers (64-bit) | Windows 11, Windows 10                                                  | Physical  server  <br><br>    Hyper-V virtual machine   <br><br>   VMware virtual machine | V3 UR1 and V3 UR2                            | Volume,  share, folder, files, deduped volumes   <br><br>   Protected volumes must be NTFS. FAT and FAT32 aren't supported.  <br><br>    Volumes must be at least 1 GB. Azure Backup Server uses Volume Shadow Copy  Service (VSS) to take the data snapshot and the snapshot only works if the  volume is at least 1 GB. |
 | Servers  (64-bit)          | Windows  Server 2022, 2019, 2016, 2012 R2, 2012 <br /><br />(Including Windows Server Core edition)                   | Azure  virtual machine (when workload is running as Azure virtual machine)  <br><br>    Physical server  <br><br>    Hyper-V virtual machine <br><br>     VMware virtual machine  <br><br>    Azure Stack | V3 UR1 and V3 UR2                            | Volume,  share, folder, file <br><br>    Deduped  volumes (NTFS only) <br><br>When protecting a WS 2016 NTFS deduped volume with MABS v3 running on Windows Server 2019, the recoveries may be affected. We have a fix for doing recoveries in a non-deduped way that will be part of later versions of MABS. Contact MABS support if you need this fix on MABS v3 UR1.<br><br> When protecting a WS 2019 NTFS deduped volume with MABS v3 on Windows Server 2016, the backups and restores will be non-deduped. This means that the backups will consume more space on the MABS server than the original NTFS deduped volume.   <br><br>   System  state and  bare metal  (Not  supported when workload is running as Azure virtual machine) |
-| Servers  (64-bit)          | Windows  Server 2008 R2 SP1, Windows Server 2008 SP2  (You  need to install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)) | Physical  server  <br><br>    Hyper-V virtual machine  <br><br>      VMware  virtual machine  <br><br>   Azure Stack | V3 UR1 and V3 UR2                           | Volume,  share, folder, file, system state/bare metal        |
 | SQL  Server                | SQL  Server 2019, 2017, 2016 and [supported SPs](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016), 2014 and supported [SPs](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | Physical  server  <br><br>     Hyper-V virtual machine   <br><br>     VMware  virtual machine  <br><br>   Azure virtual machine (when workload is running as Azure virtual machine)  <br><br>     Azure Stack | V3 UR1 and V3 UR2                            | All  deployment scenarios: database       <br><br>    MABS v3 UR2 and later supports the backup of SQL database, stored on the Cluster Shared Volume.     <br><br>  MABS v3 UR1 supports the backup of SQL databases over ReFS volumes     <br><br>     MABS doesn't support SQL Server databases hosted on Windows Server 2012 Scale-Out File Servers (SOFS). <br><br>   MABS can't protect SQL server Distributed Availability Group (DAG) or Availability Group (AG), where the role name on the failover cluster is different than the named AG on SQL.       |
 | Exchange                   | Exchange  2019, 2016                                         | Physical  server   <br><br>   Hyper-V virtual machine  <br><br>      VMware  virtual machine  <br><br>   Azure Stack  <br><br>    Azure virtual machine (when workload is running as Azure virtual machine) | V3 UR1 and V3 UR2                            | Protect  (all deployment scenarios): Standalone Exchange server, database under a  database availability group (DAG)  <br><br>    Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG    <br><br>  Backup of Exchange over ReFS is supported with MABS v3 UR1 |
 | SharePoint                 | SharePoint  2019, 2016 with latest SPs                       | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine  <br><br>   Azure virtual machine (when workload is running as Azure virtual machine)   <br><br>   Azure Stack | V3 UR1 and V3 UR2                            | Protect  (all deployment scenarios): Farm, frontend web server content  <br><br>    Recover (all deployment scenarios): Farm, database, web application, file, or  list item, SharePoint search, frontend web server  <br><br>    Protecting a SharePoint farm that's using the SQL Server 2012  Always On feature for the content databases isn't supported. |
+
+>[!Note]
+>Windows Server 2008 R2 is at end of support. We recommend you to upgrade to the supported version.
 
 ## VM Backup
 
@@ -55,9 +57,6 @@ The following sections details the protection support matrix for MABS:
 
 >[!NOTE]
 > MABS doesn't support backup of virtual machines with pass-through disks or those that use a remote VHD. We recommend that in these scenarios you use guest-level backup using MABS, and install an agent on the virtual machine to back up the data.
-
-## Operating systems and applications at end of support
-
 
 ## Linux
 
@@ -92,6 +91,32 @@ For more information, see the [ExpressRoute routing requirements](../expressrout
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.
+
+### Operating systems and applications at end of support
+
+>[!Important]
+>Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
+>
+>If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
+>
+>For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
+
+|Workload|Version|Azure Backup Server</br> installation| Azure Backup Server|Protection and recovery|
+|------------|-----------|---------------|--------------|--------------|
+|Servers (32-bit and 64-bit)|Windows Server 2008 R2 SP1 - Standard and Enterprise|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2<br />You need to be running SP1 and install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, share, folder, file, system state/bare metal|
+|Servers (32-bit and 64-bit)|Windows Server 2008 R2 SP1 - Standard and Enterprise|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|V3, V2<br />You need to be running SP1 and install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, share, folder, file|
+|Servers (32-bit and 64-bit)|Windows Server 2008 R2 SP1 - Standard and Enterprise|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMWare)<br /> <br /> Azure Stack|V3, V2<br />You need to be running SP1 and install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, share, folder, file, system state/bare metal|
+|Servers (32-bit and 64-bit)|Windows Server 2008 SP2|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|Not supported|Volume, share, folder, file, system state/bare metal|
+|Servers (32-bit and 64-bit)|Windows Server 2008 SP2|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMware)<br /> <br /> Azure Stack|V3, V2|Volume, share, folder, file, system state/bare metal|
+|Servers (32-bit and 64-bit)|Windows Storage Server 2008|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|Volume, share, folder, file, system state/bare metal|
+|SQL Server|SQL Server 2008 R2|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
+|SQL Server|SQL Server 2008 R2|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
+|SQL Server|SQL Server 2008 R2|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMware)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
+|SQL Server|SQL Server 2008|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
+|SQL Server|SQL Server 2008|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
+|SQL Server|SQL Server 2008|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMware)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
+|Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008 R2 SP1 - Enterprise and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|V3, V2|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
+|Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008 SP2|Physical server<br /><br />On-premises Hyper-V virtual machine|Not supported|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 
 ## Cluster support
 
