@@ -90,7 +90,7 @@ This section contains an example of what that data would look like for each even
       },
       "isTwoParty": false,
       "correlationId": "{correlationId}",
-    	"isRoomsCall": true
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallStarted",
     "dataVersion": "1.0",
@@ -115,7 +115,7 @@ This section contains an example of what that data would look like for each even
         "communicationUser": {
           "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
         },
-			  "role": "{role}"
+        "role": "{role}"
       },
       "serverCallId": "{serverCallId}",
       "group": {
@@ -126,7 +126,7 @@ This section contains an example of what that data would look like for each even
       },
       "isTwoParty": false,
       "correlationId": "{correlationId}",
-    	"isRoomsCall": true
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallEnded",
     "dataVersion": "1.0",
@@ -151,7 +151,7 @@ This section contains an example of what that data would look like for each even
         "communicationUser": {
           "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
         },
-			  "role": "{role}"
+        "role": "{role}"
       },
       "displayName": "Sharif Edge",
       "participantId": "041e3b8a-1cce-4ebf-b587-131312c39410",
@@ -161,7 +161,7 @@ This section contains an example of what that data would look like for each even
         "communicationUser": {
           "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
         },
-			  "role": "{role}"
+        "role": "{role}"
       },
       "serverCallId": "{serverCallId}",
       "group": {
@@ -172,7 +172,7 @@ This section contains an example of what that data would look like for each even
       },
       "isTwoParty": false,
       "correlationId": "{correlationId}",
-    	"isRoomsCall": true
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallParticipantAdded",
     "dataVersion": "1.0",
@@ -195,7 +195,7 @@ This section contains an example of what that data would look like for each even
         "communicationUser": {
           "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8"
         },
-			  "role": "{role}"
+        "role": "{role}"
       },
       "displayName": "Sharif Chrome",
       "participantId": "750a1442-3156-4914-94d2-62cf73796833",
@@ -205,7 +205,7 @@ This section contains an example of what that data would look like for each even
         "communicationUser": {
           "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
         },
-			  "role": "{role}"
+        "role": "{role}"
       },
       "serverCallId": "aHR0cHM6Ly9jb252LWRldi0yMS5jb252LWRldi5za3lwZS5uZXQ6NDQzL2NvbnYvbVQ4NnVfempBMG05QVM4VnRvSWFrdz9pPTAmZT02Mzc2Nzc3MTc2MDAwMjgyMzA",
       "group": {
@@ -216,7 +216,7 @@ This section contains an example of what that data would look like for each even
       },
       "isTwoParty": false,
       "correlationId": "{correlationId}",
-    	"isRoomsCall": true
+      "isRoomsCall": true
     },
     "eventType": "Microsoft.Communication.CallParticipantRemoved",
     "dataVersion": "1.0",
