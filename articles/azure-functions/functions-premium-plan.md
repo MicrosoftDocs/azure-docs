@@ -27,7 +27,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 ## Billing
 
-Billing for the Premium plan is based on the number of core seconds and memory allocated across instances. This billing differs from the Consumption plan, which is billed per execution and memory consumed. There is no execution charge with the Premium plan. At least one instance must be allocated at all times per plan. This billing results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+Billing for the Premium plan is based on the number of core seconds and memory allocated across instances. This billing differs from the Consumption plan, which is billed per execution and memory consumed. There's no execution charge with the Premium plan. At least one instance must be always allocated per plan. This billing results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
 ## Create a Premium plan
 
@@ -41,11 +41,11 @@ The following articles show you how to create a function app with a Premium plan
 
 ## Eliminate cold starts
 
-When events or executions don't occur in the Consumption plan, your app may scale to zero instances. When new events come in, a new instance with your app running on it must be specialized. Specializing new instances may take some time depending on the app. This additional latency on the first call is often called app _cold start_.
+When events or executions don't occur in the Consumption plan, your app may scale to zero instances. When new events come in, a new instance with your app running on it must be specialized. Specializing new instances may take some time depending on the app. This extra latency on the first call is often called app _cold start_.
 
 Premium plan provides two features that work together to effectively eliminate cold starts in your functions: _always ready instances_ and _pre-warmed instances_. Always ready instances are a number of pre-allocated instances unaffected by scaling, and the pre-warmed ones are a buffer as you scale due to HTTP events.
 
-When events begin to trigger the app, they are first routed to the always ready instances. As the function becomes active due to HTTP events, additional instances will be warmed as a buffer. This buffer prevents cold start for new instances required during scale. These buffered instances are called pre-warmed instances.
+When events begin to trigger the app, they're first routed to the always ready instances. As the function becomes active due to HTTP events, additional instances will be warmed as a buffer. This buffer prevents cold start for new instances required during scale. These buffered instances are called pre-warmed instances.
 
 ### Always ready instances
 
@@ -92,8 +92,8 @@ Consider this example of how always-ready instances and pre-warmed instances wor
 
 ![Scale out graph](./media/functions-premium-plan/scale-graph.png)
 
-1. When the app is idle and no events are triggering, the app is provisioned and running with two instances. At this time, you are billed for the two always ready instances but aren't billed for a pre-warmed instance as no pre-warmed instance is allocated.
-2. As your application starts receiving HTTP traffic, requests will be load balanced across the two always-ready instances. As soon as those two instances start processing events, an instance gets added to fill the pre-warmed buffer. The app is now running with three provisioned instances: the two always ready instances, and the third pre-warmed and inactive buffer. You are billed for the three instances.
+1. When the app is idle and no events are triggering, the app is provisioned and running with two instances. At this time, you're billed for the two always ready instances but aren't billed for a pre-warmed instance as no pre-warmed instance is allocated.
+2. As your application starts receiving HTTP traffic, requests will be load balanced across the two always-ready instances. As soon as those two instances start processing events, an instance gets added to fill the pre-warmed buffer. The app is now running with three provisioned instances: the two always ready instances, and the third pre-warmed and inactive buffer. You're billed for the three instances.
 3. As load increases and your app needs more instances to handle HTTP traffic, that prewarmed instance is swapped to an active instance. HTTP load is now routed to all three instances, and a fourth instance is instantly provisioned to fill the pre-warmed buffer.
 4. This sequence of scaling and pre-warming continues until the maximum instance count for the app is reached or load decreases causing the platform to scale back in after a period. No instances are pre-warmed or activated beyond the maximum.
 
@@ -147,7 +147,7 @@ This migration isn't supported on Linux.
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
-If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the maximum burst limit. You're billed for instances beyond your plan size only while they are running and allocated to you, on a per-second basis. The platform makes it's best effort at scaling your app out to the defined maximum limit.
+If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the maximum burst limit. You're billed for instances beyond your plan size only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limit.
 
 # [Portal](#tab/portal)
 
@@ -202,7 +202,7 @@ Update-AzFunctionAppPlan -ResourceGroupName <resource_group> -Name <premium_plan
 
 ### Available instance SKUs
 
-When creating or scaling your plan, you can choose between three instance sizes. You will be billed for the total number of cores and memory provisioned, per second that each instance is allocated to you. Your app can automatically scale out to multiple instances as needed.
+When creating or scaling your plan, you can choose between three instance sizes. You'll be billed for the total number of cores and memory provisioned, per second that each instance is allocated to you. Your app can automatically scale out to multiple instances as needed.
 
 |SKU|Cores|Memory|Storage|
 |--|--|--|--|
