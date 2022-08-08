@@ -7,11 +7,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.devlang: javascript
+ms.reviewer: mmcc
 ---
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
 
 This plugin automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Getting started
 
@@ -357,6 +360,12 @@ var appInsights = new Microsoft.ApplicationInsights.ApplicationInsights({
 });
 appInsights.loadAppInsights();
 ```
+
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Sample app
 

@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Delete the resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
+Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
 #### [bash](#tab/terminal-bash)
 

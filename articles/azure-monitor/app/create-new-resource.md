@@ -4,6 +4,7 @@ description: Manually set up Application Insights monitoring for a new live appl
 ms.topic: conceptual
 ms.date: 02/10/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: dalek
 ---
 
 # Create an Application Insights resource
@@ -11,7 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. After you have created your new resource, you can get its instrumentation key and use that to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
 
 > [!IMPORTANT]
-> [Classic Application Insights has been deprecated](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Please follow these [instructions on how upgrade to workspace-based Application Insights](convert-classic-resource.md).
+> On **February 29th, 2024,** [support for classic Application Insights will end](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024). [Transition to workspace-based Application Insights](convert-classic-resource.md) to take advantage of [new capabilities](create-workspace-resource.md#new-capabilities). Newer regions introduced after February 2021 do not support creating classic Application Insights resources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -45,9 +46,6 @@ When your app has been created, a new pane opens. This pane is where you see per
 ## Copy the instrumentation key
 
 The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
-
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 ## Install the SDK in your app
 
@@ -122,13 +120,13 @@ az monitor app-insights component create --app
 #### Example
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+az monitor app-insights component create --app demoApp --location westus2 --kind web --resource-group demoRg --application-type web
 ```
 
 #### Results
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+az monitor app-insights component create --app demoApp --location eastus --kind web --resource-group demoApp --application-type web
 {
   "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
   "applicationId": "demoApp",

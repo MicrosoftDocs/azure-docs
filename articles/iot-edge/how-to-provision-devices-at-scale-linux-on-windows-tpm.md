@@ -17,12 +17,12 @@ services: iot-edge
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux on Windows device by using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 >[!NOTE]
 >The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 This article outlines two methodologies. Select your preference based on the architecture of your solution:
 
@@ -139,6 +139,12 @@ Simulated TPM samples:
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
+   
+   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   
+   ```powershell
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
+   ```
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -166,6 +172,12 @@ Simulated TPM samples:
 
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
+   ```
+   
+   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   
+   ```powershell
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
    ```
 
 :::moniker-end
@@ -228,7 +240,7 @@ Use the following commands on your device to verify that the IoT Edge installed 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
@@ -263,7 +275,7 @@ Use the following commands on your device to verify that the IoT Edge installed 
        ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
 [!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]

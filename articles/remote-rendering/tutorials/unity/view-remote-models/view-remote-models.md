@@ -63,7 +63,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 
     ![Screenshot of the Unity Color wheel dialog. The color is set to 0 for all R G B A components.](./media/color-wheel-black.png)
 
-1. Set **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
+1. Set **Clipping Planes** to *Near = 0.1* and *Far = 20*. This means rendering will clip geometry that is closer than 10 cm or farther than 20 meters.
 
     ![Screenshot of the Unity inspector for a Camera component.](./media/camera-properties.png)
 
@@ -436,7 +436,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         //Implement me
     }
 
-    public void StopRemoteSession()
+    public async void StopRemoteSession()
     {
         //Implement me
     }
@@ -470,7 +470,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <summary>
     /// Connects the local runtime to the current active session, if there's a session available
     /// </summary>
-    public void ConnectRuntimeToRemoteSession()
+    public async void ConnectRuntimeToRemoteSession()
     {
         //Implement me
     }
@@ -668,11 +668,11 @@ public async void JoinRemoteSession()
     }
 }
 
-public void StopRemoteSession()
+public async void StopRemoteSession()
 {
     if (ARRSessionService.CurrentActiveSession != null)
     {
-        ARRSessionService.CurrentActiveSession.StopAsync();
+        await ARRSessionService.CurrentActiveSession.StopAsync();
     }
 }
 ```
@@ -697,7 +697,7 @@ The application also needs to listen for events about the connection between the
 /// <summary>
 /// Connects the local runtime to the current active session, if there's a session available
 /// </summary>
-public void ConnectRuntimeToRemoteSession()
+public async void ConnectRuntimeToRemoteSession()
 {
     if (ARRSessionService == null || ARRSessionService.CurrentActiveSession == null)
     {
@@ -705,12 +705,11 @@ public void ConnectRuntimeToRemoteSession()
         return;
     }
 
-    //Connect the local runtime to the currently connected session
-    //This session is set when connecting to a new or existing session
+    // Connect the local runtime to the currently connected session
+    // This session is set when connecting to a new or existing session
 
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged += OnLocalRuntimeStatusChanged;
-    ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
-    CurrentCoordinatorState = RemoteRenderingState.ConnectingToRuntime;
+    await ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
 }
 
 public void DisconnectRuntimeFromRemoteSession()

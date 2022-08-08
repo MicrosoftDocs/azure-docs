@@ -4,10 +4,11 @@ description: This Azure CLI sample script shows how to configure Zone-Redundant 
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 02/10/2022
+ms.custom: mvc, devx-track-azurecli, event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 
 # Configure zone-redundant high availability in an Azure Database for MySQL - Flexible Server using Azure CLI
@@ -15,7 +16,7 @@ ms.date: 02/10/2022
 This sample CLI script configures and manages [Zone-Redundant high availability](../concepts-high-availability.md) in an Azure Database for MySQL - Flexible Server.
 You can enable Zone-Redundant high availability only during Flexible Server creation, and can disable it anytime. You can also choose the availability zone for the primary and the standby replica.
 
-Currently, Zone-Redundant high availability is supported only for the General purpose and Memory optimized pricing tiers.
+Currently, Zone-Redundant high availability is supported only for the General purpose and Business Critical pricing tiers.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
@@ -43,11 +44,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | **Command** | **Notes** |
 |---|---|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group in which all resources are stored|
-|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|Creates a Flexible Server that hosts the databases.|
-|[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)|Updates a Flexible Server.|
-|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|Deletes a Flexible Server.|
-|[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group in which all resources are stored|
+|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create)|Creates a Flexible Server that hosts the databases.|
+|[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-update)|Updates a Flexible Server.|
+|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-delete)|Deletes a Flexible Server.|
+|[az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources.|
 
 ## Next steps
 

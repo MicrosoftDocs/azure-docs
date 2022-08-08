@@ -1,64 +1,26 @@
 ---
-title: Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)
+title: Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster for securing your pods.
 services: container-service
 ms.topic: article
 ms.date: 11/01/2021
 ---
 
-# Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)
+# Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster
 
 [Group Managed Service Accounts (GMSA)][gmsa-overview] is a managed domain account for multiple servers that provides automatic password management, simplified service principal name (SPN) management and the ability to delegate the management to other administrators. AKS provides the ability to enable GMSA on your Windows Server nodes, which allows containers running on Windows Server nodes to integrate with and be managed by GMSA.
 
-Enabling GMSA with Windows Server nodes on AKS is in preview.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Pre-requisites
 
 Enabling GMSA with Windows Server nodes on AKS requires:
 
 * Kubernetes 1.19 or greater.
-* The `aks-preview` extension version 0.5.37 or greater.
-* The Docker container runtime, which is currently the default.
+* Azure CLI version 2.35.0 or greater
 * [Managed identities][aks-managed-id] with your AKS cluster.
 * Permissions to create or update an Azure Key Vault.
 * Permissions to configure GMSA on Active Directory Domain Service or on-prem Active Directory.
 * The domain controller must have Active Directory Web Services enabled and must be reachable on port 9389 by the AKS cluster.
-
-### Install the `aks-preview` Azure CLI
-
-You will need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register the `AKSWindowsGmsaPreview` preview feature
-
-To use the feature, you must also enable the `AKSWindowsGmsaPreview` feature flag on your subscription.
-
-Register the `AKSWindowsGmsaPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKSWindowsGmsaPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSWindowsGmsaPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Configure GMSA on Active Directory domain controller
 
@@ -79,6 +41,8 @@ az keyvault secret set --vault-name MyAKSGMSAVault --name "GMSADomainUserCred" -
 
 > [!NOTE]
 > Use the Fully Qualified Domain Name for the Domain rather than the Partially Qualified Domain Name that may be used on internal networks.
+>
+> The above command escapes the `value` parameter for running the Azure CLI on a Linux shell. When running the Azure CLI command on Windows PowerShell, you don't need to escape characters in the `value` parameter.
 
 
 ## Optional: Use a custom VNET with custom DNS

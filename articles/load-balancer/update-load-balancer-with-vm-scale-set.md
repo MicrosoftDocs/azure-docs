@@ -1,17 +1,17 @@
 ---
 title: Update or delete an existing load balancer used by virtual machine scale sets
-titleSuffix: Update or delete an existing load balancer used by virtual machine scale sets
+titleSuffix: Azure Load Balancer
 description: With this how-to article, get started with Azure Standard Load Balancer and virtual machine scale sets.
 services: load-balancer
 documentationcenter: na
-author: irenehua
+author: mbender-ms
 ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
-ms.author: irenehua
+ms.author: mbender
 ---
 # Update or delete a load balancer used by virtual machine scale sets
 
@@ -37,7 +37,7 @@ Individual inbound NAT rules can't be added. But you can add a set of inbound NA
 
 To add a whole set of inbound NAT rules for the virtual machine scale sets, first create an inbound NAT pool in the load balancer. Then reference the inbound NAT pool from the network profile of the virtual machine scale set. A full example using the CLI is shown.
 
-The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
+The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool#az-network-lb-inbound-nat-pool-list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 

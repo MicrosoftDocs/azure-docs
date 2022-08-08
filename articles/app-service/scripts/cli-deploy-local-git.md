@@ -1,45 +1,76 @@
 ---
 title: 'CLI: Deploy from local Git repo'
-description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to deploy code from a local Git repository.
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to deploy code into a local Git repository.
 author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 12/11/2017
+ms.date: 04/15/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
-# Create an App Service app and deploy code from a local Git repository using Azure CLI
+# Create an App Service app and deploy code into a local Git repository using Azure CLI
 
 This sample script creates an app in App Service with its related resources, and then deploys your app code in a local Git repository.
-
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create an app and deploy code from a local Git repository")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### To create the web app
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-github/deploy-github.sh" id="FullScript":::
+
+### To deploy to your local Git repository
+
+1. Create the following variables containing your GitHub information.
+
+   ```azurecli
+   gitdirectory=<Replace with path to local Git repo>
+   username=<Replace with desired deployment username>
+   password=<Replace with desired deployment password>
+   ```
+
+1. Configure local Git and get deployment URL.
+
+   ```azurecli
+   url=$(az webapp deployment source config-local-git --name $webapp --resource-group $resourceGroup --query url --output tsv)
+   ```
+
+1. Add the Azure remote to your local Git repository and push your code. When prompted for password, use the value of $password that you specified.
+
+   ```bash
+   cd $gitdirectory
+   git remote add azure $url
+   git push azure main
+   ```
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
-| [`az webapp deployment user set`](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) | Sets the account-level deployment credentials for App Service. |
-| [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git) | Creates a source control configuration for a local Git repository. |
+| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
+| [`az webapp deployment user set`](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) | Sets the account-level deployment credentials for App Service. |
+| [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) | Creates a source control configuration for a local Git repository. |
 
 ## Next steps
 

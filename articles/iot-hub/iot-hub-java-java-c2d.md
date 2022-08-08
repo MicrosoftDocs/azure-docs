@@ -1,9 +1,9 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (Java) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Java. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java). It shows you how to do the following:
+This article builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java). It shows you how to do the following:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
@@ -30,18 +30,18 @@ This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-deve
 
 You can find more information on [cloud-to-device messages in the IoT Hub developer guide](iot-hub-devguide-messaging.md).
 
-At the end of this tutorial, you run two Java console apps:
+At the end of this article, you run two Java console apps:
 
 * **simulated-device**, a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **send-c2d-messages**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgment.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and JavaScript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
+> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and JavaScript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this article's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 
 ## Prerequisites
 
-* A complete working version of the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) quickstart or the [Configure message routing with IoT Hub](tutorial-routing.md) tutorial.
+* A complete working version of the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) quickstart or the [Configure message routing with IoT Hub](tutorial-routing.md) article.
 
 * [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
@@ -185,7 +185,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     ```
 
     > [!NOTE]
-    > For simplicity, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+    > For simplicity, this article does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 9. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 
@@ -215,6 +215,6 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages.
+In article, you learned how to send and receive cloud-to-device messages.
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

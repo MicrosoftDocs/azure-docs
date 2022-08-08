@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: zxue
-author: zxue
-ms.date: 02/15/2022
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 06/03/2022
 ---
 
 # Add data to audit logs by using custom HTTP headers in Azure API for FHIR
@@ -71,6 +71,7 @@ client.OnBeforeRequest += (object sender, BeforeRequestEventArgs e) =>
 client.Get("Patient");
 ```
 ## Next steps
+
 In this article, you learned how to add data to audit logs by using custom headers in the Azure API for FHIR. For information about Azure API for FHIR configuration settings, see
 
 >[!div class="nextstepaction"]
@@ -90,3 +91,6 @@ In this article, you learned how to add data to audit logs by using custom heade
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+

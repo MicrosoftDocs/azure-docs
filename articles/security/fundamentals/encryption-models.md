@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2022
+ms.date: 06/08/2022
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -163,7 +163,7 @@ The Azure services that support each encryption model:
 | Azure Data Factory               | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Yes                | Yes                | -                  |
+| Azure Kubernetes Service         | Yes                | Yes, including Managed HSM | -                  |
 | Container Instances              | Yes                | Yes                | -                  |
 | Container Registry               | Yes                | Yes                | -                  |
 | **Compute**                      |                    |                    |                    |
@@ -181,7 +181,7 @@ The Azure services that support each encryption model:
 | **Databases**                    |                    |                    |                    |
 | SQL Server on Virtual Machines   | Yes                | Yes                | Yes                |
 | Azure SQL Database               | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
-| Azure SQL Database Managed Instance | Yes             | Yes, RSA 3072-bit, including Managed HSM | Yes                |
+| Azure SQL Managed Instance       | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
 | Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
@@ -202,6 +202,7 @@ The Azure services that support each encryption model:
 | IoT Hub                          | Yes                | Yes                | Yes                |
 | IoT Hub Device Provisioning      | Yes                | Yes                | -                  |
 | **Management and Governance**    |                    |                    |                    |
+| Azure Managed Grafana            | Yes                | -                  | N/A                |
 | Azure Site Recovery              | Yes                | -                  | -                  |
 | Azure Migrate                    | Yes                | Yes                | -                  |
 | **Media**                        |                    |                    |                    |

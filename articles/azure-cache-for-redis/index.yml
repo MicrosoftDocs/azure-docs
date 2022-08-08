@@ -42,6 +42,8 @@ landingContent:
             url: cache-dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
             url: cache-web-app-howto.md
+          - text: Code an ASP.NET Core web app
+            url: cache-web-app-aspnet-core-howto.md
           - text: Code a Java app
             url: cache-java-get-started.md
           - text: Code a Node.js app
@@ -72,6 +74,8 @@ landingContent:
            url: cache-best-practices-memory-management.md
          - text: Development
            url: cache-best-practices-development.md
+         - text: Client libraries
+           url: cache-best-practices-client-libraries.md
          - text: Scaling
            url: cache-best-practices-scale.md
          - text: Kubernetes-hosted client applications

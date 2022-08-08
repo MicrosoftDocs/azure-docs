@@ -1,23 +1,23 @@
 ---
-title: Configure the MedTech service Diagnostic settings for metrics export - Azure Health Data Services
-description: This article explains how to configure the MedTech service Diagnostic settings for metrics exporting.
+title: How to configure the MedTech service diagnostic settings for metrics export - Azure Health Data Services
+description: This article explains how to configure the MedTech service diagnostic settings for metrics exporting.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 07/22/2022
 ms.author: jasteppe
 ---
 
-# Configure diagnostic setting for the MedTech service metrics exporting
+# How to configure diagnostic settings for exporting the MedTech service metrics 
 
-In this article, you'll learn how to configure the diagnostic setting for MedTech service to export metrics to different destinations for audit, analysis, or backup.
+In this article, you'll learn how to configure the diagnostic setting for the MedTech service to export metrics to different destinations (for example: to Azure storage or an event hub) for audit, analysis, or backup.
 
 ## Create diagnostic setting for the MedTech service
-1. To enable metrics export for the MedTech service, select **MedTech service** in your Workspace.
+1. To enable metrics export for the MedTech service, select **MedTech service** in your workspace.
  
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select the MedTech service within Workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
 
 2. Select the MedTech service that you want to configure metrics export for.
    
@@ -58,7 +58,7 @@ In this article, you'll learn how to configure the diagnostic setting for MedTec
 For more information about how to work with diagnostics logs, see the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Conclusion 
-Having access to metrics is essential for monitoring and troubleshooting.  MedTech service allows you to do these actions through the export of metrics. 
+Having access to the MedTech service metrics is essential for monitoring and troubleshooting.  The MedTech service allows you to do these actions through the export of metrics. 
 
 ## Next steps
 
@@ -67,4 +67,4 @@ To view the frequently asked questions (FAQs) about the MedTech service, see
 >[!div class="nextstepaction"]
 >[MedTech service FAQs](iot-connector-faqs.md)
 
-(FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.
+(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

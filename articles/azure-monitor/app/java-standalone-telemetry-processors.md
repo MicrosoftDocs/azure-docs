@@ -5,12 +5,13 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The telemetry processors feature is in preview.
+> The telemetry processors feature is designated as preview because we cannot guarantee backwards compatibility from release to release due to the experimental state of the attribute [semantic conventions](https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions). However, the feature has been tested and is supported in production.
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 

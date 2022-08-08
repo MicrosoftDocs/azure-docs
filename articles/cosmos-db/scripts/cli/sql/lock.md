@@ -1,8 +1,9 @@
 ---
 title: Create resource lock for a Azure Cosmos DB Core (SQL) API database and container
 description: Create resource lock for a Azure Cosmos DB Core (SQL) API database and container
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
@@ -49,10 +50,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az lock create](/cli/azure/lock#az_lock_create) | Creates a lock. |
-| [az lock list](/cli/azure/lock#az_lock_list) | List lock information. |
-| [az lock show](/cli/azure/lock#az_lock_show) | Show properties of a lock. |
-| [az lock delete](/cli/azure/lock#az_lock_delete) | Deletes a lock. |
+| [az lock create](/cli/azure/lock#az-lock-create) | Creates a lock. |
+| [az lock list](/cli/azure/lock#az-lock-list) | List lock information. |
+| [az lock show](/cli/azure/lock#az-lock-show) | Show properties of a lock. |
+| [az lock delete](/cli/azure/lock#az-lock-delete) | Deletes a lock. |
 
 ## Next steps
 

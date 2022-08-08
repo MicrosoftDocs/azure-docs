@@ -2,11 +2,11 @@
 title: Add health probes to your AKS pods
 description: This article provides information on how to add health probes (readiness and/or liveness) to AKS pods with an Application Gateway. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/4/2019
-ms.author: caya
+ms.date: 06/10/2022
+ms.author: greglin
 ---
 
 # Add Health Probes to your service
@@ -41,18 +41,18 @@ spec:
 ```
 
 Kubernetes API Reference:
-* [Container Probes]https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#httpgetaction-v1-core)
+* [Container Probes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#httpgetaction-v1-core)
 
 > [!NOTE]
 > * `readinessProbe` and `livenessProbe` are supported when configured with `httpGet`.
 > * Probing on a port other than the one exposed on the pod is currently not supported.
-> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` are not supported.
+> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` aren't supported.
 
 ##  Without `readinessProbe` or `livenessProbe`
-If the above probes are not provided, then Ingress Controller make an assumption that the service is reachable on `Path` specified for `backend-path-prefix` annotation or the `path` specified in the `ingress` definition for the service.
+If the above probes aren't provided, then the Ingress Controller makes an assumption that the service is reachable on the `Path` specified for `backend-path-prefix` annotation, or the `path` specified in the `ingress` definition for the service.
 
 ## Default Values for Health Probe
-For any property that can not be inferred by the readiness/liveness probe, Default values are set.
+For any property that can't be inferred by the readiness/liveness probe, default values are set.
 
 | Application Gateway Probe Property | Default Value |
 |-|-|

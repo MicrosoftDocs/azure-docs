@@ -20,7 +20,7 @@ This tutorial describes the steps you need to perform in both 8x8 Admin Console 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in 8x8
-> * Remove users in 8x8 when they do not require access anymore
+> * Deactivate users in 8x8 when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and 8x8
 > * [Single sign-on](./8x8virtualoffice-tutorial.md) to 8x8 (recommended)
 
@@ -48,17 +48,17 @@ This section guides you through the steps to configure 8x8 to support provisioni
 
 ### To configure a user provisioning access token in 8x8 Admin Console:
 
-1. Sign in to [Admin Console](https://admin.8x8.com). Select **Identity Management**.
+1. Sign in to [Admin Console](https://admin.8x8.com). Select **Identity and Security**.
 
-   ![Admin](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   [ ![Screenshot showing the 8x8 Admin Console.](./media/8x8-provisioning-tutorial/8x8-identity-and-security.png) ](./media/8x8-provisioning-tutorial/8x8-identity-and-security.png#lightbox)
 
-2. Click the **Show user provisioning information** link to generate a token.
+2. In the **User Provisioning Integration (SCIM)** pane, click the toggle to enable and then click **Save**.
 
-   ![Show](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   [ ![Screenshot showing the Identity and Security page of the Admin Console with a callout over the user provisioning integration slider.](./media/8x8-provisioning-tutorial/8x8-enable-user-provisioning.png) ](./media/8x8-provisioning-tutorial/8x8-enable-user-provisioning.png#lightbox)
 
 3. Copy the **8x8 URL** and **8x8 API Token** values. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your 8x8  application in the Azure portal.
 
-   ![Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   [ ![Screenshot showing the Identity and Security page of the Admin Console with callout over token fields.](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png) ](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png#lightbox)
 
 ## Step 3. Add 8x8 from the Azure AD application gallery
 
@@ -70,9 +70,9 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to 8x8, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 ## Step 5. Configure automatic user provisioning to 8x8 
 
@@ -82,19 +82,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](./media/8x8-provisioning-tutorial/enterprise-applications.png)
+	![Screenshot showing the Enterprise applications blade](./media/8x8-provisioning-tutorial/enterprise-applications.png)
 
-	![All applications blade](./media/8x8-provisioning-tutorial/all-applications.png)
+	![Screenshot showing the All applications blade](./media/8x8-provisioning-tutorial/all-applications.png)
 
 2. In the applications list, select **8x8**.
 
-	![The 8x8 link in the Applications list](common/all-applications.png)
+	![Screenshot showing the 8x8 link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab. Click on **Get started**.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-   ![Get started blade](./media/8x8-provisioning-tutorial/get-started.png)
+   ![Screenshot showing the Get started blade](./media/8x8-provisioning-tutorial/get-started.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
@@ -106,7 +106,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot showing the Notification Email field.](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 

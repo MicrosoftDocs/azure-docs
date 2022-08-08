@@ -3,7 +3,7 @@ title: Create and manage Azure IoT Central dashboards | Microsoft Docs
 description: Learn how to create and manage application and personal dashboards in Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/28/2021
+ms.date: 06/20/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -131,6 +131,15 @@ The following screenshot shows the effect of those conditional formatting rules:
 This feature is available on the KPI, LKV, and property tiles. It lets you adjust font size, choose decimal precision, abbreviate numeric values (for example, format 1,700 as 1.7 K), or wrap string values on their tiles.
 
 :::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Screenshot that shows the dialog box for tile formatting.":::
+
+## Pin analytics to dashboard
+
+To continuously monitor the analytics queries, you can pin the query to dashboard. To pin a query to the dashboard:
+
+1. Navigate to **Data explorer**  in the left pane and select the query you created.
+1. Select a dashboard from the dropdown menu and select **Pin to dashboard**.
+
+:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Select pin to dashboard":::
 
 ## Next steps
 

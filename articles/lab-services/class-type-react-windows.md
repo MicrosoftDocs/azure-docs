@@ -9,27 +9,31 @@ ms.author: enewman
 
 # Set up lab for React on Windows
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces (UI). React is a declarative way to create reusable components for your website.  There are many other popular libraries for JavaScript-based front-end development.  We'll use a few of these libraries while creating our lab.  [Redux](https://redux.js.org/) is a library that provides predictable state container for JavaScript apps and is often used in compliment with React. [JSX](https://reactjs.org/docs/introducing-jsx.html) is a library syntax extension to JavaScript often used with React to describe what the UI should look like.  [NodeJS](https://nodejs.org/) is a convenient way to run a webserver for your React application.
 
 This article will show how to install [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) for your development environment, and the tools, and libraries needed for a React web development class.
 
 ## Lab configuration
 
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
+To set up this lab, you need an Azure subscription and lab plan to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-### Lab account settings
+### Lab plan settings
 
-Enable your lab account settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+
+Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
 | -------------------- | ----- |
-| Marketplace image | Enable 'Visual Studio 2019 Community (latest release) on Windows Server 2019 (x64)' image for use within your lab account. |
+| Marketplace image | Enable 'Visual Studio 2019 Community (latest release) on Windows Server 2019 (x64)' image. |
 
 ### Lab settings
 
-The size of the virtual machine (VM) that we recommend depends on the types of workloads that your students need to do.  
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-lab.md).  Use the following settings when creating the lab.
 
-| Lab setting | Value and description |
+| Lab setting | Value |
 | ------------ | ------------------ |
 | Virtual Machine Size | **Medium** |
 
@@ -68,7 +72,7 @@ To create your first Node.js with React app in Visual Studio, see [Tutorial: Cre
 
 Install the React Developer Tools extensions for your browser so you can inspect React components and record performance information.  
 
-- [React Developer Tools Edge add-on](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
+- [React Developer Tools add-on for Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
 - [React Developer Tools Chrome extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - [React Developer Tools FireFox add-on](https://addons.mozilla.org/firefox/addon/react-devtools/)
 
@@ -81,7 +85,7 @@ New-NetFirewallRule -DisplayName "Allow access to Port 1337" -Direction Inbound 
 ```
 
 >[!IMPORTANT]
->Instructors must use the template VM or another lab VM to access a student's website.
+>Educators must use the template VM or another lab VM to access a student's website.
 
 ## Cost
 
@@ -94,11 +98,4 @@ Let’s cover an example cost estimate for this class.  Suppose you have a class
 
 ## Next steps
 
-The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
-
-As you set up your lab, see the following articles:
-
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quotas](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+[!INCLUDE [next steps for class types](./includes/lab-services-class-type-next-steps.md)]

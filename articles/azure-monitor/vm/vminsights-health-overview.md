@@ -4,18 +4,21 @@ description: Overview of the health feature in VM insights including how you can
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/27/2020
+ms.date: 05/03/2022
 
 ---
 
 # VM insights guest health (preview)
 VM insights guest health allows you to view the health of virtual machines based on a set of performance measurements that are sampled at regular intervals from the guest operating system. You can quickly check the health of all virtual machines in a subscription or resource group, drill down on the detailed health of a particular virtual machine, or be proactively notified when a virtual machine becomes unhealthy. 
 
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
+
+
 ## Enable virtual machine health
 See [Enable VM insights guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.
 
 ## Pricing
-There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md) for details on pricing models and costs.
+There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Azure Monitor Logs pricing details](../logs/cost-logs.md) for details on pricing models and costs.
 
 ## View virtual machine health
 The **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.

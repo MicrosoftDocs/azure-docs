@@ -14,22 +14,16 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=GO&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
 
-Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-go) for any more requirements.
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=GO&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-go) for any more requirements
 
 ## Recognize speech from a microphone
 
 Follow these steps to create a new GO module.
 
 1. Open a command prompt where you want the new module, and create a new file named `speech-recognition.go`.
-1. Replace the contents of `speech-recognition.go` with the following code. 
+1. Copy the following code into `speech-recognition.go`:
 
     ```go
     package main
@@ -66,10 +60,11 @@ Follow these steps to create a new GO module.
     func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
     	defer event.Close()
     	fmt.Println("Received a cancellation: ", event.ErrorDetails)
+        fmt.Println("Did you set the speech resource key and region values?")
     }
     
     func main() {
-        subscription :=  "YourSubscriptionKey"
+        key :=  "YourSubscriptionKey"
         region := "YourServiceRegion"
     
     	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
@@ -78,7 +73,7 @@ Follow these steps to create a new GO module.
     		return
     	}
     	defer audioConfig.Close()
-    	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+    	speechConfig, err := speech.NewSpeechConfigFromSubscription(key, region)
     	if err != nil {
     		fmt.Println("Got an error: ", err)
     		return
@@ -103,6 +98,9 @@ Follow these steps to create a new GO module.
 
 1. In `speech-recognition.go`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+
 Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
 
 ```cmd
@@ -117,10 +115,7 @@ go build
 go run speech-recognition
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=GO&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
-
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
+

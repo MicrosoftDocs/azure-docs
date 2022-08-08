@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Create a Video Analyzer account
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and at least one [user-assigned managed identity][docs-uami](UAMI). The UAMI will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role and [Reader][docs-role-reader] role to your storage account. You can optionally associate an IoT Hub with your Video Analyzer account – this is needed if you use Video Analyzer edge module as a [transparent gateway](./cloud/use-remote-device-adapter.md). If you do so, then you will need to add a UAMI which has [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role permissions. You can use the same UAMI for both storage account and IoT Hub, or separate UAMIs.
 
 This article describes the steps for creating a new Video Analyzer account. You can use the Azure portal or an [Azure Resource Manager (ARM) template][docs-arm-template]. Choose the tab for the method you would like to use.

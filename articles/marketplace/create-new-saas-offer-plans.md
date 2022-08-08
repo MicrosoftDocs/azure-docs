@@ -1,13 +1,12 @@
 ---
-title: Create plans for a SaaS offer in Azure Marketplace 
+title: Create plans for a SaaS offer in Azure Marketplace | Azure Marketplace
 description: Create plans for a new software as a service (SaaS) offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 08/02/2022
 ---
 
 # Create plans for a SaaS offer
@@ -21,7 +20,7 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
 
 1. Near the top of the **Plan overview** tab, select **+ Create new plan**.
 1. In the dialog box that appears, in the **Plan ID** box, enter a unique plan ID. Use up to 50 lowercase alphanumeric characters, dashes, or underscores. You cannot modify the plan ID after you select **Create**.
-1. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 50 characters.
+1. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 200 characters.
 1. Select **Create**.
 
 ## Define the plan listing
@@ -29,7 +28,7 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
 On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace.
 
 1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan.
-1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
+1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 3,000 characters.
 1. Select **Save draft** before continuing to the next tab: **Pricing and availability**.
 
 ## Define markets, pricing, and availability
@@ -49,12 +48,17 @@ Every plan must be available in at least one market. On the **Pricing and availa
 You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [SaaS pricing models](plan-saas-offer.md#saas-pricing-models).
 
 > [!IMPORTANT]
-> After your offer is published, you cannot change the pricing model. In addition, all plans for the same offer must share the same pricing model.
+> After your offer is published, you cannot change the pricing model. In addition, all plans for the same offer must share the same pricing model.<br><br>
+> If you choose to configure a 2-year or 3-year billing term, or a 1-year billing term with a monthly payment option, your offer will be published to Azure Marketplace only. If you update an offer that is currently published live on AppSource with a multi-year billing term, the offer will be delisted from AppSource and published to Azure Marketplace only.
 
 ### Configure flat rate pricing
 
 1. On the **Pricing and availability** tab, under **Pricing**, select **Flat rate**.
-1. Select either the **Monthly** or **Annual** check box, or both and then enter the price.
+1. Configure the **Billing terms** you want. You can add 1-month, 1-year, 2-year, and 3-year billing terms. For each billing term you add, configure the _payment option_ to set the payment schedule. One payment option per billing term is supported for the same plan.
+1. Enter the price for each payment occurrence.
+
+> [!NOTE]
+> To add another payment option for the same term, create a new plan.
 
 ### Add a custom meter dimension
 
@@ -65,9 +69,8 @@ This option is available only if you selected flat rate pricing. For more inform
 1. In the **Display Name** box, enter the display name associated with the dimension. For example, "text messages sent".
 1. In the **Unit of Measure** box, enter the description of the billing unit. For example, "per text message" or "per 100 emails".
 1. In the **Price per unit in USD** box, enter the price for one unit of the dimension.
-1. In the **Monthly quantity included in base** box, enter the quantity (as an integer) of the dimension that's included each month for customers who pay the recurring monthly fee. To set an unlimited quantity, select the check box instead.
-1. In the **Annual quantity included in base** box, enter the quantity of the dimension (as an integer) that's included each month for customers who pay the recurring annual fee. To set an unlimited quantity, select the check box instead.
-1. To add another custom meter dimension, select the **Add another Dimension** link, and then repeat steps 1 through 7.
+1. For each billing term you enable on the plan, in the corresponding **quantity included in base** box, enter the quantity (as an integer) of the dimension that's included for the entire billing term. To set an unlimited quantity, select the check box instead.
+1. To add another custom meter dimension, select the **Add another Dimension** link, and then repeat steps 1 through 6.
 
 > [!IMPORTANT]
 > You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
@@ -75,8 +78,13 @@ This option is available only if you selected flat rate pricing. For more inform
 ### Configure per user pricing
 
 1. On the **Pricing and availability** tab, under **Pricing**, select **Per User**.
-2. If applicable, under **User limits**, specify the minimum and maximum number of users for this plan.
-3. Under **Billing term**, specify a monthly price, annual price, or both.
+1. If applicable, under **User limits**, specify the minimum and maximum number of users for this plan.
+1. Add the _billing terms_ you want: 1-month, 1-year, 2-year, and 3-year billing terms can be added.
+1. For each billing term, select the _payment option_ to set the payment schedule. Only one payment option per term can be configured on the same plan.
+1. Enter the price for each payment occurrence.
+
+> [!NOTE]
+> To add another payment option for the same billing term, create a new plan.
 
 ### Validate custom prices
 
@@ -89,6 +97,9 @@ To set custom prices in an individual market, export, modify, and then import th
 2. On the **Pricing and availability** tab, under **Pricing**, select the **Import pricing data** link.
 3. In the dialog box that appears, click **Yes**.
 4. Select the exportedPrice.xlsx file you updated, and then click **Open**.
+
+> [!NOTE]
+> For billing terms that support multiple payment options, only one payment option is allowed per billing term. The prices for a given billing term must be defined for the same payment option across all markets that are selected for the plan.
 
 ### Enable a free trial
 
@@ -146,9 +157,15 @@ The actions that are available in the **Action** column of the **Plan overview**
 
 ## Before you publish your offer
 
-If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Create a test SaaS offer](create-saas-dev-test-offer.md).
+If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Plan a test and development SaaS offer](plan-saas-dev-test-offer.md).
 
 ## Next steps
 
 - [Sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
 - [Test and publish a SaaS offer](test-publish-saas-offer.md).
+
+**Video tutorials**
+
+- [Publishing a Private SaaS plan](https://go.microsoft.com/fwlink/?linkid=2196256)
+- [Configuring SaaS Pricing in Partner Center: Publisher Overview](https://go.microsoft.com/fwlink/?linkid=2201523)
+- [Configuring SaaS Pricing in Partner Center: Publisher Demo](https://go.microsoft.com/fwlink/?linkid=2201524)

@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 04/29/2022
 ms.author: helohr
 manager: femila
 ---
@@ -28,14 +28,40 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Facebook
 - Fox Sports
 - IMDB
+- [Microsoft Learn](/learn)
+- LinkedIn Learning
+- Fox Weather
+- Yammer
+- The Guardian
+- Fidelity
+- Udemy
+- BBC
+- Pluralsight
 - Sites with embedded YouTube videos, such as Medium, Udacity, Los Angeles Times, and so on.
+- Teams Live Events (on web)
+  - Currently, Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop.  
+  - MMR supports Enterprise Content Delivery Network (ECDN) for Teams live events.
+
+### How to use MMR for Teams live events 
+
+To use MMR for Teams live events:
+
+1. First, open the link to the Teams event in either a Microsoft Edge or Google Chrome browser.
+
+2. Make sure you can see a green check mark next to the [multimedia redirection status icon](#the-multimedia-redirection-status-icon). If the green check mark is there, MMR is enabled for Teams live events.
+
+3. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the Teams app, MMR won't work.
+
+The following screenshot highlights the areas described in the previous steps:
+
+:::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
 
 ## Requirements
 
 Before you can use Multimedia Redirection on Azure Virtual Desktop, you'll need
 to do these things:
 
-1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) on a Windows 11, Windows 10, or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2999 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+1. [Install the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) on a Windows 11, Windows 10, or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2999 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
 2. [Create a host pool for your users](create-host-pools-azure-marketplace.md).
 
@@ -48,7 +74,7 @@ to do these things:
 
    To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
-4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) to install both the host native component and the multimedia redirection extensions for your internet browser on your Azure VM.
+4. Use [the MSI installer (MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QWrF) to install both the host native component and the multimedia redirection extensions for your internet browser on your Azure VM.
 
 ## Managing group policies for the multimedia redirection browser extension
 
@@ -142,6 +168,8 @@ The following issues are ones we're already aware of, so you won't need to repor
 - Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
+
+- When the display scale factor of the screen isn't at 100% and you've set the video window to a certain size, you might see a gray patch on the screen. In most cases, you can get rid of the gray patch by resizing the window.
 
 ## Next steps
 

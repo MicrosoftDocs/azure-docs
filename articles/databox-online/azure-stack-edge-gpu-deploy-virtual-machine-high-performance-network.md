@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/29/2021
+ms.date: 05/19/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -154,7 +154,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
 
 Follow these steps to create an HPN VM on your device.
 
-1. In the Azure portal of your Azure Stack Edge resource, [Add a VM image](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm-image). You'll use this VM image to create a VM in the next step.
+1. In the Azure portal of your Azure Stack Edge resource, [Add a VM image](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm-image). You'll use this VM image to create a VM in the next step. You can choose either Gen1 or Gen2 for the VM.
 
 1. Follow all the steps in [Add a VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm) with this configuration requirement. 
 

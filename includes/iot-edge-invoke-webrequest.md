@@ -2,11 +2,11 @@
  title: include file for Invoke-WebReqest procedure
  description: include file
  services: iot-edge
- author: kgremban
+ author: PatAltimore
  ms.service: iot-edge
  ms.topic: include
  ms.date: 11/05/2019
- ms.author: kgremban
+ ms.author: patricka
  ms.custom: include file
 ---
 

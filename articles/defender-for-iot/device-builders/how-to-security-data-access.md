@@ -2,25 +2,29 @@
 title: Access security & recommendation data
 description: Learn about how to access your security alert and recommendation data when using Defender for IoT.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Access your security data
 
 Defender for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+>
+> For more information, see [Tutorial: Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
 ## Log Analytics
 
 To configure which Log Analytics workspace is used:
 
 1. Open your IoT hub.
-1. Click the **Settings** blade under the **Security** section.
-1. Click **Data Collection**, and change your Log Analytics workspace configuration.
+1. Select the **Settings** blade under the **Security** section.
+1. Select **Data Collection**, and change your Log Analytics workspace configuration.
 
 To access your alerts and recommendations in your Log Analytics workspace after configuration:
 
 1. Choose an alert or recommendation in Defender for IoT.
-1. Click **further investigation**, then click **To see which devices have this alert click here and view the DeviceId column**.
+1. Select **further investigation**, then select **To see which devices have this alert click here and view the DeviceId column**.
 
 For details on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 

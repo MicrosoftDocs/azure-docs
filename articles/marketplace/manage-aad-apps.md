@@ -4,8 +4,8 @@ description: Learn how to add and manage Azure AD applications for the commercia
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: varsha-sarah
-ms.author: vavargh
+author: sharath-satish-msft
+ms.author: shsatish
 ms.custom: contperf-fy21q2
 ms.date: 01/20/2022
 ---

@@ -101,7 +101,7 @@ df = spark.read\
     .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
     .load()
 
-df_filtered = df.filter("readDate='2020-11-27 00:00:00.000'")
+df_filtered = df.filter("readDate='2020-11-01 00:00:00.000'")
 display(df_filtered.limit(10))
 ```
 
@@ -115,7 +115,7 @@ val df = spark.read.
             option("spark.cosmos.asns.partition.keys", "readDate String").
             option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/").
             load()
-val df_filtered = df.filter("readDate='2020-11-27 00:00:00.000'")
+val df_filtered = df.filter("readDate='2020-11-01 00:00:00.000'")
 display(df_filtered.limit(10))
 ```
 ---

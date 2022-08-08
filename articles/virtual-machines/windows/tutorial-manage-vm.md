@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 06/06/2019
+ms.date: 03/29/2022
 ms.author: cynthn
 ms.collection: windows
 ms.custom: mvc, devx-track-azurepowershell
@@ -162,7 +162,7 @@ New-AzVm `
     -AsJob
 ```
 
-The `-AsJob` parameter creates the VM as a background task, so the PowerShell prompts return to you. You can view details of background jobs with the `Get-Job` cmdlet.
+The `-AsJob` parameter creates the VM as a background task, so the PowerShell prompts return to you. You can view details of background jobs with the [Get-Job](/powershell/module/microsoft.powershell.core/get-job) cmdlet.
 
 ## Understand VM sizes
 

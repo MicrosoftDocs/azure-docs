@@ -25,7 +25,7 @@ This tutorial covers the following tasks:
 
 * An Interactive Query cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Interactive Query** for **Cluster type**.
 
-* A database in Azure SQL Database. You use the database as a destination data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
+* A database in Azure SQL Database. You use the database as a destination data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

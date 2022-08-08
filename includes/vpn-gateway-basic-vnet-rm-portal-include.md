@@ -3,7 +3,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/01/2022
+ms.date: 04/29/2022
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -23,7 +23,7 @@ ms.date: 02/01/2022
 
    :::image type="content" source="./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png" alt-text="Screenshot shows the IP Addresses tab." lightbox= "./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png":::
 
-   - **IPv4 address space**: By default, an address space is automatically created. You can select the address space and adjust it to reflect your own values. You can also add more address spaces by selecting the box below the existing address space and specifying the values for the additional address space .
+   - **IPv4 address space**: By default, an address space is automatically created. You can select the address space and adjust it to reflect your own values. You can also add more address spaces by selecting the box below the existing address space and specifying the values for the additional address space.
    - **+ Add subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, you need to add a subnet. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings, then select **Add** at the bottom of the page to add the values.
       - **Subnet name**: In this example, we named the subnet "FrontEnd".
       - **Subnet address range**: The address range for this subnet.

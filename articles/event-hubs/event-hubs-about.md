@@ -72,7 +72,7 @@ Event Hubs contains the following [key components](event-hubs-features.md):
 
 The following figure shows the Event Hubs stream processing architecture:
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
 
 ## Next steps
@@ -81,6 +81,7 @@ To get started using Event Hubs, see the **Send and receive events** tutorials:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
+- [Spring](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json)
 - [Python](event-hubs-python-get-started-send.md)
 - [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)

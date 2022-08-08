@@ -2,10 +2,10 @@
 title: Create private link for managing resources - Azure portal
 description: Use Azure portal to create private link for managing resources.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 04/26/2022
 ---
 
-# Use portal to create private link for managing Azure resources (preview)
+# Use portal to create private link for managing Azure resources
 
 This article explains how you can use [Azure Private Link](../../private-link/index.yml) to restrict access for managing resources in your subscriptions. It shows using the Azure portal for setting up management of resources through private access.
 

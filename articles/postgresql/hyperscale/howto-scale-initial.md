@@ -1,8 +1,8 @@
 ---
 title: Initial server group size - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Pick the right initial size for your use case
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -10,6 +10,8 @@ ms.date: 08/03/2021
 ---
 
 # Pick initial size for Hyperscale (Citus) server group
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 The size of a server group, both number of nodes and their hardware capacity,
 is [easy to change](howto-scale-grow.md)). However you still need to

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Peering Service
+title: Azure Peering Service documentation
 summary: Learn about Azure Peering Service
 
 metadata:
@@ -10,8 +10,8 @@ metadata:
   ms.service: peering-service
   ms.subservice: peering-service
   ms.topic: landing-page
-  author: ypitsch
-  ms.author: ypitsch
+  author: halkazwini
+  ms.author: halkazwini
   ms.date: 05/18/2020
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Register Peering Service - Azure portal
+          - text: Create a Peering Service connection - Azure portal
             url: azure-portal.md
 
   # Card

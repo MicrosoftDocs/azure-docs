@@ -1,6 +1,5 @@
 ---
-title: How to integrate with the Microsoft identity platform | Azure
-titleSuffix: Microsoft identity platform
+title: How to integrate with the Microsoft identity platform
 description: Learn the benefits of integrating your application with the Microsoft identity platform, and get resources for features like simplified sign-in, identity management, multi-factor authentication, and access control.
 services: active-directory
 author: rwike77

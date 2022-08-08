@@ -164,12 +164,24 @@ Every module has a **settings** property that contains the module **image**, an 
 The edgeHub module and custom modules also have three properties that tell the IoT Edge agent how to manage them:
 
 * **Status**: Whether the module should be running or stopped when first deployed. Required.
-* **RestartPolicy**: When and if the IoT Edge agent should restart the module if it stops. Required.
+* **RestartPolicy**: When and if the IoT Edge agent should restart the module if it stops. If the module is stopped without any errors, it won't start automatically. For more information, see [Docker Docs - Start containers automatically](https://aka.ms/docker-container-restart-policy). Required.
 * **StartupOrder**: *Introduced in IoT Edge version 1.0.10.* Which order the IoT Edge agent should start the modules when first deployed. The order is declared with integers, where a module given a startup value of 0 is started first and then higher numbers follow. The edgeAgent module doesn't have a startup value because it always starts first. Optional.
 
   The IoT Edge agent initiates the modules in order of the startup value, but does not wait for each module to finish starting before going to the next one.
 
   Startup order is helpful if some modules depend on others. For example, you may want the edgeHub module to start first so that it's ready to route messages when the other modules start. Or you may want to start a storage module before the modules that send data to it. However, you should always design your modules to handle failures of other modules. It's the nature of containers that they may stop and restart at any time, and any number of times.
+
+  > [!NOTE]
+  > Changes to a module's properties will result in that module restarting. For example, a restart will happen if you change properties for the:
+  >    * module image
+  >    * Docker create options
+  >    * environment variables
+  >    * restart policy
+  >    * image pull policy
+  >    * version
+  >    * startup order
+  >
+  > If no module property is changed, the module will **not** restart.
 
 ## Declare routes
 

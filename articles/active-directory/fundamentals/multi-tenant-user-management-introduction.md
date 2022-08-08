@@ -2,14 +2,14 @@
 title: Configuring multi-tenant user management in Azure Active Directory
 description: Learn about the different patterns used to configure user access across Azure Active Directory tenants with guest accounts 
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/25/2021
-ms.author: baselden
+ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -111,4 +111,4 @@ There are several mechanisms available for creating and managing the lifecycle o
 
 [Multi-tenant common solutions](multi-tenant-common-solutions.md)
   
-[Multi-tenant synchronization from Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#multiple-azure-ad-tenants.md)
+[Multi-tenant synchronization from Active Directory](../hybrid/plan-connect-topologies.md#multiple-azure-ad-tenants)

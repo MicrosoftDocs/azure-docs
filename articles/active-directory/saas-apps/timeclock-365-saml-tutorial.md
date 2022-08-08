@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Timeclock 365 SAML | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Timeclock 365 SAML'
 description: Learn how to configure single sign-on between Azure Active Directory and Timeclock 365 SAML.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2021
+ms.date: 05/27/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Timeclock 365 SAML
+# Tutorial: Azure AD SSO integration with Timeclock 365 SAML
 
 In this tutorial, you'll learn how to integrate Timeclock 365 SAML with Azure Active Directory (Azure AD). When you integrate Timeclock 365 SAML with Azure AD, you can:
 
@@ -34,7 +34,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Timeclock 365 SAML supports **SP** initiated SSO.
-* Timeclock 365 SAML supports [Automated user provisioning](timeclock-365-provisioning-tutorial.md).
+* Timeclock 365 SAML supports [Automated user provisioning](timeclock-365-saml-provisioning-tutorial.md).
 
 ## Adding Timeclock 365 SAML from the gallery
 
@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Click on **Create** button to create the test user.
 
 > [!NOTE]
-> Timeclock 365 SAML also supports automatic user provisioning, you can find more details [here](./timeclock-365-provisioning-tutorial.md) on how to configure automatic user provisioning.
+> Timeclock 365 SAML also supports automatic user provisioning, you can find more details [here](./timeclock-365-saml-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

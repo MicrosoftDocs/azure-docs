@@ -1,10 +1,10 @@
 ---
 title: Business terms approval workflow
-description: This article describes how to create and manage workflows to approve business terms in Azure Purview.
+description: This article describes how to create and manage workflows to approve business terms in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/01/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -13,13 +13,13 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Approval workflow for business terms
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This guide will take you through the creation and management of approval workflows for business terms.
 
 ## Create and enable a new approval workflow for business terms
 
-1. Sign in to the [Azure Purview Studio](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents. 
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents. 
 
     :::image type="content" source="./media/how-to-workflow-business-terms-approval/workflow-section.png" alt-text="Screenshot showing the management center left menu with the new workflow section highlighted.":::
 
@@ -38,7 +38,7 @@ This guide will take you through the creation and management of approval workflo
 
     :::image type="content" source="./media/how-to-workflow-business-terms-approval/select-data-catalog.png" alt-text="Screenshot showing the new workflows menu, with Data Catalog selected.":::
 
-1. In the next screen, you'll see all the templates provided by Azure Purview to create a workflow. Select the template using which you want to start your authoring experiences and select **Continue**. Each of these templates specifies the kind of action that will trigger the workflow. In the screenshot below we've selected **Create glossary term**.  The four different templates available for business glossary are:
+1. In the next screen, you'll see all the templates provided by Microsoft Purview to create a workflow. Select the template using which you want to start your authoring experiences and select **Continue**. Each of these templates specifies the kind of action that will trigger the workflow. In the screenshot below we've selected **Create glossary term**.  The four different templates available for business glossary are:
     * Create glossary term - when a term is created, approval will be requested.
     * Update glossary term - when a term is updated, approval will be requested.
     * Delete glossary term - when a term is deleted, approval will be requested.
@@ -79,7 +79,7 @@ This guide will take you through the creation and management of approval workflo
     :::image type="content" source="./media/how-to-workflow-business-terms-approval/select-okay.png" alt-text="Screenshot showing the apply workflow window, showing a list of items that the workflow can be applied to. At the bottom of the window, the O K button is selected.":::
 
     >[!NOTE]
-    > - The Azure Purview workflow engine will always resolve to the closest workflow that the term hierarchy path is associated with. In case a direct binding is not found, it will traverse up in the tree to find the workflow associated with the closest parent in the glossary tree. 
+    > - The Microsoft Purview workflow engine will always resolve to the closest workflow that the term hierarchy path is associated with. In case a direct binding is not found, it will traverse up in the tree to find the workflow associated with the closest parent in the glossary tree. 
     > - Import terms can only be bound to root glossary path as the .CSV can contain terms from different hierarchy paths.
 
 1. By default, the workflow will be enabled. To disable, toggle the Enable button in the top menu.
@@ -115,6 +115,6 @@ To delete a workflow, select the workflow and then select **Delete** in the top 
 
 For more information about workflows, see these articles:
 
-- [What are Azure Purview workflows](concept-workflow.md)
+- [What are Microsoft Purview workflows](concept-workflow.md)
 - [Self-service data access workflow for hybrid data estates](how-to-workflow-self-service-data-access-hybrid.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)

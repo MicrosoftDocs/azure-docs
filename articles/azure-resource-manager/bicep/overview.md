@@ -2,14 +2,14 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 03/14/2022
 ---
 
 # What is Bicep?
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
-Bicep provides concise syntax, reliable type safety, and support for code reuse. We believe Bicep offers the best authoring experience for your [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) solutions in Azure.
+Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) solutions in Azure.
 
 ## Benefits of Bicep
 
@@ -101,7 +101,7 @@ To decompile an existing ARM template to Bicep, see [Decompiling ARM template JS
 
 To learn about the resources that are available in your Bicep file, see [Bicep resource reference](/azure/templates/)
 
-Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
+Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
 
 ## About the language
 
