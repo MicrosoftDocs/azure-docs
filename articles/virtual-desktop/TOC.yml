@@ -103,7 +103,7 @@
     href: store-fslogix-profile.md
   - name: Scale session hosts
     items:
-    - name: Autoscale (preview)
+    - name: Autoscale
       items:
       - name: How autoscale works
         href: autoscale-scenarios.md
@@ -239,7 +239,7 @@
         href: install-office-on-wvd-master-image.md
   - name: Scale session hosts 
     items:
-      - name: Autoscale (preview)
+      - name: Autoscale
         items:
         - name: Create a scaling plan
           href: autoscale-scaling-plan.md
