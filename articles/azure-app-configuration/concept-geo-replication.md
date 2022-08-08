@@ -22,7 +22,7 @@ Replicating your configuration store adds the following benefits:
 - **Redistribution of Request Limits:**  You can customize in code which replica endpoint your application uses letting you distribute your request load to avoid exhausting request limits. For example, if your applications run in multiple regions and only send requests to one region, you may begin exhausting App Configuration request limits. You can help redistribute this load by creating replicas in the regions your applications are running in. Each replica has isolated request limits, equal in size to the request limits of the origin. Exhausting the request limits in one replica has no impact on the request limits in another replica. 
 - **Regional Compartmentalization:** Accessing multiple regions can improve latency between your application and configuration store, leading to faster request responses and better performance if an application sends requests to its closest replica. Specifying replica access also allows you to limit data storage and flow between different regions based on your preferences. 
 
-<!-- Learn more about enabling geo-replication in our **how-to (add link to how to doc here)**.  -->
+Follow our [how-to to enable geo-replication](./howto-geo-replication.md) in your configuration store.
 
 ## Sample use case
 
