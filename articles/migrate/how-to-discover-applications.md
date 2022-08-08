@@ -65,7 +65,7 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
 
 ## Discover SQL Server instances and databases
 
-- Software inventory also identifies the SQL Server instances running in your VMware, Microsoft HyperV and and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- Software inventory also identifies the SQL Server instances running in your VMware, Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 - If you have not provided Windows authentication or SQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective SQL Server instances.
 
     > [!NOTE]
