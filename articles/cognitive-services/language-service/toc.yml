@@ -544,7 +544,7 @@ items:
     href: named-entity-recognition/quickstart.md
   - name: NER language support
     href: named-entity-recognition/language-support.md
-  - name: Samples
+  - name: SDK Samples
     items:
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
