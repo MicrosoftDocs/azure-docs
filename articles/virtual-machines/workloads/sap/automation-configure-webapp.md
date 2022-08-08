@@ -1,19 +1,22 @@
 ---
-title: Configure a Deployer UX Web Application for SAP Deployment Automation Framework
+title: Configure a Deployer Web Application for SAP Deployment Automation Framework
 description: Configure a web app as a part of the control plane to help creating and deploying SAP workload zones and systems on Azure.
 author: wsheehan
 ms.author: wsheehan
 ms.reviewer: wsheehan
-ms.date: 06/21/2022
+ms.date: 08/1/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Configure the Control Plane UX Web Application
+# Configure the Control Plane Web Application
 
 As a part of the SAP automation framework control plane, you can optionally create an interactive web application that will assist you in creating the required configuration files and deploying SAP workload zones and systems using Azure DevOps Pipelines.
 
 :::image type="content" source="./media/automation-deployment-framework/webapp-front-page.png" alt-text="Web app front page":::
+
+> [!IMPORTANT]
+> Control Plane Web Application is currently in PREVIEW and not yet available in the main branch.
 
 ## Create an app registration 
 
