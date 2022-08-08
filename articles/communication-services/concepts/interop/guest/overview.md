@@ -46,13 +46,13 @@ The [Azure Communication Services Authentication Hero Sample](../../../samples/t
 The data flow for joining Teams meetings is available at the [client and server architecture page](../../client-and-server-architecture.md). When implementing the experience, you must implement client logic for real-time communication and server logic for authentication. The following articles will guide you in implementing the communication for Teams external users.
 
 High-level coding articles:
-1. [Authenticate as Teams external user](../../../quickstarts/identity/access-token-teams-external-users.md) 
-1. [Stateful Client (Meeting)](https://azure.github.io/communication-ui-library/?path=/story/composites-meeting-basicexample--basic-example)
+- [Authenticate as Teams external user](../../../quickstarts/identity/access-token-teams-external-users.md) 
+- [Stateful Client (Meeting)](https://azure.github.io/communication-ui-library/?path=/story/composites-meeting-basicexample--basic-example)
 
 Low-level coding articles:
-1. [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
-1. [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
-1. [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)
+- [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
+- [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)
 
 ## Supported use cases
 
