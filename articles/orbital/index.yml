@@ -57,20 +57,6 @@ landingContent:
             url: update-tle.md 
           - text: Cancel a contact
             url: delete-contact.md     
-            
-  # Card
-  - title: Concepts
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Contact
-            url: concepts-contact.md
-          - text: Contact profile
-            url: concepts-contact-profile.md
-          - text: Geospatial reference architecture
-            url: geospatial-reference-architecture.md
-          - text: Spacecraft object
-            url: spacecraft-object.md
 
   # Card
   - title: Azure Orbital Analytics
@@ -91,3 +77,15 @@ landingContent:
             url: downlink-aqua.md
           - text: Collect and process AQUA satellite payload
             url: satellite-imagery-with-orbital-ground-station.md 
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Contact
+            url: concepts-contact.md
+          - text: Contact profile
+            url: concepts-contact-profile.md
+          - text: Spacecraft object
+            url: spacecraft-object.md
