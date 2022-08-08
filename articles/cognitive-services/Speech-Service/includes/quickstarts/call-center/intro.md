@@ -16,3 +16,6 @@ The following Azure Cognitive Service for Language features are used:
 - [Personally Identifiable Information (PII) detection](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in unstructured text.
 - [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze and associate positive or negative sentiment with specific aspects of the transcriptions.
 - [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize what each conversation participant said about the predefined issues and resolutions.
+
+> [!TIP]
+> To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).

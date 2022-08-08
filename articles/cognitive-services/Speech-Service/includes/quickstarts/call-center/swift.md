@@ -11,4 +11,4 @@ ms.author: eur
 We haven't yet included a call center quickstart in Swift. Please select another programming language or one of the studio links above to get started. 
 
 > [!TIP]
-> To deploy quickly to Azure with a no-code approach, try the [Ingestion Client](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-speech-cli) for the Speech CLI.
+> To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
