@@ -240,3 +240,4 @@ As you continue to make application code changes or update your test specificati
 You've successfully set up a continuous end-to-end testing workflow with GitHub Actions and Microsoft Playwright Testing. 
 
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
+- Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).

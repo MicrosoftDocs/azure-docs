@@ -75,4 +75,5 @@ To enable testing privately hosted endpoints, update the Playwright configuratio
 
 ## Next steps
 
-* Learn more about [how Microsoft Playwright Testing works](./overview-what-is-microsoft-playwright-testing.md).
+- Learn more about [how Microsoft Playwright Testing works](./overview-what-is-microsoft-playwright-testing.md).
+- Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).
