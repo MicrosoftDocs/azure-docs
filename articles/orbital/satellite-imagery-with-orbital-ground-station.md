@@ -109,7 +109,7 @@ In the steps below, you'll process the Level-0 data generated in the previous st
 
 ### Attach a data disk to the receiver-vm
 
-IPOPP installation and subsequent generation of products requires more diskspace and I/O throughput than what is available on the receiver-vm by default. 
+IPOPP installation and subsequent generation of products requires more disk space and I/O throughput than what is available on the receiver-vm by default. 
 To provide more disk space and throughput, attach a 1TB premium data disk to the receiver-vm by following steps in [Attach a data disk to a Linux VM](../virtual-machines/linux/attach-disk-portal.md)
 
 ### Create a file system on the data disk
