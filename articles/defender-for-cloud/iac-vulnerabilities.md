@@ -1,7 +1,7 @@
 ---
 title: Discover vulnerabilities in Infrastructure as Code
 description: Learn how to use Defender for DevOps to discover vulnerabilities in Infrastructure as Code (IAC)
-ms.date: 08/04/2022
+ms.date: 08/08/2022
 ms.topic: how-to
 ---
 
@@ -39,16 +39,106 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/commit-change.png" alt-text="Screenshot that shows where to select commit change on the githib page.":::
 
-## Got stuck Here 
-
 1. (Optional) Skip this step if you already have an IaC template in your repository.
 
-     [Install an IaC template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux).
+    Follow this link to [Install an IaC template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux).
 
-    ```azcopy
-    HOW IS THIS DONE???????
-    1.  Upload the template to your repository and commit the template to your repository 
+    1. Select `azuredeploy.json`.
+    
+        :::image type="content" source="media/tutorial-iac-vulnerabilities/deploy-json.png" alt-text="Screenshot that shows where the deploy.json file is located.":::
+
+    1. Select **Raw**
+    
+    1. Copy all of the information in the file.
+
+    ```Bash
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "webAppName": {
+          "type": "string",
+          "defaultValue": "AzureLinuxApp",
+          "metadata": {
+            "description": "Base name of the resource such as web app name and app service plan "
+          },
+          "minLength": 2
+        },
+        "sku": {
+          "type": "string",
+          "defaultValue": "S1",
+          "metadata": {
+            "description": "The SKU of App Service Plan "
+          }
+        },
+        "linuxFxVersion": {
+          "type": "string",
+          "defaultValue": "php|7.4",
+          "metadata": {
+            "description": "The Runtime stack of current web app"
+          }
+        },
+        "location": {
+          "type": "string",
+          "defaultValue": "[resourceGroup().location]",
+          "metadata": {
+            "description": "Location for all resources."
+          }
+        }
+      },
+      "variables": {
+        "webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]",
+        "appServicePlanName": "[concat('AppServicePlan-', parameters('webAppName'))]"
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Web/serverfarms",
+          "apiVersion": "2020-06-01",
+          "name": "[variables('appServicePlanName')]",
+          "location": "[parameters('location')]",
+          "sku": {
+            "name": "[parameters('sku')]"
+          },
+          "kind": "linux",
+          "properties": {
+            "reserved": true
+          }
+        },
+        {
+          "type": "Microsoft.Web/sites",
+          "apiVersion": "2020-06-01",
+          "name": "[variables('webAppPortalName')]",
+          "location": "[parameters('location')]",
+          "kind": "app",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
+          ],
+          "properties": {
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+            "siteConfig": {
+              "linuxFxVersion": "[parameters('linuxFxVersion')]"
+            }
+          }
+        }
+      ]
+    }
     ```
+
+    1. On gitHub, navigate to your repository.
+    
+    1. **Select Add file** > **Create new file**.
+    
+        :::image type="content" source="media/tutorial-iac-vulnerabilities/create-file.png" alt-text="Screenshot that shows you where to navigate to, to create a new file.":::
+
+    1. Enter a name for the file.
+    
+    1. Paste the copied information into the file.
+    
+    1. Select **Commit new file**.
+    
+    The file is now added to your repository.
+
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/file-added.png" alt-text="Screenshot that shows that the new file you created has been added to your repository.":::
 
 1. Select **Actions**. 
 

@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure Devops extension.
-ms.date: 08/04/2022
+ms.date: 08/08/2022
 ms.topic: how-to
 ---
 
@@ -42,7 +42,9 @@ If you don't have access to install the extension, you must request access from 
     > [!Note]
     > If you have already [installed the Microsoft Security DevOps extension](msdo-azure-devops-extension.md), it will be listed under Installed tab.
 
-1. Select **Microsoft Security DevOps extension**.
+1. Select **Microsoft Security DevOps**.
+
+    :::image type="content" source="media/msdo-azure-devops-extension/marketplace-shared.png" alt-text="Screenshot that shows where to select Microsoft Security DevOps.":::
 
 1. Select **Install**.
 
@@ -58,15 +60,19 @@ If you don't have access to install the extension, you must request access from 
 
 1. Sign into [Azure DevOps](https://dev.azure.com/)
 
-1. Navigate to **Project** > **Pipelines**
+1. Select your project.
 
-1. Select **Create Pipeline**.
+1. Navigate to **Pipelines**
+
+1. Select **New pipeline**.
 
     :::image type="content" source="../batch/media/run-python-batch-azure-data-factory/create-pipeline.png" alt-text="Screenshot showing where to locate create pipeline in DevOps.":::
 
 1. Select **Azure Repos Git**.
 
-1.  Select a repository.
+    :::image type="content" source="media/msdo-azure-devops-extension/repo-git.png" alt-text="Screenshot that shows you where to navigate to, to select Azure repo git.":::
+
+1.  Select the relevant repository.
 
     :::image type="content" source="media/msdo-azure-devops-extension/repository.png" alt-text="Screenshot showing where to select your repository.":::
 
@@ -106,59 +112,7 @@ If you don't have access to install the extension, you must request access from 
 
 1. Select **Save and run** to commit the pipeline.
 
-    :::image type="content" source="media/msdo-azure-devops-extension/sand-and-run.png" alt-text="Screenshot showing where to select save and run.":::
-
-Pipelines will run for a few minutes and save the results.
-
-### Configure WHAT???? using Azure DevOps Pipeline Classic Editor
-
-1. Sign into [Azure DevOps](https://dev.azure.com/)
-
-1. Navigate to **Project** > **Pipelines**.
-
-1. Select **Create Pipeline**.
-
-1. Select **Use the classic editor to create a pipeline without YAML**.
-
-1. Select a source, Team project, Repository, and Default branch from the dropdown menus.
-
-1. Select **Continue**.
-
-    :::image type="content" source="media/msdo-azure-devops-extension/selection-screen.png" alt-text="Screenshot showing where to select, source, team project, repository and default branch.":::
-
-1. Select **Empty job**.
-
-    :::image type="content" source="media/msdo-azure-devops-extension/empty-job.png" alt-text="Screenshot showing where to locate the empty job button.":::
-
-1. On the Agent job 1, select **+**.
-
-    :::image type="content" source="media/msdo-azure-devops-extension/plus-sign.png" alt-text="Screenshot showing where to locate the + sign.":::
-
-1. In the search box, search for `Use .NET Core`.
-
-1. Select **Add** three times.
-
-1. In the search box, search for `Microsoft Security`. 
-
-1. Select **Add**.
-
-    :::image type="content" source="media/msdo-azure-devops-extension/add.png" alt-text="Screenshot showing where to select add.":::
-
-1. Select the first **Use .NET Core sdk**, and set the versions as **3.1.x**. Repeat for the next two and fill in version **5.0.x**, and then **6.0.x**.
-
-    :::image type="content" source="media/msdo-azure-devops-extension/set-versions.png" alt-text="Screenshot showing you how each Use .NET Core should be set with each version number.":::
-
-1. Select **Save & queue**, then **Save & queue**.
-
-    :::image type="content" source="media/msdo-azure-devops-extension/save-and-queue.png" alt-text="Screenshot showing where to go to select save and queue. ":::
-
-1. Enter a meaningful comment, for example, `Microsoft Security DevOps added`.
-
-1. Select **Save and run**.
-
-    :::image type="content" source="media/msdo-azure-devops-extension/comment-and-save.png" alt-text="Screenshot showing where to enter a comment and where to select save.":::
-
-The process will run for a few minutes and results will be saved. 
+The pipeline will run for a few minutes and save the results.
 
 ## Next steps
 
