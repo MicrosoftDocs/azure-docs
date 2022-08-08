@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/23/2022
+ms.date: 08/08/2022
 ms.author: eur
-ms.devlang: cpp, csharp
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
 
@@ -55,4 +54,4 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about speech recognition](how-to-recognize-speech.md)
+> [Try the Ingestion Client](ingestion-client.md)

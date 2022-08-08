@@ -10,7 +10,7 @@ In this quickstart, you perform sentiment analysis and conversation summarizatio
 
 The following Azure Cognitive Service for Speech features are used:
 - [Batch transcription](/azure/cognitive-services/speech-service/batch-transcription): Submit a batch of audio files for transcription.
-- [Speaker separation/diarization](/azure/cognitive-services/speech-service/batch-transcription): Diarize mono 16khz 16 bit PCM wav files to separate multiple speakers. 
+- [Speaker separation](/azure/cognitive-services/speech-service/batch-transcription): Separate multiple speakers through diarization of mono 16khz 16 bit PCM wav files. 
 
 The following Azure Cognitive Service for Language features are used:
 - [Personally Identifiable Information (PII) detection](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in unstructured text.
