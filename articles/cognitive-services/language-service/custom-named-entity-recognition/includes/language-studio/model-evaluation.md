@@ -30,7 +30,7 @@ ms.author: aahi
     :::image type="content" source="../../media/overview-guidance.png" alt-text="A screenshot showing guidance." lightbox="../../media/overview-guidance.png":::
     
     Learn more about model guidance and confusion matrix in [model performance](../../concepts/evaluation-metrics.md) concepts.
----
+
 ### [Entity type performance](#tab/entity-performance)
 
 * This is a snapshot of how your model performed during testing. The metrics here are static and tied to your model, so they won’t update until you train again.
@@ -39,7 +39,7 @@ ms.author: aahi
 
 
     :::image type="content" source="../../media/entity-type-performace.png" alt-text="A screenshot of entity performance." lightbox="../../media/entity-type-performace.png":::
----
+
 ### [Test set details](#tab/test-set)
 
 * Here you will see the documents included in the **test set** and the result entity type for each document. You can use the *Show mismatches only* toggle to show only documents with mismatches, or unselect the toggle to view all document in the test set.
@@ -48,7 +48,7 @@ ms.author: aahi
 
     :::image type="content" source="../../media/test-set.png" alt-text="A screenshot of test set details." lightbox="../../media/test-set.png":::
     
----
+
 ### [Dataset distribution](#tab/dataset-distribution) 
 
 This snapshot shows how entities are distributed across your training and testing sets. This data is static and tied to your model, so it won’t update until you train again.
@@ -69,8 +69,6 @@ For each *entity*, you can view: tags per entity in training set, tagged documen
 
   :::image type="content" source="../../media/dataset-table.png" alt-text="A screenshot showing distribution in table view." lightbox="../../media/dataset-table.png":::
 
-
----
 ### [Confusion matrix](#tab/confusion-matrix) 
 
 A [confusion matrix](../../concepts/evaluation-metrics.md#confusion-matrix) is an N x N matrix used for evaluating the performance of a classification model, where N is the number of target entities. The matrix compares the actual target values with those predicted by the machine learning model to show how well the extraction model is performing and what kinds of errors it is making.
