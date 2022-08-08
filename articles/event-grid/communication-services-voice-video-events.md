@@ -79,7 +79,7 @@ This section contains an example of what that data would look like for each even
         "communicationUser": {
           "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
         },
-			  "role": "{role}"
+        "role": "{role}"
       },
       "serverCallId": "{serverCallId}",
       "group": {
