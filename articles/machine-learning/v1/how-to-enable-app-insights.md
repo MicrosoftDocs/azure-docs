@@ -70,7 +70,7 @@ Use the following steps to update an existing web service:
 >
 > For more complex situations, like model tracking within an AKS deployment, we recommend using a third-party library like [OpenCensus](https://opencensus.io).
 
-To log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then, use the following steps:
+To log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](/azure/machine-learning/how-to-deploy-managed-online-endpoints) document. Then, use the following steps:
 
 1. Update the scoring file by adding print statements to send data to Application Insights during inference. For more complex information, such as the request data and the response, use a JSON structure. 
 
@@ -125,7 +125,7 @@ To log custom traces, follow the standard deployment process for AKS or ACI in t
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. Build an image and deploy it on AKS or ACI. For more information, see [How to deploy and where](how-to-deploy-and-where.md).
+3. Build an image and deploy it on AKS or ACI. For more information, see [How to deploy and where](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 
 ### Disable tracking in Python
