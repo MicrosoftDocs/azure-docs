@@ -1,6 +1,6 @@
 ---
 title: Customer managed key - Overview
-description: Learn about the customer managed keys, an overview on its key features and considerations before you enable to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault.
+description: Learn about the customer managed keys, an overview on its key features and considerations before you encrypt your Premium registry with a customer-managed key stored in Azure Key Vault.
 ms.topic: tutorial
 ms.date: 08/5/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli
@@ -9,7 +9,7 @@ ms.author: tejaswikolli
 
 # Tutorial: An overview of Customer managed key encryption for your Azure Container Registry
 
-Azure container registry, automatically encrypts the images and other artifacts you store. By default, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md). You can supplement default encryption with an additional encryption layer using a a customer-managed key.
+Azure container registry, automatically encrypts the images and other artifacts you store. By default, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md). You can supplement default encryption with an additional encryption layer using a customer-managed key.
 
   
 In this tutorial, part one in a four-part series:
@@ -22,7 +22,7 @@ In this tutorial, part one in a four-part series:
 
 ## Customer managed key - Overview
 
-A customer-managed key gives you the ownership to bring your own key in the [Azure Key Vault](../key-vault/general/overview.md). The customer-managed key also allows you to manage key rotations, allows to control the access and permissions to use the key, and audit the usage of the key.
+A customer-managed key gives you the ownership to bring your own key in the [Azure Key Vault](../key-vault/general/overview.md). The customer-managed key also allows you to manage key rotations, controls the access and permissions to use the key, and audit the usage of the key.
 
 The key features include:
 
@@ -34,7 +34,7 @@ The key features include:
 
 ## Before you enable customer managed key  
 
-To configure Azure Container Registry (ACR) with a customer managed key consider knowing:
+Configure Azure Container Registry (ACR) with a customer managed key consider knowing:
 
 >* This feature is available in the **Premium** container registry service tier. For more information, see [ACR service tiers.](container-registry-skus.md)
 >* You can currently enable a customer-managed key only while creating a registry.
@@ -61,7 +61,7 @@ For details, see [Choose key ID with or without key version](#choose-key-id-with
 
 In this tutorial, you have an overview on customer managed keys, their key features, and a brief of the considerations to enable customer managed keys to your registry and types of updating key versions.
 
-Advance to the next [tutorial](container-registry-tutorial-enable-customer-managed-keys.md) to enable your container registry with customer managed keys using Azure CLI, Azure Portal, and Azure resource manager template.
+Advance to the next [tutorial](container-registry-tutorial-enable-customer-managed-keys.md) to enable your container registry with customer managed keys using Azure CLI, Azure portal, and Azure Resource Manager template.
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
 * Learn more about access policies and how to [secure access to a key vault](../key-vault/general/security-features.md).
 
