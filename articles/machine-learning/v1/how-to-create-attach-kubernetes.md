@@ -209,9 +209,9 @@ az ml computetarget create aks -n myaks
 
 For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-aks) reference.
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
-For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#inference-clusters).
+For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
 ---
 
@@ -292,7 +292,7 @@ For more information, see the [az ml computetarget attach aks](/cli/azure/ml(v1)
 
 # [Portal](#tab/azure-portal)
 
-For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#inference-clusters).
+For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
 ---
 

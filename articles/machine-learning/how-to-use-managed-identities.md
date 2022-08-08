@@ -124,7 +124,7 @@ az ml compute create --name cpucluster --type <cluster name>  --identity-type sy
 
 # [Portal](#tab/azure-portal)
 
-For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-studio.md#managed-identity).
+For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-.md#set-up-managed-identity).
 
 ---
 
