@@ -231,7 +231,7 @@ From here, you can enable, disable, or delete alert processing rules at scale by
 
 You can view and manage your alert processing rules by using the [az monitor alert-processing-rules](/cli/azure/monitor/alert-processing-rule) commands from Azure CLI.
 
-Before you manage alert processing rules with the Azure CLI, prepare your environment by using the instructions provided in [Configuring an alert processing rule](#configuring-an-alert-processing-rule).
+Before you manage alert processing rules with the Azure CLI, prepare your environment by using the instructions provided in [Configure an alert processing rule](#configure-an-alert-processing-rule).
 
 ```azurecli
 # List all alert processing rules for a subscription
@@ -251,7 +251,7 @@ az monitor alert-processing-rules delete --resource-group RG1 --name MyRule
 
 You can view and manage your alert processing rules by using the [\*-AzAlertProcessingRule](/powershell/module/az.alertsmanagement) commands from the Azure CLI.
 
-Before you manage alert processing rules with the Azure CLI, prepare your environment by following the instructions in [Configuring an alert processing rule](#configuring-an-alert-processing-rule).
+Before you manage alert processing rules with the Azure CLI, prepare your environment by following the instructions in [Configure an alert processing rule](#configure-an-alert-processing-rule).
 
 ```powershell
 # List all alert processing rules for a subscription
