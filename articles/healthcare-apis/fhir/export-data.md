@@ -12,7 +12,7 @@ ms.author: mikaelw
 
 The bulk `$export` operation in the FHIR service allows users to export data as described in the [HL7 FHIR Bulk Data Access specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
-Before using `$export`, make sure that your FHIR service is configured to connect with an ADLS Gen2 storage account. For configuring export settings and creating an ADLS Gen2 storage account, refer to the [Configure settings for export](./configure-export-data.md) page.
+Before attempting to use `$export`, make sure that your FHIR service is configured to connect with an ADLS Gen2 storage account. For configuring export settings and creating an ADLS Gen2 storage account, refer to the [Configure settings for export](./configure-export-data.md) page.
 
 ## Calling the `$export` endpoint
 
