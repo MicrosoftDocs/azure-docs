@@ -8,6 +8,8 @@ ms.date: 06/10/2022
 
 # Get started with Azure Video Indexer in Azure portal
 
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
+
 This Quickstart walks you through the steps to get started with Azure Video Indexer. You'll create an Azure Video Indexer account and its accompanying resources by using the Azure portal.
 
 To start using Azure Video Indexer, you'll need to create an Azure Video Indexer account. The account needs to be associated with a [Media Services][docs-ms] resource and a [managed identity][docs-uami]. The managed identity will need to have Contributor permissions role on the Media Services.
@@ -23,7 +25,7 @@ Before creating a new account, review [Account types](accounts-overview.md).
 * This user should be a member of your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).
 * Register the **EventGrid** resource provider using the Azure portal.
     
-    In the [Azure portal](https://ms.portal.azure.com), go to **Subscriptions**->[<*subscription*>]->**ResourceProviders**.
+    In the [Azure portal](https://portal.azure.com), go to **Subscriptions**->[<*subscription*>]->**ResourceProviders**.
 Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, select **Register**. It takes a couple of minutes to register. 
 
 ### Azure Video Indexer

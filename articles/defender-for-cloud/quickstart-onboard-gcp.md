@@ -67,7 +67,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
 
-1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
+    1. (**Containers only**) Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
 
 1. Select the **Next: Configure access**.
 
@@ -138,6 +138,8 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > <br><br> This can change the OS config agent from `inactive` to `active`, and will lead to additional costs.   
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
+
+- Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
 
 - Additional extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint
@@ -271,7 +273,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 

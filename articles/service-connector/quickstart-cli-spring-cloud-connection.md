@@ -20,7 +20,7 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 - Version 2.30.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- At least one Spring Cloud application running on Azure. If you don't have a Spring Cloud application, [create one](../spring-cloud/quickstart.md).
+- At least one Spring Cloud application running on Azure. If you don't have a Spring Cloud application, [create one](../spring-apps/quickstart.md).
 
 ## View supported target service types
 

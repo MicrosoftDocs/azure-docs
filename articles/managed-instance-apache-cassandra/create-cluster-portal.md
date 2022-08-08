@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. From the search bar, search for **Managed Instance for Apache Cassandra** and select the result.
 
-   :::image type="content" source="./media/create-cluster-portal/search-portal.png" alt-text="Search for Managed Instance for Apache Cassandra." lightbox="./media/create-cluster-portal/search-portal.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/search-portal.png" alt-text="Screenshot of search for Azure SQL Managed Instance for Apache Cassandra." lightbox="./media/create-cluster-portal/search-portal.png" border="true":::
 
 1. Select **Create Managed Instance for Apache Cassandra cluster** button.
 
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet, or create a new one. 
-   * **Assign roles** - Virtual Networks require special permissions in order to allow managed Cassandra clusters to be deployed. Keep this box checked if you are creating a new Virtual Network, or using an existing Virtual Network without permissions applied. If using a Virtual network where you have already deployed Managed Instance Cassandra clusters, uncheck this option.
+   * **Assign roles** - Virtual Networks require special permissions in order to allow managed Cassandra clusters to be deployed. Keep this box checked if you are creating a new Virtual Network, or using an existing Virtual Network without permissions applied. If using a Virtual network where you have already deployed Azure SQL Managed Instance Cassandra clusters, uncheck this option.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
@@ -129,6 +129,52 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. When the datacenter is deployed, you should be able to view all datacenter information in the **Data Center** pane:
 
    :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/multi-datacenter.png" border="true":::
+
+## Update Cassandra configuration
+
+The service allows update to Cassandra YAML configuration on a datacenter via the portal or by [using CLI commands](manage-resources-cli.md#update-yaml). To update settings in the portal:
+
+1. Find `Cassandra Configuration` under settings. Highlight the data center whose configuration you want to change, and click update:
+
+   :::image type="content" source="./media/create-cluster-portal/update-config-1.png" alt-text="Screenshot of the select data center to update config." lightbox="./media/create-cluster-portal/update-config-1.png" border="true":::
+
+1. In the window that opens, enter the field names in YAML format, as shown below. Then click update.
+
+   :::image type="content" source="./media/create-cluster-portal/update-config-2.png" alt-text="Screenshot of updating the data center Cassandra config." lightbox="./media/create-cluster-portal/update-config-2.png" border="true":::
+
+1. When update is complete, the overridden values will show in the `Cassandra Configuration` pane:
+
+   :::image type="content" source="./media/create-cluster-portal/update-config-3.png" alt-text="Screenshot of the updated Cassandra config." lightbox="./media/create-cluster-portal/update-config-3.png" border="true":::
+
+   > [!NOTE]
+   > Only overridden Cassandra configuration values are shown in the portal.
+
+   > [!IMPORTANT]
+   > Ensure the Cassandra yaml settings you provide are appropriate for the version of Cassandra you have deployed. See [here](https://github.com/apache/cassandra/blob/cassandra-3.11/conf/cassandra.yaml) for Cassandra v3.11 settings and [here](https://github.com/apache/cassandra/blob/cassandra-4.0/conf/cassandra.yaml) for v4.0. The following YAML settings are **not** allowed to be updated:
+   >
+   > - cluster_name
+   > - seed_provider
+   > - initial_token
+   > - autobootstrap
+   > - client_ecncryption_options
+   > - server_encryption_options
+   > - transparent_data_encryption_options
+   > - audit_logging_options
+   > - authenticator
+   > - authorizer
+   > - role_manager
+   > - storage_port
+   > - ssl_storage_port
+   > - native_transport_port
+   > - native_transport_port_ssl
+   > - listen_address
+   > - listen_interface
+   > - broadcast_address
+   > - hints_directory
+   > - data_file_directories
+   > - commitlog_directory
+   > - cdc_raw_directory
+   > - saved_caches_directory 
 
 ## Troubleshooting
 

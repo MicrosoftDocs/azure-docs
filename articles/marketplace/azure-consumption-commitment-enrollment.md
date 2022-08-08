@@ -3,7 +3,6 @@ title: Azure Consumption Commitment enrollment - Azure Marketplace
 description: This article includes an overview of the Microsoft Azure Consumption Commitment (MACC) program, how to see if your offer is enrolled in the MACC program, and the requirements for MACC. 
 author: posurnis 
 ms.author: posurnis
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article

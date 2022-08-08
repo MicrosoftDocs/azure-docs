@@ -31,6 +31,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't override any of the cluster's MachineConfig objects (for example, the kubelet configuration) in any way.
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
+* To avoid disruption resulting from cluster maintenance, in-cluster workloads should be configured with high availability practices, including but not limited to pod affinity and anti-affinity, pod disruption budgets, and adequate scaling.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
 * Do not run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
