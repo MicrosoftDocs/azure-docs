@@ -175,9 +175,9 @@ You can change the behavior when you delete a VM. The following example updates 
 
 ### [CLI](#tab/cli3)
 
-The following example sets the delete option to `detach` so you can reuse the disk later.
+The following example sets the delete option to `detach` so you can reuse the disk.
 
-```azure-cli-interactive
+```azurecli-interactive
 az resource update --resource-group myResourceGroup --name myVM --resource-type virtualMachines --namespace Microsoft.Compute --set properties.storageProfile.osDisk.deleteOption=detach
 ```
 
