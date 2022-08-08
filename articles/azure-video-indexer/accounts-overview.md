@@ -16,11 +16,12 @@ Classic and ARM (Azure Resource Manager) are both paid accounts with similar dat
 Going forward, ARM account support more Azure native features and integrations such as: Azure Monitor, Private endpoints, Service tag and CMK (Customer managed key).  
 **The recommended paid account type is the ARM-based account**  
 
+### To generate an access token
+
 |   | ARM-based |Classic| Trial|
 |---|---|---|---|
 |Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic
 |Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic
-
 
 A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. 
 
