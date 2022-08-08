@@ -12,17 +12,19 @@ ms.custom: devx-track-csharp
 
 Spatial queries are operations with which you can ask the remote rendering service which objects are located in an area. Spatial queries are frequently used to implement interactions, such as figuring out which object a user is pointing at.
 
-All spatial queries are evaluated on the server. Consequently they are asynchronous operations and results will arrive with a delay that depends on your network latency. Since every spatial query generates network traffic, be careful not to do too many at once.
+All spatial queries are evaluated on the server. Accordingly, they're asynchronous operations and results will arrive with a delay that depends on your network latency. Since every spatial query generates network traffic, be careful not to do too many at once.
 
 ## Collision meshes
 
-Spatial queries are powered by the [Havok Physics](https://www.havok.com/products/havok-physics) engine and require a dedicated collision mesh to be present. By default, [model conversion](../../how-tos/conversion/model-conversion.md) generates collision meshes. If you don't require spatial queries on a complex model, consider disabling collision mesh generation in the [conversion options](../../how-tos/conversion/configure-model-conversion.md), as it has an impact in multiple ways:
+For triangular meshes, spatial queries are powered by the [Havok Physics](https://www.havok.com/products/havok-physics) engine and require a dedicated collision mesh to be present. By default, [model conversion](../../how-tos/conversion/model-conversion.md) generates collision meshes. If you don't require spatial queries on a complex model, consider disabling collision mesh generation in the [conversion options](../../how-tos/conversion/configure-model-conversion.md), as it has an impact in multiple ways:
 
 * [Model conversion](../../how-tos/conversion/model-conversion.md) will take considerably longer.
 * Converted model file sizes are noticeably larger, impacting download speed.
 * Runtime loading times are longer.
 * Runtime CPU memory consumption is higher.
 * There's a slight runtime performance overhead for every model instance.
+
+For point clouds, none of these drawbacks apply.
 
 ## Ray casts
 
@@ -56,8 +58,7 @@ void CastRay(ApiHandle<RenderingSession> session)
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast;
     rayCast.StartPos = {0, 0, 0};
-    rayCast.EndPos = {0, 0, 1};
-    rayCast.MaxHits = 10;
+    rayCast.EndPos = {0, 0, 10};
 
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy::ClosestHit;

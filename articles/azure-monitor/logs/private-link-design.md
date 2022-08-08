@@ -126,7 +126,6 @@ Restricting access as explained above applies to data in the resource. However, 
 > Queries sent through the Azure Resource Management (ARM) API can't use Azure Monitor Private Links. These queries can only go through if the target resource allows queries from public networks (set through the Network Isolation blade, or [using the CLI](./private-link-configure.md#set-resource-access-flags)).
 >
 > The following experiences are known to run queries through the ARM API:
-> * Sentinel
 > * LogicApp connector
 > * Update Management solution
 > * Change Tracking solution

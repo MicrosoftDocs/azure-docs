@@ -3,10 +3,10 @@ title: Plan your app - question answering
 description: Learn how to plan your question answering app. Understand how question answering works and interacts with other Azure services and some knowledge base concepts.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 06/03/2022
 ---
 
 # Plan your question answering app
@@ -24,7 +24,7 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with questio
 
 ### Resource planning
 
-Question answering throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
+Question answering throughput is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
 
 ### Language resource
 
@@ -62,7 +62,7 @@ Question answering also supports unstructured content. You can upload a file tha
 
 Currently we do not support URLs for unstructured content.
 
-The ingestion process converts supported content types to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit QnA pairs in the Language Studio portal with rich text authoring.
+The ingestion process converts supported content types to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit QnA pairs in Language Studio with rich text authoring.
 
 ### Data format considerations
 
@@ -104,7 +104,7 @@ Question answering uses _active learning_ to improve your knowledge base by sugg
 
 ### Providing a default answer
 
-If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page.).
+If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page.
 
 This default answer is different from the Azure bot default answer. You configure the default answer for your Azure bot in the Azure portal as part of configuration settings. It's returned when the score threshold isn't met.
 

@@ -26,7 +26,6 @@ If your environment meets the prerequisites, and you're already familiar with us
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-
 ## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/).
@@ -40,7 +39,6 @@ Two Azure resources are defined in the template above:
 
 * [**Microsoft.Devices/iothubs**](/azure/templates/microsoft.devices/iothubs): Creates a new Azure IoT Hub.
 * [**Microsoft.Devices/provisioningservices**](/azure/templates/microsoft.devices/provisioningservices): Creates a new Azure IoT Hub Device Provisioning Service with the new IoT Hub already linked to it.
-
 
 ## Deploy the template
 
@@ -60,10 +58,10 @@ Two Azure resources are defined in the template above:
     | :---- | :---------- |
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Click **Create new**, and enter a unique name for the resource group, and then click **OK**. |
-    | **Region** | Select a region for your resources. For example, **East US**. |
+    | **Region** | Select a region for your resources. For example, **East US**.  For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md). |
     | **Iot Hub Name** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **Provisioning Service Name** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
-    
+
 3. On the next screen, read the terms. If you agree to all terms, click **Create**. 
 
     The deployment will take a few moments to complete. 

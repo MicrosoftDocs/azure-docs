@@ -19,6 +19,7 @@ When you use Azure Front Door for application delivery, a custom domain is neces
 After you create an Azure Front Door Standard/Premium profile, the default frontend host will have a subdomain of `azurefd.net`. This subdomain gets included in the URL when Azure Front Door Standard/Premium delivers content from your backend by default. For example, `https://contoso-frontend.azurefd.net/activeusers.htm`. For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of an Azure Front Door owned domain name. For example, `https://www.contoso.com/photo.png`.
 
 ## Prerequisites
+
 * Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door Standard/Premium](create-front-door-portal.md).
 
 * If you don't already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](../../app-service/manage-custom-dns-buy-domain.md).
@@ -28,9 +29,7 @@ After you create an Azure Front Door Standard/Premium profile, the default front
 ## Add a new custom domain
 
 > [!NOTE]
-> * When using Azure DNS to create Apex domains isn't supported on Azure Front Door currently. There are other DNS providers that support CNAME flattening or DNS chasing that will allow APEX domains to be used for Azure Front Door Standard/Premium.
 > * If a custom domain is validated in one of the Azure Front Door Standard, Premium, classic or classic Microsoft CDN profiles, then it can't be added to another profile.
->
 
 A custom domain is managed by Domains section in the portal. A custom domain can be created and validated before association to an endpoint. A custom domain and its subdomains can be associated with only a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Front Doors. You can also map custom domains with different subdomains to the same Front Door endpoint.
 
@@ -40,9 +39,8 @@ A custom domain is managed by Domains section in the portal. A custom domain can
 
 1. The **Add a domain** page will appear where you can enter information about of the custom domain. You can choose Azure-managed DNS, which is recommended or you can choose to use your own DNS provider. If you choose Azure-managed DNS, select an existing DNS zone and then select a custom subdomain or create a new one. If you're using another DNS provider, manually enter the custom domain name. Select **Add** to add your custom domain.
 
-    > [!NOTE]
-    > Azure Front Door supports both Azure managed certificate and customer-managed certificates. If you want to use customer-managed certificate, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
-    >
+   > [!NOTE]
+   > Azure Front Door supports both Azure managed certificate and customer-managed certificates. If you want to use customer-managed certificate, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
 
     :::image type="content" source="../media/how-to-add-custom-domain/add-domain-page.png" alt-text="Screenshot of add a domain page.":::
 
@@ -76,8 +74,9 @@ A custom domain is managed by Domains section in the portal. A custom domain can
 | Internal error | If you see this error, retry by clicking the **Refresh** or **Regenerate** buttons. If you're still experiencing issues, raise a support request. |
 
 > [!NOTE]
-> 1. If the **Regenerate** button doesn't work, delete and recreate the domain.
-> 2. If the domain state doesn't reflect as expected, select the **Refresh** button.
+> 1. The default TTL for TXT record is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
+> 2. If the **Regenerate** button doesn't work, delete and recreate the domain.
+> 3. If the domain state doesn't reflect as expected, select the **Refresh** button.
 
 ## Associate the custom domain with your Front Door Endpoint
 
@@ -101,8 +100,8 @@ After you've validated your custom domain, you can then add it to your Azure Fro
 
 1. Once the CNAME record gets created and the custom domain is associated to the Azure Front Door endpoint completes, traffic flow will start flowing.
 
-    > [!NOTE]
-    > If HTTPS is enabled, certificate provisioning and propagation may take a few minutes because propagation is being done to all edge locations. 
+   > [!NOTE]
+   > If HTTPS is enabled, certificate provisioning and propagation may take a few minutes because propagation is being done to all edge locations.
 
 ## Verify the custom domain
 

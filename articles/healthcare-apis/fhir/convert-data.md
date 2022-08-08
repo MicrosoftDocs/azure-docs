@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 06/06/2022
 ms.author: ranku
 ms.custom: subject-rbac-steps
 ---
@@ -227,3 +227,5 @@ In this article, you've learned about the $convert-data endpoint and customize-c
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: deploy
+ms.custom: deploy, event-tier1-build-2022
 ms.author: ssalgado
 author: ssalgadodev
 ms.date: 04/22/2021
@@ -56,7 +56,7 @@ An example notebook that demonstrates local deployments is included on your comp
 To submit sample data to the running service, use the following code. Replace the value of `service_url` with the URL of from the previous step:
 
 > [!NOTE]
-> When authenticating to a deployment on the compute instance, the authentication is made using Azure Active Directory. The call to `interactive_auth.get_authentication_header()` in the example code authenticates you using AAD, and returns a header that can then be used to authenticate to the service on the compute instance. For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#interactive-authentication).
+> When authenticating to a deployment on the compute instance, the authentication is made using Azure Active Directory. The call to `interactive_auth.get_authentication_header()` in the example code authenticates you using AAD, and returns a header that can then be used to authenticate to the service on the compute instance. For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#use-interactive-authentication).
 >
 > When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on, see [Configure authentication for Azure Machine models deployed as web services](how-to-authenticate-web-service.md).
 
@@ -94,5 +94,5 @@ print("prediction:", resp.text)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Monitor your Azure Machine Learning models with Application Insights](./v1/how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

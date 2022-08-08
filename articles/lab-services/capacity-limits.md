@@ -23,7 +23,7 @@ These actions may be disabled if there no more cores that can be enabled for you
 
 If you reach the cores limit, you can request a limit increase to continue using Azure Lab Services. The request process is a checkpoint to ensure your subscription isn’t involved in any cases of fraud or unintentional, sudden large-scale deployments.
 
-To create a support request, you must be an [Owner](/azure/role-based-access-control/built-in-roles), [Contributor](/azure/role-based-access-control/built-in-roles), or be assigned to the [Support Request Contributor](/azure/role-based-access-control/built-in-roles) role at the subscription level. For information about creating support requests in general, see how to create a [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+To create a support request, you must be an [Owner](../role-based-access-control/built-in-roles.md), [Contributor](../role-based-access-control/built-in-roles.md), or be assigned to the [Support Request Contributor](../role-based-access-control/built-in-roles.md) role at the subscription level. For information about creating support requests in general, see how to create a [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 The admin can follow these steps to request a limit increase:  
 

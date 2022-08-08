@@ -1,9 +1,9 @@
 ---
 title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: Become familiar with the key areas of the Azure IoT Central UI that you use to create, manage, and use your IoT solution.
-author: ankitscribbles
-ms.author: ankitgup
-ms.date: 12/21/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/10/2022
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -143,7 +143,7 @@ This page lets you view and create rules based on device data. When a rule fires
 
 :::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Data Export":::
 
-Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-data.md) article.
+Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-to-blob-storage.md) article.
 
 ### Permissions
 

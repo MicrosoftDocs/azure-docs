@@ -7,13 +7,13 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 04/22/2022
+ms.date: 07/29/2022
 ms.author: lajanuar
 ---
 
 # Language support for Form Recognizer
 
- This table lists the written languages supported by each Form Recognizer service.
+This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Both groups are mutually exclusive.
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -29,7 +29,7 @@ The following lists include the currently GA languages in for the v2.1 version a
 
 To use the preview languages, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md).
 
-### Handwritten languages (preview and GA)
+### Handwritten text (preview and GA)
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -41,7 +41,7 @@ The following table lists the supported languages for extracting handwritten tex
 |German (preview) |`de`|Spanish (preview) |`es`|
 |Italian (preview) |`it`|
 
-### Print languages (preview)
+### Print text (preview)
 
 This section lists the supported languages for extracting printed texts in the latest preview.
 
@@ -94,7 +94,7 @@ This section lists the supported languages for extracting printed texts in the l
 |Kurukh (Devanagari) | `kru`|Welsh | `cy`
 |Kyrgyz (Cyrillic)  | `ky`
 
-### Print languages (GA)
+### Print text (GA)
 
 This section lists the supported languages for extracting printed texts in the latest GA version.
 
@@ -144,12 +144,12 @@ Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
 
-## Receipt and business card models
+## Receipt model
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Pre-Built Receipt and Business Cards support all English receipts and business cards with the following locales:
+Receipt supports all English receipts with the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
@@ -159,14 +159,40 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 |English (India|`en-in`|
 |English (United States)| `en-us`|
 
+## Business card model
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+Business Card supports all English business cards with the following locales:
+
+|Language| Locale code |
+|:-----|:----:|
+|English (Australia)|`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India|`en-in`|
+|English (United States)| `en-us`|
+
+The **2022-06-30-preview** release includes Japanese language support:
+
+|Language| Locale code |
+|:-----|:----:|
+| Japanese | `ja` |
+
 ## Invoice model
 
 Language| Locale code |
 |:-----|:----:|
-|English (United States)|en-us|
-|Spanish (preview) | es |
+|English (United States) |en-US|
+|Spanish| es|
+|German (**2022-06-30-preview**)| de|
+|French (**2022-06-30-preview**)| fr|
+|Italian (**2022-06-30-preview**)|it|
+|Portuguese (**2022-06-30-preview**)|pt|
+|Dutch (**2022-06-30-preview**)| nl|
 
-## ID documents
+## ID document model
 
 This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
 
@@ -178,14 +204,19 @@ Language| Locale code |
 
 ## Detected languages: Read API
 
-The [Read API](concept-read.md) supports language detection for the following languages:
+The [Read API](concept-read.md) supports detecting the following languages in your documents. This list may include languages not currently supported for text extraction.
 
 > [!NOTE]
 > **Language detection**
 >
-> Form Recognizer read model can _detect_ a wide range of languages, variants, dialects, and some regional/cultural languages and return a language code.
+> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be 
+> extracted for a given language, see previous sections.
+
+
+> [!NOTE]
+> **Detected languages vs extracted languages**
 >
-> This section lists the languages that can be detected using the Read API. To determine if text can also be _extracted_ for a given language, see [handwritten](#handwritten-languages-preview-and-ga), [print preview](#print-languages-preview), and [print GA](#print-languages-ga) language extraction lists (above).
+> This section lists the languages we can detect from the documents using the Read model, if present. Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
 
 | Language            | Code |
 |---------------------|---------------|

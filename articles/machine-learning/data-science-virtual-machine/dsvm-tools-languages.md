@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
 
-author: timoklimmer
-ms.author: tklimmer
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/23/2022
 
 
 ---
@@ -73,10 +73,6 @@ artificial intelligence (AI) applications. Here are some of the notable ones.
 
   Open a command prompt and type `R`.
 
-* Use in an IDE:
-
-  To edit R scripts in an IDE, you can use RStudio, which is installed on the DSVM images by default.
-
 * Use in Jupyter Lab
 
   Open a Launcher tab in Jupyter Lab and select the type and kernel of your new document. If you want your document to be
@@ -84,7 +80,7 @@ artificial intelligence (AI) applications. Here are some of the notable ones.
 
 * Install R packages:
 
-  You can install new R packages either by using the `install.packages()` function or by using RStudio.
+  You can install new R packages by using the `install.packages()` function.
 
 ## Julia
 

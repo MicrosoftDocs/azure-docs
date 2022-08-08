@@ -24,10 +24,6 @@ You can transcribe meetings and other conversations with the ability to add, rem
 * Only available in the following subscription regions: `centralus`, `eastasia`, `eastus`, `westeurope`
 * Requires a 7-mic circular multi-microphone array. The microphone array should meet [our specification](./speech-sdk-microphone.md).
 
-## Prerequisites
-
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
-
 > [!NOTE]
 > The Speech SDK for C++, Java, Objective-C, and Swift support Conversation Transcription, but we haven't yet included a guide here. 
 

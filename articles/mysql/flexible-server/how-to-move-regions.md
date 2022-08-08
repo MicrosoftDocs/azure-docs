@@ -1,10 +1,11 @@
 ---
 title: Move Azure regions - Azure portal - Azure Database for MySQL Flexible server
 description: Move an Azure Database for MySQL Flexible server from one Azure region to another using the Azure portal.
-author: aditivgupta
-ms.author: adig
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: VandhanaMehta
+ms.author: vamehta
 ms.custom: subject-moving-resources
 ms.date: 04/08/2022
 #Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.

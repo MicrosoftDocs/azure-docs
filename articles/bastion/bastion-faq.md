@@ -4,12 +4,12 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 04/26/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
 
-## <a name="host"></a>Bastion
+## <a name="host"></a>Bastion FAQs
 
 ### <a name="browsers"></a>Which browsers are supported?
 
@@ -27,9 +27,13 @@ At this time, IPv6 isn't supported. Azure Bastion supports IPv4 only. This means
 
 Azure Bastion doesn't move or store customer data out of the region it's deployed in.
 
+### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
+
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. For more information, see [Set up routing configuration for a virtual network connection](../virtual-wan/how-to-virtual-hub-routing.md#routing-configuration).
+
 ### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
-Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following exact names:
+Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, make sure that the host virtual network isn't linked to a private DNS zone with the following exact names:
 
 * management.azure.com
 * blob.core.windows.net
@@ -38,9 +42,9 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 * vault.azure.com
 * azure.com
 
-You may use a private DNS zone ending with one of the names listed above (ex: dummy.blob.core.windows.net).
+You may use a private DNS zone ending with one of the names listed above (ex: privatelink.blob.core.windows.net).
 
-The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
+Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
@@ -80,7 +84,7 @@ Review any error messages and [raise a support request in the Azure portal](../a
 
 Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
-## <a name="vm"></a>VM features and connections
+## <a name="vm"></a>VM features and connection FAQs
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
 
@@ -159,7 +163,7 @@ Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
 
-## <a name="peering"></a>VNet peering
+## <a name="peering"></a>VNet peering FAQs
 
 ### Can I still deploy multiple Bastion hosts across peered virtual networks?
 
@@ -190,3 +194,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+## Next steps
+
+For more information, see [What is Azure Bastion](bastion-overview.md).

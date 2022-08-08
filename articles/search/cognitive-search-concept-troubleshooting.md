@@ -13,7 +13,7 @@ ms.date: 09/16/2021
 
 This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
 
-If you haven't already, step through either the [Create a text translation and entity skillset](cognitive-search-quickstart-blob.md) or [Create an OCR image skillset](cognitive-search-quickstart-ocr.md) quickstarts for an introduction to enrichment of blob data.
+If you haven't already, step through [Quickstart: Create a skillset for AI enrichment](cognitive-search-quickstart-blob.md) for an introduction to enrichment of blob data.
 
 ## Tip 1: Start with a small dataset
 The best way to find issues quickly is to increase the speed at which you can fix issues. The best way to reduce the indexing time is by reducing the number of documents to be indexed. 

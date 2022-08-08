@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/11/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Compliance in Azure Cosmos DB 

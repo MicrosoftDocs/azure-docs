@@ -9,8 +9,6 @@ ms.date: 04/04/2022
 
 # Stream alerts to a SIEM, SOAR, or IT Service Management solution
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud can stream your security alerts into the most popular Security Information and Event Management (SIEM),
 Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions.
 Security alerts are notifications that Defender for Cloud generates when it detects threats on your resources.
@@ -115,7 +113,7 @@ Each SIEM platform has a tool to enable it to receive alerts from Azure Event Hu
 | Tool | Hosted in Azure | Description |
 |:---|:---| :---|
 |  IBM QRadar | No | The Microsoft Azure DSM and Microsoft Azure Event Hubs Protocol are available for download from [the IBM support website](https://www.ibm.com/docs/en/qsip/7.4?topic=microsoft-azure-platform). |
-| Splunk | No | [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/) is an open source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance, for example if you're using a proxy or running on Splunk Cloud, you can forward these events to the Splunk HTTP Event Collector using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. |
+| Splunk | No | [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/) is an open source project available in Splunkbase. <br><br> If you can't install an add-on in your Splunk instance, for example if you're using a proxy or running on Splunk Cloud, you can forward these events to the Splunk HTTP Event Collector using [Azure Function For Splunk](https://github.com/splunk/azure-functions-splunk), which is triggered by new messages in the event hub. |
 
 ## Stream alerts with continuous export
 

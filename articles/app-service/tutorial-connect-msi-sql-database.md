@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access data with managed identity'
-description: Secure database connectivity with managed identity from .NET web app, and also how to apply it to other Azure services.
+description: Secure Azure SQL Database connectivity with managed identity from a sample .NET web app, and also how to apply it to other Azure services.
 
 ms.devlang: csharp
 ms.topic: tutorial
@@ -24,6 +24,7 @@ When you're finished, your sample app will connect to SQL Database securely with
 > - .NET Framework 4.8 and above
 > - .NET 6.0 and above
 >
+> For guidance for Azure Database for MySQL or Azure Database for PostgreSQL in other language frameworks (Node.js, Python, and Java), see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 What you will learn:
 
@@ -143,10 +144,9 @@ The steps you follow for your project depends on whether you're using [Entity Fr
 1. In Visual Studio, open the Package Manager Console and add the NuGet package [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) and update Entity Framework:
 
     ```powershell
-    Install-Package Azure.Identity -Version 1.5.0
+    Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
-
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp
@@ -236,7 +236,7 @@ Here's an example of the output:
     sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
     ```
 
-1. In the SQL prompt for the database you want, run the following commands to grant the permissions your app needs. For example, 
+1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs. For example, 
 
     ```sql
     CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
@@ -310,6 +310,9 @@ What you learned:
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure services that don't support managed identities (using Key Vault)](tutorial-connect-msi-key-vault.md)

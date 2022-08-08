@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 06/16/2022
 ms.author: cherylmc
 
 ---
@@ -17,7 +17,7 @@ This article shows you how to use Virtual WAN and Azure Firewall rules and filte
 
 The steps in this article help you create the architecture in the following diagram to allow User VPN clients to access a specific resource (VM1) in a spoke VNet connected to the virtual hub, but not other resources (VM2). Use this architecture example as a basic guideline.
 
-:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram: Secured virtual hub" :::
+:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram of a Secured virtual hub.":::
 
 ## Prerequisites
 
@@ -53,15 +53,21 @@ When selecting the authentication method, you have three choices. Each method ha
 
 In this section, you create the virtual hub with a point-to-site gateway. When configuring, you can use the following example values:
 
-* **Hub private IP address space:** 10.0.0.0/24
+* **Hub private IP address space:** 10.1.0.0/16
 * **Client address pool:** 10.5.0.0/16
 * **Custom DNS Servers:** You can list up to 5 DNS Servers
 
-[!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
+### Basics page
+
+[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
+
+### Point to site page
+
+[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md).
+In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-cert-windows.md#generate).
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
@@ -125,18 +131,22 @@ In this section, you need to ensure that the traffic is routed through Azure Fir
 1. Verify that the VNet connection and the Branch connection private traffic is secured by Azure Firewall.
 1. Select **Save**.
 
+> [!NOTE]
+> If you want to inspect traffic destined to private endpoints using Azure Firewall in a secured virtual hub, see [Secure traffic destined to private endpoints in Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
+You need to add /32 prefix for each private endpoint in the **Private traffic prefixes** under Security configuration of your Azure Firewall manager for them to be inspected via Azure Firewall in secured virtual hub. If these /32 prefixes are not configured, traffic destined to private endpoints will bypass Azure Firewall.
+
 ## <a name="validate"></a>Validate
 
 Verify the setup of your secured hub.
 
 1. Connect to the **Secured Virtual Hub** via VPN from your client device.
 1. Ping the IP address **10.18.0.4** from your client. You should see a response.
-1. Ping the IP address **10.18.0.5** from your client. You should not be able to see a response.
+1. Ping the IP address **10.18.0.5** from your client. You shouldn't be able to see a response.
 
 ### Considerations
 
 * Make sure that the **Effective Routes Table** on the secured virtual hub has the next hop for private traffic by the firewall. To access the Effective Routes Table, navigate to your **Virtual Hub** resource. Under **Connectivity**, select **Routing**, and then select **Effective Routes**. From there, select the **Default** Route table.
-* Verify that you created rules in the [Create Rules](#create-rules) section. If these steps are missed, the rules you created will not actually be associated to the hub and the route table and packet flow will not use Azure Firewall.
+* Verify that you created rules in the [Create Rules](#create-rules) section. If these steps are missed, the rules you created won't actually be associated to the hub and the route table and packet flow won't use Azure Firewall.
 
 ## Next steps
 

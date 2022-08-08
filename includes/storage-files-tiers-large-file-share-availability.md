@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
  ms.date: 12/27/2019
- ms.author: rogarana
+ ms.author: kendownie
  ms.custom: include file
 ---
 Standard file shares with 100 TiB capacity have certain limitations.

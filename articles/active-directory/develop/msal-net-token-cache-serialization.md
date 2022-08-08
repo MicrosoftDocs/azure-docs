@@ -1,6 +1,5 @@
 ---
-title: Token cache serialization (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Token cache serialization (MSAL.NET)
 description: Learn about serialization and custom serialization of the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
@@ -103,7 +102,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
-    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024, // 1 GB
+    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024; // 1 GB
 
     // You can choose if you encrypt or not encrypt the cache
     options.Encrypt = false;
@@ -111,7 +110,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     // And you can set eviction policies for the distributed
     // cache.
     options.SlidingExpiration = TimeSpan.FromHours(1);
-  }
+  });
 
 // Then, choose your implementation of distributed cache
 // -----------------------------------------------------
@@ -278,39 +277,9 @@ You can also specify options to limit the size of the in-memory token cache:
 
 #### Distributed caches
 
-If you use `app.AddDistributedTokenCache`, the token cache is an adapter against the .NET `IDistributedCache` implementation. So you can choose between a distributed memory cache, a SQL Server cache, a Redis cache, or an Azure Cosmos DB cache. For details about the `IDistributedCache` implementations, see [Distributed memory cache](/aspnet/core/performance/caching/distributed).
+If you use `app.AddDistributedTokenCache`, the token cache is an adapter against the .NET `IDistributedCache` implementation. So you can choose between a SQL Server cache, a Redis cache, an Azure Cosmos DB cache, or any other cache implementing the [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=dotnet-plat-ext-6.0) interface. 
 
-Here's the code for a distributed in-memory token cache:
-
-```CSharp 
-  // In-memory distributed token cache
-  app.AddDistributedTokenCache(services =>
-  {
-    // In net462/net472, requires to reference Microsoft.Extensions.Caching.Memory
-    services.AddDistributedMemoryCache();
-
-    // Distributed token caches have an L1/L2 mechanism.
-    // L1 is in memory, and L2 is the distributed cache
-    // implementation that you will choose below.
-    // You can configure them to limit the memory of the 
-    // L1 cache, encrypt, and set eviction policies.
-    services.Configure<MsalDistributedTokenCacheAdapterOptions>(options => 
-      {
-        // You can disable the L1 cache if you want
-        options.DisableL1Cache = false;
-        
-        // Or limit the memory (by default, this is 500 MB)
-        options.sizeLimit = 1024 * 1024 * 1024, // 1 GB
-
-        // You can choose to encrypt the cache or not
-        options.Encrypt = false;
-
-        // And you can set eviction policies for the distributed
-        // cache
-        options.SlidingExpiration = TimeSpan.FromHours(1);
-      });
-  });
-```
+For testing purposes only, you may want to use `services.AddDistributedMemoryCache()`, an in-memory implementation of `IDistributedCache`. 
 
 Here's the code for a SQL Server cache:
 
@@ -320,8 +289,7 @@ Here's the code for a SQL Server cache:
      {
       services.AddDistributedSqlServerCache(options =>
       {
-       // In net462/net472, requires to reference Microsoft.Extensions.Caching.Memory
-
+       
        // Requires to reference Microsoft.Extensions.Caching.SqlServer
        options.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TestCache;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
        options.SchemaName = "dbo";

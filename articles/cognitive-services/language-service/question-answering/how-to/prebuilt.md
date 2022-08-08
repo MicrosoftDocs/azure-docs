@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Use the question answering Prebuilt API to ask and receive answers to questions without having to create a project/knowledge base. 
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: how-to
 ms.date: 11/03/2021
 ---

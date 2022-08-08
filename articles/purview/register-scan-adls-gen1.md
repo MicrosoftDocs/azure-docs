@@ -17,9 +17,9 @@ This article outlines the process to register an Azure Data Lake Storage Gen1 da
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No |Limited** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No |Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -40,8 +40,6 @@ This section will enable you to register the ADLS Gen1 data source and set up an
 It is important to register the data source in Microsoft Purview prior to setting up a scan for the data source.
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
-
-    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source":::
 
 1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
 
@@ -149,8 +147,6 @@ It is important to give your service principal the permission to scan the ADLS G
 
 1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**
 
-    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-purview-acct.png" alt-text="Screenshot that shows the Open Microsoft Purview governance portal":::
-
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-open-purview-studio.png" alt-text="Screenshot that shows the collection hierarchy":::
@@ -251,6 +247,6 @@ Scans can be managed or run again on completion.
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

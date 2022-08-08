@@ -4,9 +4,9 @@ description: This topic describes how to run scripts within an Azure Linux virtu
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: cynthn
-ms.author: cynthn
-ms.date: 10/27/2021
+author: ericd-mst-github
+ms.author: erd
+ms.date: 07/28/2022
 ms.topic: how-to  
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -20,9 +20,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Run Command feature uses the virtual machine (VM) agent to scripts within an Azure Linux VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+The Run Command feature uses the virtual machine (VM) agent to run scripts within an Azure Linux VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
-The *updated* managed Run Command uses the same VM agent channel to execute scripts and provides the following enhancements over the [original action orientated Run Command](run-command.md): 
+The *updated* managed Run Command uses the same VM agent channel to execute scripts and provides the following enhancements over the [original action oriented Run Command](run-command.md): 
 - Support for updated Run Command through ARM deployment template 
 - Parallel execution of multiple scripts 
 - Sequential execution of scripts 
@@ -58,7 +58,7 @@ az vm run-command list --vm-name "myVM" --resource-group "myRG"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurecli-interactive
-az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" –expand
+az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
 ```
 
 ### Delete RunCommand resource from the VM
@@ -74,33 +74,31 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 ### Execute a script with the VM
 This command will deliver the script to the VM, execute it, and return the captured output.
 
-```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "echo Hello World!"
+```azurepowershell-interactive
+Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -RunCommandName "RunCommandName" –SourceScript "echo Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 
 This command will return a full list of previously deployed Run Commands along with their properties.
 
-```powershell-interactive
-Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
+```azurepowershell-interactive
+Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 ```
 
 ### Get execution status and results 
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
-```powershell-interactive
-Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" -Status
+```azurepowershell-interactive
+Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Expand instanceView
 ```
 
 ### Delete RunCommand resource from the VM
 Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
 
-```powershell-interactive
-Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName"
+```azurepowershell-interactive
+Remove-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName"
 ```
  
-
-
 ## REST API 
 
 To deploy a new Run Command, execute a PUT on the VM directly and specify a unique name for the Run Command instance. 
@@ -182,18 +180,18 @@ To deploy scripts sequentially, use a deployment template, specifying a `depends
 
 ```json
 { 
-    "type": "Microsoft.Compute/virtualMachines/runCommands", 
-    "name": "secondRunCommand", 
-    "apiVersion": "2019-12-01", 
-    "location": "[parameters('location')]", 
-    "dependsOn": <full resourceID of the previous other Run Command>, 
-    "properties": { 
-        "source": {  
-            "script": "echo Hello World!"  
-        }, 
-        "timeoutInSeconds": 60  
+    "type":"Microsoft.Compute/virtualMachines/runCommands",
+    "name":"secondRunCommand",
+    "apiVersion":"2019-12-01",
+    "location":"[parameters('location')]",
+    "dependsOn":<full resourceID of the previous other Run Command>,
+    "properties":{
+        "source":{
+            "script":"echo Hello World!" 
+        },
+        "timeoutInSeconds":60
     }
-} 
+}
 ```
 
 ### Execute multiple Run Commands sequentially 

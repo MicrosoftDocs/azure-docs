@@ -30,7 +30,7 @@ You can scope a reservation to a subscription or resource groups. Setting the sc
 
 ### Reservation scoping options
 
-You have three options to scope a reservation, depending on your needs:
+You have four options to scope a reservation, depending on your needs:
 
 - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
 - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
@@ -47,7 +47,7 @@ While applying reservation discounts on your usage, Azure processes the reservat
 3. Reservations scoped to a management group
 4. Reservations with a shared scope (multiple subscriptions), described previously
 
-You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
+You can always update the scope after you buy a reservation. To do so, go to the reservation, select **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 :::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Example showing a reservation scope change" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
@@ -95,7 +95,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
+Monthly payments are not available for: Databricks, Synapse Analytics - Pre-purchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 

@@ -12,7 +12,7 @@ ms.author: enewman
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces (UI). React is a declarative way to create reusable components for your website.  There are many other popular libraries for JavaScript-based front-end development.  We'll use a few of these libraries while creating our lab.  [Redux](https://redux.js.org/) is a library that provides predictable state container for JavaScript apps and is often used in compliment with React. [JSX](https://reactjs.org/docs/introducing-jsx.html) is a library syntax extension to JavaScript often used with React to describe what the UI should look like.  [NodeJS](https://nodejs.org/) is a convenient way to run a webserver for your React application.
+[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces (UI). React is a declarative way to create reusable components for your website. There are many other popular libraries for JavaScript-based front-end development. We'll use a few of these libraries while creating our lab. [Redux](https://redux.js.org/) is a library that provides predictable state container for JavaScript apps and is often used in compliment with React. [JSX](https://reactjs.org/docs/introducing-jsx.html) is a library syntax extension to JavaScript often used with React to describe what the UI should look like. [NodeJS](https://nodejs.org/) is a convenient way to run a webserver for your React application.
 
 This article shows you how to install [Visual Studio Code](https://code.visualstudio.com/) for your development environment, the tools, and libraries needed for a React web development class.
 
@@ -22,7 +22,7 @@ To set up this lab, you need an Azure subscription to get started. If you don't 
 
 ### Lab plan settings
 
-Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information on creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
 
 Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 
@@ -32,7 +32,7 @@ Enable your lab plan settings as described in the following table. For more info
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-lab.md). Use the following settings when creating the lab.
 
 | Lab setting | Value |
 | ------------ | ------------------ |
@@ -99,7 +99,7 @@ sudo iptables -I INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
 
 ## Cost
 
-Let’s cover an example cost estimate for this class. The virtual machine size we chose was **Small**, which is 20 lab units.
+Let's cover an example cost estimate for this class. The virtual machine size we chose was **Small**, which is 20 lab units.
 
 For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the cost estimate would be:
 

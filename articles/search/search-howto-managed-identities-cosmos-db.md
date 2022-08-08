@@ -5,11 +5,11 @@ description: Learn how to set up an indexer connection to a Cosmos DB account us
 
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: liamca
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 06/20/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -30,7 +30,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Cosmos DB. For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Cosmos DB APIs supported by Cognitive Search.
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Cosmos DB. For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Cosmos DB APIs supported by Cognitive Search. This is a control plane RBAC role. At this time, Cognitive Search obtains keys with the identity and uses those keys to connect to the Cosmos DB account. This means that [enforcing RBAC as the only authentication method in Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) is not supported when using Search with managed identities to connect to Cosmos DB.
 
 The easiest way to test the connection is using the [Import data wizard](search-import-data-portal.md). The wizard supports data source connections for both system and user managed identities.
 

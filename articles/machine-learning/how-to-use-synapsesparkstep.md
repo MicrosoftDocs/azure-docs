@@ -5,25 +5,29 @@ description: Link your Azure Synapse Analytics workspace to your Azure machine l
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: synapse-azureml
-
-# Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
-
+ms.custom: synapse-azureml, sdkv1, event-tier1-build-2022
+#Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 ---
 
 # How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)
 
-In this article, you'll learn how to use Apache Spark pools powered by Azure Synapse Analytics as the compute target for a data preparation step in an Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+In this article, you'll learn how to use Apache Spark pools powered by Azure Synapse Analytics as the compute target for a data preparation step in an Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
+
+
+
 ## Prerequisites
 
-* Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
+* Create an [Azure Machine Learning workspace](quickstart-create-resources.md) to hold all your pipeline resources.
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
@@ -194,9 +198,9 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-This "data preparation" script doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic Apache Spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child run, choosing the **Outputs + logs** tab, and opening the `logs/azureml/driver/stdout` file, as shown in the following figure.
+This "data preparation" script doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic Apache Spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child job, choosing the **Outputs + logs** tab, and opening the `logs/azureml/driver/stdout` file, as shown in the following figure.
 
-:::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Screenshot of Studio showing stdout tab of child run":::
+:::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Screenshot of Studio showing stdout tab of child job":::
 
 ## Use the `SynapseSparkStep` in a pipeline
 
@@ -240,7 +244,7 @@ pipeline_run = pipeline.submit('synapse-pipeline', regenerate_outputs=True)
 
 The above code creates a pipeline consisting of the data preparation step on Apache Spark pools powered by Azure Synapse Analytics (`step_1`) and the training step (`step_2`). Azure calculates the execution graph by examining the data dependencies between the steps. In this case, there's only a straightforward dependency that `step2_input` necessarily requires `step1_output`.
 
-The call to `pipeline.submit` creates, if necessary, an Experiment called `synapse-pipeline` and asynchronously begins a Run within it. Individual steps within the pipeline are run as Child Runs of this main run and can be monitored and reviewed in the Experiments page of Studio.
+The call to `pipeline.submit` creates, if necessary, an Experiment called `synapse-pipeline` and asynchronously begins a Job within it. Individual steps within the pipeline are run as Child Jobs of this main job and can be monitored and reviewed in the Experiments page of Studio.
 
 ## Next steps
 

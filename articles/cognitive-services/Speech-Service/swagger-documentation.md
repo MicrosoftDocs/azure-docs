@@ -25,9 +25,9 @@ Speech service offers a Swagger specification to interact with a handful of REST
 
 The [Swagger specification](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
 
-You'll need to set Swagger to the region of your Speech resource. You can confirm the region in the **Overview** part of your Speech resource settings in Azure portal. The complete list of supported regions is available [here](regions.md#speech-to-text).
+You'll need to set Swagger to the region of your Speech resource. You can confirm the region in the **Overview** part of your Speech resource settings in Azure portal. The complete list of supported regions is available [here](regions.md#speech-service).
 
-1. In a browser, go to the Swagger specification for your [region](regions.md#speech-to-text):  
+1. In a browser, go to the Swagger specification for your [region](regions.md#speech-service):  
        `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`
 1. On that page, click **API definition**, and click **Swagger**. Copy the URL of the page that appears.
 1. In a new browser, go to [https://editor.swagger.io](https://editor.swagger.io)
@@ -41,12 +41,7 @@ You'll need to set Swagger to the region of your Speech resource. You can confir
 
 You can use the Python library that you generated with the [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
 
-## Reference documents
-
-* [Speech-to-text REST API v3.0](rest-speech-to-text.md)
-* [Text-to-speech REST API](rest-text-to-speech.md)
-
 ## Next steps
 
 * [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Speech-to-text REST API v3.0](rest-speech-to-text.md)
