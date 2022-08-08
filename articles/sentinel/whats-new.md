@@ -27,32 +27,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2022
 
-### Microsoft Sentinel Solution for SAP is now generally available
-
-The Microsoft Sentinel Solution for SAP is now generally available (GA). [Learn about billing and offer details](/pricing/offers/microsoft-sentinel-sap-promo/).
-
-With previous versions, every solution update would duplicate content, creating new objects alongside the previous version objects. The GA version uses rule and workbook templates, so that for every solution update, you can clearly understand what has changed, using a dedicated wizard. [Learn more about rule templates](manage-analytics-rule-templates.md).
-
-[Learn more about the updated solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protect-critical-information-within-sap-systems-against/ba-p/3586943).
-
-#### Solution highlights
-
-The Microsoft Sentinel solution for SAP allows you to monitor, detect, and respond to suspicious activities within the SAP ecosystem, protecting your sensitive data against sophisticated cyber attacks. 
-
-Use the solution to: 
-
-- Monitor all SAP system layers 
-- Gain visibility across business logic, application, databases, and operating system layers with built-in investigation and threat detection tools 
-- Detect and automatically respond to threats 
-- Discover suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, and suspicious data downloads with out-of-the-box detection capabilities 
-- Customize based on your needs: build your own threat detection solutions to monitor specific business risks and extend built-in security content
-
-## July 2022
-
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
 - [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
-- [Sync user entities from your on-premises Active Directory with Microsoft Sentinel (Preview)](#sync-user-entities-from-your-on-premises-active-directory-with-microsoft-sentinel-preview)
-- [Automation rules for alerts (Preview)](#automation-rules-for-alerts-preview)
+- [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
 
 ### Azure resource entity page (Preview)
 
@@ -76,6 +53,31 @@ Having user data for these new event types in your workspace will provide you wi
 As before, to use this data source you must enable the [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama). If you have enabled the Security Events data source for UEBA, you will automatically begin receiving these new event types without having to take any additional action.
 
 It's likely that the inclusion of these new event types will result in the ingestion of somewhat more *Security Events* data, billed accordingly. Individual event IDs cannot be enabled or disabled independently; only the whole Security Events data set together. You can, however, filter the event data at the source if you're using the new [AMA-based version of the Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama).
+
+### Microsoft Sentinel Solution for SAP is now generally available
+
+The Microsoft Sentinel Solution for SAP is now generally available (GA). [Learn about billing and offer details](/pricing/offers/microsoft-sentinel-sap-promo/).
+
+With previous versions, every solution update would duplicate content, creating new objects alongside the previous version objects. The GA version uses rule and workbook templates, so that for every solution update, you can clearly understand what has changed, using a dedicated wizard. [Learn more about rule templates](manage-analytics-rule-templates.md).
+
+[Learn more about the updated solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protect-critical-information-within-sap-systems-against/ba-p/3586943).
+
+#### Solution highlights
+
+The Microsoft Sentinel solution for SAP allows you to monitor, detect, and respond to suspicious activities within the SAP ecosystem, protecting your sensitive data against sophisticated cyber attacks. 
+
+Use the solution to: 
+
+- Monitor all SAP system layers 
+- Gain visibility across business logic, application, databases, and operating system layers with built-in investigation and threat detection tools 
+- Detect and automatically respond to threats 
+- Discover suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, and suspicious data downloads with out-of-the-box detection capabilities 
+- Customize based on your needs: build your own threat detection solutions to monitor specific business risks and extend built-in security content
+
+## July 2022
+
+- [Sync user entities from your on-premises Active Directory with Microsoft Sentinel (Preview)](#sync-user-entities-from-your-on-premises-active-directory-with-microsoft-sentinel-preview)
+- [Automation rules for alerts (Preview)](#automation-rules-for-alerts-preview)
 
 ### Sync user entities from your on-premises Active Directory with Microsoft Sentinel (Preview)
 
