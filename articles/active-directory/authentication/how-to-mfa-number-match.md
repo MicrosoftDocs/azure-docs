@@ -233,12 +233,12 @@ To turn number matching off, you'll need to PATCH remove **numberMatchingRequire
 
 To enable number matching in the Azure portal, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
+1. Sign-in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
 1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under the **Manage** menu header, select **Authentication methods** >  **Policies**.
 1. From the list of available authentication methods, select **Microsoft Authenticator**.
 
-    ![Screenshot that shows how to select the Microsoft Authenticator policy](./media/how-to-mfa-number-match/select-microsoft-authenticator-policy.png)
+    ![Screenshot that shows how to select the Microsoft Authenticator policy.](./media/how-to-mfa-number-match/select-microsoft-authenticator-policy.png)
 
 1. Select the target users, select the three dots on the right, and choose **Configure**.
    

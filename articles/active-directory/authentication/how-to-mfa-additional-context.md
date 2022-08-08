@@ -187,7 +187,7 @@ To enable additional context in the Azure AD portal, complete the following step
 1. Under the **Manage** menu header, select **Authentication methods** >  **Policies**.
 1. From the list of available authentication methods, select **Microsoft Authenticator**.
 
-    ![Screenshot that shows how to select the Microsoft Authenticator policy](./media/how-to-mfa-additional-context/select-microsoft-authenticator-policy.png)
+    ![Screenshot that shows how to select the Microsoft Authenticator policy.](./media/how-to-mfa-additional-context/select-microsoft-authenticator-policy.png)
 
 1. Select the target users, select the three dots on the right, and choose **Configure**.
    
