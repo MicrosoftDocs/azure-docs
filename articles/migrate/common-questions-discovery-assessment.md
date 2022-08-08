@@ -180,7 +180,7 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM vs Azure SQL Database/Azure SQL Managed Instance
 
-You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for SQL Server on Azure virtual machines.
+You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md)
 
 ## The storage cost in my Azure SQL assessment is zero
 

@@ -150,11 +150,11 @@ Only the appliance and the appliance agents are updated by these automatic updat
 
 Yes. In the portal, go the **Agent health** page for the Azure Migrate: Discovery and assessment or Azure Migrate: Server Migration tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
 
-## Can I add multiple server credentials on VMware appliance?
+## Can I add multiple server credentials on appliance?
 
-Yes, we now support multiple server credentials to perform software inventory (discovery of installed applications), agentless dependency analysis, and discovery of SQL Server instances and databases. [Learn more](tutorial-discover-vmware.md#provide-server-credentials) on how to provide credentials on the appliance configuration manager.
+Yes, we now support multiple server credentials to perform software inventory (discovery of installed applications), agentless dependency analysis, and discovery of SQL Server instances and databases. [Learn more](add-server-credentials.md) on how to provide credentials on the appliance configuration manager.
 
-## What type of server credentials can I add on the VMware appliance?
+## What type of server credentials can I add on the appliance?
 
 You can provide domain/ Windows(non-domain)/ Linux(non-domain)/ SQL Server authentication credentials on the appliance configuration manager. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 

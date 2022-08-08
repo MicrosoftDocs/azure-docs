@@ -103,6 +103,11 @@ For Windows servers, use a domain account for domain-joined servers, and a local
     > [!Note]
     > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
 
+
+> [!Note]
+    > To discover SQL Server databases on Windows Servers, both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager. Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
+
+
 **Linux servers**
 
 For Linux servers, you can create a user account in one of three ways:
@@ -111,7 +116,7 @@ For Linux servers, you can create a user account in one of three ways:
 - You need a root account on the servers that you want to discover. This account can be used to pull configuration and performance metadata and perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
 
 > [!Note]
-> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Windows servers, it recommended to use Option 1.
+> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, it recommended to use Option 1.
 
 ### Option 2
 - To discover the configuration and performance metadata from Linux servers, you can provide a user account with sudo permissions.
@@ -336,7 +341,7 @@ Click on **Start discovery**, to kick off discovery of the successfully validate
 * SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 * By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
-    ///:::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
+    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
 
 ## Verify servers in the portal
 
