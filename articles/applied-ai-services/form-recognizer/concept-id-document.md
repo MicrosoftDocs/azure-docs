@@ -87,7 +87,7 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 |--------|:----------------------|:---------|
 |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
 
-## Field extraction
+## Field extractions
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|
@@ -119,7 +119,7 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
   * Hair color
   * Document discriminator security code
 
-### ID document ield extraction
+### ID document field extractions
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|
@@ -149,7 +149,7 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API **](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 

@@ -97,7 +97,7 @@ You'll need a business card document. You can use our [sample business card docu
 |--------|:----------------------|:---------|
 |Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
 
-## Field extraction
+## Field extractions
 
 |Name| Type | Description |Standardized output |
 |:-----|:----|:----|:----:|
@@ -121,7 +121,7 @@ You'll need a business card document. You can use our [sample business card docu
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API **](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 

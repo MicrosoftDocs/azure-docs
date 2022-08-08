@@ -232,7 +232,7 @@ Once you've built your composed model, you can use it to analyze forms and docum
 
 ## Manage your composed models
 
-You can manage a custom models at each stage in its life cycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
+You can manage a custom model at each stage in its life cycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
 
 |Programming language| Code sample |
 |--|--|

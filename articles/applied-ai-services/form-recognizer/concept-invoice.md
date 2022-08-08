@@ -158,7 +158,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
-* Explore our [**REST API **](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 
