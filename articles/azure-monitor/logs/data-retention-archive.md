@@ -19,16 +19,13 @@ Each workspace has a default retention policy that's applied to all tables. You 
 
 During the interactive retention period, data is available for monitoring, troubleshooting and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. 
 
-Archived data stays in the same table, together with the data that's available for interactive queries. 
+Archived data stays in the same table, alongside the data that's available for interactive queries. 
 When you set a total retention period that's longer than the interactive retention period, Log Analytics automatically archives the relevant data immediately at the end of the retention period. 
 
-If you change the archive settings on a table with existing data, the relevant data in the table is also effected immediately. For example, if you have an existing table with a 30-day interactive retention period and no archive period and you change the retention policy to 15-days of interactive retention and one year total retention, Log Analytics immediately archives any data that's older than 15 days. The data stays in the same table, but Log Analytics immediately removes the archived data from its cache.     
-
-You don't incur a charge for archiving data, only for data retention, based on how much data you retain and how long you retain the data. 
+If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, if you have an existing table with 30 days of interactive retention and no archive period and you change the retention policy to eight days of interactive retention and one year total retention, Log Analytics immediately archives any data that's older than eight days. 
 
 You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
  
-
 > [!NOTE]
 > The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
@@ -216,7 +213,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-You'll be charged for each day you retain data. The cost of retaining data for part of a day is the same as for a full day.
+The charge for maintaining archived logs is calculated based on the volume of data you archive, in GB, and the number or days for which you archive the data.
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
