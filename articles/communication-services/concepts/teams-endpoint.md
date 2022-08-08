@@ -68,11 +68,11 @@ The following articles will guide you in implementing the calling for Teams user
 
 #### Chat
 
-Use Graph API to integrate chat capabilities into your product. 
+Use Graph API to integrate 1:1 chat, group chat, meeting chat, and channel capabilities into your product. 
 
 ![Diagram of the process to integrate the chat capabilities into your product with Graph API.](./media/teams-identities/teams-identity-chat-overview.png)
 
-(/graph/api/channel-post-messages) documentation. The following articles will guide you in implementing the chat for Teams users:
+The following articles will guide you in implementing the chat for Teams users:
 - [Authenticate as Teams user](/graph/auth-v2-user) 
 - [Send message as Teams user](/graph/api/chat-post-messages)
 - [Receive message as Teams user on webhook](/graph/teams-changenotifications-chatMessage) and then push message to the client with, for example, [SignalR](/azure/azure-signalr/signalr-overview).
