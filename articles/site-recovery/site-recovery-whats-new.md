@@ -38,7 +38,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Oracle Linux 8.6 Linux distro.
-**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.6 Linux distro.<br/><br/> Introduced the migration capability to move existing replications from classic to modernized experience for disaster recovery of VMware virtual machines, enabled using Azure Site Recovery. [Learn more](https://docs.microsoft.com/azure/site-recovery/move-from-classic-to-modernized-vmware-disaster-recovery).
+**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.6 Linux distro.<br/><br/> Introduced the migration capability to move existing replications from classic to modernized experience for disaster recovery of VMware virtual machines, enabled using Azure Site Recovery. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
 
 
 ## Updates (July 2022)
