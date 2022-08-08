@@ -27,6 +27,8 @@ Speech-to-text, also known as speech recognition, enables real-time or offline t
 
 To get started with speech-to-text, see the [quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md), and the [Speech CLI](spx-overview.md).
 
+> [!VIDEO 2e5f06e7-936c-48d9-80c4-aaedf8f7a888]
+
 Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream for continuous and single-shot recognition, and working with custom models:
 
 - [Speech-to-text samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
