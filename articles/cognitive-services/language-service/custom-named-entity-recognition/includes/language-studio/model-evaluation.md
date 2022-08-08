@@ -25,7 +25,7 @@ ms.author: aahi
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
 
-* You will also see [guidance](../../concepts/evaluation-metrics.md) on how to improve the model. When clicking on *view details* a side panel will open to give more guidance on how to improve the model. In this example, *BorrowerAddress* entity is confused with *$none* entity. By clicking on the confused entities, you will be taken to the [data labeling]() page to label more data with the correct entitiy.
+* You will also see [guidance](../../concepts/evaluation-metrics.md#guidance) on how to improve the model. When clicking on *view details* a side panel will open to give more guidance on how to improve the model. In this example, *BorrowerAddress* entity is confused with *$none* entity. By clicking on the confused entities, you will be taken to the [data labeling](../../how-to/tag-data.md) page to label more data with the correct entitiy.
 
     :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
