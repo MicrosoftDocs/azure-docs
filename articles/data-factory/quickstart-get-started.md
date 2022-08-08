@@ -47,11 +47,14 @@ Select the button below to be redirected to the custom deployment configuration 
 
 1. Select **Go to resource group** after your deployment is complete.
    :::image type="content" source="media/quickstart-get-started/deployment-complete.png" alt-text="A screenshot of the deployment complete page in the Azure portal after successfully deploying the template.":::
+
 1. In the resource group, you will find a new data factory, Azure blob storage account, and managed identity.
    :::image type="content" source="media/quickstart-get-started/resource-group-contents.png" alt-text="A screenshot of the contents of the resource group created for the demo.":::
+
 1. Select the data factory in the resource group and then select the **Open Azure Data Factory Studio** button to continue.
    :::image type="content" source="media/quickstart-get-started/open-data-factory-studio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
-1. Click on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/> and select the **Pipeline** created by the template.  Then check the source data by clicking **Open**.
+
+1. Click on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab" height="12" width="12"/></a> and select the **Pipeline** created by the template.  Then check the source data by clicking **Open**.
    :::image type="content" source="media/quickstart-get-started/view-pipeline.png" alt-text="Screenshot of the Azure Data Factory Studio showing the pipeline created by the template.":::
 
    In the source dataset, click **Browse**, and you can see the moviesDB2.csv file has been uploaded into the input folder already.
@@ -68,7 +71,7 @@ Select the button below to be redirected to the custom deployment configuration 
 
 ## Monitor the pipeline
 
-1. Select the **Monitor** tab <a href="media/quickstart-get-started/monitor-button.png" alt="Monitor tab"/>.
+1. Select the **Monitor** tab <a href="media/quickstart-get-started/monitor-button.png" alt="Monitor tab" height="12" width="12"></a>.
 1. You see the activity runs associated with the pipeline run.  In this quickstart, the pipeline has only one activity of type: Copy.  As such, you see a run for that activity.
 
 ## Verify the output file
