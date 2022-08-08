@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 08/04/2022
+ms.date: 08/08/2022
 ms.author: jasteppe
 ---
 
@@ -20,14 +20,14 @@ The MedTech service metrics can be used to help determine the health and perform
 
 This table shows the available MedTech service metrics and the information that the metrics are capturing and displaying within the Azure portal:  
 
-Metric domain|Metric type|Metric purpose|
-|------------|-----------|--------------|
+Metric category|Metric name|Metric description|
+|--------------|-----------|--------------|
 |Availability|IotConnector Health Status|Indicates the overall health of the MedTech service.|
 |Errors|Total Error Count|Displays the total number of errors.|
-|Latency|Average Group Stage Latency|Displays the average latency of the group stage. The group stage performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|Average Group Stage Latency|Displays the average latency of the group stage. The [group stage][incoming messages](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
 |Latency|Average Normalize Stage Latency|Displays the average latency of the normalized stage. The normalized stage performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources updated or saved by the MedTech service.|
-|Traffic|Number of Incoming Messages|Displays the number of received raw incoming messages (for example, the device events) from the configured source event hub|
+|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or saved](iot-data-flow.md#persist) by the MedTech service.|
+|Traffic|Number of Incoming Messages|Displays the number of received raw [incoming messages](iot-data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
 |Traffic|Number of Measurements|The number of normalized value readings received by the FHIR conversion stage of the MedTech service.|
 |Traffic|Number of Message Groups|Displays the number of groups that have messages aggregated in the designated time window.|
 |Traffic|Number of Normalized Messages|Displays the number of [normalized messages](iot-data-flow.md#normalize).|
@@ -36,15 +36,15 @@ Metric domain|Metric type|Metric purpose|
 
 1. Within your Azure Health Data Services workspace, select **MedTech service** under **Services**.
 
-   :::image type="content" source="media\iot-metrics-display\iot-workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service button within the workspace." lightbox="media\iot-metrics-display\iot-workspace-displayed-with-connectors-button.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\iot-metrics-display\iot-workspace-displayed-with-connectors-button.png":::
 
 2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll select your own MedTech service.
 
    :::image type="content" source="media\iot-metrics-display\iot-connector-select.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\iot-metrics-display\iot-connector-select.png":::
 
-3. Select **Metrics** button within the MedTech service page.
+3. Select **Metrics** within the MedTech service page.
 
-   :::image type="content" source="media\iot-metrics-display\iot-select-metrics.png" alt-text="Screenshot of Select the Metrics button within your MedTech service." lightbox="media\iot-metrics-display\iot-select-metrics.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-select-metrics.png" alt-text="Screenshot of select the Metrics option within your MedTech service." lightbox="media\iot-metrics-display\iot-select-metrics.png":::
 
 4. The MedTech service metrics page will open allowing you to use the drop-down menus to view and select the metrics that are available for the MedTech service.
 
@@ -57,13 +57,17 @@ Metric domain|Metric type|Metric purpose|
    * **Metric** = The MedTech service metrics you want to display. For this example, we'll choose **Number of Incoming Messages**.
    * **Aggregation** = How you would like to display the metrics. For this example, we'll choose **Count**.
 
-6. You can now see the MedTech service metrics for **Number of Incoming Messages** displayed on the MedTech service metrics page.
+6. You can now see your MedTech service metrics for **Number of Incoming Messages** displayed on the MedTech service metrics page.
 
    :::image type="content" source="media\iot-metrics-display\iot-metrics-select-options.png" alt-text="Screenshot of select metrics to display." lightbox="media\iot-metrics-display\iot-metrics-select-options.png":::
 
-7. You can add more metrics by selecting the **Add metric** button and making your choices.
+7. You can add more metrics by selecting **Add metric**.
 
-   :::image type="content" source="media\iot-metrics-display\iot-select-add-metric.png" alt-text="Screenshot of select Add metric button to add more MedTech service metrics." lightbox="media\iot-metrics-display\iot-select-add-metric.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-select-add-metric.png" alt-text="Screenshot of select Add metric to add more MedTech service metrics." lightbox="media\iot-metrics-display\iot-select-add-metric.png":::
+
+8. Then select the metrics that you would like to add to your MedTech service.
+
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-select-more-metrics.png" alt-text="Screenshot of select more metrics to add to your MedTech service." lightbox="media\iot-metrics-display\iot-metrics-select-more-metrics.png":::
 
    > [!TIP]
    >
@@ -75,21 +79,21 @@ Metric domain|Metric type|Metric purpose|
 
 ## How to pin the MedTech service metrics tile to an Azure portal dashboard
 
-1. To pin the MedTech service metrics tile to an Azure portal dashboard, select the **Pin to dashboard** button.
+1. To pin the MedTech service metrics tile to an Azure portal dashboard, select the **Pin to dashboard** option.
 
-   :::image type="content" source="media\iot-metrics-display\iot-metrics-select-add-pin-to-dashboard.png" alt-text="Screenshot of select the Pin to dashboard button." lightbox="media\iot-metrics-display\iot-metrics-select-add-pin-to-dashboard.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-select-add-pin-to-dashboard.png" alt-text="Screenshot of select the Pin to dashboard option." lightbox="media\iot-metrics-display\iot-metrics-select-add-pin-to-dashboard.png":::
 
 2. Select the dashboard you would like to display your MedTech service metrics to by using the drop-down menu. For this example, we'll use a private dashboard named **Azuredocsdemo_Dashboard**. Select **Pin** to add your MedTech service metrics tile to the dashboard.
 
-   :::image type="content" source="media\iot-metrics-display\iot-select-pin-to-dashboard.png" alt-text="Screenshot of select dashboard and Pin button to complete the dashboard pinning process." lightbox="media\iot-metrics-display\iot-select-pin-to-dashboard.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-select-pin-to-dashboard.png" alt-text="Screenshot of select dashboard and Pin options to complete the dashboard pinning process." lightbox="media\iot-metrics-display\iot-select-pin-to-dashboard.png":::
 
 3. You'll receive a confirmation that your MedTech service metrics tile was successfully added to your selected Azure portal dashboard.
 
    :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-pinned-successful.png" alt-text="Screenshot of metrics tile successfully pinned to dashboard." lightbox="media\iot-metrics-display\iot-select-dashboard-pinned-successful.png":::
 
-4. Once you've received a successful confirmation, select the **Dashboard** button.
+4. Once you've received a successful confirmation, select the **Dashboard** option.
 
-   :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png" alt-text="Screenshot of select the Dashboard button." lightbox="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png" alt-text="Screenshot of select the Dashboard option." lightbox="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png":::
 
 5. Select the dashboard that you pinned your MedTech service metrics tile to using the drop-down menu. For this example, the dashboard is named **Azuredocsdemo_Dashboard**. The dashboard will display the MedTech service metrics tile that you created in the previous steps.
 
