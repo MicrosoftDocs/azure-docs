@@ -273,6 +273,7 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
 } 
 } 
 ```
+---
 
 ## Force Delete for VMs
 
