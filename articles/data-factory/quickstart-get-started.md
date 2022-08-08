@@ -65,7 +65,7 @@ Select the button below to be redirected to the custom deployment configuration 
 
 ## Monitor the pipeline
 
-1. Select the **Monitor** tab <a href="media/quickstart-get-started/monitor-button.png" alt="Monitor tab" />.
+1. Select the **Monitor** tab <a href="media/quickstart-get-started/monitor-button.png" alt="Monitor tab"/>.
 1. You see the activity runs associated with the pipeline run.  In this quickstart, the pipeline has only one activity of type: Copy.  As such, you see a run for that activity.
 
 ## Verify the output file
@@ -97,6 +97,6 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 In this quickstart, you created an Azure Data Factory using an Azure Resource Manager (ARM) template and validated the deployment.  To learn more about Azure Data Factory and ARM, continue on to the articles below.
 
-- Browse all of the [Azure Data Factory documentation](.).
+- Browse all of the [Azure Data Factory documentation](./index.yml).
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Get other [Azure Data Factory ARM templates](/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
