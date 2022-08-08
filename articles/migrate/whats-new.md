@@ -13,7 +13,7 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
-## Update (July 2022)
+## Update (August 2022)
 
 - SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 
@@ -115,13 +115,13 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 
 ## Update (July 2020)
 
-- Agentless VMware migration now supports concurrent replication of 300 VMs per vCenter
+- Agentless VMware migration now supports concurrent replication of 300 VMs per vCenter.
 
 ## Update (June 2020)
 
 - Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) are now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
 - Support for multiple credentials on appliance for physical server discovery.
-- Support to allow Azure sign in from appliance for tenant where tenant restriction has been configured.
+- Support to allow Azure sign-in from appliance for tenant where tenant restriction has been configured.
 
 ## Update (April 2020)
 

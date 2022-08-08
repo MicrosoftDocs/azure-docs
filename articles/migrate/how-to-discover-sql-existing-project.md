@@ -21,7 +21,7 @@ This discovery process is agentless that is, nothing is installed on the target 
     - Created an [Azure Migrate project](./create-manage-projects.md) before the announcement of SQL and web apps assessment feature for your region
     - Added the [Azure Migrate: Discovery and assessment](./how-to-assess.md) tool to a project
 - Review [app-discovery support and requirements](./migrate-support-matrix-vmware.md#vmware-requirements).
--  In case youa re discovering assets on VMware environment then, Make sure servers where you're running app-discovery have PowerShell version 2.0 or later installed, and VMware Tools (later than 10.2.0) is installed.
+-  In case you are discovering assets on VMware environment then, Make sure servers where you're running app-discovery have PowerShell version 2.0 or later installed, and VMware Tools (later than 10.2.0) is installed.
 - Check the [requirements](./migrate-appliance.md) for deploying the Azure Migrate appliance.
 - Verify that you have the [required roles](./create-manage-projects.md#verify-permissions) in the subscription to create resources.
 - Ensure that your appliance has access to the internet

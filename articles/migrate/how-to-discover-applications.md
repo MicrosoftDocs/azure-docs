@@ -35,7 +35,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
-    - Verify the permissions required to perform software inventory.You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.
+    - Verify the permissions required to perform software inventory. You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.
 
 ### Add credentials and initiate discovery
 
