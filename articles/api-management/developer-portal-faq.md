@@ -19,13 +19,16 @@ ms.custom: devx-track-azurepowershell
 
 You have the following options:
 
-* For certain situations, you can [add custom HTML](#how-do-i-add-custom-html-to-my-developer-portal) to add functionality to the portal.
+* For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) .
+
+* For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widgets) a custom widget to the managed developer portal.
+
+* [Self-host the developer portal](developer-portal-self-host.md) to update and manage the portal codebase yourself.
 
 * Open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal).
 
-* [Implement the missing functionality yourself](developer-portal-implement-widgets.md). 
+Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.
 
-Learn more about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 
 ## Can I have multiple developer portals in one API Management service?
 
@@ -202,8 +205,8 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 Learn more about the developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Extend](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.
 - [Set up self-hosted version of the portal](developer-portal-self-host.md)
-- [Implement your own widget](developer-portal-implement-widgets.md)
 
 Browse other resources:
 

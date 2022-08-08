@@ -40,7 +40,9 @@ Customize and style the managed portal through the built-in, drag-and-drop visua
 
 * Take advantage of built-in widgets to add text, images, buttons, and other objects that the portal supports out-of-the-box. 
 
-* [Add custom HTML](developer-portal-faq.md#how-do-i-add-custom-html-to-my-developer-portal) - for example, add HTML for a form or to embed a video player. The custom code is rendered in an inline frame (iframe).
+* [Add custom HTML](developer-portal-faq.md#how-do-i-add-custom-html-to-my-developer-portal) for small customizations - for example, add HTML for a form or to embed a video player. The custom code is rendered in an inline frame (iframe).
+
+* [Create and upload custom widgets](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widgets) to develop and add larger custom portal functionality.
 
 See [this tutorial](api-management-howto-developer-portal-customize.md) for example customizations.
 
