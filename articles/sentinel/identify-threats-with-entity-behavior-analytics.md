@@ -3,7 +3,7 @@ title: Identify advanced threats with User and Entity Behavior Analytics (UEBA) 
 description: Create behavioral baselines for entities (users, hostnames, IP addresses) and use them to detect anomalous behavior and identify zero-day advanced persistent threats (APT).
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 08/08/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -58,7 +58,9 @@ See how behavior analytics is used in [Microsoft Defender for Cloud Apps](https:
 
 Learn more about [entities in Microsoft Sentinel](entities.md) and see the full list of [supported entities and identifiers](entities-reference.md).
 
-Learn more about [entity pages](entity-pages.md) and how to use them.
+### Entity pages
+
+Information about **entity pages** can now be found at [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
 
 ## Querying behavior analytics data
 
