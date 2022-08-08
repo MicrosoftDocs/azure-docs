@@ -83,22 +83,59 @@ To authenticate your GitHub user account with the private repository, follow the
     > [!NOTE]
     > If you get an **E403 Forbidden** error, this means that the token is not authorized or has expired.
     > Verify that your [personal access token](https://github.com/settings/tokens) has not expired. Validate also that you have authorized SSO, as described earlier.
-    
+
+## Create a workspace
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select the menu button in the upper-left corner of the portal, and then select **Create a resource** a resource.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource.":::
+
+1. Enter *Microsoft Playwright Testing* in the search box.
+1. Select **Microsoft Playwright Testing (Preview)**.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Microsoft Playwright Testing search result.":::
+
+1. On the Microsoft Playwright Testing page, select **Create**.
+1. Provide the following information to configure a new Microsoft Playwright Testing workspace:
+
+    |Field  |Description  |
+    |---------|---------|
+    |**Subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
+    |**Resource group**     | Select an existing resource group. Or select **Create new**, and then enter a unique name for the new resource group.        |
+    |**Name**     | Enter a unique name to identify your workspace.<BR>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. |
+    |**Location**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results and related artifacts are stored. |
+
+    >[!NOTE]
+    > Optionally, you can configure more details on the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
+
+1. After you're finished configuring the resource, select **Review + Create**.
+
+1. Review all the configuration settings and select **Create** to start the deployment of the Microsoft Playwright Testing workspace.
+
+    When the process has finished, a deployment success message appears.
+
+1. To view the new workspace, select **Go to resource**.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal.":::
+
+1. Select the dashboard URL on the **Overview** page to navigate directly to the Microsoft Playwright Testing dashboard for your workspace:
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/azure-portal-playwright-workspace-overview.png" alt-text="Screenshot that shows the Playwright Testing workspace overview page in the Azure portal.":::
+
 ## Create a Microsoft Playwright Testing access token
 
 Set up an access token to authenticate with Microsoft Playwright Testing.
 
-1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your GitHub username and password.
+1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), access the **Settings > Access Token** menu in the top-right of the screen.
 
-    1. Access the **Settings > Access Token** menu in the top-right of the screen.
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
+    
+1. Select **Generate a new token**.
 
-        :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
-        
-    1. Select **Generate a new token**.
+1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
 
-    1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
-
-        :::image type="content" source="./media/quickstart-run-end-to-end-tests/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
 
 1. In the list of access tokens, select **Copy** to copy the generated token value.
 
