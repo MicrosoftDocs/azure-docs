@@ -1,11 +1,11 @@
 ---
 title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 08/13/2021
-ms.author: cynthn
+ms.author: mattmcinnes
 ms.subservice: disks
 ms.collection: linux
 
@@ -135,8 +135,19 @@ Use `mount` to then mount the filesystem. The following example mounts the */dev
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
+### Keep disk mounted between reboots 
 
-To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
+To ensure that the disk is remounted automatically after a reboot (also known as a 'persistent mount'), it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. 
+
+If you've used the defaults up to this point, simply run the following command to automatically get the UUID of the disk and insert it into the */etc/fstab* file. After running this command, continue to the 'Verify the Disk' section of this article:
+
+```bash
+echo " $(blkid | grep /dev/sdc1 | awk '{print $2}') /datadrive xfs defaults,nofail 1 2" >> /etc/fstab
+```
+
+If you've changed the file system type or have already added additional disks before following this article, skip the above command and continue below to manually add the persistent mount. 
+
+To find the UUID of the new drive, use the `blkid` utility:
 
 ```bash
 sudo blkid
