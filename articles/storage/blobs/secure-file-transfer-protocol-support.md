@@ -102,6 +102,13 @@ sftp myaccount.mycontainer.myusername@myaccount.blob.core.windows.net
 cd mydirectory
 put logfile.txt  
 ```
+### SSH key pairs Example
+
+```powershell
+sftp -i "~/.ssh/privateKeyName" myaccount.mycontainer.myusername@myaccount.blob.core.windows.net
+cd mydirectory
+put logfile.txt
+```
 
 > [!Note]
 > Home directory is only the initial directory that the connecting local user is placed in. Local users can navigate to any other path in the container they are connected to if they have the appropriate container permissions.
