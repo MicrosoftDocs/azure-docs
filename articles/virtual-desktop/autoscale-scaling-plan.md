@@ -27,7 +27,7 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
 >[!IMPORTANT]
->Deploying scaling plans with autoscale in the public cloud is currently limited to the following Azure regions:
+>Deploying scaling plans with autoscale is currently limited to the following Azure regions:
 >
 >   - Australia East
 >   - Canada Central
