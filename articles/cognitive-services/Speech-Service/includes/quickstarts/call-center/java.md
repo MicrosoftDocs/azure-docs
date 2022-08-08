@@ -44,6 +44,10 @@ Usage: `java -cp ".;target\dependency\*" CallCenter -- [...]`
 
 [!INCLUDE [Usage arguments](usage-arguments.md)]
 
+## Remarks
+
+[!INCLUDE [Remarks](remarks.md)]
+
 ## Clean up resources
 
 [!INCLUDE [Delete resource](delete-resource.md)]

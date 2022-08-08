@@ -8,5 +8,9 @@ ms.author: eur
 
 In this quickstart, you perform sentiment analysis and conversation summarization of call center transcriptions.
 
-> [!IMPORTANT]
-> This quickstart requires access to [conversation summarization](/azure/cognitive-services/language-service/summarization/how-to/conversation-summarization). To get access, you must submit an [online request](https://aka.ms/applyforconversationsummarization/) and have it approved.
+The quickstart uses the following Azure Cognitive Services features:
+- [Batch transcription in Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/batch-transcription):
+- [Speaker separation/diarization in Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/batch-transcription):
+- [Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language](/azure/cognitive-services/language-service/personally-identifiable-information/overview): 
+- [Sentiment analysis and opinion mining in Azure Cognitive Service for Language](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview):
+- [Conversation summarization in Azure Cognitive Service for Language](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization):
