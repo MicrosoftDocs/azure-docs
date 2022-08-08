@@ -196,7 +196,7 @@ Example Update Manifest with one Reference Step:
 ```
 
 > [!NOTE]
-> In the [update manifest]( https://docs.microsoft.com/en-us/azure/iot-hub-device-update/update-manifest), each step should have different “installedCriteria” string if that string is being used to determine whether the step should be performed or not. 
+> In the [update manifest]( https://docs.microsoft.com/azure/iot-hub-device-update/update-manifest), each step should have different “installedCriteria” string if that string is being used to determine whether the step should be performed or not. 
 
 ## Parent Update vs. Child Update
 
