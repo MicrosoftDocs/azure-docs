@@ -380,7 +380,7 @@
       href: msdo-github-action.md
     - name: Setup and configure the Microsoft Security DevOps extension
       href: msdo-azure-devops-extension.md
-    - name: Discover vulnerabilities in Infrastructure as Code
+    - name: Discover misconfigurations in Infrastructure as Code
       href: iac-vulnerabilities.md
 
 - name: Reference

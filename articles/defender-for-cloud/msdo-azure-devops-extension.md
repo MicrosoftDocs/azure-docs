@@ -80,32 +80,31 @@ If you don't have access to install the extension, you must request access from 
 
     :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter pipeline.":::
 
-6.  Paste the following YAML into the pipeline
+1.  Paste the following YAML into the pipeline
 
     ```yml
-    # Starter pipeline
-    # Start with a minimal pipeline that you can customize to build and deploy your code.
-    # Add steps that build, run tests, deploy, and more
-    # https://aka.ms/yaml
-    trigger:
-    - main
+    # Starter pipeline
+    # Start with a minimal pipeline that you can customize to build and deploy your code.
+    # Add steps that build, run tests, deploy, and more:
+    # https://aka.ms/yaml
+    trigger: none
     pool:
-    vmImage: windows-latest
+      vmImage: 'windows-latest'
     steps:
-    - task: UseDotNet@2
-    displayName: \'Use dotnet\'
-    inputs:
-    version: 3.1.x
-    - task: UseDotNet@2
-    displayName: \'Use dotnet\'
-    inputs:
-    version: 5.0.x
-    - task: UseDotNet@2
-    displayName: \'Use dotnet\'
-    inputs:
-    version: 6.0.x
-    - task: MicrosoftSecurityDevOps@1
-    displayName: \'Microsoft Security DevOps\'
+    - task: UseDotNet@2
+      displayName: 'Use dotnet'
+      inputs:
+        version: 3.1.x
+    - task: UseDotNet@2
+      displayName: 'Use dotnet'
+      inputs:
+        version: 5.0.x
+    - task: UseDotNet@2
+      displayName: 'Use dotnet'
+      inputs:
+        version: 6.0.x
+    - task: MicrosoftSecurityDevOps@1
+      displayName: 'Microsoft Security DevOps'
     ```
 
 1. Select **Save and run**.
