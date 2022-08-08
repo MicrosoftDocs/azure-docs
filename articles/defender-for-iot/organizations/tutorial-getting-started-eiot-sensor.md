@@ -145,7 +145,21 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
-1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to install the sensor.
+1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-the-sensor-software).
+
+
+## Install the sensor software
+
+Run the command that you received and saved when you registered the Enterprise IoT sensor. The installation process checks to see if the required Docker version is already installed. If it’s not, the sensor installation also installs the latest Docker version.
+
+**To install the sensor**:
+
+1. Sign in to the sensor's CLI using a terminal, such as PuTTY, or MobaXterm.
+
+1. Run the command that you saved from [setting up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
+
+    The installation wizard appears when the command process completes:
+>>>>>>> a67fede8488232403abf6651f3877e371cbd175c
 
 <a name="install"></a>**To install Enterprise IoT sensor software**:
 

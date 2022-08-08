@@ -18,6 +18,7 @@ The linter is integrated into the Bicep CLI and the Bicep extension for Visual S
 The default set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md). The extension and Bicep CLI check the following rules, which are set to the warning level.
 
 - [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
+- [artifacts-parameters](./linter-rule-artifacts-parameters.md)
 - [max-outputs](./linter-rule-max-outputs.md)
 - [max-params](./linter-rule-max-parameters.md)
 - [max-resources](./linter-rule-max-resources.md)
@@ -63,6 +64,18 @@ The following screenshot shows the linter in the command line. The output from t
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 
 You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub action to attempt a bicep build. Errors will fail the pipelines.
+
+## Silencing false positives
+
+Sometimes a rule can have false positives. For example you may need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+In this case you can disable the warning for one line only, not the entire document, by adding `#disable-next-line <rule name>` before the line with the warning.
+
+```bicep
+#disable-next-line no-hardcoded-env-urls //Direct download link to my toolset
+scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
+```
+
+It is good practice to add a comment explaining why the rule does not apply to this line.
 
 ## Next steps
 
