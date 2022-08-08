@@ -796,7 +796,7 @@ The following table lists the prebuilt neural voices supported in each language.
 The following neural voices are in public preview.
 
 > [!NOTE]
-> Voices and styles in public preview are only available in three service [regions](regions.md#prebuilt-neural-voices): East US, West Europe, and Southeast Asia. 
+> Voices and styles in public preview are only available in three service [regions](regions.md): East US, West Europe, and Southeast Asia. 
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
@@ -1138,9 +1138,7 @@ The following table lists the released languages and public preview languages.
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]
-> If you want to use languages that aren't listed here, please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com). 
->  
-> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
+> For pronunciation assessment, `en-US` and `en-GB` are available in [all regions](regions.md#speech-service), `zh-CN` is available in East Asia and Southeast Asia regions, `de-DE`, `es-ES`, and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
 
 ## Speech translation
 
