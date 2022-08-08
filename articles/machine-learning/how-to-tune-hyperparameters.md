@@ -341,7 +341,7 @@ Control your resource budget by setting limits for your sweep job.
 sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=4, timeout=1200)
 ```
 
-This code configures the hyperparameter tuning experiment to use a maximum of 20 total trial jobs, running four trial jobs at a time with a timeout of 20 minutes for the entire sweep job.
+This code configures the hyperparameter tuning experiment to use a maximum of 20 total trial jobs, running four trial jobs at a time with a timeout of 1200 seconds (20 minutes) for the entire sweep job.
 
 ## Configure hyperparameter tuning experiment
 
