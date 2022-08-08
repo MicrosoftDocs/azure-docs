@@ -758,7 +758,7 @@ Front Door.
 |Bot300300|General purpose HTTP clients and SDKs|
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
-|Bot300600|Unknown bots detected by threat intelligence|
+|Bot300600|Unknown bots detected by threat intelligence<br />This rule set includes IP addresses matched to the Tor network. If you need to block requests from Tor clients, set the action to *Block* for this rule set.|
 |Bot300700|Other bots|
 
 ---
