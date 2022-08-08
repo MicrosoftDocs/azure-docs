@@ -72,12 +72,16 @@ This article lists significant changes to Azure Monitor documentation.
 
 ### Logs
 
+| Article | Description |
+|:---|:---|
 |[Logs ingestion API in Azure Monitor (Preview)](logs/logs-ingestion-api-overview.md)|Custom logs API renamed to Logs ingestion API.
 |[Tutorial - Send data to Azure Monitor Logs using REST API (Resource Manager templates)](logs/tutorial-logs-ingestion-api.md)|Custom logs API renamed to Logs ingestion API.
 |[Tutorial - Send data to Azure Monitor Logs using REST API (Azure portal)](logs/tutorial-logs-ingestion-portal.md)|Custom logs API renamed to Logs ingestion API.
 
 ### Virtual Machines
 
+| Article | Description |
+|:---|:---|
 |[What is VM insights?](vm/vminsights-overview.md)|All VM insights content updated for new support of Azure Monitor agent.
 
 
