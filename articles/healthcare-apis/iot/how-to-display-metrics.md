@@ -24,13 +24,13 @@ Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
 |Availability|IotConnector Health Status|Indicates the overall health of the MedTech service.|
 |Errors|Total Error Count|Displays the total number of errors.|
-|Latency|Average Group Stage Latency|Displays the average latency of the group stage. The [group stage][incoming messages](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
-|Latency|Average Normalize Stage Latency|Displays the average latency of the normalized stage. The normalized stage performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or saved](iot-data-flow.md#persist) by the MedTech service.|
+|Latency|Average Group Stage Latency|Displays the average latency of the group stage. The [group stage](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|Average Normalize Stage Latency|Displays the average latency of the normalized stage. The [normalized stage](iot-data-flow.md#normalize) performs normalization on raw incoming messages.|
+|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](iot-data-flow.md#persist) by the MedTech service.|
 |Traffic|Number of Incoming Messages|Displays the number of received raw [incoming messages](iot-data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
 |Traffic|Number of Measurements|The number of normalized value readings received by the FHIR conversion stage of the MedTech service.|
 |Traffic|Number of Message Groups|Displays the number of groups that have messages aggregated in the designated time window.|
-|Traffic|Number of Normalized Messages|Displays the number of [normalized messages](iot-data-flow.md#normalize).|
+|Traffic|Number of Normalized Messages|Displays the number of normalized messages.|
 
 ## Display and configure the MedTech service metrics
 
