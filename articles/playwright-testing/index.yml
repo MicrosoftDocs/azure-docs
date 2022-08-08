@@ -49,3 +49,10 @@ landingContent:
             url: how-to-run-with-playwright-testing.md
           - text: Test private endpoints
             url: how-to-test-private-endpoints.md
+
+  - title: Manage workspaces
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage workspaces in Azure portal
+            url: how-to-manage-workspace-in-azure-portal.md

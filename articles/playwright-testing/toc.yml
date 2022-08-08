@@ -22,6 +22,8 @@ items:
 - name: How-to guides
   expanded: true
   items:
+    - name: Manage workspaces in Azure portal
+      href: how-to-manage-workspace-in-azure-portal.md
     - name: Run tests across multiple operating systems
       href: how-to-cross-platform-tests.md
     - name: Run Playwright tests in the cloud

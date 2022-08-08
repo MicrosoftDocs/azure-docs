@@ -26,12 +26,12 @@ In this article, you create, view, and delete Microsoft Playwright Testing Previ
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select the menu button in the upper-left corner of the portal, and then select **Create a resource** a resource.
 
-    :::image type="content" source="./media/how-to-manage-workspace/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource.":::
+    :::image type="content" source="./media/how-to-manage-workspace-in-azure-portal/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource.":::
 
 1. Enter *Microsoft Playwright Testing* in the search box.
 1. Select **Microsoft Playwright Testing (Preview)**.
 
-    :::image type="content" source="./media/how-to-manage-workspace/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Microsoft Playwright Testing search result.":::
+    :::image type="content" source="./media/how-to-manage-workspace-in-azure-portal/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Microsoft Playwright Testing search result.":::
 
 1. On the Microsoft Playwright Testing page, select **Create**.
 1. Provide the following information to configure a new Microsoft Playwright Testing workspace:
@@ -54,7 +54,7 @@ In this article, you create, view, and delete Microsoft Playwright Testing Previ
 
 1. To view the new workspace, select **Go to resource**.
 
-    :::image type="content" source="./media/how-to-manage-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal.":::
+    :::image type="content" source="./media/how-to-manage-workspace-in-azure-portal/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal.":::
 
 ## Find a workspace
 
@@ -71,7 +71,7 @@ See a list of all the workspaces you can use.
 
 In the [Azure portal](https://portal.azure.com), select **Delete** at the top of the workspace you wish to delete.
 
-:::image type="content" source="./media/how-to-manage-workspace/azure-portal-delete-workspace.png" alt-text="Screenshot that shows the delete workspace functionality in the Azure portal.":::
+:::image type="content" source="./media/how-to-manage-workspace-in-azure-portal/azure-portal-delete-workspace.png" alt-text="Screenshot that shows the delete workspace functionality in the Azure portal.":::
 
 > [!WARNING]
 > Once a Microsoft Playwright Testing workspace has been deleted, it cannot be recovered.
