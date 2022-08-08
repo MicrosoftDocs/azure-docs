@@ -55,7 +55,7 @@ This snapshot shows how entities are distributed across your training and testin
 
 **Graph view**
 
-* *Documents with at least one label*: This view will show for each class, the number of occurances for this class across the training and testing sets.
+*Documents with at least one label*: This view will show for each class, the number of occurances for this class across the training and testing sets.
 
   :::image type="content" source="../../media/graph-view.png" alt-text="A screenshot showing distribution in graph view." lightbox="../../media/graph-view.png":::
 
