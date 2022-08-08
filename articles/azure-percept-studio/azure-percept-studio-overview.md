@@ -33,8 +33,8 @@ With Azure Percept Studio, you can connect your Edge AI compute devices and came
 
 If you haven’t set up your Azure Percept on Azure Stack HCI, we recommend the following tutorial to start setting up your VM using Azure Percept Windows Admin Center Extension (WAC):
 
-- [Set up Azure Percept on Azure Stack HCI using WAC extensions (for a cluster server)](setting-up-azure-percept-using-wac-extension-cluster.md)
+- [Set up Azure Percept on Azure Stack HCI using WAC extensions](set-up-azure-percept-using-wac-extension-cluster.md)
 
 If you have already set up your Azure Percept on Azure Stack HCI and are ready to start building your edge AI solution, we recommend the following tutorial: 
 
-- [Create a no-code vision solution with Azure Percept Studio](AzP%20Studio%20Guide.md).
+- [Create a no-code Edge AI solution using Azure Percept Studio](AzP%20Studio%20Guide.md).
