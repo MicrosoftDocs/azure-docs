@@ -78,9 +78,9 @@ The **First detection** and **Last activity** columns aren't displayed by defaul
 > [!TIP]
 > If you're also a Microsoft Sentinel user, you'll be familiar with similar data from your Log Analytics queries. The new alert columns in Defender for IoT are mapped as follows:
 >
-> -The Defender for IoT **Last detection** time is similar to the Log Analytics **EndTime**
-> -The Defender for IoT **First detection** time is similar to the Log Analytics **StartTime**
-> -The Defender for IoT **Last activity** time is similar to the Log Analytics **TimeGenerated**
+> - The Defender for IoT **Last detection** time is similar to the Log Analytics **EndTime**
+> - The Defender for IoT **First detection** time is similar to the Log Analytics **StartTime**
+> - The Defender for IoT **Last activity** time is similar to the Log Analytics **TimeGenerated**
 
 For more information, see:
 
