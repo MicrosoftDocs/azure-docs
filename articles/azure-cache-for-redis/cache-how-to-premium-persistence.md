@@ -210,7 +210,7 @@ When clustering is enabled, each shard in the cache has its own set of page blob
 After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes. If soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to stay in the soft delete state.
 
 ### Will having firewall exceptions on the storage account affect persistence
-Using managed identity will conveniently add the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to implement. If not using managed identity and authorizing to storage account via key, then having firewall exceptions on the storage account shall tend to break the persistence process.
+Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you are not using managed identity and instead authorizing to storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process.
 
 ## Next steps
 
