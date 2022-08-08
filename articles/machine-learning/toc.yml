@@ -410,8 +410,6 @@
             href: how-to-train-with-custom-image.md
           - name: Migrate from Estimators to ScriptRunConfig
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-          - name: Reinforcement learning
-            href: how-to-use-reinforcement-learning.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
