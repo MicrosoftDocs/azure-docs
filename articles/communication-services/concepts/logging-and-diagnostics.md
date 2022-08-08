@@ -120,7 +120,7 @@ Communication Services offers the following types of logs that you can enable:
 | URI | The URI of the request. |
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
-| Identity | The Communication Services identity related to the operation. |
+| Identity | The identity of Azure Communication Services or Teams user related to the operation. |
 | Scopes | The Communication Services scopes present in the access token. |
 
 ### Network Traversal operational logs

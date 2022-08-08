@@ -3,7 +3,7 @@ title: "Quickstart - Set up Azure Spring Apps Config Server"
 description: Describes the setup of Azure Spring Apps Config Server for app deployment.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 7/19/2022
 ms.custom: devx-track-java, fasttrack-edit, mode-other, event-tier1-build-2022
@@ -23,8 +23,8 @@ Azure Spring Apps Config Server is a centralized configuration service for distr
 
 ## Prerequisites
 
-* Complete the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
-* Azure Spring Apps Config server is only applicable to basic or standard tier.
+- Completion of the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
+- Azure Spring Apps Config Server is only applicable to basic or standard tier.
 
 ## Azure Spring Apps Config Server procedures
 

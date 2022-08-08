@@ -1371,9 +1371,9 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-enable-app-insights.md",
-        "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/how-to-enable-app-insights.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-online-endpoints",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-designer-sample-text-classification.md",
@@ -1488,6 +1488,11 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-create-labeling-projects.md",
         "redirect_url": "/azure/machine-learning/how-to-create-labeling-projects",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-reinforcement-learning.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-use-reinforcement-learning",
         "redirect_document_id": true
     },
     {

@@ -344,7 +344,7 @@ To complete all the database objects like table schemas, indexes and stored proc
         az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output
         ```
 
-    * You can also use [JMESPATH](https://jmespath.org/) query format to only extract the migrationState from the expand output:
+    * You can also use [JMESPath](/cli/azure/query-azure-cli) query format to only extract the migrationState from the expand output:
 
         ```azurecli
         az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output --query 'properties.output[].migrationState'

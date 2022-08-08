@@ -7642,6 +7642,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/agents-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/azure/azure-monitor/agents/agents-overview.md#log-analytics-agent",
+      "redirect_url": "/azure/azure-monitor/agents/log-analytics-agent",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/deploy-computer-vision-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": true
@@ -24727,11 +24737,6 @@
       "source_path_from_root": "/articles/traffic-manager/disable-enable-or-delete-a-profile.md",
       "redirect_url": "/azure/traffic-manager/traffic-manager-manage-profiles",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-windows-7-and-10.md",
-      "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/troubleshoot-client-connection.md",
