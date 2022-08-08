@@ -36,7 +36,7 @@ ms.author: aahi
 
 * You can see for each class, percision, recall, F1 score, number of training and testing labels.
 
-    :::image type="content" source="../../media/entity-type-performace.png" alt-text="A screenshot of entity performance." lightbox="../../media/entity-type-performace.png":::
+    :::image type="content" source="../../media/class-performance.png" alt-text="A screenshot of entity performance." lightbox="../../media/class-performance.png":::
 ---
 ### [Test set details](#tab/test-set)
 
@@ -57,13 +57,13 @@ This snapshot shows how entities are distributed across your training and testin
 
 * *Documents with at least one label*: This view will show for each class, the number of occurances for this class across the training and testing sets.
 
-  :::image type="content" source="../../media/dataset-graph.png" alt-text="A screenshot showing distribution in graph view." lightbox="../../media/dataset-graph.png":::
+  :::image type="content" source="../../media/graph-view.png" alt-text="A screenshot showing distribution in graph view." lightbox="../../media/graph-view.png":::
 
 **Table view**
 
 For each *class*, you can view: tagged documents in training set, tagged documents in testing set and total tagged documents.
 
-  :::image type="content" source="../../media/dataset-table.png" alt-text="A screenshot showing distribution in table view." lightbox="../../media/dataset-table.png":::
+  :::image type="content" source="../../media/table-view.png" alt-text="A screenshot showing distribution in table view." lightbox="../../media/table-view.png":::
 
 
 ---
