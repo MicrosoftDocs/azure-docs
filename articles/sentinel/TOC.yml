@@ -414,7 +414,7 @@
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
-      - name: Configure Threat Monitoring for SAP solution
+      - name: Configure Microsoft Sentinel Solution for SAP
         href: sap/deployment-solution-configuration.md
     - name: Optional deployment steps
       items: 

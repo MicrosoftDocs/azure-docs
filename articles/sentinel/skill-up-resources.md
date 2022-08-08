@@ -585,7 +585,7 @@ To start with bringing your own machine learning to Microsoft Sentinel, view the
 
 ## Next steps 
 * [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md)
-* [Quickstart: Onboard Microsoft Sentinel]quickstart-onboard.md)
+* [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md)
 * [What's new in Microsoft Sentinel](whats-new.md)
 
 ## Recommended content
