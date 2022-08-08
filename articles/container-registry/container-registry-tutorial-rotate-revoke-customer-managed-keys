@@ -9,7 +9,7 @@ ms.author: tejaswikolli
 
 This article is part three in a four-part tutorial series. In [part one](container-registry-tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](container-registry-tutorial-enable-customer-managed-keys.md), you have learnt to enable customer-managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a customer managed key, update key version and revoke the key.
 
-## Rotate the customer managed key
+## Rotate the Customer managed key
 
 >* To rotate a key, you can either update the key version in Azure Key Vault or create a new key.
 >* While rotating the key, you can specify the same identity you have used to create the registry.
@@ -72,7 +72,7 @@ For example, to configure a new key:
     * Select **Enter key URI**, and provide a key identifier directly. You can provide either a versioned key URI (for a key that must be rotated manually) or a non-versioned key URI (which enables automatic key rotation).
 1. Complete the key selection and select **Save**.
 
-## Revoke a customer managed key
+## Revoke a Customer managed key
 
 >* You can revoke the customer-managed encryption key by changing the access policy, or changing the permissions on the key vault, or by deleting the key.
 

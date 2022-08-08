@@ -16,9 +16,9 @@ In this tutorial, part one in a four-part series:
 
 > [!div class="checklist"]
 > * Customer managed key - Overview
-> * Enable customer-managed key - CLI, portal, Resource Manager Template
-> * Rotate and revoke the customer managed key
-> * Troubleshoot customer managed key
+> * Enable Customer-managed key - CLI, portal, Resource Manager Template
+> * Rotate and revoke the Customer managed key
+> * Troubleshoot Customer managed key
 
 ## Customer managed key - Overview
 

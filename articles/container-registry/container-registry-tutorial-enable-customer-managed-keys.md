@@ -6,15 +6,15 @@ ms.date: 08/5/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
-# Tutorial: Encrypt Azure Container Registry with customer managed key 
+# Tutorial: Encrypt Azure Container Registry with Customer managed key 
 
 This article is part two in a four-part tutorial series. In [part one](container-registry-tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. This article walks you through the steps using the Azure CLI, Azure portal, or a Resource Manager template.
 
 In this article 
 
->* Enable customer managed key - Azure CLI
->* Enable customer managed key - Azure Portal
->* Enable customer managed key - Azure Resource Manager template
+>* Enable Customer managed key - Azure CLI
+>* Enable Customer managed key - Azure Portal
+>* Enable Customer managed key - Azure Resource Manager template
 
 ## Prerequisites
 
