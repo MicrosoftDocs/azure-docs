@@ -80,7 +80,7 @@ After [adding a user for testing](/azure/active-directory/app-proxy/application-
 
 To test if the WAF is blocking malicious requests, you can simulate an attack using a basic SQL injection signature. For example, "https://www.fabrikam.one/api/sqlquery?query=x%22%20or%201%3D1%20--".
 
-![waf403](./media/application-proxy-waf/waf403.png)
+![waf 403 response](./media/application-proxy-waf/waf403.png)
 
 An HTTP 403 response confirms that the request was blocked by the WAF.
 
