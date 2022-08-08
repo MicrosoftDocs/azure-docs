@@ -36,9 +36,9 @@ Depending on how you configure your Key Vault permission model, you may need to 
 
 #### [Vault access policy](#tab/vault-access-policy)
 
-If you're using Key Vault built-in access policy as Key Vault permission model as follows:
+If you're using Key Vault built-in access policy as Key Vault permission model:
 
-   :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-perm-model-access-policy.png" :::
+   :::image type="content" alt-text="Screenshot of built-in access policy selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-access-policy.png" :::
 
 1. Go to your Key Vault resource.
 1. In the menu pane, select **Access configuration**. Click **Go to access policies**.
@@ -57,7 +57,7 @@ If you're using Key Vault built-in access policy as Key Vault permission model a
 
 If you're using Azure role-based access control as Key Vault permission model:
 
-   :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
+   :::image type="content" alt-text="Screenshot of Azure RBAC selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
 
 1. Go to your Key Vault resource.
 1. In the menu pane, select **Access control (IAM)**.
@@ -67,11 +67,11 @@ If you're using Azure role-based access control as Key Vault permission model:
 
 1. Under the **Role** tab, select **Key Vault Secrets User**. Click **Next**.
 
-   :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-role.png" :::
+   :::image type="content" alt-text="Screenshot of role tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-role.png" :::
 
 1. Under the **Members** tab, select **Managed identity**. 1. Search for the Azure Web PubSub Service resource name or the user assigned identity name. Click **Next**.
 
-   :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-members.png" :::
+   :::image type="content" alt-text="Screenshot of members tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-members.png" :::
 
 1. Click **Review + assign**.
 
