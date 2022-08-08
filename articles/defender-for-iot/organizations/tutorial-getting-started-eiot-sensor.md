@@ -209,19 +209,21 @@ Once you've validated your setup, the **Device inventory** page will start to po
 > [!TIP]
 > If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
 
-## Remove an Enterprise IoT network sensor (optional)
-
-<!--also move this to a troubleshooting page, refer on to the main delete sensor page.-->
+## Delete an Enterprise IoT network sensor (optional)
 
 Remove a sensor if it's no longer in use with Defender for IoT.
 
-**To remove a sensor**, run the following command on the sensor server or VM:
+1. From the **Sites and sensors** page on the Azure portal, locate your sensor in the grid.
+1. In the row for your sensor, select the **...** options menu on the right > **Delete sensor**.
 
-```bash
-sudo apt purge -y microsoft-eiot-sensor
-```
+> [!IMPORTANT]
+> If you want to cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+>
+> If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
+>
 
-If you want to cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
+For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+
 
 ## Next steps
 

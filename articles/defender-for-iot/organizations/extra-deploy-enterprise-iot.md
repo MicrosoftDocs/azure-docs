@@ -1,13 +1,13 @@
 ---
-title: Sample SPAN configuration and validation steps for an Enterprise IoT deployment - Microsoft Defender for IoT
+title: Extra deployment steps and samples for Enterprise IoT deployment - Microsoft Defender for IoT
 description: Describes additional deployment and validation procedures to use when deploying an Enterprise IoT network sensor.
 ms.topic: how-to
 ms.date: 08/08/2022
 ---
 
-# Sample SPAN configuration and validation steps for an Enterprise IoT deployment
+# Extra deployment steps and samples for Enterprise IoT deployment
 
-This article provides a sample procedure for configuring your SPAN port and validating your installation when deploying an Enterprise IoT sensor.
+This article provides extra steps for deploying an Enterprise IoT sensor, including a sample SPAN port configuration procedure, and CLI steps to validate your deployment or delete a sensor.
 
 For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
 
@@ -81,6 +81,24 @@ Wait 1 minute after your sensor installation has completed before starting this 
     ```
 
     Check the results to ensure that packets are being sent as expected.
+
+## Remove an Enterprise IoT network sensor (optional)
+
+<!--also move this to a troubleshooting page, refer on to the main delete sensor page.-->
+
+Remove a sensor if it's no longer in use with Defender for IoT.
+
+**To remove a sensor**, run the following command on the sensor server or VM:
+
+```bash
+sudo apt purge -y microsoft-eiot-sensor
+```
+
+> [!IMPORTANT]
+> If you want to cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+>
+> If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
+>
 
 ## Next steps
 
