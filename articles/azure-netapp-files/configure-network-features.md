@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 08/10/2022
 ms.custom: references_regions
 ms.author: anfdocs
 ---
@@ -52,7 +52,7 @@ Two settings are available for network features:
   
 ## Register the feature 
 
-Follow the registration steps if you are using the feature for the first time.
+Follow the registration steps if you're using the feature for the first time.
 
 1.  Register the feature by running the following commands:
 
@@ -89,11 +89,11 @@ This section shows you how to set the Network Features option.
 
     ![Screenshot that shows volume creation for Basic network features.](../media/azure-netapp-files/network-features-create-basic.png)
 
-2. Before completing the volume creation process, you can display the specified network features setting in the **Review + Create** tab of the Create a Volume screen. Click **Create** to complete the volume creation.
+2. Before completing the volume creation process, you can display the specified network features setting in the **Review + Create** tab of the Create a Volume screen. Select **Create** to complete the volume creation.
 
     ![Screenshot that shows the Review and Create tab of volume creation.](../media/azure-netapp-files/network-features-review-create-tab.png)
 
-3. You can click **Volumes** to display the network features setting for each volume:
+3. You can select **Volumes** to display the network features setting for each volume:
 
     [ ![Screenshot that shows the Volumes page displaying the network features setting.](../media/azure-netapp-files/network-features-volume-list.png)](../media/azure-netapp-files/network-features-volume-list.png#lightbox)
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 08/10/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -75,7 +75,8 @@ The following table describes what’s supported for each network features confi
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
 
-**Upgrade from basic to standard network feature is not currently supported.** 
+> [!IMPORTANT]
+> Upgrade from basic to standard network feature is not currently supported.
 
 ### Supported network topologies
 
