@@ -64,6 +64,13 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 - Write to an Azure managed disk.
 
 
+### Assign permissions to register the Replication Appliance in Azure AD
+
+If you are following the the least privilege principle, assign the **Application Developer** Azure AD role to the user registering the Appliance. Follow the [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) guide to do so.
+
+> [!IMPORTANT]
+> If the user registering the Appliance is an Azure AD Global administrator, he or she already has the required permissions.
+
 ### Set up an Azure network
 
 [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
@@ -197,11 +204,19 @@ Finish setting up and registering the replication appliance.
 1. In appliance setup, select **Setup connectivity**.
 2. Select the NIC (by default there's only one NIC) that the replication appliance uses for VM discovery, and to do a push installation of the Mobility service on source machines.
 3. Select the NIC that the replication appliance uses for connectivity with Azure. Then select **Save**. You cannot change this setting after it's configured.
+
+   > [!TIP]
+   > If for some reason you need to change the NIC selection and you have not clicked the **Finalize configuration** button in step 12, you can do so by clearing your browser cookies and restarting the **Configuration Server Management Wizard**
+  
 4. If the appliance is located behind a proxy server, you need to specify proxy settings.
     - Specify the proxy name as **http://ip-address**, or **http://FQDN**. HTTPS proxy servers aren't supported.
 5. When prompted for the subscription, resource groups, and vault details, add the details that you noted when you downloaded the appliance template.
 6. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
 7. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
+
+> [!NOTE]
+> In newer versions of the Appliance the **VMware PowerCLI** installation is not required.
+
 8. In **Validate appliance configuration**, prerequisites are verified before you continue.
 9. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
 10. Enter the credentials for the account you [created](#prepare-an-account-to-discover-vms) for VMware discovery. Select **Add** > **Continue**.
