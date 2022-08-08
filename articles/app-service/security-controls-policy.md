@@ -21,6 +21,10 @@ compliant with the specific standard.
 
 ## Release notes
 
+### August 2022
+
+
+
 ### July 2022
 
 - Deprecation of the following policies:
