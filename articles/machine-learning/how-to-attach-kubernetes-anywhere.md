@@ -255,7 +255,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
-    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace for you, or validate whether the kubernetes namespace exists. You need to make sure that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace exists. You need to verify that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
 
