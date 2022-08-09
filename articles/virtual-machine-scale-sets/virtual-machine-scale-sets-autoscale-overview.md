@@ -1,14 +1,13 @@
 ---
 title: Overview of autoscale with Azure virtual machine scale sets
 description: Learn about the different ways that you can automatically scale an Azure virtual machine scale set based on performance or on a fixed schedule
-author: mamccrea
-ms.author: mamccrea
+author: mimckitt
+ms.author: mimckitt
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
-ms.custom: avverma
 
 ---
 # Overview of autoscale with Azure virtual machine scale sets
