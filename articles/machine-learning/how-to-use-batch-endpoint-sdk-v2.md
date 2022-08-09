@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: shivanissambare
-ms.author: ssambare
+author: santiagxf
+ms.author: fasantia
 ms.reviewer: larryfr
 ms.date: 05/25/2022
 ms.custom: how-to, devplatv2, sdkv2
