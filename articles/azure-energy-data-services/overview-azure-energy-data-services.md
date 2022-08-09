@@ -2,12 +2,13 @@
 title: What is Azure Energy Data Services? #Required; page title is displayed in search results. Include the brand.
 description: This article provides an overview of Azure Energy Data Services #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
+ms.service: azure
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 12/11/2021 #Required; mm/dd/yyyy format.
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
-## Introduction
+# What is Azure Energy Data Services?
 
 Azure Energy Data Services is an enterprise grade, OSDU-ready data platform developed in collaboration with Schlumberger that includes the OSDU Data Foundation on Microsoft Azure. The Azure Energy Data Services platform will be delivered as a first party managed PaaS offering from Microsoft, incorporating significant extra features and capabilities over the OSDU community code. Azure Energy Data Services will be an open platform with the capability to connect to multiple internal and external data sources (in addition to other OSDU-ready third party applications and tools). Azure Energy Data Services will incorporate innovative scalable data ingestion capabilities, unified AI templates, domain services, etc. The platform will be extensible, and its rich tooling can automate the subsurface data pipelines and accelerate delivery of curated datasets. Since the platform is being built using leading cloud capabilities of Microsoft Azure, based on Microsoft’s standards, it will also differentiate itself with following strengths: 
 - Seamless upgrades 
