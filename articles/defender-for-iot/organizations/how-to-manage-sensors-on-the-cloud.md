@@ -121,7 +121,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
-| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally-managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support (Public preview)](#upload-a-diagnostics-log-for-support-public-preview).|
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support (Public preview)](#upload-a-diagnostics-log-for-support-public-preview).|
 
 ## Reactivate an OT sensor
 
