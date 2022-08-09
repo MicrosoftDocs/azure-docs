@@ -423,6 +423,19 @@ Unlike Oracle, Azure Synapse supports local joins between a small table and a la
 >[!TIP]
 >Hash distribution improves query performance on large fact tables. Round-robin distribution is useful for improving loading speed.
 
+Hash distribution can be applied on multiple columns for a more even distribution of the base table. It will allow you to choose up to 8 columns for distribution. This not only reduces the data skew over time but also improves query performance.
+
+Note: Multi column distribution  is currently in preview for Azure Synapse Analytics. Preview features are meant for testing only and should not be used on production instances or production data. As a preview feature, Distribution Advisor is subject to undergo changes in behavior or functionality. Please also keep a copy of your test data if the data is important
+
+Distribution Advisor
+
+In Azure Synapse SQL, the way each table is distributed can be customized. The table distribution strategy affects query performance substantially.
+Distribution Advisor (DA) is a new feature in Synapse SQL Gen2 that analyzes queries and recommends the best distribution strategies for tables to improve query performance. Queries to be considered by the advisor can be provided by you or pulled from your historic queries available in DMV.
+For details on how to use the advisor, read Distribution Advisor.
+
+Note: Multi column distribution  is currently in preview for Azure Synapse Analytics. Preview features are meant for testing only and should not be used on production instances or production data. As a preview feature, Distribution Advisor is subject to undergo changes in behavior or functionality. Please also keep a copy of your test data if the data is important
+
+
 #### Data indexing
 
 Azure Synapse supports several user-definable indexing options that have a different operation and usage compared to system-managed zone maps in Oracle. For more information about the different indexing options in Azure Synapse, see [Indexes on dedicated SQL pool tables](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
