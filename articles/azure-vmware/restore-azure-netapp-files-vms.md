@@ -22,7 +22,7 @@ When you restore a VM, you can overwrite the existing content with the backup co
 
 You can restore VMs to the original datastore mounted on the original ESXi host (this overwrites the original VM).
 
-## Prerequisites
+## Prerequisites to restore VMs
 
 * A backup must exist. <br>
 You must have created a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
@@ -61,7 +61,7 @@ You must have created a backup of the VM using the Cloud Backup for Virtual Mach
 
 You can restore a deleted VM from a datastore primary or secondary backup to an ESXi host that you select. You can also restore VMs to the original datastore mounted on the original ESXi host, which creates a clone of the VM.
 
-## Prerequisites
+## Prerequisites to restore deleted VMs
 
 * You must have added the Azure cloud Subscription account.
     The user account in vCenter must have the minimum vCenter privileges required for Cloud Backup for Virtual Machines.
@@ -87,7 +87,7 @@ You cannot restore a datastore, but you can restore any VM in the datastore.
 
 You can restore existing VMDKs or deleted or detached VMDKs from either a primary or secondary backup. You can restore one or more VMDKs on a VM to the same datastore.
 
-## Prerequisites
+## Prerequisites to restore VMDKs
 
 * A backup must exist.
     You must have created a backup of the VM using the Cloud Backup for Virtual Machines.
