@@ -70,7 +70,7 @@ With a hub routing preference of VPN this is how the effective routes in hub 1 l
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2-vpn-hub1.png" alt-text="Effective routes in Virtual hub 1 with Global Reach and routing preference V P N" :::
 
-Note that the route to `10.4.2.0/24` has now a next hop of `VPN_S2S_Gateway`, while with the default routing preference of ExpressRoute it was `ExpressRouteGateway`. Similarly, in hub 2 the route to `10.5.2.0/24` will now appear with a next hop of `VPN_S2S_Gateway` as well:
+Note that the route to `10.4.2.0/24` has now a next hop of `VPN_S2S_Gateway`, while with the default routing preference of ExpressRoute it was `ExpressRouteGateway`. However, in hub 2 the route to `10.5.2.0/24` will still appear with a next hop of `ExpressRoute`, because in this case the alternative route doesn't come from a VPN Gateway but from an NVA integrated in the hub:
 
 :::image type="content" source="./media/routing-deep-dive/vwan-routing-deepdive-scenario-2-vpn-hub2.png" alt-text="Effective routes in Virtual hub 2 with Global Reach and routing preference V P N" :::
 
