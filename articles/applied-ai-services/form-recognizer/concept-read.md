@@ -69,11 +69,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 
 ## Input requirements
 
-* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, the newest API version `2022-06-30-preview` supports Microsoft Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files.
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This dimension corresponds to about eight font point text at 150 DPI.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales
 
@@ -126,4 +122,4 @@ Complete a Form Recognizer quickstart:
 Explore our REST API:
 
 > [!div class="nextstepaction"]
-> [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

@@ -32,7 +32,7 @@ TransportException: A client transport error occurred: The request timed out whi
 Follow the [request timeout troubleshooting steps](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps) to resolve it.
 
 ### Service outage
-Check the [Azure status](https://status.azure.com/status) to see if there's an ongoing issue.
+Check the [Azure status](https://azure.status.microsoft/status) to see if there's an ongoing issue.
 
 
 ## Next steps

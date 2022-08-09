@@ -99,11 +99,11 @@ No. Multicast and broadcast are not supported.
 ### What protocols can I use within VNets?
 You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67) and UDP source port 65330 which is reserved for the host. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
 
-### Can I ping my default routers within a VNet?
-No.
+### Can I ping default gateway within a VNet?
+No. Azure provided default gateway does not respond ping. But you can use ping in your VNets to check connectivity and troubleshooting between VMs.
 
 ### Can I use tracert to diagnose connectivity?
-No.
+Yes. 
 
 ### Can I add subnets after the VNet is created?
 Yes. Subnets can be added to VNets at any time as long as the subnet address range is not part of another subnet and there is available space left in the virtual network's address range.
