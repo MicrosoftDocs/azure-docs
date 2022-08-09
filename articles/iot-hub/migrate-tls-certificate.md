@@ -7,7 +7,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 08/09/2022
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -97,7 +97,7 @@ Use the [az iot hub certificate root-authority set](/cli/azure/iot/hub/certifica
 az iot hub certificate root-authority set --name <iothub_name> --certificate-authority v2
 ```
 
-Verify that your migration was successful. We recommend using the **connected devices** metric to view devices disconnecting and reconnecting post-migration. 
+Verify that your migration was successful. We recommend using the **connected devices** metric to view devices disconnecting and reconnecting post-migration.
 
 For more information about monitoring your devices, see [Monitoring IoT Hub](monitor-iot-hub.md).
 
@@ -113,9 +113,14 @@ Migrating the TLS certificate does not affect how devices are authenticated by I
 
 IoT Hub and DPS present their server certificate to devices, and devices authenticate that certificate against the root in order to trust their connection to the endpoints. Devices will need to have the new DigiCert Global Root G2 in their trusted certificate stores to be able to verify and connect to Azure after this migration.
 
-### My devices use the Azure IoT SDKs to connect. Do I have to do anything?
+### My devices use the Azure IoT SDKs to connect. Do I have to do anything to keep the SDKs working with the new certificate?
 
-Yes, while most Azure IoT SDKs (except the Java V1 device client that packages the Baltimore root along with the SDK) rely on the underlying operating system’s certificate store to retrieve trusted roots for server authentication during the TLS handshake, it's highly recommended to validate your devices against the endpoints made available as described in the validation section of the blog post [Azure IoT TLS: Critical changes are almost here](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+It depends.
+
+* **Yes**, if you use the Java V1 device client. This client packages the Baltimore Cybertrust Root certificate along with the SDK. You can either update to Java V2, or manually add the DigiCert Global Root G2 certificate to your source code.
+* **No**, if you use the other Azure IoT SDKs. Most Azure IoT SDKs rely on the underlying operating system’s certificate store to retrieve trusted roots for server authentication during the TLS handshake.
+
+However, we highly recommended that all customers validate theirr devices against the endpoints made available as described in the validation section of the blog post before migration: [Azure IoT TLS: Critical changes are almost here](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
 ### My devices connect to a sovereign Azure region. Do I still need to update them?
 
@@ -124,3 +129,34 @@ No, only the [public Azure cloud](https://azure.microsoft.com/global-infrastruct
 ### I use IoT Central. Do I need to update my devices?
 
 Yes, IoT Central uses IoT Hub in the backend. The TLS migration will affect your solution, and you need to update your devices to maintain connection.
+
+## Troubleshoot
+
+If you're experiencing general connectivity issues with IoT Hub, check out these troubleshooting resources:
+
+* [Connection and retry patterns with device SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
+* [Understand and resolve Azure IoT Hub error codes](troubleshoot-error-codes.md).
+* Learn more about [analyzing logs](monitor-iot-hub.md#analyzing-logs) with Azure Monitor.
+
+If you're watching Azure Monitor after migrating certificates, you should look for a DeviceDisconnect event followed by a DeviceConnect events, as demonstrated in the following screenshot:
+
+:::image type="content" source="./media/migrate-tls-certificate/monitor-device-disconnect-connect.png" alt-text="Use Azure Monitor logs to see DeviceDisconnect and DeviceConnect events.":::
+
+If your device disconnects but doesn't reconnect after the migration, try the following steps:
+
+* Check that your DNS resolution and handshake request completed without any errors.
+
+* Verify that the device has the DigiCert Global Root G2 certificate installed in the certificate store.
+
+* Use the following sample Kusto query to identify connection activity for your devices. For more information, see [Kusto Query Language (KQL) overview](data-explorer/kusto/query/index.md).
+
+  ```kusto
+  AzureDiagnostics
+  | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+  | where Category == "Connections"
+  | extend parsed_json = parse_json(properties_s)
+  | extend SDKVersion = tostring(parsed_json.sdkVersion), DeviceId = tostring(parsed_json.deviceId), Protocol = tostring(parsed_json.protocol)
+  | distinct TimeGenerated, OperationName, Level, ResultType, ResultDescription, DeviceId, Protocol, SDKVersion
+  ```
+
+* Use the **Metrics** tab of your IoT hub in the Azure portal to track the device reconnection process. Ideally, you should see no change in your devices before and after you complete this migration. One recommended metric to watch is **Connected Devices**, but you can use whatever charts you actively monitor.
