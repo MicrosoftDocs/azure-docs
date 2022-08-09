@@ -22,7 +22,7 @@ This table shows the available MedTech service metrics and the information that 
 
 Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
-|Availability|IotConnector Health Status|Indicates the overall health of the MedTech service.|
+|Availability|IotConnector Health Status|The overall health of the MedTech service.|
 |Errors|Total Error Count|The total number of errors.|
 |Latency|Average Group Stage Latency|The average latency of the group stage. The [group stage](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
 |Latency|Average Normalize Stage Latency|The average latency of the normalized stage. The [normalized stage](iot-data-flow.md#normalize) performs normalization on raw incoming messages.|
