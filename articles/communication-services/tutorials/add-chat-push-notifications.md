@@ -37,7 +37,7 @@ Access the sample code for this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Prerequisites
 
-1.Finish all the prerequisite steps in [Chat Quickstart](../quickstarts/chat/includes/chat-swift.md)
+1.Finish all the prerequisite steps in [Chat Quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-swift)
 
 2.ANH Setup  
 Create an Azure Notification Hub within the same subscription as your Communication Services resource and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications.md#notification-hub-provisioning).
