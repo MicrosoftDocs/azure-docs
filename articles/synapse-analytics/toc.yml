@@ -156,7 +156,7 @@ items:
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
+          href: ./synapse-service-identity.md?context=/azure/synapse-analytics/context/context
         - name: Credentials for user-assigned managed identity
           href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
   - name: How-to guides
@@ -326,6 +326,8 @@ items:
         href: sql/best-practices-serverless-sql-pool.md
       - name: Best practices dedicated SQL pools
         href: sql/best-practices-dedicated-sql-pool.md
+      - name: Distribution Advisor 
+        href: sql/distribution-advisor.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
@@ -469,7 +471,7 @@ items:
         displayName: workload, management
   - name: How-to guides
     items:
-    - name: Backup and restore
+    - name: Back up and restore
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
@@ -704,9 +706,9 @@ items:
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache
       href: ./spark/apache-spark-intelligent-cache-concept.md
-    - name: Azure Synapse runtimes
+    - name: Azure Synapse runtimes for Apache Spark
       items:
-        - name: Runtime overview
+        - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.2 runtime
           href: ./spark/apache-spark-32-runtime.md
@@ -714,6 +716,8 @@ items:
           href: ./spark/apache-spark-3-runtime.md
         - name: Azure Synapse Apache Spark 2.4 runtime
           href: ./spark/apache-spark-24-runtime.md
+        - name: Lifecycle and Supportability
+          href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -771,9 +775,9 @@ items:
       - name: Navigate the Apache Spark pool history server
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
-        href: monitoring/apache-spark-applications.md
+        href: ./monitoring/apache-spark-applications.md
       - name: Monitor Apache Spark pools
-        href: monitoring/how-to-monitor-spark-pools.md
+        href: ./monitoring/how-to-monitor-spark-pools.md
       - name: Collect Apache Spark applications metrics using APIs
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
       - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
@@ -785,7 +789,9 @@ items:
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
       - name: Manage Apache Spark configuration
-        href: ./spark/apache-spark-azure-create-spark-configuration.md          
+        href: ./spark/apache-spark-azure-create-spark-configuration.md
+      - name: Apache Spark Advisor
+        href: ./monitoring/apache-spark-advisor.md          
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3

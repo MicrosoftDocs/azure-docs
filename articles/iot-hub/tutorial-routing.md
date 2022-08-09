@@ -92,7 +92,7 @@ Register a new device in your IoT hub.
 1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This command creates the device identity.
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id $deviceName --hub-name $hubName 
+   az iot hub device-identity create --device-id $deviceName --hub-name $hubName
    ```
 
 1. From the device-identity output, copy the **primaryKey** value without the surrounding quotation marks and save it. You'll use this value to configure the sample code that generates simulated device telemetry messages.
@@ -297,7 +297,7 @@ Now set up the routing for the storage account. In this section you define a new
    | **Routing query** | Enter `level="storage"` as the query string. |
 
    ![Save the routing query information](./media/tutorial-routing/create-storage-route.png)
-  
+
 1. Select **Save**.
 
 # [Azure CLI](#tab/cli)
@@ -370,6 +370,9 @@ Verify that the messages are arriving in the storage container.
 ## Clean up resources
 
 If you want to remove all of the Azure resources you used for this tutorial, delete the resource group. This action deletes all resources contained within the group. If you don't want to delete the entire resource group, use the Azure portal to locate and delete the individual resources.
+
+>[!TIP]
+>If you intend to complete [Tutorial: Use Azure IoT Hub message enrichments](tutorial-message-enrichments.md), be sure to maintain the resources you created here.
 
 # [Azure portal](#tab/portal)
 

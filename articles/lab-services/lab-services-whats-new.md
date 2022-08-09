@@ -81,7 +81,7 @@ Remember, changes made to the lab settings from the lab plan will apply only to 
 
 Don't forget to assign user permissions on the lab plan and the lab plan's resource group.  Permission assignments for new labs may also be required if labs are created for educators instead of by them.
 
-### Getting started
+## Getting started
 
 Use the following checklist to get started with Azure Lab Services August 2022 Update:
 

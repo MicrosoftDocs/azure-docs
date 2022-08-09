@@ -35,6 +35,8 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 Set up an instance of Application Insights in the entry component in your app:
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ```js
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -52,7 +54,7 @@ export class AppComponent {
     ){
         var angularPlugin = new AngularPlugin();
         const appInsights = new ApplicationInsights({ config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [angularPlugin],
         extensionConfig: {
             [angularPlugin.identifier]: { router: this.router }

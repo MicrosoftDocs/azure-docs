@@ -20,7 +20,7 @@ The service creates and manages resources in a subscription managed by Microsoft
 
 Azure Lab Services supports the following key capabilities and features:
 
-- **Fast and flexible setup of a lab**. Using Azure Lab Services, lab owners can quickly [set up a lab](tutorial-setup-lab.md) for their needs. The service takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
+- **Fast and flexible setup of a lab**. Lab owners can quickly [set up a lab](tutorial-setup-lab.md) for their needs. Azure Lab Services takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
 
 - **Simplified experience for lab users**. Students who are invited to a lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines for all labs that they can access. They can select a single button to connect to the virtual machines and start working. Users don't need Azure subscriptions to use the service.  [Lab users can register](how-to-use-lab.md) to a lab with a registration code and can access the lab anytime to use the lab's resources.
 
@@ -46,6 +46,10 @@ Visit the [Azure Global Infrastructure products by region](https://azure.microso
 [Azure Lab Services August 2022 Update](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
 
 There are no guarantees customer data will stay in the region it's deployed to when using Azure Lab Services previous to the August 2022 Update.
+
+## Data at rest
+
+Azure Lab Services encrypts all content using Microsoft managed encryption key.
 
 ## Next steps
 

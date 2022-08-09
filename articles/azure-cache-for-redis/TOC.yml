@@ -94,6 +94,8 @@
          href: cache-best-practices-memory-management.md
        - name: Development
          href: cache-best-practices-development.md
+       - name: Client libraries
+         href: cache-best-practices-client-libraries.md
        - name: Scaling
          href: cache-best-practices-scale.md
        - name: Kubernetes-hosted client applications
@@ -109,6 +111,8 @@
         href: ./security-controls-policy.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
+    - name: Redis modules 
+      href: cache-redis-modules.md
     - name: Caching architecture
       href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: How-to guides
