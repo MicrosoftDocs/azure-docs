@@ -73,7 +73,7 @@ Example 2:
 - At 00:45, the user returns from their break and unlocks the device.
 - At 01:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:45.
 
-### Require reauthentication every time (preview)
+### Require reauthentication every time
 
 There are scenarios where customers may want to require a fresh authentication, every time before a user performs specific actions. Sign-in frequency has a new option for **Every time** in addition to hours or days.
 
@@ -84,12 +84,6 @@ The public preview supports the following scenarios:
 - Require user reauthentication for risky sign-ins with the [require multifactor authentication](concept-conditional-access-grant.md#require-multi-factor-authentication) grant control.
 
 When administrators select **Every time**, it will require full reauthentication when the session is evaluated.
-
-> [!NOTE]
-> An early preview version included the option to prompt for Secondary authentication methods only at reauthentication. This option is no longer supported and should not be used.
-
-> [!WARNING]
-> Using require reauthentication every time with the sign-in risk grant control set to **No risk** isn’t supported and will result in poor user experience.
 
 ## Persistence of browsing sessions
 
@@ -123,8 +117,7 @@ To make sure that your policy works as expected, the recommended best practice i
 
 1. Under **Access controls** > **Session**.
    1. Select **Sign-in frequency**.
-   1. Enter the required value of days or hours in the first text box.
-   1. Select a value of **Hours** or **Days** from dropdown.
+      1. Choose **Periodic reauthentication** and enter a value of hours or days or select **Every time**.
 1. Save your policy.
 
 ![Conditional Access policy configured for sign-in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
@@ -147,8 +140,6 @@ On Azure AD registered Windows devices, sign in to the device is considered a pr
    1. Select a value from dropdown.
 1. Save your policy.
 
-![Conditional Access policy configured for persistent browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
-
 > [!NOTE]
 > Persistent Browser Session configuration in Azure AD Conditional Access will overwrite the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
 
@@ -165,7 +156,7 @@ On Azure AD registered Windows devices, sign in to the device is considered a pr
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
-1. Under **Session controls** > **Sign-in frequency**, select **Every time (preview)**.
+1. Under **Session controls** > **Sign-in frequency**, select **Every time**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
