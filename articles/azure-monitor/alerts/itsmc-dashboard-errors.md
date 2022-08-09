@@ -106,8 +106,8 @@ The following sections describe common errors that appear in the connector statu
 **Error**: "User Not Authenticated"
 
 **Cause**: This error can occur in two cases:
-  - The token needs to be refreshed
-  - User integration rights are missing
+  - The token needs to be refreshed.
+  - User integration rights are missing.
 
 **Resolution**:
 - If the integration worked for you previously, the refresh token may have expired. [Sync with the ITSM Connector to generate a new refresh token](./itsmc-resync-servicenow.md). 
