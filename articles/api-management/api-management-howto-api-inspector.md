@@ -7,7 +7,7 @@ author: dlepow
 editor: ''
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 08/08/2022
 ms.author: danlep
 ms.custom: devdivchpfy22
 ---
