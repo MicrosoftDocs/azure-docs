@@ -32,7 +32,7 @@ Authentication is the act of verifying a user's identity. Authorization, by cont
 
 An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal </a>. Identity providers (IdP) provide identities to authentication services.  Several of the Cognitive Services offerings, include Azure role-based access control (Azure RBAC), can be used to simplify some of the work of manually managing principals. For more information, see [Azure role-based access control for Azure resources](../role-based-access-control/overview.md).
 
-For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="/azure/cognitive-services/authentication" target="_blank">Authenticate requests to Azure Cognitive Services</a>.
+For more information on authentication with subscription keys, access tokens and Azure Active Directory, see <a href="/azure/cognitive-services/authentication" target="_blank">Authenticate requests to Azure Cognitive Services</a>.
 
 ## Environment variables and application configuration
 
@@ -211,9 +211,9 @@ For the following services, Microsoft engineers will not access any customer dat
 * Content Moderator
 * Personalizer
 
-To request the ability to use the E0 SKU, fill out and submit the [Request form](https://aka.ms/cogsvc-cmk). In approximately 3-5 business days you'll get an update on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once you're approved for using the E0 SKU, you'll need to create a new resource from the Azure portal and select E0 as the Pricing Tier. Users won't be able to upgrade from F0 to the new E0 SKU.
+To request the ability to use the E0 SKU, fill out and submit the [Request form](https://aka.ms/cogsvc-cmk). In approximately 3-5 business days, you'll get an update on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once you're approved for using the E0 SKU, you'll need to create a new resource from the Azure portal and select E0 as the Pricing Tier. Users won't be able to upgrade from F0 to the new E0 SKU.
 
-The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using Bring your own storage (BYOS), allowing you to achieve similar data controls to Customer Lockbox. Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data at rest and data in transit. For customization features like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where the BYOS resouce (if used) and Speech service resource reside.
+The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using bring-your-own-storage (BYOS), allowing you to achieve similar data controls to Customer Lockbox. Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data at rest and data in transit. For customization features like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where the BYOS resource (if used) and Speech service resource reside.
 
 > [!IMPORTANT]
 > Microsoft does not use customer data to improve its Speech models. Additionally, if endpoint logging is disabled and no customizations are used, then no customer data is stored.
