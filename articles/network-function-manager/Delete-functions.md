@@ -5,7 +5,7 @@ description: In this tutorial, learn how to delete a network function as a manag
 author: sushantjrao
 ms.service: network-function-manager
 ms.topic: tutorial
-ms.date: 27/07/2022
+ms.date: 07/09/2022
 ms.author: sushrao
 ms.custom: 
 ---
@@ -49,4 +49,4 @@ In this tutorial, you learn how to delete Azure Network Function Manager - Netwo
 
 1. Navigate to the **Azure Network Manager - Devices** resource in which you have deleted a network function and click on **Delete** Azure Network Function Manager - Device
 
-   :::image type="content" source="./media/delete-device/delete-network-function-manager.png" alt-text="Screenshot of +Select Network Function." lightbox="./media/delete-device/delete-network-function-manager.png":::
+   :::image type="content" source="./media/delete-device/delete-network-function-manager.png" alt-text="Screenshot of +Delete Network Function Manager - Device." lightbox="./media/delete-device/delete-network-function-manager.png":::
