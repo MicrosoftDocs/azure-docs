@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 08/09/2022
 
 ms.author: justinha
 author: justinha
@@ -160,6 +160,9 @@ Run the new installer on the Primary MFA Server. Before you upgrade a server, re
 
 After the installation is complete, it can take several minutes for the datafile to be upgraded. During this time, the MFA Server portal may have issues connecting to the MFA Service. **Don't restart the MFA Service, or the MFA Server during this time.** This is normal. Once the upgrade is complete, the primary server’s main service will again be functional. 
 
+>[!NOTE]
+>After you run the installer on the Primary MFA Server, other MFA Servers might log events indicating a schema mismatch. 
+ 
 ### Configure the MFA Server Migration Utility
 After installing the MFA Server Update, open an elevated PowerShell command prompt: hover over the PowerShell icon, right-click, and click **Run as Administrator**. Run the .\Configure-MultiFactorAuthMigrationUtility.ps1 script found in your MFA Server installation directory (C:\Program Files\Multi-factor Authentication Server by default).
 
@@ -178,7 +181,7 @@ Once complete, navigate to the Multi-factor Authentication Server folder, and op
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utlity/utility.png" alt-text="Screenshot of MFA Server Migration Utility.":::
 
-you've successfully installed the Migration Utility.
+You've successfully installed the Migration Utility.
 
 ### Migrate user data
 Migrating user data doesn't remove or alter any data in the Multi-Factor Authentication Server database. Likewise, this process won't change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Azure AD.
