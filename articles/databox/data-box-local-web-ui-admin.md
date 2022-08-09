@@ -244,7 +244,7 @@ For information, see Backup Operators in [Active Directory Security Groups](/win
 
 To enable Backup Operator privileges in your Azure Device:
 
-1. In the top-right corner of the local web UI of your device, select **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
    ![Open Data Box Settings - 1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
@@ -267,7 +267,7 @@ Metadata on files is transferred by default when users upload data via SMB to yo
 
 To enable transfer of ACLs for Azure files:
 
-1. In the top-right corner of the local web UI of your device, select **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**. 
 
     ![Open Data Box Settings -2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
