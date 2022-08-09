@@ -309,6 +309,8 @@
               href: use-network-policies.md  
             - name: Use pod security policies (preview)
               href: use-pod-security-policies.md
+            - name: Use Pod Security Admission
+              href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
                 - name: Secrets Store CSI Driver configuration
@@ -386,7 +388,7 @@
               href: azure-netapp-files.md
             - name: Use Azure Ultra Disks
               href: use-ultra-disks.md
-        - name: Legacy storage
+        - name: Configure storage
           items:
             - name: Azure Blob - dynamic
               href: azure-csi-blob-storage-dynamic.md
