@@ -19,8 +19,6 @@
     items:
     - name: Benefits
       href: iot-edge-for-linux-on-windows-benefits.md
-    - name: Develop with EFLOW
-      href: develop.md
     - name: Updates
       href: iot-edge-for-linux-on-windows-updates.md
     - name: Security
@@ -37,14 +35,14 @@
         href: how-to-provision-single-device-linux-on-windows-x509.md
       - name: Symmetric key attestation
         href: how-to-provision-single-device-linux-on-windows-symmetric.md
-      - name: Provision at scale
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+    - name: Provision at scale
+      items:
+      - name: X.509 certificate attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+      - name: TPM attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
+      - name: Symmetric key attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
   - name: Configure
     items:
     - name: Develop and debugging
@@ -52,19 +50,19 @@
     - name: Configure nested virtualization for Windows VMs
       href: nested-virtualization.md
     - name: Access TPM secrets
-      href: access-dtpm.md
+      href: how-to-access-dtpm.md
     - name: GPU acceleration
       href: gpu-acceleration.md
     - name: Networking
       items:
         - name: Understand VM networking
-          href: configure-networking.md
+          href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
         - name: Virtual switch
           href: how-to-create-virtual-switch.md
         - name: Multiple NICs
-          href: configure-multiple-nics.md
+          href: how-to-configure-multiple-nics.md
         - name: VM on a DMZ
-          href: configure-iiot-dmz.md      
+          href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md   
   - name: Troubleshoot
     items:
     - name: Diagnose virtual machine
