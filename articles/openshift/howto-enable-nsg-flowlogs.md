@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: johnmarc
 ms.date: 08/09/2022
 topic: how-to
+recommendations: true
 keywords: azure, openshift, aro, red hat, azure CLI
 #Customer intent: I need to create and use an Azure service principal to restrict permissions to my Azure Red Hat OpenShift cluster.
 ---
@@ -20,9 +21,9 @@ Flow logs allow you to analyze traffic for Network Security Groups in specific r
 
 You must have an existing Azure Red Hat OpenShift cluster. Follow this guide to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
 
-## Configure Network Watcher
+## Configure Azure Network Watcher
 
-Make sure a Network Watcher exists in the applicable region or use the one existing by convention. For example, for the eastus region:
+Make sure an Azure Network Watcher exists in the applicable region or use the one existing by convention. For example, for the eastus region:
 ```
 "subscriptions/{subscriptionID}/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_eastus"
 ```
