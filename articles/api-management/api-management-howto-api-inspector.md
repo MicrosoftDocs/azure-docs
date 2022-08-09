@@ -32,9 +32,12 @@ In this tutorial, you learn how to:
 
 ## Verify allow tracing setting
 
-To trace request processing, enable the **Allow tracing** setting for the subscription used to debug your API. To verify in the portal, navigate to your API Management instance and select **Subscriptions**.
+To trace request processing, you must enable the **Allow tracing** setting for the subscription used to debug your API. To check in the portal:
+
+1. Navigate to your API Management instance and select **Subscriptions** to review the settings.
 
    :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Allow tracing for subscription":::
+1. If tracing isn't enabled for the subscription you're using, select the subscription and enable **Allow tracing**.
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
 
@@ -45,13 +48,17 @@ To trace request processing, enable the **Allow tracing** setting for the subscr
 1. Select  **Demo Conference API** from your API list.
 1. Select the **Test** tab.
 1. Select the **GetSpeakers** operation.
-1. Confirm that the HTTP request header includes **Ocp-Apim-Trace: True** to enable tracing, and a valid value for **Ocp-Apim-Subscription-Key**. If it doesn't, select **+ Add header** to add the header.
-1. Select **Send** to make an API call.
+1. Optionally check the value for the **Ocp-Apim-Subscription-Key** header used in the request by selecting the "eye" icon.
+    > [!TIP]
+    > You can override the value of **Ocp-Apim-Subscription-Key** by retrieving a key for another subscription in the portal. Select **Subscriptions**, and open the context menu (**...**) for another subscription. Select **Show/hide keys** and copy one of the keys. You can also regenerate keys if needed. Then, in the test console, select **+ Add header** to add an **Ocp-Apim-Subscription-Key** header with the new key value.
+
+1. Select **Trace**. 
+
+    * If your subscription doesn't already allow tracing, you're prompted to enable it if you want to trace the call. 
+
+    * You can also choose to send the request without tracing.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Configure API tracing":::
-
-> [!TIP]
-> If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it in the portal. Select **Subscriptions**, and open the context menu (**...**) for your suscription. Select **Show/hide keys**. You can also regenerate keys if needed. Then, add a key to the header.
 
 ## Review trace information
 
