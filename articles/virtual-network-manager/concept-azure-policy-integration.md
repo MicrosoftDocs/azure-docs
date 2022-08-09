@@ -20,7 +20,7 @@ In this article, you'll learn how [Azure Policy](../governance/policy/overview.m
 
 ## Azure Policy overview
 
-Azure Policy evaluates resources in Azure by comparing the properties of those resources to business rules. These business rules, described in [JSON format](./concepts/definition-structure.md), are known as [policy definitions](#policy-definition). Once your business rules have been formed, the policy definition is assigned to any scope of resources that Azure supports, such as management groups, subscriptions, resource groups, or individual resources. The assignment applies to all resources within the Resource Manager scope of that assignment. Learn more about scope usage with [Scope in Azure Policy](./concepts/scope.md).
+Azure Policy evaluates resources in Azure by comparing the properties of those resources to business rules. These business rules, described in [JSON format](./concepts/definition-structure.md), are known as [policy definitions](#policy-definition). Once your business rules have been formed, the policy definition is assigned to any scope of resources that Azure supports, such as management groups, subscriptions, resource groups, or individual resources. The assignment applies to all resources within the Resource Manager scope of that assignment. Learn more about scope usage with [Scope in Azure Policy](../governance/policy/concepts/scope.md).
 
 > [!NOTE]
 > Azure Policy is only used for the definition of dynamic network group membership.
@@ -52,10 +52,11 @@ With network groups, your policy definition includes your conditional expression
 }
 
 ```
-Learn more about [policy definition structure](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure).
+Learn more about [policy definition structure](../governance/policy/concepts/definition-structure.md).
+
 ## Policy assignments
 
-Similar to Virtual Network Manager configurations, policy definitions don't immediately take effect when you create them. To begin applying, you must create a Policy Assignment, which assigns a definition to evaluate at a given scope. Currently, all resource within the scope will be evaluated against the definition. This allows you to have a single reusable definition that you can assign at multiple places for more granular group membership control. Learn more information on the [Assignment Structure](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure) for Azure Policy.
+Similar to Virtual Network Manager configurations, policy definitions don't immediately take effect when you create them. To begin applying, you must create a Policy Assignment, which assigns a definition to evaluate at a given scope. Currently, all resource within the scope will be evaluated against the definition. This allows you to have a single reusable definition that you can assign at multiple places for more granular group membership control. Learn more information on the [Assignment Structure](../governance/policy/concepts/assignment-structure.md) for Azure Policy.
   
 Policy definitions and assignment can be created through with API/PS/CLI or [Azure Policy Portal]().
 
