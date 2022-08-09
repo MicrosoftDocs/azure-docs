@@ -90,7 +90,7 @@ The free certificate comes with the following limitations:
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
-1. On your app's navgiation menu, select **TLS/SSL settings**. On the pane that opens, select **Private Key Certificates (.pfx)** > **Create App Service Managed Certificate**.
+1. On your app's navigation menu, select **TLS/SSL settings**. On the pane that opens, select **Private Key Certificates (.pfx)** > **Create App Service Managed Certificate**.
 
    ![Screenshot of app menu with "TLS/SSL settings", "Private Key Certificates (.pfx)", and "Create App Service Managed Certificate" selected.](./media/configure-ssl-certificate/create-free-cert.png)
 
@@ -193,7 +193,7 @@ The following domain verification methods are supported:
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
-1. From your app's navgiation menu, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import App Service Certificate**.
+1. From your app's navigation menu, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import App Service Certificate**.
 
    ![Screenshot of app menu with "TLS/SSL settings", "Private Key Certificates (.pfx)", and "Import App Service certificate" selected.](./media/configure-ssl-certificate/import-app-service-cert.png)
 
