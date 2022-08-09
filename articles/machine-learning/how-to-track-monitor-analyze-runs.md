@@ -144,7 +144,7 @@ To cancel a job in the studio, using the following steps:
 
 Navigate to your job in the studio and select the Monitoring tab. This view provides insights on your job's resources on a 30 day rolling basis. 
 
-<image>
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/monitoring-tab.png" alt-text="Screenshot of Monitoring tab.":::
 
 >[!NOTE] 
 >This view supports only compute that is managed by AzureML.
