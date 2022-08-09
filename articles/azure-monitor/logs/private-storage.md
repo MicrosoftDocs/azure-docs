@@ -63,7 +63,7 @@ To configure your Azure Storage account to use CMK with Azure Key Vault, use the
 
 ## Link storage accounts to your Log Analytics workspace
 
-> [!INFO]
+> [!NOTE]
 > You can connect up to five storage accounts for the ingestion of Custom logs & IIS logs, and one storage account for Saved queries and Saved log alert queries (each).
 
 ### Using the Azure portal
