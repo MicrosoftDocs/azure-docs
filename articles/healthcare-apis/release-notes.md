@@ -44,9 +44,8 @@ For more information about the currently known issues with the FHIR service, see
 
 |Azure Health Data Services  |Related information |
 | :----------------------------------- | :--------------- |
-|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements.<br /><br />[Consume events with Logic Apps](https://docs.microsoft.com/azure/healthcare-apis/events/events-consume-logic-apps)  <br /><br />[Deploy Events using the Azure portal](https://docs.microsoft.com/azure/healthcare-apis/events/events-deploy-portal) | 
-|One touch launch Azure MedTech deploy. |[Deploy the MedTech service in the Azure portal](https://docs.microsoft.com/azure/healthcare-apis/iot/deploy-iot-connector-in-azure)   |
-
+|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements.<br /><br />[Consume events with Logic Apps](https://docs.microsoft.com/azure/healthcare-apis/events/events-consume-logic-apps)  <br /><br />[Deploy Events using the Azure portal](https://docs.microsoft.com/azure/healthcare-apis/events/events-deploy-portal)<br /> | 
+|One touch launch Azure MedTech deploy. |[Deploy the MedTech service in the Azure portal](https://docs.microsoft.com/azure/healthcare-apis/iot/deploy-iot-connector-in-azure)  <br />|
 
 ### DICOM service
 
@@ -181,7 +180,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Customers can define their own query tags using the Extended Query Tags feature |With Extended Query Tags feature, customers now efficiently query non-DICOM metadata for capabilities like multitenancy and cohorts. It's available for all customers in Azure Health Data Services.  |
+|Customers can define their own query tags using the Extended Query Tags feature |With Extended Query Tags feature, customers now efficiently query non-DICOM metadata for capabilities like multi-tenancy and cohorts. It's available for all customers in Azure Health Data Services.  |
 
 ## December 2021
 
@@ -201,7 +200,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Added Publisher to `CapabiilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
+|Added Publisher to `CapabilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
 |Log `FhirOperation` linked to anonymous calls to Request metrics |We weren’t logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
 
 #### **Bug fixes**
