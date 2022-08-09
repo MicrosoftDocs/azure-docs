@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 06/17/2022
+ms.date: 08/08/2022
 ms.author: alkohli
 ---
 
@@ -56,3 +56,4 @@ For export orders, following table shows the supported storage accounts.
   - A maximum of 80 TB can be exported.
   - File history and blob snapshots aren't exported.
   - Archive blobs aren't supported for export. Rehydrate the blobs in archive tier before exporting. For more information, see [Rehydrate an archived blob to an online tier](../articles/storage/blobs/archive-rehydrate-overview.md).
+  - Data Box only supports block blobs with ADLS Gen 2 Storage accounts. Page blobs are not allowed and should not be uploaded over REST.  If page blobs are uploaded over REST, these blobs would fail when data is uploaded to Azure.
