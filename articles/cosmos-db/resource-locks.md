@@ -16,10 +16,12 @@ ms.devlang: azurecli
 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-As an administrator, you may need to lock an Azure Cosmos account, database or container. Locks prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly.
+As an administrator, you may need to lock an Azure Cosmos account, database or container. Locks prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to ``CanNotDelete`` or ``ReadOnly``.
 
-- **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource.
-- **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the Reader role.
+| Level | Description |
+| --- | --- |
+| ``CanNotDelete`` | Authorized users can still read and modify a resource, but they can't delete the resource. |
+| ``ReadOnly`` | Authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role. |
 
 ## How locks are applied
 
@@ -31,46 +33,70 @@ Resource Manager locks apply only to operations that happen in the management pl
 
 ## Manage locks
 
-> [!WARNING]
-> Resource locks do not work for changes made by users accessing Azure Cosmos DB using account keys unless the Azure Cosmos account is first locked by enabling the disableKeyBasedMetadataWriteAccess property. Care should be taken before enabling this property to ensure it does not break existing applications that make changes to resources using any SDK, Azure portal or 3rd party tools that connect via account keys and modify resources such as changing throughput, updating index policies, etc. To learn more and to go through a checklist to ensure your applications continue to function see, [Preventing changes from the Azure Cosmos DB SDKs](role-based-access-control.md#prevent-sdk-changes)
+Resource locks don't work for changes made by users accessing Azure Cosmos DB using account keys unless the Azure Cosmos account is first locked by enabling the ``disableKeyBasedMetadataWriteAccess`` property. Ensure this property doesn't break existing applications that make changes to resources using any SDK, Azure portal, or third party tools. Enabling this property will break applications that connect via account keys and modify resources such as changing throughput, updating index policies, etc. To learn more and to go through a checklist to ensure your applications continue to function, see [preventing changes from the Azure Cosmos DB SDKs](role-based-access-control.md#prevent-sdk-changes)
 
-### PowerShell
+### [PowerShell](#tab/powershell)
 
 ```powershell-interactive
-$resourceGroupName = "myResourceGroup"
-$accountName = "my-cosmos-account"
-$lockName = "$accountName-Lock"
-
-# First, update the account to prevent changes by anything that connects via account keys
-Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName -Name $accountName -DisableKeyBasedMetadataWriteAccess true
-
-# Create a Delete Lock on an Azure Cosmos account resource and all child resources
-New-AzResourceLock `
-    -ApiVersion "2020-04-01" `
-    -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-    -ResourceGroupName $resourceGroupName `
-    -ResourceName $accountName `
-    -LockName $lockName `
-    -LockLevel "CanNotDelete" # CanNotDelete or ReadOnly
+$RESOURCE_GROUP_NAME = "myResourceGroup"
+$ACCOUNT_NAME = "my-cosmos-account"
+$LOCK_NAME = "$accountName-Lock"
 ```
 
-### Azure CLI
+First, update the account to prevent changes by anything that connects via account keys.
+
+```powershell-interactive
+$parameters = @{
+    Name = $ACCOUNT_NAME
+    ResourceGroupName = $RESOURCE_GROUP_NAME
+    DisableKeyBasedMetadataWriteAccess = true
+}
+Update-AzCosmosDBAccount @parameters
+```
+
+Create a Delete Lock on an Azure Cosmos account resource and all child resources.
+
+```powershell-interactive
+$parameters = @{
+    ResourceGroupName = $RESOURCE_GROUP_NAME
+    ResourceName = $ACCOUNT_NAME
+    LockName = $LOCK_NAME
+    ApiVersion = "2020-04-01"
+    ResourceType = "Microsoft.DocumentDB/databaseAccounts"
+    LockLevel = "CanNotDelete"
+}
+New-AzResourceLock @parameters
+```
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
 accountName='my-cosmos-account'
-$lockName="$accountName-Lock"
+lockName="$accountName-Lock"
+```
 
-# First, update the account to prevent changes by anything that connects via account keys
-az cosmosdb update  --name $accountName --resource-group $resourceGroupName  --disable-key-based-metadata-write-access true
+First, update the account to prevent changes by anything that connects via account keys.
 
-# Create a Delete Lock on an Azure Cosmos account resource
-az lock create --name $lockName \
+```azurecli-interactive
+az cosmosdb update \
+    --name $accountName \
+    --resource-group $resourceGroupName  \
+    --disable-key-based-metadata-write-access true
+```
+
+Create a Delete Lock on an Azure Cosmos account resource
+
+```azurecli-interactive
+az lock create \
+    --name $lockName \
     --resource-group $resourceGroupName \
+    --lock-type 'CanNotDelete' \
     --resource-type Microsoft.DocumentDB/databaseAccount \
-    --lock-type 'CanNotDelete' # CanNotDelete or ReadOnly \
     --resource $accountName
 ```
+
+---
 
 ### Template
 
