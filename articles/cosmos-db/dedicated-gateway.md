@@ -60,7 +60,7 @@ Dedicated gateway nodes are independent from one another. When you provision mul
 
 For development, we recommend starting with one node but for production, you should provision three or more nodes for high availability. [Learn how to provision a dedicated gateway cluster with an integrated cache](how-to-configure-integrated-cache.md). Provisioning multiple dedicated gateway nodes allows the dedicated gateway cluster to continue to route requests and serve cached data, even when one of the dedicated gateway nodes is unavailable.
 
-The dedicated gateway is available in the following sizes. The integrated cache uses approximately 70% of the memory and the rest is reserved for routing requests to backend partitions.
+The dedicated gateway is available in the following sizes. The integrated cache uses approximately 50% of the memory and the rest is reserved for metadata and routing requests to backend partitions.
 
 | **Sku Name** | **vCPU** | **Memory**  |
 | ------------ | -------- | ----------- |
@@ -90,31 +90,8 @@ Like nodes within a cluster, dedicated gateway nodes across regions are independ
 The dedicated gateway has the following limitations:
 
 - Dedicated gateways are only supported on SQL API accounts
+- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](../availability-zones/az-region.md).
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
-
-## Supported regions
-
-The dedicated gateway isn't supported in every Azure region yet.
-
-Current list of supported Azure regions:
-
-| **Americas** | **Europe and Africa**  | **Asia Pacific**  |
-| ------------ | -------- | ----------- | 
-| Brazil South      | France Central    | Australia Central |
-| Canada Central  | France South    | Australia Central 2 |
-| Canada East     | Germany North   | Australia East |
-| Central US | Germany West Central | Australia Southeast |
-| Central US EUAP | North Europe | Central India |
-| East US | Norway East | East Asia |
-| East US 2 | Norway West | Japan West |
-| East US 2 EUAP | South Africa North | Japan East |
-| North Central US | Switzerland North | Korea Central |
-| South Central US | Switzerland West | Korea South |
-| West Central US | UAE Central | Southeast Asia |
-| West US | UAE North | West India |
-| West US 2 | UK South |  |
-|   | UK West | |
-|      | West Europe |  |
 
 
 ## Next steps

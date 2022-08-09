@@ -30,7 +30,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 2. Fill out the **Dedicated gateway** form with the following details:
 
    * **Dedicated Gateway** - Turn on the  toggle to **Provisioned**. 
-   * **SKU** - Select a SKU with the required compute and memory size. The integrated cache will use approximately 70% of the memory, and the remaining 30% of memory is used for routing requests to the backend partitions.
+   * **SKU** - Select a SKU with the required compute and memory size. The integrated cache will use approximately 50% of the memory, and the remaining memory is used for metadata and routing requests to the backend partitions.
    *  **Number of instances** - Number of nodes. For development purpose, we recommend starting with one node of the D4 size. Based on the amount of data you need to cache and to achieve high availability, you can increase the node size after initial testing.
 
    :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="An image that shows sample input settings for creating a dedicated gateway cluster" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" border="false":::
@@ -74,9 +74,9 @@ Adjusting the `MaxIntegratedCacheStaleness` is supported in these versions of ea
 | SDK | Supported versions | Comment |
 | --- | ------------------ | ------- |
 | **.NET SDK v3** | *>= 3.19.0-preview* | Currently supported in the preview SDK versions only. |
-| **Java SDK v4** | *>= 4.16.0-beta*    | Currently supported in the preview SDK versions only. |
-| **Node.js SDK** | *>=3.16.0*          | - |
-| **Python SDK**  | *>=4.3.0b3*         | - |
+| **Java SDK v4** | *>= 4.34.0* | - |
+| **Node.js SDK** | *>=3.16.0* | - |
+| **Python SDK**  | *>=4.3.1* | - |
 
 ### [.NET](#tab/dotnet)
 
