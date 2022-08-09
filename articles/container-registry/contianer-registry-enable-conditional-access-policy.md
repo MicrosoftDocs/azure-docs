@@ -1,6 +1,6 @@
 ---
 title: Configure conditional access to your Azure Container Registry
-description: Learn how to configure conditional access to your registry by using Azure CLI and Azure Portal.
+description: Learn how to configure conditional access to your registry by using Azure CLI and Azure portal.
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.author: tejaswikolli
@@ -8,11 +8,11 @@ ms.reviewer: cegraybl
 ---
 # About the Conditional Access Policy
 
-The [Conditional Access Policy](/azure/active-directory/conditional-access/overview.md) is designed to enforce strong authentication based on the location, the trusted and compliant devices, user assigned roles, authorization method and the client applications. 
+The [Conditional Access Policy](/azure/active-directory/conditional-access/overview.md) is designed to enforce strong authentication. The authentication is based on the location, the trusted and compliant devices, user assigned roles, authorization method and the client applications. 
 
 The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
 
-Learn more about [Conditional Access Policy](conditional-access/overview.md), the [conditions](conditional-access/overview.md#common-signals,) you will take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview.md#common-decisions)
+Learn more about [Conditional Access Policy](conditional-access/overview.md), the [conditions](conditional-access/overview.md#common-signals,) you'll take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview.md#common-decisions)
 
 ## Prerequisites
 
@@ -22,9 +22,9 @@ Learn more about [Conditional Access Policy](conditional-access/overview.md), th
 
 ## Azure Container Registry (ACR) introduces the conditional access policy
 
-You can refer to the ACR's conditional access policy in the [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md).  
+You can refer to the ACR's conditional access policy in the [azure-built-in-policy definition's](policy-reference.md) 
 
-Also, we recommend to learn more about:
+Also, we recommend learning more about:
 
 >* The [policy assignment structure](/azure/governance/policy/concepts/assignment-structure#enforcement-mode)
 >* Enable conditional policy using [Azure portal](../governance/policy/assign-policy-portal.md) 
@@ -55,13 +55,16 @@ You can use Azure CLI version 2.0.76 or later, run `az --version` to find the ve
 1. Run the [az policy assignment create ](cli/azure/policy/assignment#az-policy-assignment-create) command in the Azure CLI to create a resource policy assignment, as below:
 
 ```azurecli-interactive
-az policy assignment create --name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' --display-name 'Container registries should have ARM audience token authentication disabled' --scope '<scope>' --policy '<policy definition ID>'
+az policy assignment create 
+--name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' --display-name 'Configure container registries to disable ARM audience token authentication' 
+--scope '<scope>' --policy '<policy definition ID>'
 ```
 
 1. Run the [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) command in the Azure CLI to get the policy IDs of the ACR policies that are applied, as below:
 
 ```azurecli-interactive
-az policy assignment list --query "[?displayName=='Container registries should have ARM audience token authentication disabled'].id"
+az policy assignment list 
+--query "[?displayName=='Container registries should have ARM audience token authentication disabled'].id"
 ```
 
 ## Clean up resources
@@ -69,7 +72,9 @@ az policy assignment list --query "[?displayName=='Container registries should h
 1. Run the [az policy assignment delete](/cli/azure/policy/assignment#az-policy-assignment-delete) command in the Azure CLI to remove the assignment created, as below:
 
 ```azurecli-interactive
-az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+az policy assignment delete 
+--name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' 
+--scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## Next steps
