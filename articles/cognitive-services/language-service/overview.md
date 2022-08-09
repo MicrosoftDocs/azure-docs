@@ -17,17 +17,131 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.  
 
+## Available features
+
 This Language service unifies Text Analytics, QnA Maker, and LUIS and provides several new features as well. These features can either be:
+
 * Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
 * Customizable, which means you'll train an AI model using our tools to fit your data specifically.
 
-## Migrate from Text Analytics, QnA Maker, or Language Understanding?
+### Named Entity Recognition (NER)
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/named-entity-recognition.png" alt-text="A screenshot of a named entity recognition example."  lightbox="media/studio-examples/named-entity-recognition.png":::
+   :::column-end:::
+   :::column span="":::
+      [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that identifies entities in unstructured text across several pre-defined categories. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
+
+   :::column-end:::
+:::row-end:::
+
+You can use this feature with:
+
+* [**Language Studio**](language-studio.md), a web-based platform where you can try NER without needing writing code.
+* [**REST API and client library (Azure SDK)**](named-entity-recognition/quickstart.md), which enables you to integrate NER into your applications using the REST API, or the client library available in a variety of languages.
+
+### Personally identifying (PII) and health (PHI) information  detection
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/personal-information-detection.png" alt-text="A screenshot of a PII detection example." lightbox="media/studio-examples/personal-information-detection.png":::
+   :::column-end:::
+   :::column span="":::
+      [PII detection](./personally-identifiable-information/overview.md) is a pre-configured feature that identifies, categorizes, and redacts sensitive information in both [unstructured text documents](./personally-identifiable-information/how-to-call.md), and [conversation transcripts](./personally-identifiable-information/how-to-call-for-conversations.md). For example: phone numbers, email addresses, forms of identification, [and more](./personally-identifiable-information/concepts/entity-categories.md).
+
+   :::column-end:::
+:::row-end:::
+
+You can use this feature with:
+
+* [**Language Studio**](language-studio.md), a web-based platform where you can try PII detection without needing writing code.
+* [**REST API and client library (Azure SDK)**](./personally-identifiable-information/quickstart.md), which enables you to integrate PII detection into your applications using the REST API, or the client library available in a variety of languages.
+
+### Key phrase extraction
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/key-phrases.png" alt-text="A screenshot of a key phrase extraction example." lightbox="media/studio-examples/key-phrases.png":::
+   :::column-end:::
+   :::column span="":::
+      [Key phrase extraction](./key-phrase-extraction/overview.md) is a pre-configured feature that evaluates and returns the main concepts in unstructured text, and returns them as a list.
+   :::column-end:::
+:::row-end:::
+
+You can use this feature with:
+
+* [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
+* [**REST API and client library (Azure SDK)**](./key-phrase-extraction/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.
+
+### Entity linking
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/entity-linking.png" alt-text="A screenshot of an entity linking example." lightbox="media/studio-examples/entity-linking.png":::
+   :::column-end:::
+   :::column span="":::
+      [Entity linking](./entity-linking/overview.md) is a pre-configured feature that disambiguates the identity of entities found in unstructured text and returns links to Wikipedia. 
+   :::column-end:::
+:::row-end:::
+
+You can use this feature with:
+
+* [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
+* [**REST API and client library (Azure SDK)**](./entity-linking/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.
+
+
+### Text analytics for health
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="text-analytics-for-health/media/call-api/health-named-entity-recognition.png" alt-text="A screenshot of a text analytics for health example." lightbox="text-analytics-for-health/media/call-api/health-named-entity-recognition.png":::
+   :::column-end:::
+   :::column span="":::
+      [Text analytics for health](./text-analytics-for-health/overview.md) is a pre-configured feature that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 
+   :::column-end:::
+:::row-end:::
+
+You can use this feature with:
+
+* [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
+* [**REST API and client library (Azure SDK)**](./entity-linking/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.
+* [**Docker container**](text-analytics-for-health/how-to/use-containers.md), to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. 
+
+### Custom Named Entity Recognition (Custom NER)
+
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="media/studio-examples/custom-named-entity-recognition.png" alt-text="A screenshot of a custom NER example." lightbox="media/studio-examples/custom-named-entity-recognition.png":::
+   :::column-end:::
+   :::column span="":::
+      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build an AI model to extract custom entity categories, using unstructured text that you provide. 
+   :::column-end:::
+:::row-end:::
+
+You can use this feature with:
+
+* [**Language Studio**](./custom-named-entity-recognition/quickstart.md?pivots=language-studio), a web-based platform where you can do the following without needing to write code:
+    * Create and manage a custom NER project
+    * Author, evaluate, and publish an AI model 
+    * Send prediction requests to your model, and view the output visually
+* [**REST API**](./custom-named-entity-recognition/quickstart.md?pivots=rest-api): 
+    * Create and manage a custom NER project
+    * Author, evaluate, and publish an AI model
+    * Send prediction requests to your model, and integrate it into your applications
+* [**Client library (Azure SDK)**](custom-named-entity-recognition/how-to/call-api.md):
+    * Send prediction requests to your model after it has been created with either Language Studio, or the REST API.
+
+
+
+## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 
 Azure Cognitive Services for Language unifies three individual language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
 
-## Available features
 
-Azure Cognitive Service for Language provides the following features:
+
+<!--Azure Cognitive Service for Language provides the following features:
 
 > [!div class="mx-tdCol2BreakAll"]
 > |Feature  |Description  | Deployment options| 
@@ -46,7 +160,7 @@ Azure Cognitive Service for Language provides the following features:
 > | [Conversational language understanding](conversational-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. | * [Language Studio](conversational-language-understanding/quickstart.md?pivots=language-studio) <br> * [REST API](conversational-language-understanding/quickstart.md?pivots=rest-api) <br> * [client-library (prediction only)](conversational-language-understanding/how-to/call-api.md) |
 > | [Question answering](question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. | * [Language Studio](language-studio.md) <br> * [REST API and client-library](question-answering/quickstart/sdk.md) |
 > | [Orchestration workflow](orchestration-workflow/overview.md)    | Train language models to connect your applications to question answering, conversational language understanding, and LUIS |  * [Language Studio](orchestration-workflow/quickstart.md?pivots=language-studio) <br> * [REST API](orchestration-workflow/quickstart.md?pivots=rest-api) <br> * [client-library (prediction only)](orchestration-workflow/how-to/call-api.md) |
-
+-->
 
 ## Tutorials
 
