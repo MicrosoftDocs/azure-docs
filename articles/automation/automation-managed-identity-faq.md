@@ -2,7 +2,7 @@
 title: Azure Automation Migration to Managed Identity FAQ
 description: This article gives answers to frequently asked questions when you're migrating from Run As account to Managed Identity
 services: automation
-ms.subservice: 
+ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 07/25/2021
 ms.custom: devx-track-azurepowershell
@@ -15,7 +15,7 @@ This Microsoft FAQ is a list of commonly asked questions when you're migrating f
 
 ## How long will you support Run As account?
  
-Automation Run As account would be supported for the next one year until **September 30, 2023**. While we continue to support for existing users, we recommend all new users to use Managed identities as the preferred way of runbook authentication. Existing users can create the Run As account, see the  account properties and renew the certificate upon expiration till **May 30, 2023**. After this date, you won't be able to create Run As account from the Azure portal. You could still create a Run As account through [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell) until the supported time of one year.
+Automation Run As account will be supported for the next one year until **September 30, 2023**. While we continue to support existing users, we recommend all new users to use Managed identities as the preferred way of runbook authentication. Existing users can still create the Run As account, see the  account properties and renew the certificate upon expiration till **May 30, 2023**. After this date, you won't be able to create a Run As account from the Azure portal. You will still be able to create a Run As account through [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell) until the supported time of one year.
 
 ## What is Managed Identity?
 Managed identities provide an automatically managed identity in Azure Active Directory for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications can use managed identities to obtain Azure AD tokens without managing credentials, secrets, certificates or keys. 
@@ -35,7 +35,7 @@ Run As account creates an Azure AD app used to manage the resources within the s
 Managed identities eliminate this overhead by providing a secure method for the users to authenticate and access resources that support Azure AD authentication without worrying about any certificate or credential management.
 
 ## Can Managed Identity be used for both cloud and hybrid jobs?
-Azure Automation supports [System-assigned managed identities](/azure/automation/automation-security-overview#managed-identities) for both cloud and Hybrid jobs. Hybrid jobs could be running on a Hybrid runbook worker running on an Azure or non-Azure VM. Currently, Azure Automation supports [User-assigned managed identities](/azure/automation/automation-security-overview#managed-identities-preview) for cloud jobs only.
+Azure Automation supports [System-assigned managed identities](/azure/automation/automation-security-overview#managed-identities) for both cloud and Hybrid jobs. Currently, Azure Automation [User-assigned managed identities](/azure/automation/automation-security-overview#managed-identities-preview) can only be used for cloud jobs only and cannot be used for jobs run on a Hybrid Worker.
 
 ## Can I use Run as account for new Automation account?
 Yes, only in a scenario when Managed identities aren't supported for specific on-premises resources. We'll allow the creation of Run As account through [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell).
