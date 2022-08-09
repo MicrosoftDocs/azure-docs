@@ -196,7 +196,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
         $statimemberB = New-AzNetworkManagerStaticMember @sm
     ```
     
-        ```azurepowershell-interactive
+    ```azurepowershell-interactive
     $smC = @{
             Name = Get-UniqueString $virtualNetworkC.Id
             ResourceGroupName = $rg.Name
