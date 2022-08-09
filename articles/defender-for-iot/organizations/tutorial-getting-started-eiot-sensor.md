@@ -78,7 +78,7 @@ This procedure describes how to prepare your physical appliance or VM to install
 
     - **Physical appliance** - Connect a monitoring NIC to a SPAN port directly by a copper or fiber cable.
 
-    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For more information, see, for example [Configure a SPAN monitoring interface for a virtual appliance](troubleshoot-enterprise-iot.md#configure-a-span-monitoring-interface-for-a-virtual-appliance).
+    - **VM** - Connect a vNIC to a vSwitch, and configure your vSwitch security settings to accept *Promiscuous mode*. For more information, see, for example [Configure a SPAN monitoring interface for a virtual appliance](extra-deploy-enterprise-iot.md#configure-a-span-monitoring-interface-for-a-virtual-appliance).
 
 1. <a name="sign-in"></a>Sign in to your physical appliance or VM and run the following command to validate incoming traffic to the monitoring port:
 
@@ -113,10 +113,12 @@ This procedure describes how to prepare your physical appliance or VM to install
     - **Download Center**: `download.microsoft.com`
     - **IoT Hub**: `*.azure-devices.net`
 
-    For more information, see [(Optional) Download Azure public IP ranges](#optional-download-azure-public-ip-ranges).
+    > [!TIP]
+    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure domains that are specified above, along with their region.
+    >
+    > The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
 When you're ready, continue with [Register an Enterprise IoT sensor and install sensor software](#register-an-enterprise-iot-sensor-and-install-sensor-software).
-
 
 ## Register an Enterprise IoT sensor and install sensor software
 
@@ -150,20 +152,15 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
 
 ## Install the sensor software
 
-Run the command that you received and saved when you registered the Enterprise IoT sensor. The installation process checks to see if the required Docker version is already installed. If it’s not, the sensor installation also installs the latest Docker version.
+Run the command that you received and saved when you registered the Enterprise IoT sensor.
 
-**To install the sensor**:
+The installation process checks to see if the required Docker version is already installed. If it’s not, the sensor installation also installs the latest Docker version.
 
-1. Sign in to the sensor's CLI using a terminal, such as PuTTY, or MobaXterm.
+<a name="install"></a>**To install the sensor**:
 
-1. Run the command that you saved from [setting up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
+1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
 
-    The installation wizard appears when the command process completes:
->>>>>>> a67fede8488232403abf6651f3877e371cbd175c
-
-<a name="install"></a>**To install Enterprise IoT sensor software**:
-
-1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm, and run the command that you'd saved from the Azure portal. For example:
+1. Run the command that you'd saved from the Azure portal. For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/enter-command.png" alt-text="Screenshot of running the command to install the Enterprise IoT sensor monitoring software.":::
 
@@ -185,18 +182,11 @@ Run the command that you received and saved when you registered the Enterprise I
 
     The installation takes a few minutes to complete.
 
-1. In the Azure portal, check the **Sites and sensors** page now lists your new sensor.
+1. In the Azure portal, check that the **Sites and sensors** page now lists your new sensor.
 
     For example:
 
-    <add example of enterprise iot sensor in the portal>.
-
-### (Optional) Download Azure public IP ranges
-
-You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure domains that are specified above, along with their region.
-
-> [!Note]
-> The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
+    :::image type="content" source="media/tutorial-get-started-eiot/view-sensor-listed.png" alt-text="Screenshot of your new Enterprise IoT sensor listed in the Sites and sensors page.":::
 
 ## View detected Enterprise IoT devices in Azure
 
