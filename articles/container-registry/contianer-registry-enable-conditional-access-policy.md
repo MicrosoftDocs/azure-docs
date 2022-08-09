@@ -12,13 +12,13 @@ The [Conditional Access Policy](/azure/active-directory/conditional-access/overv
 
 The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
 
-Learn more about [Conditional Access Policy](conditional-access/overview.md), the [conditions](conditional-access/overview.md#common-signals,) you'll take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview.md#common-decisions)
+Learn more about [Conditional Access Policy](/azure/active-directory/conditional-access/overview.md), the [conditions](/azure/active-directory/conditional-access/overview.md#common-signals,) you'll take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview.md#common-decisions)
 
 ## Prerequisites
 
 >* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later. To find the version, run `az --version`.
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
->* Sign into [Azure portal](https://portal.azure.com) 
+>* [!INCLUDE [Use Azure Cloud Shell](cloud-shell-try-it-no-header.md)]
+>* Sign into [Azure portal.](https://portal.azure.com) 
 
 ## Azure Container Registry (ACR) introduces the conditional access policy
 
@@ -44,9 +44,10 @@ You can enable registry's conditional access policy in the [Azure portal](https:
 
 :::image type="content" source="media/container-registry-enable-conditional-policy/02-assign-policy.png" alt-text="Screenshot to search and filter ACR built-in policy definition.":::
 
+5. Use the filters to limit compliance states or to search for policies
+
 :::image type="content" source="media/container-registry-enable-conditional-policy/02-conditional-policy.png" alt-text="Search and filter conditional access policy in ACR built-in policy definition.":::
 
-5. Use the filters to limit compliance states or to search for policies
 6. Confirm your settings and set policy enforcement as **enabled**
 7. Select **Review+Create**
 
@@ -54,7 +55,7 @@ You can enable registry's conditional access policy in the [Azure portal](https:
 
 You can use Azure CLI version 2.0.76 or later, run `az --version` to find the version. 
 
-1. Run the [az policy assignment create ](cli/azure/policy/assignment#az-policy-assignment-create) command in the Azure CLI to create a resource policy assignment, as below:
+1. Run the [az policy assignment create ](/cli/azure/policy/assignment#az-policy-assignment-create) command in the Azure CLI to create a resource policy assignment, as below:
 
 ```azurecli-interactive
 az policy assignment create \ 
@@ -86,6 +87,6 @@ To learn more about assigning policies to validate that new resources are compli
 tutorial for:
 
 > [!div class="nextstepaction"]
-> [Create and manage policies](./tutorials/create-and-manage.md)
+> [Create and manage policies](../tutorials/create-and-manage.md)
 > Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md).
 > Learn more about [governance capabilities](../governance/index.yml).
