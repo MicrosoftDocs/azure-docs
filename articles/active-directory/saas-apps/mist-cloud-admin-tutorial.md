@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Mist Cloud Admin SSO with Azure 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* •	Mist Cloud account, you can create an account [here](https://manage.mist.com/).
+* Mist Cloud account, you can create an account [here](https://manage.mist.com/).
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
@@ -77,7 +77,7 @@ To configure and test Azure AD SSO with Mist Cloud Admin SSO, perform the follow
 
 1. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    ![Screenshot shows to to Reply URL value.](./media/mist-cloud-admin-tutorial/reply-url.png)
+    ![Screenshot shows to Reply URL value.](./media/mist-cloud-admin-tutorial/reply-url.png)
 
 
 ## Configure Azure AD SSO
