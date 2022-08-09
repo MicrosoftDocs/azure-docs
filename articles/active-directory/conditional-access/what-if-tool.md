@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 08/09/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -59,6 +59,8 @@ You start an evaluation by clicking **What If**. The evaluation result provides 
 - Policies that don't apply to your user or workload identity.
 
 If [classic policies](policy-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you're redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
+
+:::image type="content" source="media/what-if-tool/conditional-access-what-if-evaluation-result-example.png" alt-text="Example of policy evaluation in the What If tool showing policies that would apply." lightbox="media/what-if-tool/conditional-access-what-if-evaluation-result-example.png":::
 
 On the list of policies that apply, you can also find a list of [grant controls](concept-conditional-access-grant.md) and [session controls](concept-conditional-access-session.md) that must be satisfied.
 
