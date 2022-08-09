@@ -1,5 +1,5 @@
 ---
-title: Specify the Request Service REST API verify request (preview)
+title: Specify the Request Service REST API verify request
 titleSuffix: Microsoft Entra Verified ID
 description: Learn how to start a presentation request in Verifiable Credentials
 documentationCenter: ''
@@ -14,7 +14,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
 ---
 
-# Request Service REST API presentation specification (preview)
+# Request Service REST API presentation specification
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
