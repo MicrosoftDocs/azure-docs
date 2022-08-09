@@ -644,22 +644,24 @@
   - name: How-to guides
     items:
     - name: Connect and query
-      href: hyperscale/howto-connect.md
-    - name: Develop with app stacks
       items:
         - name: Overview
           href: hyperscale/howto-app-stacks-overview.md
-        - name: Python
-          href: hyperscale/howto-app-stacks-python.md
-        - name: Node.js
-          href: hyperscale/howto-app-stacks-nodejs.md
-        - name: C#
-          href: hyperscale/howto-app-stacks-csharp.md
-        - name: Java
-          href: hyperscale/howto-app-stacks-java.md
-        - name: Ruby
-          href: hyperscale/howto-app-stacks-ruby.md
-    - name: Model distributed data
+        - name: Admin tools
+          href: hyperscale/howto-connect.md
+        - name: Application code
+          items:
+          - name: Python
+            href: hyperscale/howto-app-stacks-python.md
+          - name: Node.js
+            href: hyperscale/howto-app-stacks-nodejs.md
+          - name: C#
+            href: hyperscale/howto-app-stacks-csharp.md
+          - name: Java
+            href: hyperscale/howto-app-stacks-java.md
+          - name: Ruby
+            href: hyperscale/howto-app-stacks-ruby.md
+    - name: Model data for scalable apps
       items:
       - name: Overview
         href: hyperscale/howto-build-scalable-apps-overview.md
