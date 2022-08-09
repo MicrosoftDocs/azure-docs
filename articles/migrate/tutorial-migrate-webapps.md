@@ -1,11 +1,11 @@
 ---
-title: Migrate ASP.NET web apps to Azure App Service using Azure Migrate
+title: Modernize ASP.NET web apps to Azure App Service code
 description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Migrate
 author: vineetvikram
 ms.author: vivikram
 ms.service: azure
 ms.topic: tutorial
-ms.date: 06/21/2022
+ms.date: 08/09/2022
 ms.custom: template-tutorial
 ---
 
