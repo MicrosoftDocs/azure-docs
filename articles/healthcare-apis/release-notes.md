@@ -27,9 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-| History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. 
-
-Example: `<Server URL>/_history?_sort=_lastUpdated` 
+| History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />Example: `<Server URL>/_history?_sort=_lastUpdated` 
 
 For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
 
