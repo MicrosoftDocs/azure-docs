@@ -138,7 +138,7 @@ The following diagram illustrates an Azure-native environment:
 
 A basic scenario is to create or connect to an Azure NetApp Files volume from a VM in the same VNet. For VNet 2 in the diagram, Volume 1 is created in a delegated subnet and can be mounted on VM 1 in the default subnet.
 
-### VNet peering
+### <a name="vnet-peering"></a> VNet peering
 
 If you have additional VNets in the same region that need access to each other’s resources, the VNets can be connected using [VNet peering](../virtual-network/virtual-network-peering-overview.md) to enable secure connectivity through the Azure infrastructure. 
 
@@ -147,6 +147,16 @@ Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 
 Also, consider a scenario where VNet 1 is peered with VNet 2, and VNet 2 is peered with VNet 3 in the same region. The resources from VNet 1 can connect to resources in VNet 2, but it can't connect to resources in VNet 3 unless VNet 1 and VNet 3 are peered. 
 
 In the diagram above, although VM 3 can connect to Volume 1, VM 4 can't connect to Volume 2.  The reason for this is that the spoke VNets aren't peered, and _transit routing isn't supported over VNet peering_.
+
+### Global or cross-region VNet peering
+
+The following diagram illustrates an Azure-native environment with cross-region VNet peering. 
+
+:::image type="content" source="../media/azure-netapp-files/azure-native-cross-region-peering.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/azure-native-cross-region-peering.png":::
+
+With the standard network feature, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds an additional region to the diagram in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
+
+In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2, and VM5 in Region 2 can connected to Volume 2 in Region 1 via VNet peering between Region 1 and Region 2. VNet 4 can only connect to Vnet 3.
 
 ## Hybrid environments
 
