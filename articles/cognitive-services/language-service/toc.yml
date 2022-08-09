@@ -63,7 +63,7 @@ items:
     href: custom-text-classification/language-support.md
   - name: Custom text classification FAQ
     href: custom-text-classification/faq.md
-  - name: SDK Samples
+  - name: SDK samples
     items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
@@ -152,7 +152,7 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: Custom NER FAQ
     href: custom-named-entity-recognition/faq.md
-  - name: SDK Samples
+  - name: SDK samples
     items:
     - name: Java
       href: https://aka.ms/sdk-samples-java
@@ -544,7 +544,7 @@ items:
     href: named-entity-recognition/quickstart.md
   - name: NER language support
     href: named-entity-recognition/language-support.md
-  - name: SDK Samples
+  - name: SDK samples
     items:
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
@@ -689,7 +689,7 @@ items:
     href: personally-identifiable-information/quickstart.md
   - name: PII language support
     href: personally-identifiable-information/language-support.md
-  - name: SDK Samples
+  - name: SDK samples
     items:
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
