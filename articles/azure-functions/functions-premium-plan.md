@@ -168,7 +168,7 @@ You can configure the plan size and maximums in the Azure portal by selecting th
 You can also increase the maximum burst limit from the Azure CLI:
 
 ```azurecli-interactive
-az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
+az functionapp plan update -g <RESOURCE_GROUP> -n <PREMIUM_PLAN_NAME> --max-burst <YOUR_MAX_BURST>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -176,7 +176,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burs
 You can also increase the maximum burst limit from the Azure PowerShell:
 
 ```azurepowershell-interactive
-Update-AzFunctionAppPlan -ResourceGroupName <resource_group> -Name <premium_plan_name> -MaximumWorkerCount <desired_max_burst> -Force
+Update-AzFunctionAppPlan -ResourceGroupName <RESOURCE_GROUP> -Name <PREMIUM_PLAN_NAME> -MaximumWorkerCount <YOUR_MAX_BURST> -Force
 ```
 
 ---
@@ -198,7 +198,7 @@ You can configure the minimum instances in the Azure portal by selecting the **S
 Increasing the calculated minimum for a plan can be done using the Azure CLI.
 
 ```azurecli-interactive
-az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
+az functionapp plan update -g <RESOURCE_GROUP> -n <PREMIUM_PLAN_NAME> --min-instances <YOUR_MIN_INSTANCES>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -206,7 +206,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 Increasing the calculated minimum for a plan can be done using the Azure PowerShell.
 
 ```azurepowershell-interactive
-Update-AzFunctionAppPlan -ResourceGroupName <resource_group> -Name <premium_plan_name> -MinimumWorkerCount <desired_min_instances> -Force
+Update-AzFunctionAppPlan -ResourceGroupName <RESOURCE_GROUP> -Name <PREMIUM_PLAN_NAME> -MinimumWorkerCount <YOUR_MIN_INSTANCES> -Force
 ```
 
 ---
