@@ -27,14 +27,14 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 ## Billing
 
-Billing for the Premium plan is based on the number of core seconds and memory allocated across instances. This billing differs from the Consumption plan, which is billed per execution and memory consumed. There's no execution charge with the Premium plan. This billing results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+Billing for the Premium plan is based on the number of core seconds and memory allocated across instances. This billing differs from the Consumption plan, which is billed based on per-second resource consumption and executions. There's no execution charge with the Premium plan. This billing results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
 > [!NOTE]
 > Every premium plan has at least one active (billed) instance at all times.
 
 ## Create a Premium plan
 
-When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create or choose a Premium hosting plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they must both run on the same operating system (Windows or Linux).
+When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create or choose an Azure Functions Premium hosting plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they must both run on the same operating system (Windows or Linux).
 
 The following articles show you how to create a function app with a Premium plan, either programmatically or in the Azure portal:
 
@@ -48,7 +48,7 @@ When events or executions don't occur in the Consumption plan, your app may scal
 
 Premium plan provides two features that work together to effectively eliminate cold starts in your functions: _always ready instances_ and _pre-warmed instances_. Always ready instances are a number of pre-allocated instances unaffected by scaling, and the pre-warmed ones are a buffer as you scale due to HTTP events.
 
-When events begin to trigger the app, they're first routed to the always ready instances. As the function becomes active due to HTTP events, additional instances will be warmed as a buffer. This buffer prevents cold start for new instances required during scale. These buffered instances are called pre-warmed instances.
+When events begin to trigger the app, they're first routed to the always ready instances. As the function becomes active due to HTTP events, additional instances will be warmed as a buffer. These buffered instances are called pre-warmed instances. This buffer reduces cold start for new instances required during scale.
 
 ### Always ready instances
 
