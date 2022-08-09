@@ -91,22 +91,15 @@ For more information, see the [ExpressRoute routing requirements](../expressrout
 
 ### Operating systems and applications at end of support
 
-|Workload|Version|Azure Backup Server</br> installation| Azure Backup Server|Protection and recovery|
+Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
+
+If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
+
+For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
+
+|Workload |Version |Azure Backup Server installation |Azure Backup Server |Protection and recovery |
 |------------|-----------|---------------|--------------|--------------|
-|Servers (32-bit and 64-bit)|Windows Server 2008 R2 SP1 - Standard and Enterprise|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2<br />You need to be running SP1 and install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, share, folder, file, system state/bare metal|
-|Servers (32-bit and 64-bit)|Windows Server 2008 R2 SP1 - Standard and Enterprise|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|V3, V2<br />You need to be running SP1 and install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, share, folder, file|
-|Servers (32-bit and 64-bit)|Windows Server 2008 R2 SP1 - Standard and Enterprise|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMWare)<br /> <br /> Azure Stack|V3, V2<br />You need to be running SP1 and install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, share, folder, file, system state/bare metal|
-|Servers (32-bit and 64-bit)|Windows Server 2008 SP2|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|Not supported|Volume, share, folder, file, system state/bare metal|
-|Servers (32-bit and 64-bit)|Windows Server 2008 SP2|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMware)<br /> <br /> Azure Stack|V3, V2|Volume, share, folder, file, system state/bare metal|
-|Servers (32-bit and 64-bit)|Windows Storage Server 2008|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|Volume, share, folder, file, system state/bare metal|
-|SQL Server|SQL Server 2008 R2|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
-|SQL Server|SQL Server 2008 R2|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
-|SQL Server|SQL Server 2008 R2|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMware)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
-|SQL Server|SQL Server 2008|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
-|SQL Server|SQL Server 2008|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
-|SQL Server|SQL Server 2008|Windows virtual machine in VMware (protects workloads running in Windows virtual machine in VMware)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
-|Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008 R2 SP1 - Enterprise and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|V3, V2|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
-|Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008 SP2|Physical server<br /><br />On-premises Hyper-V virtual machine|Not supported|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
+|Servers (64-bit) | Windows Server 2008 R2 SP1, Windows Server 2008 SP2 (You need to install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)) | Physical server <br><br> Hyper-V virtual machine <br><br> VMware virtual machine | Volume, share, folder, file, system state/bare metal |
 
 ## Cluster support
 
