@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Title |Related information |
 | :----------------------------------- | :--------------- |
-| Improvements to documentations for Events and MedTech, as well as availability zones  | Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. [Consume events with Logic Apps - Azure Health Data Services- Microsoft Docs](https://docs.microsoft.com/azure/healthcare-apis/events/events-consume-logic-apps); [Deploy Events using the Azure portal - Azure Health Data Services - Microsoft Docs](https://docs.microsoft.com/azure/healthcare-apis/events/events-deploy-portal);  |
+| Improvements to documentations for Events and MedTech, as well as availability zones  | Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. [Consume events with Logic Apps - Azure Health Data Services- Microsoft Docs](./../healthcare-apis/events/events-consume-logic-apps); [Deploy Events using the Azure portal - Azure Health Data Services - Microsoft Docs](./../healthcare-apis/events/events-deploy-portal);  |
 | One touch launch Azure MedTech deploy. | Deploy the MedTech service in the Azure portal - Azure Health Data Services - Microsoft Docs.  
 
 #### **Bug fixes**
@@ -47,7 +47,7 @@ For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/
 | Known Issue | Description |
 | :------------------------ | :------------------------------- |
 | Using token type fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations.  | Currently, no workaround available. |
-| Queries not providing consistent result count after appended with `_sort` operator. For more information see [#2680](https://github.com/microsoft/fhir-server/pull/2680). | Currently, no workaround available.|
+| Queries not providing consistent result count after appended with _sort operator. For more information see [#2680](https://github.com/microsoft/fhir-server/pull/2680). | Currently, no workaround available.|
 
 For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
 
