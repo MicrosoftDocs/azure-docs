@@ -160,3 +160,102 @@ They also write detailed logs of their execution (eg. _"/var/log/azure/custom-sc
 
 It could happen that you're creating an Azure VM based on a specialized Disk coming from another Azure VM. In that case, it's possible that the old VM contained  extensions, and so will have binaries, logs and status files left over. The new VM model will not be aware of the previous VM's extensions states, and it might report an incorrect status for these extensions. We strongly recommend to remove the extensions from the old VM before creating the new one, and then reinstall these extensions once the new VM is created.
 The same can happen when you create a generalized image from an existing Azure VM. We invite you to remove extensions to avoid inconsistent state from the extensions.
+
+<br/>
+
+### Powershell is not recognized as an internal or external command
+
+You notice the following error entries in the RunCommand extension's output:
+
+```Log sample
+RunCommandExtension failed with "'powershell' is not recognized as an internal or external command,"
+```
+
+**Analysis**
+
+Extensions run under Local System account, so it's very possible that powershell.exe works fine when you RDP into the VM, but fails when run with RunCommand.
+
+**Solution**
+
+- Check that PowerShell is properly listed in the PATH environment variable:
+    - Open Control Panel
+    - System and Security
+    - System
+    - Advanced tab -> Environmental Variables
+- Under 'System variables' click edit and ensure that PowerShell is in the PATH environment variable (usually: "C:\Windows\System32\WindowsPowerShell\v1.0")
+- Reboot the VM or restart the WindowsAzureGuestAgent service then try the Run Command again.
+
+<br/>
+
+### Command is not recognized as an internal or external command
+
+You see the following in the C:\WindowsAzure\Logs\Plugins\<ExtensionName>\<Version>\CommandExecution.log file:
+
+```Log sample
+Execution Error: '<command>' is not recognized as an internal or external command, operable program or batch file.
+```
+
+**Analysis**
+
+Extensions run under Local System account, so it's very possible that powershell.exe works fine when you RDP into the VM, but fails when run with RunCommand.
+
+**Solution**
+
+- Open a Command Prompt in the VM and execute a command to reproduce the error. The VM Agent uses the Administrator cmd.exe and you may have some preconfigured command to execute every time cmd is started.
+- It's also likely that your PATH variable is misconfigured, but this will depend on the command that is having the problem.
+
+
+
+
+<br/>
+
+### VMAccessAgent is failing with Cannot update Remote Desktop Connection settings for Administrator account. Error: System.Runtime.InteropServices.COMException (0x800706D9): There are no more endpoints available from the endpoint mapper.
+
+You see the following in the extension's status:
+
+```Log sample
+Type Microsoft.Compute.VMAccessAgent
+Version 2.4.8
+Status Provisioning failed
+Status level Error
+Status message Cannot update Remote Desktop Connection settings for Administrator account. Error: System.Runtime.InteropServices.COMException (0x800706D9): There are no more endpoints available from the endpoint mapper. (Exception from HRESULT: 0x800706D9) at NetFwTypeLib.INetFwRules.GetEnumerator() at 
+Microsoft.WindowsAzure.GuestAgent.Plugins.JsonExtensions.VMAccess.RemoteDesktopManager.EnableRemoteDesktopFirewallRules() 
+at Microsoft.WindowsAzure.GuestAgent.Plugins.JsonExtensions.VMAccess.RemoteDesktopManager.EnableRemoteDesktop() at
+```
+
+**Analysis**
+
+This error can happen when the Windows Firewall service is not running.
+
+**Solution**
+
+Check if the Windows Firewall service is enabled and running. If it's not, please enable and start it - then try again to run the VMAccessAgent.
+
+
+
+
+<br/>
+
+### The remote certificate is invalid according to the validation procedure.
+
+You see the following in the WaAppAgent.log
+
+```Log sample
+System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.
+Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+```
+
+**Analysis**
+
+Your VM is probably missing the Baltimore CyberTrust Root certificate in "Trusted Root Certification Authorities".
+
+**Solution**
+
+Open the certificates console with certmgr.msc, and check if the certificate is there.
+If it's not, please install it from https://cacert.omniroot.com/bc2025.crt
+
+Another possible issue is that the certificate chain is broken by a 3rd party SSL Inspection tool, like ZScaler. That kind of tool should be configured to bypass SSL inspection.
+
+
+
+
