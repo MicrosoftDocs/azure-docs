@@ -136,9 +136,8 @@ If you're experiencing general connectivity issues with IoT Hub, check out these
 
 * [Connection and retry patterns with device SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 * [Understand and resolve Azure IoT Hub error codes](troubleshoot-error-codes.md).
-* Learn more about [analyzing logs](monitor-iot-hub.md#analyzing-logs) with Azure Monitor.
 
-If you're watching Azure Monitor after migrating certificates, you should look for a DeviceDisconnect event followed by a DeviceConnect events, as demonstrated in the following screenshot:
+If you're watching Azure Monitor after migrating certificates, you should look for a DeviceDisconnect event followed by a DeviceConnect event, as demonstrated in the following screenshot:
 
 :::image type="content" source="./media/migrate-tls-certificate/monitor-device-disconnect-connect.png" alt-text="Use Azure Monitor logs to see DeviceDisconnect and DeviceConnect events.":::
 
@@ -148,7 +147,7 @@ If your device disconnects but doesn't reconnect after the migration, try the fo
 
 * Verify that the device has the DigiCert Global Root G2 certificate installed in the certificate store.
 
-* Use the following sample Kusto query to identify connection activity for your devices. For more information, see [Kusto Query Language (KQL) overview](data-explorer/kusto/query/index.md).
+* Use the following sample Kusto query to identify connection activity for your devices. For more information, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
   ```kusto
   AzureDiagnostics
