@@ -7,7 +7,7 @@ ms.date: 08/09/2022
 
 # Enable VMware Cloud director service with Azure VMware solution (Public Preview)
 
-VMware Cloud Director service (VMware Cloud Director service | Managed Service | Cloud Solutions & Services) with Azure VMware solutions enables Enterprise customers to leverage Azure VMware solutions resourcesAzure VMware solutions private cloud  s underlying resources for virtual datacenters. 
+In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware solution for enterprise customers to use Azure VMware solutions resources and Azure VMware solutions private clouds with underlying resources for virtual datacenters.
 
 >[!IMPORTANT] 
 > Cloud director service (CDs) is now available to use with Azure VMware solutions under the Enterprise Agreement (EA) model only. It's not suitable for MSP / Hoster to resell Azure VMware Solution capacity to customers at this point. For more information, see [Azure Service terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#GeneralServiceTerms).
@@ -19,7 +19,7 @@ VMware Cloud Director service (VMware Cloud Director service | Managed Service |
 ## Associate Cloud director service with Azure VMware solutions SDDC
 
 1.	Provision Azure VMware solutions SDDC. [Deploy and configure Azure VMware Solution - Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/deploy-azure-vmware-solution)
-1.	Open an Azure VMware solutions support ticket to apply for **NSX-T Certification change in SDDC to enable connectivity for cloud director instance**. After that ticket is fulfilled, go to the next step.
+1.	Open an Azure VMware solutions support ticket to apply for **NSX-T Certification change in SDDC to enable connectivity for cloud director instance**. After the ticket is fulfilled, go to the next step.
 1.	Deploy Cloud director service. [How Do I Create a VMware Cloud Director Instance](https://docs.vmware.com/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html)
 1.	Associate your SDDC on Azure VMware solutions with your VMware cloud director instance by creating a proxy VM through which to route all network traffic to your underlying SDDC resources. 
 
@@ -42,11 +42,11 @@ As shown in figure above, Organization 01 has two organization Virtual datacente
 IPSEC tunnel is configured between ORG VDC edge gateway and Azure vNET VPN gateway. Providers provide Public IP to organization VDC being used for IPSEC VPN configuration. ORG VDC Edge gateway’s firewall blocks all traffic by default, specific allow rules needs to be added on Organization Edge gateway firewall.  
 
 ## Prerequisite  
-- Organization VDC is configured with an Edge gateway and has Public Ips assigned to it to establish IPSEC VPN by provider.
+- Organization VDC is configured with an Edge gateway and has Public IPs assigned to it to establish IPSEC VPN by provider.
 - 	Tenants have created a routed Organization VDC network in tenant’s Virtual datacenter.
 - Test VM1 and VM2 are created in the Organization VDC1 and VDC2 respectively. Both VMs are connected to the routed orgVDC network in their respective VDCs.
 - A dedicated Azure vNET is configured for each tenant. For this example, we created Tenant1-vNet and Tenant2-vNet for tenant1 and tenant2 respectively. https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-vnet-manually
-- Create Azure Virtual network gateway for vNets created in step 4. https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway
+- Create Azure Virtual network gateway for vNETs created in step 4. https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway
 - Deploy Azure VMs JSVM1 and JSVM2 for tenant1 and tenant2 for test purposes.
 
 > [Note]
@@ -63,10 +63,10 @@ Create the following components in tenant’s dedicated Azure vNet to establish 
 To create a Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway)
 
 ## Create local network gateway
-1.	Log in to Azure portal and select **Local network gateway** from marketplace and then select **Create**.
+1.	Log in to the Azure portal and select **Local network gateway** from marketplace and then select **Create**.
 1.	Local Network Gateway represents remote end site details. Therefore provide tenant1 OrgVDC public IP address and orgVDC Network details to create local end point for tenant1. 
 1.	Under **Instance details**, select **Endpoint** as IP address
-1.	Add IP address (add Public IP address form tenant’s OrgVDC Edge gateway).
+1.	Add IP address (add Public IP address from tenant’s OrgVDC Edge gateway).
 1.	Under **Address space** add **Tenants Org VDC Network**.
 1.	Similarly, create Local network gateway for tenant2.
 
@@ -103,7 +103,7 @@ Select connection you created earlier and then select **configuration** to view 
    >[Note]
     > VPN tunnel would not establish if these settings were mismatched.
 1. Under **Peer Authentication Mode**, Provide the same pre-shared key which is used at Azure VPN gateway.
-1. Under **Endpoint configuration**, add Organization’s public IP and network details in local endpoint and Azure VNet details in remote endpoint configuration.
+1. Under **Endpoint configuration**, add the Organization’s public IP and network details in local endpoint and Azure VNet details in remote endpoint configuration.
 1. Under **Ready to complete**, review applied configuration.
 1. Select **Finish** to apply configuration.
 
@@ -128,7 +128,7 @@ Organization VDC Edge router firewall denies traffic by default. We need to appl
          Status of tunnel should show **UP**.
 4.	Verify IPsec connection
      1.	Log in to Azure VM deployed in tenants vNET and ping tenant’s test VM IP address in tenant’s OrgVDC. For example, ping VM1 from JSVM1. Similarly, you should be able to ping VM2 from JSVM2.
-     1.	You can also verify isolation between tenants Azure vNETs. Tenant1’s  VM1 won't be able to ping Tenant2’s Azure VM JSVM2 in tenant2 Aure vnet. 
+     1.	You can verify isolation between tenants Azure vNETs. Tenant1’s  VM1 won't be able to ping Tenant2’s Azure VM JSVM2 in tenant2 Azure vNETs. 
 
 ## Access public internet connectivity to tenant’s workload 
 
@@ -140,31 +140,31 @@ Organization VDC Edge router firewall denies traffic by default. We need to appl
 
 ### Prerequisites
 1.	Public IP is assigned to the organization VDC Edge router. 
-     To verify, log in to organization VDC. Under **Networking**> **Edges**, select **Edge Gateway** and then select **IP allocations** under **IP management**. You should see a range of IP address assigned there.
+     To verify, log in to the organization's VDC. Under **Networking**> **Edges**, select **Edge Gateway** and then select **IP allocations** under **IP management**. You should see a range of IP address assigned there.
 2.	Create a routed Organization VDC network. (Connect OrgvDC network to the edge gateway with public IP address assigned)
 	
 ### Apply SNAT configuration
-1.	Login to Organization VDC. Navigate to your Edge gateway and then select NAT under services.
+1.	Log in to Organization VDC. Navigate to your Edge gateway and then select NAT under services.
 2.	Select New to add new SNAT rule.
 3.	Provide Name and select Interface type as SNAT.
-4.	Under External IP, enter public IP address from public IP pool assigned to your orgVDC edge router.
-5.	Under Internal IP, enter IP address for your test VM (one of the orgVDC network IP assigned to the VM)
-6.	State should be enabled
+4.	Under **External IP**, enter public IP address from public IP pool assigned to your orgVDC Edge router.
+5.	Under Internal IP, enter IP address for your test VM (one of the orgVDC network IP assigned to the VM).
+6.	**State** should be enabled.
 7.	Under Priority, select a higher number such as 4096.
 8.	Select **Save** to save the configuration.
 
-### Apply Firewall Rule
-1. Login to Organization VDC and navigate to **Edge Gateway** and then select **IP set** under security.
+### Apply firewall rule
+1. Log in to Organization VDC and navigate to **Edge Gateway** and then select **IP set** under security.
 2. Create an IPset. Provide IP address of your VM (you can use CIDR also). Select save.
-3. Under **services**, select Firewall and then select Edit rules
+3. Under **services**, select **Firewall** and then select **Edit rules**.
 4. Select **New ON TOP** and create a firewall rule to allow desired port and destination.
 1. Select the **IPset** your created earlier as source. Under Action, select **Allow**.
 1. Select **Keep** to save the configuration.
-1. Login to your test VM and ping your destination address to verify outbound connectivity.
+1. Log in to your test VM and ping your destination address to verify outbound connectivity.
 
 ## FAQs
 **Question**: In which Azure regions, VMware cloud director service is supported?
-**Answer**: This offering is supported in all Azure regions where Azure VMware solutions are available. Ensure that the region you wish to connect to Cloud Director service is within a 150- milliseconds round trip time for latency with cloud director service.
+**Answer**: This offering is supported in all Azure regions where Azure VMware solutions are available. Ensure that the region you wish to connect to Cloud Director service is within a 150-milliseconds round trip time for latency with cloud director service.
 
 **Question**: Is Avi Load balancer supported on CDS with Azure VMware Solutions? 
 
