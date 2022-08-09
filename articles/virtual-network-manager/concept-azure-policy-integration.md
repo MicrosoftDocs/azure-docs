@@ -20,7 +20,7 @@ In this article, you'll learn how [Azure Policy](../governance/policy/overview.m
 
 ## Azure Policy overview
 
-Azure Policy evaluates resources in Azure by comparing the properties of those resources to business rules. These business rules, described in [JSON format](./concepts/definition-structure.md), are known as [policy definitions](#policy-definition). Once your business rules have been formed, the policy definition is assigned to any scope of resources that Azure supports, such as management groups, subscriptions, resource groups, or individual resources. The assignment applies to all resources within the Resource Manager scope of that assignment. Learn more about scope usage with [Scope in Azure Policy](../governance/policy/concepts/scope.md).
+Azure Policy evaluates resources in Azure by comparing the properties of those resources to business rules. These business rules, described in JSON format, are known as [policy definitions](#policy-definition). Once your business rules have been formed, the policy definition is assigned to any scope of resources that Azure supports, such as management groups, subscriptions, resource groups, or individual resources. The assignment applies to all resources within the Resource Manager scope of that assignment. Learn more about scope usage with [Scope in Azure Policy](../governance/policy/concepts/scope.md).
 
 > [!NOTE]
 > Azure Policy is only used for the definition of dynamic network group membership.
