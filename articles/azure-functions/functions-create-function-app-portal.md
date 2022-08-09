@@ -48,6 +48,8 @@ Next, create a function in the new function app.
 1. Under **Template details** use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
+    
+    [!INCLUDE [functions-create-function-app-portal-private-endpoint](../../includes/functions-create-function-app-portal-private-endpoint.md)]
 
 ## Test the function
 
