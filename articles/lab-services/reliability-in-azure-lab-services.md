@@ -1,6 +1,6 @@
 ---
-title: Resiliency in Azure Lab Services 
-description: Learn about resiliency in Azure Lab Services
+title: Reliability in Azure Lab Services 
+description: Learn about reliability in Azure Lab Services
 ms.topic: overview
 ms.custom: subject-resiliency
 ms.date: 07/12/2022
@@ -45,9 +45,9 @@ IMPORTANT:
 
 -->
 
-# What is resiliency in Azure Lab Services?
+# What is reliability in Azure Lab Services?
 
-Resiliency is a system’s ability to recover from failures and continue to function. It’s not only about avoiding failures but also involves responding to failures in a way that minimizes downtime or data loss. Because failures can occur at various levels, it’s important to have protection for all types based on service availability requirements. Resiliency in Azure supports and advances capabilities that respond to outages in real time to ensure continuous service and data protection assurance for mission-critical applications that require near-zero downtime and high customer confidence.
+Reliability is a system’s ability to recover from failures and continue to function. It’s not only about avoiding failures but also involves responding to failures in a way that minimizes downtime or data loss. Because failures can occur at various levels, it’s important to have protection for all types based on service availability requirements. Resiliency in Azure supports and advances capabilities that respond to outages in real time to ensure continuous service and data protection assurance for mission-critical applications that require near-zero downtime and high customer confidence.
 
 This article describes resiliency support in Azure Lab Services, and covers <!-- IF (AZ SUPPORTED) --> both regional resiliency with availability zones and <!-- END IF (AZ SUPPORTED)--> cross-region resiliency with disaster recovery. For a more detailed overview of resiliency in Azure, see [Azure resiliency](/availability-zones/overview.md).
 

@@ -54,10 +54,10 @@
     href: capacity-limits.md  
   - name: Cost management for labs
     href: cost-management-guide.md
-  - name: Resiliency
+  - name: Reliability
     items:
-    - name: Resiliency in Azure Lab Services
-      href: resiliency-in-azure-lab-services.md      
+    - name: Reliability in Azure Lab Services
+      href: reliability-in-azure-lab-services.md      
 - name: Scenarios
   items:  
   - name: Use Lab Services for conducting classes
