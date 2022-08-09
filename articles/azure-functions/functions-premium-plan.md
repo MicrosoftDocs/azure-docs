@@ -80,6 +80,8 @@ $Resource.Properties.minimumElasticInstanceCount = <YOUR_ALWAYS_READY_COUNT>
 $Resource | Set-AzResource -Force
 ```
 
+---
+
 ### Pre-warmed instances
 
 Pre-warmed instances is a setting that provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
@@ -118,6 +120,8 @@ $Resource = Get-AzResource -ResourceGroupName <RESOURCE_GROUP> -ResourceName <FU
 $Resource.Properties.preWarmedInstanceCount = <YOUR_PREWARMED_COUNT>
 $Resource | Set-AzResource -Force
 ```
+
+---
 
 ### Maximum function app instances
 
@@ -175,6 +179,7 @@ You can also increase the maximum burst limit from the Azure PowerShell:
 Update-AzFunctionAppPlan -ResourceGroupName <resource_group> -Name <premium_plan_name> -MaximumWorkerCount <desired_max_burst> -Force
 ```
 
+---
 The minimum for every plan will be at least one instance. The actual minimum number of instances will be autoconfigured for you based on the always ready instances requested by apps in the plan. For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size will be calculated as five. App A will be running on all 5, and app B will only be running on 2.
 
 > [!IMPORTANT]
@@ -203,6 +208,8 @@ Increasing the calculated minimum for a plan can be done using the Azure PowerSh
 ```azurepowershell-interactive
 Update-AzFunctionAppPlan -ResourceGroupName <resource_group> -Name <premium_plan_name> -MinimumWorkerCount <desired_min_instances> -Force
 ```
+
+---
 
 ### Available instance SKUs
 
