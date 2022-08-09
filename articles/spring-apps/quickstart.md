@@ -25,7 +25,7 @@ This quickstart explains how to:
 > [!div class="checklist"]
 > - Generate a basic Spring project
 > - Provision a service instance
-> - Build and deploy the app with a public endpoint
+> - Build and deploy an app with a public endpoint
 > - Clean up the resources
 
 At the end, you'll have a working spring app running on Azure Spring Apps.
@@ -195,9 +195,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. Before you want to start the quickstarts by IntelliJ, you should [install Azure Toolkit for IntelliJ from the Marketplace](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit#install-azure-toolkit-for-intellij-from-the-marketplace).
 
-1. After that, [sign-in to your Azure accout](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in) in IntelliJ.
+1. After that, [sign-in to your Azure account](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in) in IntelliJ.
 
-### Bulid and deploy an app
+### Build and deploy an app
 
 > [!NOTE]
 > If you want to run the project locally, please add **spring.config.import=configserver:** to the **application.propertities** file.
