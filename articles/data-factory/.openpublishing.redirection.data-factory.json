@@ -562,7 +562,7 @@
             "redirect_document_id": false
           },
           {
-            "source_path": "articles/data-factory/data-flow-troubleshoot-errors.md",
+            "source_path": "/articles/data-factory/data-flow-troubleshoot-errors.md",
             "redirect_url": "/azure/data-factory/data-flow-troubleshoot-guide",
             "redirect_document_id": true
           }
