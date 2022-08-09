@@ -6,7 +6,7 @@ author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/29/2022
+ms.date: 08/05/2022
 ms.author: dseven
 ---
 
@@ -18,6 +18,47 @@ ms.author: dseven
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+
+## July 2022
+
+### FHIR service (Open Source)
+
+#### **Enhancements**
+
+|Title |Related information |
+| :----------------------------------- | :--------------- |
+| Improvements to documentations for Events and MedTech, as well as availability zones  | Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. [Consume events with Logic Apps - Azure Health Data Services- Microsoft Docs](https://docs.microsoft.com/azure/healthcare-apis/events/events-consume-logic-apps); [Deploy Events using the Azure portal - Azure Health Data Services - Microsoft Docs](https://docs.microsoft.com/azure/healthcare-apis/events/events-deploy-portal);  |
+| One touch launch Azure MedTech deploy. | Deploy the MedTech service in the Azure portal - Azure Health Data Services - Microsoft Docs.  
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | :--------------- |
+| History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.  
+
+We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append '_sort=_lastUpdated' to the HTTP GET command utilized for retrieving history. 
+
+Example: `<Server URL>/_history?_sort=_lastUpdated` 
+
+For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
+
+#### **Known issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using token type fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations.  | Currently, no workaround available. |
+| Queries not providing consistent result count after appended with `_sort` operator. For more information see [#2680](https://github.com/microsoft/fhir-server/pull/2680). | Currently, no workaround available.|
+
+For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
+
+### DICOM service
+
+#### **Features**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|DICOM Service availability expands to new regions.   | The DICOM Service is now available in the following regions: Southeast Asia, Central India, Korea Central, and Switzerland North. |
+|Fast retrieval of individual DICOM frames    | For DICOM images containing multiple frames, performance improvements have been made to enable fast retrieval of individual frames (60KB frames as fast as 60ms). These improved performance characteristics enable workflows such as [viewing digital pathology images](https://microsofthealth.visualstudio.com/DefaultCollection/Health/_git/marketing-azure-docs?version=GBmain&path=%2Fimaging%2Fdigital-pathology%2FDigital%20Pathology%20using%20Azure%20DICOM%20service.md&_a=preview) which require rapid retrieval of individual frames.    |
 
 ## June 2022
 
@@ -256,11 +297,11 @@ For more information about the currently known issues with the FHIR service, see
 |Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
 |Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-| Running a reindex job | [Reindex improvements](./././fhir/how-to-run-a-reindex.md)|
+| Running a re-index job | [Re-index improvements](./././fhir/how-to-run-a-reindex.md)|
 | :------------------- | :-------------------------------|
-|Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
-|Updated error message for reindex parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
-|Added final reindex count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
+|Added [boundaries for re-index](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
+|Updated error message for re-index parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
+|Added final re-index count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
 
 #### **Bug fixes**
 
@@ -276,9 +317,9 @@ For more information about the currently known issues with the FHIR service, see
 |Set max item count in search options in SearchParameterDefinitionManager |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
 |Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
 
-|Resolved SQL batch reindex if one resource fails | Related information |
+|Resolved SQL batch re-index if one resource fails | Related information |
 | :------------------- | :------------------------------- |
-|Updates SQL batch reindex retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
+|Updates SQL batch re-index retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
 
 |GitHub issues closed | Related information |
 | :------------------- | :------------------------------- |
@@ -300,7 +341,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Bug fixes | Related information |
 | :------------------- | :------------------------------- |
-| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See: [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Functions](./../healthcare-apis/iot/how-to-use-calculated-functions-mappings.md)  |
+| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Functions](./../healthcare-apis/iot/how-to-use-calculated-functions-mappings.md)  |
 
 ## Next steps
 
