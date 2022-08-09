@@ -36,7 +36,7 @@ To create a replica of your configuration store in the portal, follow the steps 
 1. Under **Replica(s)**, select **Create**. Choose the location of your new replica in the dropdown, then assign the replica a name. This replica name must be unique. 
 
     
-    :::image type="content" source="./media/how-to-geo-replication-create-flow.png" alt-text="In Geo Replication, the Geo Replication button is highlighted as well as the create button for a replica."::: 
+    :::image type="content" source="./media/how-to-geo-replication-create-flow.png" alt-text="Screenshot of the Geo Replication button being highlighted as well as the create button for a replica."::: 
    
 
 1. Select **Create**. 
