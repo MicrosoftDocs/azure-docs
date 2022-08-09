@@ -238,7 +238,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>.
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, search for and select **Azure Active Directory**.
 

@@ -6,6 +6,20 @@ ms.date: 02/22/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.23.0: July 2022 release
+
+#### New features
+
+- **C#, C++, Java**: Added support for languages `zh-cn` and `zh-hk` in Intent Recognition with Pattern Matching.
+- **C#**: Added support for `AnyCPU` .NET Framework builds
+
+#### Bug fixes
+
+- **Android**: Fixed OpenSSL vulnerability CVE-2022-2068 by updating OpenSSL to 1.1.1q
+- **Python**: Fix crash when using PushAudioInputStream
+- **iOS**: Fix "EXC_BAD_ACCESS: Attempted to dereference null pointer" as reported on iOS ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1555))
+
+
 ### Speech SDK 1.22.0: June 2022 release
 
 #### New features
@@ -391,7 +405,7 @@ Stay healthy!
 
 #### New features
 - **C#**: Added support for asynchronous conversation transcription. See documentation [here](../../how-to-async-conversation-transcription.md).
-- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [Node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: Added support for Language Identification/language ID. See documentation [here](../../how-to-automatic-language-detection.md?pivots=programming-language-javascript).
 - **Objective-C**: Added support for [multi-device conversation](../../multi-device-conversation.md) and [conversation transcription](../../conversation-transcription.md).
 - **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](../../how-to-use-codec-compressed-audio-input-streams.md).

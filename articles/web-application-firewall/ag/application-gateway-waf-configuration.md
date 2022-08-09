@@ -72,7 +72,7 @@ Exclusions can be configured to apply to a specific set of WAF rules, to ruleset
 
 ### Per-rule exclusions
 
-You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation.
+You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation. To exclude a complete group of rules, only provide the `ruleGroupName` parameter, the `rules` parameter is only useful when you want to limit the exclusion to specific rules of a group.
 
 Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3.2 or later.
 
@@ -168,6 +168,14 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               ruleGroups: [
                 {
                   ruleGroupName: 'REQUEST-942-APPLICATION-ATTACK-SQLI'
+                  rules: [
+                    {
+                      ruleId: '942150'
+                    }
+                    {
+                      ruleId: '942410'
+                    }
+                  ]
                 }
               ]
             }
@@ -206,7 +214,15 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               "ruleSetVersion": "3.2",
               "ruleGroups": [
                 {
-                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI"
+                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                  "rules": [
+                    {
+                      "ruleId": "942150"
+                    },
+                    {
+                      "ruleId": "942410"
+                    }
+                  ]
                 }
               ]
             }

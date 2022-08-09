@@ -148,14 +148,14 @@ If the listed version is not a supported version:
 
 ## Data access
  
-For automated ML runs, you need to ensure the file datastore that connects to your AzureFile storage has the appropriate authentication credentials. Otherwise, the following message results. Learn how to [update your data access authentication credentials](how-to-train-with-datasets.md#azurefile-storage).
+For automated ML jobs, you need to ensure the file datastore that connects to your AzureFile storage has the appropriate authentication credentials. Otherwise, the following message results. Learn how to [update your data access authentication credentials](how-to-train-with-datasets.md#azurefile-storage).
 
 Error message: 
 `Could not create a connection to the AzureFileService due to missing credentials. Either an Account Key or SAS token needs to be linked the default workspace blob store.`
 
 ## Data schema
 
-When you try to create a new automated ML experiment via the **Edit and submit** button in the Azure Machine Learning studio, the data schema for the new experiment must match the schema of the data that was used in the original experiment. Otherwise, an error message similar to the following results. Learn more about how to [edit and submit experiments from the studio UI](how-to-use-automated-ml-for-ml-models.md#edit-and-submit-runs-preview).
+When you try to create a new automated ML experiment via the **Edit and submit** button in the Azure Machine Learning studio, the data schema for the new experiment must match the schema of the data that was used in the original experiment. Otherwise, an error message similar to the following results. Learn more about how to [edit and submit experiments from the studio UI](how-to-use-automated-ml-for-ml-models.md#edit-and-submit-jobs-preview).
 
 Error message non-vision experiments: ` Schema mismatch error: (an) additional column(s): "Column1: String, Column2: String, Column3: String", (a) missing column(s)`
 
@@ -209,4 +209,4 @@ If you have over 100 automated ML experiments, this may cause new automated ML e
 
 + Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).
 
-+ Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
++ Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).

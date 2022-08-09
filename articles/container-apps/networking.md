@@ -26,13 +26,12 @@ As you create a custom VNET, keep in mind the following situations:
 
 - If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
 
-- When you provide your own VNET, the network needs a single subnet.
+- When you provide your own VNET, you need to provide a subnet that is dedicated to the Container App Environment you will deploy. This subnet cannot be used by other services.
 
 - Network addresses are assigned from a subnet range you define as the environment is created.
 
   - You can define the subnet range used by the Container Apps environment.
   - Once the environment is created, the subnet range is immutable.
-  - A single load balancer and single Kubernetes service are associated with each container apps environment.
   - Each [revision](revisions.md) is assigned an IP address in the subnet.
   - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
 
@@ -150,7 +149,7 @@ The second URL grants access to the log streaming service and the console. If ne
 
 ## Ports and IP addresses
 
-The VNET associated with a Container Apps environment uses a single subnet with 255 addresses.
+The subnet associated with a Container App Environment must have a CIDR prefix of /23.
 
 The following ports are exposed for inbound connections.
 
@@ -192,7 +191,10 @@ There's no forced tunneling in Container Apps routes.
 
 ## Managed resources
 
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. As the load balancer is created in your subscription, there are extra costs associated with deploying the service to a custom virtual network.
+When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. In addition to the [Azure Container Apps billing](./billing.md), you will be billed for the following:
+- Three standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an internal environment, or four standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an external environment.
+- Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has less than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
+
 
 ## Next steps
 

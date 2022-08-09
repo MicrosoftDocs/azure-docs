@@ -19,7 +19,7 @@ ms.custom: responsible-ai, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-The societal implications of AI and the responsibility of organizations to anticipate and mitigate unintended consequences of AI technology are significant. Organizations are finding the need to create internal policies, practices, and tools to guide their AI efforts, whether they're deploying third-party AI solutions or developing their own. At Microsoft, we've recognized six principles that we believe should guide AI development and use: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For us, these principles are the cornerstone of a responsible and trustworthy approach to AI, especially as intelligent technology becomes more prevalent in the products and services we use every day. Azure Machine Learning currently supports tools for various these principles, making it seamless for ML developers and data scientists to implement Responsible AI in practice.
+The societal implications of AI and the responsibility of organizations to anticipate and mitigate unintended consequences of AI technology are significant. Organizations are finding the need to create internal policies, practices, and tools to guide their AI efforts, whether they're deploying third-party AI solutions or developing their own. At Microsoft, we've recognized six principles that we believe should guide AI development and use: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For us, these principles are the cornerstone of a responsible and trustworthy approach to AI, especially as intelligent technology becomes more prevalent in the products and services we use every day. Azure Machine Learning currently supports various tools for these principles, making it seamless for ML developers and data scientists to implement Responsible AI in practice.
 
 :::image type="content" source="./media/concept-responsible-ml/concept-responsible-ml.png" alt-text="Responsible A I principles - fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.":::
 
@@ -67,7 +67,7 @@ Azure Machine Learning’s [Responsible AI scorecard](./how-to-responsible-ai-sc
 
 The ML platform also enables decision-making by informing model-driven and data-driven business decisions:
 
-- Data-driven insights to further understand heterogeneous treatment effects on an outcome, using historic data only. For example, “how would a medicine impact a patient’s blood pressure?". Such insights are provided through the[Causal Inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
+- Data-driven insights to further understand heterogeneous treatment effects on an outcome, using historic data only. For example, “how would a medicine impact a patient’s blood pressure?". Such insights are provided through the [Causal Inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Model-driven insights, to answer end-users’ questions such as “what can I do to get a different outcome from your AI next time?” to inform their actions. Such insights are provided to data scientists through the [Counterfactual What-If](concept-counterfactual-analysis.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 
 ## Next steps

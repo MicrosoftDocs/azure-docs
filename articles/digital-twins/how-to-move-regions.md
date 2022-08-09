@@ -55,9 +55,9 @@ In this section, you'll prepare to recreate your instance by downloading your or
 
 ### Download models, twins, and graph with Azure Digital Twins Explorer
 
-First, open **Azure Digital Twins Explorer** for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com). To do so, navigate to the Azure Digital Twins instance in the portal by searching for its name in the portal search bar. Then, select the **Go to Explorer (Preview)** button. 
+First, open **Azure Digital Twins Explorer** for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com). To do so, navigate to the Azure Digital Twins instance in the portal by searching for its name in the portal search bar. Then, select the **Open Azure Digital Twins Explorer (preview)** button. 
 
-:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Go to Explorer (Preview) button." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
+:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Open Azure Digital Twins Explorer (preview) button." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
 Selecting this button will open an Azure Digital Twins Explorer window connected to this instance.
 

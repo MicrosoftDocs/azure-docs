@@ -32,7 +32,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 ## Prerequisites
 
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
 ## Create an environment
 
@@ -368,7 +368,7 @@ You can use environments when you deploy your model as a web service. This capab
 
 If you are defining your own environment for web service deployment, you must list `azureml-defaults` with version >= 1.0.45 as a pip dependency. This package contains the functionality that's needed to host the model as a web service.
 
-To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [`deploy()`](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). For more information, see [How and where to deploy models](how-to-deploy-and-where.md).
+To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [`deploy()`](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). For more information, see [How and where to deploy models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 In this example, assume that you've completed a training run. Now you want to deploy that model to Azure Container Instances. When you build the web service, the model and scoring files are mounted on the image, and the Azure Machine Learning inference stack is added to the image.
 
@@ -414,5 +414,5 @@ Using the Azure Machine Learning extension, you can create and manage environmen
 
 ## Next steps
 
-* After you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
+* After you have a trained model, learn [how and where to deploy models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 * View the [`Environment` class SDK reference](/python/api/azureml-core/azureml.core.environment%28class%29).

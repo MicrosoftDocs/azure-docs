@@ -114,7 +114,7 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target:
 > 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-kubernetes-anywhere.md?&tabs=studio#attach-a-kubernetes-cluster-to-an-azure-ml-workspace).
-> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/managed/sample/endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/managed/sample/blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
+> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
 >
 > All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
 
@@ -129,6 +129,9 @@ For registration, you can extract the YAML definitions of `model` and `environme
 The preceding YAML uses a general-purpose type (`Standard_F2s_v2`) and a non-GPU Docker image (in the YAML, see the `image` attribute). For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
+
+> [!NOTE]
+> To use Kubernetes instead of managed endpoints as a compute target, see [Create instance type for Kubernetes compute](./how-to-attach-kubernetes-anywhere.md#create-and-use-instance-types-for-efficient-compute-resource-utilization)
 
 ### Use more than one model
 
@@ -311,8 +314,12 @@ The `update` command also works with local deployments. Use the same `az ml onli
 
 > [!TIP]
 > With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+
 > [!Note]
-> The above is an example of inplace rolling update: i.e. the same deployment is updated with the new configuration, with 20% nodes at a time. If the deployment has 10 nodes, 2 nodes at a time will be updated. For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
+> The above is an example of inplace rolling update.
+> * For managed online endpoint, the same deployment is updated with the new configuration, with 20% nodes at a time, i.e. if the deployment has 10 nodes, 2 nodes at a time will be updated. 
+> * For Kubernetes online endpoint, the system will iterately create a new deployment instance with the new configuration and delete the old one.
+> * For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
 
 ### (Optional) Configure autoscaling
 
@@ -320,32 +327,13 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 ### (Optional) Monitor SLA by using Azure Monitor
 
-To view metrics and set alerts based on your SLA, complete the steps that are described in [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+To view metrics and set alerts based on your SLA, complete the steps that are described in [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 ### (Optional) Integrate with Log Analytics
 
-The `get-logs` command provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. 
+The `get-logs` command provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs)
 
-First, create a Log Analytics workspace by completing the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md#create-a-workspace).
-
-Then, in the Azure portal:
-
-1. Go to the resource group.
-1. Select your endpoint.
-1. Select the **ARM resource page**.
-1. Select **Diagnostic settings**.
-1. Select **Add settings**.
-1. Select to enable sending console logs to the Log Analytics workspace.
-
-The logs might take up to an hour to connect. After an hour, send some scoring requests, and then check the logs by using the following steps:
-
-1. Open the Log Analytics workspace. 
-1. In the left menu, select **Logs**.
-1. Close the **Queries** dialog that automatically opens.
-1. Double-click **AmlOnlineEndpointConsoleLog**.
-1. Select **Run**.
-
-  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
+[!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
 ## Delete the endpoint and the deployment
 

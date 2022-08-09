@@ -93,7 +93,7 @@ We have a basic SMART on FHIR proxy as part of the managed service. If this does
 
 ### Can I create a custom FHIR resource?
 
-We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
+We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
 
 ### Are [extensions](https://www.hl7.org/fhir/extensibility.html) supported on the FHIR service?
 

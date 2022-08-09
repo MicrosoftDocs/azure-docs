@@ -169,17 +169,17 @@ When creating an instance using either `az sql mi-arc create` or `az postgres ar
 
 |Parameter name, short name|Used for|
 |---|---|
-|`--storage-class-data`, `-d`|Used to specify the storage class for all data files including transaction log files|
-|`--storage-class-logs`, `-g`|Used to specify the storage class for all log files|
-|`--storage-class-data-logs`|Used to specify the storage class for the database transaction log files.|
-|`--storage-class-backups`|Used to specify the storage class for all backup files. Use a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). |
+|`--storage-class-data`, `-d`|Storage class for all data files (.mdf, ndf). If not specified, defaults to storage class for data controller.|
+|`--storage-class-logs`, `-g`|Storage class for all log files. If not specified, defaults to storage class for data controller.|
+|`--storage-class-data-logs`|Storage class for the database transaction log files. If not specified, defaults to storage class for data controller.|
+|`--storage-class-backups`|Storage class for all backup files. If not specified, defaults to storage class for data (`--storage-class-data`).<br/><br/> Use a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). |
 
 > [!WARNING]
-> If you don't specify a storage class for backups, the deployment uses the default storage class in Kubernetes. If this storage class isn't RWX capable, the deployment may not succeed.
+> If you don't specify a storage class for backups, the deployment uses the storage class specified for data. If this storage class isn't RWX capable, the point-in-time restore may not work as desired.
 
 The table below lists the paths inside the Azure SQL Managed Instance container that is mapped to the persistent volume for data and logs:
 
-|Parameter name, short name|Path inside mssql-miaa container|Description|
+|Parameter name, short name|Path inside `mssql-miaa` container|Description|
 |---|---|---|
 |`--storage-class-data`, `-d`|/var/opt|Contains directories for the mssql installation and other system processes. The mssql directory contains default data (including transaction logs), error log & backup directories|
 |`--storage-class-logs`, `-g`|/var/log|Contains directories that store console output (stderr, stdout), other logging information of processes inside the container|

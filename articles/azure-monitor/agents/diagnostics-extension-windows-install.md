@@ -4,7 +4,7 @@ description: Learn about installing and configuring the Windows diagnostics exte
 services: azure-monitor
 author: bwren
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 07/12/2022
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli

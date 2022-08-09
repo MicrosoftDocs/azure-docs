@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
 ms.service: managed-grafana
-ms.date: 05/30/2022
+ms.date: 07/06/2022
 ---
 
 # Troubleshoot issues for Azure Managed Grafana
@@ -110,10 +110,21 @@ One or several Managed Grafana dashboard panels show no data.
 
 Context: Grafana dashboards are set up to fetch new data periodically. If the dashboard is refreshed too often for the underlying query to load, the panel will be stuck without ever being able to load and display data.
 
-1. Check how frequently the dashboard is configured to refresh data?
+1. Check how frequently the dashboard is configured to refresh data.
    1. In your dashboard, go to **Dashboard settings**.
    1. In the general settings, lower the **Auto refresh** rate of the dashboard to be no faster than the time the query takes to load.
 1. When a query takes too long to retrieve data. Grafana will automatically time out certain dependency calls that take longer than, for example, 30 seconds. Check that there are no unusual slow-downs on the query's end.
+
+## General issues with data sources
+
+The user can't connect to a data source, or a data source cannot fetch data.
+
+### Solution: review network settings and IP address
+
+To troubleshoot this issue:
+
+1. Check the network setting of the data source server. There should be no firewall blocking Grafana from accessing it.
+1. Check that the data source isn't trying to connect to a private IP address. Azure Managed Grafana doesn't currently support connections to private networks.
 
 ## Azure Monitor can't fetch data
 

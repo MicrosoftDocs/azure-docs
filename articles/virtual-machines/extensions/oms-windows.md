@@ -30,6 +30,7 @@ The following table provides a mapping of the version of the Windows Log Analyti
 
 | Log Analytics Windows agent version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18067.0|1.0.18067 | March 2022   | <ul><li>Bug fix for perf counters</li><li>Enhancements to Agent Troubleshooter</li></ul> |
 | 10.20.18064.0|1.0.18064 | December 2021   | <ul><li>Bug fix for intermittent crashes</li></ul> |
 | 10.20.18062.0| 1.0.18062 | November 2021   | <ul><li>Minor bug fixes and stabilization improvements</li></ul> |
 | 10.20.18053| 1.0.18053.0 | October 2020   | <ul><li>New Agent Troubleshooter</li><li>Updates to how the agent handles certificate changes to Azure services</li></ul> |

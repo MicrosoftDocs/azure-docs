@@ -131,6 +131,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    }
    ```
 
+   > [!NOTE]
+   > If your container target is unnamed or null within `storageContainersForUpload`, a default name will be assigned to the target. If you wanted to stop uploading to a container, it must be removed completely from `storageContainersForUpload`. For more information, see the `deviceToCloudUploadProperties` section of [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md?view=iotedge-2020-11&preserve-view=true#devicetoclouduploadproperties).
+
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
 6. Select **Add**.

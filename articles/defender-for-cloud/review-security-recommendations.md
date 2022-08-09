@@ -2,7 +2,7 @@
 title: Improving your security posture with recommendations in Microsoft Defender for Cloud
 description: This document walks you through how to identify security recommendations that will help you improve your security posture.
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 06/29/2022
 ---
 # Find recommendations that can improve your security posture
 
@@ -17,7 +17,8 @@ To get to the list of recommendations:
 
 You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations, and look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
 
-You can learn more from the product manager about security posture by watching [Security posture management improvements](episode-four.md).
+You can learn more by watching this video from the Defender for Cloud in the Field video series:
+- [Security posture management improvements](episode-four.md)
 
 ## Finding recommendations with high impact on your secure score<a name="monitor-recommendations"></a>
 

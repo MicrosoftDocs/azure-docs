@@ -11,5 +11,5 @@ ms.author: pafarley
 ---
 
 > [!IMPORTANT]
-> Microsoft will be retiring facial recognition capabilities that can be used to try to infer emotional states and internal identity attributes which, if misused, can subject people to stereotyping, discrimination or unfair denial of services. These include capabilities that predict emotion, gender, age, smile, facial hair, hair and makeup. Existing customers have until June 21, 2023 to discontinue use of these capabilities before they are retired. Read more about this decision [here](https://azure.microsoft.com/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/).
+> Microsoft will be retiring facial recognition capabilities that can be used to try to infer emotional states and identity attributes which, if misused, can subject people to stereotyping, discrimination or unfair denial of services. These include capabilities that predict emotion, gender, age, smile, facial hair, hair and makeup. Existing customers have until June 30, 2023 to discontinue use of these capabilities before they are retired. Read more about this decision [here](https://azure.microsoft.com/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/).
 

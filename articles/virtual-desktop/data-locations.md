@@ -44,8 +44,8 @@ Storing service-generated data is currently supported in the following geographi
 - Europe (EU)
 - United Kingdom (UK)
 - Canada (CA)
-- Japan (JP) (preview)
-- Australia (AU) (preview)
+- Japan (JP)
+- Australia (AU)
 
 In addition, service-generated data is aggregated from all locations where the service infrastructure is, and sent to the US geography. The data sent to the US includes scrubbed data, but not customer data.
 

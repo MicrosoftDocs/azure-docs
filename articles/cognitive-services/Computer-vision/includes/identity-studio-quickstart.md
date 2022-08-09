@@ -20,7 +20,10 @@ Use Vision Studio to identify a face. This is a streamlined version of the face 
 * Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 * You'll need at least three images of a person's face: two or more to train the model and one to test it.
 
-## Analyze an image
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Vision-studio&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
+## Identify faces
 
 1. Select the **Analyze faces** tab, and select panel titled **Recognize a particular person**.
 1. To use the try-it-out experience, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/).
@@ -28,6 +31,9 @@ Use Vision Studio to identify a face. This is a streamlined version of the face 
 1. Finally, upload another image in the bottom pane, and the service will determine whether it belongs to the **person** it was trained for.
 1. See the **Detected attributes** pane for the match results and confidence scores.
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Vision-studio&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>
 
 ## Next steps
 

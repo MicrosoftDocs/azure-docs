@@ -157,7 +157,7 @@ The `train.py` file contains a normal python function, which performs the traini
 
 #### Define component using python function
 
-After defining the training function successfully, you can use @command_component in Azure Machine Learning SDK v2 to wrap your function as a component, which can be used in AML pipelines.
+After defining the training function successfully, you can use @command_component in Azure Machine Learning SDK v2 to wrap your function as a component, which can be used in AzureML pipelines.
 
 :::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_component.py":::
 
@@ -270,7 +270,7 @@ Create a `MLClient` object to manage Azure Machine Learning services.
 [!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration json file to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration json file to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](quickstart-create-resources.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 #### Submit pipeline job to workspace
 

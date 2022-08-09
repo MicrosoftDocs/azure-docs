@@ -1,9 +1,9 @@
-- name: Azure AD Verifiable Credentials documentation
+- name: Microsoft Entra Verified ID documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: Introduction to Azure Active Directory Verifiable Credentials
+  - name: Introduction to Microsoft Entra Verified ID
     href: decentralized-identifier-overview.md
   - name: What's new
     href: whats-new.md
@@ -32,20 +32,28 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Using the Request Service REST API
-    href: get-started-request-api.md
   - name: How to customize your credentials
     href: credential-design.md
-  - name: Manage credential revocation
-    href: how-to-use-quickstart.md
-  - name: Create credentials using the QuickStart
-    href: how-to-use-quickstart.md
-  - name: Revoke a Verifiable Credential
-    href: how-to-issuer-revoke.md
+  - name: Create credentials using Quickstart
+    items:
+    - name: Directory based - Employee
+      href: how-to-use-quickstart-verifiedemployee.md
+    - name: ID Token Hint credentials
+      href: how-to-use-quickstart.md
+    - name: ID Token credentials
+      href: how-to-use-quickstart-idtoken.md      
+    - name: Self Issued credentials
+      href: how-to-use-quickstart-selfissued.md
+  - name: Use the Verified ID Network
+    href: how-use-vcnetwork.md
+  - name: Using the Request Service REST API
+    href: get-started-request-api.md
   - name: Link your domain to your DID
     href: how-to-dnsbind.md
   - name: Register your website ID
     href: how-to-register-didwebsite.md
+  - name: Revoke a Verifiable Credential
+    href: how-to-issuer-revoke.md
   - name: Opt out of verifiable credentials
     href: how-to-opt-out.md
 - name: Samples
@@ -66,6 +74,10 @@
     href: presentation-request-api.md
   - name: Rules and Display definition model
     href: rules-and-display-definitions-model.md
+  - name: Admin API specification
+    href: admin-api.md
+  - name: Verified ID Network API specification
+    href: vc-network-api.md
   - name: Supported standards
     href: verifiable-credentials-standards.md
 - name: Resources

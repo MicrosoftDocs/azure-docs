@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/14/2022
+ms.date: 07/28/2022
 ms.author: rolyon
 ---
 
@@ -178,6 +178,8 @@ Instead of adding all of these strings, you could just add a wildcard string. Fo
 Microsoft.CostManagement/exports/*
 ```
 
+It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
+
 ## Who can create, delete, update, or view a custom role
 
 Just like built-in roles, the `AssignableScopes` property specifies the scopes that the role is available for assignment. The `AssignableScopes` property for a custom role also controls who can create, delete, update, or view the custom role.
@@ -187,6 +189,18 @@ Just like built-in roles, the `AssignableScopes` property specifies the scopes t
 | Create/delete a custom role | `Microsoft.Authorization/ roleDefinitions/write` | Users that are granted this action on all the `AssignableScopes` of the custom role can create (or delete) custom roles for use in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of management groups, subscriptions, and resource groups. |
 | Update a custom role | `Microsoft.Authorization/ roleDefinitions/write` | Users that are granted this action on all the `AssignableScopes` of the custom role can update custom roles in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of management groups, subscriptions, and resource groups. |
 | View a custom role | `Microsoft.Authorization/ roleDefinitions/read` | Users that are granted this action at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
+
+## Find role assignments to delete a custom role
+
+Before you can delete a custom role, you must remove any role assignments that use the custom role. If you try to delete a custom role with role assignments, you get the message: `There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)`.
+
+Here are steps to help find the role assignments before deleting a custom role:
+
+- List the [custom role definition](role-definitions-list.md).
+- In the [assignable scopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
+- Iterate over the assignable scopes and [list the role assignments](role-assignments-list-portal.md).
+- [Remove the role assignments](role-assignments-remove.md) that use the custom role.
+- [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
 
 ## Custom role limits
 

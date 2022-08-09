@@ -44,4 +44,4 @@ ms.date: 06/16/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Servers deployment in AWS and GCP](episode-fourteen.md)

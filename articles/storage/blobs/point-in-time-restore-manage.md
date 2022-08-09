@@ -3,12 +3,12 @@ title: Perform a point-in-time restore on block blob data
 titleSuffix: Azure Storage
 description: Learn how to use point-in-time restore to restore a set of block blobs to their previous state at a given point in time.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/29/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
@@ -111,7 +111,10 @@ When you perform a restore operation with PowerShell or Azure CLI, you should sp
 
 You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to ten lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
 
-The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
+The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum. A few examples for how to structure your restore ranges:
+
+ - To include the entire container named myContainer in the range for a restore use start range _myContainer_ and end range _myContainer-0_. This shows how adding '-0' as a suffix to the container name for the end range value includes everything in the container for the restore.
+ - To include an entire virtual directory hierarchy, such as directory myFolder inside container myContainer, use start range _myContainer/myFolder/_ and end range _myContainer/myFolder0_. Adding '0' as a suffix to virtual directory names for the end range includes all files with a prefix 'myContainer/myFolder/' for the restore.
 
 Wildcard characters are not supported in a lexicographical range. Any wildcard characters are treated as standard characters.
 
