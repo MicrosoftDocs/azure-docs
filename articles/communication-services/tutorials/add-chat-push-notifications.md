@@ -1,5 +1,5 @@
 ---
-title: Enable Push Notifications in your chat app
+title: Enable Pzush Notifications in your chat app
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to enable push notification in IOS App by using Azure Communication Chat SDK
 author: angellan
@@ -14,10 +14,10 @@ ms.service: azure-communication-services
 # Enable Push Notifications in your chat app
 
 >[!IMPORTANT]
->This Push Notification feature is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+>This Push Notification feature is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement, and aren't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 This tutorial will guide you to enable Push Notification in your IOS App by using Azure Communication Chat SDK.  
-Push notifications alert clients of incoming messages in a chat thread in situations where the mobile app is not running in the foreground. Azure Communication Services supports two versions of push notifications. 
+Push notifications alert clients of incoming messages in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports two versions of push notifications. 
 
 - `Basic Version` : The user will be able to see a badge number of 1 on the app’s icon, receive a notification sound and see a pop-up alert banner. 
 - `Advanced Version`: Except for the features supported in basic version, the Contoso will be able to customize the title & message preview section in alert banner. 
@@ -45,8 +45,8 @@ Create an Azure Notification Hub within the same subscription as your Communicat
 3.APNS Cert Configuration  
 Here we recommend creating a .p12 APNS cert and set it in Notification Hub.  
 
-`If you are not a Microsoft internal client`, please follow step 1 to step 9.   
-`If you are a Microsoft internal client`, please submit a ticket [here](https://aka.ms/mapsupport) and provide the bundle ID of your app to get a .p12 cert. Once you get a valid certificate issued, please execute the step 9.       
+`If you're not a Microsoft internal client`, follow step 1 to step 9.   
+`If you are a Microsoft internal client`, submit a ticket [here](https://aka.ms/mapsupport) and provide the bundle ID of your app to get a .p12 cert. Once you get a valid certificate issued, complete step 9.       
 
 * Step 1: Log in to the Apple Developer Portal. Navigate to `Certificates, IDs & Profiles > Identifiers > App IDs` and click the App ID associated with your app.
 
@@ -64,7 +64,7 @@ Here we recommend creating a .p12 APNS cert and set it in Notification Hub.
 
   <img src="./media/add-chat-push-notification/cert-4.png"  width="700" height="320" alt="APNS Cert Configuration step 3."> 
 
-* Step 4: Then you will be navigated to the below page. Here you will upload a Certificate Signing Request (CSR). Follow the next step to create a CSR.
+* Step 4: Then you're navigated to the below page. Here, you'll upload a Certificate Signing Request (CSR). Follow the next step to create a CSR.
 
   <img src="./media/add-chat-push-notification/cert-5.png"  width="700" height="400" alt="APNS Cert Configuration step 4."> 
 
@@ -101,18 +101,18 @@ Here we recommend creating a .p12 APNS cert and set it in Notification Hub.
 
 
 ### 1 - Basic Version
-If you want to implement a basic version of Push Notification, you will need to register for remote notifications with APNS (Apple Push Notification Service). Please refer to [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTest/AppDelegate.swift) to see the related implementation in `AppDelegate.swift`.  
+If you want to implement a basic version of Push Notification, you need to register for remote notifications with APNS (Apple Push Notification Service). Refer to [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTest/AppDelegate.swift) to see the related implementation in `AppDelegate.swift`.  
 
 ### 2 - Advanced Version
-If you want to implement an advanced version of Push Notification, you will need to include the following items in your app. The reason is that we encrypt customer content (e.g. chat message content, sender display name, etc.) in push notification payload and it requires some workaround on your side.   
+If you want to implement an advanced version of Push Notification, you need to include the following items in your app. The reason is that we encrypt customer content (e.g. chat message content, sender display name, etc.) in push notification payload and it requires some workaround on your side.   
 
 * Item 1: Data Storage for encryption keys  
 
-First, you should create a persistent data storage in IOS device. This data storage should be able to share data between Main App and App Extensions (Please refer to Item 2 for more information about App Extension – Notification Service Extension). 
+First, you should create a persistent data storage in IOS device. This data storage should be able to share data between Main App and App Extensions (Refer to Item 2 for more information about App Extension – Notification Service Extension). 
 
-In our sample code, we will choose “App Group” as the data storage. Below are the suggested steps to create and use “App Group”:
+In our sample code, we'll choose “App Group” as the data storage. Below are the suggested steps to create and use “App Group”:
 
-Follow the steps in [Add a capability](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app?changes=latest_minor#Add-a-capability) to add the Apps Groups capability to your app’s targets – both Main App and Notification Service Extension (Please refer to Item 2 on how to create a Notification Service Extension). 
+Follow the steps in [Add a capability](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app?changes=latest_minor#Add-a-capability) to add the Apps Groups capability to your app’s targets – both Main App and Notification Service Extension (Refer to Item 2 on how to create a Notification Service Extension). 
 
 Also follow the steps in this [Apple official doc](https://developer.apple.com/documentation/xcode/configuring-app-groups?changes=latest_minor) to configure App Group. Make sure your Main App and App Extension have the same container name.  
 
@@ -120,13 +120,13 @@ Also follow the steps in this [Apple official doc](https://developer.apple.com/d
 
 Second, you should implement a “Notification Service Extension” bundled with main app. This is used for decrypting the push notification payload when receiving it. 
 
-Please go to this [Apple official doc](https://developer.apple.com/documentation/usernotifications/modifying_content_in_newly_delivered_notifications). Follow the step “Add a Service App Extension to your project” and “Implement Your Extension’s Handler Methods”. 
+Go to this [Apple official doc](https://developer.apple.com/documentation/usernotifications/modifying_content_in_newly_delivered_notifications). Follow the step “Add a Service App Extension to your project” and “Implement Your Extension’s Handler Methods”. 
 
-Please notice that - in the step “Implement Your Extension’s Handler Methods”, Apple provides the sample code to decrypt data and we will follow the overall structure. However, since we use chat SDK for decryption, we will need to replace the part starting from `“// Try to decode the encrypted message data.”` with our customized logic. Please refer to the [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTestNotificationExtension/NotificationService.swift) to see the related implementation in `NotificationService.swift`.
+Notice that in the step “Implement Your Extension’s Handler Methods,” Apple provides the sample code to decrypt data and we'll follow the overall structure. However, since we use chat SDK for decryption, we need to replace the part starting from `“// Try to decode the encrypted message data.”` with our customized logic. Refer to the [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTestNotificationExtension/NotificationService.swift) to see the related implementation in `NotificationService.swift`.
 
 * Item 3: Implementation of ChatClientPushNotificationProtocol
 
-Third, `PushNotificationKeyHandler` is required for advanced version. As the SDK user, you could use the default `AppGroupPushNotificationKeyHandler` class provided by chat SDK to generate a key handler. If you don’t use `App Group` as the key storage or would like to customize key handling methods, please create your own class which conforms to PushNotificationKeyHandler protocol. 
+Third, `PushNotificationKeyHandler` is required for advanced version. As the SDK user, you could use the default `AppGroupPushNotificationKeyHandler` class provided by chat SDK to generate a key handler. If you don’t use `App Group` as the key storage or would like to customize key handling methods, create your own class which conforms to PushNotificationKeyHandler protocol. 
 
 For PushNotificationKeyHandler, it defines two methods: `onPersistKey(encryptionKey:expiryTime)` and `onRetrieveKeys() -> [String]`.  
 
@@ -134,7 +134,7 @@ The first method is used to persist the encryption key in the storage of user’
 
 The second method is used to retrieve the valid keys previously stored. You have the flexibility to provide the customization based on the data storage (item 1) you choose. 
 
-In protocol extension, chat SDK provides the implementation of `decryptPayload(notification:) -> PushNotificationEvent` method which you can take advantage of. Please refer to the  [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTestNotificationExtension/NotificationService.swift) to see the related implementation in  `NotificationService.swift`.
+In protocol extension, chat SDK provides the implementation of `decryptPayload(notification:) -> PushNotificationEvent` method which you can take advantage of. Refer to the  [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTestNotificationExtension/NotificationService.swift) to see the related implementation in  `NotificationService.swift`.
 
 ## Testing
 1. Create a Chat Thread with User A and User B. 
