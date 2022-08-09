@@ -435,6 +435,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/language-service/custom-text-classification/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
       "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
       "redirect_document_id": true
