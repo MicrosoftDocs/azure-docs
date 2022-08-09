@@ -206,7 +206,7 @@ Members of the Log Analytics Contributor role can:
 - Add and remove management solutions. Permission must be granted at the resource group or subscription level.
 - Read storage account keys.
 - Configure the collection of logs from Azure Storage.
-- Configure data export rules in Log Analytics workspace.
+- Configure data export rules.
 - [Run a search job.](search-jobs.md)
 - [Restore archived logs.](restore.md)
 
