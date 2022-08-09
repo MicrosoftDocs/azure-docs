@@ -119,7 +119,7 @@ $virtualNetworkC = New-AzVirtualNetwork @vnetC
 
 ### Add a subnet to each virtual network
 
-To complete the configuration of the virtual networks add a /24 subnet to each one. Create a subnet configuration named **default** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
+To complete the configuration of the virtual networks, add a /24 subnet to each one. Create a subnet configuration named **default** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
 
 ```azurepowershell-interactive
 $subnetA = @{
@@ -164,7 +164,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 
     
 1. Add the static member to the network group with the following commands:
-    1. Static members must have a network group scoped unique name. It is recommended to use a consistent hash of the virtual network id. Below is an approach using the ARM Templates uniqueString() implementation.
+    1. Static members must have a network group scoped unique name. It's recommended to use a consistent hash of the virtual network ID. Below is an approach using the ARM Templates uniqueString() implementation.
    
     ```azurepowershell-interactive
         function Get-UniqueString ([string]$id, $length=13)
@@ -251,7 +251,7 @@ $defn = @{
 $policyDefinition = New-AzPolicyDefinition $defn
 ```
    
-1.  the definition at a scope within your network managers scope for it to begin taking effect.
+1. Assign the policy definition at a scope within your network managers scope for it to begin taking effect.
 
     ```azurepowershell-interactive
     $assgn = @{
@@ -295,7 +295,7 @@ $policyDefinition = New-AzPolicyDefinition $defn
 
 ## Commit deployment
 
-Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit. This is  trigger will your configuration to begin taking effect.
+Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit. This will trigger your configuration to begin taking effect.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
