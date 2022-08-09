@@ -62,7 +62,7 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 ## Review trace information
 
 1. After the call completes, go to the **Trace** tab in the **HTTP response**.
-1. Select any of the following links to jump to detailed trace info: **Inbound**, **Backend**, **Outbound**.
+1. Select any of the following links to jump to detailed trace info: **Inbound**, **Backend**, **Outbound**, **On error**.
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-trace-1.png" alt-text="Review response trace":::
 
@@ -71,6 +71,8 @@ To trace request processing, you must enable the **Allow tracing** setting for t
     * **Backend** - Shows the requests API Management sent to the API backend and the response it received.
 
     * **Outbound** - Shows the policies applied to the response before sending back to the caller.
+
+    * **On error** - Shows the errors that occurred during the processing of the request and the policies applied to the errors.
 
     > [!TIP]
     > Each step also shows the elapsed time since the request is received by API Management.
