@@ -565,6 +565,11 @@
             "source_path_from_root": "/articles/data-factory/data-flow-troubleshoot-errors.md",
             "redirect_url": "/azure/data-factory/data-flow-troubleshoot-guide",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/monitor-install-analytics.md",
+            "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+            "redirect_document_id": false
           }
     ]
 }

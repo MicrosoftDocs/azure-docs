@@ -37,7 +37,7 @@ Use the following hardware profiles for production line monitoring:
 |---------|---------|---------|---------|
 |L500   | 200 Mbps        |   1,000      |Physical / Virtual         |
 |L100    | 60 Mbps        |   800      | Physical / Virtual        |
-|L64    | 10 Mbps        |   100      |Physical / Virtual|
+|L60    | 10 Mbps        |   100      |Physical / Virtual|
 
 ## On-premises management console systems
 
