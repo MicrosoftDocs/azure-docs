@@ -15,7 +15,7 @@ ms.custom: mqtt, devx-track-python, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-This tutorial shows you how to:
+This article shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
 
@@ -23,7 +23,7 @@ This tutorial shows you how to:
 
 * Create a Python console app that calls the reboot direct method in the simulated device app through your IoT hub.
 
-At the end of this tutorial, you have two Python console apps:
+At the end of this article, you have two Python console apps:
 
 * **dmpatterns_getstarted_device.py**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 
@@ -33,13 +33,14 @@ At the end of this tutorial, you have two Python console apps:
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a new device in the IoT hub
 

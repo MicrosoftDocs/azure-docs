@@ -62,8 +62,6 @@ landingContent:
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
-          - text: Virtual Machines based on AMD processors with SEV-SNP technology
-            url: confidential-vm-overview.md
       - linkListType: quickstart
         links:
           - text: Create an AMD confidential VM in the Azure portal
@@ -94,6 +92,8 @@ landingContent:
           url: confidential-containers.md
         - text: App enclave nodes in AKS
           url: confidential-nodes-aks-overview.md
+        - text: Confidential VM node pool in AKS
+          url: confidential-node-pool-aks.md
       - linkListType: quickstart
         links:
           - text: CLI based provisioning with a hello from enclave container app on AKS
