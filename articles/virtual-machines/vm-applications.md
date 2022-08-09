@@ -95,7 +95,7 @@ VM application versions are the deployable resource. Versions are defined with t
 - Remove string to show how to properly remove the app
 - Package file name to use when it's downloaded to the VM
 - Configuration file name to be used to configure the app on the VM
-- A link to the configuration file for the VM application
+- A link to the configuration file for the VM application, which you can include license files
 - Update string for how to update the VM application to a newer version
 - End-of-life date. End-of-life dates are informational; you'll still be able to deploy VM application versions past the end-of-life date.
 - Exclude from latest. You can keep a version from being used as the latest version of the application. 
@@ -126,7 +126,7 @@ The default command interpreters are:
 - Linux: `/bin/sh` 
 - Windows: `cmd.exe`
 
-It's possible to use a different interpreter, as long as it's installed on the machine, by calling the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass `powershell.exe -Command '<powershell commmand>'`
+It's possible to use a different interpreter like Chocolatey or PowerShell, as long as it's installed on the machine, by calling the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass `powershell.exe -Command '<powershell commmand>'`
   
 
 ## How updates are handled
