@@ -319,6 +319,31 @@ This error occurs when the size of the snapshot file created is larger than the 
 
 - Restore the included disks to the original path using storage vMotion and try replication again.
 
+## Host Connection Refused
+
+**Error ID:** 1022
+
+**Error Message:** The Azure Migrate appliance is unable to connect to the vSphere host '%HostName;'
+
+**Possible Causes:** 
+
+This may happen if:
+1. The Azure Migrate appliance is unable to resolve the hostname of the vSphere host.
+2. The Azure Migrate appliance is unable to connect to the vSphere host on port 902 (default port used by VMware vSphere Virtual Disk Development Kit), because TCP port 902 is being blocked on the vSphere host or by a network firewall.
+
+**Recommendations:**
+
+**Ensure that the hostname of the vSphere host is resolvable from the Azure Migrate appliance.** 
+- Login to the Azure Migrate appliance and open PowerShell.
+- Perform an `nslookup` on the hostname and verify if the address is being resolved: `nslookup '%HostName;' `. 
+- If the host name isn't getting resolved, ensure that the DNS resolution of the vSphere hostnames can be performed from the Azure Migrate appliance. Alternatively, add a static host entry for each vSphere host to the hosts file(C:\Windows\System32\drivers\etc\hosts) on the appliance.
+
+**Ensure the vSphere host is accepting connections on port 902 and that the endpoint is reachable from the appliance.**
+- Login to the Azure Migrate appliance and open PowerShell. 
+- Use the `Test-NetConnection` cmdlet to validate connectivity: `Test-NetConnection '%HostName;' -Port 902`. 
+- If the tcp test does not succeed, the connection is being blocked by a firewall or is not being accepted by the vSphere host. Resolve the network issues to allow replication to proceed.
+
+
 ## Next Steps
 
 Continue VM replication, and perform [test migration](./tutorial-migrate-vmware.md#run-a-test-migration).
