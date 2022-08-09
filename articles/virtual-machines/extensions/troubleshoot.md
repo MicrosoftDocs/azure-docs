@@ -162,7 +162,7 @@ It could happen that you're creating an Azure VM based on a specialized Disk com
 The same can happen when you create a generalized image from an existing Azure VM. We invite you to remove extensions to avoid inconsistent state from the extensions.
 
 
-### Powershell is not recognized as an internal or external command
+### PowerShell is not recognized as an internal or external command
 
 You notice the following error entries in the RunCommand extension's output:
 
@@ -250,7 +250,7 @@ Your VM is probably missing the Baltimore CyberTrust Root certificate in "Truste
 Open the certificates console with certmgr.msc, and check if the certificate is there.
 If it's not, please install it from https://cacert.omniroot.com/bc2025.crt
 
-Another possible issue is that the certificate chain is broken by a 3rd party SSL Inspection tool, like ZScaler. That kind of tool should be configured to bypass SSL inspection.
+Another possible issue is that the certificate chain is broken by a third party SSL Inspection tool, like ZScaler. That kind of tool should be configured to bypass SSL inspection.
 
 
 
