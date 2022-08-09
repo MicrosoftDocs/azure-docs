@@ -32,21 +32,23 @@ Also, we recommend learning more about:
 >*  Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 ### Enable conditional access policy in ACR - portal
 
-You can enable registry's conditional policy in the [Azure portal](https://portal.azure.com). 
+You can enable registry's conditional access policy in the [Azure portal](https://portal.azure.com). 
 
->* Sign in to the [Azure portal](https://portal.azure.com) 
->* Navigate to your **Azure Container Registry** > **Resource Group** > **Settings** > **Policies** > **Assign policy**
+1. Sign in to the [Azure portal](https://portal.azure.com) 
+2. Navigate to your **Azure Container Registry** > **Resource Group** > **Settings** > **Policies** > **Assign policy**
  
-:::image type="content" source="../media/container-registry-enable-conditional-policy/01-policies.png" alt-text="Screenshot to navigate ACR built-in policies." border="false":::
+:::image type="content" source="media/container-registry-enable-conditional-policy/01-policies.png" alt-text="Screenshot to navigate ACR built-in policies":::
 
->* On the **Assign policy** page, set **Scope** with **Subscription** and **ResourceGroup**
->* Use filters to confirm and select **Scope**, **Policy definition**, **Assignment name**
+3. On the *Assign policy** page, set **Scope** with **Subscription** and **ResourceGroup**
+4. Use filters to confirm and select **Scope**, **Policy definition**, **Assignment name**
 
-:::image type="content" source="../media/container-registry-enable-conditional-policy/02-assign-policy.png" alt-text="Screenshot to search and filter ACR built-in policy definition." border="false":::
+:::image type="content" source="media/container-registry-enable-conditional-policy/02-assign-policy.png" alt-text="Screenshot to search and filter ACR built-in policy definition.":::
 
->* Use the filters to limit compliance states or to search for policies.
->* Confirm your settings and set policy enforcement as **enabled**
->* Select **Review+Create**
+:::image type="content" source="media/container-registry-enable-conditional-policy/02-conditional-policy.png" alt-text="Search and filter conditional access policy in ACR built-in policy definition.":::
+
+5. Use the filters to limit compliance states or to search for policies.
+6. Confirm your settings and set policy enforcement as **enabled**
+7. Select **Review+Create**
 
 ### Enable conditional access in ACR - Azure CLI
 
@@ -55,15 +57,16 @@ You can use Azure CLI version 2.0.76 or later, run `az --version` to find the ve
 1. Run the [az policy assignment create ](cli/azure/policy/assignment#az-policy-assignment-create) command in the Azure CLI to create a resource policy assignment, as below:
 
 ```azurecli-interactive
-az policy assignment create 
---name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' --display-name 'Configure container registries to disable ARM audience token authentication' 
+az policy assignment create \ 
+--name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' \
+--display-name 'Configure container registries to disable ARM audience token authentication' \
 --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 1. Run the [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) command in the Azure CLI to get the policy IDs of the ACR policies that are applied, as below:
 
 ```azurecli-interactive
-az policy assignment list 
+az policy assignment list \
 --query "[?displayName=='Container registries should have ARM audience token authentication disabled'].id"
 ```
 
@@ -72,8 +75,8 @@ az policy assignment list
 1. Run the [az policy assignment delete](/cli/azure/policy/assignment#az-policy-assignment-delete) command in the Azure CLI to remove the assignment created, as below:
 
 ```azurecli-interactive
-az policy assignment delete 
---name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' 
+az policy assignment delete \
+--name 'ACR_AADAuthenticationAsArmPolicy_AuditDeny' \
 --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
