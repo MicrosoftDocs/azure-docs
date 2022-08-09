@@ -233,7 +233,7 @@ To remove the link between your AMS resource and your VIS:
 
 1. On the AMS page, select **Delete** to unregister the resource.
 
-1. Wait for the confirmation message, **Azure Monitor for SAP Solutions has been unregistered successfully**.
+1. Wait for the confirmation message, **Azure Monitor for SAP solutions has been unregistered successfully**.
 
 ## Next steps
 

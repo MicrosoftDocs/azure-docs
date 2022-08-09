@@ -1,3 +1,4 @@
+items:
 - name: Fundamentals documentation
   href: index.yml
 - name: Overview
@@ -323,8 +324,6 @@
     href: support-help-options.md
 - name: Reference
   items:
-  - name: What's new in Microsoft 365 Government
-    href: whats-new-microsoft-365-government.md
   - name: Archive for What's new? in Azure AD
     href: whats-new-archive.md
   - name: Data storage

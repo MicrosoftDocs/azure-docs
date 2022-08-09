@@ -50,27 +50,7 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 ## Supported regions
 
-The following table describes the scenarios that are currently supported for Azure Arc-enabled data services.
-
-|Azure Regions  |Direct connected mode  |Indirect connected mode  |
-|---------|---------|---------|
-|East US | Available | Available
-|East US 2|Available|Available
-|West US|Available|Available
-|West US 2|Available|Available
-|West US 3|Available|Available
-|North Central US | Available | Available
-|Central US|Available|Available
-|South Central US|Available|Available
-|UK South|Available|Available
-|France Central|Available|Available
-|West Europe |Available |Available
-|North Europe|Available|Available
-|Japan East|Available|Available
-|Korea Central|Available|Available
-|Southeast Asia|Available|Available
-|Australia East|Available|Available
-|Canada Central|Available|Available
+To see the regions that currently support Azure Arc-enabled data services, go to [Azure Products by Region - Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable&products=azure-arc).
 
 ## Next steps
 

@@ -25,6 +25,7 @@ To complete this tutorial, you need the following:
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac) .
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- PowerShell 7.2 or higher.
 
 
 ## Overview of tutorial
@@ -71,6 +72,9 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 
 ## Generate sample data
+> [!IMPORTANT]
+> You must be using PowerShell version 7.2 or higher. 
+
 The following PowerShell script both generates sample data to configure the custom table and sends sample data to the logs ingestion API to test the configuration. 
 
 1. Run the following PowerShell command which adds a required assembly for the script.

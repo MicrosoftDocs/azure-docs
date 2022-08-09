@@ -3,9 +3,10 @@ title: Best practices for connection resilience
 titleSuffix: Azure Cache for Redis
 description: Learn how to make your Azure Cache for Redis connections resilient.
 author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/3/2021
+ms.date: 08/03/2022
 ms.author: franlanglois
 ---
 
@@ -21,7 +22,9 @@ Test your system's resiliency to connection breaks using a [reboot](cache-admini
 
 ## TCP settings for Linux-hosted client applications
 
-Some Linux versions use optimistic TCP settings by default. The TCP settings can create a situation where a client connection to a cache cannot be reestablished for a long time when a Redis server stops responding before closing the connection gracefully. The failure to reestablish a connection can happen if the primary node of your Azure Cache For Redis becomes unavailable, for example, for unplanned maintenance.
+Some Linux versions use TCP settings that are too high by default. The higher TCP settings can create a situation where a client connection to a cache cannot be reestablished for a long time when a Redis server stops responding. The client waits too long before closing the connection gracefully.
+
+The failure to reestablish a connection can happen if the primary node of your Azure Cache For Redis becomes unavailable, for example, for unplanned maintenance.
 
 We recommend these TCP settings:
 
