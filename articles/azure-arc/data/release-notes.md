@@ -18,7 +18,13 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## August 9, 2022
 
-New for this release:
+This release is published August 9, 2022.
+
+### Image tag
+
+`v1.10.0_2022-08-09`
+
+For complete release version information, see [Version log](version-log.md#august-9-2022).
 
 ## Arc-enabled SQL Managed Instance
 
