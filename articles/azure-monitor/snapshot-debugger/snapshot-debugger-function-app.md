@@ -1,9 +1,10 @@
 ---
 title: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions | Microsoft Docs
 description: Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions
+ms.author: hhunter-ms
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.reviewer: jogrima
+ms.date: 08/09/2022
+ms.reviewer: cweining
 ms.custom: devdivchpfy22
 ---
 
@@ -21,15 +22,7 @@ For most applications, the Free and Shared service tiers don't have enough memor
 
 ## Enable Snapshot Debugger
 
-If you're running a different type of Azure service, here are instructions for enabling Snapshot Debugger on other supported platforms:
-
-* [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-
-To enable Snapshot Debugger in your Function app, you have to update your `host.json` file by adding the property `snapshotConfiguration` as defined below and redeploy your function.
+To enable Snapshot Debugger in your Function app, add the `snapshotConfiguration` property to your *host.json* file and redeploy your function. For example:
 
 ```json
 {
@@ -44,13 +37,11 @@ To enable Snapshot Debugger in your Function app, you have to update your `host.
 }
 ```
 
-Snapshot Debugger is pre-installed as part of the Azure Functions runtime, which by default it's disabled.
+Snapshot Debugger is pre-installed as part of the Azure Functions runtime and is disabled by default. Since it's included in the runtime, you don't need to add extra NuGet packages or application settings.
 
-Since Snapshot Debugger it's included in the Azure Functions runtime, it isn't needed to add extra NuGet packages nor application settings.
+In the simple .NET Core Function app example below, `.csproj`, `{Your}Function.cs`, and `host.json` has Snapshot Debugger enabled:
 
-Just as reference, for a simple Function app (.NET Core), below is how it will look the `.csproj`, `{Your}Function.cs`, and `host.json` after enabled Snapshot Debugger on it.
-
-Project csproj
+***Project.`csproj`***
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -73,7 +64,7 @@ Project csproj
 </Project>
 ```
 
-Function class
+`{Your}Function.cs`
 
 ```csharp
 using System;
@@ -101,7 +92,7 @@ namespace SnapshotCollectorAzureFunction
 }
 ```
 
-Host file
+`Host.json`
 
 ```json
 {
@@ -152,7 +143,7 @@ Below are the supported overrides of the Snapshot Debugger agent endpoint:
 
 ## Disable Snapshot Debugger
 
-To disable Snapshot Debugger in your Function app, you just need to update your `host.json` file by setting to `false` the property `snapshotConfiguration.isEnabled`.
+To disable Snapshot Debugger in your Function app, update your `host.json` file by setting the `snapshotConfiguration.isEnabled` property to `false`.
 
 ```json
 {

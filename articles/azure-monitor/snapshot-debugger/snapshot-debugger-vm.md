@@ -1,25 +1,30 @@
 ---
 title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines | Microsoft Docs
 description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
+ms.author: hhunter-ms
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.reviewer: jogrima
+ms.date: 08/09/2022
+ms.reviewer: cweining
 ms.custom: devdivchpfy22
 ---
 
 # Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
 
-If your ASP.NET or ASP.NET core application runs in Azure App Service, it's highly recommended to [enable Snapshot Debugger through the Application Insights portal page](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json). However, if your application requires a customized Snapshot Debugger configuration, or a preview version of .NET core, then this instruction should be followed ***in addition*** to the instructions for [enabling through the Application Insights portal page](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json).
+If your ASP.NET or ASP.NET Core application runs in App Service and requires a customized Snapshot Debugger configuration, or a preview version of .NET Core, start with the [Enable Snapshot Debugger for App Services how-to guide](snapshot-debugger-app-service.md).
 
-If your application runs in Azure Service Fabric, Cloud Service, Virtual Machines, or on-premises machines, the following instructions should be used.
+If your application runs in Azure Service Fabric, Cloud Service, Virtual Machines, or on-premises machines, you can skip enabling Snapshot Debugger on App Services and jump into following this guide.
 
 ## Configure snapshot collection for ASP.NET applications
 
-1. [Enable Application Insights in your web app](../app/asp-net.md), if you haven't done it yet.
+### Prerequisite
+
+[Enable Application Insights in your web app](../app/asp-net.md).
 
 1. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
-1. If needed, customized the Snapshot Debugger configuration added to [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md). The default Snapshot Debugger configuration is mostly empty and all settings are optional. Here's an example showing a configuration equivalent to the default configuration:
+1. If needed, customize the Snapshot Debugger configuration added to [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md).
+
+    The default Snapshot Debugger configuration is mostly empty and all settings are optional. Here's an example showing a configuration equivalent to the default configuration:
 
     ```xml
     <TelemetryProcessors>
@@ -57,10 +62,11 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 
 ## Configure snapshot collection for applications using ASP.NET Core LTS or above
 
-1. [Enable Application Insights in your ASP.NET Core web app](../app/asp-net-core.md), if you haven't done it yet.
+### Prerequisite
 
-    > [!NOTE]
-    > Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.
+[Enable Application Insights in your ASP.NET Core web app](../app/asp-net-core.md), if you haven't done it yet.
+> [!NOTE]
+> Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.
 
 1. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
@@ -124,7 +130,9 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
        }
        ```
 
-1. If needed, customized the Snapshot Debugger configuration by adding a SnapshotCollectorConfiguration section to appsettings.json. All settings in the Snapshot Debugger configuration are optional. Here's an example showing a configuration equivalent to the default configuration:
+1. If needed, customize the Snapshot Debugger configuration by adding a `SnapshotCollectorConfiguration` section to *appsettings.json*. 
+
+    All settings in the Snapshot Debugger configuration are optional. Here's an example showing a configuration equivalent to the default configuration:
 
    ```json
    {

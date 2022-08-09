@@ -1,21 +1,28 @@
 ---
 title: Upgrading Azure Application Insights Snapshot Debugger
 description: How to upgrade Snapshot Debugger for .NET apps to the latest version on Azure App Services, or via Nuget packages
+ms.author: hhunter-ms
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.reviewer: pharring
+ms.date: 08/09/2022
+ms.reviewer: cweining
 ms.custom: devdivchpfy22
 ---
 
 # Upgrading the Snapshot Debugger
 
 To provide the best possible security for your data, Microsoft is moving away from TLS 1.0 and TLS 1.1, which have been shown to be vulnerable to determined attackers. If you're using an older version of the site extension, it will require an upgrade to continue working. This document outlines the steps needed to upgrade your Snapshot debugger to the latest version.
-There are two primary upgrade paths depending on if you enabled the Snapshot Debugger using a site extension or if you used an SDK/Nuget added to your application. Both upgrade paths are discussed below.
+
+You can follow two primary upgrade paths, depending on how you enabled the Snapshot Debugger:
+
+* Via site extension
+* Via an SDK/NuGet added to your application
+
+This article discusses both upgrade paths.
 
 ## Upgrading the site extension
 
 > [!IMPORTANT]
-> Older versions of Application Insights used a private site extension called _Application Insights extension for Azure App Service_. The current Application Insights experience is enabled by setting App Settings to light up a pre-installed site extension.
+> Older versions of Application Insights used a private site extension called *Application Insights extension for Azure App Service*. The current Application Insights experience is enabled by setting App Settings to light up a pre-installed site extension.
 > To avoid conflicts, which may cause your site to stop working, it is important to delete the private site extension first. See step 4 below.
 
 If you enabled the Snapshot debugger using the site extension, you can upgrade using the following procedure:
@@ -25,23 +32,25 @@ If you enabled the Snapshot debugger using the site extension, you can upgrade u
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/app-service-resource.png" alt-text="Screenshot of individual App Service resource named DiagService01.":::
 
-1. Once you've navigated to your resource, click on the Extensions blade and wait for the list of extensions to populate:
+1. Once you've navigated to your resource, click on the **Extensions** blade and wait for the list of extensions to populate:
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png" alt-text="Screenshot of App Service Extensions showing Application Insights extension for Azure App Service installed.":::
 
-1. If any version of _Application Insights extension for Azure App Service_ is installed, then select it and click Delete. Confirm **Yes** to delete the extension and wait for the delete to complete before moving to the next step.
+1. If any version of _Application Insights extension for Azure App Service_ is installed, select it and click **Delete**. Confirm **Yes** to delete the extension and wait for the delete to complete before moving to the next step.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png" alt-text="Screenshot of App Service Extensions showing Application Insights extension for Azure App Service with the Delete button highlighted.":::
 
-1. Go to the Overview blade of your resource and click on Application Insights:
+1. Go to the **Overview** blade of your resource and select **Application Insights**:
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-button.png" alt-text="Screenshot of three buttons. Center button with name Application Insights is selected.":::
 
 1. If this is the first time you've viewed the Application Insights blade for this App Service, you'll be prompted to turn on Application Insights. Select **Turn on Application Insights**.
 
-   image type="content" source="./media/snapshot-debugger-upgrade/turn-on-application-insights.png" alt-text="[Screenshot of the first-time experience for the Application Insights blade with the Turn on Application Insights button highlighted.":::
+   :::image type="content" source="./media/snapshot-debugger-upgrade/turn-on-application-insights.png" alt-text="Screenshot of the first-time experience for the Application Insights blade with the Turn on Application Insights button highlighted.":::
 
-1. The current Application Insights settings are displayed. Unless you want to take the opportunity to change your settings, you can leave them as is. The **Apply** button on the bottom of the blade isn't enabled by default and you'll have to toggle one of the settings to activate the button. You don’t have to change any actual settings, rather you can change the setting and then immediately change it back. We recommend toggling the Profiler setting and then selecting **Apply**.
+1. In the Application Insights settings blade, switch the Snapshot Debugger setting toggles to **On** and select **Apply**.
+
+   If you decide to change _any_ Application Insights settings, the **Apply** button on the bottom of the blade will be activated.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/view-application-insights-data.png" alt-text="Screenshot of Application Insights App Service Configuration page with Apply button highlighted in red.":::
 
