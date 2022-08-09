@@ -1,9 +1,38 @@
 This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. 
+> [!NOTE]
+> All new Provisioning Agent releases are made available through auto upgrade for existing installations and can be downloaded for new installations.
 
-Microsoft provides direct support for the latest agent version and one version before.
+
+Microsoft provides support for the latest agent version and one version before.
 
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
+
+## 1.1.xxx.x
+
+Release date: August 8th, 2022
+
+### New or changed functionality
+
+ - We added a new cmdlet to enable and disable writeback of passwords. You can learn more about Azure AD Cloud Sync PowerShell in [the online documentation](https://docs.microsoft.com/azure/active-directory/cloud-sync/reference-powershell).
+ - We now return more info in the 'Get-AADCloudSyncDomains' cmdlet. 
+ - We updated new cmdlets of CloudSync powershell module in the unattended agent install script. 
+ - We have added support for the installation of the provisioning agent using the commandline. 
+ - We added support for EX and RX environments.
+ - 
+### Bugfixes
+
+ - After the Newtonsoft.Json upgrade, AADConnectProvisioningAgent.exe.config is not updated after install which results in a failure of sync. We now remove the app.config file on upgrade of the agent.
+ - We fixed an issue with DC affinity after an OU is renamed.
+ - We fixed several issues in the PowerShell module.
+ - We fixed a memory leak due to not disposing HTTP client.
+ - We fixed a bug in the code for granting the "logon as a service" right to the GMSA.
+ - We refined the permissions on the GMSA for CloudHR.
+ - We now uninstall the Cloud Sync agent when the bundle is uninstalled.
+ - We fixed a bug that prevents deletion of the Service Principal if not all Job are deleted.
+ - We fixed an issue with updating of the password of a user with 'User must change password at next logon'.
+ - We fixed an issue with the agent GMSA folder permissions.
+ - We fixed an issue where group membership updates are not always correct.
 
 ## 1.1.587.0
 
