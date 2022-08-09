@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot Azure Application Insights Snapshot Debugger
 description: This article presents troubleshooting steps and information to help developers enable and use Application Insights Snapshot Debugger.
-ms.author: hhunter-ms
+ms.author: hannahhunter
+author: hhunter-ms
+ms.reviewer: charles.weininger
+reviewer: cweining
 ms.topic: conceptual
 ms.date: 08/09/2022
-ms.reviewer: cweining
 ms.custom: devdivchpfy22
 ---
 
@@ -20,7 +22,7 @@ Below you can find scenarios where Snapshot Collector is not supported:
 
 |Scenario    | Side Effects | Recommendation |
 |------------|--------------|----------------|
-|When using the Snapshot Collector SDK in your application directly (.csproj) and you have enabled the advance option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost, therefore, no Snapshots will be available.<br /><br />Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.`<br /><br />For more information about the Application Insights feature "Interop", see the [documentation.](../app/azure-web-apps-net-core.md#troubleshooting) | If you are using the advance option "Interop", use the codeless Snapshot Collector injection (enabled thru the Azure Portal UX) |
+|When using the Snapshot Collector SDK in your application directly (.csproj) and you have enabled the advance option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost, therefore, no Snapshots will be available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.` <br/> For more information about the Application Insights feature "Interop", see the [documentation.](../app/azure-web-apps-net-core.md#troubleshooting) | If you are using the advance option "Interop", use the codeless Snapshot Collector injection (enabled thru the Azure Portal UX) |
 
 ## Make sure you're using the appropriate Snapshot Debugger Endpoint
 

@@ -1,10 +1,12 @@
 ---
 title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines | Microsoft Docs
 description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
-ms.author: hhunter-ms
+ms.author: hannahhunter
+author: hhunter-ms
+ms.reviewer: charles.weininger
+reviewer: cweining
 ms.topic: conceptual
 ms.date: 08/09/2022
-ms.reviewer: cweining
 ms.custom: devdivchpfy22
 ---
 
@@ -62,7 +64,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 
 ## Configure snapshot collection for applications using ASP.NET Core LTS or above
 
-### Prerequisite
+### Prerequisites
 
 [Enable Application Insights in your ASP.NET Core web app](../app/asp-net-core.md), if you haven't done it yet.
 > [!NOTE]
@@ -130,7 +132,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
        }
        ```
 
-1. If needed, customize the Snapshot Debugger configuration by adding a `SnapshotCollectorConfiguration` section to *appsettings.json*. 
+1. If needed, customize the Snapshot Debugger configuration by adding a `SnapshotCollectorConfiguration` section to *appsettings.json*.
 
     All settings in the Snapshot Debugger configuration are optional. Here's an example showing a configuration equivalent to the default configuration:
 

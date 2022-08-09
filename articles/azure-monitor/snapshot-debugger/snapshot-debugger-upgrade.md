@@ -1,10 +1,12 @@
 ---
 title: Upgrading Azure Application Insights Snapshot Debugger
 description: How to upgrade Snapshot Debugger for .NET apps to the latest version on Azure App Services, or via Nuget packages
-ms.author: hhunter-ms
+ms.author: hannahhunter
+author: hhunter-ms
+ms.reviewer: charles.weininger
+reviewer: cweining
 ms.topic: conceptual
 ms.date: 08/09/2022
-ms.reviewer: cweining
 ms.custom: devdivchpfy22
 ---
 
@@ -36,7 +38,7 @@ If you enabled the Snapshot debugger using the site extension, you can upgrade u
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png" alt-text="Screenshot of App Service Extensions showing Application Insights extension for Azure App Service installed.":::
 
-1. If any version of _Application Insights extension for Azure App Service_ is installed, select it and click **Delete**. Confirm **Yes** to delete the extension and wait for the delete to complete before moving to the next step.
+1. If any version of *Application Insights extension for Azure App Service* is installed, select it and click **Delete**. Confirm **Yes** to delete the extension and wait for the delete to complete before moving to the next step.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png" alt-text="Screenshot of App Service Extensions showing Application Insights extension for Azure App Service with the Delete button highlighted.":::
 
@@ -50,7 +52,7 @@ If you enabled the Snapshot debugger using the site extension, you can upgrade u
 
 1. In the Application Insights settings blade, switch the Snapshot Debugger setting toggles to **On** and select **Apply**.
 
-   If you decide to change _any_ Application Insights settings, the **Apply** button on the bottom of the blade will be activated.
+   If you decide to change *any* Application Insights settings, the **Apply** button on the bottom of the blade will be activated.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/view-application-insights-data.png" alt-text="Screenshot of Application Insights App Service Configuration page with Apply button highlighted in red.":::
 

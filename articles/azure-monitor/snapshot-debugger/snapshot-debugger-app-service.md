@@ -2,9 +2,11 @@
 title: Enable Snapshot Debugger for .NET apps in Azure App Service | Microsoft Docs
 description: Enable Snapshot Debugger for .NET apps in Azure App Service
 ms.topic: conceptual
-ms.author: hhunter-ms
+ms.author: hannahhunter
+author: hhunter-ms
+ms.reviewer: charles.weininger
+reviewer: cweining
 ms.date: 08/09/2022
-ms.reviewer: cweining
 ms.custom: devdivchpfy22
 ---
 
@@ -142,7 +144,7 @@ Below you can find scenarios where Snapshot Collector is not supported:
 
 |Scenario    | Side Effects | Recommendation |
 |------------|--------------|----------------|
-|You're using the Snapshot Collector SDK in your application directly (.csproj) and have enabled the advanced option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost and no Snapshots will be available. <br /><br />Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.`<br /><br />[Learn more about the Application Insights feature "Interop".](../app/azure-web-apps-net-core.md#troubleshooting) | If you are using the advanced option "Interop", use the codeless Snapshot Collector injection (enabled through the Azure portal). |
+|You're using the Snapshot Collector SDK in your application directly (.csproj) and have enabled the advanced option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost and no Snapshots will be available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.` <br/> [Learn more about the Application Insights feature "Interop".](../app/azure-web-apps-net-core.md#troubleshooting) | If you are using the advanced option "Interop", use the codeless Snapshot Collector injection (enabled through the Azure portal). |
 
 ## Next steps
 
