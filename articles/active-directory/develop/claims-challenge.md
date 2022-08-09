@@ -172,7 +172,7 @@ The **xms_cc** claim with a value of "cp1" in the access token is the authoritat
 
 The values are not case-sensitive and unordered. If more than one value is specified in the **xms_cc** claim request, those values will be a multi-valued collection as the value of the **xms_cc** claim.
 
-A request of :
+A request of:
 
 ```json
 { "access_token": { "xms_cc":{"values":["cp1","foo", "bar"] } }}
