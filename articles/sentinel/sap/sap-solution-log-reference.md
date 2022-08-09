@@ -31,6 +31,7 @@ Users are *strongly encouraged* to use the functions as the subjects of their an
 - [SAPUsersEmail](#sapusersemail)
 - [SAPAuditLogConfiguration](#sapauditlogconfiguration)
 - [SAPAuditLogAnomalies](#sapauditloganomalies)
+- [SAPAuditLogConfigRecommend](#sapauditLogconfigrecommend)
 - [SAPSystems](#sapsystems)
 - [SAPUsersGetVIP](#sapusersgetvip)
 - [SAPUsersHeader](#sapusersheader)
@@ -286,6 +287,11 @@ SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dyna
 | MinTime | Time of first event observed |
 | MaxTime | Time of last event observed|
 | Score | the anomaly scores as produced by the anomaly model|
+
+See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) for more information.
+
+### SAPAuditLogConfigRecommend
+The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. See detailed explanation in the [Configuring the SAP audit log monitoring analytics rules](deployment-solution-configuration.md#configuring-the-sap-audit-log-monitoring-analytics-rules) guide.
 
 ### SAPUsersGetVIP
 
