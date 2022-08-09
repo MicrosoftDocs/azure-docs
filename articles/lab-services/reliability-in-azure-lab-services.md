@@ -47,9 +47,9 @@ IMPORTANT:
 
 # What is reliability in Azure Lab Services?
 
-Reliability is a system’s ability to recover from failures and continue to function. It’s not only about avoiding failures but also involves responding to failures in a way that minimizes downtime or data loss. Because failures can occur at various levels, it’s important to have protection for all types based on service availability requirements. Resiliency in Azure supports and advances capabilities that respond to outages in real time to ensure continuous service and data protection assurance for mission-critical applications that require near-zero downtime and high customer confidence.
+Reliability is a system’s ability to recover from failures and continue to function. It’s not only about avoiding failures but also involves responding to failures in a way that minimizes downtime or data loss. Because failures can occur at various levels, it’s important to have protection for all types based on service reliability requirements. Reliability in Azure supports and advances capabilities that respond to outages in real time to ensure continuous service and data protection assurance for mission-critical applications that require near-zero downtime and high customer confidence.
 
-This article describes resiliency support in Azure Lab Services, and covers <!-- IF (AZ SUPPORTED) --> both regional resiliency with availability zones and <!-- END IF (AZ SUPPORTED)--> cross-region resiliency with disaster recovery. For a more detailed overview of resiliency in Azure, see [Azure resiliency](/availability-zones/overview.md).
+This article describes reliability support in Azure Lab Services, and covers <!-- IF (AZ SUPPORTED) --> both regional resiliency with availability zones and <!-- END IF (AZ SUPPORTED)--> cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure resiliency](/azure/availability-zones/overview.md).
 
 <!-- IF (AZ SUPPORTED) -->
 ## Availability zone support
@@ -74,7 +74,7 @@ N/A - single product SKU - remove?
 
 ### SLA improvements
 
-There are no increased SLAs for Azure Lab Services. For more information on the Azure Lab Services SLAs, see [SLA for Azure Lab Services](https://azure.microsoft.com/en-us/support/legal/sla/lab-services/v1_0/).
+There are no increased SLAs for Azure Lab Services. For more information on the Azure Lab Services SLAs, see [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0/).
 
 #### Create a resource with availability zone enabled
 
