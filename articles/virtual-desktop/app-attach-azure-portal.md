@@ -42,10 +42,6 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 
 ```
 
-## Configure the MSIX app attach management interface
-
-Next, you'll need to download and configure the the MSIX app attach management interface for the Azure portal.
-
 ## Add an MSIX image to the host pool
 
 Next you'll need to add the MSIX image to your host pool.
