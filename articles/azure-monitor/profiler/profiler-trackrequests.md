@@ -9,15 +9,11 @@ ms.reviewer: charles.weininger
 
 # Write code to track requests with Application Insights
 
-To view profiles for your application on the Performance page, Azure Application Insights needs to track requests for your application. 
+Azure Application Insights needs to track requests for your application in order to provide profiles for your application to the Performance page in the Azure portal. 
 
 For applications built on already-instrumented frameworks, like ASP.NET and ASP.NET Core, Application Insights can automatically track requests. 
 
-For other applications, such as Azure Cloud Services worker roles and Service Fabric stateless APIs:
-
-1. You need to write code to tell Application Insights where your requests begin and end. 
-1. Requests telemetry is sent to Application Insights, which you can view on the Performance page.
-1. Profiles are collected for those requests. 
+But for other applications, such as Azure Cloud Services worker roles and Service Fabric stateless APIs, you need to manually track requests with code that tells Application Insights where your requests begin and end. Requests telemetry is then sent to Application Insights, which you can view on the Performance page. Profiles are collected for those requests. 
 
 To manually track requests:
 
