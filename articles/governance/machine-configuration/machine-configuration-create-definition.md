@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
-ms.date: 07/25/2022
+ms.date: 08/09/2022
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
@@ -115,31 +115,35 @@ Create a policy definition that audits using a custom
 configuration package, in a specified path:
 
 ```powershell
-New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID' `
-  -ContentUri '<paste the ContentUri output from the Publish command>' `
-  -DisplayName 'My audit policy.' `
-  -Description 'Details about my policy.' `
-  -Path './policies' `
-  -Platform 'Windows' `
-  -PolicyVersion 1.0.0 `
-  -Verbose
+$PolicyConfig      = @{
+  PolicyId      = '_My GUID_'
+  ContentUri    = <_ContentUri output from the Publish command_>
+  DisplayName   = 'My audit policy'
+  Description   = 'My audit policy'
+  Path          = './policies'
+  Platform      = 'Windows'
+  PolicyVersion = 1.0.0
+}
+
+New-GuestConfigurationPolicy @PolicyConfig
 ```
 
 Create a policy definition that deploys a configuration using a custom
 configuration package, in a specified path:
 
 ```powershell
-New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID' `
-  -ContentUri '<paste the ContentUri output from the Publish command>' `
-  -DisplayName 'My audit policy.' `
-  -Description 'Details about my policy.' `
-  -Path './policies' `
-  -Platform 'Windows' `
-  -PolicyVersion 1.0.0 `
-  -Mode 'ApplyAndAutoCorrect' `
-  -Verbose
+$PolicyConfig2      = @{
+  PolicyId      = '_My GUID_'
+  ContentUri    = <_ContentUri output from the Publish command_>
+  DisplayName   = 'My audit policy'
+  Description   = 'My audit policy'
+  Path          = './policies'
+  Platform      = 'Windows'
+  PolicyVersion = 1.0.0
+  Mode          = 'ApplyAndAutoCorrect'
+}
+
+New-GuestConfigurationPolicy @PolicyConfig2
 ```
 
 The cmdlet output returns an object containing the definition display name and
@@ -194,7 +198,7 @@ The following example creates a policy definition to audit a service, where the 
 list at the time of policy assignment.
 
 ```powershell
-# This DSC Resource text:
+# This DSC resource definition...
 Service 'UserSelectedNameExample'
   {
     Name = 'ParameterValue'
@@ -202,28 +206,39 @@ Service 'UserSelectedNameExample'
     State = 'Running'
   }`
 
-# Would require the following hashtable:
-$PolicyParameterInfo = @(
+# ...can be converted to a hash table:
+$PolicyParameterInfo     = @(
   @{
-    Name = 'ServiceName'                                           # Policy parameter name (mandatory)
-    DisplayName = 'windows service name.'                          # Policy parameter display name (mandatory)
-    Description = 'Name of the windows service to be audited.'     # Policy parameter description (optional)
-    ResourceType = 'Service'                                       # DSC configuration resource type (mandatory)
-    ResourceId = 'UserSelectedNameExample'                         # DSC configuration resource id (mandatory)
-    ResourcePropertyName = 'Name'                                  # DSC configuration resource property name (mandatory)
-    DefaultValue = 'winrm'                                         # Policy parameter default value (optional)
-    AllowedValues = @('BDESVC','TermService','wuauserv','winrm')   # Policy parameter allowed values (optional)
-  }
-)
+    # Policy parameter name (mandatory)
+    Name                 = 'ServiceName'
+    # Policy parameter display name (mandatory)
+    DisplayName          = 'windows service name.'
+    # Policy parameter description (optional)
+    Description          = 'Name of the windows service to be audited.'
+    # DSC configuration resource type (mandatory)
+    ResourceType         = 'Service'
+    # DSC configuration resource id (mandatory)
+    ResourceId           = 'UserSelectedNameExample'
+    # DSC configuration resource property name (mandatory)
+    ResourcePropertyName = 'Name'
+    # Policy parameter default value (optional)
+    DefaultValue         = 'winrm'
+    # Policy parameter allowed values (optional)
+    AllowedValues        = @('BDESVC','TermService','wuauserv','winrm')
+  })
 
-New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID' `
-  -ContentUri '<paste the ContentUri output from the Publish command>' `
-  -DisplayName 'Audit Windows Service.' `
-  -Description 'Audit if a Windows Service isn't enabled on Windows machine.' `
-  -Path '.\policies' `
-  -Parameter $PolicyParameterInfo `
-  -PolicyVersion 1.0.0
+# ...and then passed into the `New-GuestConfigurationPolicy` cmdlet
+$PolicyParam = @{
+  PolicyId      = 'My GUID'
+  ContentUri    = '<ContentUri output from the Publish command>'
+  DisplayName   = 'Audit Windows Service.'
+  Description   = "Audit if a Windows Service isn't enabled on Windows machine."
+  Path          = '.\policies'
+  Parameter     = $PolicyParameterInfo
+  PolicyVersion = 1.0.0
+}
+
+New-GuestConfigurationPolicy @PolicyParam
 ```
 
 ### Publish the Azure Policy definition
