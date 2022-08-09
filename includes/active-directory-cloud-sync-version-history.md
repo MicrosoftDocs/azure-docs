@@ -8,7 +8,7 @@ Microsoft provides support for the latest agent version and one version before.
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
 
-## 1.1.xxx.x
+## 1.1.972.0
 
 Release date: August 8th, 2022
 
