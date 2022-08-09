@@ -76,6 +76,8 @@ Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.C
 az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resourceName} --location {location} --namespace Microsoft.CognitiveServices --resource-type accounts --properties "{\"restore\": true}"
 ```
 
+---
+
 ## Purge a deleted resource 
 
 Once you delete a resource, you won't be able to create another one with the same name for 48 hours. To create a resource with the same name, you will need to purge the deleted resource.
