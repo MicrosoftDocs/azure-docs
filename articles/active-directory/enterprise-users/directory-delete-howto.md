@@ -103,9 +103,9 @@ Once you have all the Azure and Office/Microsoft 365 Subscriptions cancelled and
 If you find that there are still enterprise applications that you can't delete in the portal, you can use the following PowerShell commands to remove them. For more information on this PowerShell command, see [Remove-AzureADServicePrincipal](/powershell/module/azuread/remove-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true).
 
 1. Open PowerShell as an administrator.
-1. Run `Connect-AzAccount -tenant <TENANT_ID>`.
+1. Run `Connect-AzureAD -tenant <TENANT_ID>`.
 1. Sign in to Azure AD in the Global Administrator role.
-1. Run `Get-AzADServicePrincipal | ForEach-Object {​​​​​ Remove-AzADServicePrincipal -ObjectId $_.Id }​`.​​​​
+1. Run `Get-AzureadServicePrincipal | ForEach-Object { Remove-AzureADServicePrincipal -ObjectId $_.ObjectId }`.
 
 ## Trial subscription that blocks deletion
 
