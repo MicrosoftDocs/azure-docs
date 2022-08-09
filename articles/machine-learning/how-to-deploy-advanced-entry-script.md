@@ -20,7 +20,7 @@ This article shows how to write entry scripts for specialized use cases.
 
 ## Prerequisites
 
-This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [this tutorial](how-to-deploy-and-where.md).
+This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [this tutorial](how-to-deploy-managed-online-endpoints.md).
 
 ## Automatically generate a Swagger schema
 
@@ -330,9 +330,9 @@ More entry script examples for specific machine learning use cases can be found 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
-* [Update web service](how-to-deploy-update-web-service.md)
+* [Update web service](./v1/how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
-* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](/azure/machine-learning/v1/how-to-enable-app-insights)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)

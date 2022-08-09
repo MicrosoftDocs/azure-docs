@@ -34,7 +34,9 @@ Use cases for creating a load test with an existing JMeter script include:
 
 ## Create an Apache JMeter script
 
-If you don't have an existing Apache JMeter script, you'll create a sample script to load test a single web application endpoint. If you already have a script, you can skip to [Create a load test](#create-a-load-test).
+If you don't have an existing Apache JMeter script, you'll create a sample script to load test a single web application endpoint. For more information about creating an Apache JMeter script, see [Getting started with Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html).
+
+If you already have a script, you can skip to [Create a load test](#create-a-load-test).
 
 1. Create a *SampleTest.jmx* file on your local machine:
 

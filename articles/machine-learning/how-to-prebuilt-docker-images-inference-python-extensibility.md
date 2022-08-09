@@ -5,8 +5,8 @@ description: 'Extend prebuilt docker images with Python package extensibility so
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssambare
-author: shivanissambare
+ms.author: sehan
+author: dem108
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
