@@ -36,7 +36,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on P
 
     > [!NOTE]
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
-    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
+    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your GCP account.
 
     1. Return to Permissions Management, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
