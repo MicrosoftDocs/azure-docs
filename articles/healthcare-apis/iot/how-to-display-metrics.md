@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.date: 08/09/2022
 ms.author: jasteppe
 ---
 
@@ -23,14 +23,14 @@ This table shows the available MedTech service metrics and the information that 
 Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
 |Availability|IotConnector Health Status|Indicates the overall health of the MedTech service.|
-|Errors|Total Error Count|Displays the total number of errors.|
-|Latency|Average Group Stage Latency|Displays the average latency of the group stage. The [group stage](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
-|Latency|Average Normalize Stage Latency|Displays the average latency of the normalized stage. The [normalized stage](iot-data-flow.md#normalize) performs normalization on raw incoming messages.|
+|Errors|Total Error Count|The total number of errors.|
+|Latency|Average Group Stage Latency|The average latency of the group stage. The [group stage](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|Average Normalize Stage Latency|The average latency of the normalized stage. The [normalized stage](iot-data-flow.md#normalize) performs normalization on raw incoming messages.|
 |Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](iot-data-flow.md#persist) by the MedTech service.|
-|Traffic|Number of Incoming Messages|Displays the number of received raw [incoming messages](iot-data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
+|Traffic|Number of Incoming Messages|The number of received raw [incoming messages](iot-data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
 |Traffic|Number of Measurements|The number of normalized value readings received by the FHIR [transformation stage](iot-data-flow.md#transform) of the MedTech service.|
-|Traffic|Number of Message Groups|Displays the number of groups that have messages aggregated in the designated time window.|
-|Traffic|Number of Normalized Messages|Displays the number of normalized messages.|
+|Traffic|Number of Message Groups|The number of groups that have messages aggregated in the designated time window.|
+|Traffic|Number of Normalized Messages|The number of normalized messages.|
 
 ## Display and configure the MedTech service metrics
 
@@ -95,12 +95,13 @@ Metric category|Metric name|Metric description|
 
    :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png" alt-text="Screenshot of select the Dashboard option." lightbox="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png":::
 
-5. Select the dashboard that you pinned your MedTech service metrics tile to using the drop-down menu. For this example, the dashboard is named **Azuredocsdemo_Dashboard**. The dashboard will display the MedTech service metrics tile that you created in the previous steps.
+5. Use the drop-down menu to select the dashboard that you pinned your MedTech service metrics tile. For this example, the dashboard is named **Azuredocsdemo_Dashboard**. 
 
-   :::image type="content" source="media\iot-metrics-display\iot-dashboard-with-metrics-tile-displayed.png" alt-text="Screenshot of dashboard with pinned MedTech service metrics tile." lightbox="media\iot-metrics-display\iot-dashboard-with-metrics-tile-displayed.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-with-metrics-pin.png" alt-text="Screenshot of selecting dashboard with pinned MedTech service metrics tile." lightbox="media\iot-metrics-display\iot-select-dashboard-with-metrics-pin.png":::
 
-   > [!TIP]
-   > See [Troubleshoot the MedTech service](./iot-troubleshoot-guide.md) for assistance fixing common errors, conditions, and issues with the MedTech service.
+6. The dashboard will display the MedTech service metrics tile that you created in the previous steps.
+
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-display-dashboard-with-metrics-pin.png" alt-text="Screenshot of dashboard with pinned MedTech service metrics tile." lightbox="media\iot-metrics-display\iot-metrics-display-dashboard-with-metrics-pin.png":::
 
 ## Next steps
 
