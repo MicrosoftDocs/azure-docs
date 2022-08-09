@@ -25,6 +25,7 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 
 - Check that you're trying to register a [supported SAP system configuration](#supported-systems)
 - Check that your Azure account has **Contributor** role access on the subscription or resource groups where you have the SAP system resources.
+- Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
 - Make sure each virtual machine (VM) in the SAP system is currently running on Azure. These VMs include:
     - The ABAP SAP Central Services (ASCS) Server instance
     - The Application Server instance or instances

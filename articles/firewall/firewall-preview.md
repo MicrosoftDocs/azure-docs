@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 08/04/2022
 ms.author: victorh
 ---
 
@@ -93,7 +93,22 @@ New resource specific tables are now available in Diagnostic setting that allows
 - [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
 - [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
 
-By default, the new resource specific tables are disabled. Open a support ticket to enable the functionality in your environment.
+By default, the new resource specific tables are disabled. 
+
+Run the following Azure PowerShell commands to enable Azure Firewall Structured logs:
+
+```azurepowershell
+Connect-AzAccount 
+Select-AzSubscription -Subscription "subscription_id or subscription_name" 
+Register-AzProviderFeature -FeatureName AFWEnableStructuredLogs -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Run the following Azure PowerShell command to turn off this feature:
+
+```azurepowershell
+Unregister-AzProviderFeature -FeatureName AFWEnableStructuredLogs -ProviderNamespace Microsoft.Network 
+```
 
 In addition, when setting up your log analytics workspace, you must select whether you want to work with the AzureDiagnostics table (default) or with Resource Specific Tables.
 
@@ -131,7 +146,9 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 
 ### Enable Policy Analytics
 
-#### Firewall with no Azure Diagnostics settings configured
+Policy analytics starts monitoring the flows in the DNAT, Network, and Application rule analysis only after you enable the feature. It can't analyze rules hit before the feature is enabled.  
+
+#### Firewall with no Diagnostics settings configured
 
 
 1.	Once all prerequisites are met, select **Policy analytics (preview)** in the table of contents. 
@@ -142,9 +159,9 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 6. Go to the Firewall attached to the policy and enter the **Diagnostic settings** page. You'll see the **FirewallPolicySetting** added there as part of the policy analytics feature.
 7. Select **Edit Setting**, and ensure the **Resource specific** toggle is checked, and the highlighted tables are checked. In the previous example, all logs are written to the log analytics workspace.
 
-#### Firewall with Azure Diagnostics settings already configured
+#### Firewall with Diagnostics settings already configured
 
-1. Ensure that the Firewall attached to the policy is connected to **Resource Specific** tables, and that the following three tables are enabled:
+1. Ensure that the Firewall attached to the policy is logging to **Resource Specific** tables, and that the following three tables are also selected:
    - AZFWApplicationRuleAggregation
    - AZFWNetworkRuleAggregation
    - AZFWNatRuleAggregation

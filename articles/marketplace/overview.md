@@ -17,8 +17,7 @@ The commercial marketplace is available in more than 100 countries and regions, 
 
 The following video provides more information about transacting in the commercial marketplace.
 
-<br />
-<iframe src=https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=ae2b72e2-6591-407f-8740-50cc4860e8ee width="1080" height="529"></iframe>
+> [!VIDEO ae2b72e2-6591-407f-8740-50cc4860e8ee]
 
 ## Why sell with Microsoft?
 
