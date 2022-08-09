@@ -7754,7 +7754,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/view-model-evaluation.md",
       "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/concepts/data-formats.md",
