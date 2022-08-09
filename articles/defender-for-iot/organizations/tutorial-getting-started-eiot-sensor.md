@@ -221,17 +221,8 @@ In Defender for Endpoint, also view alerts data, recommendations and vulnerabili
 
 For more information in Defender for Endpoint documentation, see:
 
-> [!div class="nextstepaction"]
-> [Onboarding](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
-
-> [!div class="nextstepaction"]
-> [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
-
-> [!div class="nextstepaction"]
-> [Alerts](/microsoft-365/security/defender-endpoint/alerts-queue)
-
-> [!div class="nextstepaction"]
-> [Recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
-
-> [!div class="nextstepaction"]
-> [Vulnerabilities](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+- [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
+- [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
+- [Alerts in Defender for Endpoint](/microsoft-365/security/defender-endpoint/alerts-queue)
+- [Security recommendations in Defender for Endpoint](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+- [Defender for Endpoint: Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
