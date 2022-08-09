@@ -131,7 +131,11 @@ az netappfiles volume create \
 List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
 
 ```azurecli
-az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
+az netappfiles volume show \
+    --resource-group $RESOURCE_GROUP \
+    --account-name $ANF_ACCOUNT_NAME \
+    --pool-name $POOL_NAME \
+    --volume-name "myvol1" -o JSON
 ```
 
 ```output
