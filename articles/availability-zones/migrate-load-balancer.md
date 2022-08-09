@@ -33,13 +33,6 @@ Downtime is required. All migration scenarios require some level of downtime dow
 
  Let's say you need to enable an existing load balancer to use Availability Zones within the same Azure region. You can't just switch an existing Azure load balancer from non-AZ to be AZ aware. But you won't have to redeploy a load balancer to take advantage of this migration. A quick Frontend IP configuration change is all you need to do.
 
-To enable an existing load balancer to use Availability Zones in the same region:
-1. Create a new Frontend IP configuration with desired AZ option (Zonal or Zone Redundant).
-1.  Associate the new IP with the existing Load Balancer. This operation will change the Public IP of the load balancer, which will break the connectivity for certain resources using the old IP address.
-1. Update the load balancing rules and configurations to utilize these new public IPs.
-
-:::image type="content" source="media/enable-availability-zones-load-balancer.png" alt-text="Screenshot of Azure Portal showing Availability Zone dropdown menu":::
-
 > [NOTE!]
 > It isn't required to have a load balancer for each zone, rather having a single load balancer with multiple frontends (zonal or zone redundant) associated to their respective backend pools will serve the purpose. 
 
@@ -49,6 +42,8 @@ As Frontend IP can be either zonal or zone redundant, users need to decide which
 | ----- | ----- |
 |Zonal Frontend | We recommend creating zonal frontend when backend is concentrated in a particular zone. For example, if backend instances are pinned to zone 2 then it makes sense to create Frontend IP configuration in Availability zone 2. |
 | Zone Redundant Frontend | When the resources (VMs, NICs, IP addresses, etc.) inside a backend pool are distributed across zones, then it's recommended to create Zone redundant Frontend. This will provide the high availability and ensure seamless connectivity even if a zone goes down. |
+
+To move a load balancer within the same region, see [migrate a load balancer to availability zone]().
 ## Migration option 2: Migrate Load Balancer to another region with AZs
 
 Depending on the type of load balancer you have, you'll need to follow different steps. The following sections cover migrating both external and internal load balancers
@@ -58,37 +53,14 @@ When you create an internal load balancer, a virtual network is configured as th
 
 Azure internal load balancers can't be moved from one region to another. We must associate the new load balancer to resources in the target region. For the migration, we can you use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer. We can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.
 
-To migrate an internal load balancer to another region:
-1. Export configuration of Virtual network
-    1. Changing the VNET name and target location are required. It's optional to update other parameters such as address prefix and subnet.
-1. Deploy virtual network in target region
-1. Once VNET is deployed in the target region, export the internal load balancer template, edit the target load balancer name, target VNET resource ID and other parameters.
-1. No need to change the Load balancing rules, Inbound NAT rules and health probes, these can be left as it is unless you want to modify/add more rules.
-1. Edit template to deploy Frontend private IP in the subnet, ensure Zonal or Zone redundant option is selected as per requirement.
-1. Verify all the changes in the template are correct.
-1. Deploy the template from portal or PowerShell.
+To migrate an internal load balancer to availability zones across regions, see [moving internal Load Balancer across regions](../load-balancer/move-across-regions-internal-load-balancer-portal.md).
 
-Example:  Frontend IP configuration will resemble the following code when Zone redundant 
-:::image type="content" source="media/front-end-ip-json-zone-redundant.png" alt-text="Screenshot of JSON code for zone redundant front end ip":::
-
-
-For detailed guidance on moving Internal Load Balancer across regions, refer to the following articles: (https://docs.microsoft.com/en-us/azure/load-balancer/move-across-regions-internal-load-balancer-portal)
-
-
-<!-- Find url for above -->
-
-#### Migrate an External Load Balancer 
+#### Migrate a public Load Balancer 
 
 Azure external load balancers can't be moved between regions. We need to associate the new load balancer to resources in the target region.
 To redeploy load balancer with the source configuration to a new Zone resilient region, the most suitable approach is to use an Azure Resource Manager template to export the existing configuration external load balancer. You can then stage the resource in another region by exporting the load balancer and public IP to a template, modifying the parameters to match the destination region, and then deploying the template to the new region. 
-- First create a new Frontend IP configuration with either Zone Redundant or Zonal option in the target region. 
-- Export and update the load balancer template with new location, Frontend IP resource ID, and other parameters depending on the target requirements. Ensure to update the load balancer rules, inbound NAT rules with the new Frontend IP.
-- Once the template is ready, deploy it using either Azure portal or programmatically. 
-If you have another public IP that's being used for outbound NAT for the load balancer being moved, repeat the process to export and deploy the second outbound public IP to the target region.
-Reference Link: Move an Azure external load balancer to another Azure region by using the Azure portal | Microsoft Docs
 
-<!-- find url for above -->
-<!-- Provide number steps. -->
+To migrate an internal load balancer to availability zones across regions, see [moving public Load Balancer across regions](../load-balancer/move-across-regions-external-load-balancer-portal.md).
 
 ### Limitations
 - Zones can't be changed, updated, or created for the resource after creation.
