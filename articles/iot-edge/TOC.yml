@@ -6,23 +6,88 @@
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
-  - name: About Azure IoT Edge for Linux on Windows
+- name: Azure IoT Edge for Linux on Windows (EFLOW)
+  expanded: false
+  items:
+  - name: About EFLOW
     href: iot-edge-for-linux-on-windows.md
+  - name: Quickstarts
+    items:
+      - name: Deploy code to a Windows device
+        href: quickstart.md
+  - name : Concepts
+    items:
+    - name: Benefits
+      href: iot-edge-for-linux-on-windows-benefits.md
+    - name: Develop with EFLOW
+      href: develop.md
+    - name: Updates
+      href: iot-edge-for-linux-on-windows-updates.md
+    - name: Security
+      href: iot-edge-for-linux-on-windows-security.md
+    - name: Networking
+      href: iot-edge-for-linux-on-windows-networking.md
+    - name: Platform support
+      href: iot-edge-for-linux-on-windows-support.md
+  - name : Install and provision
+    items:
+    - name: Single device
+      items:
+      - name: X.509 certificate attestation
+        href: how-to-provision-single-device-linux-on-windows-x509.md
+      - name: Symmetric key attestation
+        href: how-to-provision-single-device-linux-on-windows-symmetric.md
+      - name: Provision at scale
+        items:
+        - name: X.509 certificate attestation
+          href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+        - name: TPM attestation
+          href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
+        - name: Symmetric key attestation
+          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+  - name: Configure
+    items:
+    - name: Develop and debugging
+      href: tutorial-develop-for-linux-on-windows.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+    - name: Access TPM secrets
+      href: access-dtpm.md
+    - name: GPU acceleration
+      href: gpu-acceleration.md
+    - name: Networking
+      items:
+        - name: Understand VM networking
+          href: configure-networking.md
+        - name: Virtual switch
+          href: how-to-create-virtual-switch.md
+        - name: Multiple NICs
+          href: configure-multiple-nics.md
+        - name: VM on a DMZ
+          href: configure-iiot-dmz.md      
+  - name: Troubleshoot
+    items:
+    - name: Diagnose virtual machine
+      href: troubleshoot-iot-edge-for-linux-on-windows.md
+    - name: Diagnose virtual machine networking
+      href: troubleshoot-iot-edge-for-linux-on-windows-networking.md
+    - name: Resolve common errors
+      href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
+  - name: Reference
+    items:
+    - name: PowerShell functions
+      href: reference-iot-edge-for-linux-on-windows-functions.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Deploy code to a Linux device
     href: quickstart-linux.md
-  - name: Deploy code to a Windows device
-    href: quickstart.md
 - name: Tutorials
   items:
   - name: Set up development environment
     items:
     - name: Develop with Linux containers
       href: tutorial-develop-for-linux.md
-    - name: Develop with IoT Edge for Linux on Windows
-      href: tutorial-develop-for-linux-on-windows.md
     - name: Develop with Windows containers
       href: tutorial-develop-for-windows.md
   - name: Develop custom code modules
@@ -89,18 +154,6 @@
       href: iot-edge-modules.md
     - name: IoT Edge agent and hub properties
       href: module-edgeagent-edgehub.md
-  - name: IoT Edge for Linux on Windows
-    items:
-    - name: Benefits
-      href: iot-edge-for-linux-on-windows-benefits.md
-    - name: Updates
-      href: iot-edge-for-linux-on-windows-updates.md
-    - name: Security
-      href: iot-edge-for-linux-on-windows-security.md
-    - name: Networking 
-      href: iot-edge-for-linux-on-windows-networking.md
-    - name: Platform support
-      href: iot-edge-for-linux-on-windows-support.md
   - name: Development
     items:
     - name: Develop modules
@@ -135,102 +188,6 @@
     href: iot-edge-limits-and-restrictions.md
 - name: How-to guides
   items:
-  - name: Install and provision IoT Edge
-    items:
-    - name: Create an IoT Edge device
-      href: how-to-create-iot-edge-device.md
-    - name: Linux containers on Linux hosts
-      items:
-      - name: Provision a single device
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-linux-x509.md
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-linux-symmetric.md
-      - name: Provision devices at scale
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-linux-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-tpm.md    
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-symmetric.md
-    - name: Linux containers on Windows hosts
-      items:
-      - name: Provision a single device
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-linux-on-windows-x509.md
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-linux-on-windows-symmetric.md
-      - name: Provision devices at scale
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-    - name: Windows containers on Windows hosts
-      items:
-      - name: Provision a single device
-        items:
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-windows-symmetric.md
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-windows-x509.md
-      - name: Provision devices at scale
-        items:
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-windows-symmetric.md
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-windows-tpm.md
-    - name: Update IoT Edge
-      href: how-to-update-iot-edge.md
-    - name: Manage device certificates
-      href: how-to-manage-device-certificates.md
-    - name: Run IoT Edge on Kubernetes
-      href: how-to-install-iot-edge-kubernetes.md
-    - name: Deploy IoT Edge VM using an ARM template
-      href: how-to-install-iot-edge-ubuntuvm.md
-  - name: IoT Edge for Linux on Windows
-    items:
-    - name : Install and provision
-      items:
-      - name: Provision a single device
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-linux-on-windows-x509.md
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-linux-on-windows-symmetric.md
-      - name: Provision devices at scale
-        items:
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-    - name: Configure nested virtualization for Windows VMs
-      href: nested-virtualization.md
-    - name: Create virtual switch
-      href: how-to-create-virtual-switch.md
-    - name: Configure GPU acceleration
-      href: gpu-acceleration.md
-    - name: Configure networking
-      href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
-    - name: Configure multiple NICs
-      href: how-to-configure-multiple-nics.md
-    - name: Develop read TPM secrets sample code
-      href: how-to-access-dtpm.md
-    - name: Configure virtual machine on a demilitarized zone (DMZ)
-      href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
-    - name: Troubleshoot
-      items:
-        - name: Resolve common errors
-          href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2022
@@ -343,8 +300,6 @@
     href: https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md
   - name: PowerShell functions
     items:
-    - name: IoT Edge for Linux on Windows
-      href: reference-iot-edge-for-linux-on-windows-functions.md
     - name: IoT Edge for Windows
       href: reference-windows-scripts.md
   - name: Create test certificates
