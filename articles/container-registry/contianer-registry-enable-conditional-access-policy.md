@@ -46,7 +46,7 @@ You can enable registry's conditional access policy in the [Azure portal](https:
 
 :::image type="content" source="media/container-registry-enable-conditional-policy/02-conditional-policy.png" alt-text="Search and filter conditional access policy in ACR built-in policy definition.":::
 
-5. Use the filters to limit compliance states or to search for policies.
+5. Use the filters to limit compliance states or to search for policies
 6. Confirm your settings and set policy enforcement as **enabled**
 7. Select **Review+Create**
 
