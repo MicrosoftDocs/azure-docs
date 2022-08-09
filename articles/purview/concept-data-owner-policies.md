@@ -96,6 +96,14 @@ A newly created policy exists in the draft mode state, only visible in Microsoft
 
 A policy published to a data source could contain references to an asset belonging to a different data source. Such references will be ignored since the asset in question does not exist in the data source where the policy is applied.
 
+## Data Consumption
+
+Data consumer can access the requested dataset using tools such as PowerBI or Azure Synapse Analytics workspace.
+> [!Note]
+> Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder 
+> level of the storage account.
+
+
 ## Next steps
 Check the tutorials on how to create policies in Microsoft Purview that work on specific data systems such as Azure Storage:
 
