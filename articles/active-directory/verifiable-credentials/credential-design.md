@@ -1,5 +1,5 @@
 ---
-title: Customize your Microsoft Entra Verified ID (preview)
+title: Customize your Microsoft Entra Verified ID
 description: This article shows you how to create your own custom verifiable credential.
 services: active-directory
 author: barclayn
@@ -12,7 +12,7 @@ ms.author: barclayn
 # Customer intent: As a developer, I am looking for information about how to enable my users to control their own information. 
 ---
 
-# Customize your verifiable credentials (preview)
+# Customize your verifiable credentials
 
 [!INCLUDE [verifiable credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
