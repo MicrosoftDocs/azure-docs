@@ -234,12 +234,12 @@ start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /lo
 
 ### Zipped files 
 
-For .zip or other zipped files, just unzip the contents of the application package to the desired destination. 
+For .zip or other zipped files, rename and unzip the contents of the application package to the desired destination. 
 
 Example install command:
 
 ```
-mkdir C:\\myapp && powershell.exe -Command \"Expand-Archive -Path myapp -DestinationPath C:\\myapp\" 
+rename myapp myapp.zip && mkdir C:\myapp && powershell.exe -Command "Expand-Archive -path myapp.zip -destinationpath C:\myapp"
 ```
 
 Example remove command:
