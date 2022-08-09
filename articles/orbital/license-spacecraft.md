@@ -1,6 +1,6 @@
 ---
 title: License your spacecraft - Azure Orbital
-description: Learn how to license your spacecraft with Orbital.
+description: Learn how to license your spacecraft with Azure Orbital Ground Station.
 author: hrshelar
 ms.service: orbital
 ms.topic: how-to
@@ -30,7 +30,7 @@ The process starts by initiating the licensing request via the Azure portal.
     1. Issue type: Technical.
     1. Subscription: Choose your current subscription.
     1. Service: My Service
-    1. Service Type: Azure orbital
+    1. Service Type: Azure Orbital
     1. Problem type: Spacecraft Management and Setup
     1. Problem subtype: Spacecraft Registration
 1. Click next to Solutions
@@ -52,13 +52,13 @@ Based on the details provided in the steps above, our regulatory team will make 
 
 Once the determination is made, we'll confirm the cost with you and ask you to authorize before proceeding.
 
-## Step 4 - Orbital requests the relevant licensing
+## Step 4 - Azure Orbital requests the relevant licensing
 
 Upon authorization, you'll be billed and our regulatory team will seek the relevant licenses to enable your spacecraft with the desired ground stations. This step will take 2 to 6 months to execute.
 
 ## Step 5 - Spacecraft is authorized
 
-Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified ground stations. Refer to (to add link to spacecraft concept) to understand how the authorizations are applied.
+Once the licenses are in place, the spacecraft object will be updated by Azure Orbital to represent the licenses held at the specified ground stations. Refer to (to add link to spacecraft concept) to understand how the authorizations are applied.
 
 ## FAQ
 
@@ -66,3 +66,5 @@ Q. Are third party ground stations such as KSAT included in this process?
 A. No, the process on this page applies to Microsoft sites only. For more information, see (to add link to third party page).
 
 ## Next steps
+- [Integrate partner network ground stations](./partner-network-integration.md)
+- [Receive real-time telemetry](receive-real-time-telemetry.md)

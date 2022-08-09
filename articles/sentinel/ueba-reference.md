@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Microsoft Sentinel UEBA reference
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This reference article lists the input data sources for the User and Entity Behavior Analytics service in Microsoft Sentinel. It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
 
 ## UEBA data sources
@@ -27,7 +25,7 @@ These are the data sources from which the UEBA engine collects and analyzes data
 
 ## UEBA enrichments
 
-This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
+This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](entity-pages.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
 
 - The **BehaviorAnalytics** table is where UEBA's output information is stored.
 
@@ -39,11 +37,11 @@ This section describes the enrichments UEBA adds to Microsoft Sentinel entities,
 
         <a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
-- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory is stored.
+- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory (and from on-premises Active Directory via Microsoft Defender for Identity) is stored.
 
 ### BehaviorAnalytics table
 
-The following table describes the behavior analytics data displayed on each [entity details page](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) in Microsoft Sentinel.
+The following table describes the behavior analytics data displayed on each [entity details page](entity-pages.md#how-to-use-entity-pages) in Microsoft Sentinel.
 
 | Field                     | Type     | Description                                                     |
 | ------------------------- | -------- | --------------------------------------------------------------- |
@@ -93,7 +91,6 @@ The following table describes the enrichments featured in the **UsersInsights** 
 | **Is local admin**<br>*(IsLocalAdmin)* | The account has local administrator privileges. | True, False |
 | **Is new account**<br>*(IsNewAccount)* | The account was created within the past 30 days. | True, False |
 | **On premises SID**<br>*(OnPremisesSID)* | The on-premises SID of the user related to the action. | S-1-5-21-1112946627-1321165628-2437342228-1103 |
-|
 
 #### DevicesInsights field
 
@@ -110,7 +107,6 @@ The following table describes the enrichments featured in the **DevicesInsights*
 | **Threat intel indicator type**<br>*(ThreatIntelIndicatorType)* | The type of the threat indicator resolved from the IP address used in the action. | Botnet, C2, CryptoMining, Darknet, Ddos, MaliciousUrl, Malware, Phishing, Proxy, PUA, Watchlist |
 | **User agent**<br>*(UserAgent)* | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
 | **User agent family**<br>*(UserAgentFamily)* | The user agent family used in the action. | Chrome, Edge, Firefox |
-|
 
 #### ActivityInsights field
 
@@ -125,7 +121,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Action uncommonly performed among peers**<br>*(ActionUncommonlyPerformedAmongPeers)* | 180 | The action is not commonly performed among user's peers. | True, False |
 | **First time action performed in tenant**<br>*(FirstTimeActionPerformedInTenant)* | 180 | The action was performed for the first time by anyone in the organization. | True, False |
 | **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
-|
 
 ##### App used
 
@@ -136,7 +131,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **App uncommonly used among peers**<br>*(AppUncommonlyUsedAmongPeers)* | 180 | The app is not commonly used among user's peers. | True, False |
 | **First time app observed in tenant**<br>*(FirstTimeAppObservedInTenant)* | 180 | The app was observed for the first time in the organization. | True, False |
 | **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
-| 
 
 ##### Browser used
 
@@ -147,7 +141,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Browser uncommonly used among peers**<br>*(BrowserUncommonlyUsedAmongPeers)* | 30 | The browser is not commonly used among user's peers. | True, False |
 | **First time browser observed in tenant**<br>*(FirstTimeBrowserObservedInTenant)* | 30 | The browser was observed for the first time in the organization. | True, False |
 | **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
-| 
 
 ##### Country connected from
 
@@ -158,7 +151,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Country uncommonly connected from among peers**<br>*(CountryUncommonlyConnectedFromAmongPeers)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from among user's peers. | True, False |
 | **First time connection from country observed in tenant**<br>*(FirstTimeConnectionFromCountryObservedInTenant)* | 90 | The country was connected from for the first time by anyone in the organization. | True, False |
 | **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
-| 
 
 ##### Device used to connect
 
@@ -169,7 +161,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Device uncommonly used among peers**<br>*(DeviceUncommonlyUsedAmongPeers)* | 180 | The device is not commonly used among user's peers. | True, False |
 | **First time device observed in tenant**<br>*(FirstTimeDeviceObservedInTenant)* | 30 | The device was observed for the first time in the organization. | True, False |
 | **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
-| 
 
 ##### Other device-related
 
@@ -177,7 +168,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | --- | --- | --- | --- |
 | **First time user logged on to device**<br>*(FirstTimeUserLoggedOnToDevice)* | 180 | The destination device was connected to for the first time by the user. | True, False |
 | **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
-| 
 
 ##### Internet Service Provider used to connect
 
@@ -188,7 +178,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **ISP uncommonly used among peers**<br>*(ISPUncommonlyUsedAmongPeers)* | 30 | The ISP is not commonly used among user's peers. | True, False |
 | **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
 | **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
-| 
 
 ##### Resource accessed
 
@@ -199,7 +188,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Resource uncommonly accessed among peers**<br>*(ResourceUncommonlyAccessedAmongPeers)* | 180 | The resource is not commonly accessed among user's peers. | True, False |
 | **First time resource accessed in tenant**<br>*(FirstTimeResourceAccessedInTenant)* | 180 | The resource was accessed for the first time by anyone in the organization. | True, False |
 | **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
-| 
 
 ##### Miscellaneous
 
@@ -213,8 +201,6 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Unusual number of devices added**<br>*(UnusualNumberOfDevicesAdded)* | 5 | A user added an unusual number of devices. | True, False |
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
-|
-
 
 ### IdentityInfo table
 
@@ -252,6 +238,8 @@ The following table describes the user identity data included in the **IdentityI
 | **AccountUPN**                  | string   | The user principal name of the user account.               |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                |
 | **AssignedRoles**               | dynamic  | The Azure AD roles the user account is assigned to.        |
+| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Azure Active Directory roles and permissions. <br>Possible values: *Low, Medium, High* |
+| **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *UEBA*<br>- *Watchlist*<br>- *FullSync* |
 | **City**                        | string   | The city of the user account.                              |
 | **Country**                     | string   | The country of the user account.                           |
 | **DeletedDateTime**             | datetime | The date and time the user was deleted.                    |
@@ -264,21 +252,22 @@ The following table describes the user identity data included in the **IdentityI
 | **Manager**                     | string   | The manager alias of the user account.                     |
 | **OnPremisesDistinguishedName** | string   | The Azure AD distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas. |
 | **Phone**                       | string   | The phone number of the user account.                      |
-| **SourceSystem**                | string   | The system where the user data originated.                 |
+| **SourceSystem**                | string   | The system where the user is managed. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *Hybrid* |
 | **State**                       | string   | The geographical state of the user account.                |
 | **StreetAddress**               | string   | The office street address of the user account.             |
 | **Surname**                     | string   | The surname of the user. account.                          |
 | **TenantId**                    | string   | The tenant ID of the user.                                 |
 | **TimeGenerated**               | datetime | The time when the event was generated (UTC).               |
 | **Type**                        | string   | The name of the table.                                     |
-| **UserState**                   | string   | The current state of the user account in Azure AD (Active/Disabled/Dormant/Lockout). |
+| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values (may contain more than one):<br>- *AccountDisabled*<br>- *HomedirRequired*<br>- *AccountLocked*<br>- *PasswordNotRequired*<br>- *CannotChangePassword*<br>- *EncryptedTextPasswordAllowed*<br>- *TemporaryDuplicateAccount*<br>- *NormalAccount*<br>- *InterdomainTrustAccount*<br>- *WorkstationTrustAccount*<br>- *ServerTrustAccount*<br>- *PasswordNeverExpires*<br>- *MnsLogonAccount*<br>- *SmartcardRequired*<br>- *TrustedForDelegation*<br>- *DelegationNotAllowed*<br>- *UseDesKeyOnly*<br>- *DontRequirePreauthentication*<br>- *PasswordExpired*<br>- *TrustedToAuthenticationForDelegation*<br>- *PartialSecretsAccount*<br>- *UseAesKeys* |
+| **UserState**                   | string   | The current state of the user account in Azure AD.<br>Possible values:<br>- *Active*<br>- *Disabled*<br>- *Dormant*<br>- *Lockout* |
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC). |
 | **UserType**                    | string   | The user type.                                             |
-
 
 ## Next steps
 
 This document described the Microsoft Sentinel entity behavior analytics table schema.
 
 - Learn more about [entity behavior analytics](identify-threats-with-entity-behavior-analytics.md).
+- [Enable UEBA in Microsoft Sentinel](enable-entity-behavior-analytics.md).
 - [Put UEBA to use](investigate-with-ueba.md) in your investigations.

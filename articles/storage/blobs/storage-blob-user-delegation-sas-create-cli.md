@@ -8,7 +8,7 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.author: jimmart-dev
+ms.author: jammart
 ms.reviewer: dineshm
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli

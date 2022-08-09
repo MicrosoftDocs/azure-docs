@@ -1,11 +1,11 @@
 ---
 title: Register Spacecraft on Azure Orbital Earth Observation service
-description: 'Quickstart: Register Spacecraft'
+description: Learn how to register a spacecraft.
 author: wamota
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
-ms.date: 06/03/2022
+ms.date: 07/13/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
@@ -96,5 +96,5 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 
 ## Next steps
 
-- [Quickstart: Configure a contact profile](contact-profile.md)
-- [Quickstart: Schedule a contact](schedule-contact.md)
+- [Configure a contact profile](contact-profile.md)
+- [Schedule a contact](schedule-contact.md)

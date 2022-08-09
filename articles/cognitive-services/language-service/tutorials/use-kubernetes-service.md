@@ -112,6 +112,9 @@ This procedure requires several tools that must be installed and run locally. Do
         app: keyphrase-app
     ```
 
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+
 1. Save the file, and close the text editor.
 1. Run the Kubernetes `apply` command with the *keyphrase.yaml* file as its target:
 

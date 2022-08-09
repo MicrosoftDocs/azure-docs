@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn about scalability and performance targets for Queue Storage.
 author: jimmart-dev
 services: storage
-ms.author: jimmart-dev
+ms.author: jammart
 ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: storage

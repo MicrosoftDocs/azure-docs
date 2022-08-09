@@ -56,9 +56,12 @@ To improve accuracy, customization is available for some languages and base mode
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |
+| Chinese (Cantonese, Simplified)   | `yue-CN`        |
 | Chinese (Cantonese, Traditional)  | `zh-HK`         |
 | Chinese (Mandarin, Simplified)    | `zh-CN`         |
-| Chinese (Taiwanese Mandarin)      | `zh-TW`         |
+| Chinese (Southwestern Mandarin, Simplified)  | `zh-CN-sichuan` |
+| Chinese (Taiwanese Mandarin, Traditional)    | `zh-TW`         |
+| Chinese (Wu, Simplified)          | `wuu-CN`        |
 | Croatian (Croatia)                | `hr-HR`         |
 | Czech (Czech)                     | `cs-CZ`         |
 | Danish (Denmark)                  | `da-DK`         |
@@ -128,6 +131,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Sinhala (Sri Lanka)               | `si-LK`         |
 | Slovak (Slovakia)                 | `sk-SK`         |
 | Slovenian (Slovenia)              | `sl-SI`         |
+| Somali (Somalia)                  | `so-SO`         |
 | Spanish (Argentina)               | `es-AR`         |
 | Spanish (Bolivia)                 | `es-BO`         |
 | Spanish (Chile)                   | `es-CL`         |
@@ -160,6 +164,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Ukrainian (Ukraine)               | `uk-UA`         |
 | Uzbek (Uzbekistan)                | `uz-UZ`         |
 | Vietnamese (Vietnam)              | `vi-VN`         |
+| Welsh (United Kingdom)          | `cy-GB`         |
 | Zulu (South Africa)               | `zu-ZA`         |
 
 ### [Plain text](#tab/plaintext)
@@ -791,19 +796,25 @@ The following table lists the prebuilt neural voices supported in each language.
 The following neural voices are in public preview.
 
 > [!NOTE]
-> Voices and styles in public preview are only available in three service [regions](regions.md#prebuilt-neural-voices): East US, West Europe, and Southeast Asia. 
+> Voices and styles in public preview are only available in three service [regions](regions.md): East US, West Europe, and Southeast Asia. 
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyiNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaozhenNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN-LN` | Female | `zh-CN-LN-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
-| Chinese (Mandarin, Simplified) | `zh-CN-SC` | Male | `zh-CN-SC-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunxiaNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunzeNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Chinese (Mandarin, Simplified) | `zh-CN-liaoning` | Female | `zh-CN-liaoning-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-sichuan` | Male | `zh-CN-sichuan-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
 | English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-RogerNeural` <sup>New</sup> | General|
 | English (United States) | `en-US` | Male | `en-US-TonyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Italian (Italy) | `it-IT` | Female | `it-IT-FabiolaNeural` <sup>New</sup> | General |
 | Italian (Italy) | `it-IT` | Female | `it-IT-FiammaNeural` <sup>New</sup> | General |
@@ -870,18 +881,22 @@ Use the following table to determine supported styles and roles for each neural 
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
 |pt-BR-FranciscaNeural|`calm`|||
 |zh-CN-XiaohanNeural|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
+|zh-CN-XiaomengNeural <sup>Public preview</sup>|`chat`|Supported||
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
 |zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`|Supported||
 |zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
+|zh-CN-XiaoyiNeural <sup>Public preview</sup>|`affectionate`, `angry`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
+|zh-CN-XiaozhenNeural <sup>Public preview</sup>|`angry`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Supported||
+|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
+|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
+|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunxiaNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `fearful`, `sad`|Supported||
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
-|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
-|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
-|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
-
+|zh-CN-YunzeNeural <sup>Public preview</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|Supported|Supported|
 
 ### Custom Neural Voice
 
@@ -946,6 +961,120 @@ There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (pre
 | Turkish (Turkey) | `tr-TR` | No |No|
 | Vietnamese (Vietnam) | `vi-VN` | No |No|
 
+### Viseme
+
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes. Speech audio output can be accompanied by a viseme ID, Scalable Vector Graphics (SVG), or blend shapes. For more information, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md).
+
+> [!NOTE]
+> Viseme ID supports [neural voices](#text-to-speech) in the locales listed below. SVG only supports neural voices in the `en-US` locale, and blend shapes supports neural voices in the `en-US` and `zh-CN` locales. 
+
+The following table lists the languages supported by viseme ID.
+
+| Language | Locale |
+|---|---|
+| Arabic (Algeria) | `ar-DZ` |
+| Arabic (Bahrain) | `ar-BH` |
+| Arabic (Egypt) | `ar-EG` |
+| Arabic (Iraq) | `ar-IQ` |
+| Arabic (Jordan) | `ar-JO` |
+| Arabic (Kuwait) | `ar-KW` |
+| Arabic (Lebanon) | `ar-LB` |
+| Arabic (Libya) | `ar-LY` |
+| Arabic (Morocco) | `ar-MA` |
+| Arabic (Oman) | `ar-OM` |
+| Arabic (Qatar) | `ar-QA` |
+| Arabic (Saudi Arabia) | `ar-SA` |
+| Arabic (Syria) | `ar-SY` |
+| Arabic (Tunisia) | `ar-TN` |
+| Arabic (United Arab Emirates) | `ar-AE` |
+| Arabic (Yemen) | `ar-YE` |
+| Bulgarian (Bulgaria) | `bg-BG` |
+| Catalan (Spain) | `ca-ES` |
+| Chinese (Cantonese, Traditional) | `zh-HK` |
+| Chinese (Mandarin, Simplified) | `zh-CN` |
+| Chinese (Taiwanese Mandarin) | `zh-TW` |
+| Croatian (Croatia) | `hr-HR` |
+| Czech (Czech) | `cs-CZ` |
+| Danish (Denmark) | `da-DK` |
+| Dutch (Belgium) | `nl-BE` |
+| Dutch (Netherlands) | `nl-NL` |
+| English (Australia) | `en-AU` |
+| English (Canada) | `en-CA` |
+| English (Hongkong) | `en-HK` |
+| English (India) | `en-IN` |
+| English (Ireland) | `en-IE` |
+| English (Kenya) | `en-KE` |
+| English (New Zealand) | `en-NZ` |
+| English (Nigeria) | `en-NG` |
+| English (Philippines) | `en-PH` |
+| English (Singapore) | `en-SG` |
+| English (South Africa) | `en-ZA` |
+| English (Tanzania) | `en-TZ` |
+| English (United Kingdom) | `en-GB` |
+| English (United States) | `en-US` |
+| Finnish (Finland) | `fi-FI` |
+| French (Belgium) | `fr-BE` |
+| French (Canada) | `fr-CA` |
+| French (France) | `fr-FR` |
+| French (Switzerland) | `fr-CH` |
+| German (Austria) | `de-AT` |
+| German (Germany) | `de-DE` |
+| German (Switzerland) | `de-CH` |
+| Greek (Greece) | `el-GR` |
+| Gujarati (India) | `gu-IN` |
+| Hebrew (Israel) | `he-IL` |
+| Hindi (India) | `hi-IN` |
+| Hungarian (Hungary) | `hu-HU` |
+| Indonesian (Indonesia) | `id-ID` |
+| Italian (Italy) | `it-IT` |
+| Japanese (Japan) | `ja-JP` |
+| Korean (Korea) | `ko-KR` |
+| Malay (Malaysia) | `ms-MY` |
+| Marathi (India) | `mr-IN` |
+| Norwegian (Bokmål, Norway) | `nb-NO` |
+| Polish (Poland) | `pl-PL` |
+| Portuguese (Brazil) | `pt-BR` |
+| Portuguese (Portugal) | `pt-PT` |
+| Romanian (Romania) | `ro-RO` |
+| Russian (Russia) | `ru-RU` |
+| Slovak (Slovakia) | `sk-SK` |
+| Slovenian (Slovenia) | `sl-SI` |
+| Spanish (Argentina) | `es-AR` |
+| Spanish (Bolivia) | `es-BO` |
+| Spanish (Chile) | `es-CL` |
+| Spanish (Colombia) | `es-CO` |
+| Spanish (Costa Rica) | `es-CR` | 
+| Spanish (Cuba) | `es-CU` |
+| Spanish (Dominican Republic) | `es-DO` |
+| Spanish (Ecuador) | `es-EC` |
+| Spanish (El Salvador) | `es-SV` |
+| Spanish (Equatorial Guinea) | `es-GQ` |
+| Spanish (Guatemala) | `es-GT` |
+| Spanish (Honduras) | `es-HN` |
+| Spanish (Mexico) | `es-MX` |
+| Spanish (Nicaragua) | `es-NI` |
+| Spanish (Panama) | `es-PA` |
+| Spanish (Paraguay) | `es-PY` |
+| Spanish (Peru) | `es-PE` |
+| Spanish (Puerto Rico) | `es-PR` |
+| Spanish (Spain) | `es-ES` |
+| Spanish (Uruguay) | `es-UY` |
+| Spanish (US) | `es-US` |
+| Spanish (Venezuela) | `es-VE` |
+| Swahili (Tanzania) | `sw-TZ` |
+| Swedish (Sweden) | `sv-SE` |
+| Tamil (India) | `ta-IN` |
+| Tamil (Malaysia) | `ta-MY` |
+| Tamil (Singapore) | `ta-SG` |
+| Tamil (Sri Lanka) | `ta-LK` |
+| Telugu (India) | `te-IN` |
+| Thai (Thailand) | `th-TH` |
+| Turkish (Turkey) | `tr-TR` |
+| Ukrainian (Ukraine) | `uk-UA` |
+| Urdu (India) | `ur-IN` |
+| Urdu (Pakistan) | `ur-PK` | 
+| Vietnamese (Vietnam) | `vi-VN` |
+
 ## Language identification
 
 With language identification, you set and get one of the supported locales in the following table. We only compare at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` and `en-US`, we'll only compare English (`en`) with the other candidate languages.
@@ -1009,13 +1138,15 @@ The following table lists the released languages and public preview languages.
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]
-> If you want to use languages that aren't listed here, please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com). 
->  
-> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
+> For pronunciation assessment, `en-US` and `en-GB` are available in [all regions](regions.md#speech-service), `zh-CN` is available in East Asia and Southeast Asia regions, `de-DE`, `es-ES`, and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.
 
 ## Speech translation
 
-The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
+Speech Translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
+
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](#speech-to-text) above. The default language is `en-US` if you don't specify a language.
+
+To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
 ### Text languages
 
@@ -1152,6 +1283,8 @@ The Intent Recognizer Pattern Matcher supports the following locales:
 | Locale                            | Locale (BCP-47) |
 |-----------------------------------|-----------------|
 | English (United States)           | `en-US`         |
+| Chinese (Cantonese, Traditional)  | `zh-HK`         |
+| Chinese (Mandarin, Simplified)    | `zh-CN`         |
 
 ## Next steps
 

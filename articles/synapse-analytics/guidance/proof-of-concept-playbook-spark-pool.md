@@ -28,7 +28,7 @@ Before you begin planning your Spark POC project:
 > - Identify executive or business sponsors for a big data and advanced analytics platform project. Secure their support for migration to the cloud.
 > - Identify availability of technical experts and business users to support you during the POC execution.
 
-Before you start preparing for the POC project, we recommend you first read the [Apache Spark documentation](/azure/hdinsight/spark/apache-spark-overview).
+Before you start preparing for the POC project, we recommend you first read the [Apache Spark documentation](../../hdinsight/spark/apache-spark-overview.md).
 
 > [!TIP]
 > If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
@@ -114,9 +114,9 @@ Here's an example of the needed level of specificity in planning:
     - Plan an approach to migrate historical data.
 - **Output C:** We will have tested and determined the data ingestion rate achievable in our environment and can determine whether our data ingestion rate is sufficient to migrate historical data during the available time window.
     - **Test C1:** Test different approaches of historical data migration. For more information, see [Transfer data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
-    - **Test C2:** Identify allocated bandwidth of ExpressRoute and if there is any throttling setup by the infra team. For more information, see  [What is Azure ExpressRoute? (Bandwidth options)](/azure/expressroute/expressroute-introduction#bandwidth-options.md).
-    - **Test C3:** Test data transfer rate for both online and offline data migration. For more information, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-azure-data-factory-and-synapse-pipelines).
-    - **Test C4:** Test data transfer from the data lake to the SQL pool by using either ADF, Polybase, or the COPY command. For more information, see  [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading).
+    - **Test C2:** Identify allocated bandwidth of ExpressRoute and if there is any throttling setup by the infra team. For more information, see  [What is Azure ExpressRoute? (Bandwidth options)](../../expressroute/expressroute-introduction.md#bandwidth-options).
+    - **Test C3:** Test data transfer rate for both online and offline data migration. For more information, see [Copy activity performance and scalability guide](../../data-factory/copy-activity-performance.md#copy-performance-and-scalability-achievable-using-azure-data-factory-and-synapse-pipelines).
+    - **Test C4:** Test data transfer from the data lake to the SQL pool by using either ADF, Polybase, or the COPY command. For more information, see  [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md).
 - **Goal D:** We will have tested the data ingestion rate of incremental data loading and will have the data points to estimate the data ingestion and processing time window to the data lake and/or the dedicated SQL pool.
 - **Output D:** We will have tested the data ingestion rate and can determine whether our data ingestion and processing requirements can be met with the identified approach.
     - **Test D1:** Test the daily update data ingestion and processing.
@@ -175,10 +175,10 @@ Here are some examples of high-level tasks:
 resources identified in the POC plan.
 1. Load POC dataset:
     - Make data available in Azure by extracting from the source or by creating sample data in Azure. For more information, see:
-        - [Transferring data to and from Azure](/azure/databox/data-box-overview#use-cases)
+        - [Transferring data to and from Azure](../../databox/data-box-overview.md#use-cases)
         - [Azure Data Box](https://azure.microsoft.com/services/databox/)
-        - [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf.md)
-        - [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading)
+        - [Copy activity performance and scalability guide](../../data-factory/copy-activity-performance.md)
+        - [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md)
         - [Bulk load data using the COPY statement](../sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?view=azure-sqldw-latest&preserve-view=true)
     - Test the dedicated connector for the Spark pool and the dedicated SQL pool.
 1. Migrate existing code to the Spark pool:

@@ -53,18 +53,21 @@
         href: concept-supported-protocols.md
 - name: How-to guides
   items:
-  - name: Visualize network assets
+  - name: Visualize devices
+    displayName: assets, network devices
     items:
-    - name: View assets from the Azure portal
-      href: how-to-manage-device-inventory-for-organizations.md
-    - name: View OT assets from a sensor console
-      href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-    - name: View OT assets on a sensor device map
+    - name: Manage device inventory
+      items:
+      - name: Manage device inventory from the Azure portal
+        href: how-to-manage-device-inventory-for-organizations.md
+      - name: Manage device inventory from an OT sensor console
+        href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+      - name: Manage device inventory from an on-premises management console
+        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+    - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
-    - name: View OT assets on a sensor per zone
+    - name: View OT devices per zone
       href: how-to-view-information-per-zone.md
-    - name: View OT assets from an on-premises management console
-      href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
   - name: Manage alerts
     items:
     - name: Manage alerts from the Azure portal
@@ -99,25 +102,31 @@
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
       href: how-to-analyze-programming-details-changes.md
-  - name: Integrate with OT security partners
+  - name: Integrate with security partners
     items:
-    - name: Overview
+    - name: Integration catalog
       href: integrate-overview.md
-    - name: Integrate ClearPass
+    - name: Aruba ClearPass
       href: tutorial-clearpass.md
-    - name: Integrate CyberArk
+    - name: CyberArk
       href: tutorial-cyberark.md
-    - name: Integrate Forescout
+    - name: Forescout
       href: tutorial-forescout.md
-    - name: Integrate Fortinet
+    - name: Fortinet
       href: tutorial-fortinet.md
-    - name: Integrate Palo Alto
-      href: tutorial-palo-alto.md
-    - name: Integrate Qradar
+    - name: IBM Qradar
       href: tutorial-qradar.md
-    - name: Integrate Splunk
+    - name: LogRhythm
+      href: integrations/logrhythm.md
+    - name: Micro Focus ArcSight
+      href: integrations/arcsight.md
+    - name: Palo Alto
+      href: tutorial-palo-alto.md
+    - name: RSA NetWitness
+      href: integrations/netwitness.md
+    - name: Splunk
       href: tutorial-splunk.md
-    - name: Integrate ServiceNow
+    - name: ServiceNow
       href: tutorial-servicenow.md
   - name: System deployment
     items:
@@ -153,15 +162,17 @@
       href: how-to-work-with-threat-intelligence-packages.md
     - name: OT system maintenance
       items:
+      - name: Update OT monitoring software
+        href: update-ot-software.md
+        displayName: upgrade
       - name: Manage OT sensors
         items:
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
-        - name: Update OT sensor software
-          href: update-ot-software.md
-          displayName: upgrade
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
+        - name: Detect Windows workstations and servers by script
+          href: detect-windows-endpoints-script.md
         - name: Configure active monitoring
           items:
           - name: Planning and prerequisites
@@ -204,10 +215,12 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
+  - name: Alert reference
+    href: alert-engine-messages.md
   - name: OT monitoring appliances
     items:
     - name: Overview
-      href: appliance-catalog/appliance-catalog-overview.md
+      href: appliance-catalog/index.yml
     - name: Corporate environments
       items:
       - name: HPE ProLiant DL360
@@ -242,11 +255,9 @@
         href: appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
-  - name: Alert reference
-    href: alert-engine-messages.md
-  - name: Work with Defender for IoT APIs
+  - name: Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
-  - name: Work with Defender for IoT CLI commands
+  - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions - service
     displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 

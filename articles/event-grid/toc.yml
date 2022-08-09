@@ -25,7 +25,7 @@ items:
       - name: Azure PowerShell
         href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
       - name: Bicep
-        displayName: Resource Manager, ARM
+        displayName: Resource Manager,ARM,template
         href: blob-event-quickstart-bicep.md
       - name: ARM template
         displayName: Resource Manager
@@ -221,12 +221,8 @@ items:
         href: webhook-event-delivery.md
       - name: Custom delivery properties
         href: delivery-properties.md
-    - name: Availability and disaster recovery
-      items:
-      - name: Resiliency
-        href: availability-zone-resiliency.md
-      - name: Geo disaster recovery
-        href: geo-disaster-recovery.md
+    - name: Availability zones and disaster recovery
+      href: availability-zones-disaster-recovery.md
     - name: Security
       items:
       - name: Security baseline
@@ -270,6 +266,12 @@ items:
         href: create-view-manage-system-topics-cli.md
       - name: Azure Resource Manager template
         href: create-view-manage-system-topics-arm.md
+    - name: Create and manage custom topics
+      items:
+      - name: Create a custom topic or a domain
+        href: create-custom-topic.md
+      - name: Configure a custom topic or a domain
+        href: configure-custom-topic.md
     - name: Partner Events
       items:
       - name: Onboard as a partner
@@ -282,8 +284,12 @@ items:
         href: subscribe-to-graph-api-events.md
       - name: Deliver events to partner destinations
         href: deliver-events-to-partner-destinations.md
+      - name: Enable managed identity for a partner topic
+        href: enable-identity-partner-topic.md
     - name: Get access keys for topics or domains
       href: get-access-keys.md
+    - name: Get schema supported by a topic
+      href: get-topic-schema.md
     - name: Publish events custom topics using access keys
       href: post-to-custom-topic.md
     - name: Receive events at HTTP endpoint

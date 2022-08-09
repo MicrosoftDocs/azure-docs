@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 08/02/2022
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -37,6 +37,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Germany | Germany West Central | Germany North |
 | India | Central India |South India |
 | Japan | Japan East | Japan West |
+| Korea | Korea Central | Korea South |
 | North America | East US | West US |
 | North America | East US 2 | Central US |
 | North America | North Central US | South Central US|

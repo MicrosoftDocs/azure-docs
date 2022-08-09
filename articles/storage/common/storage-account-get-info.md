@@ -5,7 +5,7 @@ description: Use the Azure portal, PowerShell, or Azure CLI to retrieve storage 
 services: storage
 author: jimmart-dev
 
-ms.author: jimmart-dev
+ms.author: jammart
 ms.date: 05/26/2022
 ms.service: storage
 ms.subservice: common

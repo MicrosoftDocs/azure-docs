@@ -29,7 +29,7 @@ First, you'll need to attach the data disk to the virtual machine. To do this us
 ## Temporarily move pagefile.sys to C drive
 1. Connect to the virtual machine. 
 2. Right-click the **Start** menu and select **System**.
-3. In the left-hand menu, select **Advanced system settings**.
+3. In the left-hand menu, search for and select **View advanced system settings**.
 4. In the **Performance** section, select **Settings**.
 5. Select the **Advanced** tab.
 6. In the **Virtual memory** section, select **Change**.
@@ -48,7 +48,7 @@ First, you'll need to attach the data disk to the virtual machine. To do this us
 
 ## Move pagefile.sys back to the temporary storage drive
 1. Right-click the **Start** menu and select **System**
-2. In the left-hand menu, select **Advanced system settings**.
+2. In the left-hand menu, search for and select **View advanced system settings**.
 3. In the **Performance** section, select **Settings**.
 4. Select the **Advanced** tab.
 5. In the **Virtual memory** section, select **Change**.

@@ -9,7 +9,7 @@ manager: femila
 ---
 # Migrate manually from Azure Virtual Desktop (classic)
 
-Azure Virtual Desktop (classic) creates its service environment with PowerShell cmdlets, REST APIs, and service objects. An "object" in a Azure Virtual Desktop service environment is a thing that Azure Virtual Desktop creates. Service objects include tenants, host pools, application groups, and session hosts.
+Azure Virtual Desktop (classic) creates its service environment with PowerShell cmdlets, REST APIs, and service objects. An *object* in an Azure Virtual Desktop service environment is a thing that Azure Virtual Desktop creates. Service objects include tenants, host pools, application groups, and session hosts.
 
 However, Azure Virtual Desktop (classic) isn't integrated with Azure. Without Azure integration, any objects you create aren't automatically managed by the Azure portal because they're not connected to your Azure subscription.
 

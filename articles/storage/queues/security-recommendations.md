@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn about security recommendations for Queue Storage. Implementing this guidance will help you fulfill your security obligations as described in our shared responsibility model.
 author: jimmart-dev
 services: storage
-ms.author: jimmart-dev
+ms.author: jammart
 ms.date: 05/12/2022
 ms.topic: conceptual
 ms.service: storage
