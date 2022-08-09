@@ -84,8 +84,6 @@ Wait 1 minute after your sensor installation has completed before starting this 
 
 ## Remove an Enterprise IoT network sensor (optional)
 
-<!--also move this to a troubleshooting page, refer on to the main delete sensor page.-->
-
 Remove a sensor if it's no longer in use with Defender for IoT.
 
 **To remove a sensor**, run the following command on the sensor server or VM:

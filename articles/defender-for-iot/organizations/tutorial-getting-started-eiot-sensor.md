@@ -188,16 +188,20 @@ The installation process checks to see if the required Docker version is already
 
     :::image type="content" source="media/tutorial-get-started-eiot/view-sensor-listed.png" alt-text="Screenshot of your new Enterprise IoT sensor listed in the Sites and sensors page.":::
 
+In the **Sites and sensors** page, Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**. For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
+
+> [!TIP]
+> If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
+>
+> If you still don't view your data as expected, [validate your sensor setup](extra-deploy-enterprise-iot.md#validate-your-enterprise-iot-sensor-setup) from the CLI.
+
 ## View detected Enterprise IoT devices in Azure
 
 Once you've validated your setup, the **Device inventory** page will start to populate with all of your devices after 15 minutes.
 
-- View your devices and network information in the Defender for IoT **Device inventory** page on the Azure portal. For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
+View your devices and network information in the Defender for IoT **Device inventory** page on the Azure portal.
 
-- You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**. For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
-
-> [!TIP]
-> If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
+For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
 
 ## Delete an Enterprise IoT network sensor (optional)
 
@@ -205,6 +209,8 @@ Remove a sensor if it's no longer in use with Defender for IoT.
 
 1. From the **Sites and sensors** page on the Azure portal, locate your sensor in the grid.
 1. In the row for your sensor, select the **...** options menu on the right > **Delete sensor**.
+
+Alternately, remove your sensor manually from the CLI. For more information, see [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md#remove-an-enterprise-iot-network-sensor-optional).
 
 > [!IMPORTANT]
 > If you want to cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
@@ -217,10 +223,11 @@ For more information, see [Sensor management options from the Azure portal](how-
 
 ## Next steps
 
-Continue viewing your devices in both the Azure portal and Defender for Endpoint. View Enterprise IoT alerts, recommendations and vulnerabilities in Defender for Endpoint.
+Continue viewing device data in both the Azure portal and Defender for Endpoint, depending on your organization's needs.
 
-For more information, see:
+In Defender for Endpoint, also view alerts data, recommendations and vulnerabilities related to your network traffic.
 
 - [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
-- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [View and organize the Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue?view=o365-worldwide)
+- [Defender for Endpoint security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation?view=o365-worldwide)
+- [Defender for Endpoint: Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation?view=o365-worldwide)
