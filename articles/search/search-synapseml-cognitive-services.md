@@ -66,7 +66,7 @@ In this section, you'll create a cluster, install the `synapseml` library, and c
 
    1. Select **Install new**.
 
-      :::image type="content" source="media/search-synapse-cognitive-services/install-library.png" alt-text="Screenshot of the Install New command." border="true":::
+      :::image type="content" source="media/search-synapseml-cognitive-services/install-library.png" alt-text="Screenshot of the Install New command." border="true":::
 
    1. Select **Maven**.
 
@@ -76,13 +76,13 @@ In this section, you'll create a cluster, install the `synapseml` library, and c
 
 1. On the left menu, select **Create** > **Notebook**.
 
-   :::image type="content" source="media/search-synapse-cognitive-services/create-notebook.png" alt-text="Screenshot of the Create Notebook command." border="true":::
+   :::image type="content" source="media/search-synapseml-cognitive-services/create-notebook.png" alt-text="Screenshot of the Create Notebook command." border="true":::
 
 1. Give the notebook a name, select **Python** as the default language, and select the cluster that has the `synapseml` library.
 
 1. Create seven consecutive cells. You'll paste code into each one.
 
-   :::image type="content" source="media/search-synapse-cognitive-services/create-seven-cells.png" alt-text="Screenshot of the notebook with placeholder cells." border="true":::
+   :::image type="content" source="media/search-synapseml-cognitive-services/create-seven-cells.png" alt-text="Screenshot of the notebook with placeholder cells." border="true":::
 
 ## Set up dependencies
 
@@ -199,9 +199,10 @@ translated_df = (Translate()
 display(translated_df)
 ```
 
-To check for translated strings, scroll to the end of the rows.
-
-:::image type="content" source="media/search-synapse-cognitive-services/translated-strings.png alt-text="Screenshot of table output, showing the Translations column." border="true":::
+> [!TIP]
+> To check for translated strings, scroll to the end of the rows.
+> 
+> :::image type="content" source="media/search-synapseml-cognitive-services/translated-strings.png" alt-text="Screenshot of table output, showing the Translations column." border="true":::
 
 ## Apply search indexing
 
