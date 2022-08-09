@@ -109,15 +109,11 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 #### Configure the App Service app and deploy code
 
-1. In the **App Service** explorer, select the **Deploy to Web App** icon.
-
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot of the Azure App service in Visual Studio Code showing the blue arrow icon selected.":::
-        
 1. Select the *myExpressApp* folder.
 
 # [Deploy to Linux](#tab/linux)
 
-3. Select **Create new Web App**. A Linux container is used by default.
+2. Right-click on App Services and select **Create new Web App**. A Linux container is used by default. 
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. In Select a runtime stack, select the Node.js version you want. An **LTS** version is recommended.
 1. In Select a pricing tier, select **Free (F1)** and wait for the resources to be provisioned in Azure.
@@ -129,7 +125,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 # [Deploy to Windows](#tab/windows)
 
-3. Select **Create new Web App... Advanced**.
+2. Right-click on App Services and select **Create new Web App... Advanced**.
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. Select **Create a new resource group**, then enter a name for the resource group, such as *AppServiceQS-rg*.
 1. Select the Node.js version you want. An **LTS** version is recommended.
