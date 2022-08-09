@@ -179,10 +179,6 @@ Snowflake connector utilizes Snowflake’s [COPY into [location]](https://docs.s
 
 If sink data store and format are natively supported by the Snowflake COPY command, you can use the Copy activity to directly copy from Snowflake to sink. For details, see [Direct copy from Snowflake](#direct-copy-from-snowflake). Otherwise, use built-in [Staged copy from Snowflake](#staged-copy-from-snowflake).
 
-In addition to having permission to access the related database, warehouse and tables that you configured in the Snowflake connector, make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
-
-- `COPY INTO <location>`
-
 To copy data from Snowflake, the following properties are supported in the Copy activity **source** section.
 
 | Property                     | Description                                                  | Required |
@@ -194,6 +190,11 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Additional file format options that are provided to COPY command as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
+
+>[!Note]
+> Make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
+>
+>- `COPY INTO <location>`
 
 #### Direct copy from Snowflake
 
@@ -313,15 +314,6 @@ Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snow
 
 If source data store and format are natively supported by Snowflake COPY command, you can use the Copy activity to directly copy from source to Snowflake. For details, see [Direct copy to Snowflake](#direct-copy-to-snowflake). Otherwise, use built-in [Staged copy to Snowflake](#staged-copy-to-snowflake).
 
-In addition to having permission to access the related database, warehouse and tables that you configured in the Snowflake connector, make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
-
-- `SELECT CURRENT_REGION()`
-- `COPY INTO <table>`
-- `SHOW REGIONS`
-- `CREATE OR REPLACE STAGE`
-- `DROP STAGE`
-
-
 To copy data to Snowflake, the following properties are supported in the Copy activity **sink** section.
 
 | Property          | Description                                                  | Required                                      |
@@ -333,6 +325,15 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 | type | The type of import command, set to **SnowflakeImportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Additional file format options provided to the COPY command, provided as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
+
+>[!Note]
+> Make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
+>
+>- `SELECT CURRENT_REGION()`
+>- `COPY INTO <table>`
+>- `SHOW REGIONS`
+>- `CREATE OR REPLACE STAGE`
+>- `DROP STAGE`
 
 #### Direct copy to Snowflake
 
