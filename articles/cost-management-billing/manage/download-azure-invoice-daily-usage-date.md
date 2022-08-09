@@ -40,11 +40,11 @@ For most subscriptions you can download your invoice from the Azure portal. If y
 
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
-4. You can also download your a daily breakdown of consumed quantities and estimated charges by selecting **Download csv**.
+4. You can also download a daily breakdown of consumed quantities and estimated charges by selecting **Download csv**.
 
     ![Screenshot that shows Download invoice and usage page](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help managing your costs, see [Analyze unexpected charges](../understand/analyze-unexpected-charges.md).
+For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help with managing your costs, see [Analyze unexpected charges](../understand/analyze-unexpected-charges.md).
 
 ### Download invoices for a Microsoft Customer Agreement
 
@@ -73,7 +73,7 @@ There could be several reasons that you don't see an invoice:
 
 ## Get your invoice in email (.pdf)
 
-You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open. If you have a Microsoft Customer agreement, see [Get your billing profile invoices in email](../understand/download-azure-invoice.md#get-your-billing-profiles-invoice-in-email).
+You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature is not available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open. If you have a Microsoft Customer agreement, see [Get your billing profile invoices in email](../understand/download-azure-invoice.md#get-your-billing-profiles-invoice-in-email).
 
 ### Get your subscription's invoices in email
 

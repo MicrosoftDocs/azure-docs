@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 06/21/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -23,6 +23,8 @@ zone_pivot_groups: b2c-policy-type
 The OAuth 2.0 client credentials grant flow permits an app (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling web resource, such as REST API. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as daemons or service accounts.
 
 In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there's no user involved in the authentication. This article covers the steps needed to authorize an application to call an API, and how to get the tokens needed to call that API.
+
+**This feature is in public preview.**
 
 ## App registration overview
 
@@ -82,7 +84,17 @@ can't contain spaces. The following example demonstrates two app roles, read and
  
 ## Step 2. Register an application
 
-To enable your app to sign in with Azure AD B2C using client credentials flow, register your applications (**App 1**). To create the web API app registration, follow these steps:
+To enable your app to sign in with Azure AD B2C using client credentials flow, you can use an existing application or register a new one (**App 1**). 
+
+If you're using an existing app, make sure the app's `accessTokenAcceptedVersion` is set to `2`:
+
+1. In the Azure portal, search for and select **Azure AD B2C**. 
+1. Select **App registrations**, and then select the your existing app from the list.
+1. In the left menu, under **Manage**, select **Manifest** to open the manifest editor.
+1. Locate the `accessTokenAcceptedVersion` element, and set its value to `2`. 
+1. At the top of the page, select **Save** to save the changes. 
+
+To create a new web app registration, follow these steps:
 
 1. In the Azure portal, search for and select **Azure AD B2C**
 1. Select **App registrations**, and then select **New registration**.
@@ -178,7 +190,7 @@ $appId = "<client ID>"
 $secret = "<client secret>"
 $endpoint = "https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy>/oauth2/v2.0/token"
 $scope = "<Your API id uri>/.default"
-$body = "granttype=client_credentials&scope=" + $scope + "&client_id=" + $appId + "&client_secret=" + $secret
+$body = "grant_type=client_credentials&scope=" + $scope + "&client_id=" + $appId + "&client_secret=" + $secret
 
 $token = Invoke-RestMethod -Method Post -Uri $endpoint -Body $body
 ```

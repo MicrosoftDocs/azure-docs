@@ -145,6 +145,20 @@ Response<StartCallRecordingResult> response = this.callingServerClient.initializ
 .startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), recordingOptions, null);
 ```
 
+### Specify a user on a channel 0 for unmixed audio-only
+```java
+URI recordingStateCallbackUri = new URI("<CallbackUri>");
+StartRecordingOptions recordingOptions = new StartRecordingOptions();
+recordingOptions.setRecordingContent(RecordingContent.AUDIO);
+recordingOptions.setRecordingChannel(RecordingChannel.UNMIXED);
+recordingOptions.setRecordingFormat(RecordingFormat.WAV);
+recordingOptions.setChannelAffinity({ new ChannelAffinity(0, user) });
+Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), recordingOptions, null);
+```
+
+The `StartRecordingAsync` API response contains the recording ID of the recording session.
+
 ## Stop recording session using 'stopRecordingWithResponse' server API
 
 Use the recording ID received in response of `startRecordingWithResponse`.

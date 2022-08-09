@@ -19,15 +19,12 @@ When you provision a private AKS cluster, AKS by default creates a private FQDN 
 
 Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-> [!NOTE]
-> Azure Government sites are supported, however US Gov Texas isn't currently supported because of missing Private Link support.
-
 ## Prerequisites
 
 * Azure CLI >= 2.28.0 or Azure CLI with aks-preview extension 0.5.29 or later.
 * If using ARM or the rest API, the AKS API version must be 2021-05-01 or later.
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
+* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server. For more information about the Azure DNS IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
 
 ## Create a private AKS cluster
 
@@ -260,3 +257,4 @@ Once the A record is created, link the private DNS zone to the virtual network t
 [command-invoke]: command-invoke.md
 [container-registry-private-link]: ../container-registry/container-registry-private-link.md
 [virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server
+[virtual-networks-168.63.129.16]: ../virtual-network/what-is-ip-address-168-63-129-16.md

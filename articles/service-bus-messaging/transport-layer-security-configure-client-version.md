@@ -7,7 +7,7 @@ author: EldertGrootenboer
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 04/22/2022
+ms.date: 06/23/2022
 ms.author: egrootenboer
 ---
 
@@ -47,6 +47,16 @@ The following sample shows how to enable TLS 1.2 in a .NET client using the Azur
     // Use the producer client to send a message to the Service Bus queue
     await sender.SendMessagesAsync(new ServiceBusMessage($"Message for TLS check")));
 }
+```
+# [Java](#tab/java)
+The minimum Java version for messaging SDKs is Java 8. For Java 8 installations, the default TLS version is 1.2. For Java 11 and later, the default is TLS 1.3. 
+
+Java Messaging SDKs use the default `SSLContext` from JDK. That's, if you configure JDK TLS using the system properties documented by the JVM, then Java messaging libraries implicitly use it. For example, For OpenJDK-based JVMs, you can use the system property `jdk.tls.client.protocols`. Example: `-Djdk.tls.client.protocols=TLSv1.2`. 
+
+There are a few other ways to enable TLS 1.2 include the following one:
+
+```java
+sslSocket.setEnabledProtocols(new String[] {"TLSv1. 2"});
 ```
 
 ---

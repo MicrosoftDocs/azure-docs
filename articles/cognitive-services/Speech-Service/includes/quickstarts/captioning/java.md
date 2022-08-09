@@ -46,14 +46,14 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
             <repository>
             <id>maven-cognitiveservices-speech</id>
             <name>Microsoft Cognitive Services Speech Maven Repository</name>
-            <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+            <url>https://azureai.azureedge.net/maven/</url>
             </repository>
         </repositories>
         <dependencies>
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.22.0</version>
+            <version>1.23.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -81,6 +81,9 @@ Follow these steps to create a new console application and install the Speech SD
     java -cp ".;target\dependency\*" Captioning --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
     Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
+
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
     The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
     ```console

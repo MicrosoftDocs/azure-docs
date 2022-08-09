@@ -37,7 +37,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Data sources Overview
-            url: agents/data-sources.md
+            url: data-sources.md
           - text: Data platform Overview
             url: ./data-platform.md
 
@@ -88,6 +88,14 @@ landingContent:
             url:  /cli/azure/monitor
           - text: Application Insights
             url:  /cli/azure/monitor/app-insights
+
+  # Card
+  - title: Reference - Alerts Management SDK for Python
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Alerts Management SDK for Python
+            url:  /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
 
   # Card
   - title: Reference - PowerShell

@@ -167,6 +167,10 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
 
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Rx light levels by lane. However, this is not supported on all deployments.
+>
+
 ### <a name = "txlight"></a>Tx Light Level - Split by link
 
 Aggregation type: *Avg*
@@ -174,6 +178,10 @@ Aggregation type: *Avg*
 You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Tx light level falls outside of the healthy range.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
+
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
+>
 
 ## ExpressRoute Virtual Network Gateway Metrics
 
@@ -246,6 +254,10 @@ Aggregation type: *Max*
 This metric shows the number of virtual machines that are using the ExpressRoute gateway. The number of virtual machines may include VMs from peered virtual networks that use the same ExpressRoute gateway. Set an alert for this metric if the number of VMs goes above a certain threshold that could affect the gateway performance. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot of number of virtual machines in the virtual network metric.":::
+
+>[!NOTE]
+> To maintain reliability of the service, Microsoft often performs platform or OS maintenance on the gateway service. During this time, this metric may fluctuate and report inaccurately.
+>
 
 ## <a name = "connectionbandwidth"></a>ExpressRoute gateway connections in bits/seconds
 

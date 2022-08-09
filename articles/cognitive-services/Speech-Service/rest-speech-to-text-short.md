@@ -27,7 +27,7 @@ Before you use the speech-to-text REST API for short audio, consider the followi
 > [!TIP]
 > For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
 ### Regions and endpoints
 
@@ -37,9 +37,7 @@ The endpoint for the REST API for short audio has this format:
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Replace `<REGION_IDENTIFIER>` with the identifier that matches the region of your subscription from this table:
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](regions.md) of your subscription.
 
 > [!NOTE]
 > You must append the language parameter to the URL to avoid receiving a 4xx HTTP error. For example, the language set to US English via the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.

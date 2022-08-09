@@ -55,7 +55,7 @@ Published events are removed from an event hub based on a configurable, timed-ba
 Event Hubs retains events for a configured retention time that applies across
 all partitions. Events are automatically removed when the retention period has
 been reached. If you specify a retention period of one day, the event will
-become unavailable exactly 24 hours after it has been accepted. You cannot
+become unavailable exactly 24 hours after it has been accepted. You can't
 explicitly delete events. 
 
 If you need to archive events beyond the allowed
@@ -93,7 +93,7 @@ Event Hubs enables granular control over event publishers through *publisher pol
 //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 ```
 
-You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
+You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When you use publisher policies, the **PartitionKey** value needs to be set to the publisher name. To work properly, these values must match.
 
 ## Capture
 
@@ -105,17 +105,20 @@ The files produced by Event Hubs Capture have the following Avro schema:
 
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Image showing the structure of captured data":::
 
+> [!NOTE]
+> When you use no code editor in the Azure portal, you can capture streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in the **Parquet** format. For more information, see [How to: capture data from Event Hubs in Parquet format](../stream-analytics/capture-event-hub-data-parquet.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json) and [Tutorial: capture Event Hubs data in Parquet format and analyze with Azure Synapse Analytics](../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json).
+
 ## Partitions
 [!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 ## SAS tokens
 
-Event Hubs uses *Shared Access Signatures*, which are available at the namespace and event hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Event Hubs can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific event hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-sas.md).
+Event Hubs uses *Shared Access Signatures*, which are available at the namespace and event hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Event Hubs can regenerate the hash by using the name of the key (policy) and the token and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific event hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-sas.md).
 
 ## Event consumers
 
-Any entity that reads event data from an event hub is an *event consumer*. All Event Hubs consumers connect via the AMQP 1.0 session and events are delivered through the session as they become available. The client does not need to poll for data availability.
+Any entity that reads event data from an event hub is an *event consumer*. All Event Hubs consumers connect via the AMQP 1.0 session and events are delivered through the session as they become available. The client doesn't need to poll for data availability.
 
 ### Consumer groups
 

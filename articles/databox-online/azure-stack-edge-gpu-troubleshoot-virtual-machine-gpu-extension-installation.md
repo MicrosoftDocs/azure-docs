@@ -7,12 +7,12 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 06/28/2022
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
 
-[!INCLUDE [applies-to-gpu-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+[!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 This article gives guidance for resolving the most common issues that cause installation of the GPU extension on a GPU VM to fail on an Azure Stack Edge Pro GPU device.
 
@@ -105,7 +105,7 @@ If the installation failed during the package download, that error indicates the
 
 **Error description:** A GPU VM must be either Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 size. If any other VM size is used, the GPU extension will fail to be attached.
 
-**Suggested solution:** Create a VM with the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview). For information about specifying the size, see [Create GPU VMs](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
+**Suggested solution:** Create a VM with the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized). For information about specifying the size, see [Create GPU VMs](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
 
 ## Image OS is not supported

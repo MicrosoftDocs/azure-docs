@@ -32,7 +32,7 @@ For applications that support multiple active regions, we recommend that you use
 
 ## Benefits of cross-region replication
 
-Architecting cross-regional replication for your services and data can be decided on a per-service basis. You'll necessarily take a cost-benefit analysis approach based on your organization's strategic and business requirements. Primary and ripple benefits of cost-region replication are complex, extensive, and deserve elaboration. These benefits include:
+Architecting cross-regional replication for your services and data can be decided on a per-service basis. You'll necessarily take a cost-benefit analysis approach based on your organization's strategic and business requirements. Primary and ripple benefits of cross-region replication are complex, extensive, and deserve elaboration. These benefits include:
 
 - **Region recovery sequence**: If a geography-wide outage occurs, recovery of one region is prioritized out of every enabled set of regions. Applications that are deployed across enabled region sets are guaranteed to have one of the regions prioritized for recovery. If an application is deployed across regions, any of which isn't enabled for cross-regional replication, recovery can be delayed.
 - **Sequential updating**: Planned Azure system updates for your enabled regions are staggered chronologically to minimize downtime, impact of bugs, and any logical failures in the rare event of a faulty update.

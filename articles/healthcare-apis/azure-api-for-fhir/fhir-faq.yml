@@ -109,7 +109,7 @@ sections:
       - question: |
           Can I create a custom FHIR resource?
         answer: |
-          We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
+          We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
           
       - question: |
           Are extensions supported on Azure API for FHIR?

@@ -13,14 +13,6 @@ ms.author: kenwith
 
 # What's Permissions Management?
 
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-> [!NOTE]
-> The Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
-
 ## Overview
 
 Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
@@ -34,7 +26,7 @@ Organizations have to consider permissions management as a central piece of thei
 - IT security teams are under increased pressure to ensure access to their expanding cloud estate is secure and compliant.
 - The inconsistency of cloud providers' native access management models makes it even more complex for Security and Identity to manage permissions and enforce least privilege access policies across their entire environment.
 
-:::image type="content" source="media/cloudknox-overview/cloudknox-key-cases.png" alt-text="CloudKnox Permissions Management.":::
+:::image type="content" source="media/overview/key-use-cases.png" alt-text="Diagram of Microsoft Entra Permissions Management use cases." lightbox="media/overview/key-use-cases.png":::
 
 ## Key use cases
 

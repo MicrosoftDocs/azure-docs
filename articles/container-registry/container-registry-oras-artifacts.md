@@ -313,10 +313,10 @@ az acr repository show-tags \
 A repository can have a list of manifests that are both tagged and untagged
 
 ```azurecli
-az acr repository show-manifests \
-  -n $ACR_NAME \
-  --repository $REPO \
-  --detail -o jsonc
+az acr manifest list-metadata \
+  --name $REPO \
+  --repository $ACR_NAME \
+  --output jsonc
 ```
 
 Note the container image manifests have `"tags":`
@@ -373,9 +373,9 @@ az acr repository delete \
 ### View the remaining manifests
 
 ```azurecli
-az acr repository show-manifests \
-  -n $ACR_NAME \
-  --repository $REPO \
+az acr manifest list-metadata \
+  --name $REPO \
+  --registry $ACR_NAME \
   --detail -o jsonc
 ```
 

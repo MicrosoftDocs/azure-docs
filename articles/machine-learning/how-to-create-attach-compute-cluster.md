@@ -15,9 +15,12 @@ ms.date: 05/02/2022
 
 # Create an Azure Machine Learning compute cluster
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [v1](v1/how-to-create-attach-compute-cluster.md)
-> * [v2 (preview)](how-to-create-attach-compute-cluster.md)
+> * [CLI v1](v1/how-to-create-attach-compute-cluster.md)
+> * [CLI v2 (current version)](how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 

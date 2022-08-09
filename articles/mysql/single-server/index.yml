@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for MySQL - Single Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
   author: mksuni
   ms.author: sumuth
-  ms.date: 09/10/2021
+  ms.date: 06/20/202209/10/2021
   ms.service: mysql
   ms.topic: landing-page
 

@@ -2,7 +2,7 @@
 title:  Azure Relay - Migrate to Shared Access Signature authorization
 description: Describes how to migrate Azure Relay applications from using Azure Active Directory Access Control Service to Shared Access Signature authorization.
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ---
 
 # Azure Relay - Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
