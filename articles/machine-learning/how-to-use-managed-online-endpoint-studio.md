@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-build-2022
-ms.author: ssambare
-author: shivanissambare
+ms.author: sehan
+author: dem108
 ms.reviewer: laobri
 ms.date: 10/21/2021
 ---
@@ -27,7 +27,7 @@ In this article, you learn how to:
 > * Delete managed online endpoints and deployments
 
 ## Prerequisites
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 - The examples repository - Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/online`.
 
 ## Create a managed online endpoint

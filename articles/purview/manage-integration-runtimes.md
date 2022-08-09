@@ -54,7 +54,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 
 - Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 
-- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
+- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
 
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
@@ -140,7 +140,7 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
-* The managed Storage account and Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
+* The managed Storage account and optional Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
 
 There are two firewalls to consider:
 
@@ -307,4 +307,3 @@ When scanning Parquet files using the self-hosted IR, the service locates the Ja
 - [Microsoft Purview network architecture and best practices](concept-best-practices-network.md)
 
 - [Use private endpoints with Microsoft Purview](catalog-private-link.md)
-

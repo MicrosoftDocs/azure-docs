@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Windows. See common issues 
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 05/26/2022
+ms.date: 08/04/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -541,6 +541,21 @@ az storage account keys renew \
 ```
 
 ---
+
+## Set the API permissions on a newly created application
+
+After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps.
+
+1. Open **Azure Active Directory**.
+2. Select **App registrations** in the left pane.
+3. Select **All Applications** in the right pane.
+
+   :::image type="content" source="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-troubleshoot-windows-file-connection-problems/azure-portal-azuread-app-registrations.png":::
+
+4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+5. Select **API permissions** in the left pane.
+6. Select **Add permissions** at the bottom of the page.
+7. Select **Grant admin consent for "DirectoryName"**.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

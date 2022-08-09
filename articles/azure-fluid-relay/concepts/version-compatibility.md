@@ -11,9 +11,6 @@ ms.service: azure-fluid
 
 # Version compatibility with Fluid Framework releases
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 To connect your application to Azure Fluid Relay service,
 you'll use the **@fluidframework/azure-client** library. You'll also use the **fluid-framework** library to use the core
 data structures and provided by the Fluid Framework.
@@ -34,8 +31,8 @@ npx install-peerdeps @fluidframework/azure-client
 > supported with the General Availability of Azure Fluid Relay. With this upgrade, you’ll make use of our new multi-region routing capability where
 > Azure Fluid Relay will host your session closer to your end users to improve customer experience. In the latest package, you will need to update your
 > serviceConfig object to the new Azure Fluid Relay service endpoint instead of the storage and orderer endpoints:
-> If your Azure Fluid Relay resource is in West US 2, please use **https://us.fluidrelay.azure.com**. If it is West Europe, 
-> use **https://eu.fluidrelay.azure.com**. If it is in Southeast Asia, use **https://global.fluidrelay.azure.com**.
+> If your Azure Fluid Relay resource is in West US 2, please use **`https://us.fluidrelay.azure.com`**. If it is West Europe, 
+> use **`https://eu.fluidrelay.azure.com`**. If it is in Southeast Asia, use **`https://global.fluidrelay.azure.com`**.
 > These values can also be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. The orderer and storage endpoints will be deprecated soon.
 
 

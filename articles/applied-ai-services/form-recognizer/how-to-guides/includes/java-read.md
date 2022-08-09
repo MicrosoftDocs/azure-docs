@@ -130,8 +130,8 @@ import java.util.Arrays;
 public class FormRecognizer {
 
     // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-    private static final String endpoint = "https://formrecognizer-jp.cognitiveservices.azure.com/";
-    private static final String key = "092e23363b8b492dbc402cbebbf1c1d9";
+    private static final String endpoint = "<your-endpoint>";
+    private static final String key = "<your-key>";
 
         public static void main(String[] args) {
 
@@ -213,4 +213,4 @@ To view the entire output,visit the Azure samples repository on GitHub to view t
 Try the layout model, which can extract selection marks and table structures in addition to what the read model offers.
 
 > [!div class="nextstepaction"]
-> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)

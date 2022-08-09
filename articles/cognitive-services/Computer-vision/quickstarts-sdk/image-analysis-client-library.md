@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Image Analysis"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Image Analysis in your application through a native client library in the language of your choice.
+description: Learn how to tag images in your application using Image Analysis through a native client library in the language of your choice.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 07/20/2022
 ms.author: pafarley
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
@@ -18,7 +18,7 @@ keywords: computer vision, computer vision service
 
 # Quickstart: Image Analysis
 
-Get started with the Image Analysis REST API or client libraries. The Analyze Image service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for a basic task.
+Get started with the Image Analysis REST API or client libraries to set up a basic image tagging script. The Analyze Image service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code.
 
 ::: zone pivot="programming-language-csharp"
 

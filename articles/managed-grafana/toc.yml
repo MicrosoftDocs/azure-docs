@@ -11,7 +11,11 @@ items:
   - name: Create an instance from the portal
     href: quickstart-managed-grafana-portal.md
   - name: Create an instance from the CLI
-    href: quickstart-managed-grafana-cli.md  
+    href: quickstart-managed-grafana-cli.md
+- name: Concepts
+  items:
+  - name: High availability
+    href: high-availability.md
 - name: How-to guides
   items:
   - name: Configure data source plugins

@@ -16,6 +16,7 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/graph/toc.json
 - name: Quickstarts
+  expanded: true
   items:
     - name: Gremlin console
       href: create-graph-console.md

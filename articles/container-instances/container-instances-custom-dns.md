@@ -226,4 +226,4 @@ See the Azure quickstart template [Create an Azure container group with VNet](ht
 [az-container-delete]: /cli/azure/container#az-container-delete
 [az-network-vnet-delete]: /cli/azure/network/vnet#az-network-vnet-delete
 [az-group-delete]: /cli/azure/group#az-group-create
-[cloud-shell-bash]: /azure/cloud-shell/overview
+[cloud-shell-bash]: ../cloud-shell/overview.md

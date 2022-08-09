@@ -133,6 +133,9 @@
               href: configure-token-lifetimes.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
+            - name: SAML app multi-instancing
+              displayName: Configure SAML app multi-instancing for an application
+              href: reference-app-multi-instancing.md
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari
@@ -145,8 +148,6 @@
           href: workload-identity-federation.md
         - name: Trust an external identity provider (federation)
           href: workload-identity-federation-create-trust.md
-        - name: Configure an app to trust a GitHub repo
-          href: workload-identity-federation-create-trust-github.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
         - name: Exchange AD FS SAML for Microsoft Graph access token

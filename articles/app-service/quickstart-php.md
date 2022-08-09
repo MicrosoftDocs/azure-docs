@@ -67,7 +67,7 @@ You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azu
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/php-docs-hello-world.](media/quickstart-php/fork-details-php-docs-hello-world-repo.png)
 
 >[!NOTE]
-> This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world
+> This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world`
 
 ---
 

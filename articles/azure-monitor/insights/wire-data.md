@@ -119,7 +119,7 @@ VMConnection
 
 ### More examples queries
 
-Refer to the [VM insights log search documentation](/azure/azure-monitor/vm/vminsights-log-query) and the [VM insights alert documentation](../vm/monitor-virtual-machine-alerts.md) for additional example queries.
+Refer to the [VM insights log search documentation](../vm/vminsights-log-query.md) and the [VM insights alert documentation](../vm/monitor-virtual-machine-alerts.md) for additional example queries.
 
 ## Uninstall Wire Data 2.0 Solution
 

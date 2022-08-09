@@ -229,3 +229,9 @@ There are two kinds of Azure application plans: _solution template_ and _managed
 
 - To plan a solution template, see [Plan a solution template for an Azure application offer](plan-azure-app-solution-template.md).
 - To plan an Azure managed application, see [Plan an Azure managed application for an Azure application offer](plan-azure-app-managed-app.md).
+
+**Video tutorials and hands-on labs**
+
+- [Mastering Azure Managed Application offers](https://go.microsoft.com/fwlink/?linkid=2201395)
+- [Metered Billing for Azure Managed Applications – Demo](https://go.microsoft.com/fwlink/?linkid=2196412)
+- [Azure Managed Application Deployment Package Overview](https://go.microsoft.com/fwlink/?linkid=2196244)

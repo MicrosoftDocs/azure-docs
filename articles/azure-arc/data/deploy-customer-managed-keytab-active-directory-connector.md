@@ -4,8 +4,8 @@ description: Tutorial to deploy a customer-managed keytab Active Directory (AD) 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/05/2022
 ms.topic: how-to

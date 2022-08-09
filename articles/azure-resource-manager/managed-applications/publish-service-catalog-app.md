@@ -4,21 +4,24 @@ description: Shows how to create an Azure managed application that is intended f
 author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 06/23/2022
+ms.date: 07/08/2022
 ms.author: davidsmatlak
 ---
 
 # Quickstart: Create and publish a managed application definition
 
-This quickstart provides an introduction to working with [Azure Managed Applications](overview.md). You can create and publish a managed application that is intended for members of your organization.
+This quickstart provides an introduction to working with [Azure Managed Applications](overview.md). You can create and publish a managed application that's intended for members of your organization.
 
 To publish a managed application to your service catalog, you must:
 
-- Create a template that defines the resources to deploy with the managed application.
+- Create an Azure Resource Manager template (ARM template) that defines the resources to deploy with the managed application.
 - Define the user interface elements for the portal when deploying the managed application.
 - Create a _.zip_ package that contains the required template files.
 - Decide which user, group, or application needs access to the resource group in the user's subscription.
 - Create the managed application definition that points to the _.zip_ package and requests access for the identity.
+
+> [!NOTE]
+> Bicep files can't be used in a managed application. You must convert a Bicep file to ARM template JSON with the Bicep [build](../bicep/bicep-cli.md#build) command.
 
 ## Create the ARM template
 
@@ -26,7 +29,7 @@ Every managed application definition includes a file named _mainTemplate.json_. 
 
 Create a file named _mainTemplate.json_. The name is case-sensitive.
 
-Add the following JSON to your file. It defines the parameters for creating a storage account, and specifies the properties for the storage account.
+Add the following JSON and save the file. It defines the parameters for creating a storage account, and specifies the properties for the storage account.
 
 ```json
 {
@@ -68,8 +71,6 @@ Add the following JSON to your file. It defines the parameters for creating a st
   }
 }
 ```
-
-Save the _mainTemplate.json_ file.
 
 ## Define your create experience
 

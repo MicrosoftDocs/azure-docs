@@ -66,7 +66,7 @@ These roles already exist on every database and do not need to be created.
 ### read
 Has the following privileges: changeStream, collStats, find, killCursors, listIndexes, listCollections
 
-### readwrite
+### readWrite
 Has the following privileges: collStats, createCollection, dropCollection, createIndex, dropIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
 
 ### dbAdmin
@@ -90,10 +90,25 @@ az login
 az account set --subscription <your subscription ID>
 ```
 7. Enable the RBAC capability on your existing API for MongoDB database account.
+Get your existing capabilities. Capabilities are account features. Some are optional and some can't be changed.
 ```powershell
-az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongoRoleBasedAccessControl
+az cosmosdb show -n <account_name> -g <azure_resource_group>
 ```
-or create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
+You should see a capability section similar to this
+```powershell
+"capabilities": [
+    {
+      "name": "EnableMongo"
+    },
+    {
+      "name": "DisableRateLimitingResponses"
+    }
+```
+Copy the existing capabilities and add the RBAC capability (EnableMongoRoleBasedAccessControl) to the list:
+```powershell
+az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongoRoleBasedAccessControl, EnableMongo, DisableRateLimitingResponses
+```
+If you prefer a new database account instead, create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
@@ -208,7 +223,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 ## Limitations
 
 - The number of users and roles you can create must equal less than 10,000. 
-- The commands listCollections, listDatabases, killCursors are excluded from RBAC in the preview.
+- The commands listCollections, listDatabases, killCursors, and currentOp are excluded from RBAC in the preview.
 - Backup/Restore is not supported in the preview.
 - [Azure Synapse Link for Azure Cosmos DB](../synapse-link.md) is not supported in the preview.
 - Users and Roles across databases are not supported in the preview.

@@ -81,13 +81,13 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 
 ```json
 {
-    "query": "ContainerLog | where LogEntry has \"some value\"\n",
+    "query": "ContainerLogV2 | where Computer ==  \"some value\"\n",
 }
 ```
 
 ---
 ## Pricing model
-The charge for a query on Basic Logs is based on the amount of data the query scans, not just the amount of data the query returns. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. Calculation is based on chunks of up to one day of data. 
+The charge for a query on Basic Logs is based on the amount of data the query scans, which is influenced by the size of the table and the query's time range. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
