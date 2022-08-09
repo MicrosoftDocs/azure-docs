@@ -18,7 +18,7 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and select **App Services**.
 
-   ![Select App Services](./media/app-service-ssl-prepare-app/app-services.png)
+   ![Screenshot of Azure portal, search box, and "App Services" selected.](./media/app-service-ssl-prepare-app/app-services.png)
 
 1. On the **App Services** page, select your web app's name.
 
@@ -30,13 +30,13 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
 1. In the left menu for your web app, under the **Settings** section, select **Scale up (App Service plan)**.
 
-   ![Scale-up menu](./media/app-service-ssl-prepare-app/scale-up-menu.png)
+   ![Screenshot of web app menu, "Settings" section, and "Scale up (App Service plan)" selected.](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 
 1. Make sure that your web app isn't in the **F1** or **D1** tier, which doesn't support custom TLS/SSL.
 
    Your web app's current tier is highlighted by a dark blue box.
 
-   ![Check pricing tier](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
+   ![Screenshot of web app pricing tier information.](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
 1. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page, and skip the [Scale up your App Service plan section](#scale-up-your-app-service-plan).
 
@@ -46,8 +46,8 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
 1. When you're done, select **Apply**.
 
-   ![Choose pricing tier](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
+   ![Screenshot of pricing tier and "Apply" selected.](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
 
    When the following message appears, the scale operation has completed.
 
-   ![Scale up notification](./media/app-service-ssl-prepare-app/scale-notification.png)
+   ![Screenshot with confirmation message for scale up operation.](./media/app-service-ssl-prepare-app/scale-notification.png)
