@@ -156,7 +156,7 @@ The following diagram illustrates an Azure-native environment with cross-region 
 
 With the standard network feature, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds an additional region to the diagram in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
 
-In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2, and VM5 in Region 2 can connected to Volume 2 in Region 1 via VNet peering between Region 1 and Region 2. VNet 4 can only connect to Vnet 3.
+In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2, and VM5 in Region 2 can connected to Volume 2 in Region 1 via VNet peering between Region 1 and Region 2. VNet 4 can only connect to VNet 3.
 
 ## Hybrid environments
 
