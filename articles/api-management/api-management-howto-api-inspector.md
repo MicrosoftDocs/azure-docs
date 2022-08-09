@@ -57,7 +57,7 @@ To trace request processing, you must enable the **Allow tracing** setting for t
     * If your subscription doesn't already allow tracing, you're prompted to enable it if you want to trace the call. 
     * You can also choose to send the request without tracing.
 
-      :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Configure API tracing":::
+      :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Screenshot showing configure API tracing.":::
 
 ## Review trace information
 
