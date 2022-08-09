@@ -32,7 +32,7 @@ Each release contains an image tag. Use the image tag to identify when Microsoft
 For example, a complete image tag for the release in June, 2022 is: `v1.8.0_2022-06-1`.
 
 The image tag follows this pattern, *\<version\>_\<date\>-#*.  
-- \<version\> identifies the data services major an minor version numbers. The pattern is: **v**#.#.#
+- \<version\> identifies the data services major and minor version numbers. The pattern is: **v**#.#.#
 - \<date\> identifies the year, month, and day of the release. The pattern is: YYYY-MM-DD-#. 
 - -# identifies an internal build number.
 
