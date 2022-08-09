@@ -251,14 +251,3 @@ As a next step, review the other tutorials that produce transformed content you 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Text Analytics with Cognitive Service](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
-
-## Internal notes
-
-+ Overview doc on github.io
-https://microsoft.github.io/SynapseML/docs/next/features/cognitive_services/CognitiveServices%20-%20Overview/
-
-+ Demo script
-https://adb-2655922928099846.6.azuredatabricks.net/?o=2655922928099846#notebook/2161010915051452/command/2161010915051455
-
-+ Internal script that loads environment variables
-https://adb-2655922928099846.6.azuredatabricks.net/?o=2655922928099846#notebook/2112735246239104/command/2112735246239105
