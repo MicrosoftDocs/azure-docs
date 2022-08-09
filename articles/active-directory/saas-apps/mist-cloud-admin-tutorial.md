@@ -199,6 +199,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Mist Cloud Admin SSO Sign-on URL directly and initiate the login flow from there.
 
+    > [!NOTE]
+    > For each user first login must be performed from the IdP prior to using SP initiated flow.
+
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Mist Cloud Admin SSO for which you set up the SSO. 
