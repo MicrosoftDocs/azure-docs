@@ -13,6 +13,7 @@ ms.devlang: azurecli
 ---
 
 # Prevent Azure Cosmos DB resources from being deleted or changed
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As an administrator, you may need to lock an Azure Cosmos account, database or container. Locks prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly.
@@ -26,7 +27,7 @@ When you apply a lock at a parent scope, all resources within that scope inherit
 
 Unlike Azure role-based access control, you use management locks to apply a restriction across all users and roles. To learn about role-based access control for Azure Cosmos DB see, [Azure role-based access control in Azure Cosmos DB](role-based-access-control.md).
 
-Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to https://management.azure.com. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on an Azure Cosmos container prevents you from deleting or modifying the container. It doesn't prevent you from creating, updating, or deleting data in the container. Data transactions are permitted because those operations aren't sent to https://management.azure.com.
+Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to <https://management.azure.com>. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on an Azure Cosmos container prevents you from deleting or modifying the container. It doesn't prevent you from creating, updating, or deleting data in the container. Data transactions are permitted because those operations aren't sent to <https://management.azure.com>.
 
 ## Manage locks
 
@@ -73,7 +74,7 @@ az lock create --name $lockName \
 
 ### Template
 
-When applying a lock to an Azure Cosmos DB resource, use the [``Microsoft.Authorization/locks``](azure/templates/microsoft.authorization/locks) Azure Resource Manager (ARM) resource.
+When applying a lock to an Azure Cosmos DB resource, use the [``Microsoft.Authorization/locks``](/azure/templates/microsoft.authorization/locks) Azure Resource Manager (ARM) resource.
 
 #### [JSON](#tab/json)
 
