@@ -121,13 +121,15 @@ To authenticate your GitHub user account with the private repository, follow the
 
 1. Select the dashboard URL on the **Overview** page to navigate directly to the Microsoft Playwright Testing dashboard for your workspace:
 
+    Sign in with the credentials for your Azure subscription.
+
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/azure-portal-playwright-workspace-overview.png" alt-text="Screenshot that shows the Playwright Testing workspace overview page in the Azure portal.":::
 
 ## Create a Microsoft Playwright Testing access token
 
 Set up an access token to authenticate with Microsoft Playwright Testing.
 
-1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), access the **Settings > Access Token** menu in the top-right of the screen.
+1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-int.io/), access the **Settings > Access Token** menu in the top-right of the screen.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
     
@@ -165,6 +167,12 @@ On your machine, create an environment variable `ACCESS_KEY`, and set its value 
 ## Run tests
 
 You've now configured your Playwright tests to run in the cloud with Microsoft Playwright Testing. The sample test configuration specifies multiple browser and device configurations.
+
+1. Navigate to the samples directory:
+
+    ```bash
+    cd samples/PlaywrightTestRunner
+    ```
 
 1. Run this command to run Playwright tests against browsers managed by the service:
 
