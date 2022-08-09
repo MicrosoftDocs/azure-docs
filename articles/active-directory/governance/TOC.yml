@@ -235,3 +235,5 @@
     href: /graph/api/resources/entitlementmanagement-overview
   - name: Lifecycle Workflows - FAQs (Preview)
     href: workflows-faqs.md  
+  - name: Developer API reference Lifecycle Workflows- Azure Active Directory
+    href: lifecycle-workflows-dev-reference.md  
