@@ -110,6 +110,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Virtual Visits Administrator](#virtual-visits-administrator) | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
 > | [Windows 365 Administrator](#windows-365-administrator) | Can provision and manage all aspects of Cloud PCs. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows Update Deployment Administrator](#windows-update-deployment-administrator) | Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
+> | [Yammer Administrator](#yammer-administrator) | Manage all aspects of the Yammer service. | 810a2642-a034-447f-a5e8-41beaa378541 |
 
 ## Application Administrator
 
@@ -2311,6 +2312,38 @@ Users in this role can create and manage all aspects of Windows Update deploymen
 > | --- | --- |
 > | microsoft.windows.updatesDeployments/allEntities/allProperties/allTasks | Read and configure all aspects of Windows Update Service |
 
+## Yammer Administrator
+
+Assign the Yammer Administrator role to users who need to do the following tasks:
+
+- Manage all aspects of Yammer
+- Create, manage, and restore Microsoft 365 Groups, but not role-assignable groups
+- View the hidden members of Security groups and Microsoft 365 groups, including role assignable groups
+- Read usage reports in the Microsoft 365 admin center
+- Create and manage service requests in the Microsoft 365 admin center
+- View announcements in the Message center, but not security announcements
+- View service health
+
+[Learn more](/yammer/manage-yammer-users/manage-yammer-admins)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
+> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups from soft-deleted container, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
+> | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.office365.yammer/allEntities/allProperties/allTasks | Manage all aspects of Yammer |
+
 ## How to understand role permissions
 
 The schema for permissions loosely follows the REST format of Microsoft Graph:
@@ -2382,6 +2415,12 @@ User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 \* A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has 0 Global Administrators.
+
+> [!NOTE]
+> The ability to reset a password includes the ability to update the following sensitive attributes required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
+> - businessPhones
+> - mobilePhone
+> - otherMails
 
 ## Who can update sensitive attributes
 

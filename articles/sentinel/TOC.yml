@@ -129,6 +129,8 @@
     items:
     - name: Investigate large datasets
       href: investigate-large-datasets.md
+    - name: Investigate entities with entity pages
+      href: entity-pages.md
   - name: Automate responses
     items:
     - name: Orchestration, automation, and response
