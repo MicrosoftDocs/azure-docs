@@ -22,10 +22,10 @@ This article lists the latest features, improvements, and changes in the Microso
 
 ## August 2022
 
-Microsoft Entra Verified ID is now generally available (GA) as the new member of the Microsoft Entra portafolio! [read more](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-verified-id-now-generally-available/ba-p/3295506) 
+Microsoft Entra Verified ID is now generally available (GA) as the new member of the Microsoft Entra portfolio! [read more](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-verified-id-now-generally-available/ba-p/3295506) 
 
 ### Known issues 
-- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be avaailable by 08/20/22.
+- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be available by 08/20/22.
 
 ## July 2022
 
