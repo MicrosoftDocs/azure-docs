@@ -19,27 +19,27 @@ This article describes how to expose applications on Azure Spring Apps to the in
 
 You can expose application to the internet with TLS Termination or end-to-end TLS using Application Gateway, as described in [Expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md). These approaches work well, but Application Gateway can involve a complicated setup and extra expense.
 
-If you don't want to use Application Gateway for advanced operations, this article describes a straightforward way to expose your applications to the internet with one click on Azure portal or one command on the Azure command line. The only extra expense is a standard public IP for one Azure Spring Apps service, no matter how many apps you want to expose.
+If you don't want to use Application Gateway for advanced operations, you can expose your applications to the internet with one click on Azure portal or one command on the Azure command using the approach described in this article. The only extra expense is a standard public IP for one Azure Spring Apps service, no matter how many apps you want to expose.
 
 ## Prerequisites
 
-- An Azure Spring Apps service instance deployed in a virtual network and an app created in it. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
+- An Azure Spring Apps service instance deployed in a virtual network and an app created in it. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
 ## Assign public FQDN for your application in vnet injection instance
 
-After following the procedure in Deploy Azure Spring Apps in a virtual network, you can assign a public FQDN for your application.
+After following the steps in  [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md), you can assign a public FQDN for your application.
 
 #### [Portal](#tab/azure-portal)
 
-1. Select the Azure Spring Apps service instance deployed in your virtual network, and open the **Apps** tab in the menu on the left.
+1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Apps** tab in the menu on the left.
 
-2. Select the application to show the **Overview** page.
+1. Select the application to show the **Overview** page.
 
-3. Select **Assign Public Endpoint** to assign a public FQDN to your application. Assigning an FQDN can take a few minutes.
+1. Select **Assign Public Endpoint** to assign a public FQDN to your application. Assigning an FQDN can take a few minutes.
 
-    ![Assign public endpoint](media/spring-cloud-access-app-vnet/assign-public-endpoint.png)
+   :::image type="content" source="media/how-to-access-app-from-internet-virtual-network/assign-public-endpoint.png" alt-text="Screenshot of Azure portal showing how to assign a public FQDN to your application." lightbox="media/how-to-access-app-from-internet-virtual-network/assign-public-endpoint.png":::
 
-4. The assigned public FQDN (labeled **URL**) is now available. It can only be accessed within the public network.
+The assigned public FQDN (labeled **URL**) is now available. It can only be accessed within the public network.
 
 #### [CLI](#tab/azure-CLI)
 
