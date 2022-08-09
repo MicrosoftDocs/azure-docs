@@ -1,6 +1,6 @@
 ---
-title: "Configuring Azure Policy with Network Groups in Azure Virtual Network Manager (Preview)"
-description: Learn about how to utilize Azure policy to configure a high scale and dynamic network group used with Azure Virtual Network Manager.
+title: "Configuring Azure Policy with network groups in Azure Virtual Network Manager (Preview)"
+description: Learn about how to utilize Azure Policy to configure a high scale and dynamic network group used with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
@@ -9,7 +9,7 @@ ms.date: 08/22/2022
 ms.custom: template-concept
 ---
 
-# Configuring Azure Policy with Network Groups in Azure Virtual Network Manager (Preview)
+# Configuring Azure Policy with network groups in Azure Virtual Network Manager (Preview)
 
 In this article, you'll learn how [Azure Policy](../governance/policy/overview.md) is used in Azure Virtual Network Manager to define dynamic network group membership. Dynamic network groups allow you to create scalable and dynamically adapting virtual network environments in your organization. 
 
@@ -72,15 +72,15 @@ To set the needed permissions, uses can be assigned built-in roles with [role-ba
 - **API Management Service Contributor** role at the target scope level.
 
 For more granular role assignment, you can create [custom roles](../role-based-access-control/custom-roles-portal.md) using the `networkGroups/join/action` permission and `policy/write` permission.
-## Helpful Tips
+## Helpful tips
 
 ### Type filtering
 
 When configuring your policy definitions, it's recommended to always include a **type** condition to scope it to virtual networks. This will allow Policy to filter out non virtual network operations and improve the efficiency of your policy resources.
 
-### Regional Slicing
+### Regional slicing
 
-Policy Resources are global, which means that any change will take effect on all resources under the assignment scope, regardless of region. If regional slicing and gradual rollout is a concern for you, it's recommended to also include a `where location in []` condition. Then, you can incrementally expand the locations list to gradually roll out the effect.
+Policy resources are global, which means that any change will take effect on all resources under the assignment scope, regardless of region. If regional slicing and gradual rollout is a concern for you, it's recommended to also include a `where location in []` condition. Then, you can incrementally expand the locations list to gradually roll out the effect.
 
 ### Assignment scoping
 If you're following management group best practices using [Azure management groups](../governance/management-groups/overview.md), it's likely you already have your resources organized in a hierarchy structure. Using assignments, you can assign the same definition to multiple distinct scopes within your hierarchy, allowing you to have higher granularity control of which resources are eligible for your network group
