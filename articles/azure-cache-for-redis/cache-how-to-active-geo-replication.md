@@ -60,6 +60,55 @@ You should remove the unavailable cache because the remaining caches in the repl
 
 1. Once the affected region's availability is restored, you need to delete the affected cache and recreate it to add it back to your replication group.
 
+## Set up active geo-replication using the Azure CLI or PowerShell
+
+### Azure CLI
+
+Use the Azure CLI for creating a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [az redisenterprise create](https://docs.microsoft.com/cli/azure/redisenterprise?view=azure-cli-latest#az-redisenterprise-create).
+
+**Create new Redis Enterprise instance in a new geo-replication group**
+
+This example creates a new Redis Enterprise E10 cache instance called "Cache1" in the East US region and adds the cache to a new active geo-replication group called "replicationGroup":
+
+```azurecli-interactive
+az redisenterprise create --location "East US" --cluster-name "Cache1" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"
+```
+Note that, to configure active geo-replication properly, the ID of the cache instance being created must be added with the `--linked-databases` parameter. The ID is in the format 
+> /subscriptions/\<your-subscription-ID>/resourceGroups/\<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/\<your-cache-name>/databases/default
+
+**Create new Redis Enterprise instance in an existing geo-replication group**
+
+This example creates a new E10 instance called "Cache2" in the West US region and adds it to the "replicationGroup" active geo-replication group created above. This way, it is linked in an active-active configuration with Cache1. 
+
+```azurecli-interactive
+az redisenterprise create --location "West US" --cluster-name "Cache2" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"
+```
+As before, you will need to list both Cache1 and Cache2 using the `--linked-databases` parameter.
+
+### Azure PowerShell
+
+Use Azure PowerShell for creating a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [New-AzRedisEnterpriseCache](https://docs.microsoft.com/powershell/module/az.redisenterprisecache/new-azredisenterprisecache).
+
+**Create new Redis Enterprise instance in a new geo-replication group**
+
+This example creates a new Redis Enterprise E10 cache instance called "Cache1" in the East US region and adds the cache to a new active geo-replication group called "replicationGroup":
+
+```powershell-interactive
+New-AzRedisEnterpriseCache -Name "Cache1" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}'
+```
+Note that, to configure active geo-replication properly, the ID of the cache instance being created must be added with the `-LinkedDatabase` parameter. The ID is in the format 
+> id:"/subscriptions/\<your-subscription-ID>/resourceGroups/\<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/\<your-cache-name>/databases/default"
+
+**Create new Redis Enterprise instance in an existing geo-replication group**
+
+This example creates a new E10 instance called "Cache2" in the West US region and adds it to the "replicationGroup" active geo-replication group created above. This way, it is linked in an active-active configuration with Cache1. 
+
+```powershell-interactive
+New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -Location "West US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}', '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"}'
+
+```
+As before, you will need to list both Cache1 and Cache2 using the `-LinkedDatabase` parameter.
+
 ## Next steps
 
 Learn more about Azure Cache for Redis features.
