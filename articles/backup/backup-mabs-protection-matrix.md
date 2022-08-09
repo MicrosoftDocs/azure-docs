@@ -89,7 +89,7 @@ For more information, see the [ExpressRoute routing requirements](../expressrout
 >[!NOTE]
 >Public Peering is deprecated for new circuits.
 
-### Operating systems and applications at end of support
+## Operating systems and applications at end of support
 
 Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
 
