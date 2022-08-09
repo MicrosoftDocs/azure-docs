@@ -1,5 +1,5 @@
 ---
-title: Enable Pzush Notifications in your chat app
+title: Enable push notifications in your chat app
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to enable push notification in IOS App by using Azure Communication Chat SDK
 author: angellan
