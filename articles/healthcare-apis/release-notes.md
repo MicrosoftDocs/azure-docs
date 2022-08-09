@@ -78,7 +78,7 @@ For more information about the currently known issues with the FHIR service, see
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
 |Removes SQL retry on upsert  |Removes retry on SQL command for upsert. The error still occurs, but data is saved correctly in success cases. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571). |
-|Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, this will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). |
+|Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, exceptions and tests will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). |
 
 ### DICOM service
 
@@ -193,7 +193,7 @@ For more information about the currently known issues with the FHIR service, see
 | :------------------- | :--------------- |
 |Quota details for support requests  |We've updated the quota details for customer support requests with the latest information. |
 |Local RBAC  |We've updated the local RBAC documentation to clarify the use of the secondary tenant and the steps to disable it. |
-|Deploy and configure Azure Health Data Services using scripts  |We've started the process of providing PowerShell, CLI scripts, and ARM templates to configure app registration and role assignments. Note that scripts for deploying Azure Health Data Services will be available after GA. |
+|Deploy and configure Azure Health Data Services using scripts  |We've started the process of providing PowerShell, CLI scripts, and ARM templates to configure app registration and role assignments. Scripts for deploying Azure Health Data Services will be available after GA. |
 
 ### FHIR service
 
@@ -229,8 +229,8 @@ For more information about the currently known issues with the FHIR service, see
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-|Resolved 500 error when the date was passed with a time zone. |This fixes a 500 error when a date with a time zone was passed into a datetime field [#2270](https://github.com/microsoft/fhir-server/pull/2270). |
-|Resolved issue when posting a bundle with incorrect Media Type returned a 500 error. |Previously when posting a search with a key that contains certain characters, a 500 error is returned. This fixes this issue [#2264](https://github.com/microsoft/fhir-server/pull/2264), and it addresses [#2148](https://github.com/microsoft/fhir-server/issues/2148). |
+|Resolved 500 error when the date was passed with a time zone. |This fix addresses a 500 error when a date with a time zone was passed into a datetime field [#2270](https://github.com/microsoft/fhir-server/pull/2270). |
+|Resolved issue when posting a bundle with incorrect Media Type returned a 500 error. |Previously when posting a search with a key that contains certain characters, a 500 error is returned. This fixes issue [#2264](https://github.com/microsoft/fhir-server/pull/2264) and addresses [#2148](https://github.com/microsoft/fhir-server/issues/2148). |
 
 ### DICOM service
 
@@ -238,7 +238,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Content-Type header now includes transfer-syntax. |This enables the user to know which transfer syntax is used in case multiple accept headers are being supplied. |
+|Content-Type header now includes transfer-syntax. |This enhancement enables the user to know which transfer syntax is used in case multiple accept headers are being supplied. |
 
 ## October 2021
 
@@ -342,7 +342,7 @@ For more information about the currently known issues with the FHIR service, see
 
 ## Next steps
 
-In this article, you learned about the features and enhancements made to Azure Health Data Services. For more information about the known issues with Azure Health Data Services, See
+In this article, you learned about the features and enhancements made to Azure Health Data Services. For more information about the known issues with Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[Known issues: Azure Health Data Services](known-issues.md)
