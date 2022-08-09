@@ -5,7 +5,7 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 08/09/2022
 ms.custom: devdivchpfy22
 ---
 
