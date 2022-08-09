@@ -59,7 +59,7 @@ This article shows you how to use the Data Factory _load data from Microsoft 365
  
 3. You are now in the copy activity configuration tab. Click on the **Edit** button next to the Microsoft 365 (Office 365) dataset to continue the data configuration.
 
-    :::image type="content" source="./media/load-office-365-data/transition-to-edit-dataset.png" alt-text="Config Microsoft 365 (Office 365) dataset general":::
+    :::image type="content" source="./media/load-office-365-data/transition-to-edit-dataset.png" alt-text="Config Microsoft 365 (Office 365) dataset general.":::
  
 4. You see a new tab opened for Microsoft 365 (Office 365) dataset. In the **General tab** at the bottom of the Properties window, enter "SourceOffice365Dataset" for Name.
  
@@ -67,11 +67,11 @@ This article shows you how to use the Data Factory _load data from Microsoft 365
 
 6. In the New Linked Service window, enter "Office365LinkedService" as name, enter the service principal ID and service principal key, then test connection and select **Create** to deploy the linked service.
 
-    :::image type="content" source="./media/load-office-365-data/new-office-365-linked-service.png" alt-text="New Microsoft 365 (Office 365) linked service":::
+    :::image type="content" source="./media/load-office-365-data/new-office-365-linked-service.png" alt-text="New Microsoft 365 (Office 365) linked service.":::
  
 7. After the linked service is created, you are back in the dataset settings. Next to **Table**, choose the down-arrow to expand the list of available Microsoft 365 (Office 365) datasets, and choose "BasicDataSet_v0.Message_v0" from the drop-down list:
 
-    :::image type="content" source="./media/load-office-365-data/edit-dataset.png" alt-text="Config Microsoft 365 (Office 365) dataset table":::
+    :::image type="content" source="./media/load-office-365-data/edit-dataset.png" alt-text="Config Microsoft 365 (Office 365) dataset table.":::
 
 8. Now go back to the **pipeline** > **Source tab** to continue configuring additional properties for Microsoft 365 (Office 365) data extraction.  User scope and user scope filter are optional predicates that you can define to restrict the data you want to extract out of Microsoft 365 (Office 365). See [Microsoft 365 (Office 365) dataset properties](./connector-office-365.md#dataset-properties) section for how you configure these settings.
 
@@ -79,7 +79,7 @@ This article shows you how to use the Data Factory _load data from Microsoft 365
 
 10. Click on the **Import Schema** tab to import the schema for Message dataset.
 
-    :::image type="content" source="./media/load-office-365-data/edit-source-properties.png" alt-text="Config Microsoft 365 (Office 365) dataset schema":::
+    :::image type="content" source="./media/load-office-365-data/edit-source-properties.png" alt-text="Config Microsoft 365 (Office 365) dataset schema.":::
 
 
 ### Configure sink
