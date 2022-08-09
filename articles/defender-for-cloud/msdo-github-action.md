@@ -1,13 +1,13 @@
 ---
 title: Enable Microsoft Security DevOps
 description: Learn how to enable the Microsoft Security DevOps actions.
-ms.date: 08/04/2022
+ms.date: 08/09/2022
 ms.topic: how-to
 ---
 
 # Enable Microsoft Security DevOps GitHub Action
 
-Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Security DevOps installs, configures, and runs the latest versions of static analysis tools such as, SDL,security and compliance tools. Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
+Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Security DevOps installs, configures, and runs the latest versions of static analysis tools such as, SDL, security and compliance tools. Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
 Security DevOps uses the following Open Source tools:
 
@@ -118,7 +118,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Navigate to **Security** > **Code scanning alerts** > **Tool**. 
 
-1. From the dropdown menu select **Filter by tool**.
+1. From the dropdown menu, select **Filter by tool**.
 
 **THEN WHAT THIS IS UNCLEAR**
 
