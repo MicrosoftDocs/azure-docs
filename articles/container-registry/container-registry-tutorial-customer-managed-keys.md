@@ -55,7 +55,7 @@ Azure Container Registry supports both automatic and manual rotation  of registr
 
 * **Manually update the key version** -  With a registry encrypted with a specific key version, Azure Container Registry uses that version for encryption until you manually rotate the customer-managed key. So, we suggest specifying the key version when you enable registry encryption with a customer-managed key. So, that ACR will use a specific version of a key for registry encryption.
 
-For details, see [Choose key ID with or without key version](#choose-key-id-with-or-without-key-version) and [Update key version](#update-key-version), later in this article.
+For details, see [Choose key ID with version](container-registry-tutorial-enable-customer-managed-keys.md#option-1-manual-key-rotation---key-id-with-version) ,  or [Choose key ID without key version](container-registry-tutorial-enable-customer-managed-keys.md#option-2-automatic-key-rotation---key-id-omitting-version), and [Update key version](container-registry-tutorial-rotate-revoke-customer-managed-keys#create-or-update-key-version---cli) later in this tutorial.
 
 ## Next steps
 
