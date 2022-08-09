@@ -11,7 +11,7 @@ keywords: azure, openshift, aro, red hat, azure CLI
 #Customer intent: I need to create and use an Azure service principal to restrict permissions to my Azure Red Hat OpenShift cluster.
 ---
 
-# Enable NSG flow logs
+# Enable Network Security Group flow logs
 
 Flow logs allow you to analyze traffic for Network Security Groups in specific regions that have Azure Network Watcher configured.
 
@@ -36,25 +36,25 @@ Create a storage account for storing the actual flow logs. It must be in the sam
 The service principal used by the cluster needs the [proper permissions](../network-watcher/required-rbac-permissions) in order to create necessary resources for the flow logs and to access the storage account.
 The easiest way to achieve that is by assigning it the network administrator and storage account contributor role on subscription level. Alternatively, you can create a custom role containing the required actions from the page linked above and assign it to the service principal.
 
-To get the service principal ID, run
+To get the service principal ID, run the following command:
 ```
 az aro show -g {ResourceGroupName} -n {ClusterName} --query servicePrincipalProfile.clientId -o tsv 
 ```
-and use the output to get the object ID.
+Use the output of the above command to get the object ID:
 ```
 az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query id --out tsv
 ```
-To assign network admin:
+To assign network admin, run the following command:
 ```
 az role assignment create --assignee "{servicePrincipalObjectID}" --role "4d97b98b-1d4f-4787-a291-c67834d212e7" --subscription "{subscriptionID}" --resource-group "{networkWatcherResourceGroup}"
 ```
-To assign storage account contributor:
+To assign storage account contributor, run the following command:
 ```
 az role assignment create --role "17d1049b-9a84-46fb-8f53-869881c3d3ab" --assignee-object-id "{servicePrincipalObjectID}"
 ```
 See [this page](../role-based-access-control/built-in-roles) for IDs of built-in roles.
 
-- Create a spec like this or update the existing one to contain spec.nsgFlowLogs in case you are already using another preview feature:
+Create a spec as in the following example, or update the existing spec to contain `spec.nsgFlowLogs` in case you are already using another preview feature:
 ```
 apiVersion: "preview.aro.openshift.io/v1alpha1"
 kind: PreviewFeature
