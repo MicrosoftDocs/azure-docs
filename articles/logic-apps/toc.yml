@@ -280,8 +280,6 @@
       href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
       href: ../connectors/connectors-create-api-sqlazure.md
-    - name: Common Data Service
-      href: ../connectors/connect-common-data-service.md
     - name: Custom APIs and web apps
       href: logic-apps-create-api-app.md
     - name: Delay
@@ -316,6 +314,8 @@
       href: ../connectors/connectors-create-api-mq.md
     - name: Integration Account
       href: logic-apps-enterprise-integration-metadata.md
+    - name: Microsoft Dataverse (Common Data Service)
+      href: ../connectors/connect-common-data-service.md
     - name: Microsoft Graph Security
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
     - name: Office 365 Outlook
