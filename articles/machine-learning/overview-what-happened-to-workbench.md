@@ -86,7 +86,7 @@ Now that support for the old CLI has ended, you can no longer redeploy models or
 In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs.
 
 Learn more in these articles:
-+ [Where and how to deploy models](how-to-deploy-and-where.md)
++ [Where and how to deploy models](how-to-deploy-managed-online-endpoints.md)
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 
 ## Next steps
