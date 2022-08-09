@@ -40,7 +40,7 @@ Access the sample code for this tutorial on [GitHub](https://github.com/Azure-Sa
 1.Finish all the prerequisite steps in [Chat Quickstart](../quickstarts/chat/includes/chat-swift.md)
 
 2.ANH Setup  
-Create an Azure Notification Hub within the same subscription as your Communication Services resource and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications#notification-hub-provisioning)
+Create an Azure Notification Hub within the same subscription as your Communication Services resource and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications.md#notification-hub-provisioning).
 
 3.APNS Cert Configuration  
 Here we recommend to create a .p12 APNS cert and set it in Notification Hub.  
@@ -54,9 +54,9 @@ Here we recommend to create a .p12 APNS cert and set it in Notification Hub.
 
 * Step 2: On the screen for your App ID, check  `Capabilities > Push Notifications`. Click Save and respond “Confirm” to the Modify App Capabilities dialog box that appears. 
 
-  <img src="./media/add-chat-push-notification/cert2.png"  width="700" height="350" alt="APNS Cert Configuration step 2.">  
+  <img src="./media/add-chat-push-notification/cert2.png"  width="700" height="350" alt="APNS Cert Configuration step 2-1.">  
 
-  <img src="./media/add-chat-push-notification/cert3.png"  width="700" height="210" alt="APNS Cert Configuration step 3.">  
+  <img src="./media/add-chat-push-notification/cert3.png"  width="700" height="210" alt="APNS Cert Configuration step 2-2.">  
 
 * Step 3: In the same page, click `Capabilities > Push Notifications > Configure`. Click one of the following buttons:   
    * Development SSL Certificate > Create Certificate (for testing push notifications while developing an iOS app)  
