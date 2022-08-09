@@ -1,5 +1,5 @@
 ---
-title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials (preview)
+title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
 ---
 
-# Revoke a previously issued verifiable credential (preview)
+# Revoke a previously issued verifiable credential
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
