@@ -14,7 +14,7 @@ ms.author: barclayn
 
 ---
 
-# What's new in Microsoft Entra Verified ID (preview)
+# What's new in Microsoft Entra Verified ID
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
@@ -25,7 +25,7 @@ This article lists the latest features, improvements, and changes in the Microso
 Microsoft Entra Verified ID is now generally available (GA) as the new member of the Microsoft Entra portafolio! [read more](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-verified-id-now-generally-available/ba-p/3295506) 
 
 ### Known issues 
-- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. We are deploying a fix.
+- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be avaailable by 08/20/22.
 
 ## July 2022
 
