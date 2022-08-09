@@ -83,8 +83,8 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
  - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.
  - `participantsAdded` - when a user is added as a chat thread participant.
  - `participantsRemoved` - when an existing participant is removed from the chat thread.
- - `realTimeNotificationConnected` - when real time notifiation is connected.
- - `realTimeNotificationDisconnected` -when real time notifiation is disconnected.
+ - `realTimeNotificationConnected` - when real time notification is connected.
+ - `realTimeNotificationDisconnected` -when real time notification is disconnected.
 
 ## Push notifications 	
 To send push notifications for messages missed by your users while they were away, Communication Services provides two different ways to integrate: 
