@@ -145,8 +145,8 @@ You can click Exit to finish this.
 6. You can confirm that the server is successfully in Staging Mode by opening the Synchronization Service console.  
 From here, there should be no more Export jobs since the change and Full & Delta Imports will be suffixed with "(Stage Only)" like below:  
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot shows Sync Service console on the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sync-server-mgmr.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Sync Service console on the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sync-server-mgmr.png)
 
 #### Changing Currently Staging Sync Server to Active Mode
 
