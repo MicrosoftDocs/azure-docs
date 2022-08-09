@@ -131,7 +131,7 @@
   - name: Integrations
     items:
     - name: Azure advisor
-      href: /azure/postgresql/single-server/concepts-azure-advisor-recommendations
+      href: ../postgresql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
@@ -210,6 +210,12 @@
         href: flexible-server/tutorial-configure-audit.md
       - name: Alerts
         href: flexible-server/how-to-alert-on-metric.md  
+      - name: Configuring Server logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-server-logs-cli.md
     - name: Replication
       items:
       - name: Configure data-in replication
@@ -698,9 +704,13 @@
   - name: Troubleshoot database corruption
     href: single-server/how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Troubleshoot connectivity issues
+    href: single-server/how-to-troubleshoot-connectivity-issues.md
   - name: Tune performance using the sys_schema
     href: single-server/how-to-troubleshoot-sys-schema.md
     displayName: sys schema, views
+  - name: Troubleshooting best practices
+    href: single-server/concepts-troubleshooting-best-practices.md
 - name: Best Practices
   items:
   - name: Monitoring best practices

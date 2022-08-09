@@ -144,7 +144,7 @@ CosmosItemOperation createItemOperation = CosmosBulkOperations.getCreateItemOper
 cosmosContainer.executeBulkOperations(Collections.singletonList(createItemOperation));
 ```
 
-For the complete sample, see the [.Net samples][1] GitHub repository.
+For the complete sample, see the [Java samples][2] GitHub repository.
                       
 ## Migrate the documents
 

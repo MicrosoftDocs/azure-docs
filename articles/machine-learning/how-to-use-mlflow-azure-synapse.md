@@ -23,7 +23,7 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 
 ## Prerequisites
 
-* An [Azure Synapse Analytics workspace and cluster](/azure/synapse-analytics/quickstart-create-workspace.md).
+* An [Azure Synapse Analytics workspace and cluster](../synapse-analytics/quickstart-create-workspace.md).
 * An [Azure Machine Learning Workspace](quickstart-create-resources.md).
 
 ## Install libraries

@@ -32,6 +32,7 @@ mvn archetype:generate -DgroupId=com.contoso.app -DartifactId=rooms-quickstart -
 ```
 
 ### Include the package
+
 #### Include the BOM file
 
 Include the `azure-sdk-bom` to your project to take dependency on the General Availability (GA) version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
@@ -88,9 +89,17 @@ RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionSt
 Create a new `room` with default properties using the code snippet below:
 
 ```java
-RoomRequest request = new RoomRequest();
-CommunicationRoom createCommunicationRoom = roomsClient.createRoom(request);
-String roomId = createCommunicationRoom.getRoomId()
+OffsetDateTime validFrom = OffsetDateTime.of(2022, 8, 1, 5, 30, 20, 10, ZoneOffset.UTC);
+OffsetDateTime validUntil = OffsetDateTime.of(2022, 9, 1, 5, 30, 20, 10, ZoneOffset.UTC);
+List<RoomParticipant> participants = new ArrayList<>();
+
+// Add participants
+participants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 1>")).setRole(RoleType.ATTENDEE));
+participants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 2>")).setRole(RoleType.CONSUMER));
+participants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 3>")).setRole(RoleType.ATTENDEE));
+
+RoomsClient roomsClient = createRoomsClientWithConnectionString();
+CommunicationRoom roomResult = roomsClient.createRoom(validFrom, validUntil, RoomJoinPolicy.INVITE_ONLY, participants);
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
@@ -105,7 +114,7 @@ CommunicationRoom roomResult = roomsClient.getRoom(roomId);
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```java
 OffsetDateTime validFrom = OffsetDateTime.of(2022, 2, 1, 5, 30, 20, 10, ZoneOffset.UTC);
@@ -120,48 +129,56 @@ CommunicationRoom roomResult = roomsClient.updateRoom(roomId, request);
 
 ### Add new participants 
 
-To add new participants to a `room`, issue an update request on the room's `Participants`:
+To add new participants to a `room`, use the `addParticipants` method exposed on the client.
 
 ```java
-Map<String, Object> participants = new HashMap<>();
-participants.put("<CommunicationUserIdentifier.Id1>", new RoomParticipant());  
-participants.put("<CommunicationUserIdentifier.Id2>", new RoomParticipant());  
-participants.put("<CommunicationUserIdentifier.Id3>", new RoomParticipant());  
+RoomParticipant user1 = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 1>")).setRole(RoleType.ATTENDEE);
+RoomParticipant user2 = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 2>")).setRole(RoleType.PRESENTER);
+RoomParticipant user3 = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 3>")).setRole(RoleType.CONSUMER);
 
-RoomRequest request = new RoomRequest();
-request.setParticipants(participants);
-            
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, request);
+List<RoomParticipant> participants = new ArrayList<RoomParticipant>(Arrays.asList(user1, user2, user3));
+RoomsClient roomsClient = createRoomsClientWithConnectionString();
+
+try {
+    ParticipantsCollection roomParticipants =  roomsClient.addParticipants("<Room Id>", participants);
+    System.out.println("No. of Participants in Room: " + roomParticipants.getParticipants().size());
+} catch (RuntimeException ex) {
+    System.out.println(ex);
+}
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
 
-### Remove participants
+### Get list of participants
 
-To remove a participant from a `room` and revoke their access, update the `Participants` list:
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
 ```java
-Map<String, Object> participants = new HashMap<>();
-participants.put("<CommunicationUserIdentifier.Id1>", null);  
-participants.put("<CommunicationUserIdentifier.Id2>", null);  
-participants.put("<CommunicationUserIdentifier.Id3>", null);  
-
-RoomRequest request = new RoomRequest();
-request.setParticipants(participants);
-            
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, request);
+try {
+    ParticipantsCollection participants = roomsClient.listParticipants(roomId);
+    System.out.println("Participants: \n" + participants.getParticipants());
+} catch (Exception ex) {
+    System.out.println(ex);
+}
 ```
 
-### Join a room call
+### Remove participants
 
-To join a room call, set up your web application using the [Add voice calling to your client app](../../voice-video-calling/getting-started-with-calling.md) guide. Once you have an initialized and authenticated `callAgent`, you may specify a context object with the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the context instance.
+To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
-```js
+```java
+RoomParticipant user1 = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 1>")).setRole(RoleType.ATTENDEE);
+RoomParticipant user2 = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier("<ACS User MRI identity 2>")).setRole(RoleType.PRESENTER);
 
-const context = { roomId: '<RoomId>' }
+List<RoomParticipant> participants = new ArrayList<RoomParticipant>(Arrays.asList(user1, user2));
+RoomsClient roomsClient = createRoomsClientWithConnectionString();
 
-const call = callAgent.join(context);
-
+try {
+    ParticipantsCollection roomParticipants =  roomsClient.removeParticipants("<Room Id>", participants);
+    System.out.println("Room Id: " + roomParticipants.getParticipants().size());
+} catch (RuntimeException ex) {
+System.out.println(ex);
+}
 ```
 
 ### Delete room

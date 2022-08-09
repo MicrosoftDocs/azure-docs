@@ -40,6 +40,7 @@ Here's what you need to know about email as an alternate login ID:
 * The feature is available in Azure AD Free edition and higher.
 * The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD business-to-business (B2B) collaboration in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
 * When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will return the non-UPN email.
+    * If the non-UPN email in use becomes stale (no longer belongs to the user), these claims will return the UPN instead.
 * The feature supports managed authentication with Password Hash Sync (PHS) or Pass-Through Authentication (PTA).
 * There are two options for configuring the feature:
     * [Home Realm Discovery (HRD) policy](#enable-user-sign-in-with-an-email-address) - Use this option to enable the feature for the entire tenant. Global administrator privileges required.

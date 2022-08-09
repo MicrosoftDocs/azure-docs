@@ -156,7 +156,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    ```azurecli
    az deployment group create `
    --resource-group IoTEdgeResources `
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2/edgeDeploy.json" `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.3/edgeDeploy.json" `
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `

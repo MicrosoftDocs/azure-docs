@@ -14,7 +14,7 @@ We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpoi
 
 ## Microsoft Endpoint Configuration Manager
 
-Microsoft Endpoint Configuration Manager versions 1906 and later can manage your domain-joined and Hybrid Azure Active Directory (AD)-joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
+Microsoft Endpoint Configuration Manager versions 1906 and later can manage your domain-joined and Hybrid Azure Active Directory (Azure AD)-joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
 
 ## Microsoft Intune
 

@@ -4,8 +4,8 @@ description: Learn about solutions offered by partners on Azure.
 ms.topic: conceptual
 ms.custom: event-tier1-build-2022
 ms.date: 06/07/2022
-author: davidsmatlak
-ms.author: davidsmatlak
+author: flang-msft
+ms.author: franlanglois
 ---
 
 # Extend Azure with solutions from partners

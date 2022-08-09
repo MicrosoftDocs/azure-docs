@@ -3,20 +3,22 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/06/2022
+ms.date: 07/11/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.2.0b1/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.2.0b1/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-[Reference documentation](/python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations) | [Package (PiPy)](https://pypi.org/project/azure-ai-language-conversations/1.1.0b2/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md)
+[Reference documentation](/python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md) | [Package (PiPy)](https://pypi.org/project/azure-ai-language-conversations/1.1.0b2/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations) 
 
 ---
+
+Use this quickstart to create a text summarization application with the client library for Python. In the following example, you will create a Python application that can summarize documents or text-based customer service conversations.
 
 ## Prerequisites
 

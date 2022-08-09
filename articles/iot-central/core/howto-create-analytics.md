@@ -16,9 +16,6 @@ ms.custom: [iot-central-frontdoor]
 
 Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Data explorer** on the left pane.
 
-> [!NOTE]
-> Only users in a role that have the necessary permissions can view, create, edit, and delete queries. To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
-
 ## Understand the data explorer UI
 
 The analytics user interface has three main components:

@@ -5,18 +5,21 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/16/2022
+ms.date: 07/21/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
-[Dapr](https://dapr.io/) is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks. Leveraging the benefits of a sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic. In particular, it helps with solving problems around services calling other services reliably and securely, building event-driven apps with pub-sub, and building applications that are portable across multiple cloud services and hosts (e.g., Kubernetes vs. a VM).
+[Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. Applying the benefits of a sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic. In particular, it helps solve problems around services:
+- Calling other services reliably and securely
+- Building event-driven apps with pub-sub
+- Building applications that are portable across multiple cloud services and hosts (for example, Kubernetes vs. a VM)
 
 By using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster, you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
 
 > [!NOTE]
-> If you plan on installing Dapr in a Kubernetes production environment, please see the [Dapr guidelines for production usage][kubernetes-production] documentation page.
+> If you plan on installing Dapr in a Kubernetes production environment, see the [Dapr guidelines for production usage][kubernetes-production] documentation page.
 
 ## How it works
 
@@ -25,9 +28,9 @@ The Dapr extension uses the Azure CLI to provision the Dapr control plane on you
 - **dapr-operator**: Manages component updates and Kubernetes services endpoints for Dapr (state stores, pub/subs, etc.)
 - **dapr-sidecar-injector**: Injects Dapr into annotated deployment pods and adds the environment variables `DAPR_HTTP_PORT` and `DAPR_GRPC_PORT` to enable user-defined applications to easily communicate with Dapr without hard-coding Dapr port values.
 - **dapr-placement**: Used for actors only. Creates mapping tables that map actor instances to pods
-- **dapr-sentry**: Manages mTLS between services and acts as a certificate authority. For more information read the [security overview][dapr-security].
+- **dapr-sentry**: Manages mTLS between services and acts as a certificate authority. For more information, read the [security overview][dapr-security].
 
-Once Dapr is installed on your cluster, you can begin to develop using the Dapr building block APIs by [adding a few annotations][dapr-deployment-annotations] to your deployments. For a more in-depth overview of the building block APIs and how to best use them, please see the [Dapr building blocks overview][building-blocks-concepts].
+Once Dapr is installed on your cluster, you can begin to develop using the Dapr building block APIs by [adding a few annotations][dapr-deployment-annotations] to your deployments. For a more in-depth overview of the building block APIs and how to best use them, see the [Dapr building blocks overview][building-blocks-concepts].
 
 > [!WARNING]
 > If you install Dapr through the AKS or Arc-enabled Kubernetes extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
@@ -40,7 +43,7 @@ The Dapr extension support varies depending on how you manage the runtime.
 
 **Self-managed**  
 For self-managed runtime, the Dapr extension supports:
-- [The latest version of Dapr and 2 previous versions (N-2)][dapr-supported-version]
+- [The latest version of Dapr and two previous versions (N-2)][dapr-supported-version]
 - Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
 
 Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance instructions][update-extension].
@@ -64,7 +67,7 @@ Global Azure cloud is supported with Arc support on the regions listed by [Azure
 
 ### Set up the Azure CLI extension for cluster extensions
 
-You will need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
+You'll need the `k8s-extension` Azure CLI extension. Install by running the following commands:
   
 ```azurecli-interactive
 az extension add --name k8s-extension
@@ -82,6 +85,9 @@ When installing the Dapr extension, use the flag value that corresponds to your 
 
 - **AKS cluster**: `--cluster-type managedClusters`. 
 - **Arc-enabled Kubernetes cluster**: `--cluster-type connectedClusters`.
+
+> [!NOTE]
+> If you're using Dapr OSS on your AKS cluster and would like to install the Dapr extension for AKS, read more about [how to successfully migrate to the Dapr extension][dapr-migration]. 
 
 Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. For example, for an AKS cluster:
 
@@ -135,7 +141,7 @@ If no configuration-settings are passed, the Dapr configuration defaults to:
     allowedClockSkew: 15m
 ```
 
-For a list of available options, please see [Dapr configuration][dapr-configuration-options].
+For a list of available options, see [Dapr configuration][dapr-configuration-options].
 
 ## Targeting a specific Dapr version
 
@@ -154,9 +160,9 @@ az k8s-extension create --cluster-type managedClusters \
 --version X.X.X
 ```
 
-## Limiting the extension to certain nodes (`nodeSelector`)
+## Limiting the extension to certain nodes
 
-In some configurations you may only want to run Dapr on certain nodes. This can be accomplished by passing a `nodeSelector` in the extension configuration. Note that if the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `kubernetes.io/os=linux`:
+In some configurations, you may only want to run Dapr on certain nodes. You can limit the extension by passing a `nodeSelector` in the extension configuration. If the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `topology.kubernetes.io/zone: "us-east-1c"`:
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -167,7 +173,22 @@ az k8s-extension create --cluster-type managedClusters \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
 --configuration-settings "dapr_operator.replicaCount=2" \
---configuration-settings "global.nodeSelector.kubernetes\.io/os=linux"
+--configuration-settings "global.nodeSelector.kubernetes\.io/zone: us-east-1c"
+```
+
+For managing OS and architecture, use the [supported versions](https://github.com/dapr/dapr/blob/b8ae13bf3f0a84c25051fcdacbfd8ac8e32695df/docker/docker.mk#L50) of the `global.daprControlPlaneOs` and `global.daprControlPlaneArch` configuration:
+
+```azure-cli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name myDaprExtension \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2" \
+--configuration-settings "global.daprControlPlaneOs=linux” \
+--configuration-settings "global.daprControlPlaneArch=amd64”
 ```
 
 ## Show current configuration settings
@@ -184,14 +205,14 @@ az k8s-extension show --cluster-type managedClusters \
 ## Update configuration settings
 
 > [!IMPORTANT]
-> Some configuration options cannot be modified post-creation. Adjustments to these options require deletion and recreation of the extension. This is applicable to the following settings:
+> Some configuration options cannot be modified post-creation. Adjustments to these options require deletion and recreation of the extension, applicable to the following settings:
 > * `global.ha.*`
 > * `dapr_placement.*`
 
 > [!NOTE]
 > High availability (HA) can be enabled at any time. However, once enabled, disabling it requires deletion and recreation of the extension. If you aren't sure if high availability is necessary for your use case, we recommend starting with it disabled to minimize disruption.
 
-To update your Dapr configuration settings, simply recreate the extension with the desired state. For example, assume we have previously created and installed the extension using the following configuration:
+To update your Dapr configuration settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -204,7 +225,7 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "dapr_operator.replicaCount=2" 
 ```
 
-To update the `dapr_operator.replicaCount` from 2 to 3, use the following:
+To update the `dapr_operator.replicaCount` from two to three, use the following command:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -265,6 +286,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [arc-k8s-cluster]: ../azure-arc/kubernetes/quickstart-connect-cluster.md
 [update-extension]: ./cluster-extensions.md#update-extension-instance
 [install-cli]: /cli/azure/install-azure-cli
+[dapr-migration]: ./dapr-migration.md
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
