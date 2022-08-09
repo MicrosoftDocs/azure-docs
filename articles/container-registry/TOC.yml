@@ -201,7 +201,7 @@
   - name: Detect common issues
     href: container-registry-check-health.md
     displayName: check, health
-  - name: ACR Technical Support policies
+  - name: Technical Support policies
     href: container-registry-support-policies.md
   - name: FAQ
     href: container-registry-faq.yml
