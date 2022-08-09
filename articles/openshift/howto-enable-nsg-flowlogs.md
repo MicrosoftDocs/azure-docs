@@ -1,15 +1,14 @@
 ---
 title: Enabling Network Security Group flow logs for Azure Red Hat OpenShift
-description: In this how-to article, learn how to create and use a service principal with an Azure Red Hat OpenShift cluster using Azure CLI or the Azure portal.
+description: In this article, learn how to enable flow logs to analyze traffic for Network Security Groups.
 author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.author: johnmarco
+ms.author: johnmarc
 ms.date: 08/09/2022
 topic: how-to
 keywords: azure, openshift, aro, red hat, azure CLI
 #Customer intent: I need to create and use an Azure service principal to restrict permissions to my Azure Red Hat OpenShift cluster.
-zone_pivot_groups: azure-red-hat-openshift-service-principal
 ---
 
 # Enable NSG flow logs
@@ -19,7 +18,7 @@ Flow logs allow you to analyze traffic for Network Security Groups in specific r
 
 ## Prerequisites
 
-- You must have an existing Azure Red Hat OpenShift cluster. Follow this guide to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
+You must have an existing Azure Red Hat OpenShift cluster. Follow this guide to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
 
 ## Configure Network Watcher
 
@@ -34,7 +33,7 @@ Create a storage account for storing the actual flow logs. It must be in the sam
 
 ## Configure service principal
 
-The service principal used by the cluster needs the permissions as outlined here: https://docs.microsoft.com/en-us/azure/network-watcher/required-rbac-permissions in order to create necessary resources for the flow logs and to access the storage account.
+The service principal used by the cluster needs the [proper permissions](../network-watcher/required-rbac-permissions) in order to create necessary resources for the flow logs and to access the storage account.
 The easiest way to achieve that is by assigning it the network administrator and storage account contributor role on subscription level. Alternatively, you can create a custom role containing the required actions from the page linked above and assign it to the service principal.
 
 To get the service principal ID, run
@@ -53,7 +52,7 @@ To assign storage account contributor:
 ```
 az role assignment create --role "17d1049b-9a84-46fb-8f53-869881c3d3ab" --assignee-object-id "{servicePrincipalObjectID}"
 ```
-See this page for IDs of built-in roles: https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+See [this page](../role-based-access-control/built-in-roles) for IDs of built-in roles.
 
 - Create a spec like this or update the existing one to contain spec.nsgFlowLogs in case you are already using another preview feature:
 ```
@@ -72,6 +71,6 @@ spec:
     storageAccountResourceId: "subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
     version: {version}  
 ```
-See https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal for possible values for `version` and `retentionDays`.
+See [this page](../network-watcher/network-watcher-nsg-flow-logging-portal) for possible values for `version` and `retentionDays`.
     
 The cluster will create flow logs for each Network Security Group in the cluster resource group.
