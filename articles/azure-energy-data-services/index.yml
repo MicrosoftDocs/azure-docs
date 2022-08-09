@@ -1,0 +1,26 @@
+### YamlMime:Landing
+
+title: Azure Energy Data Services documentation # < 60 chars
+summary: summary # < 160 chars
+
+metadata:
+  title: Azure Energy Data Services # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: description # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: azure #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: bharathim #Required; your GitHub user alias, with correct capitalization.
+  ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
+  ms.date: 08/08/2022 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Energy Data Services
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Energy Data Services?
+            url: overview-azure-energy-data-services.md
