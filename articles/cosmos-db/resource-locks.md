@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 08/09/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
