@@ -49,7 +49,14 @@ Next, create a function in the new function app.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
     
-    [!INCLUDE [functions-create-function-app-portal-private-endpoint](../../includes/functions-create-function-app-portal-private-endpoint.md)]
+    >[!NOTE] 
+    > When your function app has [private endpoints](functions-create-vnet.md) enabled, you must add the following [CORS origins](security-concepts.md?#restrict-cors-access).
+    >
+    >- `https://functions-next.azure.com`
+    >- `https://functions-staging.azure.com`
+    >- `https://functions.azure.com`
+    >- `https://portal.azure.com`
+
 
 ## Test the function
 
