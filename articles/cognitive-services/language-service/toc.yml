@@ -159,7 +159,7 @@ items:
     - name: Java
       href: https://aka.ms/sdk-samples-java
     - name: JavaScript
-      href: https://aka.ms/sdk-samples-java-script
+      href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cognitivelanguage/ai-language-text/samples-dev/customEntityRecognition.ts
     - name: C#
       href:  https://aka.ms/sdk-samples-dot-net
     - name: Python
@@ -1110,6 +1110,9 @@ items:
     href: concepts/migrate.md
   - name: Model lifecycle
     href: concepts/model-lifecycle.md
+  - name: Language Role-based access control
+    href: concepts/role-based-access-control.md
+    displayName: RBAC
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
   - name: Enterprise readiness
