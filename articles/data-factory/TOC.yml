@@ -74,7 +74,7 @@ items:
       displayName: polybase
     - name: From SAP BW to Azure Data Lake Storage Gen2
       href: load-sap-bw-data.md
-    - name: From Office 365 to Azure Blob storage
+    - name: From Microsoft 365 to Azure Blob storage
       href: load-office-365-data.md
     - name: Multiple tables in bulk
       items:
@@ -468,6 +468,9 @@ items:
       href: connector-mariadb.md
     - name: Marketo
       href: connector-marketo.md
+    - name: Microsoft 365
+      href: connector-office-365.md
+      displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
     - name: MongoDB
@@ -486,9 +489,6 @@ items:
       displayName: timeout
     - name: ODBC
       href: connector-odbc.md
-    - name: Office 365
-      href: connector-office-365.md
-      displayName: active directory
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Cloud Storage
