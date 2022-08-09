@@ -37,7 +37,7 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 * `{resourceName}` with your resource name
 * `{location}` with the location of your resource
 
-# [Using the Rest API](#tab/using-the-rest-api)
+# [Using the Rest API](#tab/rest-api)
 
 Use the following `PUT` command:
 
@@ -56,7 +56,7 @@ In the request body, use the following JSON format:
 } 
 ```
 
-# [Using PowerShell](#tab/using-powershell)
+# [Using PowerShell](#tab/powershell)
 
 Use the following command to restore the resource: 
 
@@ -70,7 +70,7 @@ If you need to find the name of your deleted resources, you can get a list of de
 Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts -ApiVersion 2021-04-30 
 ```
 
-# [Using the Azure CLI](#tab/using-the-azure-cli)
+# [Using the Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resourceName} --location {location} --namespace Microsoft.CognitiveServices --resource-type accounts --properties "{\"restore\": true}"
@@ -90,7 +90,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 > [!NOTE]
 > Once a resource is purged, it is permanently deleted and cannot be restored. You will lose all data and keys associated with the resource.
 
-# [Using the Rest API](#tab/using-the-rest-api)
+# [Using the Rest API](#tab/rest-api)
 
 Use the following `DELETE` command:
 
@@ -98,13 +98,13 @@ Use the following `DELETE` command:
 https://management.azure.com/subscriptions/{subscriptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}?Api-Version=2021-04-30`
 ```
 
-# [Using PowerShell](#tab/using-powershell)
+# [Using PowerShell](#tab/powershell)
 
 ```powershell
 Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}  -ApiVersion 2021-04-30`
 ```
 
-# [Using the Azure CLI](#tab/using-the-azure-cli)
+# [Using the Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete --ids /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
