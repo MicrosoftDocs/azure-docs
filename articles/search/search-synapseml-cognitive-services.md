@@ -41,7 +41,7 @@ You'll need the `synapseml` library and several Azure resources. If possible, us
 
 <sup>1</sup> You can use the free tier for this walkthrough but [choose a higher tier](search-sku-tier.md) if data volumes are large.
 
-<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a Cognitive Services multi-service key and the region.
+<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a Cognitive Services multi-service key and the region, and it'll work for both services.
 
 <sup>3</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
 
@@ -236,6 +236,10 @@ import requests
 url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2020-06-30".format(search_service, search_index)
 requests.post(url, json={"search": "door", "count": "true", "select": "Description, Translations"}, headers={"api-key": search_key}).json()
 ```
+
+The following screenshot shows the cell output for above script.
+
+:::image type="content" source="media/search-synapseml-cognitive-services/query-results.png" alt-text="Screenshot of query results showing the count, search string, and return fields." border="true":::
 
 ## Clean up resources
 
