@@ -2,7 +2,7 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 08/09/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -59,13 +59,17 @@ Azure Backup makes management of a backed-up SAP HANA database easy with an abun
 
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
-1. In **Backup center**, select **Backup Instances** from the menu.
-2. Select **SAP HANA in Azure VM** as the datasource type, select the VM running the SAP HANA database, anc then click **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
+1. In the vault menu, select **Backup items**.
+1. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
+1. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**.
 
-   By default, the retention of on-demand backups is set to 45 days.
+   The retention period of this backup is determined by the type of on-demand backup you have run.
 
-1. Monitor the portal notifications. To monitor the job progress, go to **Backup center** -> **Backup Jobs** and filter for jobs with status **In Progress**. Depending on the size of your database, creating the initial backup may take a while.
+   - *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
+   - *On-demand differential backups* are retained as per the *log retention set in the policy*.
+   - *On-demand incremental backups* aren't currently supported.
+
+1. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 ### HANA native client integration
 
