@@ -71,7 +71,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 1. Edit the query to remove the Where clauses that limit the display to warning and error logs.
 
-1. Then select `Run`, and you'll see logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
+1. Then select **Run**, and you'll see logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png" alt-text="Screenshot of a Logs Analytics query." lightbox="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png":::
 
@@ -189,7 +189,7 @@ The following chart shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_c
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg" alt-text="Screenshot of gateway requests." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg":::
 
-Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback... The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC. All three REST controllers (`OwnerResource`, `PetResource`, and `VisitResource`) have been instrumented by the `@Timed` Micrometer annotation at class level.
+Spring Boot registers several core metrics, including JVM, CPU, Tomcat, and Logback. The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC. All three REST controllers (`OwnerResource`, `PetResource`, and `VisitResource`) have been instrumented by the `@Timed` Micrometer annotation at the class level.
 
 The `customers-service` application has the following custom metrics enabled:
 
