@@ -18,9 +18,9 @@ VMware Cloud Director service (VMware Cloud Director service | Managed Service |
 
 ## Associate Cloud director service with Azure VMware solutions SDDC
 
-1.	Provision Azure VMware solutions SDDC. [Deploy and configure Azure VMware Solution - Azure VMware Solution](https://docs.microsoft.com/en-us/azure/azure-vmware/deploy-azure-vmware-solution)
+1.	Provision Azure VMware solutions SDDC. [Deploy and configure Azure VMware Solution - Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/deploy-azure-vmware-solution)
 1.	Open an Azure VMware solutions support ticket to apply for **NSX-T Certification change in SDDC to enable connectivity for cloud director instance**. After that ticket is fulfilled, go to the next step.
-1.	Deploy Cloud director service. [How Do I Create a VMware Cloud Director Instance](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html)
+1.	Deploy Cloud director service. [How Do I Create a VMware Cloud Director Instance](https://docs.vmware.com/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html)
 1.	Associate your SDDC on Azure VMware solutions with your VMware cloud director instance by creating a proxy VM through which to route all network traffic to your underlying SDDC resources. 
 
 [VMware to add steps for Azure VMware solutions like what they have for GCP]()   
@@ -45,8 +45,8 @@ IPSEC tunnel is configured between ORG VDC edge gateway and Azure vNET VPN gatew
 - Organization VDC is configured with an Edge gateway and has Public Ips assigned to it to establish IPSEC VPN by provider.
 - 	Tenants have created a routed Organization VDC network in tenant’s Virtual datacenter.
 - Test VM1 and VM2 are created in the Organization VDC1 and VDC2 respectively. Both VMs are connected to the routed orgVDC network in their respective VDCs.
-- A dedicated Azure vNET is configured for each tenant. For this example, created Tenant1-vNet and Tenant2-vNet for tenant1 and tenant2 respectively. https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-configure-networking#create-a-vnet-manually
-- Create Azure Virtual network gateway for vNets created in step 4. https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway
+- A dedicated Azure vNET is configured for each tenant. For this example, we created Tenant1-vNet and Tenant2-vNet for tenant1 and tenant2 respectively. https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-vnet-manually
+- Create Azure Virtual network gateway for vNets created in step 4. https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway
 - Deploy Azure VMs JSVM1 and JSVM2 for tenant1 and tenant2 for test purposes.
 
 > [Note]
