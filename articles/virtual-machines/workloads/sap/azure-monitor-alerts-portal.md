@@ -1,5 +1,5 @@
 ---
-title: Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal
+title: Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal(Preview)
 description: Learn how to use a browser method for configuring alerts in Azure Monitor for SAP Solutions.
 author: sameeksha91
 ms.author: sakhare
@@ -11,7 +11,9 @@ ms.date: 08/30/2021
 
 # Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal
 
-In this article, we'll walk through steps to configure alerts in Azure Monitor for SAP Solutions. We'll configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
+In this article, we'll walk through steps to configure alerts in Azure Monitor for SAP solutions (AMS). We'll configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
+
+This content applies to both versions of the service, AMS and AMS (classic).
 
 ## Prerequisites
 
@@ -20,6 +22,7 @@ Deploy the Azure Monitor for SAP Solutions resource with at least one provider. 
 - SAP HANA
 - Microsoft SQL server
 - High-availability (pacemaker) cluster
+- IBM Db2 
 
 ## Sign in to the portal
 

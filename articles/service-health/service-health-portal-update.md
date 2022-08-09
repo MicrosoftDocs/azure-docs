@@ -1,13 +1,13 @@
 ---
 title: Azure Service Health portal update
-description: We're' updating the Azure Service Health portal experience to let users engage with service events and manage actions to maintain the business continuity of impacted applications.
+description: We're updating the Azure Service Health portal experience to let users engage with service events and manage actions to maintain the business continuity of impacted applications.
 ms.topic: overview
 ms.date: 06/10/2022
 ---
 
 # Azure Service Health portal update
 
-We're' updating the Azure Service Health portal experience. The new experience lets users engage with service events and manage actions to maintain the business continuity of impacted applications.
+We're updating the Azure Service Health portal experience. The new experience lets users engage with service events and manage actions to maintain the business continuity of impacted applications.
 
 ## Highlights of the new experience
 

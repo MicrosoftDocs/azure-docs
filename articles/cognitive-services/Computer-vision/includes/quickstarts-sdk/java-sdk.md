@@ -109,6 +109,29 @@ Use the OCR client library to read printed and handwritten text from a remote im
    gradle run
    ```
 
+## Output
+
+```console
+Operation Location:https://pafarley-computer-vision.cognitiveservices.azure.com/vision/v3.2/read/analyzeResults/c6755b9a-1b37-4a0a-9497-d4483fce670a
+Polling for Read results ...
+
+Printing Read results for page 1
+Nutrition Facts Amount Per Serving
+Serving size: 1 bar (40g)
+Serving Per Package: 4
+Total Fat 13g
+Saturated Fat 1.5g
+Amount Per Serving
+Trans Fat 0g
+alories 190
+Cholesterol Omg
+ories from Fat 110
+Sodium 20mg
+nt Daily Values are based on
+Vitamin A 50%
+calorie diet
+```
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.

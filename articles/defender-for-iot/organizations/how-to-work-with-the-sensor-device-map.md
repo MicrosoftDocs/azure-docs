@@ -80,6 +80,16 @@ The following predefined groups are available:
 
 For information about creating custom groups, see [Define custom groups](#define-custom-groups).
 
+### View filtered information as a map group
+
+You can display devices from saved filters in the Device map. For more information, see [View the device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-the-device-inventory).
+
+**To view devices in the map:**
+
+1. After creating and saving an Inventory filter, navigate to the Device map.
+1. In the map page, open the Groups pane on the left.
+1. Scroll down to the **Asset Inventory Filters** group.  The groups you saved from the Inventory appear.
+
 ### Map display tools
 
 | Icon | Description |

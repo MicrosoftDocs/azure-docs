@@ -162,6 +162,8 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+> [!NOTE]
+> Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
 
 Use `az aks nodepool add` command to add a Windows Server 2022 node pool:
 
@@ -190,7 +192,7 @@ Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` a
 Use the `az aks nodepool add` command to add a node pool that can run Windows Server containers with the `containerd` runtime.
 
 > [!NOTE]
-> If you do not specify the *WindowsContainerRuntime=containerd* custom header, the node pool will use Docker as the container runtime.
+> If you do not specify the *WindowsContainerRuntime=containerd* custom header, the node pool will still use `containerd` as the container runtime by default.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -234,7 +236,7 @@ az aks upgrade \
 The above command upgrades all Windows Server node pools in the *myAKSCluster* to use the `containerd` runtime.
 
 > [!NOTE]
-> After upgrading all existing Windows Server node pools to use the `containerd` runtime, Docker will still be the default runtime when adding new Windows Server node pools. 
+> When running the upgrade command, the `--kubernetes-version` specified must be a higher version than the node pool's current version. 
 
 ## Connect to the cluster
 

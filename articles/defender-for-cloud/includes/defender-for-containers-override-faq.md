@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 07/06/2022
+ms.date: 07/14/2022
 ---
 
 ## FAQ

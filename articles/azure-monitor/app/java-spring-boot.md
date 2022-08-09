@@ -49,7 +49,13 @@ To use the programmatic configuration and attach the Application Insights agent 
 And invoke the `attach()` method of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class.
 
 > [!TIP]
-> ⚠ The invocation  must be requested at the beginning of the `main` method.
+> ⚠ JRE is not supported.
+
+> [!TIP]
+> ⚠ Read-only file system is not supported.
+
+> [!TIP]
+> ⚠ The invocation must be requested at the beginning of the `main` method.
 
 Example:
 

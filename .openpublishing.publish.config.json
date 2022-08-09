@@ -885,6 +885,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-cosmos-tableapi-dotnet",
+      "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
+      "branch": "v12",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "msdocs-django-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
       "branch": "main",

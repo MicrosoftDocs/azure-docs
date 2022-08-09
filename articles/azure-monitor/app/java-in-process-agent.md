@@ -242,10 +242,20 @@ You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/doc
 1. Add spans in your code:
 
    ```java
+    import io.opentelemetry.api.trace.Tracer;
     import io.opentelemetry.api.trace.Span;
 
+    Tracer tracer = GlobalOpenTelemetry.getTracer("myApp");
     Span span = tracer.spanBuilder("mySpan").startSpan();
    ```
+
+> [!TIP]
+> The tracer name ideally describes the source of the telemetry, in this case your application,
+> but currently Application Insights Java is not reporting this name to the backend.
+
+> [!TIP]
+> Tracers are thread-safe, so it's generally best to store them into static fields in order to
+> avoid the performance overhead of creating lots of new tracer objects.
 
 ### Add span events
 

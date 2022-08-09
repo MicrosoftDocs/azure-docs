@@ -852,13 +852,25 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container
+    title: Windows container    
+- id: app-service-containers-windows-linux-portal
+  title: App Service with custom containers
+  prompt: Choose a custom container platform and deployment environment
+  pivots:
+  - id: container-linux-vscode
+    title: Linux container - Visual Studio Code
+  - id: container-linux-azure-portal
+    title: Linux container - Azure portal
+  - id: container-windows-vs
+    title: Windows container - Visual Studio
+  - id: container-windows-azure-portal
+    title: Windows container - Azure portal
 - id: app-service-containers-code
   title: App Service containers and code
   prompt: Choose a hosting platform
   pivots:
   - id: container-linux
-    title: Linux container
+    title: Linux code and container
   - id: container-windows
     title: Windows container
   - id: code-windows
@@ -1157,7 +1169,7 @@ groups:
   prompt: How will you connect the AWS account?
   pivots:
   - id: env-settings
-    title: Environment settings
+    title: Native connector
   - id: classic-connector
     title: Classic connector
 - id: connect-gcp-accounts
@@ -1165,7 +1177,7 @@ groups:
   prompt: How will you connect the GCP account?
   pivots:
   - id: env-settings
-    title: Environment settings
+    title: Native connector
   - id: classic-connector
     title: Classic connector
 - id: manage-asc-initiatives
@@ -1682,3 +1694,12 @@ groups:
     title: OT sensor console
   - id: experience-cm
     title: On-premises management console
+# Owner: v-yilinhu
+- id: programming-languages-batch-linux-nodes
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python

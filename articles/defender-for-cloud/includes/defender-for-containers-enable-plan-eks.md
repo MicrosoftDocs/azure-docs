@@ -2,13 +2,13 @@
 author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 02/27/2022
+ms.date: 07/14/2022
 ms.author: elkrieger
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 
 > [!IMPORTANT]
-> If you haven't already connected an AWS account, do so now using the instructions in [Connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md).
+> If you haven't already connected an AWS account, [connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md).
 
 To protect your EKS clusters, enable the Containers plan on the relevant account connector:
 
@@ -30,11 +30,11 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
 1. Continue through the remaining pages of the connector wizard.
 
-1. Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There are 2 dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
+1. Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There are two dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
     - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
     - `EKS clusters should have the Azure Policy extension installed`
     
-    For each of the recommendations, follow follow the steps below to install the required extensions.
+    For each of the recommendations, follow the steps below to install the required extensions.
 
     **To install the required extensions**:
     1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.

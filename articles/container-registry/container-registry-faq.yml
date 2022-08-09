@@ -555,7 +555,7 @@ sections:
       - question:  |
           How will enabling the Azure built-in policy for ACR blocks enabling admin credentials?
         answer: |
-          The following [Azure built-policy](/azure/container-registry/policy-reference), when set to respective policy status, will block the user from enabling admin user on their registry.
+          The following [Azure built-policy](./policy-reference.md), when set to respective policy status, will block the user from enabling admin user on their registry.
           
           | Azure built-in policy | Policy status | Admin status |
           |---|---|---|

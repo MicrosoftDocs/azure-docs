@@ -488,7 +488,7 @@
       items:
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: flexible-server/concepts-backup-restore.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
@@ -606,14 +606,8 @@
         href: flexible-server/howto-configure-and-access-logs.md
 - name: Hyperscale (Citus)
   items:
-  - name: Hyperscale (Citus) documentation
-    href: hyperscale/index.yml
   - name: Overview
-    items:
-    - name: What is Hyperscale (Citus)?
-      href: hyperscale/overview.md
-    - name: Product updates
-      href: hyperscale/product-updates.md
+    href: hyperscale/overview.md
   - name: Quickstart
     items:
     - name: Create server group
@@ -624,70 +618,6 @@
       href: hyperscale/quickstart-distribute-tables.md
     - name: Run queries
       href: hyperscale/quickstart-run-queries.md
-  - name: Tutorials
-    items:
-      - name: Model data
-        items:
-        - name: Shard data on worker nodes
-          href: hyperscale/tutorial-shard.md
-        - name: Design a multi-tenant database
-          href: hyperscale/tutorial-design-database-multi-tenant.md
-          displayName: hyperscale, tutorial, multi-tenant
-        - name: Design a real-time dashboard
-          href: hyperscale/tutorial-design-database-realtime.md
-          displayName: hyperscale, tutorial, real-time
-      - name: Administer
-        items:
-        - name: Set up private access
-          href: hyperscale/tutorial-private-access.md
-          displayName: hyperscale, tutorial, private
-  - name: Concepts
-    items:
-    - name: Server group
-      href: hyperscale/concepts-server-group.md
-    - name: Distributed data
-      items:
-      - name: Nodes and tables
-        href: hyperscale/concepts-nodes.md
-        displayName: nodes, tables
-      - name: Table colocation
-        href: hyperscale/concepts-colocation.md
-    - name: Security and data access
-      items:
-      - name: Overview
-        href: hyperscale/concepts-security-overview.md
-      - name: Public access
-        href: hyperscale/concepts-firewall-rules.md
-        displayName: firewall, rules, hyperscale
-      - name: Private access
-        href: hyperscale/concepts-private-access.md
-        displayName: private, link, hyperscale
-      - name: Row-level security
-        href: hyperscale/concepts-row-level-security.md
-        displayName: row, level, security, rls, hyperscale
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
-    - name: Scheduled maintenance
-      href: hyperscale/concepts-maintenance.md
-    - name: Business continuity
-      items:
-      - name: Backup and restore
-        href: hyperscale/concepts-backup.md
-        displayName: backup, restore, outage, hyperscale
-      - name: High availability
-        href: hyperscale/concepts-high-availability.md
-    - name: Replication
-      href: hyperscale/concepts-read-replicas.md
-    - name: Connection pooling
-      href: hyperscale/concepts-connection-pool.md
-    - name: Monitor and tune
-      items:
-      - name: Monitoring
-        href: hyperscale/concepts-monitoring.md
-      - name: Audit logs
-        href: hyperscale/concepts-audit.md
-    - name: Columnar storage
-      href: hyperscale/concepts-columnar.md
   - name: How-to guides
     items:
     - name: Connect and query
@@ -726,16 +656,49 @@
         href: hyperscale/howto-ingest-azure-stream-analytics.md
       - name: Azure Data Factory (ADF)
         href: hyperscale/howto-ingest-azure-data-factory.md
-    - name: Server group size
+    - name: Administer
       items:
-      - name: Pick initial size
-        href: hyperscale/howto-scale-initial.md
-      - name: Scale server group
-        href: hyperscale/howto-scale-grow.md
+      - name: Create users
+        href: hyperscale/howto-create-users.md
+      - name: Schedule maintenance
+        href: hyperscale/howto-maintenance.md
+      - name: Restart server group
+        href: hyperscale/howto-restart.md
+      - name: Monitor
+        items:
+        - name: View metrics
+          href: hyperscale/howto-monitoring.md
+        - name: Create alerts on metrics
+          href: hyperscale/howto-alert-on-metric.md
+          dispalyName: alerts on hyperscale
+        - name: Access database logs
+          href: hyperscale/howto-logging.md
+          displayName: log, hyperscale
+      - name: Upgrade server group
+        href: hyperscale/howto-upgrade.md
+    - name: Scale
+      items:
+      - name: Server group size
+        items:
+        - name: Pick initial size
+          href: hyperscale/howto-scale-initial.md
+        - name: Scale server group
+          href: hyperscale/howto-scale-grow.md
       - name: Rebalance shards
         href: hyperscale/howto-scale-rebalance.md
       - name: Change compute quotas
         href: hyperscale/howto-compute-quota.md
+      - name: Manage read replicas
+        href: hyperscale/howto-read-replicas-portal.md
+    - name: Availability and resilience
+      items:
+      - name: Configure high availability
+        href: hyperscale/howto-high-availability.md
+      - name: Manage read replicas
+        href: hyperscale/howto-read-replicas-portal.md
+        displayName: replication, read replica
+      - name: Restore server group
+        href: hyperscale/howto-restore-portal.md
     - name: Security and data access
       items:
       - name: Manage public access
@@ -747,41 +710,6 @@
       - name: Configure SSL
         href: hyperscale/howto-ssl-connection-security.md
         displayName: hyperscale, ssl
-    - name: Create users
-      href: hyperscale/howto-create-users.md
-    - name: Distributed data
-      items:
-      - name: Determine application type
-        href: hyperscale/howto-app-type.md
-      - name: Determine table size
-        href: hyperscale/howto-table-size.md
-      - name: Choose a distribution column
-        href: hyperscale/howto-choose-distribution-column.md
-      - name: Distribute and modify tables
-        href: hyperscale/howto-modify-distributed-tables.md
-    - name: Configure high availability
-      href: hyperscale/howto-high-availability.md
-    - name: Manage read replicas
-      href: hyperscale/howto-read-replicas-portal.md
-      displayName: replication, read replica
-    - name: Schedule maintenance
-      href: hyperscale/howto-maintenance.md
-    - name: Restart server group
-      href: hyperscale/howto-restart.md
-    - name: Monitor
-      items:
-      - name: View metrics
-        href: hyperscale/howto-monitoring.md
-      - name: Create alerts on metrics
-        href: hyperscale/howto-alert-on-metric.md
-        dispalyName: alerts on hyperscale
-      - name: Access database logs
-        href: hyperscale/howto-logging.md
-        displayName: log, hyperscale
-    - name: Restore server group
-      href: hyperscale/howto-restore-portal.md
-    - name: Upgrade server group
-      href: hyperscale/howto-upgrade.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
@@ -792,8 +720,82 @@
         displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: hyperscale/howto-useful-diagnostic-queries.md
+  - name: Tutorials
+    items:
+      - name: Model data
+        items:
+        - name: Shard data on worker nodes
+          href: hyperscale/tutorial-shard.md
+        - name: Design a multi-tenant database
+          href: hyperscale/tutorial-design-database-multi-tenant.md
+          displayName: hyperscale, tutorial, multi-tenant
+        - name: Design a real-time dashboard
+          href: hyperscale/tutorial-design-database-realtime.md
+          displayName: hyperscale, tutorial, real-time
+      - name: Administer
+        items:
+        - name: Set up private access
+          href: hyperscale/tutorial-private-access.md
+          displayName: hyperscale, tutorial, private
+  - name: Concepts
+    items:
+    - name: Server group
+      href: hyperscale/concepts-server-group.md
+    - name: Distributed data
+      items:
+      - name: Nodes and tables
+        href: hyperscale/concepts-nodes.md
+        displayName: nodes, tables
+      - name: Table colocation
+        href: hyperscale/concepts-colocation.md
+      - name: Determine application type
+        href: hyperscale/howto-app-type.md
+      - name: Determine table size
+        href: hyperscale/howto-table-size.md
+      - name: Choose a distribution column
+        href: hyperscale/howto-choose-distribution-column.md
+      - name: Distribute and modify tables
+        href: hyperscale/howto-modify-distributed-tables.md
+    - name: Security and data access
+      items:
+      - name: Overview
+        href: hyperscale/concepts-security-overview.md
+      - name: Public access
+        href: hyperscale/concepts-firewall-rules.md
+        displayName: firewall, rules, hyperscale
+      - name: Private access
+        href: hyperscale/concepts-private-access.md
+        displayName: private, link, hyperscale
+      - name: Row-level security
+        href: hyperscale/concepts-row-level-security.md
+        displayName: row, level, security, rls, hyperscale
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
+    - name: Scheduled maintenance
+      href: hyperscale/concepts-maintenance.md
+    - name: Business continuity
+      items:
+      - name: Back up and restore
+        href: hyperscale/concepts-backup.md
+        displayName: backup, restore, outage, hyperscale
+      - name: High availability
+        href: hyperscale/concepts-high-availability.md
+    - name: Replication
+      href: hyperscale/concepts-read-replicas.md
+    - name: Connection pooling
+      href: hyperscale/concepts-connection-pool.md
+    - name: Monitor and tune
+      items:
+      - name: Monitoring
+        href: hyperscale/concepts-monitoring.md
+      - name: Audit logs
+        href: hyperscale/concepts-audit.md
+    - name: Columnar storage
+      href: hyperscale/concepts-columnar.md
   - name: Reference
     items:
+      - name: Product updates
+        href: hyperscale/product-updates.md
       - name: PostgreSQL versions
         href: hyperscale/reference-versions.md
       - name: PostgreSQL extensions

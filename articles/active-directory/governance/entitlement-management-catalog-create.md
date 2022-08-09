@@ -3,7 +3,7 @@ title: Create and manage a catalog of resources in entitlement management - Azur
 description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: HANKI
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 8/31/2021
-ms.author: ajburnle
+ms.author: owinfreyatl
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 

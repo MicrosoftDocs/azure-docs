@@ -49,6 +49,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
+|**Apache HTTP Server** |Data connector, analytics rules, hunting queries, parser | IT Operations |Microsoft |
 |**Tomcat** |Data connector, parser | DevOps, application |Microsoft |
 
 ## Arista Networks

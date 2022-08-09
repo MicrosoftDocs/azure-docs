@@ -17,13 +17,9 @@ ms.custom: kr2b-contr-experiment
 # Explore Azure Hybrid Benefit for pay-as-you-go Linux virtual machines
 
 >[!IMPORTANT]
->This article explores *Azure Hybrid Benefit (AHB)* for *pay-as-you-go (PAYG)* *virtual machines (Virtual Machines)*. It explores how to switch your Virtual Machines to *Red Hat Enterprise Linux (RHEL)* PAYG and *SUSE Linux Enterprise Server (SLES)* PAYG billing. To do the reverse and switch to *bring-your-own-subscription (BYOS)* billing, visit [Azure Hybrid Benefit for BYOS Virtual Machines](./azure-hybrid-benefit-byos-linux.md).
+>This article explores *Azure Hybrid Benefit (AHB)* for *pay-as-you-go (PAYG)* *virtual machines or virtual machine scale sets (Flexible orchestration mode only)*. It explores how to switch your Virtual Machines to *Red Hat Enterprise Linux (RHEL)* PAYG and *SUSE Linux Enterprise Server (SLES)* PAYG billing. To do the reverse and switch to *bring-your-own-subscription (BYOS)* billing, visit [Azure Hybrid Benefit for BYOS Virtual Machines](./azure-hybrid-benefit-byos-linux.md).
 
-**Applies to:** :heavy_check_mark: Linux Virtual Machines :heavy_check_mark: Flexible scale sets
-
-AHB for pay-as-you-go (PAYG) virtual machines (Virtual Machines) is an optional licensing benefit. It significantly reduces the cost of running Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) Virtual Machines in the cloud. With this benefit, your RHEL or SLES subscription covers your software fee. So you only pay infrastructure costs for your Virtual Machine. This benefit is available for all RHEL and SLES Marketplace PAYG images.
-
-AHB for Linux Virtual Machines is now publicly available.
+AHB for pay-as-you-go (PAYG) virtual machines or virtual machine scale sets (Flexible orchestration mode only) is an optional licensing benefit. It significantly reduces the cost of running Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) Virtual Machines in the cloud. With this benefit, your RHEL or SLES subscription covers your software fee. So you only pay infrastructure costs for your Virtual Machine. This benefit is available for all RHEL and SLES Marketplace PAYG images.
 
 ## How does AHB work?
 
@@ -254,4 +250,4 @@ This section lists common problems that you might encounter and steps for mitiga
 
 ## Next steps
 * [Learn how to create and update Virtual Machines and add license types (RHEL_BYOS, SLES_BYOS) for AHB by using the Azure CLI](/cli/azure/vm)
-* AHB on virtual machine scale sets for RHEL and SLES is is available to all users. You can [learn more about this benefit and how to use it here](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md).
+* AHB on virtual machine scale sets for RHEL and SLES is available to all users. You can [learn more about this benefit and how to use it here](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md).

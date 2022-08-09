@@ -56,7 +56,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Supported |Supported | Cape Town, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supported |Supported | Montreal, Toronto, Quebec City, Vancouver |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Supported |Supported | Amsterdam, Amsterdam2, Chicago, Frankfurt, Hong Kong SAR, Johannesburg, London, London2, Newport(Wales), Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
-| **[BSNL](https://www.bsnl.co.in/opencms/bsnl/BSNL/services/enterprises/cloudway.html)** |Supported |Supported | Chennai, Mumbai |
+| **BSNL** |Supported |Supported | Chennai, Mumbai |
 | **[C3ntro](https://www.c3ntro.com/)** |Supported |Supported | Miami |
 | **CDC** | Supported | Supported | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Supported |Supported | Amsterdam2, Bogota, Chicago, Dallas, Dublin, Frankfurt, Hong Kong, Las Vegas, London, London2, Montreal, New York, Paris, Phoenix, San Antonio, Seattle, Silicon Valley, Singapore2, Tokyo, Toronto, Washington DC, Washington DC2 |

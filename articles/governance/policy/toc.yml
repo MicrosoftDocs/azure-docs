@@ -5,6 +5,9 @@
   - name: What is Azure Policy?
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
+  - name: Azure Policy glossary
+    displayName: policy, terminology, vocabulary, glossary
+    href: policy-glossary.md
 - name: Quickstarts
   expanded: false
   items:

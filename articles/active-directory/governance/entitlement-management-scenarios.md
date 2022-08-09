@@ -3,7 +3,7 @@ title: Common scenarios in entitlement management - Azure AD
 description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
+author: owinfreyatl
 manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
-ms.author: ajburnle
+ms.author: owinfreyatl
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 

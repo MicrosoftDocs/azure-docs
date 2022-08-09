@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 07/14/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
@@ -112,7 +112,7 @@ First, you must check the state of your environment. Specifically, you must chec
 
 ### Create an identity representing the storage account in your AD manually
 
-To create this account manually, create a new Kerberos key for your storage account. Then, use that Kerberos key as the password for your account with the PowerShell cmdlets below. This key is only used during setup and cannot be used for any control or data plane operations against the storage account. 
+To create this account manually, first create a new Kerberos key for your storage account and get the access key using the PowerShell cmdlets below. This key is only used during setup. It can't be used for any control or data plane operations against the storage account.
 
 ```PowerShell
 # Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
@@ -123,14 +123,23 @@ New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
 ```
 
-Once you have that key, create either a service or computer account under your OU. Use the following specification (remember to replace the example text with your storage account name):
+The cmdlets above should return the key value. Once you have the kerb1 key, create either a service account or computer account in AD under your OU, and use the key as the password for the AD identity.
 
-SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
-Password: Kerberos key for your storage account.
+1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the AD GUI or by running the `Setspn` command from the Windows command line as administrator (remember to replace the example text with your storage account name):
+
+   ```shell
+   Setspn -S cifs/your-storage-account-name-here.file.core.windows.net
+   ```
+
+2. Use PowerShell to set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed):
+
+   ```powershell
+   Set-ADAccountPassword -Identity servername$ -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "kerb1_key_value_here" -Force)
+   ```
 
 If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update the password of your storage account identity in AD](storage-files-identity-ad-ds-update-password.md) for details.
 
-Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represent the storage account doesn't need to be synced to Azure AD.
+Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represents the storage account doesn't need to be synced to Azure AD.
 
 ### Enable the feature on your storage account
 

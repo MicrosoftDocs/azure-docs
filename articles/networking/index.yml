@@ -10,9 +10,9 @@ metadata:
   ms.service: virtual-network
   ms.topic: hub-page
   ms.collection:
-  author: KumudD
-  ms.author: kumud
-  manager: mtillman
+  author: mbender-ms
+  ms.author: mbender
+  manager: kumudD
   ms.date: 09/08/2021
 
 highlightedContent:
