@@ -21,7 +21,7 @@ You have the following options:
 
 * For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) .
 
-* For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widgets) a custom widget to the managed developer portal.
+* For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal.
 
 * [Self-host the developer portal](developer-portal-self-host.md) to update and manage the portal codebase yourself.
 
