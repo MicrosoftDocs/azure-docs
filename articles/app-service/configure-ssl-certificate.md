@@ -90,15 +90,15 @@ The free certificate comes with the following limitations:
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
-1. On the left menu for your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Create App Service Managed Certificate**.
+1. On your app's navgiation menu, select **TLS/SSL settings**. On the pane that opens, select **Private Key Certificates (.pfx)** > **Create App Service Managed Certificate**.
 
-   ![Create free certificate in App Service](./media/configure-ssl-certificate/create-free-cert.png)
+   ![Screenshot of app menu with "TLS/SSL settings", "Private Key Certificates (.pfx)", and "Create App Service Managed Certificate" selected.](./media/configure-ssl-certificate/create-free-cert.png)
 
 1. Select the custom domain for the free certificate, and then select **Create**. You can create only one certificate for each supported custom domain.
 
    When the operation completes, the certificate appears in the **Private Key Certificates** list.
 
-   ![Create free certificate finished](./media/configure-ssl-certificate/create-free-cert-finished.png)
+   ![Screenshot of "Private Key Certificates" pane with newly created certificate listed.](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 
@@ -131,7 +131,7 @@ If you already have a working App Service certificate, you can complete the foll
    >
    > App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
 
-   :::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Start App Service certificate purchase":::
+   :::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Screenshot of 'Create App Service Certificate' pane with purchase options.":::
 
 1. To help you configure the certificate, use the following table. When you're done, select **Create**.
 
@@ -148,9 +148,9 @@ If you already have a working App Service certificate, you can complete the foll
 
 [Key Vault](../key-vault/general/overview.md) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, the storage of choice is Key Vault. After you finish the certificate purchase process, you have to complete a few more steps before you start using this certificate.
 
-1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate, and then select **Certificate Configuration** > **Step 1: Store**.
+1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the certificate menu, select **Certificate Configuration** > **Step 1: Store**.
 
-   ![Configure Key Vault storage of App Service certificate](./media/configure-ssl-certificate/configure-key-vault.png)
+   ![Screenshot of "Certificate Configuration" pane with "Step 1: Store" selected.](./media/configure-ssl-certificate/configure-key-vault.png)
 
 1. On the **Key Vault Status** page, to create a new vault or choose an existing vault, select **Key Vault Repository**.
 
@@ -171,7 +171,7 @@ If you already have a working App Service certificate, you can complete the foll
 
 1. From the same **Certificate Configuration** page in the previous section, select **Step 2: Verify**.
 
-   ![Verify domain for App Service certificate](./media/configure-ssl-certificate/verify-domain.png)
+   ![Screenshot of "Certificate Configuration" pane with "Step 2: Verify" selected.](./media/configure-ssl-certificate/verify-domain.png)
 
 1. Select **App Service Verification**. However, because you previously mapped the domain to your web app per the [Prerequisites](#prerequisites), the domain is already verified. To finish this step, just select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
 
@@ -193,15 +193,15 @@ The following domain verification methods are supported:
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
-1. From the left menu for your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import App Service Certificate**.
+1. From your app's navgiation menu, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import App Service Certificate**.
 
-   ![Import App Service certificate in App Service](./media/configure-ssl-certificate/import-app-service-cert.png)
+   ![Screenshot of app menu with "TLS/SSL settings", "Private Key Certificates (.pfx)", and "Import App Service certificate" selected.](./media/configure-ssl-certificate/import-app-service-cert.png)
 
 1. Select the certificate that you just purchased, and then select **OK**.
 
    When the operation completes, the certificate appears in the **Private Key Certificates** list.
 
-   ![Import App Service certificate finished](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+   ![Screenshot of "Private Key Certificates" pane with purchased certificate listed.](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 
@@ -225,9 +225,9 @@ By default, the App Service resource provider doesn't have access to your key va
 
 1. In the [Azure portal](https://portal.azure.com), on the left menu, select **App Services** > **\<app-name>**.
 
-1. From the left navigation menu for your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import Key Vault Certificate**.
+1. From your app's navigation menu, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import Key Vault Certificate**.
 
-   ![Import Key Vault certificate in App Service](./media/configure-ssl-certificate/import-key-vault-cert.png)
+   ![Screenshot of "TLS/SSL settings", "Private Key Certificates (.pfx)", and "Import Key Vault Certificate" selected.](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 1. To help you select the certificate, use the following table:
 
@@ -239,7 +239,7 @@ By default, the App Service resource provider doesn't have access to your key va
 
    When the operation completes, the certificate appears in the **Private Key Certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for App Service](#private-certificate-requirements).
 
-   ![Import Key Vault certificate finished](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+   ![Screenshot of "Private Key Certificates" pane with imported certificate listed.](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
    > [!NOTE]
    > If you update your certificate in Key Vault with a new certificate, App Service automatically syncs your certificate within 24 hours.
@@ -298,15 +298,15 @@ You're now ready upload the certificate to App Service.
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
-1. From the left menu for your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Upload Certificate**.
+1. From your app's navigation menu, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Upload Certificate**.
 
-   ![Upload private certificate in App Service](./media/configure-ssl-certificate/upload-private-cert.png)
+   ![Screenshot of "TLS/SSL settings", "Private Key Certificates (.pfx)", "Upload Certificate" selected.](./media/configure-ssl-certificate/upload-private-cert.png)
 
 1. In **PFX Certificate File**, select your PFX file. In **Certificate password**, enter the password that you created when you exported the PFX file. When you're done, select **Upload**. 
 
    When the operation completes, the certificate appears in the **Private Key Certificates** list.
 
-   ![Upload certificate finished](./media/configure-ssl-certificate/create-free-cert-finished.png)
+   ![Screenshot of "Private Key Certificates" pane with uploaded certificate listed.](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 
@@ -316,11 +316,11 @@ Public certificates are supported in the *.cer* format.
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
-1. From the left menu for your app, select **TLS/SSL settings** > **Public Certificates (.cer)** > **Upload Public Key Certificate**.
+1. From your app's navigation menu, select **TLS/SSL settings** > **Public Certificates (.cer)** > **Upload Public Key Certificate**.
 
 1. For **Name**, enter the name for the certificate. In **CER Certificate file**, select your CER file. When you're done, select **Upload**.
 
-   ![Upload public certificate in App Service](./media/configure-ssl-certificate/upload-public-cert.png)
+   ![Screenshot of name and public key certificate to upload.](./media/configure-ssl-certificate/upload-public-cert.png)
 
 1. After the certificate is uploaded, copy the certificate thumbprint, and then review [Make the certificate accessible](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
@@ -363,7 +363,7 @@ By default, App Service certificates have a one-year validity period. Before and
 
    If you turn on automatic renewal, certificates can start automatically renewing 32 days before expiration.
 
-   ![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
+   ![Screenshot of specified certificate's auto renewal settings.](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
 1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
@@ -401,7 +401,7 @@ If you think your certificate's private key is compromised, you can rekey your c
 
 1. To start the process, select **Rekey**. This process can take 1-10 minutes to complete.
 
-   ![Rekey an App Service certificate](./media/configure-ssl-certificate/rekey-app-service-cert.png)
+   ![Screenshot of rekeying an App Service certificate.](./media/configure-ssl-certificate/rekey-app-service-cert.png)
 
 1. You might also be required to [reconfirm domain ownership](#confirm-domain-ownership).
 
@@ -466,7 +466,7 @@ To prevent accidental deletion, Azure puts a lock on the App Service certificate
 
 1. On your certificate, find the lock with the lock type named **Delete**. To the right side, select **Delete**.
 
-   ![Delete lock for App Service certificate](./media/configure-ssl-certificate/delete-lock-app-service-cert.png)
+   ![Screenshot of deleting the lock on an App Service certificate.](./media/configure-ssl-certificate/delete-lock-app-service-cert.png)
 
 1. Now, you can delete the App Service certificate. From the left menu, select **Overview** > **Delete**.
 
