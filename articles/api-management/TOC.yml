@@ -64,6 +64,8 @@
         href: api-management-terminology.md
       - name: API Management policies
         href: api-management-howto-policies.md
+      - name: API gateway
+        href: api-management-gateways-overview.md
       - name: Self-hosted gateway
         href: self-hosted-gateway-overview.md
       - name: Networking
@@ -367,7 +369,7 @@
           - name: .NET
             href: /dotnet/api/overview/azure/apimanagement
           - name: JavaScript
-            href: /javascript/api/overview/azure/apimanagement
+            href: /javascript/api/overview/azure/api-management
           - name: Java
             href: /java/api/overview/azure/apimanagement
           - name: Python
