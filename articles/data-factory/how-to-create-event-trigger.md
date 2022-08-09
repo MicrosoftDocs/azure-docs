@@ -44,7 +44,7 @@ This section shows you how to create a storage event trigger within the Azure Da
     # [Azure Data Factory](#tab/data-factory)
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" lightbox="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI." :::
     # [Azure Synapse](#tab/synapse-analytics)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" lightbox=="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" lightbox="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
 
 5. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is required, but be mindful that selecting all containers can lead to a large number of events.
 
