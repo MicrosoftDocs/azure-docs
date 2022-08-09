@@ -152,6 +152,7 @@ const msalConfig = {
 }
 
 const msalInstance = new PublicClientApplication(msalConfig);
+
 ```
 
 ---
