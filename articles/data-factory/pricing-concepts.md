@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 08/09/2022
 ---
 
 # Understanding Data Factory pricing through examples
