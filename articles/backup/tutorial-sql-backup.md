@@ -178,7 +178,7 @@ To create a backup policy:
 1. Choose the Backup Type (Full/Differential/Log/Copy Only Full) and Compression (Enable/Disable).
    - *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
    - *On-demand copy only full* accepts any value for retention.
-   - *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
+   - *On-demand differential* retains backups as per the retention of scheduled differentials set in policy.
    - *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 1. Select OK to begin the backup.
 1. Monitor the backup job by going to your Recovery Services vault and choosing "Backup Jobs".
