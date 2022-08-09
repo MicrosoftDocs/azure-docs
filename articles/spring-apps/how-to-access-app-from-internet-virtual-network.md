@@ -1,23 +1,25 @@
 ---
-title:  "Azure Spring Apps expose applications to the internet"
-description: Access app in Azure Spring Apps from public network.
+title:  Expose applications to the internet from a public network
+description: This article describes how to expose applications to the internet from a public network.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/05/2022
+ms.date: 08/09/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# Expose applications to the internet with Azure Spring Apps provided feature
+# Expose applications on Azure Spring Apps to the internet from a public network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-Azure Spring Apps have already provided articles which explains [how to expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [how to expose applications to the internet with end-to-end TLS at Application Gateway](./expose-apps-gateway-end-to-end-tls.md). These two methods work well but the problem is that the application gateway is a bit heavy to some users, not only the complicated setup but also the large extra expense.
+This article describes how to expose applications on Azure Spring Apps to the internet from a public network.
 
-If you do not want to take the benefit of application gateway to do some advanced operations and only want to expose your applications to the internet. Azure Spring Apps provides a straightforward way for users to achieve. To use this feature, what you need to do is only one click on Azure portal or one command on Azure command line, and at the same time the extra expense is only one standard public IP for one Azure Spring Apps service, on matter how many apps you want to expose.
+You can expose application to the internet with TLS Termination or end-to-end TLS using Application Gateway, as described in [Expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md). These approaches work well, but Application Gateway can involve a complicated setup and extra expense.
+
+If you don't want to use Application Gateway for advanced operations, this article describes a straightforward way to expose your applications to the internet with one click on Azure portal or one command on the Azure command line. The only extra expense is a standard public IP for one Azure Spring Apps service, no matter how many apps you want to expose.
 
 ## Prerequisites
 
@@ -60,7 +62,7 @@ To make the engineering work much easier, we provide the ability to let the **pu
 
 To ensure the security of your applications when you expose public endpoint for them, we strongly recommend you to sufficiently secure the endpoint by filtering network traffic to your service with network security group, review [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
-> [!Note]
+> [!NOTE]
 >
 > If you could not access your application in vnet injection instance from internet after you have assigned a public FQDN, please check your network security group first to see whether you have allowed such inbound traffic.
 >
