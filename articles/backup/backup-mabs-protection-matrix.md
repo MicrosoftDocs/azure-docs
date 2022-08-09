@@ -43,9 +43,6 @@ The following sections details the protection support matrix for MABS:
 | Exchange                   | Exchange  2019, 2016                                         | Physical  server   <br><br>   Hyper-V virtual machine  <br><br>      VMware  virtual machine  <br><br>   Azure Stack  <br><br>    Azure virtual machine (when workload is running as Azure virtual machine) | V3 UR1 and V3 UR2                            | Protect  (all deployment scenarios): Standalone Exchange server, database under a  database availability group (DAG)  <br><br>    Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG    <br><br>  Backup of Exchange over ReFS is supported with MABS v3 UR1 |
 | SharePoint                 | SharePoint  2019, 2016 with latest SPs                       | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine  <br><br>   Azure virtual machine (when workload is running as Azure virtual machine)   <br><br>   Azure Stack | V3 UR1 and V3 UR2                            | Protect  (all deployment scenarios): Farm, frontend web server content  <br><br>    Recover (all deployment scenarios): Farm, database, web application, file, or  list item, SharePoint search, frontend web server  <br><br>    Protecting a SharePoint farm that's using the SQL Server 2012  Always On feature for the content databases isn't supported. |
 
->[!Note]
->Windows Server 2008 R2 is at end of support. We recommend you to upgrade to the supported version.
-
 ## VM Backup
 
 | **Workload**                                                 | **Version**                                             | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
@@ -93,13 +90,6 @@ For more information, see the [ExpressRoute routing requirements](../expressrout
 >Public Peering is deprecated for new circuits.
 
 ### Operating systems and applications at end of support
-
->[!Important]
->Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
->
->If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
->
->For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
 
 |Workload|Version|Azure Backup Server</br> installation| Azure Backup Server|Protection and recovery|
 |------------|-----------|---------------|--------------|--------------|

@@ -64,17 +64,13 @@ The following matrix lists what can be protected with Azure Backup Server V3 RTM
 |VMware VMs|[VMware vSphere Licensed version 6.7 and 7.0](backup-azure-backup-server-vmware.md#vmware-vsphere-67-and-70) |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
 |Linux|Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest|Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine <br/><br/> Only file-consistent snapshots are supported. <br/><br/> For a complete list of supported Linux distributions and versions, see the article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md).|
 
->[!Note]
->Windows Server 2008 R2 is at end of support. We recommend you to upgrade to the supported version.
-
 ### Operating systems and applications at end of support
 
->[!Important]
->Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
->
->If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
->
->For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
+Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
+
+If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
+
+For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
 
 |Workload|Version|Azure Backup Server</br> installation| Azure Backup Server|Protection and recovery|
 |------------|-----------|---------------|--------------|--------------|
