@@ -111,7 +111,7 @@ You may need to perform a failover of the Sync Servers for several reasons, such
 - One currently active Azure AD Connect Sync Server
 - One staging Azure AD Connect Sync Server
 
-#### Changing Currently Active Sync Server to Staging Mode
+#### Change currently Active Sync Server to staging mode
 
 We need to ensure that only one Sync Server is syncing changes at any given time throughout this process. If the currently Active Sync Server is reachable you can perform the below steps to move it to Staging Mode. If it is not reachable, ensure that the server or VM does not regain access unexpectedly either by shutting down the server or isolating it from outbound connections and proceed to the steps on how to change the currently Staging Sync Server to Active Mode.
 
@@ -148,7 +148,7 @@ From here, there should be no more Export jobs since the change and Full & Delta
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Sync Service console on the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sync-server-mgmr.png)
 
-#### Changing Currently Staging Sync Server to Active Mode
+#### Change current Staging Sync server to active mode
 
 At this point, all of our Azure AD Connect Sync Servers should be in Staging Mode and not exporting changes.
 We can now move our Staging Sync Server to Active mode and actively sync changes.
