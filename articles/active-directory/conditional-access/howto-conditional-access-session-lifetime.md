@@ -77,7 +77,7 @@ Example 2:
 
 There are scenarios where customers may want to require a fresh authentication, every time before a user performs specific actions. Sign-in frequency has a new option for **Every time** in addition to hours or days.
 
-The public preview supports the following scenarios:
+Supported scenarios:
 
 - Require user reauthentication during [Intune device enrollment](/mem/intune/fundamentals/deployment-guide-enrollment), regardless of their current MFA status.
 - Require user reauthentication for risky users with the [require password change](concept-conditional-access-grant.md#require-password-change) grant control.
