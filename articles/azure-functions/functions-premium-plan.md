@@ -27,7 +27,10 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 ## Billing
 
-Billing for the Premium plan is based on the number of core seconds and memory allocated across instances. This billing differs from the Consumption plan, which is billed per execution and memory consumed. There's no execution charge with the Premium plan. At least one instance must be always allocated per plan. This billing results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+Billing for the Premium plan is based on the number of core seconds and memory allocated across instances. This billing differs from the Consumption plan, which is billed per execution and memory consumed. There's no execution charge with the Premium plan. This billing results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+
+> [!NOTE]
+> Every premium plan has at least one active (billed) instance at all times.
 
 ## Create a Premium plan
 
@@ -49,12 +52,9 @@ When events begin to trigger the app, they're first routed to the always ready i
 
 ### Always ready instances
 
-In the Premium plan, you can have your app always ready on a specified number of instances. Your app will be running continuously on those instances, regardless of load. If load exceeds what your always ready instances can handle, additional instances will be added as necessary, up to your specified maximum.
+In the Premium plan, you can have your app always ready on a specified number of instances. Your app runs continuously on those instances, regardless of load. If load exceeds what your always ready instances can handle, additional instances are added as necessary, up to your specified maximum.
 
-This app-level setting also controls your plan's minimum instances. For example, if you have three apps in the same Premium Functions app plan, two of which have always ready set to one, and one of which has always ready set to five, the minimum for your whole plan is five. This also reflects the minimum number of instances your plan will be billed for. The maximum number of always ready instances we support per app is 20.
-
-> [!NOTE]
-> Every premium plan has at least one active (billed) instance at all times.
+This app-level setting also controls your plan's minimum instances. For example, consider having three function apps in the same Premium plan. When two of your apps have always ready set to one and the third has it set to five, the minimum for your whole plan is five. This also reflects the minimum number of instances for which your plan is billed. The maximum number of always ready instances we support per app is 20.
 
 # [Portal](#tab/portal)
 
@@ -67,7 +67,7 @@ You can configure the number of always ready instances in the Azure portal by se
 You can also configure always ready instances for an app with the Azure CLI.
 
 ```azurecli-interactive
-az functionapp update -g <resource_group> -n <function_app_name> --set siteConfig.minimumElasticInstanceCount=<desired_always_ready_count>
+az functionapp update -g <RESOURCE_GROUP> -n <FUNCTION_APP_NAME> --set siteConfig.minimumElasticInstanceCount=<YOUR_ALWAYS_READY_COUNT>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -75,16 +75,16 @@ az functionapp update -g <resource_group> -n <function_app_name> --set siteConfi
 You can also configure always ready instances for an app with the Azure PowerShell.
 
 ```azurepowershell-interactive
-$Resource = Get-AzResource -ResourceGroupName <resource_group> -ResourceName <function_app_name>/config/web -ResourceType Microsoft.Web/sites
-$Resource.Properties.minimumElasticInstanceCount = <desired_always_ready_count>
+$Resource = Get-AzResource -ResourceGroupName <RESOURCE_GROUP> -ResourceName <FUNCTION_APP_NAME>/config/web -ResourceType Microsoft.Web/sites
+$Resource.Properties.minimumElasticInstanceCount = <YOUR_ALWAYS_READY_COUNT>
 $Resource | Set-AzResource -Force
 ```
 
 ### Pre-warmed instances
 
-Pre-warmed instances is an advanced setting that provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
+Pre-warmed instances is a setting that provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
 
-Only for more advanced scenarios like when an app has a long warm-up (like a custom container image) you may consider increasing this buffer. A pre-warmed instance becomes active only after all active instances have been sufficiently used.
+Consider a less-common scenario, such as an app running in a custom container. Because custom containers have a long warm-up, you may consider increasing this buffer of pre-warmed instances. A pre-warmed instance becomes active only after all active instances are in use.
 
 You can also define a warmup trigger that is run during the pre-warming process. You can use a warmup trigger to pre-load custom dependencies during the pre-warming process so your functions are ready to start processing requests immediately. To learn more, see [Azure Functions warmup trigger](functions-bindings-warmup.md).
 
@@ -97,12 +97,16 @@ Consider this example of how always-ready instances and pre-warmed instances wor
 3. As load increases and your app needs more instances to handle HTTP traffic, that prewarmed instance is swapped to an active instance. HTTP load is now routed to all three instances, and a fourth instance is instantly provisioned to fill the pre-warmed buffer.
 4. This sequence of scaling and pre-warming continues until the maximum instance count for the app is reached or load decreases causing the platform to scale back in after a period. No instances are pre-warmed or activated beyond the maximum.
 
+# [Portal](#tab/portal)
+
+You can't change this setting in the portal, you must instead use the Azure CLI or Azure PowerShell.
+
 # [Azure CLI](#tab/azurecli)
 
 You can modify the number of pre-warmed instances for an app using the Azure CLI.
 
 ```azurecli-interactive
-az functionapp update -g <resource_group> -n <function_app_name> --set siteConfig.preWarmedInstanceCount=<desired_prewarmed_count>
+az functionapp update -g <RESOURCE_GROUP> -n <FUNCTION_APP_NAME> --set siteConfig.preWarmedInstanceCount=<YOUR_PREWARMED_COUNT>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -110,8 +114,8 @@ az functionapp update -g <resource_group> -n <function_app_name> --set siteConfi
 You can modify the number of pre-warmed instances for an app using the Azure PowerShell.
 
 ```azurepowershell-interactive
-$Resource = Get-AzResource -ResourceGroupName <resource_group> -ResourceName <function_app_name>/config/web -ResourceType Microsoft.Web/sites
-$Resource.Properties.preWarmedInstanceCount = <desired_prewarmed_count>
+$Resource = Get-AzResource -ResourceGroupName <RESOURCE_GROUP> -ResourceName <FUNCTION_APP_NAME>/config/web -ResourceType Microsoft.Web/sites
+$Resource.Properties.preWarmedInstanceCount = <YOUR_PREWARMED_COUNT>
 $Resource | Set-AzResource -Force
 ```
 
