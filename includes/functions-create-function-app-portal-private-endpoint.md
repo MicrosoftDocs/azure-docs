@@ -1,6 +1,7 @@
-[!NOTE] If your Azure Function App has [Private Endpoints](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-vnet) enabled you must add the following origins using [CORS](https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts?#restrict-cors-access).
-
-- https://functions-next.azure.com
-- https://functions-staging.azure.com
-- https://functions.azure.com
-- https://portal.azure.com
+>[!NOTE] 
+> When your function app has [private endpoints](../articles/azure-functions/functions-create-vnet.md) enabled, you must add the following [CORS origins](../articles/azure-functions/security-concepts.md?#restrict-cors-access).
+>
+>- `https://functions-next.azure.com`
+>- `https://functions-staging.azure.com`
+>- `https://functions.azure.com`
+>- `https://portal.azure.com`
