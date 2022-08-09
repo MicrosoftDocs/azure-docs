@@ -164,9 +164,7 @@ After administrators confirm your settings using [report-only mode](howto-condit
 
 ### Validation
 
-Use the What-If tool to simulate a sign in from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
-
-![Conditional Access What If tool results](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+Use the [What If tool](what-if-tool.md) to simulate a sign in from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
 
 ## Prompt tolerance
 
