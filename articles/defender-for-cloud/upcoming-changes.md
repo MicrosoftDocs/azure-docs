@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 08/08/2022
+ms.date: 08/09/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -139,7 +139,7 @@ The following APIs are set to be deprecated:
 - Security Statuses
 - Security Summaries
 
-These APIs will be replaced with ARG-based solution which are currently in preview. All data that is exposed by these legacy APIs will also be available in the new APIs.
+These three APIs exposed old formats of assessments and will be replaced by the [Assessments APIs](/rest/api/securitycenter/assessments) and [SubAssessments APIs](/rest/api/securitycenter/sub-assessments). All data that is exposed by these legacy APIs will also be available in the new APIs.
 
 ## Next steps
 
