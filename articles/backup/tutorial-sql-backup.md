@@ -173,9 +173,9 @@ To create a backup policy:
 ## Run an on-demand backup
 
 1. In your Recovery Services vault, choose Backup items.
-2. Select "SQL in Azure VM".
-3. Right-click on a database, and choose "Backup now".
-4. Choose the Backup Type (Full/Differential/Log/Copy Only Full) and Compression (Enable/Disable).
+1. Select "SQL in Azure VM".
+1. Right-click on a database, and choose "Backup now".
+1. Choose the Backup Type (Full/Differential/Log/Copy Only Full) and Compression (Enable/Disable).
    - *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
    - *On-demand copy only full* accepts any value for retention.
    - *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
