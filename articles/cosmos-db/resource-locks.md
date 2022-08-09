@@ -100,7 +100,7 @@ az lock create \
 
 ### Template
 
-When applying a lock to an Azure Cosmos DB resource, use the [``Microsoft.Authorization/locks``](/azure/templates/microsoft.authorization/locks) Azure Resource Manager (ARM) resource.
+When applying a lock to an Azure Cosmos DB resource, use the [``Microsoft.Authorization/locks``](/azure/templates/microsoft.authorization/2017-04-01/locks) Azure Resource Manager (ARM) resource.
 
 #### [JSON](#tab/json)
 
