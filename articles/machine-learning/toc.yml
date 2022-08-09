@@ -75,10 +75,6 @@
           href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
-    - name: Create a secure workspace
-      href: tutorial-create-secure-workspace.md
-    - name: Create a secure workspace with templates
-      href: tutorial-create-secure-workspace-template.md
     - name: Build a training pipeline (Python SDK V2)(preview)
       href: tutorial-pipeline-python-sdk.md
 - name: Samples
@@ -214,8 +210,14 @@
           href: concept-vulnerability-management.md
 - name: Infrastructure & security
   items:
+    - name: Tutorials & templates
+      items:
+        - name: "Tutorial: Create a secure workspace in Azure portal"
+          href: tutorial-create-secure-workspace.md
+        - name: "Tutorial: Create a secure workspace with templates"
+          href: tutorial-create-secure-workspace-template.md
     - name: Identity & access management
-      items: 
+      items:
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
@@ -224,7 +226,7 @@
         - name: Use managed identities for access control
           href: how-to-use-managed-identities.md
     - name: Network security
-      items: 
+      items:
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -408,8 +410,6 @@
             href: how-to-train-with-custom-image.md
           - name: Migrate from Estimators to ScriptRunConfig
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-          - name: Reinforcement learning
-            href: how-to-use-reinforcement-learning.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md

@@ -233,27 +233,27 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-examples.md",
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-options.md",
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-overview.md",
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-tasks.md",
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-conversion-tiles.md",
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
             "redirect_document_id": false
         },
         {
@@ -268,7 +268,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-add-text.md",
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-add-workbook-elements",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-create-workbook",
             "redirect_document_id": false
         },
         {
@@ -302,13 +302,33 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-page.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-instances.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-page",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-states.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-page",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-activity-log.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
             "redirect_document_id": false
         },
         {
@@ -339,6 +359,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/data-explorer.md" ,
             "redirect_url": "/azure/data-explorer/data-explorer-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/troubleshoot-workbooks.md" ,
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
             "redirect_document_id": false
         },
         {
@@ -429,6 +454,61 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/key-vault-insights-overview.md" ,
             "redirect_url": "/azure/key-vault/key-vault-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-diagnostics.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-failure-diagnostics.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-failure-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-performance-diagnostics.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-performance-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-trace-severity.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-trace-severity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-exception-volume.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-exception-volume",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-potential-memory-leak.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-potential-memory-leak",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-application-security-detection-pack.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-application-security-detection-pack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-arm-config.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-arm-config",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-email-notification.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/proactive-email-notification",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/cloudservices.md" ,
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/workspace-design-service-providers.md" ,
+            "redirect_url": "/azure/azure-monitor/logs/workspace-design",
             "redirect_document_id": false
         }
     ]

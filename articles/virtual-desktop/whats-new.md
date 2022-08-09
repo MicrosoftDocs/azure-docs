@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/07/2022
+ms.date: 08/05/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -20,6 +20,30 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 
 Make sure to check back here often to keep up with new updates.
 
+## July 2022
+
+Here's what changed in July 2022: 
+
+## Scheduled agent updates now generally available
+
+Scheduled agent updates on Azure Virtual Desktop are now generally available. This feature gives IT admins control over when the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent get updated. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-scheduled-agent-updates-on/ba-p/3579236). 
+
+## FSLogix 2201 hotfix 2 
+
+The FSLogix 2201 hotfix 2 update includes fixes to multi-session VHD mounting, Cloud Cache meta tracking files, and registry cleanup operations. This update doesn't include new fatures. Learn more at [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext#fslogix-2201-hotfix-2-29822850276) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-fslogix-2201-hotfix-2-2-9-8228-50276-has-been/m-p/3579409). 
+
+## Japan and Australia metadata service now generally available
+
+The Azure Virtual Desktop metadata database located in Japan and Australia is now generally available. This update allows customers to store their Azure Virtual Desktop objects and metadata within a database located within that geography. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-the-azure-virtual-desktop/ba-p/3570756). 
+
+## Azure Virtual Desktop moving away from Storage Blob image type
+
+Storage Blob images are created from unmanaged disks, which means they lack the availability, scalability, and frictionless user experience that managed images and Shared Image Gallery images offer. As a result, Azure Virtual Desktop will be deprecating support for Storage Blobs image types by August 22, 2022. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-is-moving-away-from-storage-blob-image/ba-p/3568364). 
+
+## Azure Virtual Desktop Custom Configuration changing to PowerShell
+
+Starting July 21, 2022, Azure Virtual Desktop will replace the Custom Configuration Azure Resource Manager template parameters for creating host pools, adding session hosts to host pools, and the Getting Started feature with a PowerShell script URL parameter stored in a publicly accessible location. This replacement includes the parameters' respective Azure Resource Manager templates. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-custom-configuration-breaking-change/m-p/3568069). 
+
 ## June 2022
 
 Here's what changed in June 2022:
@@ -30,7 +54,7 @@ The Azure Virtual Desktop metadata database located in Australia is now in publi
 
 ### Intune user configuration for Windows 11 Enterprise multi-session VMs in public preview
 
-Deploying Intune user configuration policies from Microsoft Endpoint Manager admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following:
+Deploying Intune user configuration policies from Microsoft Endpoint Manager admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
 
 - User scope policies using the Settings catalog.
 - User certificates via Templates.
