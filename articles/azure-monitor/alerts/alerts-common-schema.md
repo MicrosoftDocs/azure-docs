@@ -14,18 +14,18 @@ This article describes what the common alert schema is, the benefits of using it
 
 The common alert schema standardizes the consumption experience for alert notifications in Azure. Today, Azure has three alert types, metric, log, and activity log. Historically, they've had their own email templates and webhook schemas. With the common alert schema, you can now receive alert notifications with a consistent schema.
 
-Any alert instance describes *the resource that was affected* and *the cause of the alert*. These instances are described in the common schema in the following sections:
+Any alert instance describes the resource that was affected and the cause of the alert. These instances are described in the common schema in the following sections:
 
-- **Essentials**: Standardized fields, common across all alert types, describe *what resource* the alert is on along with other common alert metadata. Examples include severity or description.
-- **Alert context**: These fields describe the *cause of the alert*, with fields that vary *based on the alert type*. For example, a metric alert would have fields like the metric name and metric value in the alert context. An activity log alert would have information about the event that generated the alert.
+- **Essentials**: Standardized fields, common across all alert types, describe what resource the alert is on along with other common alert metadata. Examples include severity or description.
+- **Alert context**: These fields describe the cause of the alert, with fields that vary based on the alert type. For example, a metric alert would have fields like the metric name and metric value in the alert context. An activity log alert would have information about the event that generated the alert.
 
-The typical integration scenarios we hear from customers involve the routing of the alert instance to the concerned team based on a pivot like a resource group. Afterwards, the responsible team starts working on it. With the common alert schema, you can have standardized routing logic across alert types by using the essential fields. You can leave the context fields as is for the concerned teams to investigate further.
+You might want to route the alert instance to a specific team based on a pivot such as a resource group. Common schema use the essential fields to provide standardized routing logic for all alert types. The team can use the context fields for their investigation.
 
-As a result, you can potentially have fewer integrations, which makes the process of managing and maintaining them a _much_ simpler task. Future alert payload enrichments like customization and diagnostic enrichment will only surface in the common schema.
+As a result, you can potentially have fewer integrations, which makes the process of managing and maintaining them a much simpler task. Future alert payload enrichments like customization and diagnostic enrichment will only surface in the common schema.
 
 ## What enhancements does the common alert schema bring?
 
-The common alert schema will primarily manifest itself in your alert notifications. The enhancements you'll see are listed in the following table.
+You'll see the benefits of using a common alert schema in your alert notifications. Common alert schema provide these benefits:
 
 | Action | Enhancements|
 |:---|:---|
@@ -41,7 +41,7 @@ Learn more about the [schema definitions for webhooks, Logic Apps, Azure Functio
 
 ## How do I enable the common alert schema?
 
-You can opt in or opt out to the common alert schema through action groups, on both the portal and through the REST API. The toggle to switch to the new schema exists at an action level. For example, you must separately opt in for an email action and a webhook action.
+Use action groups in the Azure portal or use the REST API to enable common alert schema. You can enable a new schema at the action level. For example, you must separately opt in for an email action and a webhook action.
 
 > [!NOTE]
 > Smart detection alerts support the common schema by default. No opt-in is required.
@@ -54,7 +54,7 @@ You can opt in or opt out to the common alert schema through action groups, on b
 ![Screenshot that shows the common alert schema opt in.](media/alerts-common-schema/portal-opt-in.png)
 
 1. Open any existing action or a new action in an action group.
-1. Select **Yes** for the toggle to enable the common alert schema.
+1. Select **Yes** to enable the common alert schema.
 
 ### Through the Action Groups REST API
 

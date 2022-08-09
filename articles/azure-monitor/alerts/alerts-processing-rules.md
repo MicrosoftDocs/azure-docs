@@ -13,9 +13,9 @@ ms.reviewer: ofmanor
 <a name="suppression-of-alerts"></a>
 
 > [!NOTE]
-> The previous name for alert processing rules was *action rules*. The Azure resource type of these rules remains **Microsoft.AlertsManagement/actionRules** for backward compatibility.
+> The previous name for alert processing rules was action rules. The Azure resource type of these rules remains **Microsoft.AlertsManagement/actionRules** for backward compatibility.
 
-Alert processing rules allow you to apply processing on *fired alerts*. You might be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different. They're rules that modify the fired alerts themselves as they're being fired.
+Alert processing rules allow you to apply processing on fired alerts. You might be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different. They're rules that modify the fired alerts themselves as they're being fired.
 
 You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. You can apply alert processing rules to different resource scopes, from a single resource, or to an entire subscription. You can also use them to apply various filters or have the rule work on a predefined schedule.
 
@@ -50,38 +50,33 @@ For those alert types, you can use alert processing rules to add action groups.
 > [!NOTE]
 > Alert processing rules don't affect [Azure Service Health](../../service-health/service-health-overview.md) alerts.
 
-## Alert processing rule properties
+## Scope and filters for alert processing rules
 <a name="filter-criteria"></a>
 
 An alert processing rule definition covers several aspects, as described here.
 
 ### Which fired alerts are affected by this rule?
 
-This section describes scope and filters.
+This section describes the scope and filters for alert processing rules.
 
-#### Scope
 Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. *The alert processing rule applies to alerts that fired on resources within that scope*.  
 
-#### Filters
-You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are:  
+You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are described in the following table.  
 
-* **Alert Context (payload)**: The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type.
-* **Alert rule id**: The rule applies only to alerts from a specific alert rule. The value should be the full resource ID, for example, `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  
-To locate the alert rule ID, open a specific alert rule in the portal, select **Properties**, and copy the **Resource ID** value. You can also locate it by listing your alert rules from PowerShell or the Azure CLI.
-* **Alert rule name**: The rule applies only to alerts with this alert rule name. It can also be useful with a **Contains** operator.
-* **Description**: The rule applies only to alerts that contain the specified string within the alert rule description field.
-* **Monitor condition**: The rule applies only to alerts with the specified monitor condition, either **Fired** or **Resolved**.
-*  **Monitor service**: The rule applies only to alerts from any of the specified monitor services.  
-For example, use **Platform** to have the rule apply only to metric alerts.
-* **Resource**: The rule applies only to alerts from the specified Azure resource.
-For example, you can use this filter with **Does not equal** to exclude one or more resources when the rule's scope is a subscription.  
-* **Resource group**: The rule applies only to alerts from the specified resource groups.  
-For example, you can use this filter with **Does not equal** to exclude one or more resource groups when the rule's scope is a subscription.  
-* **Resource type**: The rule applies only to alerts on resources from the specified resource types, such as virtual machines. You can use **Equals** to match one or more specific resources. You can also use **Contains** to match a resource type and all its child resources.  
-For example, use `resource type contains "MICROSOFT.SQL/SERVERS"` to match both SQL servers and all their child resources, like databases.
-* **Severity**: The rule applies only to alerts with the selected severities.  
+| Filter | Description|
+|:---|:---|
+Alert context (payload)  |  The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type. |
+Alert rule ID |  The rule applies only to alerts from a specific alert rule. The value should be the full resource ID, for example, `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  To locate the alert rule ID, open a specific alert rule in the portal, select **Properties**, and copy the **Resource ID** value. You can also locate it by listing your alert rules from PowerShell or the Azure CLI. |
+Alert rule name |  The rule applies only to alerts with this alert rule name. It can also be useful with a **Contains** operator. |
+Description |  The rule applies only to alerts that contain the specified string within the alert rule description field. |
+Monitor condition |  The rule applies only to alerts with the specified monitor condition, either **Fired** or **Resolved**. |
+Monitor service |  The rule applies only to alerts from any of the specified monitor services. For example, use **Platform** to have the rule apply only to metric alerts. |
+Resource |  The rule applies only to alerts from the specified Azure resource. For example, you can use this filter with **Does not equal** to exclude one or more resources when the rule's scope is a subscription. | 
+Resource group |  The rule applies only to alerts from the specified resource groups. For example, you can use this filter with **Does not equal** to exclude one or more resource groups when the rule's scope is a subscription. | 
+Resource type |  The rule applies only to alerts on resources from the specified resource types, such as virtual machines. You can use **Equals** to match one or more specific resources. You can also use **Contains** to match a resource type and all its child resources. For example, use `resource type contains "MICROSOFT.SQL/SERVERS"` to match both SQL servers and all their child resources, like databases.
+Severity |  The rule applies only to alerts with the selected severities. |
 
-#### Filters behavior
+#### Alert processing rule filters
 
 * If you define multiple filters in a rule, all the rules apply. There's a logical AND between all filters.  
   For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule applies only for `Sev0` alerts on virtual machines in the scope.
@@ -92,19 +87,14 @@ For example, use `resource type contains "MICROSOFT.SQL/SERVERS"` to match both 
 
 Choose one of the following actions:
 
-* **Suppression**  
-This action removes all the action groups from the affected fired alerts. So, the fired alerts won't invoke any of their action groups, not even at the end of the maintenance window. Those fired alerts will still be visible when you list your alerts in the portal, Azure Resource Graph, API, or PowerShell. The suppression action has a higher priority over the **Apply action groups** action. If a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
-
-* **Apply action groups**  
-This action adds one or more action groups to the affected fired alerts.
+* **Suppression**: This action removes all the action groups from the affected fired alerts. So, the fired alerts won't invoke any of their action groups, not even at the end of the maintenance window. Those fired alerts will still be visible when you list your alerts in the portal, Azure Resource Graph, API, or PowerShell. The suppression action has a higher priority over the **Apply action groups** action. If a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
+* **Apply action groups**: This action adds one or more action groups to the affected fired alerts.
 
 ### When should this rule apply?
 
-You can optionally control when the rule will apply. By default, the rule is always active. You can also select a one-time window for this rule to apply. Or you can have a recurring window, such as a weekly recurrence.
+You can control when the rule will apply. The rule is always active, by default. You can select a one-time window for this rule to apply, or you can have a recurring window, such as a weekly recurrence.
 
 ## Configure an alert processing rule
-
-
 
 ### [Portal](#tab/portal)
 
