@@ -423,17 +423,18 @@ Unlike Oracle, Azure Synapse supports local joins between a small table and a la
 >[!TIP]
 >Hash distribution improves query performance on large fact tables. Round-robin distribution is useful for improving loading speed.
 
-Hash distribution can be applied on multiple columns for a more even distribution of the base table. It will allow you to choose up to 8 columns for distribution. This not only reduces the data skew over time but also improves query performance.
+Hash distribution can be applied on multiple columns for a more even distribution of the base table. Multi-column distribution will allow you to choose up to eight columns for distribution. This not only reduces the data skew over time but also improves query performance.
 
-Note: Multi column distribution  is currently in preview for Azure Synapse Analytics. Preview features are meant for testing only and should not be used on production instances or production data. As a preview feature, Distribution Advisor is subject to undergo changes in behavior or functionality. Please also keep a copy of your test data if the data is important
+> [!NOTE]
+> Multi-column distribution is currently in preview for Azure Synapse Analytics. You can use multi-column distribution with [CREATE MATERIALIZED VIEW](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql),  [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
 
-Distribution Advisor
+#### Distribution Advisor
 
 In Azure Synapse SQL, the way each table is distributed can be customized. The table distribution strategy affects query performance substantially.
-Distribution Advisor (DA) is a new feature in Synapse SQL Gen2 that analyzes queries and recommends the best distribution strategies for tables to improve query performance. Queries to be considered by the advisor can be provided by you or pulled from your historic queries available in DMV.
-For details on how to use the advisor, read Distribution Advisor.
 
-Note: Multi column distribution  is currently in preview for Azure Synapse Analytics. Preview features are meant for testing only and should not be used on production instances or production data. As a preview feature, Distribution Advisor is subject to undergo changes in behavior or functionality. Please also keep a copy of your test data if the data is important
+The distribution advisor is a new feature in Synapse SQL that analyzes queries and recommends the best distribution strategies for tables to improve query performance. Queries to be considered by the advisor can be provided by you or pulled from your historic queries available in DMV.
+
+For details and examples on how to use the distribution advisor, visit [Distribution Advisor in Azure Synapse SQL](../../sql/distribution-advisor.md).
 
 
 #### Data indexing
