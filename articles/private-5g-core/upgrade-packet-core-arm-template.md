@@ -30,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-update-packet-core-control-plane). To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-update-packet-core-control-plane/azuredeploy.json).
 
-The template defines a [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes) resource, which provides configuration for the control plane network functions of the packet core instance, including IP configuration for the N2 interface.
+The template modifies the version of an existing [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes) resource, which provides configuration for the control plane network functions of the packet core instance, including IP configuration for the N2 interface.
 
 ## Deploy the template
 
@@ -65,7 +65,7 @@ The template defines a [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/az
 1. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version. 
 
 ## Next steps
-You may want to use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
+You should use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
 
 - [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
 - [Packet core dashboards](packet-core-dashboards.md)
