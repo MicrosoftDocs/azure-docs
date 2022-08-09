@@ -2,10 +2,6 @@
   href: index.yml
 - name: Azure IoT Edge versions
   href: version-history.md
-- name: Overview
-  items:
-  - name: About Azure IoT Edge
-    href: about-iot-edge.md
 - name: Azure IoT Edge for Linux on Windows (EFLOW)
   expanded: false
   items:
@@ -45,6 +41,16 @@
         href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
   - name: Configure
     items:
+    - name: Networking
+      items:
+      - name: Understand VM networking
+        href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
+      - name: Virtual switch
+        href: how-to-create-virtual-switch.md
+      - name: Multiple NICs
+        href: how-to-configure-multiple-nics.md
+      - name: VM on a DMZ
+        href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md   
     - name: Develop and debugging
       href: tutorial-develop-for-linux-on-windows.md
     - name: Configure nested virtualization for Windows VMs
@@ -53,16 +59,6 @@
       href: how-to-access-dtpm.md
     - name: GPU acceleration
       href: gpu-acceleration.md
-    - name: Networking
-      items:
-        - name: Understand VM networking
-          href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
-        - name: Virtual switch
-          href: how-to-create-virtual-switch.md
-        - name: Multiple NICs
-          href: how-to-configure-multiple-nics.md
-        - name: VM on a DMZ
-          href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md   
   - name: Troubleshoot
     items:
     - name: Diagnose virtual machine
@@ -75,6 +71,10 @@
     items:
     - name: PowerShell functions
       href: reference-iot-edge-for-linux-on-windows-functions.md
+- name: Overview
+  items:
+  - name: About Azure IoT Edge
+    href: about-iot-edge.md
 - name: Quickstarts
   expanded: true
   items:
