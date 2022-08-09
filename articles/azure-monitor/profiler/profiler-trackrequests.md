@@ -9,7 +9,7 @@ ms.reviewer: charles.weininger
 
 # Write code to track requests with Application Insights
 
-Azure Application Insights needs to track requests for your application in order to provide profiles for your application to the Performance page in the Azure portal. 
+Azure Application Insights needs to track requests for your application in order to provide profiles for your application on the Performance page in the Azure portal. 
 
 For applications built on already-instrumented frameworks, like ASP.NET and ASP.NET Core, Application Insights can automatically track requests. 
 
