@@ -64,7 +64,7 @@ At the end of this article, you run two .NET console apps:
 
 In this article, you use a sample from the Azure IoT C# samples repository you downloaded earlier as the device app. You can open the files below using Visual Studio, Visual Studio Code, or a text editor of your choice.  
 
-The sample is located at **azure-iot-samples-csharp/iot-hub/Samples/device/FileUploadSample** under the folder where you extracted the Azure IoT C# samples.
+The sample is located at **azure-iot-samples-csharp/iot-hub/Samples/device/FileUploadSample** in the folder where you extracted the Azure IoT C# samples.
 
 Examine the code in **FileUpLoadSample.cs**. This file contains the main sample logic. After creating an IoT Hub device client, it follows the standard three-part procedure for uploading files from a device:
 
