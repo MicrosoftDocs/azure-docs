@@ -6,7 +6,7 @@ services: playwright-testing
 ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 06/27/2022
+ms.date: 08/09/2022
 ms.topic: tutorial
 ---
 
@@ -179,36 +179,36 @@ Perform to following steps to create the GitHub Actions workflow:
 
 ## Analyze results
 
-After the tests finish, the GitHub Actions log enables you to analyze the test run. The log provides the following information:
+After the tests finish, you notice that the GitHub Actions workflow failed because multiple tests didn't pass. You can use the information in the GitHub Actions summary and the log to analyze the test run. 
 
-- The number of tests that passed or failed.
-- The list of tests that failed.
-- Detailed error information to diagnose failing tests.
-- The list of tests that ran slowly, that you might optimize.
-- A direct link to the test run results in the Microsoft Playwright Testing portal.
+1. Select **Actions** in your GitHub repository, and then select the Microsoft Playwright Testing workflow run.
 
-:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-playwright-log.png" alt-text="Screenshot that shows the GitHub Actions log output for running tests with Microsoft Playwright Testing.":::
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-workflow.png" alt-text="Screenshot that shows the GitHub Actions tab in GitHub.":::
 
-### Diagnose failing tests
+1. View the GitHub Actions summary for an overview of failing tests and error details.
 
-You notice that some tests failed. Microsoft Playwright Testing provides rich error information in the CI/CD output log to help diagnose failing tests:
+    Microsoft Playwright Testing provides rich error information to diagnose failing tests directly from your CI/CD pipeline:
 
-- Browser configuration and line number in the test specification file.
-- Error message with the received and expected values.
-- Playwright call log.
-- Extract of the test source code.
+    * Browser configuration and line number in the test specification file.
+    * Error message with the received and expected values.
+    * Playwright call log.
+    * Extract of the test source code.
 
-:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-playwright-log-error-details.png" alt-text="Screenshot that shows Playwright test error details in the GitHub Actions log output.":::
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary.png" alt-text="Screenshot that shows the Playwright test results in the GitHub Actions summary view.":::
 
-Optionally, you can select the link to go the Microsoft Playwright Testing portal for further analysis of the test run. For more information, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
+    Alternatively, you can open the GitHub Actions log to view the detailed test results.
 
-:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/playwright-testing-dashboard-failed-tests.png" alt-text="Screenshot that shows the list of failing tests in the Microsoft Playwright Testing portal.":::
+1. Optionally, link directly from the summary view to the Microsoft Playwright Testing portal for further analysis of the test run.
 
-In log output, you can see that the `Should persist its data` test expected a value of *Something* as the second item in the todo list after the page reload. However, the application contains *feed the cat*.
+    You can link to the entire test run or an individual test result. For more information, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
+
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary-portal-links.png" alt-text="Screenshot that shows Playwright portal links in the GitHub Actions summary.":::
+
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/playwright-testing-dashboard-failed-tests.png" alt-text="Screenshot that shows the list of failing tests in the Microsoft Playwright Testing portal.":::
 
 ## Update failing test and rerun tests
 
-Now that you've identified the root cause of the failed tests, you'll update the test specification file.
+From the error details, you can see that the `should persist its data` test failed because of an unexpected string after a page reload. You'll now update the test specification file to resolve this error.
 
 1. Go to your forked repository.
 1. Open the `todo-persistence.spec.ts` file in the `samples/PlaywrightTestRunner/tests` folder.
