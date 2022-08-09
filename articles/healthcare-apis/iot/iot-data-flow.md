@@ -1,26 +1,26 @@
 ---
-title: Data flow in the MedTech service - Azure Health Data Services
-description: Understand MedTech service's data flow. MedTech service ingests, normalizes, groups, transforms, and persists IoMT data to FHIR service.
+title: Data flows in the MedTech service - Azure Health Data Services
+description: Understand the MedTech service's data flows. The MedTech service ingests, normalizes, groups, transforms, and persists IoMT data to FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 07/19/2022
 ms.author: jasteppe
 ---
 
-# MedTech service data flow
+# The MedTech service data flows
 
-This article provides an overview of the MedTech service data flow. You'll learn about the different data processing stages within the MedTech service that transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
+This article provides an overview of the MedTech service data flows. You'll learn about the different data processing stages within the MedTech service that transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
 Data from health-related devices or medical devices flows through a path in which the MedTech service transforms data into FHIR, and then data is stored on and accessed from the FHIR service. The health data path follows these steps in this order: ingest, normalize, group, transform, and persist. In this data flow, health data is retrieved from the device in the first step of ingestion. After the data is received, it's processed or normalized per user-selected or user-created schema templates, so that the health data is simpler to process and can be grouped. Health data is grouped into three Operate parameters. After the health data is normalized and grouped, it can be processed or transformed through FHIR destination mappings, and then saved or persisted on the FHIR service.
 
-This article goes into more depth about each step in the data flow. The next steps are [how to deploy the MedTech service](deploy-iot-connector-in-azure.md) by using Device mappings (the normalization step) and FHIR destination mappings (the transform step).
+This article goes into more depth about each step in the data flow. The next steps are [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md) by using Device mappings (the normalization step) and FHIR destination mappings (the transformation step).
 
-The next sections describe the stages that IoMT (Internet of Medical Things) data goes through once received from an event hub and into the MedTech service.
+This next section of the article describes the stages that IoMT (Internet of Medical Things) data goes through once received from an event hub and into the MedTech service.
 
-:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flows from IoT devices into an event hub. IoMT data is ingested by MedTech service as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
+:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="Screenshot of IoMT data as it flows from IoT devices into an event hub. IoMT data is ingested by MedTech service as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
 ## Ingest
 Ingest is the first stage where device data is received into the MedTech service. The ingestion endpoint for device data is hosted on an [Azure Event Hubs](../../event-hubs/index.yml). Azure Event Hubs platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
@@ -60,7 +60,7 @@ Once the Observation FHIR resource is generated in the Transform stage, the reso
 
 ## Next steps
 
-Learn how to create Device and FHIR destination mappings.
+To learn how to create Device and FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
 > [Device mappings](how-to-use-device-mappings.md)
@@ -68,4 +68,4 @@ Learn how to create Device and FHIR destination mappings.
 > [!div class="nextstepaction"]
 > [FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

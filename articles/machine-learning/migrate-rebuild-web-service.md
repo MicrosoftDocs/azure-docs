@@ -28,7 +28,7 @@ This article is part of the Studio (classic) to Azure Machine Learning migration
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 - An Azure Machine Learning training pipeline. For more information, see [Rebuild a Studio (classic) experiment in Azure Machine Learning](migrate-rebuild-experiment.md).
 
 ## Real-time endpoint vs pipeline endpoint

@@ -99,12 +99,12 @@ Any additional columns in the source file are ignored.
 
 ### Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories. The import format needs to be similar to the exported knowledgebase format.
 
-| Question  | Answer  | Source| Metadata (1 key: 1 value) |
-|-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
-| Question2 | Answer2 | Editorial|    `Key:Value`       |
+| Question  | Answer  | Source| Metadata (1 key: 1 value) | QnaId |
+|-----------|---------|----|---------------------|------|
+| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> | QnaId 1 |
+| Question2 | Answer2 | Editorial|    `Key:Value`       | QnaId 2 |
 
 <a href="#formatting-considerations"></a>
 

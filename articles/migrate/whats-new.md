@@ -22,6 +22,7 @@ ms.custom: mvc
    - We recommended migrating instances to *SQL Server on Azure VM* as per the Azure best practices.
    - *Right sized Lift and Shift* - Server to *SQL Server on Azure VM*. We recommend this when SQL Server credentials are not available. 
    - Enhanced user-experience that covers readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
+- Support for Storage vMotion during replication for agentless VMware VM migrations.
 
 ## Update (March 2022)
 - Perform agentless VMware VM discovery, assessments, and migrations over a private network using Azure Private Link. [Learn more.](how-to-use-azure-migrate-with-private-endpoints.md)

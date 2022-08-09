@@ -78,7 +78,7 @@ New-AzCosmosDBAccount `
 
 ### <a id="provision-powershell-mongodb-api"></a>API for MongoDB
 
-The following cmdlet is an example of continuous backup account configured with the ``Continous30days`` tier:
+The following cmdlet is an example of continuous backup account configured with the ``Continuous30days`` tier:
 
 ```azurepowershell
 New-AzCosmosDBAccount `
@@ -111,7 +111,7 @@ New-AzCosmosDBAccount `
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet is an example of an account  with continuous backup policy configured with the ``Continous30days`` tier:
+The following cmdlet is an example of an account  with continuous backup policy configured with the ``Continuous30days`` tier:
 
 ```azurepowershell
 New-AzCosmosDBAccount `

@@ -155,3 +155,7 @@ For each policy type you add, you must associate Standard or Free Policy SKU. Th
 ## Next steps
 
 - [Create an Azure application offer](azure-app-offer-setup.md)
+
+**Video tutorial**
+
+- [Azure Managed Applications Overview](https://go.microsoft.com/fwlink/?linkid=2196308)

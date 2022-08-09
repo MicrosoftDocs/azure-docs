@@ -1,7 +1,7 @@
 ---
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 01/25/2022
+ms.date: 07/14/2022
 ---
 
 ## Network requirements
@@ -16,4 +16,4 @@ For Azure public cloud deployments:
 | *.oms.opinsights.azure.com | 443  |
 | login.microsoftonline.com  | 443  |
 
-You will also need to validate the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+You'll also need to validate the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).

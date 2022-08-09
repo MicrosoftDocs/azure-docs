@@ -22,7 +22,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 > + Viewing your quotas and limits.
 > + Requesting quota increases.
 
-Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
+Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-capacity.md).
 
 ## Special considerations
 
@@ -46,7 +46,7 @@ In this section, you learn about the default and maximum quota limits for the fo
 + Azure Storage
 
 > [!IMPORTANT]
-> Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md).
+> Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-capacity.md).
 
 
 
@@ -91,7 +91,7 @@ The following table shows additional limits in the platform. Please reach out to
 | Job lifetime on a low-priority node | 7 days<sup>2</sup> |
 | Parameter servers per node | 1 |
 
-<sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
+<sup>1</sup> Maximum lifetime is the duration between when a job starts and when it finishes. Completed jobs persist indefinitely. Data for jobs not completed within the maximum lifetime is not accessible.
 
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
@@ -231,5 +231,5 @@ When you're requesting a quota increase, select the service that you have in min
 ## Next steps
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
-+ [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
++ [Service limits in Azure Machine Learning](resource-limits-capacity.md)
 + [Troubleshooting managed online endpoints deployment and scoring](./how-to-troubleshoot-online-endpoints.md)

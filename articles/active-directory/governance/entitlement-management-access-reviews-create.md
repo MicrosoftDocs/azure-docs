@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # Create an access review of an access package in Azure AD entitlement management
 
-To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Azure AD entitlement management. You can enable reviews when you create a new access package or edit an existing access package. This article describes how to enable access reviews of access packages.
+To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Azure AD entitlement management. You can enable reviews when you create a new access package or edit an existing access package assignment policy. This article describes how to enable access reviews of access packages.
 
 ## Prerequisites
 
@@ -35,9 +35,9 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Create an access review of an access package
 
-You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-lifecycle-policy.md) policy. Follow these steps to enable access reviews of an access package:
+You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package assignment policy](entitlement-management-access-package-lifecycle-policy.md) policy. If you have multiple policies, for different communities of users to request access, you can have independent access review schedules for each policy. Follow these steps to enable access reviews of an access package's assignments:
 
-1. Open the **Lifecycle** tab for an access package to specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
+1. Open the **Lifecycle** tab for an access package assignment policy to specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
 
 1. In the **Expiration** section, set Access package assignments expires to **On date**, **Number of days**, **Number of hours**, or **Never**.
 

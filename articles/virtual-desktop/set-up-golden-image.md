@@ -31,7 +31,7 @@ Some optional things you can do before running Sysprep:
 - Clean up temp files in system storage
 - Optimize drivers (defrag)
 - Remove any user profiles 
-Generalize the VM by running [sysprep](../virtual-machines/generalize.md). 
+- Generalize the VM by running [sysprep](../virtual-machines/generalize.md)
  
 ## Capture the VM
 After you've completed sysprep and shut down your machine in the Azure portal, open the **VM** tab and select the **Capture** button to save the image for later use. When you capture a VM, you can either add the image to a shared image gallery or capture it as a managed image.

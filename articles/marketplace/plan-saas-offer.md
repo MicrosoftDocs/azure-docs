@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 06/29/2022
 ---
 
 # Plan a SaaS offer for the commercial marketplace
@@ -42,7 +42,7 @@ After your offer is published, the listing option you chose for your offer appea
 
 The technical requirements differ depending on the listing option you choose for your offer.
 
-The _Contact me_ listing option has no technical requirements. You have the option to connect a customer relationship management (CRM) system to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
+The _Contact me_ listing option has no technical requirements. When a customer expresses interest in or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. You also have the option to connect a customer relationship management (CRM) system to your offer to manage customer leads. This is described in the [Customer leads](#customer-leads) section, later in this article.
 
 The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 
@@ -93,7 +93,9 @@ You can choose to enable a test drive for your SaaS app. Test drives give custom
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
 [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).

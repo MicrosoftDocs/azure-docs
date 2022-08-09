@@ -38,7 +38,7 @@ You'll need:
 
 - An Azure Machine Learning workspace.
   
-  Either [create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one via the Python SDK. Import the `Workspace` and `Datastore` class, and load your subscription information from the file `config.json` using the function `from_config()`. This function looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`.
+  Either [create an Azure Machine Learning workspace](quickstart-create-resources.md) or use an existing one via the Python SDK. Import the `Workspace` and `Datastore` class, and load your subscription information from the file `config.json` using the function `from_config()`. This function looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`.
 
    ```python
    import azureml.core
@@ -235,7 +235,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 
 Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
-* Programmatically delete intermediate data at the end of a pipeline run, when it is no longer needed
+* Programmatically delete intermediate data at the end of a pipeline job, when it is no longer needed
 * Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal)) 
 * Regularly review and delete no-longer-needed data
 

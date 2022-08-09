@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/18/2022
+  ms.date: 07/15/2022
   author: v-amallick
   ms.author: v-amallick
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
@@ -231,6 +231,10 @@ sections:
           Can I use a backup of a database running on SLES to restore to an RHEL HANA system or vice versa?
         answer: |
           Yes, you can use streaming backups triggered on a HANA database running on SLES to restore it to an RHEL HANA system and vice versa. That is, cross OS restore is possible using streaming backups. However, you'll have to ensure that the HANA system you want to restore to, and the HANA system used for restore, are both compatible for restore according to SAP. Refer to SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see which restore types are compatible.
+      - question: |
+          Can I download only a subset of files during restore as files?
+        answer: |
+          Yes, you can download files partially as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
           
   - name: Policy
     questions:

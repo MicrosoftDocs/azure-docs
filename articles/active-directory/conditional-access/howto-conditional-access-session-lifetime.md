@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 07/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -48,11 +48,11 @@ The sign-in frequency setting works with apps that have implemented OAuth2 or OI
 - Dynamics CRM Online
 - Azure portal
 
-The sign-in frequency setting works with 3rd party SAML applications and apps that have implemented OAuth2 or OIDC protocols, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
+The sign-in frequency setting works with third-party SAML applications and apps that have implemented OAuth2 or OIDC protocols, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
 
-### User sign-in frequency and multi-factor authentication
+### User sign-in frequency and multifactor authentication
 
-Sign-in frequency previously applied to only to the first factor authentication on devices that were Azure AD joined, Hybrid Azure AD joined, and Azure AD registered. There was no easy way for our customers to re-enforce multi factor authentication (MFA) on those devices. Based on customer feedback, sign-in frequency will apply for MFA as well.
+Sign-in frequency previously applied to only to the first factor authentication on devices that were Azure AD joined, Hybrid Azure AD joined, and Azure AD registered. There was no easy way for our customers to re-enforce multifactor authentication (MFA) on those devices. Based on customer feedback, sign-in frequency will apply for MFA as well.
 
 [![Sign in frequency and MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
@@ -81,12 +81,15 @@ The public preview supports the following scenarios:
 
 - Require user reauthentication during [Intune device enrollment](/mem/intune/fundamentals/deployment-guide-enrollment), regardless of their current MFA status.
 - Require user reauthentication for risky users with the [require password change](concept-conditional-access-grant.md#require-password-change) grant control.
-- Require user reauthentication for risky sign-ins with the [require multi-factor authentication](concept-conditional-access-grant.md#require-multi-factor-authentication) grant control.
+- Require user reauthentication for risky sign-ins with the [require multifactor authentication](concept-conditional-access-grant.md#require-multifactor-authentication) grant control.
 
 When administrators select **Every time**, it will require full reauthentication when the session is evaluated.
 
 > [!NOTE]
 > An early preview version included the option to prompt for Secondary authentication methods only at reauthentication. This option is no longer supported and should not be used.
+
+> [!WARNING]
+> Using require reauthentication every time with the sign-in risk grant control set to **No risk** isn’t supported and will result in poor user experience.
 
 ## Persistence of browsing sessions
 
@@ -101,7 +104,7 @@ Conditional Access is an Azure AD Premium capability and requires a premium lice
 > [!WARNING]
 > If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft retired the configurable token lifetime feature for refresh and session token lifetimes on January 30, 2021 and replaced it with the Conditional Access authentication session management feature.  
 >
-> Before enabling Sign-in Frequency, make sure other reauthentication settings are disabled in your tenant. If "Remember MFA on trusted devices" is enabled, be sure to disable it before using Sign-in frequency, as using these two settings together may lead to prompting users unexpectedly. To learn more about reauthentication prompts and session lifetime, see the article, [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+> Before enabling Sign-in Frequency, make sure other reauthentication settings are disabled in your tenant. If "Remember MFA on trusted devices" is enabled, be sure to disable it before using Sign-in frequency, as using these two settings together may lead to prompting users unexpectedly. To learn more about reauthentication prompts and session lifetime, see the article, [Optimize reauthentication prompts and understand session lifetime for Azure AD Multifactor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ## Policy deployment
 
@@ -170,7 +173,7 @@ After administrators confirm your settings using [report-only mode](howto-condit
 
 ### Validation
 
-Use the What-If tool to simulate a login from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
+Use the What-If tool to simulate a sign in from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
 
 ![Conditional Access What If tool results](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 

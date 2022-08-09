@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 07/19/2022
 ms.author: aahi
 ---
 
@@ -137,17 +137,17 @@ You can manage default network access rules for Cognitive Services resources thr
 1. Set the default rule to deny network access by default.
 
     ```azurecli-interactive
-    az cognitiveservices account update \
-        -g "myresourcegroup" -n "myaccount" \
-        --default-action Deny
+    az resource update \
+        --ids {resourceId} \
+        --set properties.networkAcls="{'defaultAction':'Deny'}"
     ```
 
 1. Set the default rule to allow network access by default.
 
     ```azurecli-interactive
-    az cognitiveservices account update \
-        -g "myresourcegroup" -n "myaccount" \
-        --default-action Allow
+    az resource update \
+        --ids {resourceId} \
+        --set properties.networkAcls="{'defaultAction':'Allow'}"
     ```
 
 ***

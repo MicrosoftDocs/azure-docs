@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 07/11/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -69,7 +69,7 @@ A resource directory has one or more resources to share. In this step, you creat
     | **Admin1** | Global administrator<br/>-or-<br/>User administrator |
     | **Requestor1** | User |
 
-1. Create an Azure AD security group named **Marketing resources** with a membership type of **Assigned**.
+4. Create an Azure AD security group named **Marketing resources** with a membership type of **Assigned**.
 
     This group will be the target resource for entitlement management. The group should be empty of members to start.
 
@@ -263,6 +263,29 @@ In this step, you remove the changes you made and delete the **Marketing Campaig
 1. In Azure Active Directory, delete any users you created such as **Requestor1** and **Admin1**.
 
 1. Delete the **Marketing resources** group.
+
+## Set up group writeback in entitlement management
+To set up group writeback for Micosoft 356 groups in access packages, you must complete the following prerequisites:
+- Set up group writeback in the Azure Active Directory admin center. 
+- The Organizational Unit (OU) that will be used to set up group writeback in Azure AD Connect Configuration.
+- Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-v2.md#enable-group-writeback-using-azure-ad-connect) for Azure AD Connect. 
+ 
+Using group writeback, you can now sync M365 groups that are part of access packages to on-premises Active Directory. To do this, follow the steps below: 
+
+1. Create an Azure Active Directory M365 group.
+
+1. Set the group to be written back to on-premises Active Directory. For instructions, see [Group writeback in the Azure Active Directory admin center](../enterprise-users/groups-write-back-portal.md). 
+
+1. Add the group to an access package as a resource role. See [Create a new access package](entitlement-management-access-package-create.md#resource-roles) for guidance. 
+
+1. Assign the user to the access package. See [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) for instructions to directly assign a user. 
+
+1. After you have assigned a user to the access package, confirm that the user is now a member of the on-premises group once AAD Connect Sync cycle completes:
+    1. View the member property of the group in the on-premises OU OR 
+    1. Review the member Of on the user object. 
+
+> [!NOTE]   
+> Azure AD Connect's default sync cycle schedule is every 30 minutes. You may need to wait until the next cycle occurs to see results on-premises or choose to run the sync cycle manually to see results sooner. 
 
 ## Next steps
 

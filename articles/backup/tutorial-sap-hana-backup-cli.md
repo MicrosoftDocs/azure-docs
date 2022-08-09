@@ -2,8 +2,11 @@
 title: Tutorial - SAP HANA DB backup on Azure using Azure CLI 
 description: In this tutorial, learn how to back up SAP HANA databases running on an Azure VM to an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/4/2019 
+ms.date: 07/05/2022
 ms.custom: devx-track-azurecli
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI
@@ -142,6 +145,15 @@ The [az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet lists 
 >Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM.
 >
 >Modify the policy manually as needed.
+
+## Get the container name
+
+To get container name, run the following command. [Learn about this CLI command](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
+
+```azurecli
+    az backup item list --resource-group <resource group name> --vault-name <vault name>
+
+```
 
 ## Trigger an on-demand backup
 

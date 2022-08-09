@@ -525,7 +525,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 With the image deployed to your function app in Azure, you can now invoke the function as before through HTTP requests.
 In your browser, navigate to the following URL:
 
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 `https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  

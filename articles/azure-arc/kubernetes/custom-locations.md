@@ -3,8 +3,6 @@ title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
 ms.service: azure-arc
 ms.date: 10/19/2021
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc-enabled Kubernetes clusters"
 ---

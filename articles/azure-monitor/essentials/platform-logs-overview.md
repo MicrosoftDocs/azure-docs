@@ -3,10 +3,9 @@ title: Overview of Azure platform logs | Microsoft Docs
 description: Overview of logs in Azure Monitor, which provide rich, frequent data about the operation of an Azure resource.
 author: bwren
 services: azure-monitor
-
 ms.topic: conceptual
 ms.date: 12/19/2019
-ms.author: bwren
+ms.reviewer: bwren
 ---
 # Overview of Azure platform logs
 

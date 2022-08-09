@@ -27,6 +27,18 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## July 2022
+
+- [Automation rules for alerts](#automation-rules-for-alerts)
+
+### Automation rules for alerts
+
+In addition to their incident-management duties, [automation rules](automate-incident-handling-with-automation-rules.md) have a new, added function: they are the preferred mechanism for running playbooks built on the **alert trigger**. 
+
+Previously, these playbooks could be automated only by attaching them to analytics rules on an individual basis. With the alert trigger for automation rules, a single automation rule can apply to any number of analytics rules, enabling you to centrally manage the running of playbooks for alerts as well as those for incidents.
+
+Learn more about [migrating your alert-trigger playbooks to be invoked by automation rules](migrate-playbooks-to-automation-rules.md).
+
 ## June 2022
 
 - [Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)](#microsoft-purview-data-loss-prevention-dlp-integration-in-microsoft-sentinel-preview)
@@ -117,9 +129,9 @@ For more information, see:
 
 Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
 
-The first of these features is the [**custom logs API**](../azure-monitor/logs/custom-logs-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
+The first of these features is the [**Logs ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
 
-The second feature is [**ingestion-time data transformation**](../azure-monitor/logs/ingestion-time-transformations.md) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+The second feature is [**workspace transformations**](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
 
 - AMA-based data connectors (based on the new Azure Monitor Agent)
 - MMA-based data connectors (based on the legacy Log Analytics Agent)

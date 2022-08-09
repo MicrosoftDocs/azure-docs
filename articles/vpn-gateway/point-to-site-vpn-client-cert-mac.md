@@ -49,7 +49,7 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 1. Copy the URL to your browser to download the zip file, then unzip the file to view the folders.
 
-## IKEv2 - macOS steps
+## <a name="ikev2-macOS"></a>IKEv2 - macOS steps
 
 ### <a name="view"></a>View files
 
@@ -158,11 +158,11 @@ Configure authentication settings. There are two sets of instructions. Choose th
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-cert-mac/expanded/connected.png":::
 
-## OpenVPN - macOS steps
+##  <a name="openvpn-macOS"></a>OpenVPN - macOS steps
 
 >[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
-## OpenVPN - iOS steps
+##  <a name="OpenVPN-iOS"></a>OpenVPN - iOS steps
 
 >[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 

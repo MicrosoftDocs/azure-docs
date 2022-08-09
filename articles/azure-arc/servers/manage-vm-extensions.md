@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 12/21/2021
+ms.date: 07/01/2022
 ms.topic: conceptual
 ---
 
@@ -62,6 +62,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
 |Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally. |
 |Azure Extension for SQL Server |Microsoft.AzureData |WindowsAgent.SqlServer |[Install Azure extension for SQL Server](/sql/sql-server/azure-arc/connect#initiate-the-connection-from-azure) to initiate SQL Server connection to Azure. |
+|Windows Admin Center (preview) |Microsoft.AdminCenter |Admin Center |[Manage Azure Arc-enabled Servers using Windows Admin Center in Azure](/windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines) |
 
 ### Linux extensions
 
@@ -126,23 +127,22 @@ The following extensions are available for Windows and Linux machines:
 
 ### Windows extension availability
 
-|Operating system |Azure Monitor agent |Log Analytics agent |Dependency VM Insights |Qualys |Custom Script |Key Vault |Hybrid Runbook |Antimalware Extension |Connected Machine agent |
-|-----------------|--------------------|--------------------|-----------------------|-------|--------------|----------|---------------|----------------------|------------------------|
-|Windows Server 2019 |X |X |X |X |X |X | |X |
-|Windows Server 2019 Core |X | | |X |X |X |X | |X |
+|Operating system |Azure Monitor agent |Log Analytics agent |Dependency VM Insights |Qualys |Custom Script |Key Vault |Hybrid Runbook |Antimalware Extension |Windows Admin Center |
+|-----------------|--------------------|--------------------|-----------------------|-------|--------------|----------|---------------|----------------------|---------------------|
+|Windows Server 2022 |X |X |X |X |X | |X | |X |
+|Windows Server 2019 |X |X |X |X |X |X | | |X |
 |Windows Server 2016 |X |X |X |X |X |X |X |Built-in |X |
-|Windows Server 2016 Core |X | | |X |X |X | |Built-in |X |
-|Windows Server 2012 R2 |X |X |X |X |X | |X |X |X |
-|Windows Server 2012 |X |X |X |X |X |X |X |X |X |
+|Windows Server 2012 R2 |X |X |X |X |X | |X |X | |
+|Windows Server 2012 |X |X |X |X |X |X |X |X | |
 |Windows Server 2008 R2 SP1 |X |X |X |X |X | |X |X | |
-|Windows Server 2008 R2 | | | |X |X | |X |X |X |
+|Windows Server 2008 R2 | | | |X |X | |X |X | |
 |Windows Server 2008 SP2 | |X | |X |X | |X | | |
 |Windows 11 client OS |X | | |X | | | | | |
-|Windows 10 1803 (RS4) and higher |X | | |X |X | | | |X |
-|Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only) |X |X |X |X |X | |X | |X |
+|Windows 10 1803 (RS4) and higher |X | | |X |X | | | | |
+|Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only) |X |X |X |X |X | |X | | |
 |Windows 8 Enterprise and Pro (Server scenarios only) | |X |X |X | | |X | | |
 |Windows 7 SP1 (Server scenarios only) | |X |X |X | | |X | | |
-|Azure Stack HCI (Server scenarios only) | |X | |X | | |X | |X |
+|Azure Stack HCI (Server scenarios only) | |X | |X | | |X | | |
 
 ### Linux extension availability
 

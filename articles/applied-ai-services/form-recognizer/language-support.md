@@ -200,6 +200,11 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 > extracted for a given language, see previous sections.
 
 
+> [!NOTE]
+> **Detected languages vs extracted languages**
+>
+> This section lists the languages we can detect from the documents using the Read model, if present. Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
+
 | Language            | Code |
 |---------------------|---------------|
 | Afrikaans           | `af`          |

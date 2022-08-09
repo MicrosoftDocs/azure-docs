@@ -1,10 +1,12 @@
 ---
 title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
-
-ms.topic: conceptual
-ms.date: 10/16/2020
-ms.custom: devx-track-js
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
 # service-fabric-get-started-linux.md
@@ -12,6 +14,7 @@ ms.custom: devx-track-js
 # service-fabric-local-linux-cluster-windows.md
 # service-fabric-local-linux-cluster-windows-wsl2.md
 ---
+
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)

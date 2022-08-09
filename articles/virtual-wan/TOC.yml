@@ -147,40 +147,50 @@
         href: nat-rules-vpn-gateway-powershell.md
   - name: User VPN (point-to-site)
     items:
-    - name: Create User VPN
-      items: 
-        - name: Certificate or RADIUS - portal
-          href: virtual-wan-point-to-site-portal.md
-        - name: Certificate or RADIUS - PowerShell
-          href: virtual-wan-point-to-site-powershell.md
-        - name: Azure AD authentication
+    - name: P2S server configuration
+      items:
+      - name: Certificate or RADIUS authentication
+        items:
+        - name: Configure a P2S VPN
+          items: 
+          - name: Azure portal
+            href: virtual-wan-point-to-site-portal.md
+          - name: PowerShell
+            href: virtual-wan-point-to-site-powershell.md
+        - name: Generate self-signed certificates
+          href: certificates-point-to-site.md
+      - name: Azure AD authentication
+        items:
+        - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
-    - name: Generate certificates
-      href: certificates-point-to-site.md
-    - name: Configure Azure AD tenant
-      href: openvpn-azure-ad-tenant.md
-    - name: VPN client profiles
+        - name: Configure a tenant
+          href: openvpn-azure-ad-tenant.md
+        - name: Configure Multi-Factor Authentication(MFA)
+          href: openvpn-azure-ad-mfa.md   
+    - name: P2S client configuration
       items:
-      - name: Download global and hub-based profiles
-        href: global-hub-profile.md
-      - name: Extract and view profile information
-        href: about-vpn-profile-download.md
-      - name: Deploy profiles using Intune
-        href: vpn-profile-intune.md
-    - name: VPN clients
-      items:
-        - name: OpenVPN
-          href: howto-openvpn-clients.md
-        - name: Azure AD authentication
-          items:
-            - name: Windows 10
-              href: openvpn-azure-ad-client.md
-            - name: macOS
-              href: openvpn-azure-ad-client-mac.md
-    - name: Multi-Factor Authentication(MFA)
-      href: openvpn-azure-ad-mfa.md   
-    - name: Multi-application Azure AD authentication
-      href: openvpn-azure-ad-tenant-multi-app.md
+      - name: Azure AD authentication
+        items:
+        - name: Windows
+          href: openvpn-azure-ad-client.md
+        - name: macOS
+          href: openvpn-azure-ad-client-mac.md
+        - name: Multi-application Azure AD authentication
+          href: openvpn-azure-ad-tenant-multi-app.md
+      - name: Install client certificates
+        href: install-client-certificates.md
+      - name: VPN client profiles
+        items:
+        - name: Download global and hub-based profiles
+          href: global-hub-profile.md
+        - name: Extract and view profile information
+          href: about-vpn-profile-download.md
+        - name: Deploy profiles using Intune
+          href: vpn-profile-intune.md
+      - name: Azure VPN client optional settings
+        href: azure-vpn-client-optional-configurations-windows.md
+      - name: OpenVPN client software configuration
+        href: howto-openvpn-clients.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel

@@ -1,70 +1,104 @@
 ---
 title: Enable Microsoft Defender for Cloud's integrated workload protections
+titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multicloud resources
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 07/14/2022
 ms.custom: mode-other
 ---
 
 # Quickstart: Enable enhanced security features
 
-To learn about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
+Get started with Defender for Cloud by using it's enhanced security features to protect you hybrid and multicloud environments.
+
+In this quickstart you will learn how to enable the enhanced security features by enabling the different Defender for Cloud plans through the Azure portal.
+
+To learn more about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
 ## Prerequisites
 
-For the purpose of the Defender for Cloud quickstarts and tutorials you must enable the enhanced security features. 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-You can protect an entire Azure subscription with Defender for Cloud's enhanced security features and the protections will be inherited by all resources within the subscription.
-
-A free 30-day trial is available. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+- You must have [enabled Defender for Cloud](get-started.md) on your Azure subscription. 
 
 ## Enable enhanced security features from the Azure portal
 
-To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for Servers and Microsoft Defender for SQL servers on machines.
+To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. 
 
-- You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level
-- You can enable **Microsoft Defender for SQL** at either the subscription level or resource level
-- You can enable **Microsoft Defender for open-source relational databases** at the resource level only
+If you only enable Defender for Cloud at the workspace level, Defender for Cloud will not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for Servers and Microsoft Defender for SQL servers on machines.
 
-### Enable enhanced security features on your subscriptions and workspaces:
+> [!NOTE]
+> - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level.
+> - You can enable **Microsoft Defender for SQL** at either the subscription level or resource level.
+> - You can enable **Microsoft Defender for open-source relational databases** at the resource level only.
 
-- To enable enhanced security features on one subscription:
+You can protect an entire Azure subscription with Defender for Cloud's enhanced security features and the protections will be inherited by all resources within the subscription.
 
-    1. From Defender for Cloud's main menu, select **Environment settings**.
+**To enable enhanced security features on one subscription**:
+
+1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. From Defender for Cloud's main menu, select **Environment settings**.
     
-    1. Select the subscription or workspace that you want to protect.
+1. Select the subscription or workspace that you want to protect.
     
-    1. Select **Enable all** to upgrade.
+1. Select **Enable all** to enable all of the plans for Defender for Cloud.
+
+    :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Screenshot of the Defender for Cloud's pricing page in the Azure portal." lightbox="media/enhanced-security-features-overview/pricing-tier-page.png":::
     
-    1. Select **Save**.
+1. Select **Save**.
 
-        :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal" lightbox="media/enhanced-security-features-overview/pricing-tier-page.png":::
-    
-- To enable enhanced security on multiple subscriptions or workspaces:
+**To enable enhanced security on multiple subscriptions or workspaces**:
 
-    1. From Defender for Cloud's menu, select **Getting started**.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com).
 
-        The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
+1. Search for and select **Microsoft Defender for Cloud**.
 
-        :::image type="content" source="./media/enable-enhanced-security/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page." lightbox="media/enable-enhanced-security/get-started-upgrade-tab.png"::: 
+1. From Defender for Cloud's menu, select **Getting started**.
 
-    1. From the **Select subscriptions and workspaces to protect with Microsoft Defender for Cloud** list, select the subscriptions and workspaces to upgrade and select **Upgrade** to enable all Microsoft Defender for Cloud security features.
+    The Upgrade tab lists subscriptions and workspaces eligible for onboarding.
 
-       - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
-       
-       - If you select a workspace that's eligible for a free trial, the next step will begin a trial.
+    :::image type="content" source="./media/enable-enhanced-security/get-started-upgrade-tab.png" alt-text="Screenshot of the upgrade tab of the getting started page." lightbox="media/enable-enhanced-security/get-started-upgrade-tab.png"::: 
 
-        :::image type="content" source="./media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Upgrade all selected workspaces and subscriptions from the getting started page." lightbox="media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png":::
+1. Select the desired subscriptions and workspace from the list.
+
+1. Select **Upgrade**.
+
+    :::image type="content" source="./media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Screenshot that shows where the upgrade button is located on the screen." lightbox="media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png":::
+
+    > [!NOTE]
+    > - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
+    > - If you select a workspace that's eligible for a free trial, the next step will begin a trial.   
+
+## Customize plans
+
+Certain plans allow you to customize your protection.
+
+You can learn about the differences between the [Defender for Servers plans](defender-for-servers-introduction.md#available-defender-for-server-plans) to help you choose which one you would like to apply to your subscription.
+
+Defender for Databases allows you to [select which type of resources you want to protect](quickstart-enable-database-protections.md). You can learn about the different types of protections offered.
+
+Defender for Containers is available on hybrid and multicloud environments. You can learn more about the [enablement process](defender-for-containers-enable.md) for Defender for Containers for each environment type.
 
 ## Disable enhanced security features
 
-If you need to disable enhanced security features for a subscription, the procedure is the same but you select **Enhanced security off**:
+If you choose to disable the enhanced security features for a subscription, you will just need to change the plan to **Off**.
  
-1. From Defender for Cloud's menu, open **Environment settings**.
-1. Select the relevant subscription.
-1. Find the plan you wish to turn off and select **off**.
+**To disable enhanced security features**:
 
-    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Enable or disable Defender for Cloud's enhanced security features." lightbox="media/enable-enhanced-security/disable-plans.png":::
+1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. From Defender for Cloud's menu, select **Environment settings**.
+
+1. Select the relevant subscriptions and workspaces.
+
+1. Find the plan you wish to turn off and select **Off**.
+
+    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Screenshot that shows you how to enable or disable Defender for Cloud's enhanced security features." lightbox="media/enable-enhanced-security/disable-plans.png":::
 
     > [!NOTE]
     > After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 

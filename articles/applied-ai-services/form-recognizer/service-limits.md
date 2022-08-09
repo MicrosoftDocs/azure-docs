@@ -12,7 +12,7 @@ ms.date: 06/06/2022
 ms.author: lajanuar
 ---
 
-# Form Recognizer service Quotas and Limits
+# Form Recognizer service quotas and limits
 
 This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 

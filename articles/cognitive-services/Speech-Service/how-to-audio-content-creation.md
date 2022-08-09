@@ -168,11 +168,16 @@ The users you grant access to need to set up a [Microsoft account](https://accou
 
 To add users to a Speech resource so that they can use Audio Content Creation, do the following:
 
-1. In the [Azure portal](https://portal.azure.com/), search for and select **Cognitive Services**, and then  select the Speech resource that you want to add users to.
-1. Select **Access control (IAM)**, select **Add**, and then select **Add role assignment (preview)** to open the **Add role assignment** pane. 
-1. Select the **Role** tab, and then select the **Cognitive Service User** role. If you want to give a user ownership of this Speech resource, select the **Owner** role.
-1. Select the **Members** tab, enter a user's email address and select the user's name in the directory. The email address must be linked to a Microsoft account that's trusted by Azure Active Directory. Users can easily sign up for a [Microsoft account](https://account.microsoft.com/account) by using their personal email address. 
-1. Select the **Review + assign** tab, and then select **Review + assign** to assign the role to a user. 
+
+1. In the [Azure portal](https://portal.azure.com/), select **All services**. 
+1. Then select the **Cognitive Services**, and navigate to your specific Speech resource.
+   > [!NOTE]
+   > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item (for example, selecting **Resource groups** and then clicking through to your wanted resource group).
+1. Select **Access control (IAM)** on the left navigation pane.
+1. Select **Add** -> **Add role assignment**.
+1. On the **Role** tab on the next screen, select a role you want to add (in this case, **Owner**).
+1. On the **Members** tab, enter a user's email address and select the user's name in the directory. The email address must be linked to a Microsoft account that's trusted by Azure Active Directory. Users can easily sign up for a [Microsoft account](https://account.microsoft.com/account) by using their personal email address. 
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 Here is what happens next:
 
@@ -181,8 +186,6 @@ An email invitation is automatically sent to users. They can accept it by select
 Users now visit or refresh the [Audio Content Creation](https://aka.ms/audiocontentcreation) product page, and sign in with their Microsoft account. They select **Audio Content Creation** block among all speech products. They choose the Speech resource in the pop-up window or in the settings at the upper right. 
 
 If they can't find the available Speech resource, they can check to ensure that they're in the right directory. To do so, they select the account profile at the upper right and then select **Switch** next to **Current directory**. If there's more than one directory available, it means they have access to multiple directories. They can switch to different directories and go to **Settings** to see whether the right Speech resource is available. 
-
-:::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
 
 Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
 

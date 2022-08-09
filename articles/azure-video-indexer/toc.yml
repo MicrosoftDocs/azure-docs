@@ -43,22 +43,28 @@
   items:
   - name: Overview
     href: concepts-overview.md
+  - name: Account types
+    href: accounts-overview.md
   - name: Compare Azure Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md
-  - name: Language identification model
-    href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed people in a video
-    href: observed-people-tracing.md
-  - name: Matched person
-    href: matched-person.md
-  - name: People's detected clothing
-    href: detected-clothing.md
-  - name: Audio effects detection
-    href: audio-effects-detection.md
+  - name: Add contributor role to Media Services
+    href: add-contributor-role-on-the-media-service.md
+  - name: Insights
+    items:
+    - name: Language identification model
+      href: language-identification-model.md
+    - name: Observed people 
+      href: observed-people-tracing.md
+    - name: Matched person
+      href: matched-person.md
+    - name: People's detected clothing
+      href: detected-clothing.md
+    - name: Audio effects detection
+      href: audio-effects-detection.md
   - name: Customizing content models
     items:
     - name: Overview
@@ -76,12 +82,22 @@
     items:
     - name: Audio Effects Detection
       href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Face Detection
+    - name: Faces detection
       href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
     - name: OCR
       href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
-    - name: Keywords
-      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context      
+    - name: Keywords extraction
+      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
+    - name: Transcription, Translation, Language
+      href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Labels identification
+      href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Named entities
+      href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Observed tracking & matched people
+      href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Topics inference
+      href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
   - name: Connect an existing account to ARM (Preview)
@@ -156,6 +172,8 @@
   - name: Regions
     displayName: location
     href: regions.md
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-video-indexer.html
   - name: FAQ
     href: faq.yml
   - name: Compliance
@@ -164,7 +182,7 @@
     href: release-notes.md
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=video-indexer
-  - name: User voice
+  - name: Azure ideas
     href: https://aka.ms/UserVoiceVI
   - name: Blogs
     href: https://azure.microsoft.com/blog/tag/video-indexer/

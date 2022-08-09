@@ -59,6 +59,7 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
    |  Number of routes each BGP peer can advertise to the virtual hub.| The hub can only accept a maximum number of 10,000 routes (total) from its connected resources. For example, if a virtual hub has a total of 6000 routes from the connected virtual networks, branches, virtual hubs etc., then when a new BGP peering is configured with an NVA, the NVA can only advertise up to 4000 routes. |
 * Routes from NVA in a virtual network that are more specific than the virtual network address space, when advertised to the virtual hub through BGP are not propagated further to on-premises.
 * Traffic destined for addresses in the virtual network directly connected to the virtual hub cannot be configured to route through the NVA using BGP peering between the hub and NVA. This is because the virtual hub automatically learns about system routes associated with addresses in the spoke virtual network when the spoke virtual network connection is created. These automatically learned system routes are preferred over routes learned by the hub through BGP.
+* This feature is not supported for setting up BGP peering between NVA in spoke VNET and Virtual hub with Azure Firewall.
 
 ## BGP peering scenarios
 

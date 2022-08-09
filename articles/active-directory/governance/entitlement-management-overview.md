@@ -49,6 +49,7 @@ Azure AD entitlement management can help address these challenges.  To learn mor
 
 Here are some of capabilities of entitlement management:
 
+- Control who can get access to applications, groups, Teams and SharePoint sites, with multi-stage approval, and ensure users do not retain access indefinitely through time-limited assignments and recurring access reviews.
 - Delegate to non-administrators the ability to create access packages. These access packages contain resources that users can request, and the delegated access package managers can define policies with rules for which users can request, who must approve their access, and when access expires.
 - Select connected organizations whose users can request access.  When a user who is not yet in your directory requests access, and is approved, they are automatically invited into your directory and assigned access.  When their access expires, if they have no other access package assignments, their B2B account in your directory can be automatically removed.
 

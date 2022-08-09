@@ -18,10 +18,14 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
+    - name: Create an account - Bicep
+      href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
+  - name: Share and receive data
+    href: quickstart-data-share.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -76,8 +80,14 @@ items:
         href: concept-best-practices-lineage-azure-data-factory.md
       - name: Network architecture best practices
         href: concept-best-practices-network.md
-      - name: Pricing guidelines 
-        href: concept-guidelines-pricing.md
+      - name: Pricing guidelines
+        items:
+        - name: Pricing guidelines overview 
+          href: concept-guidelines-pricing.md
+        - name: Data map pricing
+          href: concept-guidelines-pricing-data-map.md
+        - name: Data Estate Insights pricing
+          href: concept-guidelines-pricing-data-estate-insights.md
       - name: Scanning best practices 
         href: concept-best-practices-scanning.md
       - name: Security best practices
@@ -104,6 +114,8 @@ items:
       href: concept-asset-normalization.md
     - name: Workflows
       href: concept-workflow.md
+  - name: Data Sharing
+    href: concept-data-share.md
   - name: Data policies
     items:
     - name: Data owner policies
@@ -123,7 +135,7 @@ items:
   - name: Manage sources
     items: 
     - name: Supported sources
-      href: azure-purview-connector-overview.md
+      href: microsoft-purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
     - name: Manage credentials
@@ -279,8 +291,18 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
+  - name: Data sharing
+    items:
+    - name: Share data
+      href: how-to-share-data.md
+    - name: Receive share
+      href: how-to-receive-share.md
+    - name: Data sharing FAQ
+      href: how-to-data-share-faq.md
   - name: Data Estate Insights
     items:
+    - name: Disable or enable Data Estate Insights
+      href: enable-disable-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights

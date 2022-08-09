@@ -3,12 +3,12 @@ title: Manage and restore soft-deleted blobs
 titleSuffix: Azure Storage
 description: Manage and restore soft-deleted blobs and snapshots with the Azure portal or with the Azure Storage client libraries.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2021
-ms.author: tamram
+ms.date: 06/29/2022
+ms.author: normesta
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: "devx-track-csharp"
@@ -201,7 +201,7 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
 
    ```azurecli
    $dirName="my-directory"
-   az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName -deletion-id "<deletionId>" --auth-mode login
+   az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName --deletion-id "<deletionId>" --auth-mode login
    ```
 
    If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to it's original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2022
 ms.author: danlep
 ---
@@ -219,4 +219,5 @@ As of v2.1.1 and above, you can manage the ciphers that are being used through t
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
+-   [Self-hosted gateway configuration settings](self-hosted-gateway-settings-reference.md)
 -   Learn about [observability capabilities](observability.md) in API Management
