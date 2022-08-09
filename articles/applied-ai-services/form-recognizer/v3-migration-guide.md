@@ -62,7 +62,7 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
 | **Request URL prefix**| **https://{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https://{your-form-recognizer-endpoint}/formrecognizer** |
-|🆕 **General document**|N/A|`/documentModels/prebuilt-document:analyze` |
+| **General document**|N/A|`/documentModels/prebuilt-document:analyze` |
 | **Layout**| /layout/analyze |`/documentModels/prebuilt-layout:analyze`|
 |**Custom**| /custom/{modelId}/analyze    |`/documentModels/{modelId}:analyze` |
 | **Invoice** | /prebuilt/invoice/analyze    | `/documentModels/prebuilt-invoice:analyze` |

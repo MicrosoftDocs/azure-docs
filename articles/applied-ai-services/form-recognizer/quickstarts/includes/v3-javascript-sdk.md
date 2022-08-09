@@ -17,7 +17,7 @@ recommendations: false
 
 In this quickstart you'll use the following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
+* [ **General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
