@@ -2932,6 +2932,8 @@
         href: oracle-cloud-infrastructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
+        href: palo-alto-networks-cloud-identity-engine-cloud-authentication-service-provisioning-tutorial.md
       - name: Palo Alto Networks SCIM Connector
         href: palo-alto-networks-scim-connector-provisioning-tutorial.md
       - name: PaperCut Cloud Print Management
