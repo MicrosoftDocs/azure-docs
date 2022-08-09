@@ -314,12 +314,14 @@
               items:
                   - name: Understand the developer portal
                     href: api-management-howto-developer-portal.md
-                  - name: Frequently asked questions
+                  - name: Frequently asked questions - developer portal
                     href: developer-portal-faq.md
                   - name: Automate portal deployments
                     href: automate-portal-deployments.md
                   - name: Migrate from deprecated to new developer portal
                     href: developer-portal-deprecated-migration.md
+                  - name: Extend portal with custom functionality
+                    href: developer-portal-extend-custom-functionality.md
                   - name: Enable console OAuth support
                     href: api-management-howto-oauth2.md
                   - name: Integrate Application Insights
@@ -332,7 +334,7 @@
                   href: developer-portal-self-host.md
                 - name: Alternative approaches to self-hosting
                   href: developer-portal-alternative-processes-self-host.md
-                - name: Implement widgets
+                - name: Implement widgets in self-hosted portal
                   href: developer-portal-implement-widgets.md
                 - name: Contribute widgets
                   href: developer-portal-widget-contribution-guidelines.md

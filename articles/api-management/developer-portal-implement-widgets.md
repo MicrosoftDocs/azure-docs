@@ -1,7 +1,7 @@
 ﻿---
 title: Implement widgets in the developer portal
 titleSuffix: Azure API Management
-description: Learn how to implement widgets that consume data from external APIs and display it on the API Management developer portal.
+description: Learn how to implement widgets that consume data from external APIs and display them on the self-hosted API Management developer portal.
 author: dlepow
 ms.author: danlep
 ms.date: 04/15/2021
@@ -9,9 +9,12 @@ ms.service: api-management
 ms.topic: how-to
 ---
 
-# Implement widgets in the developer portal
+# Implement widgets in the self-hosted developer portal
 
-In this tutorial, you implement a widget that consumes data from an external API and displays it on the API Management developer portal.
+In this tutorial, you implement a widget that consumes data from an external API and displays it on the [self-hosted version](developer-portal-self-host.md) of the API Management developer portal.
+
+> [!NOTE]
+> If you want to implement custom widgets in the managed developer portal instead, see [Extend the developer portal with custom features](developer-portal-extend-custom-functionality.md).
 
 The widget will retrieve session descriptions from the sample [Conference API](https://conferenceapi.azurewebsites.net/?format=json). The session identifier will be set through a designated widget editor.
 
