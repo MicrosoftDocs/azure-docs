@@ -41,10 +41,9 @@ The APIs in Azure Static Web Apps are supported by Azure Functions. Refer to the
 
 [!INCLUDE [Languages and runtimes](../../includes/container-apps-languages-runtimes.md)]
 
-## Running locally
-
-When running a Static Web Apps locally, you need to run Azure Functions Core Tools v4. For more information, see [Azure Functions runtimes overview](/azure/azure-functions/functions-versions?tabs=azure-cli%2Cin-process%2Cv4&pivots=programming-language-csharp#upgrade-your-local-project).
-
 ## Deprecations
 
-- **.NET Core 3.1**: Static Web Apps no longer supports the .NET Core 3.1 runtime. Change the `apiRuntime` version in your _staticwebapp.config.json_ file from .NET Core 3.1 to .NET 6. For more information about changing your runtime, see [Specify API language runtime version in Azure Static Web Apps](https://azure.microsoft.com/updates/generally-available-specify-api-language-runtime-version-in-azure-static-web-apps/) and [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions?tabs=azure-powershell%2Cin-process%2Cv4&pivots=programming-language-csharp#upgrade-your-local-project) for more information.
+The following runtimes are deprecated in Azure Static Web Apps. For more information about changing your runtime, see [Specify API language runtime version in Azure Static Web Apps](https://azure.microsoft.com/updates/generally-available-specify-api-language-runtime-version-in-azure-static-web-apps/) and [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions?tabs=azure-powershell%2Cin-process%2Cv4&pivots=programming-language-csharp#upgrade-your-local-project).
+
+- .NET Core 3.1
+- Node.js 12.x
