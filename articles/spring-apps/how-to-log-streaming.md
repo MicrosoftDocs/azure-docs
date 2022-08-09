@@ -167,6 +167,11 @@ Log streaming use the same key as the *Test Endpoint* described in [View apps an
 
 But we still strongly recommend you to sufficiently secure that by filtering network traffic to your service with network security group, review [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
+> [!Note]
+>
+> If you could not access app logs in vnet injection instance from internet after you have enble the log stream public endpoint, please check your network security group first to see whether you have allowed such inbound traffic.
+>
+
 ## Next steps
 
 * [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)

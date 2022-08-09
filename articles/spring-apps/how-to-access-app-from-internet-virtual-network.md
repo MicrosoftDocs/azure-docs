@@ -60,6 +60,11 @@ To make the engineering work much easier, we provide the ability to let the **pu
 
 To ensure the security of your applications when you expose public endpoint for them, we strongly recommend you to sufficiently secure the endpoint by filtering network traffic to your service with network security group, review [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
+> [!Note]
+>
+> If you could not access your application in vnet injection instance from internet after you have assigned a public FQDN, please check your network security group first to see whether you have allowed such inbound traffic.
+>
+
 ## Next steps
 
 - [Exposing applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
