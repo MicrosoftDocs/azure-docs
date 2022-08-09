@@ -44,7 +44,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Azure Health Data Services  |Related information |
 | :----------------------------------- | :--------------- |
-|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements.<br /><br />[Consume events with Logic Apps](https://docs.microsoft.com/azure/healthcare-apis/events/events-consume-logic-apps)  <br /><br />[Deploy Events using the Azure portal](https://docs.microsoft.com/azure/healthcare-apis/events/events-deploy-portal)<br /> | 
+|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](https://docs.microsoft.com/azure/healthcare-apis/events/events-consume-logic-apps) and [Deploy Events Using Azure portal](https://docs.microsoft.com/azure/healthcare-apis/events/events-deploy-portal)<br /> | 
 |One touch launch Azure MedTech deploy. |[Deploy the MedTech service in the Azure portal](https://docs.microsoft.com/azure/healthcare-apis/iot/deploy-iot-connector-in-azure)  <br />|
 
 ### DICOM service
