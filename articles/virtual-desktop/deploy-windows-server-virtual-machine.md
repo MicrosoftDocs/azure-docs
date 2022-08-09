@@ -54,7 +54,7 @@ To configure your VM:
 
 5. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
 
-6. Once you're at **Licensing**, select **Use the specified Remote Desktop license servers** and set the policy to point to the Remote Desktop Licensing Servers FQDN/IP Address.
+6. Once you're at **Licensing**, select **Use the specified Remote Desktop license servers**, then set the policy to point to the Remote Desktop Licensing Servers FQDN/IP Address.
 
 7. Finally, select **Specify the licensing mode for the Remote Desktop Session Host server** and set the policy to **Per device** or **Per user**, depending on your licensing eligibility. 
 
