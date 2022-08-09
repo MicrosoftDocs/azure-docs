@@ -145,12 +145,14 @@ Organization VDC Edge router firewall denies traffic by default. We need to appl
 	
 ### Apply SNAT configuration
 1.	Log in to Organization VDC. Navigate to your Edge gateway and then select NAT under services.
-2.	Select New to add new SNAT rule.
-3.	Provide Name and select Interface type as SNAT.
+2.	Select **New** to add new SNAT rule.
+3.	Provide **Name** and select **Interface type** as SNAT.
 4.	Under **External IP**, enter public IP address from public IP pool assigned to your orgVDC Edge router.
-5.	Under Internal IP, enter IP address for your test VM (one of the orgVDC network IP assigned to the VM).
+5.	Under **Internal IP**, enter IP address for your test VM. 
+      This IP address is one of the orgVDC network IP assigned to the VM.
 6.	**State** should be enabled.
-7.	Under Priority, select a higher number such as 4096.
+7.	Under **Priority**, select a higher number.
+      For example, 4096.
 8.	Select **Save** to save the configuration.
 
 ### Apply firewall rule
@@ -158,7 +160,7 @@ Organization VDC Edge router firewall denies traffic by default. We need to appl
 2. Create an IPset. Provide IP address of your VM (you can use CIDR also). Select save.
 3. Under **services**, select **Firewall** and then select **Edit rules**.
 4. Select **New ON TOP** and create a firewall rule to allow desired port and destination.
-1. Select the **IPset** your created earlier as source. Under Action, select **Allow**.
+1. Select the **IPset** your created earlier as source. Under **Action**, select **Allow**.
 1. Select **Keep** to save the configuration.
 1. Log in to your test VM and ping your destination address to verify outbound connectivity.
 
