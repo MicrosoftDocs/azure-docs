@@ -73,44 +73,40 @@ az lock create --name $lockName \
 
 ### Template
 
-When applying a lock to an Azure Cosmos DB resource, use the following formats:
+When applying a lock to an Azure Cosmos DB resource, use the [``Microsoft.Authorization/locks``](azure/templates/microsoft.authorization/locks) Azure Resource Manager (ARM) resource.
 
-- name - `{resourceName}/Microsoft.Authorization/{lockName}`
-- type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
-
-> [!IMPORTANT]
-> When modifying an existing Azure Cosmos account, make sure to include the other properties for your account and child resources when redploying with this property. Do not deploy this template as is or it will reset all of your account properties.
+#### [JSON](#tab/json)
 
 ```json
-"resources": [
-    {
-        "type": "Microsoft.DocumentDB/databaseAccounts",
-        "name": "[variables('accountName')]",
-        "apiVersion": "2020-04-01",
-        "kind": "GlobalDocumentDB",
-        "location": "[parameters('location')]",
-        "properties": {
-            "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
-            "locations": "[variables('locations')]",
-            "databaseAccountOfferType": "Standard",
-            "enableAutomaticFailover": "[parameters('automaticFailover')]",
-            "disableKeyBasedMetadataWriteAccess": true
-        }
-    },
-    {
-        "type": "Microsoft.DocumentDB/databaseAccounts/providers/locks",
-        "apiVersion": "2020-04-01",
-        "name": "[concat(variables('accountName'), '/Microsoft.Authorization/siteLock')]",
-        "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]"
-        ],
-        "properties": {
+{
+    "type": "Microsoft.Authorization/locks",
+    "apiVersion": "2017-04-01",
+    "name": "cosmoslock",
+    "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]"
+    ],
+    "properties": {
         "level": "CanNotDelete",
-        "notes": "Cosmos account should not be deleted."
-        }
-    }
-]
+        "notes": "Do not delete Azure Cosmos DB account."
+    },
+    "scope": "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]"
+}
 ```
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource lock 'Microsoft.Authorization/locks@2017-04-01' = {
+  name: 'cosmoslock'
+  scope: account
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Do not delete Azure Cosmos DB SQL API account.'
+  }
+}
+```
+
+---
 
 ## Samples
 
