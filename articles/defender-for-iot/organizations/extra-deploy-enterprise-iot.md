@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 08/08/2022
 ---
 
-# Extra deployment steps and samples for Enterprise IoT deployment
+# Extra steps and samples for Enterprise IoT deployment
 
 This article provides extra steps for deploying an Enterprise IoT sensor, including a sample SPAN port configuration procedure, and CLI steps to validate your deployment or delete a sensor.
 

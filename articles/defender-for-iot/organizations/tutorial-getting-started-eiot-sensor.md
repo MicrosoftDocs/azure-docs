@@ -118,9 +118,7 @@ This procedure describes how to prepare your physical appliance or VM to install
     >
     > The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
-When you're ready, continue with [Register an Enterprise IoT sensor and install sensor software](#register-an-enterprise-iot-sensor-and-install-sensor-software).
-
-## Register an Enterprise IoT sensor and install sensor software
+## Register an Enterprise IoT sensor
 
 This procedure describes how to register your Enterprise IoT sensor with Defender for IoT and then install the sensor software on the physical appliance or VM that you're using as your network sensor.
 
@@ -228,6 +226,6 @@ Continue viewing device data in both the Azure portal and Defender for Endpoint,
 In Defender for Endpoint, also view alerts data, recommendations and vulnerabilities related to your network traffic.
 
 - [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
-- [View and organize the Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue?view=o365-worldwide)
-- [Defender for Endpoint security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation?view=o365-worldwide)
-- [Defender for Endpoint: Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation?view=o365-worldwide)
+- [View and organize the Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
+- [Defender for Endpoint security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+- [Defender for Endpoint: Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)

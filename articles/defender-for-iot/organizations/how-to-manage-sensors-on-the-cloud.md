@@ -95,7 +95,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise I O T sensor.":::
 
-1. Copy the command to a safe location, and continue with installing the sensor. For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor#install)
+1. Copy the command to a safe location, and continue with installing the sensor. For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md#install-the-sensor-software).
 
 > [!NOTE]
 > As opposed to OT sensors, where you define your sensor's site, all Enterprise IoT sensors are automatically added to the **Enterprise network** site.
