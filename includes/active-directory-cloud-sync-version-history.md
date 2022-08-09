@@ -10,7 +10,7 @@ You can download the latest version of the agent using [this link](https://downl
 
 ## 1.1.972.0
 
-Release date: August 8th, 2022
+Release date: August 8, 2022
 
 ### New or changed functionality
 
@@ -20,23 +20,23 @@ Release date: August 8th, 2022
  - We have added support for the installation of the provisioning agent using the commandline. 
  - We added support for EX and RX environments.
  - 
-### Bugfixes
+### Fixed issues
 
- - After the Newtonsoft.Json upgrade, AADConnectProvisioningAgent.exe.config is not updated after install which results in a failure of sync. We now remove the app.config file on upgrade of the agent.
+ - After the Newtonsoft.Json upgrade, AADConnectProvisioningAgent.exe.config isn't updated after install, which results in a failure of sync. We now remove the app.config file on upgrade of the agent.
  - We fixed an issue with DC affinity after an OU is renamed.
  - We fixed several issues in the PowerShell module.
  - We fixed a memory leak due to not disposing HTTP client.
  - We fixed a bug in the code for granting the "logon as a service" right to the GMSA.
  - We refined the permissions on the GMSA for CloudHR.
  - We now uninstall the Cloud Sync agent when the bundle is uninstalled.
- - We fixed a bug that prevents deletion of the Service Principal if not all Job are deleted.
+ - We fixed a bug that prevents deletion of the Service Principal if not all Jobs are deleted.
  - We fixed an issue with updating of the password of a user with 'User must change password at next logon'.
  - We fixed an issue with the agent GMSA folder permissions.
- - We fixed an issue where group membership updates are not always correct.
+ - We fixed an issue where group membership updates aren't always correct.
 
 ## 1.1.587.0
 
-November 2nd, 2021 - released for download
+November 2, 2021 - released for download
 
 New features and improvements
 
@@ -45,19 +45,19 @@ New features and improvements
 
 ## 1.1.584.0 
 
-August 20th, 2021 - released for download
+August 20, 2021 - released for download
 
 ### Fixed issues
 
-- We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This is a regression from earlier builds.
+- We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This error is a regression from earlier builds.
 
 ## 1.1.582.0
 
-August 8th, 2021 - released for download
+August 8, 2021 - released for download
 
 >[!NOTE] 
 >This is a security update release of Azure AD Connect. 
->This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
+>This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability, see the CVE.
 
 ## 1.1.359.0
 
@@ -66,14 +66,10 @@ August 8th, 2021 - released for download
 
 ### Fixed issues
 - GMSA folder permission bug fix (originally, the issue resulted in bootstrap issues)
-- Bug fix for handling multiple changes to a single value reference attribute (e.g. manager)
+- Bug fix for handling multiple changes to a single value reference attribute (for example, manager)
 - Bug fix for failure in Initial Enumeration, plus enhanced tracing of the failure
-- Optimize group membership updates to a Scoping Group. With this, customers now can sync a group of up to 50K members using group scoping filter. 
+- Optimize group membership updates to a Scoping Group. With this update, customers now can sync a group of up to 50 K members using group scoping filter. 
 - Support retrieving a single object by DN with Scoping used by Provisioning On Demand to obey Scoping logic
-
-
-
-
 
 ## 1.1.354.0
 
@@ -83,7 +79,7 @@ January 20, 2021: Released for download
 - Improvement to GMSA experience including support for pre-custom created GMSA Account
 - [PowerShell cmdlets](../articles/active-directory/cloud-sync/how-to-gmsa-cmdlets.md) support for GMSA setup
 - [CLI support](../articles/active-directory/cloud-sync/how-to-install-pshell.md) for agent install (silent installation)
-- Additional diagnostics for agent source quarantine issues
+- More diagnostics for agent source quarantine issues
 - Bug fixes that include reducing of memory usage of OU scoping filters, running PHS only for in-scope users, handling of nested objects in OU when using OU scoping etc. 
 
 
@@ -95,13 +91,7 @@ January 20, 2021: Released for download
 -	Make the Repair-AADCloudSyncToolsAccount more robust
 -	Reduce large memory usage of OU scoping filters
 -	Admin role check fails if the role members contain a security group
--	Fix GMSA folder permission issue which prevents Agent Cert renewal
-
-
-
-
-
-
+-	Fix GMSA folder permission issue, which prevents Agent Cert renewal
 
 ## 1.1.281.0
 
@@ -112,8 +102,8 @@ November 23, 2020: Released for download
 ### New features and improvements
 
 * Support for [gMSA](../articles/active-directory/cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
-* Support for groups up to size less than 1500 members during incremental or delta sync cycle. This is applicable when using group scoping filter
-* Support for large groups with member size up to 15K
+* Support for groups up to size less than 1500 members during incremental or delta sync cycle. This change is applicable when using group scoping filter
+* Support for large groups with member size up to 15 K
 * Initial sync improvements
 * Advanced verbose logging
 * Introduction of [AADCloudSyncTools PowerShell module](../articles/active-directory/cloud-sync/reference-powershell.md)
@@ -144,7 +134,7 @@ September 9, 2019: Released for auto update
 
 ### New features and improvements
 
-* Ability to configure additional tracing and logging for debugging Provisioning Agent issues
+* Ability to configure more tracing and logging for debugging Provisioning Agent issues
 * Ability to fetch only those Azure AD attributes that are configured in the mapping to improve performance of sync
 
 ### Fixed issues
