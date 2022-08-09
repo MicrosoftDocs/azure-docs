@@ -28,7 +28,73 @@ GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](h
 
 :::image type="content" source="media/gitops/flux2-extension-install-aks.png" alt-text="Diagram showing the installation of the Flux extension for Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-extension-install-aks.png":::
 
-GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.  The extension will be installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in a cluster, or you can install it manually using the portal, the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*), ARM template, or REST API. 
+GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.  The extension will be installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in a cluster, or you can install it manually using the portal, the Azure CLI, ARM template, or REST API.
+
+### [Azure CLI](#tab/install-azure-cli)
+
+```azurecli
+az k8s-extension create --name flux --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type microsoft.flux
+```
+
+### [ARM Template](#tab/install-arm-template)
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "ConnectedClusterName": {
+            "defaultValue": "<cluster-name>",
+            "type": "String",
+            "metadata": {
+                "description": "The Connected Cluster name."
+            }
+        },
+        "ExtensionInstanceName": {
+            "defaultValue": "flux",
+            "type": "String",
+            "metadata": {
+                "description": "The extension instance name."
+            }
+        },
+        "ExtensionType": {
+            "defaultValue": "microsoft.flux",
+            "type": "String",
+            "metadata": {
+                "description": "The extension type."
+            }
+        },
+        "ReleaseTrain": {
+            "defaultValue": "stable",
+            "type": "String",
+            "metadata": {
+                "description": "The release train."
+            }
+        }
+    },
+    "functions": [],
+    "resources": [
+        {
+            "type": "Microsoft.KubernetesConfiguration/extensions",
+            "apiVersion": "2021-09-01",
+            "name": "[parameters('ExtensionInstanceName')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "extensionType": "[parameters('ExtensionType')]",
+                "releaseTrain": "[parameters('ReleaseTrain')]"
+            },
+            "scope": "[concat('Microsoft.Kubernetes/connectedClusters/', parameters('ConnectedClusterName'))]"
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> You can also specify `version` under `properties` to pin a certain extension version. However, this deactivates auto upgrades to minor versions.
+
+---
 
 The `microsoft.flux` extension installs by default the [Flux controllers](https://fluxcd.io/docs/components/) (Source, Kustomize, Helm, Notification) and the FluxConfig CRD, fluxconfig-agent, and fluxconfig-controller. You can control which of these controllers is installed and can optionally install the Flux image-automation and image-reflector controllers, which provide functionality around updating and retrieving Docker images.
 
@@ -61,7 +127,64 @@ The `microsoft.flux` extension installs by default the [Flux controllers](https:
 
 :::image type="content" source="media/gitops/flux2-config-install.png" alt-text="Diagram showing the installation of a Flux configuration in an Azure Arc-enabled Kubernetes or Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-config-install.png":::
 
-You create Flux configuration resources (`Microsoft.KubernetesConfiguration/fluxConfigurations`) to enable GitOps management of the cluster from your Git repos or Bucket sources. When you create a `fluxConfigurations` resource, the values you supply for the parameters, such as the target Git repo, are used to create and configure the Kubernetes objects that enable the GitOps process in that cluster. To ensure data security, the `fluxConfigurations` resource data is stored encrypted at rest in an Azure Cosmos DB database by the Cluster Configuration service.
+You create Flux configuration resources (`Microsoft.KubernetesConfiguration/fluxConfigurations`) to enable GitOps management of the cluster from your Git repos or Bucket sources. When you create a `fluxConfigurations` resource, the values you supply for the parameters, such as the target Git repo, are used to create and configure the Kubernetes objects that enable the GitOps process in that cluster. To ensure data security, the `fluxConfigurations` resource data is stored encrypted at rest in an Azure Cosmos DB database by the Cluster Configuration service. 
+You can create and manage `fluxConfigurations` via the Azure Portal, Azure CLI, ARM template, or REST API.
+
+### [Azure Portal](#tab/create-configurations-azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com/#home), navigate to **Kubernetes - Azure Arc** and select your cluster.
+1. Select **GitOps** (under **Settings**), and then select **+ Create**.
+1. Provide required inputs for **Basics**, **Source**, **Kustomizations**, and then go to **Review + Create**.
+1. Click **Refresh** to observe the State of the newly created GitOps configuration.
+
+### [Azure CLI](#tab/create-configurations-azure-cli)
+
+```azurecli
+az k8s-configuration flux create -g <resource-group> -c <cluster-name> -n <configuration-name> -t connectedClusters --scope cluster --url <url-source-to-reconcile> --branch <git-branch> --kustomization <kustomization-parameters-as-key-value-pairs>
+```
+
+> [!NOTE]
+> This creates a configuration for a public git repository. See the Azure CLI reference for additional options.
+
+### [ARM Template](#tab/create-configurations-arm-template)
+
+This provides a minimal example to create a cluster-scoped Flux configuration for a public git repository.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.KubernetesConfiguration/fluxConfigurations",
+            "apiVersion": "2022-03-01",
+            "name": "<name-of-configuration>",
+            "scope": "Microsoft.Kubernetes/connectedClusters/<connected-cluster-name>",
+            "properties": {
+                "configurationProtectedSettings": {},
+                "gitRepository": {
+                    "repositoryRef": {
+                        "branch": "<git-repository-branch-name>"
+                    },
+                    "url": "<git-repository-url>"
+                },
+                "kustomizations": {
+                    "<name-of-kustomization>": {
+                        "path": "<path-to-kustomization>"
+                    }
+                },
+                "scope": "cluster",
+                "sourceKind": "GitRepository"
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> Connecting to a private git repository requires to pass a Base64-encoded `https-key` or a `ssh-private-key` to the `configurationProtectedSettings`.
+
+---
 
 The `fluxconfig-agent` and `fluxconfig-controller` agents, installed with the `microsoft.flux` extension, manage the GitOps configuration process.  
 
