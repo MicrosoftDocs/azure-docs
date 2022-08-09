@@ -46,26 +46,24 @@ The assigned public FQDN (labeled **URL**) is now available. It can only be acce
 Update your app to assign an public endpoint to it. Customize the value of your app name based on your real environment.
 
 ```azurecli
-SPRING_CLOUD_APP='your spring cloud app'
+SPRING_CLOUD_APP=<app-name>
 az spring app update \
-    --resource-group $RESOURCE_GROUP \
-    --name $SPRING_CLOUD_APP \
-    --service $SPRING_CLOUD_NAME \
+    --resource-group <resource-group-name> \
+    --name <app-instance-name> \
+    --service <service-name> \
     --assign-public-endpoint true
 ```
 
 ## Access the application from both inside and outside the virtual network using the Public URL
 
-To make the engineering work much easier, we provide the ability to let the **public URL** could be accessed both inside or outside the virtual network. To achieve that, follow [Access your application in a private network](./access-app-virtual-network.md) to bind the domain *.private.azuremicroservices.io to the service runtime Subnet private IP address in your private dns zone but keep the **Assign Endpoint** in disable state. Under that condition, the **public URL** could used to access the app from both inside and outside the virtual network. 
+You can let the **public URL** be accessed both inside or outside the virtual network. Follow the steps in [Access your application in a private network](./access-app-virtual-network.md) to bind the domain `.private.azuremicroservices.io` to the service runtime Subnet private IP address in your private DNS zone while keeping the **Assign Endpoint** in a disable state. You can then access the app using the **public URL** from both inside and outside the virtual network. 
 
-## Secure the traffic to the public endpoint
+## Secure traffic to the public endpoint
 
-To ensure the security of your applications when you expose public endpoint for them, we strongly recommend you to sufficiently secure the endpoint by filtering network traffic to your service with network security group, review [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
->
 > If you could not access your application in vnet injection instance from internet after you have assigned a public FQDN, please check your network security group first to see whether you have allowed such inbound traffic.
->
 
 ## Next steps
 
