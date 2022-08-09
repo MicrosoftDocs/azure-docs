@@ -28,7 +28,7 @@ The following procedures explain how to use Log Streaming, Log Analytics, Metric
 - Complete the previous quickstarts in this series:
 
   - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
-  - [Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md).
+  - [Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps](./quickstart-setup-config-server.md).
   - [Build and deploy apps to Azure Spring Apps](./quickstart-deploy-apps.md).
   - [Set up a Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
@@ -120,7 +120,7 @@ With the built-in monitoring capability in Azure Spring Apps, you can debug and 
 - Complete the previous quickstarts in this series:
 
   - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
-  - [Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md).
+  - [Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps](./quickstart-setup-config-server.md).
   - [Build and deploy apps to Azure Spring Apps](./quickstart-deploy-apps.md).
   - [Set up a Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
