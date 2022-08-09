@@ -232,12 +232,10 @@ With FastPath and UDR, you can configure a UDR on the GatewaySubnet to direct Ex
 > The previews for virtual network peering and user defined routes (UDRs) are offered together. You cannot enable only one scenario.
 >
 
-To enroll in these previews, run the following Azure PowerShell command in the target Azure subscription:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
-```
-
+To enroll in these previews, send an email to exrpm@microsoft.com and include the following information:
+* Subscription ID
+* Service key of the target ExpressRoute circuit
+* Name and Resource Group/ARM resource ID of the target virtual network(s)
 ### FastPath and Private Link for 10 Gbps ExpressRoute Direct
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. This preview supports connections associated to 10 Gbps ExpressRoute Direct circuits. This preview doesn't support ExpressRoute circuits managed by an ExpressRoute partner.
