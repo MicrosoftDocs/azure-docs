@@ -8,38 +8,42 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.date: 08/09/2022
 ---
 
 # Add search to AI-enriched data from Apache Spark using Azure Synapse Analytics
 
-This is an Azure Cognitive Search article that explains how to add data exploration and full text search to a SynapseML solution.
+In this Azure Cognitive Search article, learn how to add data exploration and full text search to a SynapseML solution.
 
-[SynapseML](/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. One of the ways in which machine learning is exposed is through *transformers*, or modules that perform specialized tasks. Transformers tap into a wide range of AI capabilities, but in this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
+[SynapseML](/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/) is an open source library that supports massively parallel machine learning over big data. One of the ways in which machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities, but in this article, we'll focus on just those that call Cognitive Services and Cognitive Search.
 
 In this walkthrough, you'll set up a workbook that does the following:
 
 > [!div class="checklist"]
 > + Load various forms (invoices) into a data frame in an Apache Spark session
 > + Analyze them to determine their features
-> + Assemble the output into a tabular data structure
+> + Assemble the resulting output into a tabular data structure
 > + Write the output to a search index in Azure Cognitive Search
 > + Explore and search over the content you created
 
-Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), a key point of this walkthrough is demonstrating access to AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not bound to specific data limits, data sources, or skill interfaces.
+Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this walkthrough shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or any other constraint associated with those objects.
 
 > [!TIP]
-> Watch a demo of this walkthrough at [https://www.youtube.com/watch?v=iXnBLwp7f88](https://www.youtube.com/watch?v=iXnBLwp7f88) for more steps and visuals.
+> Watch a demo at [https://www.youtube.com/watch?v=iXnBLwp7f88](https://www.youtube.com/watch?v=iXnBLwp7f88). The demo expands on this walkthrough with more steps and visuals.
 
 ## Prerequisites
 
 You'll need the `synapseml` library and several Azure resources. If possible, use the same subscription and region for your Azure resources and put everything into one resource group for simple cleanup later. The following links are for portal installs. The sample data is imported from a public site.
 
-+ [Azure Cognitive Search](search-create-service-portal.md) (any tier)
-+ [Azure Forms Recognizer](../applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md) (any tier)
-+ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>1</sup>
++ [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>1</sup> 
++ [Azure Cognitive Services](/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux#create-a-new-azure-cognitive-services-resource) (any tier) <sup>2</sup> 
++ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>3</sup>
 
-<sup>1</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or something else. The above article includes multiple steps. For the purposes of this walkthrough, follow only the instructions in "Create a workspace".
+<sup>1</sup> You can use the free tier for this walkthrough but [choose a higher tier](search-sku-tier.md) if data volumes are large.
+
+<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a Cognitive Services multi-service key and the region.
+
+<sup>3</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
 
 > [!NOTE]
 > All of the above resources support security features in the Microsoft Identity platform. For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
@@ -56,25 +60,35 @@ In this section, you'll create a cluster, install the `synapseml` library, and c
 
 1. Give the cluster a name, accept the default configuration, and then create the cluster. It takes several minutes to create the cluster.
 
-1. Install the `synapseml` library:
+1. Install the `synapseml` library after the cluster is created:
 
-   1. After the cluster is created, select **Library** from the tabs at the top of the cluster's page.
+   1. Select **Library** from the tabs at the top of the cluster's page.
+
    1. Select **Install new**.
+
+      :::image type="content" source="media/search-synapse-cognitive-services/install-library.png" alt-text="Screenshot of the Install New command." border="true":::
+
    1. Select **Maven**.
+
    1. In Coordinates, enter `com.microsoft.azure:synapseml_2.12:0.10.0`
+
    1. Select **Install**.
 
 1. On the left menu, select **Create** > **Notebook**.
+
+   :::image type="content" source="media/search-synapse-cognitive-services/create-notebook.png" alt-text="Screenshot of the Create Notebook command." border="true":::
 
 1. Give the notebook a name, select **Python** as the default language, and select the cluster that has the `synapseml` library.
 
 1. Create seven consecutive cells. You'll paste code into each one.
 
+   :::image type="content" source="media/search-synapse-cognitive-services/create-seven-cells.png" alt-text="Screenshot of the notebook with placeholder cells." border="true":::
+
 ## Set up dependencies
 
 Paste the following code into the first cell of your notebook. Replace the placeholders with endpoints and access keys for each resource. No other modifications are required, so run the code when you're ready.
 
-This code loads packages and sets up the endpoints and keys for the Azure resources used in this workflow.
+This code loads packages and sets up access to the Azure resources used in this workflow.
 
 ```python
 import os
@@ -85,8 +99,6 @@ from synapse.ml.core.spark import FluentAPI
 cognitive_services_key = "placeholder-cognitive-services-multi-service-key"
 cognitive_services_region = "placeholder-cognitive-services-region"
 
-translator_key = "placeholder-translator-key"
-
 search_service = "placeholder-search-service-name"
 search_key = "placeholder-search-service-api-key"
 search_index = "placeholder-search-index-name"
@@ -96,7 +108,7 @@ search_index = "placeholder-search-index-name"
 
 Paste the following code into the second cell. No modifications are required, so run the code when you're ready.
 
-This code loads about several external files from an Azure storage account that's used for demo purposes. The files are various invoices, and they're read into a data frames 
+This code loads a small number of external files from an Azure storage account that's used for demo purposes. The files are various invoices, and they're read into a data frame.
 
 ```python
 def blob_to_url(blob):
@@ -144,7 +156,9 @@ display(analyzed_df)
 
 Paste the following code into the fourth cell and run it. No modifications are required.
 
-This code loads FormOntologyLearner, a transformer that analyzes the output of form recognition and infers a tabular data structure. The output of forms recognition is dynamic and varies based on the features that form recognizer detects. The output is also consolidated into a single output column. FormOntologyLearner iterates over the output and looks for patterns that can be used to create tabular data.
+This code loads FormOntologyLearner, a transformer that analyzes the output of Form Recognizer and infers a tabular data structure. The output of forms recognition is dynamic and varies based on the features detected in your content. Furthermore, the output is consolidated into a single output column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
+
+FormOntologyLearner extends the utility of Forms Recognizer by looking for patterns that can be used to create a tabular data structure. It finds patterns that can be used to organize the output into multiple columns and rows, making the content consumable in other transformers, like AzureSearchWriter.
 
 ```python
 from synapse.ml.cognitive import FormOntologyLearner
@@ -170,8 +184,8 @@ This code loads [Translate](https://microsoft.github.io/SynapseML/docs/documenta
 from synapse.ml.cognitive import Translate
 
 translated_df = (Translate()
-    .setSubscriptionKey(translator_key)
-    .setLocation("eastus")
+    .setSubscriptionKey(cognitive_services_key)
+    .setLocation(cognitive_services_region)
     .setTextCol("Description")
     .setErrorCol("TranslationError")
     .setOutputCol("output")
@@ -185,18 +199,20 @@ translated_df = (Translate()
 display(translated_df)
 ```
 
+To check for translated strings, scroll to the end of the rows.
+
+:::image type="content" source="media/search-synapse-cognitive-services/translated-strings.png alt-text="Screenshot of table output, showing the Translations column." border="true":::
+
 ## Apply search indexing
 
 Paste the following code in the sixth cell and then run it. No modifications are required.
 
-This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
-
-Because output translations is an array, it's articulated in the index as a complex collection with subfields for each translated language.
+This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. Because the output translations structure is an array, it's articulated in the index as a complex collection with subfields for each translated language. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
 
 ```python
 from synapse.ml.cognitive import *
 
-(completed_df.withColumn("DocID", monotonically_increasing_id().cast("string"))
+(translated_df.withColumn("DocID", monotonically_increasing_id().cast("string"))
     .withColumn("SearchAction", lit("upload"))
     .writeToAzureSearch(
         subscriptionKey=search_key,
@@ -209,15 +225,15 @@ from synapse.ml.cognitive import *
 
 ## Query the index
 
-Paste the following code into the seventh cell and then run it. No modifications are required, except that you might want to vary the [query syntax](query-simple-syntax.md) to further explore your content.
+Paste the following code into the seventh cell and then run it. No modifications are required, except that you might want to vary the [query syntax](query-simple-syntax.md) or [review these query examples](search-query-simple-examples.md) to further explore your content.
 
-This code calls the [Search Documents REST API](/rest/api/searchservice/search-documents) that queries an index. This particular example is searching for the word "door". Once you know what the field names are in the inferred index, you can add parameters like "select" and "searchFields" to scope the query request and response.
+This code calls the [Search Documents REST API](/rest/api/searchservice/search-documents) that queries an index. This particular example is searching for the word "door". This query returns a count of the number of matching documents. It also returns just the contents of the "Description' and "Translations" fields. If you want to see the full list of fields, remove the "select" parameter.
 
 ```python
 import requests
 
 url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2020-06-30".format(search_service, search_index)
-requests.post(url, json={"search": "door"}, headers={"api-key": search_key}).json()
+requests.post(url, json={"search": "door", "count": "true", "select": "Description, Translations"}, headers={"api-key": search_key}).json()
 ```
 
 ## Clean up resources
