@@ -68,7 +68,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
    az group create --name <Name of Resource Group> --location eastus
    ```
 
-1. Create an Azure Spring Apps service intance.
+1. Create an Azure Spring Apps service instance.
 
    ```azurecli-interactive
    az spring create -n <Name of service instance> -g <Name of Resource Group>
@@ -76,7 +76,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
 
    And choose **Y** to install the Azure Spring Apps extension and run.
 
-### Create the app in your instance
+### Create an app in your instance
 
 ```azurecli-interactive
 az spring app create -n hellospring -s <service instance name> -g <Name of Resource Group> --assign-endpoint true
@@ -128,29 +128,34 @@ To complete this quickstart:
 Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.9&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. This link uses the following URL to provide default settings for you. 
 
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.9&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
 ```
 
 The following image shows the recommended Initializr set up for this sample project. 
 
-This example uses Java version 8.  If you want to use Java version 11 or 17, change the option under **Project Metadata**. 
+This example uses Java version 11.  If you want to use Java version 17, change the option under **Project Metadata**. 
 
 :::image type="content" source="media/quickstart/initializr-page-new.jpg" alt-text="Screenshot of Spring Initializr page.":::
 
 1. Select **Generate** when all the dependencies are set.
 1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
 
-   ```java
-   package com.example.hellospring;
+    ```java
+    package com.example.hellospring;
 
-   import org.springframework.web.bind.annotation.RestController;
-   import org.springframework.web.bind.annotation.RequestMapping;
+    import org.springframework.web.bind.annotation.RestController;
+    import org.springframework.web.bind.annotation.RequestMapping;
 
-   @RestController
-   public class HelloController {
+    @RestController
+    public class HelloController {
 
-       @RequestMapping("/")
-   ```
+        @RequestMapping("/")
+        public String index() {
+            return "Greetings from Azure Spring Apps!";
+        }
+
+    }
+    ```
 
 ### Provision an instance of Azure Spring Apps
 
@@ -192,7 +197,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. After that, [sign-in to your Azure accout](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in) in IntelliJ.
 
-### Bulid and deploy the app
+### Bulid and deploy an app
 
 > [!NOTE]
 > If you want to run the project locally, please add **spring.config.import=configserver:** to the **application.propertities** file.
@@ -242,7 +247,7 @@ Once deployment has completed, you can access the app at `https://<service insta
 
 Use the following command to get real-time logs from the App.
 
-```azurecli
+```azurecli-interactive
 az spring app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
 ```
 
@@ -280,7 +285,7 @@ For advanced logs analytics features, visit the **Logs** tab in the menu on the 
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
-```azurecli
+```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName &&
