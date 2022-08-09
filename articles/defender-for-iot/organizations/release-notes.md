@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 07/18/2022
+ms.date: 08/07/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -46,7 +46,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.4 | 07/2022 | 4/2023 |
 | 22.2.3 | 07/2022 | 4/2023 |
+| 22.1.7 | 07/2022 | 4/2023 |
 | 22.1.6 | 06/2022 | 10/2023 |
 | 22.1.5 | 06/2022 | 10/2023 |
 | 22.1.4 | 04/2022 | 10/2022 |
@@ -61,15 +63,15 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**Enterprise IoT networks**     | - [Enterprise IoT purchase experience and Defender for Endpoint integration in GA](#enterprise-iot-purchase-experience-and-defender-for-endpoint-integration-in-ga)        |
-|**OT networks**     |**Sensor software version 22.2.3**:<br><br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br>- [Sensor names shown in browser tabs](#sensor-names-shown-in-browser-tabs)<br><br>To update to version 22.2.3:<br>- From version 22.1.x, update directly to version 22.2.3<br>- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3<br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).  |
+|**Enterprise IoT networks**     | - [Enterprise IoT and Defender for Endpoint integration in GA](#enterprise-iot-and-defender-for-endpoint-integration-in-ga)        |
+|**OT networks**     |**Sensor software version 22.2.4**: <br>- [Device inventory enhancements](#device-inventory-enhancements)<br>- [Enhancements for the ServiceNow integration API](#enhancements-for-the-servicenow-integration-api)<br><br>**Sensor software version 22.2.3**:<br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br>- [Sensor names shown in browser tabs](#sensor-names-shown-in-browser-tabs)<br><br>**Sensor software version 22.1.7**: <br>- [Same passwords for *cyberx_host* and *cyberx* users](#same-passwords-for-cyberx_host-and-cyberx-users) <br><br>**To update to version 22.2.x**:<br>- **From version 22.1.x**, update directly to the latest **22.2.x** version<br>- **From version 10.x**, first update to the latest **22.1.x** version, and then update again to the latest **22.2.x** version <br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).  |
 |**Cloud-only features**     |  - [Microsoft Sentinel incident synch with Defender for IoT alerts](#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts) |
 
-### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
+### Enterprise IoT and Defender for Endpoint integration in GA
 
-Defender for IoT’s new purchase experience and the Enterprise IoT integration with Microsoft Defender for Endpoint is now in General Availability (GA). With this update, we've made the following updates and improvements:
+The Enterprise IoT integration with Microsoft Defender for Endpoint is now in General Availability (GA). With this update, we've made the following updates and improvements:
 
-- An updated **Plans and pricing** page with an enhanced onboarding process, as well as smooth onboarding directly in Defender for Endpoint. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+- Onboard an Enterprise IoT plan directly in Defender for Endpoint. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 - Seamless integration with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal. For more information, see the [Enterprise IoT tutorial](tutorial-getting-started-eiot-sensor.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). You can continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
 
@@ -77,6 +79,40 @@ Defender for IoT’s new purchase experience and the Enterprise IoT integration 
 
 > [!NOTE]
 > The Enterprise IoT network sensor and all detections remain in Public Preview.
+
+### Same passwords for cyberx_host and cyberx users
+
+During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. When updating from version 10.x.x to version 22.1.7, the **cyberx_host** password is assigned with an identical password to the **cyberx** user.
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### Device inventory enhancements
+
+Starting in OT sensor versions 22.2.4, you can now take the following actions from the sensor console's **Device inventory** page:
+
+- **Merge duplicate devices**. You may need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
+
+- **Delete single devices**. Now, you can delete a single device that hasn't communicated for at least 10 minutes.
+
+- **Delete inactive devices by admin users**. Now, all admin users, in addition to the **cyberx** user, can delete inactive devices.
+
+Also starting in version 22.2.4, in the sensor console's **Device inventory** page, the **Last seen** value in the device details pane is replaced by **Last activity**. For example:
+
+:::image type="content" source="media/release-notes/last-activity-new.png" alt-text="Screenshot of the new Last activity field showing in the sensor console's device details pane on the Device inventory page.":::
+
+For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+
+### Enhancements for the ServiceNow integration API
+
+OT sensor version 22.2.4 provides enhancements for the `devicecves` API, which gets details about the CVEs found for a given device.
+
+Now you can add any of the following parameters to your query to fine tune your results:
+
+- “**sensorId**” - Shows results from a specific sensor, as defined by the given sensor ID.
+- “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**.
+- “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
+
+For more information, see [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
 
 ### OT appliance hardware profile updates
 
@@ -122,6 +158,12 @@ For more information, see:
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+### Sensor connections restored after certificate rotation
+
+Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your central manager, and you don't need to reconnect them manually.
+
+For more information, see [About certificates](how-to-deploy-certificates.md).
 
 ### Support diagnostic log enhancements (Public preview)
 
@@ -216,6 +258,7 @@ Check out our new structure to follow through viewing devices and assets, managi
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
 >
+
 
 ## April 2022
 
@@ -562,91 +605,6 @@ This new functionality is available on the following alerts:
 - Port Scan Detected alerts, based on activity of the source device (generated by the Anomaly engine)
 - Malware alerts, based on activity of the source device. (generated by the Malware engine). 
 - Suspicion of Denial of Service Attack alerts, based on activity of the destination device (generated by the Malware engine)
-
-## November 2021
-
-**Sensor software version**: 10.5.3
-
-The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
-
-- The on-premises management console, has a new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
-
-- Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
-
-- As part of our automated maintenance, archived alerts that are over 90 days old will now be automatically deleted.
-
-- Many enhancements have been made to the exporting of alert metadata based on customer feedback.
-
-## October 2021
-
-**Sensor software version**: 10.5.2
-
-The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
-
-- [PLC operating mode detections (Public Preview)](#plc-operating-mode-detections-public-preview)
-
-- [PCAP API](#pcap-api)
-
-- [On-premises Management Console Audit](#on-premises-management-console-audit)
-
-- [Webhook Extended](#webhook-extended)
-
-- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases)
-
-### PLC operating mode detections (Public Preview)
-
-Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
-
-This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the effects of such risks.
-This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
-
-#### What is an unsecure mode?
-
-If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*.
-
-#### Visibility and risk assessment
-
-- Use the Device Inventory to view the PLC state of organizational PLCs, and contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
-
-    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing PLC operating mode.":::
-
-- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.
-
-    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing PLC information.":::
-
-- View all network PLC Run and Key State statuses by creating a Data Mining with PLC operating mode information.
-
-    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing PLC option.":::
-
-- Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and additional information you can use to mitigate unsecure PLC risks.
-
-### PCAP API
-
-The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself.
-
-### On-premises Management Console audit
-
-Audit logs for the on-premises management console can now be exported to facilitate investigations into what changes were made, and by who.
-
-### Webhook extended
-
-Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert and adds the following information to the report:
-
-- sensorID
-- sensorName
-- zoneID
-- zoneName
-- siteID
-- siteName
-- sourceDeviceAddress
-- destinationDeviceAddress
-- remediationSteps
-- handled
-- additionalInformation
-
-### Unicode support for certificate passphrases
-
-Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
 
 ## Next steps
 

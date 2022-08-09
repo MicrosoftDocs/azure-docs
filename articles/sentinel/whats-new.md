@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # What's new in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
 If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
@@ -27,9 +25,42 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## August 2022
+
+### Microsoft Sentinel Solution for SAP is now generally available
+
+The Microsoft Sentinel Solution for SAP is now generally available (GA). [Learn about billing and offer details](/pricing/offers/microsoft-sentinel-sap-promo/).
+
+With previous versions, every solution update would duplicate content, creating new objects alongside the previous version objects. The GA version uses rule and workbook templates, so that for every solution update, you can clearly understand what has changed, using a dedicated wizard. [Learn more about rule templates](manage-analytics-rule-templates.md).
+
+[Learn more about the updated solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protect-critical-information-within-sap-systems-against/ba-p/3586943).
+
+#### Solution highlights
+
+The Microsoft Sentinel solution for SAP allows you to monitor, detect, and respond to suspicious activities within the SAP ecosystem, protecting your sensitive data against sophisticated cyber attacks. 
+
+Use the solution to: 
+
+- Monitor all SAP system layers 
+- Gain visibility across business logic, application, databases, and operating system layers with built-in investigation and threat detection tools 
+- Detect and automatically respond to threats 
+- Discover suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, and suspicious data downloads with out-of-the-box detection capabilities 
+- Customize based on your needs: build your own threat detection solutions to monitor specific business risks and extend built-in security content
+
 ## July 2022
 
+- [Sync user entities from your on-premises Active Directory with Microsoft Sentinel](#sync-user-entities-from-your-on-premises-active-directory-with-microsoft-sentinel)
 - [Automation rules for alerts](#automation-rules-for-alerts)
+
+### Sync user entities from your on-premises Active Directory with Microsoft Sentinel
+
+Until now, you've been able to bring your user account entities from your Azure Active Directory (Azure AD) into the IdentityInfo table in Microsoft Sentinel, so that User and Entity Behavior Analytics (UEBA) can use that information to provide context and give insight into user activities, to enrich your investigations.
+
+Now you can do the same with your on-premises (non-Azure) Active Directory as well.
+
+If you have Microsoft Defender for Identity, [enable and configure User and Entity Behavior Analytics (UEBA)](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics) to collect and sync your Active Directory user account information into Microsoft Sentinel's IdentityInfo table, so you can get the same insight value from your on-premises users as you do from your cloud users.
+
+Learn more about the [requirements for using Microsoft Defender for Identity](/defender-for-identity/prerequisites) this way.
 
 ### Automation rules for alerts
 
@@ -633,7 +664,7 @@ For more information, see:
 
 ### Data connector health enhancements (Public preview)
 
-Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you [turn on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event generated.
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you [turn on the Azure Sentinel health feature](monitor-sentinel-health.md) in your Azure Sentinel workspace, at the first success or failure health event generated.
 
 For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
 

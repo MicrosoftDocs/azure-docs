@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Client optional configuration steps: OpenVPN protocol - Windows'
+title: 'Azure VPN Client optional configuration steps: OpenVPN protocol'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure the Azure VPN Client optional configuration parameters for P2S OpenVPN connections.
 author: cherylmc
@@ -9,9 +9,9 @@ ms.date: 07/12/2022
 ms.author: cherylmc
 
 ---
-# Configure Azure VPN Client optional settings - OpenVPN protocol - Windows
+# Configure Azure VPN Client optional settings - OpenVPN protocol
 
-This article helps you configure optional settings for an Azure VPN Client installed on a Windows computer.
+This article helps you configure optional settings for the Azure VPN Client.
 
 * For information about installing the Azure VPN Client, see [Configure the Azure VPN client - Windows](openvpn-azure-ad-client.md).
 
