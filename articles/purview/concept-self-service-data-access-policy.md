@@ -49,7 +49,8 @@ Whenever a data consumer requests access to a dataset, the notification is sent 
 Data consumer can access the requested dataset using tools such as PowerBI or Azure Synapse Analytics workspace.
 
 >[!NOTE]
-Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder level of the storage account.
+> Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder 
+> level of the storage account.
 
 ## Next steps
 
