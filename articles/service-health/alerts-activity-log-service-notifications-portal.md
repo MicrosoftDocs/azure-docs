@@ -54,6 +54,7 @@ For information on how to configure service health notification alerts by using 
 
 > [!NOTE]
 >This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
+>If selecting specific regions, make sure you always add the "Global" region. This would make sure your alert rule covers resources and services that are global by nature, i.e. not specific to a single region.
 
 5. Choose the **Event types** you want to be alerted for: *Service issue*, *Planned maintenance*, *Health advisories*, and *Security advisory*.
 
