@@ -5,25 +5,24 @@ ms.topic: conceptual
 ms.date: 09/08/2022
 
 ---
-# Azure Functions Proxies (To be Deprecated - Sep 2025)
+# Work with legacy Proxies Azure Functions
 
-Azure Functions proxies 
+> [!IMPORTANT] 
+> Proxies is a legacy feature of Azure Functions [versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x of the Functions runtime to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience.
+> 
 
-We are no longer investing in Azure Functions proxy support and strongly recommend customers to Azure API Management (in premium or consumption tier) when building API's with Azure Functions. It provides the same capabilities as Functions Proxies as well as other tools for building and maintaining APIs, such as OpenAPI integration, rate limiting, and advanced policies. The key reason for this decision is to avoid duplication of functionality and provide a richer set of capabilities as detailed in [Azure APIM](https://docs.microsoft.com/en-us/azure/api-management/). 
-
-This article has basic pointers on migrating to APIM, however we are fully aware that it is not exhaustive and would be interested to learn more if Azure API Management does not fit your scenarios or if you have challenges. Please fill out this survey OR create issues on <github repo> so we can build seamless integration experiences.
+> 
+> You should also consider using  It provides the same capabilities as Functions Proxies as well as other tools for building and maintaining APIs, such as OpenAPI integration, rate limiting, and advanced policies. 
 
 This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
 Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
-> [!NOTE] 
-> Proxies is available in Azure Functions [versions](./functions-versions.md) 1.x to 3.x. In general, you will need to upgrade your Function applications to the 4.x host runtime by December 13th, 2022 due to EOL support. See more [here], so migrating to using API Management will ensure your applications are continued to be supported. Only for cases where migration is absolutely not possible, we are adding proxy support back in Functions 4.x, so your applications can keep running without disruption.
 
-## <a name="create"></a>Create a proxy or an APIM instance
 
-# [Proxy](#tab/Proxy)
-This section shows you how to create a proxy in the Functions portal. 
+## <a name="create"></a>Create a proxy
+
+This section shows you how to create a proxy in the Functions portal.
 
 > [!NOTE]  
 > Not all languages and operating system combinations support in-portal editing. If you're unable to create a proxy in the portal, you can instead manually create a _proxies.json_ file in the root of your function app project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
@@ -37,22 +36,7 @@ This section shows you how to create a proxy in the Functions portal.
 
 Your proxy now exists as a new endpoint on your function app. From a client perspective, it is equivalent to an HttpTrigger in Azure Functions. You can try out your new proxy by copying the Proxy URL and testing it with your favorite HTTP client.
 
-# [APIM](#tab/APIM)
-This section shows you how to create an APIM instance with APIs imported/published from your Http triggered function applications.
-
-Create a new Azure API Management service instance [Quickstart] (https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance). You may also use Azure CLI, Powershell, Visual Studio Code, Bicep or ARM Template to create an APIM instance.
-
-Once the instance is created, you can:
-1. [Import an Azure Function App as a new API] (https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api#add-new-api-from-azure-function-app)
-2. [Append Azure Function App to an existing API] (https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api#append-azure-function-app-to-api)
-
-Alternatively, if you are using Visual Studio for your Functions project, you can publish it to a Function App in Azure with API Management integration as detailed [here] (https://docs.microsoft.com/en-us/azure/azure-functions/openapi-apim-integrate-visual-studio).
-
-You can now refine your APIs in API Management in the portal by [editing your OpenAPI definition] (https://docs.microsoft.com/en-us/azure/api-management/edit-api)
-
 ## <a name="modify-requests-responses"></a>Modify requests and responses
-
-# [Proxy](#tab/Proxy)
 
 With Azure Functions Proxies, you can modify requests to and responses from the back-end. These transformations can use variables as defined in [Use variables].
 
@@ -113,20 +97,6 @@ For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* woul
 
 > [!TIP] 
 > Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back-end for that environment.
-
-# [APIM](#tab/APIM)
-
-In Azure API Management, API publishers can change API behavior through configuration using policies. Policies are a collection of statements that are run sequentially on the request or response of an API.
-
-Policies are applied inside the gateway between the API consumer and the managed API. While the gateway receives requests and forwards them, unaltered, to the underlying API, a policy can apply changes to both the inbound request and outbound response.
-
-You can configure Azure API Management policies at different scopes namely Global, Product, API or Operation.
-
-Learn more about [APIM Policies](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-policies#-understanding-policy-configuration).
-
-To get started with inbound, outbound and on-error policies, check out the [samples](https://docs.microsoft.com/en-us/azure/api-management/policies/). 
-
-Refer an exhaustive list of [all API Management policies](https://docs.microsoft.com/en-us/azure/api-management/api-management-policies).
 
 ## <a name="debugProxies"></a>Troubleshoot Proxies
 
