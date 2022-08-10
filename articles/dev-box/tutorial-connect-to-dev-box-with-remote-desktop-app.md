@@ -12,7 +12,7 @@ ms.topic: tutorial
 
 # Tutorial: Use the Remote Desktop client to connect to a dev box
 
-In this tutorial, you'll learn how to download a remote desktop app from the [developer portal](https://aka.ms/developerportal) and connect to a dev box by using the remote desktop client.
+In this tutorial, you'll learn how to download a remote desktop app from the [developer portal](https://aka.ms/devbox-portal) and connect to a dev box by using the remote desktop client.
 
 Remote desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or the Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
@@ -28,13 +28,13 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- [Add a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/developerportal).
+- [Add a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
 
 ## Download the Remote Desktop client (Windows)
 
 To download and set up the Remote Desktop app for Windows, follow these steps:
 
-1. Sign in to the [developer portal](https://aka.ms/developerportal).
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. Select **Open in RDP client** for the dev box you want to connect.
    
@@ -50,7 +50,7 @@ To download and set up the Remote Desktop app for Windows, follow these steps:
 
 ## Connect to your dev box
 
-1. Sign in to the [developer portal](https://aka.ms/developerportal).
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. Select **Open in RDP client** for the dev box you want to connect.
    
@@ -64,7 +64,7 @@ To download and set up the Remote Desktop app for Windows, follow these steps:
 
 To use a non-Windows Remote Desktop client to connect to your dev box, follow these steps:
 
-1. Sign in to the [developer portal](https://aka.ms/developerportal).
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. Select **Configure Remote Desktop** from **Quick actions**.
    

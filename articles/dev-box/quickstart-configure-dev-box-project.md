@@ -90,7 +90,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. On the Add role assignment page, select **Review + assign**.
 
-The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/developerportal).
+The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
 ## Project admins
 
