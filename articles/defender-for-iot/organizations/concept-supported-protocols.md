@@ -37,7 +37,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Omron**     |  FINS       |
 |**Oracle**     |   TDS<br> TNS      |
 |**Rockwell Automation**     |   ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
-|**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)        |
+|**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
 |**Schneider Electric / Modicon**     |   Modbus RTU      |
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |

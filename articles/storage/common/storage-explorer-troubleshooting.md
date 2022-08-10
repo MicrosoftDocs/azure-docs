@@ -417,52 +417,26 @@ Storage Explorer as provided in the *.tar.gz* download is supported for the foll
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer requires .NET Core 3.1 to be installed on your system.
+Storage Explorer requires the .NET 6 runtime to be installed on your system. The ASP.NET runtime is **not** required.
 
 > [!NOTE]
-> Storage Explorer versions 1.8.0 through 1.20.1 require .NET Core 2.1. Storage Explorer version 1.7.0 and earlier require .NET Core 2.0.
+> Older versions of Storage Explorer may require a different version of .NET or .NET Core. Refer to release notes or in app error messages to help determine the required version.
+
+### [Ubuntu 22.04](#tab/2204)
+
+1. Download the Storage Explorer *.tar.gz* file.
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
+
 
 ### [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
 
 ### [Ubuntu 18.04](#tab/1804)
 
 1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
-
-### [Ubuntu 16.04](#tab/1604)
-
-1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
 
 ---
 
@@ -606,7 +580,7 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 
 If none of these solutions work for you, you can:
 
-- Create a support ticket.
+- [Create a support ticket](https://aka.ms/storageexplorer/servicerequest).
 - [Open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues) by selecting the **Report issue to GitHub** button in the lower-left corner.
 
 ![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)
