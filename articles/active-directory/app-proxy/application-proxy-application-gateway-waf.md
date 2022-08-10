@@ -46,7 +46,7 @@ In this example, the backend servers have Internet Information Services (IIS) in
 
 This will determine how requests will reach the backend pool servers.
 
-![Screenshot of Application Gateway backend setting.](./media/application-proxy-waf/application-gw-backend-settings.png)
+![Screenshot of Application Gateway backend setting.](./media/application-proxy-waf/application-gateway-backend-settings.png)
  
  ##### 4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
  
