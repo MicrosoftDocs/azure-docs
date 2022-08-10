@@ -1,13 +1,13 @@
 ---
-title: View and manage alerts in the Defender for IoT portal on Azure
-description: View and manage alerts detected by cloud-connected network sensors in the Defender for IoT portal on Azure. 
-ms.date: 06/02/2022
+title: View and manage alerts in the Microsoft Defender for IoT portal on Azure
+description: View and manage alerts detected by cloud-connected network sensors in the Microsoft Defender for IoT portal on Azure. 
+ms.date: 06/30/2022
 ms.topic: how-to
 ---
 
 # View and manage alerts from the Azure portal
 
-This article describes how to manage your alerts from Defender for IoT on the Azure portal.
+This article describes how to manage your alerts from Microsoft Defender for IoT on the Azure portal.
 
 If you're integrating with Microsoft Sentinel, the alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
 
@@ -52,24 +52,29 @@ The following alert details are displayed by default in the grid:
 | **Name** |  The alert title. |
 | **Site** |  The site associated with the sensor that detected the alert, as listed on the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).|
 | **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. For more information, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term *micro-agent* is displayed instead. |
-| **Detection time** | The time the alert was detected, for as long as the alert status remains **New**. If an alert is closed and the same traffic is seen again, this alert time is updated to the new time. |
+| **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
 | **Status** | The alert status: *New*, *Active*, *Closed* |
 | **Source device** | The IP address, MAC, or device name. |
 | **Tactics** | The MITRE ATT&CK stage. |
 
-Select **Edit columns** to add other details to the grid, including:
+**To view additional information:**
 
-| Column | Description
-|--|--|
-| **Source device address** |The IP address of the source device. |
-| **Destination device address** | The IP address of the destination device. |
-| **Destination device** | The IP address, MAC, or destination device name.|
-| **ID** |The unique alert ID.|
-| **Protocol** | The protocol detected in the network traffic for this alert.|
-| **Sensor** |  The sensor that detected the alert.|
-| **Zone** | The zone assigned to the sensor that detected the alert.|
-| **Category**| The category associated with the alert, such as *operational issues*,*custom alerts*, or *illegal commands*. |
-| **Type**| The  internal name of the alert. |
+1. Select **Edit columns** from the Alerts page.
+1. In the Edit Columns dialog box, select **Add Column** and choose an item to add. The following items are available:
+
+    | Column | Description
+    |--|--|
+    | **Source device address** |The IP address of the source device. |
+    | **Destination device address** | The IP address of the destination device. |
+    | **Destination device** | The IP address, MAC, or destination device name.|
+    | **First detection** | Defines the first time the alert was detected in the network. |
+    | **ID** |The unique alert ID.|
+    | **Last activity** | Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication |
+    | **Protocol** | The protocol detected in the network traffic for this alert.|
+    | **Sensor** |  The sensor that detected the alert.|
+    | **Zone** | The zone assigned to the sensor that detected the alert.|
+    | **Category**| The category associated with the alert, such as *operational issues*,*custom alerts*, or *illegal commands*. |
+    | **Type**| The  internal name of the alert. |
 
 ### Filter alerts displayed
 

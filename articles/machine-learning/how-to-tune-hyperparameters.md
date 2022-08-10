@@ -328,7 +328,7 @@ Control your resource budget by setting limits for your sweep job.
 
 * `max_total_trials`: Maximum number of trial jobs. Must be an integer between 1 and 1000.
 * `max_concurrent_trials`: (optional) Maximum number of trial jobs that can run concurrently. If not specified, all jobs launch in parallel. If specified, must be an integer between 1 and 100.
-* `timeout`: Maximum time in minutes the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials.
+* `timeout`: Maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials.
 * `trial_timeout`: Maximum time in seconds each trial job is allowed to run. Once this limit is reached the system will cancel the trial. 
 
 >[!NOTE] 
@@ -338,10 +338,10 @@ Control your resource budget by setting limits for your sweep job.
 >The number of concurrent trial jobs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
 ```Python
-sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=4, timeout=120)
+sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=4, timeout=1200)
 ```
 
-This code configures the hyperparameter tuning experiment to use a maximum of 20 total trial jobs, running four trial jobs at a time with a timeout of 120 minutes for the entire sweep job.
+This code configures the hyperparameter tuning experiment to use a maximum of 20 total trial jobs, running four trial jobs at a time with a timeout of 1200 seconds for the entire sweep job.
 
 ## Configure hyperparameter tuning experiment
 
