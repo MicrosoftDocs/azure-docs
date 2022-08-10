@@ -91,11 +91,11 @@
       href: path-selection-multiple-links.md
   - name: Point-to-site
     items:
-    - name: About P2S IPsec policies
+    - name: P2S IPsec policies
       href: point-to-site-ipsec.md
-    - name: About P2S client address pools
+    - name: P2S client address pools
       href: about-client-address-pools.md
-    - name: About P2S global and hub-based profiles
+    - name: P2S global and hub profiles
       href: global-hub-profile.md
   - name: Virtual hub settings
     href: hub-settings.md
@@ -123,8 +123,12 @@
     href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
-    - name: Create an ExpressRoute connection
-      href: virtual-wan-expressroute-portal.md
+    - name: Create an ExpressRoute association
+      items:
+      - name: Azure portal
+        href: virtual-wan-expressroute-portal.md
+      - name: Azure PowerShell
+        href: expressroute-powershell.md
     - name: Configure ExpressRoute encryption
       href: vpn-over-expressroute.md
   - name: Site-to-site
@@ -187,7 +191,7 @@
           href: install-client-certificates.md
       - name: VPN client profiles
         items:
-        - name: Download global and hub-based profiles
+        - name: Download global and hub profiles
           href: global-hub-profile.md
         - name: Extract and view profile information
           href: about-vpn-profile-download.md
