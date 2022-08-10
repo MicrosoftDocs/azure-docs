@@ -1,13 +1,13 @@
 ---
 title: Enable VMware Cloud director service with Azure VMware solution (Public Preview)
-description: This article explains how to use  Azure VMware solution to enable enterprise customers to leverage Azure VMware solutions  for private clouds underlying resources for virtual datacenters.
+description: This article explains how to use  Azure VMware solution to enable enterprise customers to leverage Azure VMware solutions for private clouds underlying resources for virtual datacenters.
 ms.topic: how-to
 ms.date: 08/09/2022
 ---
 
 # Enable VMware Cloud director service with Azure VMware solution (Public Preview)
 
-In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware solution for enterprise customers to use Azure VMware solutions resources and Azure VMware solutions private clouds with underlying resources for virtual datacenters.
+In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware solution for enterprise customers to use Azure VMware Solutions resources and Azure VMware solutions private clouds with underlying resources for virtual datacenters.
 
 >[!IMPORTANT] 
 > Cloud director service (CDs) is now available to use with Azure VMware solutions under the Enterprise Agreement (EA) model only. It's not suitable for MSP / Hoster to resell Azure VMware Solution capacity to customers at this point. For more information, see [Azure Service terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#GeneralServiceTerms).
@@ -18,7 +18,7 @@ In this article, you'll learn how to enable VMware Cloud Director service (CDs) 
 
 ## Associate Cloud director service with Azure VMware solutions SDDC
 
-1.	Provision Azure VMware solutions SDDC. [Deploy and configure Azure VMware Solution - Azure VMware Solution](#deploy-azure-vmware-solution)
+1.	Provision Azure VMware solutions SDDC. [Deploy and configure Azure VMware Solution - Azure VMware Solution](articles/azure-vmware/deploy-azure-vmware-solution.md)
 1.	Open an Azure VMware solutions support ticket to apply for **NSX-T Certification change in SDDC to enable connectivity for cloud director instance**. After the ticket is fulfilled, go to the next step.
 1.	Deploy Cloud director service. [How Do I Create a VMware Cloud Director Instance](https://docs.vmware.com/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html)
 1.	Associate your SDDC on Azure VMware solutions with your VMware cloud director instance by creating a proxy VM through which to route all network traffic to your underlying SDDC resources. 
@@ -29,7 +29,7 @@ In this article, you'll learn how to enable VMware Cloud Director service (CDs) 
 
 VMware Cloud Director Availability can be used to migrate  VMware Cloud Director workload into Cloud Director service on Azure VMware Solution. Enterprise customers can drive self-serve one-way warm migration from the on-premises Cloud Director Availability vSphere plugin, or they can run the Cloud Director Availability plugin from the provider-managed Cloud Director instance and move workloads into Azure VMware Solution.
 
-For more information about VMware Cloud director availability, see [VMware Cloud Director Availability | Disaster Recovery & Migration](https://www.vmware.com/products/cloud-director-availability.html)
+For more information about VMware Cloud Director Availability, see [VMware Cloud Director Availability | Disaster Recovery & Migration](https://www.vmware.com/products/cloud-director-availability.html)
 
 ## Connect tenants and their organization virtual datacenters to Azure vNet based resources
 
@@ -45,22 +45,22 @@ IPSEC tunnel is configured between ORG VDC edge gateway and Azure vNET VPN gatew
 - Organization VDC is configured with an Edge gateway and has Public IPs assigned to it to establish IPSEC VPN by provider.
 - 	Tenants have created a routed Organization VDC network in tenant’s Virtual datacenter.
 - Test VM1 and VM2 are created in the Organization VDC1 and VDC2 respectively. Both VMs are connected to the routed orgVDC network in their respective VDCs.
-- A dedicated Azure vNET is configured for each tenant. For this example, we created Tenant1-vNet and Tenant2-vNet for [tenant1 and tenant2 respectively.](https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-vnet-manually)
-- Create Azure Virtual network gateway for vNETs created in [step 4.](https://docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway)
+- A dedicated Azure vNET is configured for each tenant. For this example, we created Tenant1-vNet and Tenant2-vNet for [tenant1 and tenant2 respectively.](articles/azure-vmware/tutorial-configure-networking#create-a-vnet-manually)
+- Create Azure Virtual network gateway for vNETs created in [step 4.](articles/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway)
 - Deploy Azure VMs JSVM1 and JSVM2 for tenant1 and tenant2 for test purposes.
 
 > [Note]
 > CDS supports a policy-based VPN.  Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
 
-## Configure Azure vNet configuration
+## Configure Azure vNet 
 Create the following components in tenant’s dedicated Azure vNet to establish IPSEC tunnel connection with the tenant’s ORG VDC edge gateway. 
 •	Azure Virtual network gateway 
 •	Local network gateway. 
 •	Add IPSEC connection on VPN gateway.
 •	Edit connection configuration to enable policy-based VPN. 
 
-## Create Azure Virtual Network gateway
-To create a Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](#tutorial-configure-networking#create-a-virtual-network-gateway)
+## Create Azure virtual network gateway
+To create a Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](articles/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway.md)
 
 ## Create local network gateway
 1.	Log in to the Azure portal and select **Local network gateway** from marketplace and then select **Create**.
@@ -100,8 +100,8 @@ Select the connection you created earlier and then select **configuration** to v
 1. Under general setting, provide **Name** and select desired security profile. Ensure that security profile settings (IKE, Tunnel and DPD configuration) are same on both sides of the IPsec tunnel. 
 1. Modify Azure VPN gateway to match the Security profile, if necessary. You can also do security profile customization from CDS tenant portal.
 
-   >[Note]
-    > VPN tunnel would not establish if these settings were mismatched.
+   >[!Note]
+   > VPN tunnel would not establish if these settings were mismatched.
 1. Under **Peer Authentication Mode**, provide the same pre-shared key which is used at the Azure VPN gateway.
 1. Under **Endpoint configuration**, add the Organization’s public IP and network details in local endpoint and Azure VNet details in remote endpoint configuration.
 1. Under **Ready to complete**, review applied configuration.
