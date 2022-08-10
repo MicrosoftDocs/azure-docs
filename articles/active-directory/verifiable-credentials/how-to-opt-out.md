@@ -1,5 +1,5 @@
 ---
-title: Opt out of the Microsoft Entra Verified ID (preview)
+title: Opt out of the Microsoft Entra Verified ID
 description: Learn how to Opt Out of the Verifiable Credentials Preview
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am looking for information to help me disable 
 ---
 
-# Opt out of the verifiable credentials (preview)
+# Opt out of the verifiable credentials
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
