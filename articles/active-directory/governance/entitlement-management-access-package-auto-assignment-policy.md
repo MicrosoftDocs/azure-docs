@@ -28,7 +28,7 @@ This article describes how to create an access package automatic assignment poli
 
 ## Create an automatic assignment policy (Preview)
 
-To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.
+To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.  During this preview, you can have at most one automatic assignment policy in an access package.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager
 
@@ -45,7 +45,9 @@ To create a policy for an access package, you need to start from the access pack
    > [!NOTE]
    > The rule builder might not be able to display some rules constructed in the text box. For more information, see [rule builder in the Azure portal](/enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
-1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Review** tab.
+1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Custom Extensions** tab.
+
+1. If you have a [custom extension](entitlement-management-logic-apps-integration.md) in your catalog you wish to have run when the policy assigns or removes access, you can add them to this policy.  Then click next to open the **Review** tab.
 
 1. Type a name and a description for the policy.
 
