@@ -386,6 +386,11 @@ chatThreadClient.listParticipants { result, _ in
 }
 semaphore.wait()
 ```
+## Push notifications
+
+Push notifications notify clients of incoming messages in a chat thread in situations where the mobile app is not running in the foreground.
+Currently sending chat push notifications with Notification Hub is supported for IOS SDK in version 1.3.0-beta.1.
+Please refer to the article [Enable Push Notification in your chat app](../../../tutorials/add-chat-push-notifications.md) for details.
 
 ## Run the code
 
