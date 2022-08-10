@@ -60,6 +60,9 @@ Azure NetApp Files standard network features are supported for the following reg
 
 You should understand a few considerations when you plan for Azure NetApp Files network.
 
+> [!IMPORTANT]
+> [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
+
 ### Constraints
 
 The following table describes what’s supported for each network features configuration:
@@ -98,7 +101,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
 
-\* This option will incur a charge. ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) for information. 
+\* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Virtual network for Azure NetApp Files volumes
 
@@ -125,7 +128,7 @@ User-defined routes (UDRs) and Network security groups (NSGs) are only supported
 > [!NOTE]
 > Associating NSGs at the network interface level is not supported for the Azure NetApp Files network interfaces. 
 
-If the subnet has a combination of volumes with the Standard and Basic network features (or for existing volumes not registered for the feature preview), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
+If the subnet has a combination of volumes with the Standard and Basic network features (or for existing volumes not registered for the feature), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
 Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 

@@ -24,6 +24,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Standard network features](configure-network-features.md) are now generally available.
 
     You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
+    [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)] 
 
 ## July 2022
 
