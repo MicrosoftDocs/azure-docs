@@ -26,7 +26,7 @@ As an example, it can be difficult for a company to have a clear, single view of
 
 The ability to consolidate data from multiple disparate systems is key if we want to use the data to drive business insights and operational efficiencies – or any form of ‘digital transformation’. What we need in that case is high quality, trusted data that is ready to use, whether it's being consumed in basic enterprise metrics or advanced AI algorithms. Bridging this gap is the job of Data Governance and MDM, and in the Azure world that means [Microsoft Purview](https://azure.microsoft.com/services/purview/) and [Profisee MDM](https://profisee.com/platform). 
 
-:::image type="content" alt-text="Diagram illustrating bridging the gap between what we have versus what we need as the job of Microsoft Purview and Profisee MDM" source="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png" lightbox="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png":::
+:::image type="content" alt-text="Diagram illustrating bridging the gap between what we have versus what we need as the job of Microsoft Purview and Profisee MDM." source="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png" lightbox="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png":::
 
 While governance systems can *define* data standards, MDM is where they're *enforced*.  Data from different systems can be matched and merged, validated against data quality and governance standards, and remediated where required.  Then the new corrected and validated ‘master’ data can be shared to downstream analytics systems and then back into source systems to drive operational improvements. By properly creating and maintaining enterprise master data, we ensure that data is no longer a liability and cause for concern, but an asset of the business that enables improved operation and innovation.
 
@@ -165,11 +165,11 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
     
 - Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client". Select the Downloads for "Profisee FastApp Studio" utility and the "Profisee Platform Tools". Install both these tools on your local client machine.
 
-    :::image type="content" alt-text="Image 13 - Screenshot of Profisee Client Tools Download" source="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png":::
+    :::image type="content" alt-text="Image 13 - Screenshot of Profisee Client Tools Download." source="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png":::
     
 - Log in to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you log in with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
 
-    :::image type="content" alt-text="Image 14 - Screenshot of Profisee FastApp Studio once you sign in" source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
+    :::image type="content" alt-text="Image 14 - Screenshot of Profisee FastApp Studio once you sign in." source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
 
 - As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
 
