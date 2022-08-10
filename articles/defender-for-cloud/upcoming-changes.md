@@ -140,7 +140,7 @@ Defender for Cloud lets you choose the workspace that your Log Analytics agents 
 
 With this change, those alerts reported to the second tenant, will no longer appear in MDC.
 
-**To continue receiving these alerts, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the resource.**
+If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the resource.
 
 
 ## Next steps
