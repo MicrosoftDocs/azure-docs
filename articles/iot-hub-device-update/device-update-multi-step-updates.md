@@ -213,7 +213,7 @@ Inline step(s) specified in `Parent Update` will be applied to the Host Device. 
 
 > [!NOTE]
 > Steps Content Handler: 
-> IsInstalled validation logic: The Device Update agent’s [step handler](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/steps_handler/README.md) checks to see if particular update is already installed (i.e.,  IsInstalled() resulted in a result code “900” i.e., is installed is ‘true’). To avoid installing an update that is already on the device the DU agent will skip future steps because we use it to determine whether to perform the step or not.
+> IsInstalled validation logic for each step: The Device Update agent’s [step handler](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/steps_handler/README.md) checks to see if particular update is already installed i.e., checks for IsInstalled() resulted in a result code “900” which means ‘true’. If an update is already installed, to avoid re-installing an update that is already on the device, the DU agent will skip future steps because we use it to determine whether to perform the step or not.
 > Reporting an update result: The result of a step handler execution must be written to ADUC_Result struct in a desired result file as specified in --result-file option [learn more](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/steps_handler/README.md#steps-content-handler). Then based on results of the execution, for success return 0, for any fatal errors return -1 or 0xFF.
 
 ### Reference Step In Parent Update

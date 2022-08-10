@@ -1,8 +1,8 @@
 ---
 title: 'Connectivity configuration in Azure Virtual Network Manager (Preview)'
 description: Learn about different types network topology you can create with a connectivity configuration in Azure Virtual Network Manager.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
