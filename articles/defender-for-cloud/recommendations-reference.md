@@ -52,6 +52,10 @@ impact on your secure score.
 
 [!INCLUDE [asc-recs-data](../../includes/asc-recs-data.md)]
 
+## <a name='devops-recommendations'></a>DevOps recommendations
+
+[!INCLUDE [devops-recommendations](includes/defender-for-devops-recommendations.md)]
+
 ## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
