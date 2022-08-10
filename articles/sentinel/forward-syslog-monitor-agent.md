@@ -1,5 +1,5 @@
 ---
-title: Forward streaming event log data to Microsoft Sentinel by using the Azure Monitor agent
+title: Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
 description: In this tutorial, you will forward syslog data to Microsoft Sentinel by using the Azure Monitor agent. 
 author: cwatson-cat
 ms.author: cwatson
@@ -7,12 +7,12 @@ ms.service: microsoft-sentinel
 ms.topic: tutorial 
 ms.date: 07/12/2022
 ms.custom: template-tutorial
-#Customer intent: As a security-engineer, I want to get event data into Microsoft Sentinel so that I can use the data with other data to do attack detection, threat visibility, proactive hunting, and threat response.
+#Customer intent: As a security-engineer, I want to get syslog data into Microsoft Sentinel so that I can use the data with other data to do attack detection, threat visibility, proactive hunting, and threat response.
 ---
 
-# Tutorial: Forward event log data to Microsoft Sentinel by using the Azure Monitor agent
+# Tutorial: Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent
 
-In this tutorial, you'll configure a Linux virtual machine (VM) to forward streaming events to Microsoft Sentinel by using the  Azure Monitor agent. Use these steps to collect data from devices where you can't install an agent like a firewall network device.
+In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to Microsoft Sentinel by using the  Azure Monitor agent. Use these steps to collect data from devices where you can't install an agent like a firewall network device.
 
 In this tutorial, you learn how to:
 
@@ -95,7 +95,7 @@ A data collection rule is an Azure resource that allows you to define the way  d
    |---------|---------|
    |Destination type     | Azure Monitor Logs    |
    |Subscription     | Select the appropriate subscription        |
-   |Account or namespace    |Select the appropriate Microsoft Sentinel workspace|
+   |Account or namespace    |Select the appropriate Log Analytics workspace|
 
 1. Select **Add data source**.
 1. Select **Next: Review + create**.
@@ -110,6 +110,7 @@ If your VM doesn't have the Azure Monitor agent installed, the data collection r
 ## Verify Azure Monitor agent is running
 
 In Microsoft Sentinel, verify that the Azure Monitor agent is running on your VM.
+
 1. In the Azure portal, search for and open **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **General**, select **Logs**.
 1. Close the **Queries** page so that the **New Query** tab is displayed.
@@ -123,7 +124,30 @@ In Microsoft Sentinel, verify that the Azure Monitor agent is running on your VM
 
 ## Enable log reception on port 514
 
-Verify that the device you're collecting data from, like a network firewall, allows reception on port 514 TCP and/or UDP. Then configure your build-in Linux syslog daemon (rsyslog.d/syslog-ng) to listen for syslog messages from your security solutions.
+Verify that the device you're collecting data from, like a network firewall, allows reception on port 514 TCP and/or UDP (On the VM). Then configure your build-in Linux syslog daemon (rsyslog.d/syslog-ng) to listen for syslog messages from your security solutions.
+
+### Allow inbound syslog traffic on the VM
+
+If you're forwarding syslogs to an Azure VM, use the following steps to allow reception on port 514.
+
+1. In the Azure portal, search for and select Azure Virtual Machines.
+1. Select the VM.
+1. Under **Settings**, select **Networking**.
+1. Select **Add inbound port rule**.
+1. Enter the following values.
+
+   |Field |Value  |
+   |---------|---------|
+   |Destination port ranges     | 514        |
+   |Protocol    |  TCP or UDP       |
+   |Action   |  Allow      |
+   |Name    |    AllowSyslogInbound      |
+
+   Use the default values for the rest of the fields.
+
+1. Select **Add**.
+
+### Configure Linux syslog daemon
 
 On your Linux VM, run the following command to configure the Linux syslog daemon:
 
@@ -131,7 +155,7 @@ On your Linux VM, run the following command to configure the Linux syslog daemon
 sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
 ```
 
-## Verify event logs are forwarded to Microsoft Sentinel
+## Verify event logs are forwarded to your Log Analytics workspace
 
 In Microsoft Sentinel, verify that the Azure Monitor agent is forwarding event log data to your workspace in Microsoft Sentinel.
 
@@ -143,7 +167,10 @@ In Microsoft Sentinel, verify that the Azure Monitor agent is forwarding event l
    ```kusto
    Syslog
    | where computer == "vm-ubuntu"
+   | where devicename == ....
    | take 10
+
+ADD summerize by devicename
    ```
 
 <!-- 6. Clean up resources
