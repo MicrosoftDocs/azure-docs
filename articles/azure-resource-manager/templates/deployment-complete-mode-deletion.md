@@ -3156,13 +3156,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | workspaces / sqlDatabases | Yes |
 > | workspaces / sqlPools | Yes |
 
-## microsoft.syntex
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | documentProcessors | Yes |
-
 ## Microsoft.TestBase
 
 > [!div class="mx-tableFixed"]
