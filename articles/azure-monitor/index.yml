@@ -90,14 +90,6 @@ landingContent:
             url:  /cli/azure/monitor/app-insights
 
   # Card
-  - title: Reference - Alerts Management SDK for Python
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure Alerts Management SDK for Python
-            url:  /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
-
-  # Card
   - title: Reference - PowerShell
     linkLists: 
       - linkListType: reference
@@ -121,3 +113,5 @@ landingContent:
             url: /rest/api/application-insights/  
           - text: Application Insights REST API sandbox
             url: https://dev.applicationinsights.io
+          - text: Azure Alerts Management SDK for Python
+            url: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
