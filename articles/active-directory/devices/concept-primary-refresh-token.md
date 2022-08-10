@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is a Primary Refresh Token?
 
-A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10 or newer, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 or newer devices.
+A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10 or newer, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 or newer devices. We recommend using the latest versions of Windows 10, Windows 11 and Windows Server 2019+ to get the best SSO experience.
 
 This article assumes that you already understand the different device states available in Azure AD and how single sign-on works in Windows 10 or newer. For more information about devices in Azure AD, see the article [What is device management in Azure Active Directory?](overview.md)
 
@@ -25,7 +25,7 @@ This article assumes that you already understand the different device states ava
 The following Windows components play a key role in requesting and using a PRT:
 
 * **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 or newer device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
-* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 or newer devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider. (Not included in Windows Server 2016 LTSC builds)
+* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 or newer devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider. 
 * **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
 * **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
 * **Dsreg**: An Azure AD specific component on Windows 10 or newer, that handles the device registration process for all device states.

@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # How to display and configure the MedTech service metrics
 
-In this article, you'll learn how to display and configure the MedTech service metrics in the Azure portal. You'll also learn how to pin the MedTech service metrics tile to an Azure portal dashboard for later viewing.
+In this article, you'll learn how to display and configure the [MedTech service](iot-connector-overview.md) metrics in the Azure portal. You'll also learn how to pin the MedTech service metrics tile to an Azure portal dashboard for later viewing.
 
 The MedTech service metrics can be used to help determine the health and performance of your MedTech service and can be useful with troubleshooting and seeing patterns and/or trends with your MedTech service. 
 
@@ -108,6 +108,11 @@ Metric category|Metric name|Metric description|
 To learn how to configure the diagnostic settings and export the MedTech service metrics to another location (for example: an Azure storage account), see
 
 > [!div class="nextstepaction"]
-> [How to configure diagnostic settings for exporting the MedTech service metrics](./iot-metrics-diagnostics-export.md)
+> [How to configure diagnostic settings for exporting the MedTech service metrics](iot-metrics-diagnostics-export.md)
+
+To learn about the MedTech service frequently asked questions (FAQs), see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](iot-connector-faqs.md)
 
 (FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
