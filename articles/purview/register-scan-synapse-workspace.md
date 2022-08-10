@@ -242,9 +242,40 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, to scan serverless DBs, you can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to set up scan. See below example.
+> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, to scan serverless DBs, you can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to set up scan. Refer to [this example](#set-up-scan-using-api).
 
-Example of creating scan for serverless DB using API, replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings:
+### Create and run scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
+
+1. Select the data source that you registered.
+
+1. Select **View details**, and then select **New scan**. Alternatively, you can select the **Scan quick action** icon on the source tile.
+
+1. On the **Scan** details pane, in the **Name** box, enter a name for the scan.
+1. In the **Type** dropdown list, select the types of resources that you want to scan within this source. **SQL Database** is the only type we currently support within an Azure Synapse workspace.
+   
+    :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup.png" alt-text="Screenshot of the details pane for the Azure Synapse source scan.":::
+
+1. In the **Credential** dropdown list, select the credential to connect to the resources within your data source. 
+  
+1. Within each type, you can select to scan either all the resources or a subset of them by name.
+
+1.	Select **Continue** to proceed. 
+
+1.	Select **Scan rule sets** of type **Azure Synapse SQL**. You can also create scan rule sets inline.
+
+1. Choose your scan trigger. You can schedule it to run **weekly/monthly** or **once**.
+
+1. Review your scan, and then select **Save** to complete the setup.  
+
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+### Set up scan using API
+
+Here is an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings.
 
 ```http
 PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_source_name>/scans/{scan_name}?api-version=2022-02-01-preview
@@ -280,35 +311,6 @@ PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_sour
 ```
 
 To schedule the scan, additionally create a trigger for it after scan creation, refer to [Triggers - Create Trigger](/rest/api/purview/scanningdataplane/triggers/create-trigger).
-
-### Create and run scan
-
-To create and run a new scan, do the following:
-
-1. Select the **Data Map** tab on the left pane in [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
-
-1. Select the data source that you registered.
-
-1. Select **View details**, and then select **New scan**. Alternatively, you can select the **Scan quick action** icon on the source tile.
-
-1. On the **Scan** details pane, in the **Name** box, enter a name for the scan.
-1. In the **Type** dropdown list, select the types of resources that you want to scan within this source. **SQL Database** is the only type we currently support within an Azure Synapse workspace.
-   
-    :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup.png" alt-text="Screenshot of the details pane for the Azure Synapse source scan.":::
-
-1. In the **Credential** dropdown list, select the credential to connect to the resources within your data source. 
-  
-1. Within each type, you can select to scan either all the resources or a subset of them by name.
-
-1.	Select **Continue** to proceed. 
-
-1.	Select **Scan rule sets** of type **Azure Synapse SQL**. You can also create scan rule sets inline.
-
-1. Choose your scan trigger. You can schedule it to run **weekly/monthly** or **once**.
-
-1. Review your scan, and then select **Save** to complete the setup.  
-
-[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 
