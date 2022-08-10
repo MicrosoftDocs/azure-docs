@@ -14,7 +14,7 @@ ms.custom: template-how-to
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
-The process for deploying Windows Server-based virtual machines (VMs) on Azure Virtual Desktop is slightly different than the one for VMs running other versions of Windows, such as Windows 10 or Windows 11. This guide will walk you through how this process.
+The process for deploying Windows Server-based virtual machines (VMs) on Azure Virtual Desktop is slightly different than the one for VMs running other versions of Windows, such as Windows 10 or Windows 11. This guide will walk you through the process.
 
 > [!NOTE]
 > Windows Server scenarios don't support Azure Active Directory (AD)-joined session hosts.
@@ -34,7 +34,7 @@ Before you get started, you'll need to make sure you have the following things:
 
   For more information about Role-based Access Control (RBAC) roles, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
-  If you're already using Windows Server-based Remote Desktop Services, you probably already have a licensing server set up in your environment. If you do, you can continue using the same Azure Virtual Desktop hosts as long as they have line-of-sight with the server.
+  If you're already using Windows Server-based Remote Desktop Services, you probably already have a licensing server set up in your environment. If you do, you can continue using the same license server as long as the Azure Virtual Desktop hosts have line-of-sight with the server.
 
 - You must assign your Windows Server VM the Remote Desktop Session Host role.
 
@@ -65,7 +65,7 @@ To configure your VM:
 
 Now that you've deployed Windows Server-based Host VMs, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session using Remote Desktop Services for Windows Server, check out our [list of available clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
-If you'd like to learn how to create a VM using Azure Virtual Desktop instead of Windows Server, check out these articles:
+If you'd like to learn about other ways to create VMs for Azure Virtual Desktop, check out these articles:
 
 - To set up a VM automatically as part of the host pool setup process, see [Tutorial: Create a host pool](create-host-pools-azure-marketplace.md).
 - If you'd like to manually create VMs in the Azure portal after setting up a host pool, see [Expand an existing host pool with new session hosts](expand-existing-host-pool.md).
