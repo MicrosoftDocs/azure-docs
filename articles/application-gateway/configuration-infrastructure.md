@@ -32,9 +32,9 @@ Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 ins
 
 Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private frontend IP configuration + 5 Azure reserved). A minimum subnet size of /24 is recommended.
 
-To determine the available capacity of a subnet that has existing Application Gateways provisioned, take the size of the subnet and subtract the five reserved IP addresses of the subnet reserved by the platform.  Next, take each gateway and subtract the the max-instance count.  For each gateway that has a private IP, subtract one additional IP address per gateway as well.
+To determine the available capacity of a subnet that has existing Application Gateways provisioned, take the size of the subnet and subtract the five reserved IP addresses of the subnet reserved by the platform.  Next, take each gateway and subtract the the max-instance count.  For each gateway that has a private frontend IP configuration, subtract one additional IP address per gateway as well.
 
-For example, here's how to calculate the available addressing for a subnet with three gateways with varying sizes:
+For example, here's how to calculate the available addressing for a subnet with three gateways of varying sizes:
 - Gateway 1: Maximum of 10 instances; utilizes a private frontend IP configuration
 - Gateway 2: Maximum of 2 instances; no private frontend IP configuration
 - Gateway 3: Maximum of 15 instances; utilizes a private frontend IP configuration
