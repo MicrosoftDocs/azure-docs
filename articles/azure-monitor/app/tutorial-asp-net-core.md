@@ -155,7 +155,7 @@ The Application Insights for ASP.NET Core web applications NuGet package encapsu
 
 ## Enable client-side telemetry for web applications
 
-The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md).
+The preceding steps are enough to help you start collecting server-side telemetry. This application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md).
 
 1. In Visual Studio Solution explorer, locate and open `\Views\_ViewImports.cshtml`. Add the following code at the end of the existing file.
 
@@ -289,24 +289,6 @@ Application Insights introspects incoming telemetry data and is able to generate
 8. Return to the **Performance** screen, and select the **Dependencies** tab to investigate calls into external resources. Notice the Operations table includes calls into Sentiment Analysis, Blob Storage, and Azure SQL.
 
     ![The Performance screen displays with the Dependencies tab selected and the Operations table highlighted.](./media/asp-net-core/performance-dependencies.png "Dependency Operations")
-
-### Sampling
-
-The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. By default, adaptive sampling is enabled.
-
-#### Disabling adaptive sampling
-
-The default sampling feature can be disabled while adding Application Insights service through a configuration option.
-
-1. With Visual Studio 2022, locate and open `Program.cs`.
-
-2. In `Program.cs` locate the `services.AddApplicationInsightsTelemetry()` code and amend it as follows to include the `ApplicationInsightsServiceOptions` object when adding the Application Insights Telemetry service.
-
-    ```csharp
-    var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-    aiOptions.EnableAdaptiveSampling = false;
-    builder.Services.AddApplicationInsightsTelemetry(aiOptions);
-    ```
 
 ## Application logging with Application Insights
 
