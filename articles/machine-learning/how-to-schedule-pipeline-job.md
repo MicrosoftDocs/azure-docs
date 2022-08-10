@@ -124,7 +124,7 @@ Following properties can be changed when defining schedule:
 |settings| A dictionary of settings to be used when running the pipeline job. |
 |inputs| A dictionary of inputs to be used when running the pipeline job. |
 |outputs| A dictionary of inputs to be used when running the pipeline job. |
-|experiment|Experiment name of triggered job.|
+|experiment_name|Experiment name of triggered job.|
 
 
 #### Expressions supported in schedule
@@ -141,37 +141,37 @@ When define schedule, we support following expression that will be resolved to r
 After you create schedule yaml, you can use following command to create schedule via CLI.
 
 #[CLI v2](#tab/cliv2)
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="create_schedule" :::    
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="create_schedule":::    
 #[SDK v2](#tab/sdkv2)
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
 
 #### Check schedule detail
 #[CLI v2](#tab/cliv2)
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="show_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="show_schedule":::   
 #[SDK v2](#tab/sdkv2)
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=show_schedule)]
 
 #### List schedules in a workspace
 #[CLI v2](#tab/cliv2)
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="list_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="list_schedule":::   
 #[SDK v2](#tab/sdkv2)
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=list_schedule)]
 
 #### Update a schedule
 #[CLI v2](#tab/cliv2)
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule":::   
 #[SDK v2](#tab/sdkv2)
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
 
 #### Disable a schedule
 #[CLI v2](#tab/cliv2)
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="disable_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="disable_schedule":::   
 #[SDK v2](#tab/sdkv2)
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=disable_schedule)]
 
 #### Enable a schedule
 #[CLI v2](#tab/cliv2)
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="enable_schedule" :::   
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="enable_schedule":::   
 #[SDK v2](#tab/sdkv2)
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=enable_schedule)]
 
@@ -187,7 +187,7 @@ You can filter the job display name using schedule name to query triggered job b
 ![](media/how-to-schedule/schedule-triggered-pipelinejobs.png)
 
 You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
-:::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs" :::   
+:::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::   
 
 ### Delete a schedule
 
@@ -195,7 +195,7 @@ You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to que
     > Please disable schedule first, only disabled schedule can be deleted.
 
 #[CLI v2](#tab/cliv2)
-:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="delete_schedule" :::  
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="delete_schedule":::  
 #[SDK v2](#tab/sdkv2)
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=delete_schedule)]
 
@@ -212,4 +212,3 @@ For more information, see:
 * Learn more about [CLI (v2) core YAML syntax](reference-yaml-core-syntax.md)
 * Learn more about [pipelines](concept-ml-pipelines.md)
 * Learn more about [component](concept-component.md)
-
