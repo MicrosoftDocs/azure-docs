@@ -154,6 +154,7 @@ After you create schedule yaml, you can use following command to create schedule
 
 #### Check schedule detail
 #[CLI v2](#tab/cliv2)
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="show_schedule":::   
 
 #[SDK v2](#tab/sdkv2)
@@ -161,33 +162,41 @@ After you create schedule yaml, you can use following command to create schedule
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=show_schedule)]
 
 #### List schedules in a workspace
+
 #[CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="list_schedule":::   
+
 #[SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=list_schedule)]
 
 #### Update a schedule
+
 #[CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule":::   
+
 #[SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
 
 #### Disable a schedule
+
 #[CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="disable_schedule":::   
+
 #[SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=disable_schedule)]
 
 #### Enable a schedule
+
 #[CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="enable_schedule":::   
+
 #[SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=enable_schedule)]
