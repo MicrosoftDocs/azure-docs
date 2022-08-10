@@ -32,7 +32,7 @@ The exit codes indicate the termination reasons of the application. Some common 
     Some possible problems are as follows:
   * Wrong configurations of spring boot
   
-    For example : You need a parameter of {spring.db.url} to connect to the database, but it's not found in your yaml configuration file.
+    For example : You need a parameter of {spring.db.url} to connect to the database, but it's not found in your configuration file.
 
   * Disconnected from third service
   
