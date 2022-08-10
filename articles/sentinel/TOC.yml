@@ -474,6 +474,8 @@
         href: normalization-common-fields.md 
       - name: ASIM helper functions
         href: normalization-functions.md
+      - name: ASIM known issues
+        href: normalization-known-issues.md
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema

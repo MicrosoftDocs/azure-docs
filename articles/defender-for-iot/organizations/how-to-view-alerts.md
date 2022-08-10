@@ -1,5 +1,5 @@
 ---
-title: View alerts details on the sensor Alerts page 
+title: View alerts details on the sensor Alerts page - Microsoft Defender for IoT
 description: View alerts detected by your Defender for IoT sensor.
 ms.date: 06/02/2022
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that need your attention.
 
-This article describes how to view alerts triggered by your sensors.
+This article describes how to view alerts triggered by your Microsoft Defender for IoT OT network sensors.
 
 Once an alert is selected, you can view comprehensive details about the alert activity, for example,
 
@@ -51,7 +51,7 @@ The following information is available from the Alerts page:
 | **Severity** | The alert severity: Critical, Major, Minor, Warning|
 | **Name** | The alert title |
 | **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
-| **Detection time** | The first time the alert activity was detected.   |
+| **Last detection** | The last time the alert activity was detected.   |
 | **Status** | Indicates if the alert is new or closed. | 
 | **Source Device** | The source device IP address | 
 | **Destination Device** | The destination device IP address | 
