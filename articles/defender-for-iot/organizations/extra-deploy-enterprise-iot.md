@@ -17,7 +17,7 @@ While a virtual switch doesn't have mirroring capabilities, you can use *Promisc
 
 *Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When Promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, Promiscuous mode is turned off.
 
-This procedure describes an example of how to configure a SPAN port on your vSwitch with VMWare ESXi. Enterprise IoT sensors also support VMs using Microsoft Hyper-V.
+This procedure describes an example of how to configure a SPAN port on your vSwitch with VMware ESXi. Enterprise IoT sensors also support VMs using Microsoft Hyper-V.
 
 **To configure a SPAN monitoring interface**:
 
