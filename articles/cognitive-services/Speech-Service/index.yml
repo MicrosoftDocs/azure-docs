@@ -77,8 +77,8 @@ conceptualContent:
           text: Captioning with speech to text
           url: captioning-concepts.md
         - itemType: how-to-guide
-          text: Call center transcription
-          url: call-center-transcription.md
+          text: Call Center Overview
+          url: call-center-overview.md
         - itemType: overview
           text: Pronunciation assessment
           url: pronunciation-assessment-tool.md
