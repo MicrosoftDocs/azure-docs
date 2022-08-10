@@ -14,12 +14,12 @@ ms.custom: how-to, devx-track-python
 
 # Manage experiments and runs with MLflow
 
-Experiments and runs in Azure Machine Learning can be queried using MLflow client. This removes the need of any Azure ML specific SDKs to manage anything that happens inside of a training job, allowing dependencies removal and creating a more seamless transition between local runs and cloud. 
+Experiments and runs in Azure Machine Learning can be queried using MLflow. This removes the need of any Azure Machine Learning specific SDKs to manage anything that happens inside of a training job, allowing dependencies removal and creating a more seamless transition between local runs and cloud. 
 
 > [!NOTE]
 > The Azure Machine Learning Python SDK v2 (preview) does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure ML.
 
-MLflow client allows you to:
+MLflow allows you to:
 
 * Create, delete and search for experiments in a workspace.
 * Start, stop, cancel and query runs for experiments.
@@ -34,11 +34,11 @@ Use MLflow to query and manage all the experiments in Azure Machine Learning. Th
 ### Prerequisites
 
 * Install `azureml-mlflow` plug-in.
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML MLtracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md)
+* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML tracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md).
 
 ### Support matrix for querying runs and experiments
 
-The MLflow client exposes several methods to retrieve runs, including options to control what is returned and how. Use the following table to learn about which of those methods are currently supported in MLflow when connected to Azure Machine Learning:
+The MLflow SDK exposes several methods to retrieve runs, including options to control what is returned and how. Use the following table to learn about which of those methods are currently supported in MLflow when connected to Azure Machine Learning:
 
 | Feature | Supported by MLflow | Supported by Azure ML |
 | :- | :-: | :-: |
