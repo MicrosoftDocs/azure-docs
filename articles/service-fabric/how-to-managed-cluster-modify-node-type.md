@@ -152,7 +152,7 @@ In this walkthrough, you will learn how to modify the node count for a node type
 
 ![Sample showing a node count increase][adjust-node-count]
 
-6) Select `Manage node type scaling` to configure the scaling settings and choose between custom autoscale and manual scale options. Autoscale is a built-in feature that helps applications perform their best when demand changes. You can choose to scale your resource manually to a specific instance count, or via a custom Autoscale policy that scales based on metric(s) thresholds, or schedule instance count which scales during designated time windows. [Learn more about Azure Autoscale](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring) or [view the how-to video](https://www.microsoft.com/videoplayer/embed/RE4u7ts).
+6) Select `Manage node type scaling` to configure the scaling settings and choose between custom autoscale and manual scale options. Autoscale is a built-in feature that helps applications perform their best when demand changes. You can choose to scale your resource manually to a specific instance count, or via a custom Autoscale policy that scales based on metric(s) thresholds, or schedule instance count which scales during designated time windows. [Learn more about Azure Autoscale](/azure/azure-monitor/platform/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring) or [view the how-to video](https://www.microsoft.com/videoplayer/embed/RE4u7ts).
 
    * **Custom autoscale**: Select the appropriate `scale mode` to define the custom Autoscale policy - `Scale to a specific instance count`or `Scale based on a metric`. The latter is based on metric trigger rules, for example, increase instance count by 1 when CPU Percentage is above 70%. Once you define the policy, select `Save` at the top.
 
@@ -428,4 +428,3 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
 [change-nodetype-os-image]: ./media/how-to-managed-cluster-modify-node-type/sfmc-change-os-image.png
 [nodetype-placement-property]: ./media/how-to-managed-cluster-modify-node-type/sfmc-nodetype-placement-property.png
 [addremove]: ./media/how-to-managed-cluster-modify-node-type/sfmc-addremove-node-type.png
-
