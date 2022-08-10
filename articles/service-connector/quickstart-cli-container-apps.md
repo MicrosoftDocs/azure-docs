@@ -21,9 +21,13 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- An application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
+- At least one application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
 
-- This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version  2.37.0 or later installed. Run `az version` to find the version. If you need to install or upgrade the CLI, go to [Install Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Version 2.37.0 or higher of the Azure CLI must be installed. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
+
+- The Container Apps extension installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name containerapp`.
 
 ## Prepare to create a connection
 
