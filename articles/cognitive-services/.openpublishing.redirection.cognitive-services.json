@@ -2682,7 +2682,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/improve-model.md",
-            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/improve-model",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
             "redirect_document_id": true
         },
         {
