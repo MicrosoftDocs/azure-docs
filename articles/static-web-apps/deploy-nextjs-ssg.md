@@ -142,14 +142,14 @@ By default, the application will be treated as a hybrid rendered Next.js applica
             id: swa
             uses: azure/static-web-apps-deploy@latest
             with:
-            azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
-            repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-            action: "upload"
-            app_location: "/" # App source code path
-            api_location: "" # Api source code path - optional
-            output_location: "out" # Built app content directory - optional
+              azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
+              repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+              action: "upload"
+              app_location: "/" # App source code path
+              api_location: "" # Api source code path - optional
+              output_location: "out" # Built app content directory - optional
             env: # Add environment variables here
-            IS_STATIC_EXPORT: true
+              is_static_export: true
     ```
 
 1. Commit the changes to git and push them to GitHub
