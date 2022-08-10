@@ -4624,7 +4624,7 @@ With phone number sign-up and sign-in, developers and enterprises can allow thei
  
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-- [Promapp]( ../saas-apps/promapp-provisioning-tutorial.md)
+- [Promapp](../saas-apps/promapp-provisioning-tutorial.md)
 - [Zscaler Private Access](../saas-apps/zscaler-private-access-provisioning-tutorial.md)
 
 For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).

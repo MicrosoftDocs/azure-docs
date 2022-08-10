@@ -18,13 +18,19 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## August 9, 2022
 
-New for this release:
+This release is published August 9, 2022.
 
-## Arc-enabled SQL Managed Instance
+### Image tag
+
+`v1.10.0_2022-08-09`
+
+For complete release version information, see [Version log](version-log.md#august-9-2022).
+
+### Arc-enabled SQL Managed Instance
 
 - AES encryption can now be enabled for AD authentication.
 
-## `arcdata` Azure CLI extension
+### `arcdata` Azure CLI extension
 
 - The Azure CLI help text for the Arc data controller, Arc-enabled SQL Managed Instance, and Active Directory connector command groups has been updated to reflect new naming conventions. Indirect mode arguments are now referred to as _Kubernetes API - targeted_ arguments, and direct mode arguments are now referred to as _Azure Resource Manager - targeted_ arguments.
 
