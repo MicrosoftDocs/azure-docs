@@ -168,7 +168,7 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
     
 - Login to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you login with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
 
-    :::image type="content" alt-text="Image 13 - Screenshot of Profisee FastApp Studio Post Login" source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
+    :::image type="content" alt-text="Image 14 - Screenshot of Profisee FastApp Studio Post Login" source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
 
 - As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
 
