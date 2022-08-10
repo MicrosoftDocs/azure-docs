@@ -52,10 +52,10 @@ A fully managed instance of Profisee MDM hosted by Profisee in the Azure cloud. 
 - **The fastest path to Trusted Data** – Deploy in minutes with minimal technical knowledge. Leave the networking, firewalls and storage to us so you can deploy in minutes.
 
 ### Ultimate IaaS/CaaS Flexibility
-Complete deployment flexibility and control, using the most efficient and low-maintenance option on the [Microsoft Azure](https://azure.microsoft.com/) Kubernetes Service, functioning as a fully customer hosted and managed IaaS/CaaS (container-as-a-service) deployment. The section below on "Microsoft Purview - Profisee integration deployment on Azure Kubernetes Service (AKS)" describes this deployment route in detail.
+Complete deployment flexibility and control, using the most efficient and low-maintenance option on the [Microsoft Azure](https://azure.microsoft.com/) Kubernetes Service, functioning as a customer hosted fully managed IaaS/CaaS (container-as-a-service) deployment. The section below on "Microsoft Purview - Profisee integration deployment on Azure Kubernetes Service (AKS)" describes this deployment route in detail.
 - **Modern Cloud Architecture** - Platform available as a containerized Kubernetes service.  
 - **Complete Flexibility & Autonomy** - Available in Azure, AWS, Google Cloud or on-premises.  
-- **Fast to Deploy, Easy to Maintain** - Fully containerized configuration streamlines patches and upgrades.  
+- **Fast to Deploy, Easy to Maintain** - 100% containerized configuration streamlines patches and upgrades.  
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
