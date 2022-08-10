@@ -126,7 +126,7 @@ sections:
         answer: |
           There are two options for this use case. One option is to keep pipelines in ADF, and you will have to wrap in a web activity. For more information on this option, please view this [Web Activity Guide](/azure/data-factory/control-flow-web-activity). The other option is to migrate the pipelines to Synapse. For more information on the second option, check out this [Migration Code Sample](https://github.com/Azure-Samples/Synapse/tree/main/Pipelines/ImportADFtoSynapse).
  
- - name: Apache Spark
+  - name: Apache Spark
     questions:
       - question: |
           What is the difference between Apache Spark for Synapse and Apache Spark?
