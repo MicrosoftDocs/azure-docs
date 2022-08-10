@@ -84,7 +84,7 @@ $Resource | Set-AzResource -Force
 
 ### Pre-warmed instances
 
-Pre-warmed instances is a setting that provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
+The pre-warmed instance count setting provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
 
 Consider a less-common scenario, such as an app running in a custom container. Because custom containers have a long warm-up, you may consider increasing this buffer of pre-warmed instances. A pre-warmed instance becomes active only after all active instances are in use.
 
@@ -101,7 +101,7 @@ Consider this example of how always-ready instances and pre-warmed instances wor
 
 # [Portal](#tab/portal)
 
-You can't change this setting in the portal, you must instead use the Azure CLI or Azure PowerShell.
+You can't change the pre-warmed instance count setting in the portal, you must instead use the Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azurecli)
 
