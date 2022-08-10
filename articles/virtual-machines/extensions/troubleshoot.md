@@ -162,6 +162,9 @@ It could happen that you're creating an Azure VM based on a specialized Disk com
 The same can happen when you create a generalized image from an existing Azure VM. We invite you to remove extensions to avoid inconsistent state from the extensions.
 
 
+## Known issues
+
+
 ### PowerShell isn't recognized as an internal or external command
 
 You notice the following error entries in the RunCommand extension's output:

@@ -1,8 +1,8 @@
 ---
 title: 'Excluding elements from dynamic membership in Azure Virtual Network Manager (Preview)'
 description: Learn how to exclude elements from dynamic membership in Azure Virtual Network Manager.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021

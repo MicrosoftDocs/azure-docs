@@ -226,7 +226,7 @@ The VM used to run remediation must be on the same subnet and domain as the VM w
 Follow these instructions to run remediation from the same subnet and domain:
 
 1. Connect with standard Remote Desktop Protocol (RDP) to the VM from where fix will be applied.
-2. Download PsExec from [https://docs.microsoft.com/sysinternals/downloads/psexec](/sysinternals/downloads/psexec).
+2. Download PsExec from [PsExec v2.40](/sysinternals/downloads/psexec).
 3. Unzip the downloaded file.
 4. Start command prompt as local administrator.
 5. Navigate to folder where PsExec was unzipped.

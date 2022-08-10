@@ -49,6 +49,10 @@ landingContent:
         links: 
           - text: "Customer story: Co-op"
             url: https://customers.microsoft.com/story/845578-co-op-retailers-azure
+          - text: "Customer story: Neogrid"
+            url: https://customers.microsoft.com/en-GB/story/816187-neogrid-professional-services-azure-synapse-analytics
+          - text: "Customer story: Walgreens"
+            url: https://customers.microsoft.com/en-us/story/778746-walgreens-retailers-azure-analytics
       - linkListType: deploy
         links:
           - text: "Preferred migration accelerator: Next Pathway"
@@ -113,3 +117,4 @@ landingContent:
             url: oracle/7-beyond-data-warehouse-migration.md
           - text: "Cloud adoption framework: Migration solutions"
             url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata            
+
