@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.author: itnorman
 ms.date: 06/10/2022
 ---
-
+ 
 # Tutorial: create an account with Azure portal
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
