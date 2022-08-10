@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/05/2022
+ms.date: 08/10/2022
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
@@ -97,7 +97,7 @@ If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `Reque
 
 ### Signature
 
-A `Signature` element in `AuthnRequest` elements is optional. Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs. 
+A `Signature` element in `AuthnRequest` elements is optional. Azure AD can be configured (Preview) to enforce the requirement of signed authentication requests. If enabled, only signed authentication requests are accepted, otherwise the requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
 
