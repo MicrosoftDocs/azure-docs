@@ -83,7 +83,7 @@ Azure Spring Apps connections are displayed under **Settings > Service Connector
 Check the guides below for more information about Service Connector and Azure Spring Apps:
 
 > [!div class="nextstepaction"]
-> - [Tutorial: Azure Spring Apps + MySQL](./tutorial-java-spring-mysql.md)
+> [Tutorial: Azure Spring Apps + MySQL](./tutorial-java-spring-mysql.md)
 
 > [!div class="nextstepaction"]
-> - [Tutorial: Azure Spring Apps + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)
+> [Tutorial: Azure Spring Apps + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)
