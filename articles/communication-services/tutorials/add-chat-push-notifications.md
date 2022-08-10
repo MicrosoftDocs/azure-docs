@@ -94,7 +94,7 @@ Here we recommend creating a .p12 APNS cert and set it in Notification Hub.
 
 * Add another capability by selecting “+ Capability”, and then select “Background Modes”. Also select “Remote Notifications” under Background Modes. 
 
-<img src="./media/add-chat-push-notification/xcode-config.png"  width="680" height="500" alt="Screenshot of Enable Push Notifications and Background modes in Xcode.">  
+<img src="./media/add-chat-push-notification/xcode-config.png"  width="730" height="500" alt="Screenshot of Enable Push Notifications and Background modes in Xcode.">  
 
 ## Implementation
 
@@ -123,7 +123,7 @@ Go to this [Apple official doc](https://developer.apple.com/documentation/userno
 
 Notice that in the step “Implement Your Extension’s Handler Methods,” Apple provides the sample code to decrypt data and we'll follow the overall structure. However, since we use chat SDK for decryption, we need to replace the part starting from `“// Try to decode the encrypted message data.”` with our customized logic. Refer to the [sample code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/blob/main/add-chat-push-notifications/SwiftPushTestNotificationExtension/NotificationService.swift) to see the related implementation in `NotificationService.swift`.
 
-* Item 3: Implementation of ChatClientPushNotificationProtocol
+* Item 3: Implementation of PushNotificationKeyHandler Protocol
 
 Third, `PushNotificationKeyHandler` is required for advanced version. As the SDK user, you could use the default `AppGroupPushNotificationKeyHandler` class provided by chat SDK to generate a key handler. If you don’t use `App Group` as the key storage or would like to customize key handling methods, create your own class which conforms to PushNotificationKeyHandler protocol. 
 
