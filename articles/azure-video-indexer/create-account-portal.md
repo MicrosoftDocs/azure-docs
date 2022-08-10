@@ -6,48 +6,37 @@ ms.author: itnorman
 ms.date: 06/10/2022
 ---
 
-# Get started with Azure Video Indexer in Azure portal
+# Tutorial: create an account with Azure portal
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-This Quickstart walks you through the steps to get started with Azure Video Indexer. You'll create an Azure Video Indexer account and its accompanying resources by using the Azure portal.
+To start using unlimited features and robust capabilities of Azure Video Indexer, you need to create an Azure Video Indexer unlimited account. This tutorial walks you through the steps of creating the Azure Video Indexer account and its accompanying resources by using the Azure portal. 
 
-To start using Azure Video Indexer, you'll need to create an Azure Video Indexer account. The account needs to be associated with a [Media Services][docs-ms] resource and a [managed identity][docs-uami]. The managed identity will need to have Contributor permissions role on the Media Services.
+The account that gets created is Azure Resource Manager (ARM) account. For information about different account types, see [Overview of account types](accounts-overview.md).
 
 ## Prerequisites
 
-### Account types
-
-Before creating a new account, review [Account types](accounts-overview.md).
-
-### Azure level
-
-* This user should be a member of your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).
+* You should be a member of your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. You can be added twice, with two roles, once with **Contributor** and once with **User Access Administrator**. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).
 * Register the **EventGrid** resource provider using the Azure portal.
     
     In the [Azure portal](https://portal.azure.com), go to **Subscriptions**->[<*subscription*>]->**ResourceProviders**.
 Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, select **Register**. It takes a couple of minutes to register. 
+* Owner role (or both **Contributor** and **User Access Administrator** roles) assignment on the Subscription level.
 
-### Azure Video Indexer
+    * Owner* role assignment on the associated Azure Media Services (AMS). You select the AMS account during the Azure Video Indexer account creation, as described below.
+    * Owner* role assignment on the related Managed Identity.
+    
+## Use the Azure portal to create an Azure Video Indexer account
 
-* Owner<sup>*</sup> role assignment on the Subscription level.
+1. Sign into the [Azure portal](https://portal.azure.com/). 
 
-    * Owner* role assignment on the related Azure Media Services (AMS)
-    * Owner* role assignment on the related Managed Identity
-
-<sup>*</sub>Or both **Contributor** and **User Access Administrator** roles
-
-## Azure portal
-
-### Create an Azure Video Indexer account in the Azure portal
-
-1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Using the search bar at the top, enter **"Azure Video Indexer"**.
-1. Select *Azure Video Indexer* under *Services*.
+    Alternatively, you can start creating the **unlimited** account from the [videoindexer.ai](https://www.videoindexer.ai) website.
+3. Using the search bar at the top, enter **"Video Indexer"**.
+4. Select **Video Indexer** under **Services**.
 
     ![Image of search bar](media/create-account-portal/search-bar.png)
 1. Select **Create**.
-1. In the **Create an Azure Video Indexer resource** section enter required values. 
+1. In the Create an Azure Video Indexer resource section, enter required values (the descriptions follow). 
 
     ![Image of how to create an Azure Video Indexer resource.](media/create-account-portal/avi-create-blade.png)
     
@@ -55,53 +44,65 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
     
     | Name | Description|
     |---|---|
-    |**Subscription**|Choose the subscription that you're using to create the Azure Video Indexer account.|
-    |**Resource Group**|Choose a resource group where you're creating the Azure Video Indexer account, or select **Create new** to create a resource group.|
-    |**Azure Video Indexer account**|Select *Create a new account* option.|
+    |**Subscription**|If you have more than one subscription, select one from the list of Azure subscriptions that you have access to.|
+    |**Resource Group**|Select the new or existing resource. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](/azure/azure-resource-manager/management/overview.md#resource-groups).|
     |**Resource name**|Enter the name of the new Azure Video Indexer account, the name can contain letters, numbers and dashes with no spaces.|
     |**Region**|Select the geographic region that will be used to deploy the Azure Video Indexer account. The location matches the **resource group location** you chose, if you'd like to change the selected location change the selected resource group or create a new one in the preferred location. [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
+    |**Existing content**|You can choose to have the videos, files, and data associated with the classic to be referred from the new account.|
+    |**Available classic accounts**|Classic accounts available in the chosen subscription, resource group, and location.|
     |**Media Services account name**|Select a Media Services that the new Azure Video Indexer account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected.|
-    |**Managed identity**|Select an existing **user-assigned** managed identity or **system-assigned** managed identity or both when creating the account. The new Azure Video Indexer account will use the selected managed identity to access the Media Services associated with the account. If both user-assigned and system assigned managed identities will be selected during the account creation the **default** managed identity is the user assigned managed identity. A Contributor role should be assigned on the Media Services.|
+    |**Storage account**|Choose or create a new storage account in the same resource group.|
+    |**Managed identity**|Select an existing **User-assigned** managed identity or **System-assigned** managed identity or both when creating the account. The new Azure Video Indexer account will use the selected managed identity to access the Media Services associated with the account. If both user-assigned and system assigned managed identities will be selected during the account creation the **default** managed identity is the user assigned managed identity. A Contributor role should be assigned on the Media Services.|
 1. Select **Review + create** at the bottom of the form.
 
 ### Review deployed resource
 
 You can use the Azure portal to validate the Azure Video Indexer account and other resources that were created. After the deployment is finished, select **Go to resource** to see your new Azure Video Indexer account.
 
-### Overview
+## The Overview tab of the account
+
+This tab enables you to view details about your account.
 
 ![Image of Azure Video Indexer overview blade.](media/create-account-portal/avi-overview.png)
 
-Select *Explore Azure Video Indexer's portal* to view your new account on the [Azure Video Indexer portal](https://aka.ms/vi-portal-link).
-
-#### Unique essentials 
+Select *Explore Azure Video Indexer's portal* to view your new account on the [Azure Video Indexer website](https://aka.ms/vi-portal-link).
 
 |Name|Description|
 |---|---|
 |Status| When the resource is connected properly, status is **Active**. When there's a problem with the connection between the managed identity and the Media Service instance status will be *Connection to Azure Media Services failed*. Contributor role assignment on the Media Services should be added to the proper managed identity.|
-|Managed identity |The name of the default managed identity, user-assigned or system-assigned. The default managed identity can be updated using the *Change* button.|
+|Managed identity |The name of the default managed identity, user-assigned or system-assigned. The default managed identity can be updated using the **Change** button.|
 
-### Management API
+## The Management tab of the account
+
+This tab contains sections for:
+
+* getting an access token for the account
+* managing identities 
+
+### Management API 
 
 ![Image of Generate-access-token.](media/create-account-portal/generate-access-token.png)
 
-Use the *Management API* tab to manually generate access tokens for the account.
+Use the **Management API** tab to manually generate access tokens for the account.
 This token can be used to authenticate API calls for this account. Each token is valid for one hour.
 
+#### Get access token
+
 Choose the following:
+
 * Permission type: **Contributor** or **Reader**
 * Scope: **Account**, **Project** or **Video**
-    * For **Project** or **Video** you should also insert the matching ID
+
+    * For **Project** or **Video** you should also insert the matching ID.
 * Select **Generate**
 
-### Identity
+### Identity 
 
-Use the *Identity* tab to manually update the managed identities associated with the Azure Video Indexer resource.
+Use the **Identity** tab to manually update the managed identities associated with the Azure Video Indexer resource.
+
 Add new managed identities, switch the default managed identity between user-assigned and system-assigned or set a new user-assigned managed identity. 
 
----
-
-### Next steps
+## Next steps
 
 Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
 
