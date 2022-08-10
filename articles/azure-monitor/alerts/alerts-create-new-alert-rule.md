@@ -179,6 +179,7 @@ And then defining these elements for the resulting alert actions using:
     If your target resource is in either of these regions:
     - Sweden Central
     - Germany West Central
+
     you can select a **Region** to ensure that the relevant data processing occurs within that region. 
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot of the actions tab when creating a new alert rule.":::
@@ -191,6 +192,7 @@ And then defining these elements for the resulting alert actions using:
         - West Europe
         - Sweden Central
         - Germany West Central
+
       and you are creating a metric alert rule that monitors a custom metric, you can select a **Region** to ensure that the relevant data processing occurs within that region.  
  
 1. Define the **Alert rule details**.
