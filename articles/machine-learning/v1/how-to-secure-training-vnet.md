@@ -1,7 +1,7 @@
 ---
 title: Secure training environments with virtual networks (v1)
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. SDK/CLI v1
+description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. SDK v1
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -10,25 +10,23 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/28/2022
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, sdkv1, event-tier1-build-2022
-ms.devlang: azurecli
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Secure an Azure Machine Learning training environment with virtual networks (SDK/CLI v1)
+# Secure an Azure Machine Learning training environment with virtual networks (SDKv1)
 
-In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
+[!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
+
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
+> * [SDK v1](how-to-secure-training-vnet.md)
+> * [SDK v2 (current version)](../how-to-secure-training-vnet.md)
+
+In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
 
 > [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+> For information on using the Azure Machine Learning __studio__ and the Python SDK __v2__, see [Secure training environment (v2)](../how-to-secure-training-vnet.md).
 >
-> * [Virtual network overview](how-to-network-security-overview.md)
-> * [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
-> * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](../how-to-custom-dns.md)
-> * [Use a firewall](../how-to-access-azureml-behind-firewall.md)
->
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace in Azure portal](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to secure the following training compute resources in a virtual network:
 > [!div class="checklist"]
@@ -154,33 +152,6 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 
 ## <a name="compute-cluster"></a>Compute clusters
 
-Use the tabs below to select how you plan to create a compute cluster:
-
-# [Studio](#tab/azure-studio)
-
-Use the following steps to create a compute cluster in the Azure Machine Learning studio:
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
-1. Select __Compute__ on the left, __Compute clusters__ from the center, and then select __+ New__.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster.png" alt-text="Screenshot of creating a cluster":::
-
-1. In the __Create compute cluster__ dialog, select the VM size and configuration you need and then select __Next__.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-vm.png" alt-text="Screenshot of setting VM config":::
-
-1. From the __Configure Settings__ section, set the __Compute name__, __Virtual network__, and __Subnet__.
-
-    :::image type="content" source="media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot shows setting compute name, virtual network, and subnet.":::
-
-    > [!TIP]
-    > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
-    > 
-
-1. Select __Create__ to create the compute cluster.
-
-# [Python SDK v1](#tab/python)
-
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 The following code creates a new Machine Learning Compute cluster in the `default` subnet of a virtual network named `mynetwork`:
@@ -219,8 +190,6 @@ except ComputeTargetException:
     # Wait for the cluster to be completed, show the output log
     cpu_cluster.wait_for_completion(show_output=True)
 ```
-
----
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](../how-to-set-up-training-targets.md).
 
@@ -286,51 +255,6 @@ Next steps:
 [!INCLUDE [udr info for computes](../../../includes/machine-learning-compute-user-defined-routes.md)]
 
 For more information on input and output traffic requirements for Azure Machine Learning, see [Use a workspace behind a firewall](../how-to-access-azureml-behind-firewall.md).
-
-## Azure Databricks
-
-For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
-
-<a id="vmorhdi"></a>
-
-## Virtual machine or HDInsight cluster
-
-In this section, you learn how to use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace.
-
-### Create the VM or HDInsight cluster
-
-Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
-* [Create and manage Azure virtual networks for Linux VMs](/azure/virtual-machines/linux/tutorial-virtual-network)
-
-* [Extend HDInsight using an Azure virtual network](/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-
-### Configure network ports 
-
-Allow Azure Machine Learning to communicate with the SSH port on the VM or cluster, configure a source entry for the network security group. The SSH port is usually port 22. To allow traffic from this source, do the following actions:
-
-1. In the __Source__ drop-down list, select __Service Tag__.
-
-1. In the __Source service tag__ drop-down list, select __AzureMachineLearning__.
-
-    ![Inbound rules for doing experimentation on a VM or HDInsight cluster within a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
-
-1. In the __Source port ranges__ drop-down list, select __*__.
-
-1. In the __Destination__ drop-down list, select __Any__.
-
-1. In the __Destination port ranges__ drop-down list, select __22__.
-
-1. Under __Protocol__, select __Any__.
-
-1. Under __Action__, select __Allow__.
-
-Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](/azure/virtual-network/network-security-groups-overview#default-security-rules).
-
-If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [required public internet access](#required-public-internet-access) section.
-
-### Attach the VM or HDInsight cluster
-
-Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](../how-to-set-up-training-targets.md).
 
 ## Next steps
 

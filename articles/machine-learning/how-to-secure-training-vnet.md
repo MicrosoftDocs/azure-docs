@@ -16,7 +16,13 @@ ms.devlang: azurecli
 
 # Secure an Azure Machine Learning training environment with virtual networks
 
-In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
+[!INCLUDE [SDK v2](../../../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
+> * [SDK v1](./v1/how-to-secure-training-vnet.md)
+> * [SDK v2 (current version)](how-to-secure-training-vnet.md)
+
+In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning. You'll learn how to secure training environments through the Azure Machine Learning __studio__ and Python SDK __v2__.
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
