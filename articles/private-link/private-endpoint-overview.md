@@ -184,7 +184,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description | Mitigation |
 | --------- | --------- | --------- |
-| SNAT is recommended at all times. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored  | N/A |
+| SNAT is recommended at all times. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored.  | N/A |
 | Feature available in most public regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
 
 ### ASG
