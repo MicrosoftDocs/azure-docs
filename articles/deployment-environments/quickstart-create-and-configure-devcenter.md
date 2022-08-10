@@ -80,11 +80,11 @@ After you've created a Dev center, the next step is to create a system-assigned 
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-user-assigned-managed-identity.png" alt-text="Screenshot of user-assigned managed identity tab.":::
 
-1. After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used in [Mappings]<!--- add link when doc is ready --->. Also, check **Reader** access to all subscriptions that a project lives in. Also ensure the identity has [access to the Key Vault secrets]<!--- add link when doc is ready ---> containing the personal access token (PAT) token to access the repository.
+1. After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used in Mappings. Also, check **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
 
 ## Attach a [Catalog](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#catalogs)
 
-**Prerequisite** - Before attaching a Catalog, store the personal access token (PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the **Secret Identifier**. [Learn more about generating a PAT]<!--- add link when doc is ready --->. Ensure that the Identity attached to the Dev center has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy.md).
+**Prerequisite** - Before attaching a Catalog, store the personal access token (PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the **Secret Identifier**. Ensure that the Identity attached to the Dev center has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy.md).
 
 1. Select **Catalogs** in the left menu and select **+ Add Repo**.
 

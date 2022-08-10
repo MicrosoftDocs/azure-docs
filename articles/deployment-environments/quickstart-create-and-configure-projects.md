@@ -38,7 +38,7 @@ The following steps illustrate how to use the Azure portal to create and configu
     :::image type="content" source="media/quickstart-create-configure-projects/basics.png" alt-text="Screenshot of the Basics tab to create a project.":::
 
 
-1. In the **Mappings** tab, select and map a **Subscription** to an **Environment type** you want to enable for this project. [Learn more about Subscription Mapping]<!--- add link when doc is ready --->
+1. In the **Mappings** tab, select and map a **Subscription** to an **Environment type** you want to enable for this project.
 
     :::image type="content" source="media/quickstart-create-configure-projects/mappings.png" alt-text="Screenshot of the Subscription mapping tab to create a project.":::
 
@@ -77,4 +77,4 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 In this quickstart, you created a project and granted access to your development team. To learn about how your development team members can create environments, advance to the next quickstart:
 
-* [Quickstart: Create & access Environments]<!--- add link when doc is ready --->
+* Quickstart: Create & access Environments
