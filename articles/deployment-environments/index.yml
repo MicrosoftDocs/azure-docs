@@ -32,12 +32,12 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
           - text: 'Create & configure a dev center'
-            url: tutorial-create-and-configure-devcenter.md
+            url: quickstart-create-and-configure-devcenter.md
           - text: 'Create & configure a project'
-            url: tutorial-create-and-configure-projects.md
+            url: quickstart-create-and-configure-projects.md
   
   # Card
   - title: Configure environments

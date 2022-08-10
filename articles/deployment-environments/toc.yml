@@ -7,14 +7,14 @@ items:
     - name: What is Azure Deployment Environments?
       displayName: ADE Overview
       href: overview-what-is-azure-deployment-environments.md
-- name: Tutorials
-  displayName: Tutorials
+- name: Quickstarts
+  displayName: Quickstarts
   expanded: true
   items:
-    - name: Create and configure DevCenter
-      href: tutorial-create-and-configure-devcenter.md
-    - name: Create and configure a DevCenter Project
-      href: tutorial-create-and-configure-projects.md
+    - name: Create and configure a Dev center
+      href: quickstart-create-and-configure-devcenter.md
+    - name: Create and configure a Project
+      href: quickstart-create-and-configure-projects.md
 - name: Concepts
   expanded: true
   items:

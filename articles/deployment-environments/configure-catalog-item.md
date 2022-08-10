@@ -72,6 +72,6 @@ Once you delete a Catalog Item, development teams will no longer be able to use 
 
 ## Next steps
 
-* Create and Configure Environment Types. You can use them later to create new Environments.
+* Create and configure Environment Types. You can use them to create new Environments.
 
-* [Create and Configure Projects](./tutorial-create-and-configure-projects.md)
+* [Create and Configure Projects](./quickstart-create-and-configure-projects.md)

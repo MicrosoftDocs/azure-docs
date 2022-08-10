@@ -1021,6 +1021,7 @@
     "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
     "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
     "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
-    ".openpublishing.redirection.virtual-desktop.json"
+    ".openpublishing.redirection.virtual-desktop.json",
+    ".openpublishing.redirection.deployment-environments.json"
   ]
 }

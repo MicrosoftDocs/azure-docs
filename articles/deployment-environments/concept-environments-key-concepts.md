@@ -50,4 +50,4 @@ A Catalog Item is a combination of an 'infra-as-code' template (Azure Resource M
 
 ## Next steps
 
-[Tutorial: Create and configure a dev center](./tutorial-create-and-configure-devcenter.md)
+[Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
