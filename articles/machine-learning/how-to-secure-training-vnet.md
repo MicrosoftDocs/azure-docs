@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 # Secure an Azure Machine Learning training environment with virtual networks
 
-[!INCLUDE [SDK v2](../../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [SDK v1](./v1/how-to-secure-training-vnet.md)
