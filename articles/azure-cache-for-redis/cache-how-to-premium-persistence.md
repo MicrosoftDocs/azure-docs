@@ -17,11 +17,11 @@ Azure Cache for Redis offers Redis persistence using the Redis database (RDB) an
 - **RDB persistence** - When you use RDB persistence, Azure Cache for Redis persists a snapshot of your cache in a binary format. The snapshot is saved in an Azure Storage account. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 - **AOF persistence** - When you use AOF persistence, Azure Cache for Redis saves every write operation to a log. The log is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-Azure Cache for Redis persistence features are intended to be used to restore data to the same cache after data loss and the RDB/AOF persisted data files cannot be imported to a new cache.
+Azure Cache for Redis persistence features are intended to be used to restore data to the same cache after data loss and the RDB/AOF persisted data files can't be imported to a new cache.
 
 To move data across caches, use the Import/Export feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
-To generate backup of data that can be added to a new cache, you can write automated scripts using PowerShell or CLI to export data periodically.
+To generate any backups of data that can be added to a new cache, you can write automated scripts using PowerShell or CLI to export data periodically.
 
 > [!NOTE]
 > Persistence features are intended to be used to restore data to the same cache after data loss.
@@ -110,6 +110,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 - [Will I be charged for the storage being used in Data Persistence](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 - [How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
+- [Will having firewall exceptions on the storage account affect persistence](#Will having firewall exceptions on the storage account affect persistence)
 
 ### RDB persistence
 
@@ -215,6 +216,9 @@ Data stored in AOF files is divided into multiple page blobs per node to increas
 When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 24 page blobs (eight blobs per shard, with three shards).
 
 After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files. Set operations, sent to the cache during the rewrite, append to the second set. A backup is temporarily stored during rewrites if there's a failure. The backup is promptly deleted after a rewrite finishes. If soft delete is turned on for your storage account, the soft delete setting applies and existing backups continue to stay in the soft delete state.
+
+### Will having firewall exceptions on the storage account affect persistence
+Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process.
 
 ## Next steps
 
