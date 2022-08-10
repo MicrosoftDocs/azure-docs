@@ -240,11 +240,19 @@ Make sure model and code artifacts are registered to the same workspace as the d
   az ml code show --name <code-name> --version <version>
   ```
  
-  You can also check if the blobs are present in the workspace storage account.
+You can also check if the blobs are present in the workspace storage account.
 
 - For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
+   
+   ```azurecli
+   az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+   ```
+  
+- If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
-  `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+  ```azurecli
+  az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
+  ```
 
 #### azureml-fe not ready
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
@@ -274,7 +282,22 @@ For more information, see [Resolve resource not found errors](../azure-resource-
 
 ### ERROR: OperationCancelled
 
-Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority. Retrying the operation might allow it to be performed without cancellation.
+Below is a list of reasons you might run into this error:
+
+* [Operation was cancelled by another operation which has a higher priority](#operation-cancelled-by-another-higher-priority-operation)
+* [Operation was cancelled due to a previous operation waiting for lock confirmation](#operation-cancelled-waiting-for-lock-confirmation)
+
+#### Operation cancelled by another higher priority operation
+
+Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority.
+
+Retrying the operation might allow it to be performed without cancellation.
+
+#### Operation cancelled waiting for lock confirmation
+
+Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we do not run into race conditions. This error happens when the operation you submitted is the same as another operation that is currently still waiting for confirmation that it has received the lock to proceed. It may indicate that you have submitted a very similar request too soon after the initial request.
+
+Retrying the operation after waiting a few seconds up to a minute may allow it to be performed without cancellation.
 
 ### ERROR: InternalServerError
 

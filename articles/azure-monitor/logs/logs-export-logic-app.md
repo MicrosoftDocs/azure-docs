@@ -26,7 +26,7 @@ This procedure uses the [Azure Monitor Logs connector](/connectors/azuremonitorl
 
 When you export data from a Log Analytics workspace, you should filter and aggregate your log data and optimize query and limit the amount of data processed by your Logic App workflow, to the required data. For example, if you need to archive sign-in events, you should filter for required events and project only the required fields. For example: 
 
-```json
+```Kusto
 SecurityEvent
 | where EventID == 4624 or EventID == 4625
 | project TimeGenerated , Account , AccountType , Computer

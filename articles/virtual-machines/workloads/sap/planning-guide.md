@@ -1589,7 +1589,7 @@ In the table below typical SAP communication ports are listed. Basically it is s
 **) sid = SAP-System-ID
 
 For more information, see [TCP/IP Ports Used by SAP Applications]
-(https://scn.sap.com/docs/DOC-17124). Using this document, you can open dedicated ports in the VPN device necessary for specific SAP products and scenarios.
+(https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16/616a3c0b1cc748238de9c0341b15c63c.html). Using this document, you can open dedicated ports in the VPN device necessary for specific SAP products and scenarios.
 
 Other security measures when deploying VMs in such a scenario could be to create a [Network Security Group][virtual-networks-nsg] to define access rules.
 
@@ -1796,7 +1796,7 @@ We can separate the discussion about SAP high availability in Azure into two par
 
 and how it can be combined with Azure infrastructure HA.
 
-SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes [standard SAP High Availability configurations in virtualized environments on Windows](https://scn.sap.com/docs/DOC-44415). There is no sapinst-integrated SAP-HA configuration for Linux. For more information about SAP HA on-premises for Linux, see [SAP High Availability Partner Information](https://scn.sap.com/docs/DOC-8541).
+SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes [standard SAP High Availability configurations in virtualized environments on Windows](https://help.sap.com/docs/SAP_NETWEAVER_703/a2cf03bc73a44b2a87d535cdb35e529e/45237d7e9f9b4002e10000000a155369.html). There is no sapinst-integrated SAP-HA configuration for Linux. For more information about SAP HA on-premises for Linux, see [SAP High Availability Partner Information](https://scn.sap.com/docs/DOC-8541).
 
 ### Azure Infrastructure High Availability
 

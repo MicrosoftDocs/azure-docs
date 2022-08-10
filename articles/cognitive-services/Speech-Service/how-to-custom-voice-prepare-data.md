@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: eur
 ---
 
@@ -17,11 +17,11 @@ ms.author: eur
 When you're ready to create a custom Text-to-Speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
 > [!NOTE]
-> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects. This article focuses on the creation of a professional Custom Neural Voice using the Pro project.
+> This article focuses on the creation of a professional Custom Neural Voice using the Pro project. See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
 
 ## Voice talent verbal statement
 
-Before you can train your own Text-to-Speech voice model, you'll need audio recordings and the associated text transcriptions. On this page, we'll review data types, how they're used, and how to manage each.
+Before you can train your own Text-to-Speech voice model, you'll need [audio recordings](/record-custom-voice-samples.md) and the [associated text transcriptions](/how-to-custom-voice-prepare-data.md#types-of-training-data). On this page, we'll review data types, how they're used, and how to manage each.
 
 > [!IMPORTANT]
 > To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here. 
@@ -30,18 +30,16 @@ Before you can train your own Text-to-Speech voice model, you'll need audio reco
 >  
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural).
 
- 
-
 ## Types of training data
 
 A voice training dataset includes audio recordings, and a text file with the associated transcriptions. Each audio file should contain a single utterance (a single sentence or a single turn for a dialog system), and be less than 15 seconds long.
 
-In some cases, you may not have the right dataset ready and will want to test the custom neural voice training with available audio files, short or long, with or without transcripts. We provide tools (beta) to help you segment your audio into utterances and prepare transcripts using the [Batch Transcription API](batch-transcription.md).
+In some cases, you may not have the right dataset ready and will want to test the custom neural voice training with available audio files, short or long, with or without transcripts. We provide options (beta) to help you segment your audio into utterances and prepare transcripts using the [Batch Transcription API](batch-transcription.md).
 
 This table lists data types and how each is used to create a custom Text-to-Speech voice model.
 
 | Data type | Description | When to use | Additional processing required |
-| --------- | ----------- | ----------- | --------------------------- |
+| --------- | ----------- | ----------- | ------------------------------ |
 | **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
 | **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
 | **Audio only (beta)** | A collection (.zip) of audio files (.wav or .mp3) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
@@ -55,7 +53,7 @@ Files should be grouped by type into a dataset and uploaded as a zip file. Each 
 
 ## Individual utterances + matching transcript
 
-You can prepare recordings of individual utterances and the matching transcript in two ways. Either write a script and have it read by a voice talent or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
+You can prepare recordings of individual utterances and the matching transcript in two ways. Either [write a script and have it read by a voice talent](/speech-service/record-custom-voice-samples.md) or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 
 To produce a good voice model, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
@@ -101,7 +99,7 @@ Below is an example of how the transcripts are organized utterance by utterance 
 ```
 It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio. Errors in the transcripts will introduce quality loss during the training.
 
-## Long audio + transcript (beta)
+## Long audio and transcript (beta)
 
 In some cases, you may not have segmented audio available. We provide a service (beta) through the Speech Studio to help you segment long audio files and create transcriptions. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
 

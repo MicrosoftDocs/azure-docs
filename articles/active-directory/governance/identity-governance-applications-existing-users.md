@@ -226,7 +226,7 @@ The first time your organization uses these cmdlets for this scenario, you need 
 
 1. Retrieve the IDs of those users in Azure AD.
 
-   The following PowerShell script uses the `$dbusers`, `$db_match_column_name`, and `$azuread_match_attr_name` values specified earlier. It will query Azure AD to locate a user that has a matching value for each record in the source file. If there are many users in the database, this script might take several minutes to finish.
+   The following PowerShell script uses the `$dbusers`, `$db_match_column_name`, and `$azuread_match_attr_name` values specified earlier. It will query Azure AD to locate a user that has an attribute with a matching value for each record in the source file. If there are many users in the database, this script might take several minutes to finish.  If you don't have an attribute in Azure AD that has the value, and need to use a `contains` or other filter expression, then you will need to customize this script and that in step 11 below to use a different filter expression.
 
    ```powershell
    $dbu_not_queried_list = @()
@@ -234,17 +234,22 @@ The first time your organization uses these cmdlets for this scenario, you need 
    $dbu_match_ambiguous_list = @()
    $dbu_query_failed_list = @()
    $azuread_match_id_list = @()
+   $azuread_not_enabled_list = @()
+   $dbu_values = @()
+   $dbu_duplicate_list = @()
 
    foreach ($dbu in $dbusers) { 
       if ($null -ne $dbu.$db_match_column_name -and $dbu.$db_match_column_name.Length -gt 0) { 
          $val = $dbu.$db_match_column_name
          $escval = $val -replace "'","''"
+         if ($dbu_values -contains $escval) { $dbu_duplicate_list += $dbu; continue } else { $dbu_values += $escval }
          $filter = $azuread_match_attr_name + " eq '" + $escval + "'"
          try {
-            $ul = @(Get-MgUser -Filter $filter -All -ErrorAction Stop)
+            $ul = @(Get-MgUser -Filter $filter -All -Property Id,accountEnabled -ErrorAction Stop)
             if ($ul.length -eq 0) { $dbu_not_matched_list += $dbu; } elseif ($ul.length -gt 1) {$dbu_match_ambiguous_list += $dbu } else {
                $id = $ul[0].id; 
                $azuread_match_id_list += $id;
+               if ($ul[0].accountEnabled -eq $false) {$azuread_not_enabled_list += $id }
             } 
          } catch { $dbu_query_failed_list += $dbu } 
        } else { $dbu_not_queried_list += $dbu }
@@ -261,19 +266,27 @@ The first time your organization uses these cmdlets for this scenario, you need 
    if ($dbu_not_queried_count -ne 0) {
      Write-Error "Unable to query for $dbu_not_queried_count records as rows lacked values for $db_match_column_name."
    }
+   $dbu_duplicate_count = $dbu_duplicate_list.Count
+   if ($dbu_duplicate_count -ne 0) {
+     Write-Error "Unable to locate Azure AD users for $dbu_duplicate_count rows as multiple rows have the same value"
+   }
    $dbu_not_matched_count = $dbu_not_matched_list.Count
    if ($dbu_not_matched_count -ne 0) {
      Write-Error "Unable to locate $dbu_not_matched_count records in Azure AD by querying for $db_match_column_name values in $azuread_match_attr_name."
    }
    $dbu_match_ambiguous_count = $dbu_match_ambiguous_list.Count
    if ($dbu_match_ambiguous_count -ne 0) {
-     Write-Error "Unable to locate $dbu_match_ambiguous_count records in Azure AD."
+     Write-Error "Unable to locate $dbu_match_ambiguous_count records in Azure AD as attribute match ambiguous."
    }
    $dbu_query_failed_count = $dbu_query_failed_list.Count
    if ($dbu_query_failed_count -ne 0) {
      Write-Error "Unable to locate $dbu_query_failed_count records in Azure AD as queries returned errors."
    }
-   if ($dbu_not_queried_count -ne 0 -or $dbu_not_matched_count -ne 0 -or $dbu_match_ambiguous_count -ne 0 -or $dbu_query_failed_count -ne 0) {
+   $azuread_not_enabled_count = $azuread_not_enabled_list.Count
+   if ($azuread_not_enabled_count -ne 0) {
+    Write-Error "$azuread_not_enabled_count users in Azure AD are blocked from sign-in."
+   }
+   if ($dbu_not_queried_count -ne 0 -or $dbu_duplicate_count -ne 0 -or $dbu_not_matched_count -ne 0 -or $dbu_match_ambiguous_count -ne 0 -or $dbu_query_failed_count -ne 0 -or $azuread_not_enabled_count) {
     Write-Output "You will need to resolve those issues before access of all existing users can be reviewed."
    }
    $azuread_match_count = $azuread_match_id_list.Count
@@ -284,7 +297,7 @@ The first time your organization uses these cmdlets for this scenario, you need 
 
    For example, someone's email address might have been changed in Azure AD without their corresponding `mail` property being updated in the application's data source. Or, the user might have already left the organization but is still in the application's data source. Or there might be a vendor or super-admin account in the application's data source that does not correspond to any specific person in Azure AD.
 
-1. If there were users who couldn't be located in Azure AD, but you want to have their access reviewed or their attributes updated in the database, you need to create Azure AD users for them. You can create users in bulk by using either:
+1. If there were users who couldn't be located in Azure AD, or weren't active and able to sign in, but you want to have their access reviewed or their attributes updated in the database, you need to update or create Azure AD users for them. You can create users in bulk by using either:
 
    - A CSV file, as described in [Bulk create users in the Azure AD portal](../enterprise-users/users-bulk-add.md)
    - The [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser?view=graph-powershell-1.0#examples) cmdlet  
@@ -299,17 +312,22 @@ The first time your organization uses these cmdlets for this scenario, you need 
    $dbu_match_ambiguous_list = @()
    $dbu_query_failed_list = @()
    $azuread_match_id_list = @()
+   $azuread_not_enabled_list = @()
+   $dbu_values = @()
+   $dbu_duplicate_list = @()
 
    foreach ($dbu in $dbusers) { 
       if ($null -ne $dbu.$db_match_column_name -and $dbu.$db_match_column_name.Length -gt 0) { 
          $val = $dbu.$db_match_column_name
          $escval = $val -replace "'","''"
+         if ($dbu_values -contains $escval) { $dbu_duplicate_list += $dbu; continue } else { $dbu_values += $escval }
          $filter = $azuread_match_attr_name + " eq '" + $escval + "'"
          try {
-            $ul = @(Get-MgUser -Filter $filter -All -ErrorAction Stop)
+            $ul = @(Get-MgUser -Filter $filter -All -Property Id,accountEnabled -ErrorAction Stop)
             if ($ul.length -eq 0) { $dbu_not_matched_list += $dbu; } elseif ($ul.length -gt 1) {$dbu_match_ambiguous_list += $dbu } else {
                $id = $ul[0].id; 
                $azuread_match_id_list += $id;
+               if ($ul[0].accountEnabled -eq $false) {$azuread_not_enabled_list += $id }
             } 
          } catch { $dbu_query_failed_list += $dbu } 
        } else { $dbu_not_queried_list += $dbu }
@@ -319,19 +337,27 @@ The first time your organization uses these cmdlets for this scenario, you need 
    if ($dbu_not_queried_count -ne 0) {
      Write-Error "Unable to query for $dbu_not_queried_count records as rows lacked values for $db_match_column_name."
    }
+   $dbu_duplicate_count = $dbu_duplicate_list.Count
+   if ($dbu_duplicate_count -ne 0) {
+     Write-Error "Unable to locate Azure AD users for $dbu_duplicate_count rows as multiple rows have the same value"
+   }
    $dbu_not_matched_count = $dbu_not_matched_list.Count
    if ($dbu_not_matched_count -ne 0) {
      Write-Error "Unable to locate $dbu_not_matched_count records in Azure AD by querying for $db_match_column_name values in $azuread_match_attr_name."
    }
    $dbu_match_ambiguous_count = $dbu_match_ambiguous_list.Count
    if ($dbu_match_ambiguous_count -ne 0) {
-     Write-Error "Unable to locate $dbu_match_ambiguous_count records in Azure AD."
+     Write-Error "Unable to locate $dbu_match_ambiguous_count records in Azure AD as attribute match ambiguous."
    }
    $dbu_query_failed_count = $dbu_query_failed_list.Count
    if ($dbu_query_failed_count -ne 0) {
      Write-Error "Unable to locate $dbu_query_failed_count records in Azure AD as queries returned errors."
    }
-   if ($dbu_not_queried_count -ne 0 -or $dbu_not_matched_count -ne 0 -or $dbu_match_ambiguous_count -ne 0 -or $dbu_query_failed_count -ne 0) {
+   $azuread_not_enabled_count = $azuread_not_enabled_list.Count
+   if ($azuread_not_enabled_count -ne 0) {
+    Write-Error "$azuread_not_enabled_count users in Azure AD are blocked from sign-in."
+   }
+   if ($dbu_not_queried_count -ne 0 -or $dbu_duplicate_count -ne 0 -or $dbu_not_matched_count -ne 0 -or $dbu_match_ambiguous_count -ne 0 -or $dbu_query_failed_count -ne 0 -or $azuread_not_enabled_count -ne 0) {
     Write-Output "You will need to resolve those issues before access of all existing users can be reviewed."
    }
    $azuread_match_count = $azuread_match_id_list.Count
@@ -399,6 +425,7 @@ Before you create new assignments, configure [provisioning of Azure AD users](..
 
    * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md).
    * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md).
+   * For other applications, follow steps 1-3 to [configure provisioning via Graph APIs](../app-provisioning/application-provisioning-configuration-api.md).
 
 1. Check the [attribute mappings](../app-provisioning/customize-application-attributes.md) for provisioning to that application. Make sure that **Match objects using this attribute** is set for the Azure AD attribute and column that you used in the previous sections for matching.  
 
@@ -459,11 +486,13 @@ When an application role assignment is created in Azure AD for a user to an appl
 
    If any users aren't assigned to application roles, check the Azure AD audit log for an error from a previous step.
 
-1. If **Provisioning Status** for the application is **Off**, turn it to **On**.
+1. If **Provisioning Status** for the application is **Off**, turn it to **On**.  You can also start provisioning [using Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#step-4-start-the-provisioning-job).
 1. Based on the guidance for [how long will it take to provision users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users), wait for Azure AD provisioning to match the existing users of the application to those users just assigned.
-1. Monitor the [provisioning status](../app-provisioning/check-status-user-account-provisioning.md) to ensure that all users were matched successfully.  
+1. Monitor the [provisioning status](../app-provisioning/check-status-user-account-provisioning.md) through the Portal or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-the-provisioning-job-status) to ensure that all users were matched successfully.
 
    If you don't see users being provisioned, check the [troubleshooting guide for no users being provisioned](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md). If you see an error in the provisioning status and are provisioning to an on-premises application, check the [troubleshooting guide for on-premises application provisioning](../app-provisioning/on-premises-ecma-troubleshoot.md).
+
+1. Check the provisioning log through the [Azure portal](../reports-monitoring/concept-provisioning-logs.md) or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-provisioning-events-using-the-provisioning-logs).  Filter the log to the status **Failure**.  If there are failures with an ErrorCode of **DuplicateTargetEntries**,  this indicates an ambiguity in your provisioning matching rules, and you'll need to update the Azure AD users or the mappings that are used for matching to ensure each Azure AD user matches one application user.  Then filter the log to the action **Create** and status **Skipped**.  If users were skipped with the SkipReason code of **NotEffectivelyEntitled**, this may indicate that the user accounts in Azure AD were not matched because the user account status was **Disabled**.
 
 After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes will be sent to the application.
 
