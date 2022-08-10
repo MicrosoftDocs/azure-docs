@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/deployment-environments/tutorial-create-and-configure-devcenter.md",
+      "redirect_url": "/azure/deployment-environments/quickstart-create-and-configure-devcenter",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/deployment-environments/tutorial-create-and-configure-projects.md",
       "redirect_url": "/azure/deployment-environments/quickstart-create-and-configure-projects",
       "redirect_document_id": false
