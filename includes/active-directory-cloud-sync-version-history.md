@@ -39,7 +39,7 @@ November 2, 2021 - released for download
 
 New features and improvements
 
-- Cmdlet to configure Password Writeback
+- We added a cmdlet to configure Password Writeback
 
 
 ## 1.1.584.0 
