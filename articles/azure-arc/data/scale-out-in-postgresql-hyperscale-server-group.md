@@ -3,7 +3,7 @@ title: Scale out and in your Azure Database for PostgreSQL Hyperscale server gro
 description: Scale out and in you Azure Database for PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

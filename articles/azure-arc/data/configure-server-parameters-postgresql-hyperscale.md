@@ -4,7 +4,7 @@ titleSuffix: Azure Arc-enabled data services
 description: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

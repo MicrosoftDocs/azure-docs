@@ -2,7 +2,8 @@
 title: Plan an Azure Arc-enabled data services deployment
 description: This article explains the considerations for planning an Azure Arc-enabled data services deployment.
 services: azure-arc
-ms.service: azure-arc-data
+ms.service: azure-arc
+ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

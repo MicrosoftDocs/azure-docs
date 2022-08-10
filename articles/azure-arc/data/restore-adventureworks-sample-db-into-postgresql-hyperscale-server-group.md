@@ -2,7 +2,7 @@
 title: Import the AdventureWorks sample database to Azure Arc-enabled PostgreSQL Hyperscale
 description: Restore the AdventureWorks sample database to Azure Arc-enabled PostgreSQL Hyperscale
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

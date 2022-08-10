@@ -3,7 +3,7 @@ title: Scale up and down an Azure Database for PostgreSQL Hyperscale server grou
 description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

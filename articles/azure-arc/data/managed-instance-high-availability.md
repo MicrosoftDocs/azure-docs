@@ -9,7 +9,7 @@ ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
 ---
 

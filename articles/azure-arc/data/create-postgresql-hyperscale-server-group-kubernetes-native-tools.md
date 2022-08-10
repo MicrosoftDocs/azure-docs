@@ -3,7 +3,7 @@ title: Create a PostgreSQL Hyperscale server group using Kubernetes tools
 description: Create a PostgreSQL Hyperscale server group using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray

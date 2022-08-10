@@ -3,7 +3,7 @@ title: Placement of a PostgreSQL Hyperscale server group on the Kubernetes clust
 description: Explains how PostgreSQL instances forming a PostgreSQL Hyperscale server group are placed on the Kubernetes cluster nodes
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

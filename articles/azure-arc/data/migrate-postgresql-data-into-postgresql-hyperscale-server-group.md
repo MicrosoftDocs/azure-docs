@@ -4,7 +4,7 @@ titleSuffix: Azure Arc-enabled database services
 description: Migrate data from a PostgreSQL database into an Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
