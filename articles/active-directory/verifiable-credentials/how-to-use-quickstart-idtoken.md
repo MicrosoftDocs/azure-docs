@@ -17,9 +17,6 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [idTokens attestation](rules-and-display-definitions-model.md#idtokenattestation-type) produces an issuance flow where you're required to do an interactive sign-in to an OpenID Connect (OIDC) identity provider in Microsoft Authenticator. Claims in the ID token that the identity provider returns can be used to populate the issued verifiable credential. The claims mapping section in the rules definition specifies which claims are used. 
 

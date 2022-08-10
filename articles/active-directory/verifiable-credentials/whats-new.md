@@ -1,5 +1,5 @@
 ---
-title: What's new for Microsoft Entra Verified ID (preview)
+title: What's new for Microsoft Entra Verified ID
 description: Recent updates for Microsoft Entra Verified ID
 author: barclayn
 manager: rkarlin

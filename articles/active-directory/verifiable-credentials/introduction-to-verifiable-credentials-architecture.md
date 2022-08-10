@@ -15,8 +15,6 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 It’s important to plan your verifiable credential solution so that in addition to issuing and or validating credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t reviewed them already, we recommend you review  [Introduction to Microsoft Entra Verified ID](decentralized-identifier-overview.md) and the [FAQs](verifiable-credentials-faq.md), and then complete the [Getting Started](get-started-verifiable-credentials.md) tutorial. 
 

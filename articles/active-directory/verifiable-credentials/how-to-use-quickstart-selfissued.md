@@ -17,9 +17,6 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [selfIssued attestation](rules-and-display-definitions-model.md#selfissuedattestation-type) type produces an issuance flow where you're required to manually enter values for the claims in Microsoft Authenticator.  
 

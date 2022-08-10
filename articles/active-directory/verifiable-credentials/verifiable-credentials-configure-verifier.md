@@ -16,7 +16,7 @@ ms.date: 06/16/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-In [Issue Microsoft Entra Verified ID credentials from an application (preview)](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
+In [Issue Microsoft Entra Verified ID credentials from an application](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
 
 As a verifier, you unlock privileges to subjects that possess verified credential expert cards. In this tutorial, you run a sample application from your local computer that asks you to present a verified credential expert card, and then verifies it.
 
