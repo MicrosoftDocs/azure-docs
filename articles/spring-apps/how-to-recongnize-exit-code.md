@@ -28,13 +28,16 @@ The exit codes indicate the termination reasons of the application. Some common 
 
 * 1 - The application exited with a non-zero exit code, please debug the code and related services, then deploy the application again.
   Some possible problems are as follows:
-  * Wrong configurations of spring boot.
+  * Wrong configurations of spring boot
+  
     For example : You need a parameters of {spring.db.url} to connect to the database, but it's not found in your yaml configuration file.
 
-  * Disconnected from third service.
+  * Disconnected from third service
+  
     For example : You need to connect to redis service, but the service is not worked or reachable.
   
   * Insufficient authorities to third service
+
     For example : You need to connect to azure key vault to import certificates in you application, but your app don't have the authority to access it.
 
 * 137 - The application exited because it requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
