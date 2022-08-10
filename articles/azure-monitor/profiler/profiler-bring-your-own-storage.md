@@ -93,7 +93,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
 * Using the Azure CLI
 * Using Azure Resource Manager templates
 
-#### [PowerShell](#tab/azure-cli/linux)
+#### [PowerShell](#tab/azure-powershell))
 
 1. Make sure you have installed Az PowerShell 4.2.0 or greater.
 
