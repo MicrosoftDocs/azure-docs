@@ -7,7 +7,7 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 08/10/2022
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration
@@ -88,7 +88,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
    If you don't have permissions to assign roles, the **Add role assignment** option will be disabled. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-1. On the **Role** tab, select the **App Configuration Data Reader** role.
+1. On the **Role** tab, select the **App Configuration Data Reader** role and then select **Next**.
 
     :::image type="content" source="../../includes/role-based-access-control/media/select-role-assignment.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 
@@ -97,6 +97,8 @@ The following steps describe how to assign the App Configuration Data Reader rol
     :::image type="content" source="../../includes/role-based-access-control/media/add-members.png" alt-text="Screenshot showing Add role assignment page with Members tab selected.":::
 
 1. Select your Azure subscription, for Managed Identity select **App Service**, then select your App Service name.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/select-managed-identity-members.png" alt-text="Screenshot showing select managed identities page.":::
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
@@ -214,7 +216,7 @@ Using managed identities requires you to deploy your app to an Azure service. Ma
 
 :::zone target="docs" pivot="framework-spring"
 
-Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux).
+Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the Spring app that you created in the [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux).
 
 :::zone-end
 

@@ -6,14 +6,14 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-dotnet, devdivchpfy22
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 08/10/2022
 ---
 
 # Feature management overview
 
 Traditionally, shipping a new application feature requires a complete redeployment of the application itself. Testing a feature often requires multiple deployments of the application. Each deployment might change the feature or expose the feature to different customers for testing.  
 
-Feature management is a modern software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles*, *feature switches*, and so on) to dynamically administer a feature's lifecycle.
+Feature management is a modern software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles* and *feature switches*) to dynamically administer a feature's lifecycle.
 
 Feature management helps developers address the following problems:
 
@@ -46,7 +46,7 @@ if (featureFlag) {
 }
 ```
 
-You can set the value of `featureFlag` statically.
+You can set the value of `featureFlag` statically:
 
 ```csharp
 bool featureFlag = true;
@@ -70,7 +70,7 @@ if (featureFlag) {
 
 ## Feature flag repository
 
-To use feature flags effectively, you need to externalize all the feature flags used in an application. This approach allows you to change feature flag states without modifying and redeploying the application itself.
+To use feature flags effectively, you need to externalize all the feature flags used in an application. This approach lets you change feature flag states without modifying and redeploying the application itself.
 
 Azure App Configuration provides a centralized repository for feature flags. You can use it to define different kinds of feature flags and manipulate their states quickly and confidently. You can then use the App Configuration libraries for various programming language frameworks to easily access these feature flags from your application.
 
