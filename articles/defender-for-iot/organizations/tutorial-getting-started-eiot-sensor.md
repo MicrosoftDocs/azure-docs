@@ -29,7 +29,7 @@ In this tutorial, you learn about:
 
 Integrate with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration) to extend your security analytics capabilities, providing complete coverage across your Enterprise IoT devices. Defender for Endpoint analytics features include alerts, vulnerabilities, and recommendations for your enterprise devices.
 
-After onboarding a plan for Enterprise IoT and set up your Enterprise IoT network sensor, your device data integrates automatically with Microsoft Defender for Endpoint.
+After you've onboarded a plan for Enterprise IoT and set up your Enterprise IoT network sensor, your device data integrates automatically with Microsoft Defender for Endpoint.
 
 - Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals.
 - In Defender for Endpoint, view discovered IoT devices and related alerts, vulnerabilities, and recommendations.
