@@ -54,7 +54,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|DICOM Service availability expands to new regions.   | The DICOM Service is now available in the following [regions](https://azure.microsoft.com/en-us/global-infrastructure/services/): Southeast Asia, Central India, Korea Central, and Switzerland North. |
+|DICOM Service availability expands to new regions.   | The DICOM Service is now available in the following [regions](https://azure.microsoft.com/global-infrastructure/services/): Southeast Asia, Central India, Korea Central, and Switzerland North. |
 |Fast retrieval of individual DICOM frames    | For DICOM images containing multiple frames, performance improvements have been made to enable fast retrieval of individual frames (60 KB frames as fast as 60 MS). These improved performance characteristics enable workflows such as [viewing digital pathology images](https://microsofthealth.visualstudio.com/DefaultCollection/Health/_git/marketing-azure-docs?version=GBmain&path=%2Fimaging%2Fdigital-pathology%2FDigital%20Pathology%20using%20Azure%20DICOM%20service.md&_a=preview), which require rapid retrieval of individual frames.    |
 
 ## June 2022
@@ -223,7 +223,7 @@ For more information about the currently known issues with the FHIR service, see
 |Process Patient-everything links  |We've expanded the Patient-everything capabilities to process patient links [#2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links) documentation. |
 |Added software name and version to capability statement. |In the capability statement, the software name now distinguishes if you're using Azure API for FHIR or Azure Health Data Services. The software version will now specify which open-source [release package](https://github.com/microsoft/fhir-server/releases) is live in the managed service [#2294](https://github.com/microsoft/fhir-server/pull/2294). Addresses: [#1778](https://github.com/microsoft/fhir-server/issues/1778) and [#2241](https://github.com/microsoft/fhir-server/issues/2241) |
 |Compress continuation tokens |In certain instances, the continuation token was too long to be able to follow the [next link](./../healthcare-apis/fhir/overview-of-search.md#pagination) in searches and would result in a 404. To resolve this, we compressed the continuation token to ensure it stays below the size limit [#2279](https://github.com/microsoft/fhir-server/pull/2279). Addresses issue [#2250](https://github.com/microsoft/fhir-server/issues/2250). |
-|FHIR service autoscale |The [FHIR service autoscale](./fhir/fhir-service-autoscale.md) is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all [regions](https://azure.microsoft.com/en-us/global-infrastructure/services/) where the FHIR service is supported. |
+|FHIR service autoscale |The [FHIR service autoscale](./fhir/fhir-service-autoscale.md) is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all [regions](https://azure.microsoft.com/global-infrastructure/services/) where the FHIR service is supported. |
 
 #### **Bug fixes**
 
@@ -269,7 +269,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Added support | Related information |
 | :------------------------ | :------------------------------- |
-|Regions | South Brazil and Central Canada. For more information about Azure regions and availability zones, see [Azure services that support availability zones](https://azure.microsoft.com/en-us/global-infrastructure/services/). |
+|Regions | South Brazil and Central Canada. For more information about Azure regions and availability zones, see [Azure services that support availability zones](https://azure.microsoft.com/global-infrastructure/services/). |
 |Extended Query tags |DateTime (DT) and Time (TM) Value Representation (VR) types |
 
 |Bug fixes | Related information |
