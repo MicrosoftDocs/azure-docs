@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Automate threat response in Microsoft Sentinel with automation rules
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article explains what Microsoft Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
 
 ## What are automation rules?
@@ -33,7 +31,7 @@ Automation rules apply to the following categories of use cases:
 
 - Inspect the contents of an incident (alerts, entities, and other properties) and take further action by calling a playbook.
 
-- Automation rules can also be [the mechanism by which you run a playbook](whats-new.md#automation-rules-for-alerts) in response to an **alert** *not associated with an incident*.
+- Automation rules can also be [the mechanism by which you run a playbook](whats-new.md#automation-rules-for-alerts-preview) in response to an **alert** *not associated with an incident*.
 
     > [!IMPORTANT]
     >
