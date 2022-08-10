@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Extend the developer portal with custom features
 
-The API Management [developer portal](api-management-howto-developer-portal.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you may need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a custom support system that involves adding a custom control. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
+The API Management [developer portal](api-management-howto-developer-portal.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you may need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a support system that involves adding a custom control. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
 
 The following table summarizes three options, with links to more detail.
 
@@ -84,7 +84,7 @@ The managed developer portal includes a **Custom HTML code** widget that enables
     > [!NOTE]
     > If the tab doesn't open, do the following:
     > 1. Go to your API Management service in the Azure portal and open the administrative instance of the developer portal. 
-    > 1. Append `/?MS_APIM_CW_localhost_port=3000` to the URL, amd make sure the development server started. To do that, check output on the console where you started the server in the previous step. It should display the port the server is running on (for example, `http://127.0.0.1:3001`). 
+    > 1. Append `/?MS_APIM_CW_localhost_port=3000` to the URL, and make sure the development server started. To do that, check output on the console where you started the server in the previous step. It should display the port the server is running on (for example, `http://127.0.0.1:3001`). 
     > 
 
 1. Implement the code of the widget and test it locally. The code of the widget is located in the `src` folder, in the following subfolders: 
@@ -92,7 +92,11 @@ The managed developer portal includes a **Custom HTML code** widget that enables
     * **`app`** - Code for the widget component that visitors to the published developer portal see and interact with 
     * **`editor`** - Code for the widget component that you use in the administrative interface of the developer portal to edit widget settings 
 
-    The `values.ts` file contains the default values and types of the widget's custom properties (*screenshot of custom properties in the admin panel*). Custom properties let you adjust values in the custom widget's instance from the administrative user interface of the developer portal, without changing the code or redeploying the custom widget. This object needs to be passed to some of the widgets' helper functions. 
+    The `values.ts` file contains the default values and types of the widget's custom properties.
+    
+    :::image type="content" source="media/developer-portal-extend-custom-functionality/widget-custom-properties.png" alt-text="Screenshot of custom properties page in developer portal.":::
+    
+    Custom properties let you adjust values in the custom widget's instance from the administrative user interface of the developer portal, without changing the code or redeploying the custom widget. This object needs to be passed to some of the widgets' helper functions. 
 
 ### Deploy the custom widget to the developer portal
 
@@ -111,9 +115,17 @@ The managed developer portal includes a **Custom HTML code** widget that enables
     ```
 
     If prompted, sign in to your Azure account. 
-1. [Republish the portal](api-management-howto-developer-portal-customize.md#publish)
 
-The custom widget is now deployed to your developer portal and can be managed and used from there.
+
+The custom widget is now deployed to your developer portal. Using the portal's administrative interface, you can add it on pages in the developer portal and set any custom properties configured in the widget.
+
+### Publish the developer portal
+
+After you configure the widget and verify its functionality, [republish the portal](api-management-howto-developer-portal-customize.md#publish) to make the widget available in production.
+
+> [!NOTE]
+> *  Widget code updates you deploy aren't used in production until you republish the developer portal.
+> * The widget's compiled code is associated with a specific portal *revision*. If you make a previous portal revision current, the custom widget associated with that revision is used.
 
 ### Widget templates 
 
