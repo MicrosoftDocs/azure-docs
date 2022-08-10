@@ -27,10 +27,13 @@ To manage Spark created Lake databases, you can use Apache Spark pools or [Datab
 The Spark default database, called `default`, is available in the serverless SQL pool context as a Lake database called `default`. 
 You can't create a Lake database and or the objects in the Lake databases using the serverless SQL pool.
 
-Objects in the Lake databases cannot be modified from a serverless SQL pool. Use [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases.
-
 >[!NOTE]
 > You cannot create Lake and SQL databases with the same name. If a SQL database in the serverless SQL pool is created, you won't be able to create a Lake database with the same name. Respectively, if you create a Lake database, you won't be able to create a serverless SQL pool database with the same name.
+
+Tables in the Lake databases cannot be modified from a serverless SQL pool. Use [Database designer](../database-designer/modify-lake-database.md) or Apache Spark pools to modify the Lake databases. The servelress
+- Adding, altering, and dropping views, procedures, inline table-value functions in a Lake database.
+- Adding and removing database users from Azure AD domain.
+- Altering `db_datareader` role to add or remove Azure AD database users.
 
 ## Security model
 
@@ -52,13 +55,39 @@ If a security principal requires the ability to create objects or drop objects i
 
 Synapse workspace provides a T-SQL endpoint that enables you to query the Lake database using the serverless SQL pool. In addition to the data access, SQL interface enables you to control who can access the tables. You need to enable a user to access the shared Lake databases using the serverless SQL pool. There are two types of users who can access the Lake databases:
 - Administrators - You can assign a `Synapse SQL Administrator` workspace role or `sysadmin` server-level role in the serverless SQL pool. This role has full control over all databases. `Synapse Administrator` and `Synapse SQL Administrator` will also have all the permissions on all objects in a serverless SQL pool by default. 
-- Readers - you can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
+- Workspace readers - you can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
+- Database readers - you can create database users from Azure AD domain in your Lake database and add them to `db_datareader` role, which will enable them to read data in the Lake database.
 
 Learn more about [setting access control on shared databases here](../sql/shared-databases-access-control.md).
 
 ## Custom SQL objects in Lake databases
 
 Lake databases allow creation of custom T-SQL objects, such as schemas, procedures, views, and the inline table-value functions (iTVFs). In order to create custom SQL objects, you **MUST** create a schema where you will place the objects. Custom SQL objects cannot be placed in `dbo` schema because it is reserved for the lake tables that are defined in Spark, Database designer, or Data Verse.
+
+>[!IMPORTANT]
+> You must create custom SQL schema where you will place your SQL objects. The custom SQL objects cannot be placed in the `dbo` schema. The `dbo` schema is reserved for the lake tables that are originally created in Spark or database designer.
+
+In addition to SQL objects, you can add Azure AD users in the Lake database and add them to the db_datareader role.
+
+## Examples
+
+### Create and connect to Spark database with serverless SQL pool
+
+First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
+
+```csharp
+spark.Sql("CREATE DATABASE mytestlakedb")
+```
+
+After a short delay, you can see the Lake database from serverless SQL pool. For example, run the following statement from serverless SQL pool.
+
+```sql
+SELECT * FROM sys.databases;
+```
+
+Verify that `mytestlakedb` is included in the results.
+
+### Create custom SQL objects in Lake database
 
 The following example shows how to create custom view, procedure, and iTVF in the report schema:
 
@@ -98,26 +127,16 @@ RETURN ( SELECT puYear = @year, puMonth,
 GO
 ```
 
->[!IMPORTANT]
-> You must create custom SQL schema where you will place your SQL objects. The custom SQL objects cannot be placed in the `dbo` schema. The `dbo` schema is reserved for the lake tables that are originally created in Spark or database designer.
+### Create SQL database reader in Lake database
 
-## Examples
-
-### Create and connect to Spark database with serverless SQL pool
-
-First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
-
-```csharp
-spark.Sql("CREATE DATABASE mytestlakedb")
-```
-
-After a short delay, you can see the Lake database from serverless SQL pool. For example, run the following statement from serverless SQL pool.
+In this example we are adding an Azure AD user in the Lake database who can read data via shared tables. The users are added in the Lake database via **serverless SQL pool**, and must be assigned to the `db_datareader` role so they can read data.
 
 ```sql
-SELECT * FROM sys.databases;
+create user [customuser@contoso.com] from external provider
+go
+alter role db_datareader
+add member [customuser@contoso.com]
 ```
-
-Verify that `mytestlakedb` is included in the results.
 
 ## Next steps
 
