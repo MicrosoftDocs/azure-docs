@@ -27,20 +27,14 @@ In this tutorial, you learn about:
 
 ## Microsoft Defender for Endpoint integration
 
-Integrate with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration) to extend your security analytics capabilities, providing complete coverage across your Enterprise IoT devices. Defender for Endpoint analytics features include alerts, vulnerabilities, and recommendations for your enterprise devices.
+Integrate with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to extend your security analytics capabilities, providing complete coverage across your Enterprise IoT devices. Defender for Endpoint analytics features include alerts, vulnerabilities, and recommendations for your enterprise devices.
 
 After you've onboarded a plan for Enterprise IoT and set up your Enterprise IoT network sensor, your device data integrates automatically with Microsoft Defender for Endpoint.
 
 - Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals.
 - In Defender for Endpoint, view discovered IoT devices and related alerts, vulnerabilities, and recommendations.
 
-For more information, see:
-
-- [Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
-- [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
-- [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
-- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/)
-- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+For more information, see [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 ## Prerequisites
 
@@ -225,7 +219,10 @@ Continue viewing device data in both the Azure portal and Defender for Endpoint,
 
 In Defender for Endpoint, also view alerts data, recommendations and vulnerabilities related to your network traffic.
 
+For more information in Defender for Endpoint documentation, see:
+
 - [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
-- [View and organize the Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
-- [Defender for Endpoint security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+- [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
+- [Alerts in Defender for Endpoint](/microsoft-365/security/defender-endpoint/alerts-queue)
+- [Security recommendations in Defender for Endpoint](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Defender for Endpoint: Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)

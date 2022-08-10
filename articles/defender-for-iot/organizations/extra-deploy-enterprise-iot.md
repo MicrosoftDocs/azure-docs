@@ -11,7 +11,7 @@ This article provides extra steps for deploying an Enterprise IoT sensor, includ
 
 For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
 
-### Configure a SPAN monitoring interface for a virtual appliance
+## Configure a SPAN monitoring interface for a virtual appliance
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 
