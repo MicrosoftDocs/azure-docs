@@ -274,7 +274,16 @@ sections:
           |Daily fulls + logs     |   -      |    The previous fulls that aren't on the same day of the week are marked for deletion but kept until the log retention period     |    The previous fulls that aren't on the same day of the week are marked for deletion but kept until the log retention period     |
           |Weekly fulls + daily differentials + logs     |   The previous weekly fulls retention is recalculated as per latest policy. The previous differentials are immediately deleted      |    -     |    The previous differentials are immediately deleted     |
           |Weekly fulls + daily incrementals + logs     |     The previous weekly fulls retention is recalculated as per latest policy. The previous incrementals are immediately deleted    |     The previous incrementals are immediately deleted    |    -     |
-          
+
+      - question: |
+          How can I manage the size of */opt/msawb* folder created in the root partition?
+        answer: |
+          You could manage the space in the root folder using one of the following options:
+          - Create an own LV for */opt/msawb*.
+          - Create a soft *link*/*symlink* to another location/folder on the same/different disk.
+          - Increase the space on the root partition.
+
+
 additionalContent: |
 
   ## Next steps
