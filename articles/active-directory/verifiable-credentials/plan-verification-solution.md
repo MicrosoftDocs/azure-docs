@@ -1,5 +1,5 @@
 ---
-title: Plan your Microsoft Entra Verified ID verification solution (preview)
+title: Plan your Microsoft Entra Verified ID verification solution 
 description: Learn foundational information to plan and design your verification solution
 documentationCenter: ''
 author: barclayn
@@ -12,7 +12,7 @@ ms.author: barclayn
 ms.custom: references_regions
 ---
 
-# Plan your Microsoft Entra Verified ID  verification solution (preview)
+# Plan your Microsoft Entra Verified ID  verification solution
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 

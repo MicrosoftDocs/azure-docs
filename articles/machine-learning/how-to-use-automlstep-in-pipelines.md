@@ -452,7 +452,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-and-where.md).
+For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](./v1/how-to-deploy-and-where.md).
 
 ### Download the results of an automated ML run
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 08/09/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -167,10 +167,10 @@ In some cases, an **All cloud apps** policy could inadvertently block user acces
 
 - Calls to Azure AD Graph and MS Graph, to access user profile, group membership and relationship information that is commonly used by applications excluded from policy. The excluded scopes are listed below. Consent is still required for apps to use these permissions. 
    - For native clients:
-      - Azure AD Graph: User.read
+      - Azure AD Graph: email, offline_access, openid, profile, User.read
       - MS Graph: User.read, People.read, and UserProfile.read 
    - For confidential / authenticated clients:
-      - Azure AD Graph: User.read, User.read.all, and User.readbasic.all
+      - Azure AD Graph: email, offline_access, openid, profile, User.read, User.read.all, and User.readbasic.all
       - MS Graph: User.read,User.read.all, User.read.All People.read, People.read.all, GroupMember.Read.All, Member.Read.Hidden, and UserProfile.read 
 
 ## User actions
