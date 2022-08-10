@@ -141,11 +141,11 @@ A basic scenario is to create or connect to an Azure NetApp Files volume from a 
 
 ### <a name="vnet-peering"></a> VNet peering
 
-If you have additional VNets in the same region that need access to each other’s resources, the VNets can be connected using [VNet peering](../virtual-network/virtual-network-peering-overview.md) to enable secure connectivity through the Azure infrastructure. 
+If you have other VNets in the same region that need access to each other’s resources, the VNets can be connected using [VNet peering](../virtual-network/virtual-network-peering-overview.md) to enable secure connectivity through the Azure infrastructure. 
 
 Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 2 or Volume 2, or if VM 2 needs to connect to VM 1 or Volume 1, then you need to enable VNet peering between VNet 2 and VNet 3. 
 
-Also, consider a scenario where VNet 1 is peered with VNet 2, and VNet 2 is peered with VNet 3 in the same region. The resources from VNet 1 can connect to resources in VNet 2, but it can't connect to resources in VNet 3 unless VNet 1 and VNet 3 are peered. 
+Also, consider a scenario where VNet 1 is peered with VNet 2, and VNet 2 is peered with VNet 3 in the same region. The resources from VNet 1 can connect to resources in VNet 2 but can't connect to resources in VNet 3 unless VNet 1 and VNet 3 are peered. 
 
 In the diagram above, although VM 3 can connect to Volume 1, VM 4 can't connect to Volume 2.  The reason for this is that the spoke VNets aren't peered, and _transit routing isn't supported over VNet peering_.
 
@@ -155,9 +155,9 @@ The following diagram illustrates an Azure-native environment with cross-region 
 
 :::image type="content" source="../media/azure-netapp-files/azure-native-cross-region-peering.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/azure-native-cross-region-peering.png":::
 
-With the standard network feature, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds an additional region to the diagram in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
+With the standard network feature, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds a second region to the configuration in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
 
-In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2, and VM5 in Region 2 can connected to Volume 2 in Region 1 via VNet peering between Region 1 and Region 2.
+In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2. VM5 in Region 2 can connect to Volume 2 in Region 1 via VNet peering between Region 1 and Region 2.
 
 ## Hybrid environments
 
@@ -165,7 +165,7 @@ The following diagram illustrates a hybrid environment:
 
 :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png" alt-text="Diagram depicting hybrid networking environment." lightbox="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png":::
 
-In the hybrid scenario, applications from on-premises datacenters need access to the resources in Azure.  This is the case whether you want to extend your datacenter to Azure, or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) for information on how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
+In the hybrid scenario, applications from on-premises datacenters need access to the resources in Azure. This is the case whether you want to extend your datacenter to Azure or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) for information on how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
 
 In a hybrid hub-spoke topology, the hub VNet in Azure acts as a central point of connectivity to your on-premises network. The spokes are VNets peered with the hub, and they can be used to isolate workloads.
 
