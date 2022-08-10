@@ -44,10 +44,10 @@ The request body is an **AllocationRequest** object:
 
 | Property name | Description |
 |---------------|-------------|
-| individualEnrollment | Contains properties associated with the individual enrollment that the allocation request originated from. |
-| enrollmentGroup | Contains the properties associated with the enrollment group that the allocation request originated from. |
-| deviceRuntimeContext | A context that contains properties associated with the device that is registering. |
-| linkedHubs | An array that contains the hostnames of the IoT hubs that are linked to the enrollment entry that the allocation request originated from. The device may be assigned to any one of these IoT hubs. |
+| individualEnrollment | Contains properties associated with the individual enrollment that the allocation request originated from. Present if the device is registering through an individual enrollment. |
+| enrollmentGroup | Contains the properties associated with the enrollment group that the allocation request originated from. Present if the device is registering through an enrollment group. |
+| deviceRuntimeContext | A context that contains properties associated with the device that is registering. Always present. |
+| linkedHubs | An array that contains the hostnames of the IoT hubs that are linked to the enrollment entry that the allocation request originated from. The device may be assigned to any one of these IoT hubs. Always present. |
 
 The **DeviceRuntimeContext** object has the following properties:
 
@@ -59,7 +59,7 @@ The **DeviceRuntimeContext** object has the following properties:
 | x509 | X509DeviceAttestation | For X.509 attestation, contains certificate details. |
 | symmetricKey | SymmetricKeyAttestation | For symmetric key attestation, contains primary and secondary key details. |
 | tpm | TpmAttestation | For TPM attestation, contains endorsement key and storage root key details. |
-| payload | object | Contains properties specified by the device in the payload property during registration. |
+| payload | object | Contains properties specified by the device in the payload property during registration. Present if the device sends a custom payload in the DPS registration request. |
 
 The following JSON shows the **AllocationRequest** object sent by DPS for a device registering through a symmetric key based enrollment group.
 
@@ -125,7 +125,7 @@ A successful request returns an **AllocationResponse** object.
 
 | Property | Description |
 |----------|-------------|
-| initialTwin | Optional. An object that contains the desired properties and tags for the initial twin. If an initial twin is returned, it sets the initial twin for the device, regardless of any settings in the enrollment entry. If the initial twin is not returned, the device twin is set to the initial twin settings in the enrollment on initial assignment or according to the migration settings in the enrollment on reprovisioning. |
+| initialTwin | Optional. An object that contains the desired properties and tags for the initial twin. If an initial twin is returned, it sets the initial twin for the device, regardless of any settings in the enrollment entry. If the initial twin is not returned, the device twin is set to the initial twin settings in the enrollment entry on initial assignment or according to the migration settings in the enrollment entry on re-provisioning. |
 | iotHubHostName | Required. The hostname of the IoT hub to assign the device to. This must be one of the IoT hubs passed in the **linkedHubs** property in the request. |
 | payload | Optional. An object that contains data to be passed back to the device in the Registration response. The exact data will depend on the implicit contract defined by the developer between the device and the custom allocation function. |
 
