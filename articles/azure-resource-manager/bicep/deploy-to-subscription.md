@@ -57,10 +57,10 @@ For creating new resource groups, use:
 For managing your subscription, use:
 
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [configurations - Advisor ](/azure/templates/microsoft.advisor/configurations)
+* [configurations - Advisor](/azure/templates/microsoft.advisor/configurations)
 * [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
 * [locks](/azure/templates/microsoft.authorization/locks)
-* [profile - Change Analysis ](/azure/templates/microsoft.changeanalysis/profile)
+* [profile - Change Analysis](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
 
