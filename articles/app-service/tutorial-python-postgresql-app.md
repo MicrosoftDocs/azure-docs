@@ -429,7 +429,6 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 2](<./includes/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/tutorial-python-postgresql-app/remove-resource-group-azure-portal-3.md>)] | |
 
-
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
@@ -441,7 +440,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 [!INCLUDE [Stream logs CLI](<./includes/tutorial-python-postgresql-app/clean-up-resources-cli.md>)]
 
-----
+---
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
