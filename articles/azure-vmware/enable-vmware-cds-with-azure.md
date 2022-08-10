@@ -7,7 +7,7 @@ ms.date: 08/09/2022
 
 # Enable VMware Cloud director service with Azure VMware solution (Public Preview)
 
-VMware Cloud Director Service (CDs) (VMware Cloud Director service | Managed Service | Cloud Solutions & Services) with Azure VMware Solutions enables Enterprise customers, to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
+VMware Cloud Director Service (CDs) (VMware Cloud Director service | Managed Service | Cloud Solutions & Services) with Azure VMware Solutions enables enterprise customers, to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
 
 In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware solution for enterprise customers to use Azure VMware Solutions resources and Azure VMware solutions private clouds with underlying resources for virtual datacenters.
 
@@ -106,7 +106,7 @@ Select the connection you created earlier and then select **configuration** to v
 
    >[!Note]
    > VPN tunnel would not establish if these settings were mismatched.
-1. Under **Peer Authentication Mode**, provide the same pre-shared key which is used at the Azure VPN gateway.
+1. Under **Peer Authentication Mode**, provide the same pre-shared key that is used at the Azure VPN gateway.
 1. Under **Endpoint configuration**, add the Organization’s public IP and network details in local endpoint and Azure VNet details in remote endpoint configuration.
 1. Under **Ready to complete**, review applied configuration.
 1. Select **Finish** to apply configuration.
