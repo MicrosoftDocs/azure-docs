@@ -277,8 +277,8 @@
         href: api/management-appliance-apis.md
       - name: Alert management
         href: api/management-alert-apis.md
-      - name: Vulnerability management
-        href: api/management-vulnerability-apis.md
+      - name: Inventory management
+        href: api/management-inventory-apis.md
       - name: Partner integration
         href: api/management-integration-apis.md
   - name: Sensor health message reference

@@ -70,7 +70,7 @@ A JSON array of appliance objects that represent sensor appliances.
 ```
 
 
-# [Curl command](#tab/alerts-get-curl)
+# [Curl command](#tab/appliances-get-curl)
 
 **Type**: GET
 
@@ -110,7 +110,7 @@ A list of alerts with the following fields:
 ```
 
 
-# [Curl command](#tab/alerts-get-curl)
+# [Curl command](#tab/appliances-put-curl)
 
 **Type**: GET
 
@@ -151,7 +151,7 @@ A list of alerts with the following fields:
 ```
 
 
-# [Curl command](#tab/alerts-get-curl)
+# [Curl command](#tab/appliances-put-curl)
 
 **Type**: GET
 
