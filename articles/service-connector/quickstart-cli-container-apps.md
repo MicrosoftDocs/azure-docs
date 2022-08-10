@@ -57,13 +57,13 @@ You can create a connection using an access key or a managed identity.
 
 1. Provide the following information at the Azure CLI's request:
 
-    | Setting                                                          | Description                                                                                        |
-    |------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-    | **The resource group that contains the container app**           | The name of the resource group with the container app.                                             |
-    | **Name of the container app**                                    | The name of the container app.                                                                     |
-    | **The container where the connection information will be saved** | The name of the container app's container.                                                         |
-    | **The resource group which contains the storage account**        | The name of the resource group with the storage account.                                           |
-    | **Name of the storage account**                                  | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
+    | Setting                                                        | Description                                                                                        |
+    |----------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+    | `The resource group that contains the container app`           | The name of the resource group with the container app.                                             |
+    | `Name of the container app`                                    | The name of the container app.                                                                     |
+    | `The container where the connection information will be saved` | The name of the container app's container.                                                         |
+    | `The resource group which contains the storage account`        | The name of the resource group with the storage account.                                           |
+    | `Name of the storage account`                                  | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
 
 > [!TIP]
 > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new Blob Storage and directly connect it to your container app using a connection string.
@@ -81,13 +81,13 @@ You can create a connection using an access key or a managed identity.
 
 1. Provide the following information at the Azure CLI's request:
 
-    | Setting                                                          | Description                                                                                        |
-    |------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-    | **The resource group that contains the container app**           | The name of the resource group with the container app.                                             |
-    | **Name of the container app**                                    | The name of the container app.                                                                     |
-    | **The container where the connection information will be saved** | The name of the container app's container.                                                         |
-    | **The resource group which contains the storage account**        | The name of the resource group with the storage account.                                           |
-    | **Name of the storage account**                                  | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
+    | Setting                                                        | Description                                                                                        |
+    |----------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+    | `The resource group that contains the container app`           | The name of the resource group with the container app.                                             |
+    | `Name of the container app`                                    | The name of the container app.                                                                     |
+    | `The container where the connection information will be saved` | The name of the container app's container.                                                         |
+    | `The resource group which contains the storage account`        | The name of the resource group with the storage account.                                           |
+    | `Name of the storage account`                                  | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
 
 > [!NOTE]
 > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly connect it to your container app using a managed identity.
