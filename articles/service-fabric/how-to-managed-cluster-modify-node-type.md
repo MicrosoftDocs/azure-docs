@@ -48,6 +48,7 @@ Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` wi
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 * Make sure to set `isPrimary` to `true` if you are intending to replace an existing primary node type.
 
+```json
 {
     "apiVersion": "[variables('sfApiVersion')]",
     "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
@@ -68,6 +69,7 @@ Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` wi
         "dataDiskType": "[parameters('nodeType2managedDataDiskType')]"
     }
 }
+```
 
 For an example two node type configuration, see our [sample two node type ARM Template](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/SF-Managed-Standard-SKU-2-NT)
 
