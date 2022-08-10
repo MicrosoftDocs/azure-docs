@@ -106,6 +106,9 @@
       href: how-to-setup-authentication.md
     - name: Network security
       items:
+      - name: Use private endpoint (v1)
+        displayName: private endpoint
+        href: how-to-configure-private-link.md
       - name: Secure inferencing environment (v1)
         displayName: vnet
         href: how-to-secure-inferencing-vnet.md

@@ -1,7 +1,7 @@
 ---
-title: Secure workspace resources using virtual networks (VNets)
+title: Secure workspace resources using virtual networks (v1)
 titleSuffix: Azure Machine Learning
-description: Secure Azure Machine Learning workspace resources and compute environments using an isolated Azure Virtual Network (VNet).
+description: Secure Azure Machine Learning workspace resources and compute environments using an isolated Azure Virtual Network. SDK/CLI v1.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -22,8 +22,8 @@ Secure Azure Machine Learning workspace resources and compute environments using
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure the training environment (v1)](how-to-secure-training-vnet.md)
+> * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -63,8 +63,8 @@ The following table compares how services access different parts of an Azure Mac
 The next sections show you how to secure the network scenario described above. To secure your network, you must:
 
 1. Secure the [**workspace and associated resources**](#secure-the-workspace-and-associated-resources).
-1. Secure the [**training environment**](#secure-the-training-environment).
-1. Secure the [**inferencing environment**](#secure-the-inferencing-environment).
+1. Secure the [**training environment** (v1)](#secure-the-training-environment).
+1. Secure the [**inferencing environment** (v1)](#secure-the-inferencing-environment-v1).
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
 1. Configure [**firewall settings**](#configure-firewall-settings).
 1. Configure [**DNS name resolution**](#custom-dns).
@@ -145,17 +145,30 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 - Azure Compute Instance and Azure Compute Clusters must be in the same VNet, region, and subscription as the workspace and its associated resources. 
 
-## Secure the inferencing environment
+## Secure the inferencing environment (v1)
 
-You can enable network isolation for managed online endpoints to secure the following network traffic:
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
-* Inbound scoring requests.
-* Outbound communication with the workspace, Azure Container Registry, and Azure Blob Storage.
+In this section, you learn the options available for securing an inferencing environment. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
-> [!IMPORTANT]
-> Using network isolation for managed online endpoints is a __preview__ feature, and isn't fully supported.
+You have two options for AKS clusters in a virtual network:
 
-For more information, see [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md).
+- Deploy or attach a default AKS cluster to your VNet.
+- Attach a private AKS cluster to your VNet.
+
+**Default AKS clusters** have a control plane with public IP addresses. You can add a default AKS cluster to your VNet during the deployment or attach a cluster after it's created.
+
+**Private AKS clusters** have a control plane, which can only be accessed through private IPs. Private AKS clusters must be attached after the cluster is created. 
+
+For detailed instructions on how to add default and private clusters, see [Secure an inferencing environment](./v1/how-to-secure-inferencing-vnet.md). 
+
+Regardless default AKS cluster or private AKS cluster used, if your AKS cluster is behind of VNET, your workspace and its associate resources (storage, key vault, and ACR) must have private endpoints or service endpoints in the same VNET as the AKS cluster.
+
+The following network diagram shows a secured Azure Machine Learning workspace with a private AKS cluster attached to the virtual network.
+
+:::image type="content" source="./media/how-to-network-security-overview/secure-inferencing-environment.svg" alt-text="Diagram showing an attached private AKS cluster.":::
+
 
 ## Optional: Enable public access
 
@@ -222,8 +235,8 @@ For more information on this configuration, see [Create an Azure ML workspace fr
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Secure the training environment](how-to-secure-training-vnet.md)
-* [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure the training environment (v1)](how-to-secure-training-vnet.md)
+* [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)

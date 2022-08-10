@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli, sdkv1, event-tier1-build-2022
-ms.author: aashishb
-author: aashishb
+ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022
+ms.author: jhirono
+author: jhirono
 ms.reviewer: larryfr
 ms.date: 06/28/2022
 ---
@@ -43,7 +43,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 * You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge or Google Chrome as a workaround.
 * Using a private endpoint does not affect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal. Data plane operations, such as using Azure Machine Learning studio, APIs (including published pipelines), or the SDK use the private endpoint.
 * When creating a compute instance or compute cluster in a workspace with a private endpoint, the compute instance and compute cluster must be in the same Azure region as the workspace.
-* When creating or attaching an Azure Kubernetes Service cluster to a workspace with a private endpoint, the cluster must be in the same region as the workspace.
+* When attaching an Azure Kubernetes Service cluster to a workspace with a private endpoint, the cluster must be in the same region as the workspace.
 * When using a workspace with multiple private endpoints, one of the private endpoints must be in the same VNet as the following dependency services:
 
     * Azure Storage Account that provides the default storage for the workspace

@@ -23,7 +23,7 @@ In this article, you learn how to secure training environments with a virtual ne
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-> * [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -49,7 +49,7 @@ In this article you learn how to secure the following training compute resources
     - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This permission isn't needed for Azure Resource Manager (ARM) template deployments.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
 
 ### Azure Machine Learning compute cluster/instance
 
@@ -179,9 +179,46 @@ Use the following steps to create a compute cluster in the Azure Machine Learnin
 
 1. Select __Create__ to create the compute cluster.
 
-# [Python SDK v2](#tab/python)
+# [Python SDK v1](#tab/python)
 
-TODO - update with SDK v2 code sample
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+The following code creates a new Machine Learning Compute cluster in the `default` subnet of a virtual network named `mynetwork`:
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# The Azure virtual network name, subnet, and resource group
+vnet_name = 'mynetwork'
+subnet_name = 'default'
+vnet_resourcegroup_name = 'mygroup'
+
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
+
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print("Found existing cpucluster")
+except ComputeTargetException:
+    print("Creating new cpucluster")
+
+    # Specify the configuration for the new cluster
+    compute_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
+                                                           min_nodes=0,
+                                                           max_nodes=4,
+                                                           location="westus2",
+                                                           vnet_resourcegroup_name=vnet_resourcegroup_name,
+                                                           vnet_name=vnet_name,
+                                                           subnet_name=subnet_name)
+
+    # Create the cluster with the specified name and configuration
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+    # Wait for the cluster to be completed, show the output log
+    cpu_cluster.wait_for_completion(show_output=True)
+```
 
 ---
 
@@ -301,7 +338,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
