@@ -25,16 +25,16 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > For more information on securing resources used by Azure Machine Learning, see the following articles:
 >
 > * [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
-> * [Secure workspace resources](how-to-secure-workspace-vnet.md).
-> * [Secure training environments](how-to-secure-training-vnet.md).
+> * [Secure workspace resources](../how-to-secure-workspace-vnet.md).
+> * [Secure training environments (v1)](how-to-secure-training-vnet.md).
 > * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
-> * [Use Azure Machine Learning studio in a VNet](how-to-enable-studio-virtual-network.md).
-> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md).
+> * [Use Azure Machine Learning studio in a VNet](../how-to-enable-studio-virtual-network.md).
+> * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md).
 
 ## Prerequisites
 
 * You must have an existing virtual network to create the private endpoint in. 
-* [Disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
+* [Disable network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy) before adding the private endpoint.
 
 ## Limitations
 
@@ -56,7 +56,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 Use one of the following methods to create a workspace with a private endpoint. Each of these methods __requires an existing virtual network__:
 
 > [!TIP]
-> If you'd like to create a workspace, private endpoint, and virtual network at the same time, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
+> If you'd like to create a workspace, private endpoint, and virtual network at the same time, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](../how-to-create-workspace-template.md).
 
 # [Python SDK v1](#tab/python)
 
@@ -103,7 +103,7 @@ az ml workspace create -r myresourcegroup \
 
 # [Portal](#tab/azure-portal)
 
-The __Networking__ tab in Azure Machine Learning studio allows you to configure a private endpoint. However, it requires an existing virtual network. For more information, see [Create workspaces in the portal](how-to-manage-workspace.md).
+The __Networking__ tab in Azure Machine Learning studio allows you to configure a private endpoint. However, it requires an existing virtual network. For more information, see [Create workspaces in the portal](../how-to-manage-workspace.md).
 
 ---
 
@@ -239,7 +239,7 @@ The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learn
 
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](../../../includes/machine-learning-connect-secure-workspace.md)]
 
 ## Multiple private endpoints
 
@@ -249,11 +249,11 @@ Azure Machine Learning supports multiple private endpoints for a workspace. Mult
 * An Azure Kubernetes Service (AKS) cluster in a separate VNet.
 * Other Azure services in a separate VNet. For example, Azure Synapse and Azure Data Factory can use a Microsoft managed virtual network. In either case, a private endpoint for the workspace can be added to the managed VNet used by those services. For more information on using a managed virtual network with these services, see the following articles:
 
-    * [Synapse managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
-    * [Azure Data Factory managed virtual network](../data-factory/managed-virtual-network-private-endpoint.md).
+    * [Synapse managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints).
+    * [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint).
 
     > [!IMPORTANT]
-    > [Synapse's data exfiltration protection](../synapse-analytics/security/workspace-data-exfiltration-protection.md) is not supported with Azure Machine Learning.
+    > [Synapse's data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) is not supported with Azure Machine Learning.
 
 > [!IMPORTANT]
 > Each VNet that contains a private endpoint for the workspace must also be able to access the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by the workspace. For example, you might create a private endpoint for the services in each VNet.
@@ -271,7 +271,7 @@ If you want to isolate the development clients, so they do not have direct acces
 1. Add a new private endpoint for the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by your workspace. These private endpoints should exist in the client VNet.
 1. If you have additional storage that is used by your workspace, add a new private endpoint for that storage. The private endpoint should exist in the client VNet and have private DNS zone integration enabled.
 1. Add a new private endpoint to your workspace. This private endpoint should exist in the client VNet and have private DNS zone integration enabled.
-1. Use the steps in the [Use studio in a virtual network](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) article to enable studio to access the storage account(s).
+1. Use the steps in the [Use studio in a virtual network](../how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) article to enable studio to access the storage account(s).
 
 The following diagram illustrates this configuration. The __Workload__ VNet contains computes created by the workspace for training & deployment. The __Client__ VNet contains clients or client ExpressRoute/VPN connections. Both VNets contain private endpoints for the workspace, Azure Storage Account, Azure Key Vault, and Azure Container Registry.
 
@@ -296,6 +296,6 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 
 * For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
 
-* If you plan on using a custom DNS solution in your virtual network, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
+* If you plan on using a custom DNS solution in your virtual network, see [how to use a workspace with a custom DNS server](../how-to-custom-dns.md).
 
-* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
+* [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)

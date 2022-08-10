@@ -1,7 +1,7 @@
 ---
-title: Secure training environments with virtual networks
+title: Secure training environments with virtual networks (v1)
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. 
+description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning training environment. SDK/CLI v1
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -14,7 +14,7 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
 ms.devlang: azurecli
 ---
 
-# Secure an Azure Machine Learning training environment with virtual networks
+# Secure an Azure Machine Learning training environment with virtual networks (SDK/CLI v1)
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
 
@@ -22,13 +22,13 @@ In this article, you learn how to secure training environments with a virtual ne
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
-> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
 > * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](how-to-custom-dns.md)
-> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+> * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
+> * [Use custom DNS](../how-to-custom-dns.md)
+> * [Use a firewall](../how-to-access-azureml-behind-firewall.md)
 >
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to secure the following training compute resources in a virtual network:
 > [!div class="checklist"]
@@ -102,11 +102,11 @@ In this article you learn how to secure the following training compute resources
     For a compute instance, these resources are kept until the instance is deleted. Stopping the instance doesn't remove the resources. 
 
     > [!IMPORTANT]
-    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
+    > These resources are limited by the subscription's [resource quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
 
-* If you create a compute instance and plan to use the no public IP address configuration, your Azure Machine Learning workspace's managed identity must be assigned the __Reader__ role for the virtual network that contains the workspace. For more information on assigning roles, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+* If you create a compute instance and plan to use the no public IP address configuration, your Azure Machine Learning workspace's managed identity must be assigned the __Reader__ role for the virtual network that contains the workspace. For more information on assigning roles, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
 
-* If you have configured Azure Container Registry for your workspace behind the virtual network, you must use a compute cluster to build Docker images. You can't use a compute cluster with the no public IP address configuration. For more information, see [Enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+* If you have configured Azure Container Registry for your workspace behind the virtual network, you must use a compute cluster to build Docker images. You can't use a compute cluster with the no public IP address configuration. For more information, see [Enable Azure Container Registry](../how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 * If the Azure Storage Accounts for the workspace are also in the virtual network, use the following guidance on subnet limitations:
 
@@ -116,7 +116,7 @@ In this article you learn how to secure the following training compute resources
     > [!NOTE]
     > Adding a resource instance for your workspace or selecting the checkbox for "Allow trusted Microsoft services to access this account" is not sufficient to allow communication from the compute.
 
-* When your workspace uses a private endpoint, the compute instance can only be accessed from inside the virtual network. If you use a custom DNS or hosts file, add an entry for `<instance-name>.<region>.instances.azureml.ms`. Map this entry to the private IP address of the workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md) article.
+* When your workspace uses a private endpoint, the compute instance can only be accessed from inside the virtual network. If you use a custom DNS or hosts file, add an entry for `<instance-name>.<region>.instances.azureml.ms`. Map this entry to the private IP address of the workspace private endpoint. For more information, see the [custom DNS](../how-to-custom-dns.md) article.
 * Virtual network service endpoint policies don't work for compute cluster/instance system storage accounts.
 * If storage and compute instance are in different regions, you may see intermittent timeouts.
 * If the Azure Container Registry for your workspace uses a private endpoint to connect to the virtual network, you can’t use a managed identity for the compute instance. To use a managed identity with the compute instance, don't put the container registry in the VNet.
@@ -127,7 +127,7 @@ In this article you learn how to secure the following training compute resources
 
 * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
 
-    * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+    * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
     * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
     Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
@@ -148,9 +148,9 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 ## Required public internet access
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](../../../includes/machine-learning-public-internet-access.md)]
 
-For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
+For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](../how-to-access-azureml-behind-firewall.md).
 
 ## <a name="compute-cluster"></a>Compute clusters
 
@@ -222,34 +222,34 @@ except ComputeTargetException:
 
 ---
 
-When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
+When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](../how-to-set-up-training-targets.md).
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="no-public-ip-amlcompute"></a>No public IP for compute clusters (preview)
 
 When you enable **No public IP**, your compute cluster doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem and service/private endpoints, eliminating the need for a public IP entirely. No public IP removes access and discoverability of compute cluster nodes from the internet thus eliminating a significant threat vector. **No public IP** clusters help comply with no public IP policies many enterprises have. 
 
 > [!WARNING]
-> By default, you do not have public internet access from No Public IP Compute Cluster. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use a public IP of your firewall, or you can use [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) with a public IP.
+> By default, you do not have public internet access from No Public IP Compute Cluster. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use a public IP of your firewall, or you can use [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) with a public IP.
 
 A compute cluster with **No public IP** enabled has **no inbound communication requirements** from public internet. Specifically, neither inbound NSG rule (`BatchNodeManagement`, `AzureMachineLearning`) is required. You still need to allow inbound from source of **VirtualNetwork** and any port source, to destination of **VirtualNetwork**, and destination port of **29876, 29877** and inbound from source **AzureLoadBalancer** and any port source to destination **VirtualNetwork** and port **44224** destination.
 
 **No public IP** clusters are dependent on [Azure Private Link](how-to-configure-private-link.md) for Azure Machine Learning workspace. 
-A compute cluster with **No public IP** also requires you to disable private endpoint network policies and private link service network policies. These requirements come from Azure private link service and private endpoints and aren't Azure Machine Learning specific. Follow instruction from [Disable network policies for Private Link service](../private-link/disable-private-link-service-network-policy.md) to set the parameters `disable-private-endpoint-network-policies` and `disable-private-link-service-network-policies` on the virtual network subnet.
+A compute cluster with **No public IP** also requires you to disable private endpoint network policies and private link service network policies. These requirements come from Azure private link service and private endpoints and aren't Azure Machine Learning specific. Follow instruction from [Disable network policies for Private Link service](/azure/private-link/disable-private-link-service-network-policy) to set the parameters `disable-private-endpoint-network-policies` and `disable-private-link-service-network-policies` on the virtual network subnet.
 
-For **outbound connections** to work, you need to set up an egress firewall such as Azure firewall with user defined routes. For instance, you can use a firewall set up with [inbound/outbound configuration](how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute cluster is deployed. The route table entry can set up the next hop of the private IP address of the firewall with the address prefix of 0.0.0.0/0.
+For **outbound connections** to work, you need to set up an egress firewall such as Azure firewall with user defined routes. For instance, you can use a firewall set up with [inbound/outbound configuration](../how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute cluster is deployed. The route table entry can set up the next hop of the private IP address of the firewall with the address prefix of 0.0.0.0/0.
 
 You can use a service endpoint or private endpoint for your Azure container registry and Azure storage in the subnet in which cluster is deployed.
 
 To create a no public IP address compute cluster (a preview feature) in studio, set **No public IP** checkbox in the virtual network section.
 You can also create no public IP compute cluster through an ARM template. In the ARM template set enableNodePublicIP parameter to false.
 
-[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
+[!INCLUDE [no-public-ip-info](../../../includes/machine-learning-no-public-ip-availibility.md)]
 
 **Troubleshooting**
 
-* If you get this error message during creation of cluster `The specified subnet has PrivateLinkServiceNetworkPolicies or PrivateEndpointNetworkEndpoints enabled`, follow the instructions from [Disable network policies for Private Link service](../private-link/disable-private-link-service-network-policy.md) and [Disable network policies for Private Endpoint](../private-link/disable-private-endpoint-network-policy.md).
+* If you get this error message during creation of cluster `The specified subnet has PrivateLinkServiceNetworkPolicies or PrivateEndpointNetworkEndpoints enabled`, follow the instructions from [Disable network policies for Private Link service](/azure/private-link/disable-private-link-service-network-policy) and [Disable network policies for Private Endpoint](/azure/private-link/disable-private-endpoint-network-policy).
 
 * If job execution fails with connection issues to ACR or Azure Storage, verify that customer has added ACR and Azure Storage service endpoint/private endpoints to subnet and ACR/Azure Storage allows the access from the subnet.
 
@@ -264,28 +264,28 @@ For steps on how to create a compute instance deployed in a virtual network, see
 When you enable **No public IP**, your compute instance doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem and service/private endpoints, eliminating the need for a public IP entirely. No public IP removes access and discoverability of compute instance node from the internet thus eliminating a significant threat vector. Compute instances will also do packet filtering to reject any traffic from outside virtual network. **No public IP** instances are dependent on [Azure Private Link](how-to-configure-private-link.md) for Azure Machine Learning workspace. 
 
 > [!WARNING]
-> By default, you do not have public internet access from No Public IP Compute Instance. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use a public IP of your firewall, or you can use [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) with a public IP.
+> By default, you do not have public internet access from No Public IP Compute Instance. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use a public IP of your firewall, or you can use [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) with a public IP.
 
-For **outbound connections** to work, you need to set up an egress firewall such as Azure firewall with user defined routes. For instance, you can use a firewall set up with [inbound/outbound configuration](how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute instance is deployed. The route table entry can set up the next hop of the private IP address of the firewall with the address prefix of 0.0.0.0/0.
+For **outbound connections** to work, you need to set up an egress firewall such as Azure firewall with user defined routes. For instance, you can use a firewall set up with [inbound/outbound configuration](../how-to-access-azureml-behind-firewall.md) and route traffic there by defining a route table on the subnet in which the compute instance is deployed. The route table entry can set up the next hop of the private IP address of the firewall with the address prefix of 0.0.0.0/0.
 
 A compute instance with **No public IP** enabled has **no inbound communication requirements** from public internet. Specifically, neither inbound NSG rule (`BatchNodeManagement`, `AzureMachineLearning`) is required. You still need to allow inbound from source of **VirtualNetwork**, any port source, destination of **VirtualNetwork**, and destination port of **29876, 29877, 44224**.
 
-A compute instance with **No public IP** also requires you to disable private endpoint network policies and private link service network policies. These requirements come from Azure private link service and private endpoints and aren't Azure Machine Learning specific. Follow instruction from [Disable network policies for Private Link service source IP](../private-link/disable-private-link-service-network-policy.md) to set the parameters `disable-private-endpoint-network-policies` and `disable-private-link-service-network-policies` on the virtual network subnet.
+A compute instance with **No public IP** also requires you to disable private endpoint network policies and private link service network policies. These requirements come from Azure private link service and private endpoints and aren't Azure Machine Learning specific. Follow instruction from [Disable network policies for Private Link service source IP](/azure/private-link/disable-private-link-service-network-policy) to set the parameters `disable-private-endpoint-network-policies` and `disable-private-link-service-network-policies` on the virtual network subnet.
 
 To create a no public IP address compute instance (a preview feature) in studio, set **No public IP** checkbox in the virtual network section.
 You can also create no public IP compute instance through an ARM template. In the ARM template set enableNodePublicIP parameter to false.
 
 Next steps:
-* [Use custom DNS](how-to-custom-dns.md)
-* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [Use custom DNS](../how-to-custom-dns.md)
+* [Use a firewall](../how-to-access-azureml-behind-firewall.md)
 
-[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
+[!INCLUDE [no-public-ip-info](../../../includes/machine-learning-no-public-ip-availibility.md)]
 
 ## Inbound traffic
 
-[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
+[!INCLUDE [udr info for computes](../../../includes/machine-learning-compute-user-defined-routes.md)]
 
-For more information on input and output traffic requirements for Azure Machine Learning, see [Use a workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
+For more information on input and output traffic requirements for Azure Machine Learning, see [Use a workspace behind a firewall](../how-to-access-azureml-behind-firewall.md).
 
 ## Azure Databricks
 
@@ -300,9 +300,9 @@ In this section, you learn how to use a virtual machine or Azure HDInsight clust
 ### Create the VM or HDInsight cluster
 
 Create a VM or HDInsight cluster by using the Azure portal or the Azure CLI, and put the cluster in an Azure virtual network. For more information, see the following articles:
-* [Create and manage Azure virtual networks for Linux VMs](../virtual-machines/linux/tutorial-virtual-network.md)
+* [Create and manage Azure virtual networks for Linux VMs](/azure/virtual-machines/linux/tutorial-virtual-network)
 
-* [Extend HDInsight using an Azure virtual network](../hdinsight/hdinsight-plan-virtual-network-deployment.md)
+* [Extend HDInsight using an Azure virtual network](/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
 
 ### Configure network ports 
 
@@ -324,7 +324,7 @@ Allow Azure Machine Learning to communicate with the SSH port on the VM or clust
 
 1. Under __Action__, select __Allow__.
 
-Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](../virtual-network/network-security-groups-overview.md#default-security-rules).
+Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](/azure/virtual-network/network-security-groups-overview#default-security-rules).
 
 If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [required public internet access](#required-public-internet-access) section.
 
@@ -336,9 +336,9 @@ Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Virtual network overview](how-to-network-security-overview.md)
-* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Virtual network overview (v1)](how-to-network-security-overview.md)
+* [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
 * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
-* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-* [Use custom DNS](how-to-custom-dns.md)
-* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](../how-to-custom-dns.md)
+* [Use a firewall](../how-to-access-azureml-behind-firewall.md)
