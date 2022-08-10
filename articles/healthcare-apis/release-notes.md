@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-|  (Open Source)History bundles were sorted with the oldest version first.   | We have recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<Server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
+| (Open Source) History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<Server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
 
 #### **Known issues**
 
@@ -54,7 +54,7 @@ For more information about the currently known issues with the FHIR service, see
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
 |DICOM Service availability expands to new regions.   | The DICOM Service is now available in the following regions: Southeast Asia, Central India, Korea Central, and Switzerland North. |
-|Fast retrieval of individual DICOM frames    | For DICOM images containing multiple frames, performance improvements have been made to enable fast retrieval of individual frames (60KB frames as fast as 60ms). These improved performance characteristics enable workflows such as [viewing digital pathology images](https://microsofthealth.visualstudio.com/DefaultCollection/Health/_git/marketing-azure-docs?version=GBmain&path=%2Fimaging%2Fdigital-pathology%2FDigital%20Pathology%20using%20Azure%20DICOM%20service.md&_a=preview), which require rapid retrieval of individual frames.    |
+|Fast retrieval of individual DICOM frames    | For DICOM images containing multiple frames, performance improvements have been made to enable fast retrieval of individual frames (60 KB frames as fast as 60 MS). These improved performance characteristics enable workflows such as [viewing digital pathology images](https://microsofthealth.visualstudio.com/DefaultCollection/Health/_git/marketing-azure-docs?version=GBmain&path=%2Fimaging%2Fdigital-pathology%2FDigital%20Pathology%20using%20Azure%20DICOM%20service.md&_a=preview), which require rapid retrieval of individual frames.    |
 
 ## June 2022
 
@@ -88,7 +88,7 @@ For more information about the currently known issues with the FHIR service, see
 |DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/dicom/configure-cross-origin-resource-sharing.md). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. |
 |DICOMcast supports Private Link   |DICOMcast has been updated to support Azure Health Data Services workspaces that have been configured to use [Private Link](./../healthcare-apis/healthcare-apis-configure-private-link.md). |
 |UPS-RS supports Change and Retrieve work item  |Modality worklist (UPS-RS) endpoints have been added to support Change and Retrieve operations for work items. |
-|API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI.  For more details, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service.md). |
+|API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI. For more information, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service.md). |
 
 #### **Bug fixes**
 
@@ -161,7 +161,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](./../events/events-message-structure.md) and [What are events?](./../events/events-overview.md). |
+|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](./../healthcare-apis/events/events-message-structure.md) and [What are events?](./../healthcare-apis/events/events-overview.md). |
 |Events documentation for Azure Health Data Services  |Updated docs to allow for better understanding, knowledge, and help for Events as it went GA. Updated troubleshooting for ease of use for the customer.  |
 |One touch deploy button for MedTech service launch in the portal |Enables easier deployment and use of MedTech service for customers without the need to go back and forth between pages or interfaces.  |
 
@@ -201,7 +201,7 @@ For more information about the currently known issues with the FHIR service, see
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
 |Added Publisher to `CapabilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
-|Log `FhirOperation` linked to anonymous calls to Request metrics |We were not logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
+|Log `FhirOperation` linked to anonymous calls to Request metrics |We weren't logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
 
 #### **Bug fixes**
 
@@ -247,7 +247,7 @@ For more information about the currently known issues with the FHIR service, see
 
 | Enhancements  | Related information           |
 | :------------- | :----------------------------- |
-|Test Data Generator tool |We've updated Azure Health Data Services GitHub samples repo to include a [Test Data Generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter, that can be deployed to Azure AKS for performance tests. |
+|Test Data Generator tool |We've updated Azure Health Data Services GitHub samples repo to include a [Test Data Generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter that can be deployed to Azure AKS for performance tests. |
 
 ### FHIR service
 
@@ -293,11 +293,11 @@ For more information about the currently known issues with the FHIR service, see
 |Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
 |Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-| Running a re-index job | [Re-index improvements](./././fhir/how-to-run-a-reindex.md)|
+| Running a reindex job | [Re-index improvements](./././fhir/how-to-run-a-reindex.md)|
 | :------------------- | :-------------------------------|
-|Added [boundaries for re-index](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
-|Updated error message for re-index parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
-|Added final re-index count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
+|Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
+|Updated error message for reindex parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
+|Added final reindex count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
 
 #### **Bug fixes**
 
@@ -313,9 +313,9 @@ For more information about the currently known issues with the FHIR service, see
 |Set max item count in search options in SearchParameterDefinitionManager |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
 |Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
 
-|Resolved SQL batch re-index if one resource fails | Related information |
+|Resolved SQL batch reindex if one resource fails | Related information |
 | :------------------- | :------------------------------- |
-|Updates SQL batch re-index retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
+|Updates SQL batch reindex retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
 
 |GitHub issues closed | Related information |
 | :------------------- | :------------------------------- |
