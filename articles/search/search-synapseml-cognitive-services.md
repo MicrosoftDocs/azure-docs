@@ -1,7 +1,7 @@
 ---
 title: Use Search with SynapseML
 titleSuffix: Azure Cognitive Search
-description: Add full text search to big data on Apache Spark that's been loaded and transformed through SynapseML. In this walkthrough, you'll load invoice files into data frames, apply machine learning through SynapseML, then send it into a generated search index.
+description: Add full text search to big data on Apache Spark that's been loaded and transformed through the open source SynapseML library. In this walkthrough, you'll load invoice files into data frames, apply machine learning through SynapseML, then send it into a generated search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 08/09/2022
 ---
 
-# Add search to AI-enriched data from Apache Spark using Azure Synapse Analytics
+# Add search to AI-enriched data from Apache Spark using SynapseML
 
 In this Azure Cognitive Search article, learn how to add data exploration and full text search to a SynapseML solution.
 
