@@ -138,7 +138,7 @@ The new release will bring the following capabilities:
 
 Defender for Cloud lets you choose the workspace that your Log Analytics agents report to. When a machine belongs to one tenant (“Tenant A”) but its Log Analytics agent reports to a workspace in a different tenant (“Tenant B”), security alerts about the machine are reported to the second tenant (“Tenant B”).
 
-With this change, those alerts reported to the second tenant, will no longer appear in MDC.
+With this change, the alerts reported to the second tenant will no longer appear in Defender for Cloud.
 
 If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the resource.
 
