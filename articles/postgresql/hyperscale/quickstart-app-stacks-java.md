@@ -5,8 +5,8 @@ ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: how-to
-ms.date: 07/26/2022
+ms.topic: quickstart
+ms.date: 08/10/2022
 ---
 
 # Java app to connect and query Hyperscale (Citus)

@@ -5,8 +5,8 @@ ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: how-to
-ms.date: 04/28/2022
+ms.topic: quickstart
+ms.date: 08/10/2022
 ---
 
 # Model multi-tenant SaaS apps

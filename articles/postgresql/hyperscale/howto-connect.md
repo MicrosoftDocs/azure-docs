@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 05/25/2022
+ms.date: 08/10/2022
 ---
 
 # Connect to a server group
