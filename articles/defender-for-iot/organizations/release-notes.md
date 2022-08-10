@@ -61,8 +61,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## August 2022
 
-<<<<<<< HEAD
 - [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
+- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
 
 ### New alert columns with timestamp data
 
@@ -82,14 +82,11 @@ The **First detection** and **Last activity** columns aren't displayed by defaul
 > - The Defender for IoT **Last detection** time is similar to the Log Analytics **EndTime**
 > - The Defender for IoT **First detection** time is similar to the Log Analytics **StartTime**
 > - The Defender for IoT **Last activity** time is similar to the Log Analytics **TimeGenerated**
-
 For more information, see:
 
 - [View alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
-=======
-- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
 
 ### Sensor health from the Azure portal (Public preview)
 
@@ -100,7 +97,6 @@ For OT sensor versions 22.1.3 and higher, you can use the new sensor health widg
 We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
 
 For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
->>>>>>> 3cebc815e27766a3b95a9c08f7ca7342b7932c12
 
 ## July 2022
 
@@ -122,7 +118,6 @@ The Enterprise IoT integration with Microsoft Defender for Endpoint is now in Ge
 
 > [!NOTE]
 > The Enterprise IoT network sensor and all detections remain in Public Preview.
-
 
 ### Same passwords for cyberx_host and cyberx users
 
@@ -635,7 +630,7 @@ Disabling these alerts also disables monitoring of related traffic. Specifically
 
 **Unauthorized Database Operation alert**
 Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
-- DDL traffic: alerting and monitoring are supported. 
+- DDL traffic: alerting and monitoring are supported.
 - DML traffic: Monitoring is supported.  Alerting isn't supported.
 
 **New Asset Detected alert**
