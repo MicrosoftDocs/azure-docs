@@ -855,8 +855,6 @@ items:
         href: monitor-ssis.md
       - name: Schema of logs and events
         href: monitor-schema-logs-events.md
-      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
-        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Pipeline failure and error handling

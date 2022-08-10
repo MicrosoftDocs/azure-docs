@@ -1,5 +1,5 @@
 ---
-title: Plan your Microsoft Entra Verified ID issuance solution(preview)
+title: Plan your Microsoft Entra Verified ID issuance solution
 description: Learn to plan your end-to-end issuance solution.
 documentationCenter: ''
 author: barclayn
@@ -12,7 +12,7 @@ ms.author: barclayn
 ms.custom: references_regions
 ---
 
-# Plan your Microsoft Entra Verified ID issuance solution (preview)
+# Plan your Microsoft Entra Verified ID issuance solution
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
