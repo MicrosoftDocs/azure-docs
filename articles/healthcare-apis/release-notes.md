@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/09/2022
 ms.author: judegnan
+ms.custom: references_regions
 ---
 
 # Release notes: Azure Health Data Services
