@@ -196,7 +196,7 @@ The following table shows an example of a dual port NSG rule:
 
 - The following services may require all destination ports to be open when leveraging a private endpoint and adding NSG security filters:
 
-    - Cosmos DB: For more information see, [Service port ranges](/azure/cosmos-db/sql/sql-sdk-connection-modes#service-port-ranges).
+    - Cosmos DB - For more information see, [Service port ranges](/azure/cosmos-db/sql/sql-sdk-connection-modes#service-port-ranges).
 
 ### UDR
 
