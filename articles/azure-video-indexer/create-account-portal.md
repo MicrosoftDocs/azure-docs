@@ -12,7 +12,7 @@ ms.date: 06/10/2022
 
 To start using unlimited features and robust capabilities of Azure Video Indexer, you need to create an Azure Video Indexer unlimited account. This tutorial walks you through the steps of creating the Azure Video Indexer account and its accompanying resources by using the Azure portal. 
 
-The account that gets created is Azure Resource Manager (ARM) account. For information about different account types, see [Overview of account types](accounts-overview.md).
+The account that gets created is an Azure Resource Manager (ARM) account. For information about different Azure Video Indexer account types, see the [overview of account types](accounts-overview.md).
 
 ## Prerequisites
 
@@ -20,11 +20,9 @@ The account that gets created is Azure Resource Manager (ARM) account. For infor
 * Register the **EventGrid** resource provider using the Azure portal.
     
     In the [Azure portal](https://portal.azure.com), go to **Subscriptions**->[<*subscription*>]->**ResourceProviders**.
-Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, select **Register**. It takes a couple of minutes to register. 
-* Owner role (or both **Contributor** and **User Access Administrator** roles) assignment on the Subscription level.
-
-    * Owner* role assignment on the associated Azure Media Services (AMS). You select the AMS account during the Azure Video Indexer account creation, as described below.
-    * Owner* role assignment on the related Managed Identity.
+Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the registered state, select **Register**. It takes a couple of minutes to register. 
+* Owner role (or **Contributor** and **User Access Administrator** roles) assignment on the associated Azure Media Services (AMS). You select the AMS account during the Azure Video Indexer account creation, as described below.
+* Owner role (or **Contributor** and **User Access Administrator** roles) assignment on the related Managed Identity.
     
 ## Use the Azure portal to create an Azure Video Indexer account
 
