@@ -216,7 +216,7 @@ map.layers.addLayer(
 )
 ```
 
-For this sample, the following images is loaded into the assets folder of the app.
+For this sample, the following image is loaded into the assets folder of the app.
 
 | ![Earthquake icon image](./media/ios-sdk/cluster-point-data-ios-sdk/earthquake-icon.png) | ![Weather icon image of rain showers](./media/ios-sdk/cluster-point-data-ios-sdk/warning-triangle-icon.png) |
 |:-----------------------:|:--------------------------:|
