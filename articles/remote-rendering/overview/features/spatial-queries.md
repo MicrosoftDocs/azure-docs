@@ -112,7 +112,7 @@ A Hit has the following properties:
 * **`DistanceToHit`:** The distance from the ray starting position to the hit.
 * **`HitType`:** What was hit by the ray: `TriangleFrontFace`, `TriangleBackFace` or `Point`. By default, [ARR renders double sided](single-sided-rendering.md#prerequisites) so the triangles the user sees are not necessarily front facing. If you want to differentiate between `TriangleFrontFace` and `TriangleBackFace` in your code, make sure your models are authored with correct face directions first.
 
-## Spatial Queries
+## Spatial queries
 
 A *spatial query* allows for the runtime to check which [MeshComponent](../../concepts/meshes.md#meshcomponent) are intersected by a world-space axis-aligned bounding box (AABB). This check is very performant as the individual check is performed based on each mesh part's bounds in the scene, not on an individual triangle basis. As an optimization, a maximum number of hit mesh components can be provided.\
 While such a query can be run manually on the client side, for large scenes it will be much faster for the server to compute this.
