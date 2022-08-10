@@ -11,25 +11,12 @@ ms.date: 04/28/2022
 
 # Build scalable apps
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
-
-> [!NOTE]
-> This article is for you if:
->
-> * You are building an app on the [Basic Tier](concepts-server-group.md#tiers)
->   with distributed tables, to be ready for the future. (Later, you can add
->   more nodes and scale out as workload grows.)
-> * You are starting with the [Standard Tier](concepts-server-group.md#tiers)
->   and deploying Hyperscale (Citus) across multiple nodes.
-> * You are already running on Hyperscale (Citus), but aren't using distributed
->   tables.
-
-This series covers how to build scalable relational apps with Hyperscale (Citus).
-
-If you're building an app that a single node database node (64vcore, 256-GB RAM
-and 512-GB storage) can handle for the near future (~6 months), then you can
-start with the Hyperscale (Citus) **Basic Tier**. Later, you can add more
-nodes, rebalance your, data and scale out seamlessly.
+Early in the quickstart, we [created a server
+group](quickstart-create-portal.md) using the [basic
+tier](concepts-server-group.md#tiers). The basic tier is good for apps that a
+single node database node (64vcore, 256-GB RAM and 512-GB storage) can handle
+for the near future (~6 months). Later, you can add more nodes, rebalance your,
+data and scale out seamlessly.
 
 If your app needs requires multiple database nodes in the short term, start
 with the Hyperscale (Citus) **Standard Tier**.
@@ -56,8 +43,8 @@ There are three steps involved in building scalable apps with Hyperscale
 
 ## Next steps
 
-Before you start building a new app, you must first learn a little about the
-architecture of Hyperscale (Citus).
+Before you start building a new app, you must first review a little more about
+the architecture of Hyperscale (Citus).
 
 > [!div class="nextstepaction"]
 > [Fundamental concepts for scaling >](quickstart-build-scalable-apps-concepts.md)

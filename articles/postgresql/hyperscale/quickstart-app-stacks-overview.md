@@ -16,13 +16,19 @@ ms.date: 06/20/2022
 Select your development language to learn how to connect to Hyperscale (Citus)
 to create, read, update, and delete data.
 
-* [Python](quickstart-app-stacks-python.md)
-* [Node JS](quickstart-app-stacks-nodejs.md)
-* [C#](quickstart-app-stacks-csharp.md)
-* [Java](quickstart-app-stacks-java.md)
-* [Ruby](quickstart-app-stacks-ruby.md)
-
 **Next steps**
 
-Learn to [build scalable applications](quickstart-build-scalable-apps-overview.md)
-with Hyperscale (Citus).
+> [!div class="nextstepaction"]
+> [Python >](quickstart-app-stacks-python.md)
+
+> [!div class="nextstepaction"]
+> [Node JS >](quickstart-app-stacks-nodejs.md)
+
+> [!div class="nextstepaction"]
+> [C# >](quickstart-app-stacks-csharp.md)
+
+> [!div class="nextstepaction"]
+> [Java >](quickstart-app-stacks-java.md)
+
+> [!div class="nextstepaction"]
+> [Ruby >](quickstart-app-stacks-ruby.md)

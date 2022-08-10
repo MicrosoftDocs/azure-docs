@@ -129,10 +129,8 @@ it easy to include a tenant ID in queries. Here are instructions:
 
 ## Next steps
 
-We've completed the how-to for building scalable apps.
+Now we've finished exploring data modeling for scalable apps. The next step is
+connecting and querying the database with your programming language of choice.
 
-* Learn how to use specific [app stacks](quickstart-app-stacks-overview.md) with Hyperscale (Citus).
-* You may now want to know how to [scale a server group](howto-scale-grow.md)
-  to give your app more nodes and hardware capacity.
-* To migrate an existing multi-tenant app to Hyperscale (Citus), see
-  [Migrating an existing app (external) >](https://docs.citusdata.com/en/stable/develop/migration.html#transitioning-mt)
+> [!div class="nextstepaction"]
+> [App stacks >](quickstart-app-stacks-overview.md)
