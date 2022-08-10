@@ -27,10 +27,11 @@ The exit codes indicate the termination reasons of the application. Some common 
   Azure apps deployed should offer services continuously. When your app exited with 0, it indicated that your application don't run constantly. Please check your logs and source code.
 
 * 1 - The application exited with a non-zero exit code, please debug the code and related services, then deploy the application again.
+  
   Some possible problems are as follows:
   * Wrong configurations of spring boot
   
-    For example : You need a parameters of {spring.db.url} to connect to the database, but it's not found in your yaml configuration file.
+    For example : You need a parameter of {spring.db.url} to connect to the database, but it's not found in your yaml configuration file.
 
   * Disconnected from third service
   
@@ -40,17 +41,19 @@ The exit codes indicate the termination reasons of the application. Some common 
 
     For example : You need to connect to azure key vault to import certificates in you application, but your app don't have the authority to access it.
 
-* 137 - The application exited because it requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
-  Common problems are as follows:
-  * If the app is a java app, please check the parameters of java virtual machine(Jvm), it maybe exceeds the memory limitation of your app.
-    For example : You configure 10GB for the -Xmx parameter of Jvm options, but the memory of app is up to 5GB. You should decrease the Xmx value 
-      or increase the memory of app and make sure the value of Xmx is lower or equal to the memory limitation of app.
-    This is called container out of memory(Container OOM).
-    For solving this problem, you can refer this article(https://review.docs.microsoft.com/en-us/azure/spring-apps/how-to-fix-app-restart-issues-caused-by-out-of-memory?branch=pr-en-us-197651).
+  * 137 - The application exited because it requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
   
-* 143 - The application exited because it failed to respond to health checking. It was caused by the out of memory error or some other errors.
- Common problems are as follows:
-  * Usually your application maybe exited with the out of memory error(Jvm OOM).
-  For solving this problem, you can refer this article(https://review.docs.microsoft.com/en-us/azure/spring-apps/how-to-fix-app-restart-issues-caused-by-out-of-memory?branch=pr-en-us-197651).
+    Common problems are as follows:
+    * If the app is a java app, please check the parameters of java virtual machine(Jvm), it maybe exceeds the memory limitation of your app.
+      For example : You configure 10GB for the -Xmx parameter of Jvm options, but the memory of app is up to 5GB. You should decrease the Xmx value 
+        or increase the memory of app and make sure the value of Xmx is lower or equal to the memory limitation of app.
+      This is called container out of memory(Container OOM).
+      For solving this problem, you can refer this article(https://review.docs.microsoft.com/en-us/azure/spring-apps/how-to-fix-app-restart-issues-caused-by-out-of-memory?branch=pr-en-us-197651).
+  
+    * 143 - The application exited because it failed to respond to health checking. It was caused by the out of memory error or some other errors.
+ 
+      Common problems are as follows:
+      * Usually your application maybe exited with the out of memory error(Jvm OOM).
+      For solving this problem, you can refer this article(https://review.docs.microsoft.com/en-us/azure/spring-apps/how-to-fix-app-restart-issues-caused-by-out-of-memory?branch=pr-en-us-197651).
     
-  For more info about the log, please check the application log (see https://aka.ms/azure-spring-cloud-doc-log).
+      For more info about the log, please check the application log (see https://aka.ms/azure-spring-cloud-doc-log).
