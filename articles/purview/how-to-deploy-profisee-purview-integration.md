@@ -12,13 +12,13 @@ ms.custom: template-how-to
 
 # Microsoft Purview - Profisee Integration
 
-Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Purview Unified Data Governance and MDM in the context of an Azure data estate, and get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
+Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Purview Unified Data Governance and MDM in the context of an Azure data estate; and more importantly, to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
 ## Why Data Governance and Master Data Management (MDM) are Essential to the Modern Data Estate ?
 
 All organizations have multiple data sources, and the larger the organization the greater the number of data sources. Typically, there will be ERPs, CRMs, Legacy applications, regional versions of each of these, external data feeds and so on. Most of these businesses move massive amounts of data between applications, storage systems, analytics systems, and across departments within their organization. During these movements, and over time, data can get duplicated or become fragmented, and become stale or out of date. Hence, accuracy becomes a concern when using this data to drive insights into your business. 
 
-Inevitably, data that was created in different ‘silos’ with different (or no) governance standards to meet the needs of their respective applications will always have issues.  When you look at the data drawn from each of these applications you will see that it is inconsistent in terms of both the standardization of data values and often in terms of the values themselves, and most often individual records are incomplete. In fact, it would be surprising if this were not the case – but it does present a problem, as what is really needed is data that is complete, and consistent, and accurate.  
+Inevitably, data that was created in different ‘silos’ with different (or no) governance standards to meet the needs of their respective applications will always have issues.  When you look at the data drawn from each of these applications you will see that it is inconsistent in terms of both the standardization of data. Very often, there are numerous inconsistencies in terms of the values themselves, and most often individual records are incomplete. In fact, it would be surprising if these inconsistencies were not the case – but it does present a problem. What is needed is data that is complete, and consistent, and accurate.  
 
 To protect the quality of data within an organization, master data management (MDM) arose as a discipline that creates a source of truth for enterprise data so that an organization can check and validate their key assets. These key assets, or master data assets, are critical records that provide context for a business. For example, master data might include information on specific products, employees, customers, financial structures, suppliers, or locations. Master data management ensures data quality across an entire organization by maintaining an authoritative consolidated de-duplicated set of the master data records, and ensuring data remains consistent across your organization's complete data estate.
 
@@ -47,9 +47,9 @@ Profisee MDM has been engineered for a cloud-native experience and may be deploy
 
 ### Turnkey SaaS Experience
 A fully managed instance of Profisee MDM hosted by Profisee in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.  Profisee MDM SaaS can be purchased on Azure Marketplace.
-•	Platform and Management in One – Leverage a true, end-to-end SaaS platform with one agreement and no third parties.
-•	Industry-leading Cloud Service – Hosted on Azure for industry-leading scalability and availability.
-•	The fastest path to trusted data – Deploy in minutes with minimal technical knowledge. Leave the networking, firewalls and storage to us so you can deploy in minutes.
+- **Platform and Management in one** – Leverage a true, end-to-end SaaS platform with one agreement and no third parties.
+- **Industry-leading Cloud service** – Hosted on Azure for industry-leading scalability and availability.
+- **The fastest path to Trusted Data** – Deploy in minutes with minimal technical knowledge. Leave the networking, firewalls and storage to us so you can deploy in minutes.
 
 ### Ultimate PaaS Flexibility
 Complete deployment flexibility and control, using the most efficient and low-maintenance option on the [Microsoft Azure](https://azure.microsoft.com/) cloud, on-prem or via a hybrid model.
