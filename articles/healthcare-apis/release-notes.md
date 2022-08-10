@@ -2,12 +2,12 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: v-judegnan
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/09/2022
-ms.author: v-judegnan
+ms.author: dseven
 ---
 
 # Release notes: Azure Health Data Services
@@ -44,8 +44,8 @@ For more information about the currently known issues with the FHIR service, see
 
 |Azure Health Data Services  |Related information |
 | :----------------------------------- | :--------------- |
-|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](./../healthcare-apis/events/events-consume-logic-apps) and [Deploy Events Using the Azure Portal](../../healthcare-apis/events/events-deploy-portal.md). | 
-|One touch launch Azure MedTech deploy. |[Deploy the MedTech Service in the Azure Portal](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md)|
+|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](./../healthcare-apis/events/events-deploy-portal.md) and [Deploy Events Using the Azure Portal](./../healthcare-apis/events/events-deploy-portal.md). | 
+|One touch launch Azure MedTech deploy. |[Deploy the MedTech Service in the Azure Portal](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)|
 
 ### DICOM service
 
