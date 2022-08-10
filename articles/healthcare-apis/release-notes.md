@@ -44,8 +44,8 @@ For more information about the currently known issues with the FHIR service, see
 
 |Azure Health Data Services  |Related information |
 | :----------------------------------- | :--------------- |
-|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](./../healthcare-apis/events/events-consume-logic-apps) and [Deploy Events Using the Azure Portal](./../healthcare-apis/events/events-deploy-portal). | 
-|One touch launch Azure MedTech deploy. |[Deploy the MedTech Service in the Azure Portal](./../healthcare-apis/iot/.deploy-iot-connector-in-azure.md)|
+|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](../../healthcare-apis/events/events-consume-logic-apps) and [Deploy Events Using the Azure Portal](./../healthcare-apis/events/events-deploy-portal). | 
+|One touch launch Azure MedTech deploy. |[Deploy the MedTech Service in the Azure Portal](../../healthcare-apis/iot/.deploy-iot-connector-in-azure.md)|
 
 ### DICOM service
 
@@ -65,7 +65,7 @@ For more information about the currently known issues with the FHIR service, see
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
 |Export Job not being queued for execution.  |Fixes issue with export job not being queued due to duplicate job definition caused due to reference to container URL. For more information, see [#2648](https://github.com/microsoft/fhir-server/pull/2648). |
-|Queries not providing consistent result count after appended with the _sort operator.   |Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response.  For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). |
+|Queries not providing consistent result count after appended with the `_sort operator.   |Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response.  For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). |
 
 
 ## May 2022
