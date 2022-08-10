@@ -45,9 +45,11 @@ Schedule can refers a pipeline job yaml in local or an existing pipeline job in 
 #### Create a time-based schedule yaml with recurrence pattern
 
 #[CLI v2](#tab/cliv2)
+
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-schedule.yml":::
 
 #[SDK v2](#tab/sdkv2)
+
 [!notebook-python] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
 
 The `trigger` section in CLI and `RecurrenceTrigger` section in SDK contains following properties:
