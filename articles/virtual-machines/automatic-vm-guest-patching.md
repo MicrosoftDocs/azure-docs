@@ -77,7 +77,10 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | Canonical  | UbuntuServer | 18.04-LTS |
 | Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
+| Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
+| MicrosoftCBLMariner | CBL-Mariner | 1-gen2 | 
+| MicrosoftCBLMariner | CBL-Mariner | CBL-Mariner-2-gen2 | 
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
 | Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8_5, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
@@ -90,10 +93,15 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gensecond |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk-g2 |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-g2    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-smalldisk |
 
 ## Patch orchestration modes
