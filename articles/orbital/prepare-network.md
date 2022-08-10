@@ -28,7 +28,7 @@ Steps:
 
 Here is an example of a typical VNET setup with a subnet delegated to Azure Orbital Ground Station.
 
-:::image type="content" source="media/azure-ground-station-subnet-example.png" alt-text="Example VNET with subnet delegated to Orbital" lightbox="media/azure-ground-station-subnet-example.png":::
+:::image type="content" source="media/azure-ground-station-subnet-example.png" alt-text="Screenshot of subnet configuration with Orbital delegated subnet." lightbox="media/azure-ground-station-subnet-example.png":::
 
 ## Setting up the contact profile
 
@@ -58,7 +58,7 @@ When you create a contact, you can find these IPs by viewing the contact propert
 
 You can use this information to set up network policies or to distinguish between simultaneous contacts to the same endpoint.
 
-:::image type="content" source="media/azure-ground-station-contact-ips-example.png" alt-text="How to find connection details in the contact object" lightbox="media/azure-ground-station-contact-ips-example.png":::
+:::image type="content" source="media/azure-ground-station-contact-ips-example.png" alt-text="Screenshot of contact object with source and destination IPs." lightbox="media/azure-ground-station-contact-ips-example.png":::
 
 > [!NOTE]
 > - The source and destination IPs are always taken from the subnet address range.
