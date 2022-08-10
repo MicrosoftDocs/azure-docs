@@ -1466,16 +1466,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | labs / virtualMachines | Yes |
 > | schedules | Yes |
 
-## Microsoft.Diagnostics
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | apollo | No |
-> | azureKB | No |
-> | insights | No |
-> | solutions | No |
-
 ## Microsoft.DigitalTwins
 
 > [!div class="mx-tableFixed"]
