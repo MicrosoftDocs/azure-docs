@@ -141,7 +141,7 @@ az aks create \
 
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
-![Advanced networking configuration in the Azure portal][portal-01-networking-advanced]
+:::image type="content" source="/media/portal-01-networking-advanced.png" alt-text="Screenshot from the Azure portal showing an example of configuring these settings during AKS cluster creation.":::
 
 ## Dynamic allocation of IPs and enhanced subnet support
 
