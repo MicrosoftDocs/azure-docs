@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 08/15/2022
 ms.author: rolyon
 ms.custom: contperf-fy21q2, mode-other
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
@@ -27,7 +27,7 @@ Follow these steps to open the set of Azure resources that you want to check acc
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. Open the set of Azure resources, such as **Management groups**, **Subscriptions**, **Resource groups**, or a particular resource.
+1. Open the set of Azure resources you want to check access for, such as **Management groups**, **Subscriptions**, **Resource groups**, or a particular resource.
 
 1. Click the specific resource in that scope.
 
@@ -45,15 +45,17 @@ Follow these steps to check the access for a single user, group, service princip
 
     ![Resource group access control - Check access tab](./media/shared/rg-access-control.png)
 
-1. On the **Check access** tab, in the **Find** list, select the user, group, service principal, or managed identity you want to check access for.
+1. On the **Check access** tab, click the **Check access** button.
+
+1. In the **Check access** pane, click **User, group, or service principal**.
 
 1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
 
     ![Check access select list](./media/shared/rg-check-access-select.png)
 
-1. Click the security principal to open the **assignments** pane.
+1. Click the user to open the **assignments** pane.
 
-    On this pane, you can see the access for the selected security principal at this scope and inherited to this scope. Assignments at child scopes are not listed. You see the following assignments:
+    On this pane, you can see the access for the selected user at this scope and inherited to this scope. Assignments at child scopes are not listed. You see the following assignments:
 
     - Role assignments added with Azure RBAC.
     - Deny assignments added using Azure Blueprints or Azure managed apps.
