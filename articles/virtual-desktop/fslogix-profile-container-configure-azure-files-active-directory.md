@@ -127,14 +127,6 @@ To use Active Directory accounts for the share permissions of your file share, y
    (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.DirectoryServiceOptions; (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
    ```
 
-1. From the Azure portal, open the storage account you created previously.
-
-1. In the **Data storage** section, select **File shares**.
-
-1. In the main section of the page, next to **Active Directory**, select **Not configured**.
-
-1. In the box for **Active Directory Domain Services**, select **Set up**.
-
 > [!IMPORTANT]
 > If your domain enforces password expiration, you must update the password before it expires to prevent authentication failures when accessing Azure file shares. For more information, see [Update the password of your storage account identity in AD DS](../storage/files/storage-files-identity-ad-ds-update-password.md) for details.
 
