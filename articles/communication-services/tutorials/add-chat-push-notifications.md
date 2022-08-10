@@ -83,8 +83,7 @@ Here we recommend creating a .p12 APNS cert and set it in Notification Hub.
 
 * Step 8: Open the .cer file you downloaded; it will open Keychain Access. Select your certificate, right-click, and export your certificate in .p12 format. 
 
-  <img src="./media/add-chat-push-notification/cert-10.png"  width="700" height="330" alt="Screenshot of APNS Cert Configuration step 8 - 1."> 
-  <img src="./media/add-chat-push-notification/cert-11.png"  width="700" height="400" alt="Screenshot of APNS Cert Configuration step 8 - 2."> 
+  <img src="./media/add-chat-push-notification/cert-11.png"  width="700" height="400" alt="Screenshot of APNS Cert Configuration step 8."> 
 
 * Step 9: Go to your notification hub, click “Apple (APNS)” under Settings and select “Certificate” under Authentication Mode. Also select the Application Mode based on your need. Then upload the .p12 file you just created. 
 
