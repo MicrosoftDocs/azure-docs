@@ -1,6 +1,6 @@
 ---
 title: Rotate and Revoke a Customer managed key 
-description: Learn how to rotate, update, revoke Customer managed keys.
+description: Learn how to rotate, update, revoke a Customer managed key.
 ms.topic: tutorial
 ms.date: 08/5/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli
@@ -10,9 +10,9 @@ ms.author: tejaswikolli
 
 # Rotate and Revoke a Customer managed key 
 
-This article is part three in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learnt to enable customer-managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a customer managed key, update key version and revoke the key.
+This article is part three in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learnt to enable a Customer managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a Customer managed key, update key version and revoke the key.
 
-## Rotate the Customer managed key
+## Rotate a Customer managed key
 
 >* To rotate a key, you can either update the key version in Azure Key Vault or create a new key.
 >* While rotating the key, you can specify the same identity you have used to create the registry.
@@ -40,7 +40,7 @@ az keyvault key create \
 > [!TIP]
 > When you run `az-acr-encryption-rotate-key`, you can pass either a versioned key ID or a non-versioned key ID. If you use a non-versioned key ID, the registry is then configured to automatically detect later key version updates.
 
-To update the customer-managed key version manually:
+To update the customer managed key version manually:
 
  1. Rotate key and use user-assigned identity
 
@@ -62,7 +62,7 @@ az acr encryption rotate-key \
 
 ### Create or update key version - Portal
 
-Use the registry's **Encryption** settings to update the key vault, key, or identity settings used for the customer managed key.
+Use the registry's **Encryption** settings to update the key vault, key, or identity settings used for a Customer managed key.
 
 For example, to configure a new key:
 
@@ -77,7 +77,7 @@ For example, to configure a new key:
 
 ## Revoke a Customer managed key
 
->* You can revoke the customer-managed encryption key by changing the access policy, or changing the permissions on the key vault, or by deleting the key.
+>* You can revoke a Customer managed encryption key by changing the access policy, or changing the permissions on the key vault, or by deleting the key.
 
 1. Run the [az-keyvault-delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command to change the access policy of the managed identity used by your registry:
 
@@ -97,12 +97,12 @@ az keyvault key delete  \
   --object-id $identityPrincipalID \                     
 ```
 
->* Revoking the customer-managed key will block access to all registry data. 
+>* Revoking a Customer managed key will block access to all registry data. 
 >* If you enable access to the key or restore a deleted key, the registry will pick the key, and you can gain back control on access to the encrypted registry data. 
 
 ## Next steps
 
-In this tutorial, you have learned to perform key rotations, update key versions using CLI and Portal, and revoking a customer-managed key on your Azure container registry.
+In this tutorial, you have learned to perform key rotations, update key versions using CLI and Portal, and revoking a Customer managed key on your Azure container registry.
 
 Advance to the next tutorial to [troubleshoot](tutorial-troubleshoot-customer-managed-keys.md) most common issues like removing a managed identity, 403 errors, and restoring accidental key deletes.
 

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Customer managed key 
+title: Troubleshoot a Customer managed key 
 description: Tutorial to troubleshoot the most common issues from a registry enabled with a Customer managed key.
 author: tejaswikolli-web
 ms.topic: tutorial
@@ -8,11 +8,11 @@ ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ---
 
-# Troubleshoot Customer managed key 
+# Troubleshoot a Customer managed key 
 
-This article is part four in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](tutorial-rotate-revoke-customer-managed-keys.md), you will learn to rotate, update, revoke a customer managed keys. In this article learn to troubleshoot any issues with customer-managed keys.
+This article is part four in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](tutorial-rotate-revoke-customer-managed-keys.md), you will learn to rotate, update, revoke a Customer managed key. In this article learn to troubleshoot any issues with customer-managed keys.
 
-## Troubleshoot Customer managed key
+## Troubleshoot a Customer managed key
 
 This article helps you to troubleshoot and resolve most common issues such as authentication issues, accidental deletions of keys, etc.
 ## Removing managed identity
