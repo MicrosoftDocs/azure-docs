@@ -656,7 +656,7 @@ Here are some useful resources around hosting and querying spatial data in Azure
 
 Azure Maps provides client libraries for the following programming languages;
 
-* JavaScript, TypeScript, Node.js – [documentation](./how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js – [documentation](./how-to-use-services-module.md) \| [npm package](https://www.npmjs.com/package/azure-maps-rest)
 
 Open-source client libraries for other programming languages;
 
