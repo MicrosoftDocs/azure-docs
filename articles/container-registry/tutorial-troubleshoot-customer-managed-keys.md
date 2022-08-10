@@ -9,7 +9,7 @@ ms.author: tejaswikolli
 ---
 
 
-This article is part four in a four-part tutorial series. In [part one](container-registry-tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](container-registry-tutorial-enable-customer-managed-keys.md), you have learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](container-registry-tutorial-rotate-revoke-customer-managed-keys.md), you will learn to rotate, update, revoke a customer managed keys. In this article learn to troubleshoot any issues with customer-managed keys.
+This article is part four in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](tutorial-rotate-revoke-customer-managed-keys.md), you will learn to rotate, update, revoke a customer managed keys. In this article learn to troubleshoot any issues with customer-managed keys.
 
 ## Troubleshoot Customer managed key
 

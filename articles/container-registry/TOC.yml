@@ -43,13 +43,13 @@
     - name: Encrypt a registry with customer managed key
       items:
       - name: 1 - Customer managed keys - Overview
-        href: container-registry-tutorial-customer-managed-keys.md
+        href: tutorial-customer-managed-keys.md
       - name: 2 - Enable Customer managed key on your registry 
-        href: container-registry-tutorial-enable-customer-managed-keys.md
+        href: tutorial-enable-customer-managed-keys.md
       - name: 3 - Rotate or revoke a Customer managed key
-        href: container-registry-tutorial-rotate-revoke-customer-managed-keys.md
+        href: tutorial-rotate-revoke-customer-managed-keys.md
       - name: 4 - Troubleshoot
-        href: container-registry-tutorial-troubleshoot-customer-managed-keys.md
+        href: tutorial-troubleshoot-customer-managed-keys.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries

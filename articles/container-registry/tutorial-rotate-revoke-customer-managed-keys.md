@@ -7,7 +7,7 @@ ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ---
 
-This article is part three in a four-part tutorial series. In [part one](container-registry-tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](container-registry-tutorial-enable-customer-managed-keys.md), you have learnt to enable customer-managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a customer managed key, update key version and revoke the key.
+This article is part three in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learnt to enable customer-managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a customer managed key, update key version and revoke the key.
 
 ## Rotate the Customer managed key
 
@@ -101,5 +101,5 @@ az keyvault key delete  \
 
 In this tutorial, you have learned to perform key rotations, update key versions using CLI and Portal, and revoking a customer-managed key on your Azure container registry.
 
-Advance to the next tutorial to [troubleshoot](container-registry-tutorial-troubleshoot-customer-managed-keys) most common issues like removing a managed identity, 403 errors, and restoring accidental key deletes.
+Advance to the next tutorial to [troubleshoot](tutorial-troubleshoot-customer-managed-keys.md) most common issues like removing a managed identity, 403 errors, and restoring accidental key deletes.
 

@@ -41,7 +41,7 @@ Configure Azure Container Registry (ACR) with a customer managed key consider kn
 >* You can't disable the encryption after enabling a customer-managed key on a registry.
 >* You have to configure a *user-assigned* managed identity to access the key vault. Later, if required you can enable the registry's *system-assigned* managed identity for key vault access.
 >* Azure Container Registry supports only RSA or RSA-HSM keys. Elliptic curve keys aren't currently supported.
->* In a registry encrypted with a customer-managed key, you can retain logs for [ACR Tasks](container-registry-tasks-overview.md) only for 24 hours. To retain logs for a longer period, see guidance to [export and store task run logs](container-registry-tasks-logs.md#alternative-log-storage).
+>* In a registry encrypted with a customer-managed key, you can retain logs for [ACR Tasks](container-registry-tasks-overview.md) only for 24 hours. To retain logs for a longer period, see guidance to [export and store task run logs.](container-registry-tasks-logs.md#alternative-log-storage)
 >* [Content trust](container-registry-content-trust.md) is currently not supported in a registry encrypted with a customer-managed key.
 
 ## Update the customer managed key version
