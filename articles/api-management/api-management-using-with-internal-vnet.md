@@ -114,7 +114,7 @@ To access these API Management endpoints, you can create a virtual machine in a 
 | 10.1.0.5 | `contosointernalvnet.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.portal.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.developer.azure-api.net` |
-| 10.1.0.5 | `contosointernalvnet.management.azure-api.net` |
+| 10.1.0.4 | `contosointernalvnet.management.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.scm.azure-api.net` |
 
 You can then access all the API Management endpoints from the virtual machine you created.
