@@ -55,7 +55,7 @@ For details about that are `shared_preload_libraries`, read the PostgreSQL docum
 
 ### Add an extension at the creation time of a server group
 ```azurecli
-az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
+az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names> --k8s-namespace <namespace> --use-k8s (((((((((((((((((((((((((((((((((((())))))))))))))))))))))))))))))))))))
 ```
 ### Add an extension to an instance that already exists
 ```azurecli
