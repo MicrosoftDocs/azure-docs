@@ -3,20 +3,27 @@ title: Create and manage integration accounts
 description: Create and manage integration accounts for building B2B enterprise integration workflows in Azure Logic Apps with the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 08/15/2022
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
 
-Before you can build business-to-business (B2B) and enterprise integration workflows using Azure Logic Apps, you need to create an *integration account* resource. This account is a scalable cloud-based container in Azure that simplifies how you store and manage B2B artifacts that you define and use in your workflows for B2B scenarios. Such artifacts include [trading partners](logic-apps-enterprise-integration-partners.md), [agreements](logic-apps-enterprise-integration-agreements.md), [maps](logic-apps-enterprise-integration-maps.md), [schemas](logic-apps-enterprise-integration-schemas.md), [certificates](logic-apps-enterprise-integration-certificates.md), and so on. You also need to have an integration account to electronically exchange B2B messages with other organizations. When other organizations use protocols and message formats different from your organization, you have to convert these formats so your organization's system can process those messages. Supported industry-standard protocols include [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+Before you can build business-to-business (B2B) and enterprise integration workflows using Azure Logic Apps, you need to create an *integration account* resource. This account is a scalable cloud-based container in Azure that simplifies how you store and manage B2B artifacts that you define and use in your workflows for B2B scenarios, for example:
 
-> [!TIP]
-> To create an integration account for use with an [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md), 
-> review [Create integration accounts in an ISE](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+* [Trading partners](logic-apps-enterprise-integration-partners.md)
+* [Agreements](logic-apps-enterprise-integration-agreements.md)
+* [Maps](logic-apps-enterprise-integration-maps.md)
+* [Schemas](logic-apps-enterprise-integration-schemas.md)
+* [Certificates](logic-apps-enterprise-integration-certificates.md)
+
+You also need an integration account to electronically exchange B2B messages with other organizations. When other organizations use protocols and message formats different from your organization, you have to convert these formats so your organization's system can process those messages. With Azure Logic Apps, you can build workflows that support the following industry-standard protocols:
+
+* [AS2](logic-apps-enterprise-integration-as2.md)
+* [EDIFACT](logic-apps-enterprise-integration-edifact.md)
+* [RosettaNet](logic-apps-enterprise-integration-rosettanet.md)
+* [X12](logic-apps-enterprise-integration-x12.md)
 
 This article shows how to complete the following tasks:
 
@@ -27,36 +34,55 @@ This article shows how to complete the following tasks:
 * Move an integration account to another Azure resource group or subscription.
 * Delete an integration account.
 
-If you're new to Azure Logic Apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+> [!NOTE]
+>
+> If you use an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), 
+> and need to create an integration account to use with that ISE, review 
+> [Create integration accounts in an ISE](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+
+If you're new to creating B2B enterprise integration workflows in Azure Logic Apps, review the following documentation:
+
+* [What is Azure Logic Apps](logic-apps-overview.md)
+* [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You have to use the same Azure subscription for both your integration account and logic app resource.
 
-* If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need to have a logic app resource that you can [link to your integration account](#link-account). This link is required before you can use your artifacts in your workflow. You can create your artifacts without this link, but the link is required when you're ready to use these artifacts in your workflows.
+* If you're working on a Consumption logic app workflow, this logic app resource must already exist for you to [link your integration account](#link-account). This link is required before you can use your B2B artifacts in your workflow. You can create your artifacts without this link, but the link is required when you're ready to use these artifacts in your workflow.
 
-* If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you can directly add maps and schemas to your logic app resource using either the Azure portal or Visual Studio Code. You can then use these artifacts across multiple workflows within the *same logic app resource*. You still have to create an integration account for your other B2B artifacts and to use B2B operations, such as [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your integration account to your logic app resource, so the linking capability doesn't exist.
+* If you're working on a Standard logic app workflow, you have the following options:
+
+  * To use B2B artifacts other than maps and schemas from your integration account in your workflow, you don't need to link your integration account to your Standard logic app resource.
+
+  * To use maps and schemas in your workflow, you can upload these artifacts directly to your logic app resource. Although not required, you can also link your integration account to your logic app resource. Some actions, such as **Liquid**, **Flat File**, and others, support selecting maps *either* from your linked integration account or from your logic app resource. You can use these artifacts across all child workflows within the *same logic app resource*.
+
+* Basic knowledge about how to create logic app workflows. For more information, review the following documentation:
+
+  * [Quickstart: Create your first Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md)
+
+  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 ## Create integration account
 
-Integration accounts are available in different tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/). Based on the tier you choose, creating an integration account might incur costs. For more information, review [Logic Apps pricing and billing models](logic-apps-pricing.md#integration-accounts) and [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Integration accounts are available in different tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/). Based on the tier you choose, creating an integration account might incur costs. For more information, review [Azure Logic Apps pricing and billing models](logic-apps-pricing.md#integration-accounts) and [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 Based on your requirements and scenarios, determine the appropriate integration account tier to create. Both your integration account and logic app resource must use the *same* location or Azure region. The following table describes the available tiers:
 
 | Tier | Description |
 |------|-------------|
-| **Basic** | For scenarios where you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity. <p><p>Supported by the Logic Apps SLA. |
-| **Standard** | For scenarios where you have more complex B2B relationships and increased numbers of entities that you must manage. <p><p>Supported by the Logic Apps SLA. |
-| **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md). <p><p>**Note**: Not supported by the Logic Apps SLA. |
+| **Basic** | For scenarios where you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity. <br><br>Supported by the Azure Logic Apps SLA. |
+| **Standard** | For scenarios where you have more complex B2B relationships and increased numbers of entities that you must manage. <br><br>Supported by the Azure Logic Apps SLA. |
+| **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md). <br><br>**Note**: Not supported by the Azure Logic Apps SLA. |
 |||
 
 For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-resource-create), or [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount).
 
 ### [Portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
-1. In the main Azure search box, enter `integration accounts`, and select **Integration accounts**.
+1. In the Azure portal search box, enter **integration accounts**, and select **Integration accounts**.
 
 1. Under **Integration accounts**, select **Create**.
 
@@ -65,14 +91,14 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for your Azure subscription |
-   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) to use for organizing related resources. For this example, create a new resource group named `FabrikamIntegration-RG`. |
-   | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses `Fabrikam-Integration`. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app, or create your logic apps in the same location as your integration account. For this example, use `West US`. <p>**Note**: To create an integration account inside an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment** and select your ISE as the location. For more information, see [Create integration accounts in an ISE](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
-   | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, review the following documentation: <p>- [Logic Apps pricing model](logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) to use for organizing related resources. For this example, create a new resource group named **FabrikamIntegration-RG**. |
+   | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses **Fabrikam-Integration**. |
+   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. <br><br>**Note**: To create an integration account inside an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment** and select your ISE as the location. For more information, see [Create integration accounts in an ISE](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, review the following documentation: <br><br>- [Logic Apps pricing model](logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Enable log analytics** | No | Unselected | For this example, don't select this option. |
    |||||
 
-1. When you're finished, select **Review + create**.
+1. When you're done, select **Review + create**.
 
    After deployment completes, Azure opens your integration account.
 
@@ -137,13 +163,17 @@ az logic integration-account import --name integration_account_01 \
 
 <a name="link-account"></a>
 
-## Link to logic app (Consumption resource only)
+## Link to logic app
 
-For your **Logic App (Consumption)** workflow to access the B2B artifacts in your integration account, you must first link your logic app resource to your integration account. Both logic app and integration account must use the same Azure subscription and Azure region. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
+For you to successfully link your logic app and integration account, both resources must use the same Azure subscription and Azure region.
 
-1. In the [Azure portal](https://portal.azure.com), open an existing logic app, or create a new logic app.
+### [Consumption](#tab/consumption)
 
-1. On your logic app's menu, under **Settings**, select **Workflow settings**. Under **Integration account**, open the **Select an Integration account** list, and select the integration account you want.
+For your Consumption logic app workflow to access the B2B artifacts in your integration account, you must first link your logic app resource to your integration account. Both logic app and integration account must use the same Azure subscription and Azure region. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
+
+1. In the [Azure portal](https://portal.azure.com), open an existing logic app resource, or create a new logic app resource.
+
+1. On your logic app's navigation menu, under **Settings**, select **Workflow settings**. Under **Integration account**, open the **Select an Integration account** list, and select the integration account you want.
 
    ![Screenshot that shows the Azure portal with integration account menu with "Workflow settings" pane open and "Select an Integration account" list open.](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
 
@@ -155,7 +185,45 @@ For your **Logic App (Consumption)** workflow to access the B2B artifacts in you
 
    ![Screenshot that shows Azure confirmation message.](./media/logic-apps-enterprise-integration-create-integration-account/link-confirmation.png)
 
-Now your logic app can use the artifacts in your integration account plus the B2B connectors, such as XML validation and flat file encoding or decoding.  
+Now your logic app workflow can use the artifacts in your integration account plus the B2B connectors, such as XML validation and flat file encoding or decoding.  
+
+### [Standard](#tab/standard)
+
+Optionally, you can link your Standard logic app resource to your integration account. Any and all child workflows in the *same logic app resource* can use the artifacts in that integration account.
+
+#### Find your integration account's callback URL
+
+Before you can link your integration account to a Standard logic app resource, you need to have your integration account's **callback URL**.
+
+1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
+
+1. In the Azure portal search box, find and select your integration account. To browse existing accounts, enter **integration accounts**, and then select **Integration accounts**.
+
+1. On your selected integration account's navigation menu, under **Settings**, select **Callback URL**.
+
+1. Find the **Generated Callback URL** property value, copy the value, and save the URL to use later for linking.
+
+#### Link your integration account to your Standard logic app resource
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On your logic app's navigation menu, under **Settings**, select **Configuration**.
+
+1. On the **Configuration** pane, check whether the app setting named **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** exists.
+
+1. If the app setting doesn't exist, select **New application setting**.
+
+1. Provide the following values for the app setting:
+
+   | Property | Value |
+   |----------|-------|
+   | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
+   | **Value** | <*integration-account-callback-URL*> |
+   |||
+
+1. When you're done, select **OK**. When you return to the **Configuration** pane, make sure to save your changes. On the **Configuration** pane toolbar, select **Save**.
+
+---
 
 <a name="change-pricing-tier"></a>
 
@@ -163,8 +231,8 @@ Now your logic app can use the artifacts in your integration account plus the B2
 
 To increase the [limits](logic-apps-limits-and-config.md#integration-account-limits) for an integration account, you can [upgrade to a higher pricing tier](#upgrade-pricing-tier), if available. For example, you can upgrade from the Free tier to the Basic tier or Standard tier. You can also [downgrade to a lower tier](#downgrade-pricing-tier), if available. For more information pricing information, review the following documentation:
 
-* [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-* [Logic Apps pricing model](logic-apps-pricing.md#integration-accounts)
+* [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+* [Azure Logic Apps pricing model](logic-apps-pricing.md#integration-accounts)
 
 <a name="upgrade-pricing-tier"></a>
 

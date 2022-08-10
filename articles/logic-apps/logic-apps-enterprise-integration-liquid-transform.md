@@ -44,11 +44,7 @@ For more information, review the following documentation:
 
   * If you're working on a Consumption logic app workflow, your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-  * If you're working on a Standard logic app workflow, you can add maps either to your integration account or directly to your logic app resource. Liquid actions support selecting maps either from your logic app resource or a linked integration account.
-
-    If you [add maps directly to your logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-maps), you can use these maps across multiple workflows within the *same logic app resource*. However, you still need an integration account to store and use other artifacts, such as partners, agreements, and certificates, and if you want to use the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations.
-
-    However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+  * If you're working on a Standard logic app workflow, you can upload maps directly to your logic app resource. Although not required, you can also link your integration account to your logic app resource. Liquid actions support selecting maps *either* from your logic app resource or your linked integration account. You can use these maps across all child workflows within the *same logic app resource*.
 
 * Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/). Azure Logic Apps uses DotLiquid 2.0.361.
 
