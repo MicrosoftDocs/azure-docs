@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 08/10/2022
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -130,6 +130,11 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
+
+    * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
+
+    This feature will hide directories and files created under a share from users who do not have access permissions to the share. Users will still be able to view the share.  
+
 
     * If you want to enable SMB3 protocol encryption for the dual-protocol volume, select **Enable SMB3 Protocol Encryption**.   
 

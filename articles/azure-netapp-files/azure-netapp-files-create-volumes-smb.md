@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 08/10/2022
 ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -84,7 +84,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-4. Click **Protocol** and complete the following information:  
+4. Select **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume.  
 
     * Select your **Active Directory** connection from the drop-down list.  
@@ -98,7 +98,11 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
 
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.   
-        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
+        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information.
+
+    * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
+
+    This feature will hide directories and files created under a share from users who do not have access permissions to the share. Users will still be able to view the share.  
 
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 

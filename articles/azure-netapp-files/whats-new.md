@@ -20,6 +20,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+[Access-based enumeration share settings](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)
+    [Also available for dual-protocol volumes](create-volumes-dual-protocol.md#create-a-dual-protocol-volume)
+
 ## July 2022
 
 * [Active Directory connection enhancement: Reset Active Directory computer account password](create-active-directory-connections.md#reset-active-directory) (Preview)
