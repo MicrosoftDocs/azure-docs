@@ -37,7 +37,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Data sources Overview
-            url: agents/data-sources.md
+            url: data-sources.md
           - text: Data platform Overview
             url: ./data-platform.md
 
@@ -113,3 +113,5 @@ landingContent:
             url: /rest/api/application-insights/  
           - text: Application Insights REST API sandbox
             url: https://dev.applicationinsights.io
+          - text: Azure Alerts Management SDK for Python
+            url: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient

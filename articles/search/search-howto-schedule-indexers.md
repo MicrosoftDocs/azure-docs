@@ -121,7 +121,7 @@ Let’s consider an example to make this more concrete. Suppose we configure an 
 
 ## Next steps
 
-For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or obtain detailed information by enabling diagnostic logging.
+For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or obtain detailed information by enabling resource logging.
 
 + [Monitor search indexer status](search-howto-monitor-indexers.md)
 + [Collect and analyze log data](monitor-azure-cognitive-search.md)

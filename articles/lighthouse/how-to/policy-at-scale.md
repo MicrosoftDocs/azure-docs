@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Policy to delegated subscriptions at scale
 description: Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
-ms.date: 12/16/2021
+ms.date: 6/22/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---

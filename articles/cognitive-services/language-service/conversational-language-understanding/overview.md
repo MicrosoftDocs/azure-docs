@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 05/13/2022
+ms.date: 06/17/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -23,7 +23,7 @@ This documentation contains the following article types:
 
 * [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [Concepts](concepts/evaluation-metrics.md) provide explanations of the service functionality and features.
-* [How-to guides](how-to/tag-utterances.md) contain instructions for using the service in more specific or customized ways.
+* [How-to guides](how-to/create-project.md) contain instructions for using the service in more specific or customized ways.
 
 
 ## Example usage scenarios
@@ -55,17 +55,19 @@ Creating a CLU project typically involves several different steps.
 
 Follow these steps to get the most out of your model:
 
-1. **Build schema**: Know your data and define the actions and relevant information that needs to be recognized from user's input utterances. In this step you create the [intents](glossary.md#intent) that you want to assign to user's utterances, and the relevant [entities](glossary.md#entity) you want extracted.
+1. **Define your schema**: Know your data and define the actions and relevant information that needs to be recognized from user's input utterances. In this step you create the [intents](glossary.md#intent) that you want to assign to user's utterances, and the relevant [entities](glossary.md#entity) you want extracted.
 
-2. **Label data**: The quality of data labeling is a key factor in determining model performance. 
+2. **Label your data**: The quality of data labeling is a key factor in determining model performance. 
 
-3. **Train model**: Your model starts learning from your labeled data.
+3. **Train the model**: Your model starts learning from your labeled data.
 
-4. **View model evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
+4. **View the model's performance**: View the evaluation details for your model to determine how well it performs when introduced to new data.
 
-5. **Deploy model**: Deploying a model makes it available for use via the [Runtime API](https://aka.ms/clu-apis).
+6. **Improve the model**: After reviewing the model's performance, you can then learn how you can improve the model.
 
-6. **Predict intents and entities**: Use your custom model to predict intents and entities from user's utterances.
+7. **Deploy the model**: Deploying a model makes it available for use via the [Runtime API](https://aka.ms/clu-apis).
+
+8. **Predict intents and entities**: Use your custom model to predict intents and entities from user's utterances.
 
 ## Reference documentation and code samples
 
@@ -75,12 +77,12 @@ As you use CLU, see the following reference documentation and samples for Azure 
 |---------|---------|---------|
 |REST APIs (Authoring)   | [REST API documentation](https://aka.ms/clu-authoring-apis)        |         |
 |REST APIs (Runtime)    | [REST API documentation](https://aka.ms/clu-apis)        |         |
-|C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)        |
-|Python | [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples) |
+|C# (Runtime)    | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)        |
+|Python (Runtime)| [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples) |
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for CLU]() to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it's deployed. Read the transparency note for CLU to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

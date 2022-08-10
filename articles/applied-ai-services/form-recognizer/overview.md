@@ -1,5 +1,5 @@
 ---
-title: What is Azure Form Recognizer? (updated)
+title: What is Azure Form Recognizer? 
 titleSuffix: Azure Applied AI Services
 description: The Azure Form Recognizer service allows you to identify and extract key/value pairs and table data from your form documents, as well as extract major information from sales receipts and business cards.
 author: laujan
@@ -10,7 +10,10 @@ ms.topic: overview
 ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
-keywords: automated data processing, document processing, automated data entry, forms processing
+adobe-target: true
+adobe-target-activity: DocsExp–463504–A/B–Docs/FormRecognizer–DecisionTree–FY23Q1
+adobe-target-experience: Experience B
+adobe-target-content: ./overview-experiment
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 <!-- markdownlint-disable MD033 -->
@@ -26,7 +29,7 @@ Form Recognizer uses the following models to easily identify, extract, and analy
 
 * [**Read model**](concept-read.md) | Extract text lines, words, locations, and detected languages from documents and images.
 * [**Layout model**](concept-layout.md) | Extract text, tables, selection marks, and structure information from documents and images.
-* [**General document model**](concept-general-document.md) | Extract key-value pairs, selection marks, and entities from documents.
+* [**General document model**](concept-general-document.md) | Extract text, tables, selection marks, structure information, key-value pairs, and entities from documents.
 
 **Prebuilt models**
 
@@ -52,7 +55,7 @@ This section helps you decide which Form Recognizer v3.0 supported feature you s
 |<ul><li>**General structured document**</li></yl>| Is your document mostly structured and does it contain a few fields and values that may not be covered by the other prebuilt models?|<ul><li>If **Yes**, use the [**General document (preview)**](concept-general-document.md) model.</li><li> If **No**, because the fields and values are complex and highly variable, train and build a [**Custom**](how-to-guides/build-custom-model-v3.md) model.</li></ul>
 |<ul><li>**Invoice**</li></yl>| Is your invoice document composed in a [supported language](language-support.md#invoice-model) text?|<ul><li>If **Yes**, use the [**Invoice**](concept-invoice.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>
 |<ul><li>**Receipt**</li><li>**Business card**</li></ul>| Is your receipt or business card document composed in English text? | <ul><li>If **Yes**, use the [**Receipt**](concept-receipt.md) or [**Business Card**](concept-business-card.md) model.</li><li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>|
-|<ul><li>**ID document**</li></ul>| Is your ID document a US driver's license or an international passport?| <ul><li>If **Yes**, use the [**ID document**](concept-id-document.md) model.</li><li>If **No**, use the[**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
+|<ul><li>**ID document**</li></ul>| Is your ID document a US driver's license or an international passport?| <ul><li>If **Yes**, use the [**ID document**](concept-id-document.md) model.</li><li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
  |<ul><li>**Form** or **Document**</li></ul>| Is your form or document an industry-standard format commonly used in your business or industry?| <ul><li>If **Yes**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md).</li><li>If **No**, you can [**Train and build a custom model**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model).
 
 ## Form Recognizer features and development options
@@ -64,7 +67,7 @@ The following features  and development options are supported by the Form Recogn
 | Feature | Description | Development options |
 |----------|--------------|-------------------------|
 |[🆕 **Read**](concept-read.md)|Extract text lines, words, detected languages, and handwritten style if detected.|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul> |
-|[🆕 **W-2 Form**](concept-w2.md) | Extract information reported in each box on a W-2 form.|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)<li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul> |
+|[🆕 **W-2 Form**](concept-w2.md) | Extract information reported in each box on a W-2 form.|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)<li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul> |
 |[🆕 **General document model**](concept-general-document.md)|Extract text, tables, structure, key-value pairs and, named entities.|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/document)</li><li>[**REST API**](quickstarts/try-v3-rest-api.md#reference-table)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#general-document-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#general-document-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#general-document-model)</li><li>[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#general-document-model)</li></ul> |
 |[**Layout model**](concept-layout.md) | Extract text, selection marks, and tables structures, along with their bounding box coordinates, from forms and documents.</br></br> Layout API has been updated to a prebuilt model. | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/layout)</li><li>[**REST API**](quickstarts/try-v3-rest-api.md#reference-table)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#layout-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#layout-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#layout-model)</li><li>[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#layout-model)</li></ul>|
 |[**Custom model (updated)**](concept-custom.md) | Extraction and analysis of data from forms and documents specific to distinct business data and use cases.<ul><li>Custom model API v3.0 supports **signature detection for custom template (custom form) models**.</br></br></li><li>Custom model API v3.0 offers a new model type **Custom Neural** or custom document to analyze unstructured documents.</li></ul>| [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</li><li>[**REST API**](quickstarts/try-v3-rest-api.md)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|

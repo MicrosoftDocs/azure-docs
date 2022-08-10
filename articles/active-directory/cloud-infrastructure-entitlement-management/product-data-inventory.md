@@ -4,8 +4,7 @@ description: How to display an inventory of created resources and licenses for y
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -13,10 +12,6 @@ ms.author: kenwith
 ---
 
 # Display an inventory of created resources and licenses for your authorization system
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 You can use the **Inventory** dashboard in Permissions Management to display an inventory of created resources and licensing information for your authorization system and its associated accounts.
 

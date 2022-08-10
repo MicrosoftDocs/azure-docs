@@ -12,6 +12,8 @@
     href: quick-create-powershell.md
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
+  - name: Create virtual network - Bicep
+    href: quick-create-bicep.md
   - name: Create virtual network - ARM template
     href: quick-create-template.md
   expanded: true
@@ -180,6 +182,8 @@
         href: create-peering-different-deployment-models-subscriptions.md
     - name: Manage VNet peering
       href: virtual-network-manage-peering.md
+    - name: Update VNet peering address spaces
+      href: update-virtual-network-peering-address-space.md
     - name: Connectivity scenarios
       items:
       - name: Virtual network to Virtual network

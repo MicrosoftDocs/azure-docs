@@ -95,6 +95,8 @@
         href: iot-hub-devguide-messaging.md
       - name: Create and read IoT Hub messages
         href: iot-hub-devguide-messages-construct.md
+      - name: Non-telemetry event schemas
+        href: iot-hub-non-telemetry-event-schema.md
       - name: Send cloud-to-device messages from IoT Hub
         href: iot-hub-devguide-messages-c2d.md
       - name: Choose a device communication protocol
@@ -102,7 +104,7 @@
       - name: Read device-to-cloud messages from the built-in endpoint
         href: iot-hub-devguide-messages-read-builtin.md
       - name: Message enrichments overview
-        href: iot-hub-message-enrichments-overview.md    
+        href: iot-hub-message-enrichments-overview.md
     - name: Message routing
       items:
       - name: Use message routing to send device-to-cloud messages
@@ -127,6 +129,8 @@
         href: iot-hub-understand-ip-address.md
     - name: Scaling and availability
       items:
+      - name: Best practices for large-scale IoT device deployments
+        href: ../iot-dps/concepts-deploy-at-scale.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
       - name: High availability and disaster recovery
         href: iot-hub-ha-dr.md
       - name: How to clone an IoT Hub to another region
@@ -145,7 +149,7 @@
         - name: SDK overview
           href: iot-hub-devguide-sdks.md
         - name: Develop without the SDK
-          href: iot-hub-devguide-no-sdk.md   
+          href: iot-hub-devguide-no-sdk.md
         - name: Manage connectivity and reliable messaging
           href: iot-hub-reliability-features-in-sdks.md
     - name: Protocol support
@@ -221,34 +225,34 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
-            - name: Java
-              href: iot-hub-java-java-c2d.md
-            - name: Node.js
-              href: iot-hub-node-node-c2d.md
             - name: Python
               href: iot-hub-python-python-c2d.md
+            - name: Node.js
+              href: iot-hub-node-node-c2d.md
+            - name: Java
+              href: iot-hub-java-java-c2d.md
             - name: iOS
               href: iot-hub-ios-swift-c2d.md
         - name: Upload files from devices
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-file-upload.md
-            - name: Java
-              href: iot-hub-java-java-file-upload.md
-            - name: Node.js
-              href: iot-hub-node-node-file-upload.md
             - name: Python
               href: iot-hub-python-python-file-upload.md
+            - name: Node.js
+              href: iot-hub-node-node-file-upload.md
+            - name: Java
+              href: iot-hub-java-java-file-upload.md
         - name: Get started with device twins
           items:
-            - name: Node.js
-              href: iot-hub-node-node-twin-getstarted.md
             - name: .NET
               href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: Java
-              href: iot-hub-java-java-twin-getstarted.md
             - name: Python
               href: iot-hub-python-twin-getstarted.md
+            - name: Node.js
+              href: iot-hub-node-node-twin-getstarted.md
+            - name: Java
+              href: iot-hub-java-java-twin-getstarted.md
         - name: Get started with module twins
           items:
             - name: Portal
@@ -257,30 +261,30 @@
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
             - name: Python
               href: iot-hub-python-python-module-twin-getstarted.md
-            - name: C
-              href: iot-hub-c-c-module-twin-getstarted.md
             - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
+            - name: C
+              href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
-            - name: Node.js
-              href: iot-hub-node-node-device-management-get-started.md
             - name: .NET
               href: iot-hub-csharp-csharp-device-management-get-started.md
-            - name: Java
-              href: iot-hub-java-java-device-management-getstarted.md
             - name: Python
               href: iot-hub-python-python-device-management-get-started.md
+            - name: Node.js
+              href: iot-hub-node-node-device-management-get-started.md
+            - name: Java
+              href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
-            - name: Node.js
-              href: iot-hub-node-node-schedule-jobs.md
             - name: .NET
               href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: Java
-              href: iot-hub-java-java-schedule-jobs.md
             - name: Python
               href: iot-hub-python-python-schedule-jobs.md
+            - name: Node.js
+              href: iot-hub-node-node-schedule-jobs.md
+            - name: Java
+              href: iot-hub-java-java-schedule-jobs.md
     - name: Manage
       items:
         - name: Create an IoT hub
@@ -372,7 +376,7 @@
         - name: Device management with IoT extension for Azure CLI
           href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
         - name: Remote monitoring and notifications with ​Logic ​Apps
-          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md     
+          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Troubleshoot and problem solution
       items:
         - name: Troubleshoot device connectivity
@@ -397,6 +401,8 @@
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
       href: /java/api/com.microsoft.azure.sdk.iot.service
+    - name: Java (Management)
+      href: /java/api/overview/azure/resourcemanager-iothub-readme
     - name: Node.js (Device)
       href: /javascript/api/azure-iot-device/
     - name: Node.js (Service)

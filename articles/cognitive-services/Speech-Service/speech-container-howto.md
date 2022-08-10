@@ -25,10 +25,10 @@ With Speech containers, you can build a speech application architecture that's o
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.2.0 | Generally available |
-| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.2.0 | Generally available |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.4.0 | Generally available |
+| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.4.0 | Generally available |
 | Speech language identification | Detects the language spoken in audio files. | 1.5.0 | Preview |
-| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.1.0 | Generally available |
+| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.3.0 | Generally available |
 
 ## Prerequisites
 
@@ -55,8 +55,8 @@ The following table describes the minimum and recommended allocation of resource
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
-| Custom speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
+| Speech-to-text | 4 core, 4-GB memory | 8 core, 6-GB memory |
+| Custom speech-to-text | 4 core, 4-GB memory | 8 core, 6-GB memory |
 | Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |
 | Neural text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
 

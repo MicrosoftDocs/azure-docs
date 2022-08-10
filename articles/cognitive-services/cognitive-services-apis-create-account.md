@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/06/2022
 ms.author: aahi
 ---
@@ -38,7 +38,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 * **Speech** - Speech
 * **Vision** - Computer Vision, Custom Vision, Face
 
-1. You can select this link to create an Azure Cognitive multi-service resource: [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+1. You can select this link to create an Azure Cognitive multi-service resource: [Create a Cognitive Services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
 1. On the **Create** page, provide the following information:
 
@@ -51,10 +51,10 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 ### [Decision](#tab/decision)
 
 1. You can select one of these links to create a Decision resource: 
-    - [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)
-    - [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-    - [Metrics Advisor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesMetricsAdvisor)
-    - [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)
+    - [Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)
+    - [Content Moderator](https://portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
+    - [Metrics Advisor](https://portal.azure.com/#create/Microsoft.CognitiveServicesMetricsAdvisor)
+    - [Personalizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)
 
 1. On the **Create** page, provide the following information:
 
@@ -65,11 +65,11 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 ### [Language](#tab/language)
 
 1. You can select one of these links to create a Language resource: 
-    - [Immersive reader](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)
-    - [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-    - [Language service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
-    - [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)
-    - [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)
+    - [Immersive reader](https://portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)
+    - [Language Understanding (LUIS)](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+    - [Language service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
+    - [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)
+    - [QnA Maker](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)
 
 1. On the **Create** page, provide the following information:
 
@@ -79,7 +79,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 ### [Speech](#tab/speech)
 
-1. You can select this link to create a Speech resource: [Speech Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
+1. You can select this link to create a Speech resource: [Speech Services](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 
 1. On the **Create** page, provide the following information:
 
@@ -90,9 +90,9 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 ### [Vision](#tab/vision)
 
 1. You can select one of these links to create a Vision resource: 
-    - [Computer vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
-    - [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision)
-    - [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) 
+    - [Computer vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+    - [Custom vision service](https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision)
+    - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) 
 
 1. On the **Create** page, provide the following information:
 
@@ -112,7 +112,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 1. From the quickstart pane that opens, you can access the resource endpoint and manage keys.
 <!--
-1. If you missed the previous steps or need to find your resource later, go to the [Azure services](https://ms.portal.azure.com/#home) home page. From here you can view recent resources, select **My resources**, or use the search box to find your resource by name.
+1. If you missed the previous steps or need to find your resource later, go to the [Azure services](https://portal.azure.com/#home) home page. From here you can view recent resources, select **My resources**, or use the search box to find your resource by name.
 
     :::image type="content" source="media/cognitive-services-apis-create-account/home-my-resources.png" alt-text="Find resource keys from home screen":::
 -->
@@ -135,5 +135,5 @@ If you need to recover a deleted resource, see [Recover deleted Cognitive Servic
 * See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
 * See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
 * See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-premises.
 * See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.

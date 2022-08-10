@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 07/27/2022
 ms.author: aahi
 ---
 
@@ -38,7 +38,7 @@ By default, API requests will use the latest Generally Available model. You can 
 > If you’re using the SDK for C#, Java, JavaScript or Python, see the reference documentation for information on the appropriate model-version parameter.
 For synchronous endpoints, use the `model-version` query parameter. For example:
 
-POST `<resource-url>/text/analytics/v3.1/sentiment?model-version=2021-10-01-preview`.
+`POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01&model-version=2022-06-01`.
 
 For asynchronous endpoints, use the `model-version` property in the request body under task properties. 
  
@@ -52,7 +52,7 @@ Use the table below to find which model versions are supported by each feature:
 
 | Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
-| Sentiment Analysis and opinion mining               | `2019-10-01`                                                        | `2021-10-01`                       |                        |
+| Sentiment Analysis and opinion mining               | `2019-10-01`, `2020-04-01`, `2021-10-01`, `2022-06-01`                                                        | `2022-06-01`                       |                        |
 | Language Detection                                  | `2021-11-20`                                                        | `2021-11-20`                       |                        |
 | Entity Linking                                      | `2021-06-01`                                                        | `2021-06-01`                       |                        |
 | Named Entity Recognition (NER)                      | `2021-06-01`                                                        | `2021-06-01`                       |                        |
@@ -60,7 +60,7 @@ Use the table below to find which model versions are supported by each feature:
 | PII detection for conversations (Preview)           | `2022-05-15-preview`                                                |                                    | `2022-05-15-preview`   |                                   
 | Question answering                                  | `2021-10-01`                                                        | `2021-10-01`                       |                        |
 | Text Analytics for health                           | `2021-05-15`, `2022-03-01`                                          | `2022-03-01`                       |                        |
-| Key phrase extraction                               | `2021-06-01`                                                        | `2021-06-01`                       |                        |
+| Key phrase extraction                               | `2019-10-01`, `2020-07-01`, `2021-06-01`, `2022-07-01`                                                        | `2022-07-01`                       |                        |
 | Document summarization (preview)                                 | `2021-08-01`                                                        |                        |  `2021-08-01`                      |
 | Conversation summarization (preview)                                  | `2022-05-15-preview`                                  |                       |     `2022-05-15-preview`                   |
 
@@ -101,10 +101,10 @@ Use the table below to find which API versions are supported by each feature:
 
 | Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
-| Custom text classification                  | `2022-05-01`    ,`2022-05-15-preview`	                         |      `2022-05-01`            |  `2022-05-15-preview`	            |
-| Conversational language understanding       | `2022-05-01`   ,`2022-05-15-preview`	                          |      `2022-05-01`            |    `2022-05-15-preview`	            |
-| Custom named entity recognition             | `2022-05-01`  ,`2022-05-15-preview`                           |      `2022-05-01`            |     `2022-05-15-preview`	           |
-| Orchestration workflow                      | `2022-05-01`,`2022-05-15-preview`                            |      `2022-05-01`            |   `2022-05-15-preview`	             |
+| Custom text classification                  | `2022-05-01`                            |      `2022-05-01`            |            |
+| Conversational language understanding       | `2022-05-01`                           |      `2022-05-01`            |             |
+| Custom named entity recognition             | `2022-05-01`                          |      `2022-05-01`            |              |
+| Orchestration workflow                      | `2022-05-01`                            |      `2022-05-01`            |           |
 
 
 ## Next steps

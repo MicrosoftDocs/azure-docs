@@ -171,28 +171,7 @@ output notAPassword string = '...'
 ​
 63
 It is good practice to add a comment explaining why the rule does not apply to this line.
-64
-​
-No file chosen
-Attach files by dragging & dropping, selecting or pasting them.
-@bmoore-msft
-Commit changes
-Commit summary
-Create linter-rule-outputs-should-not-contain-secrets.md
-Optional extended description
-Add an optional extended description…
- Commit directly to the patch-15 branch.
- Create a new branch for this commit and start a pull request. Learn more about pull requests.
- 
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
+## Next steps
+
+For more information about the linter, see [Use Bicep linter](./linter.md).

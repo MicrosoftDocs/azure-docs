@@ -13,8 +13,6 @@ ms.reviewer: cynthn
 
 # Create a scale set from a generalized image
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 > [!IMPORTANT]
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 

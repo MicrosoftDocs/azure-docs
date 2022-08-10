@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Azure Table Storage with Service Connector
@@ -16,28 +16,27 @@ This page shows the supported authentication types and client types of Azure Tab
 ## Supported compute service
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
-| --- | --- | --- | --- | --- |
-| .NET | | | ![yes icon](./media/green-check.png) | |
-| Java | | | ![yes icon](./media/green-check.png) | |
-| Node.js | | | ![yes icon](./media/green-check.png) | |
-| Python | | | ![yes icon](./media/green-check.png) | |
-
+| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
+|-------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python      |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
 ## Default environment variable names or application properties
 
-### .NET, Java, Node.JS and Python
+Use the connection details below to connect compute services to Azure Table Storage. For each example below, replace the placeholder texts `<account-name>` and `<account-key>` with your own account name and account key.
 
-**Secret/ConnectionString**
+### .NET, Java, Node.JS and Python secret / connection string
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
-
+| Default environment variable name   | Description                     | Example value                                                                                                        |
+|-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
 ## Next steps
 

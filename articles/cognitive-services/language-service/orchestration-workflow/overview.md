@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 04/14/2022
+ms.date: 06/17/2022
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---
@@ -25,7 +25,7 @@ This documentation contains the following article types:
 
 * [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [Concepts](concepts/evaluation-metrics.md) provide explanations of the service functionality and features.
-* [How-to guides](how-to/tag-utterances.md) contain instructions for using the service in more specific or customized ways.
+* [How-to guides](how-to/create-project.md) contain instructions for using the service in more specific or customized ways.
 
 
 ## Example usage scenarios
@@ -44,18 +44,19 @@ Creating an orchestration workflow project typically involves several different 
 
 Follow these steps to get the most out of your model:
 
-1. **Build schema**: Know your data and define the actions and relevant information that needs to be recognized from user's input utterances. Create the [intents](glossary.md#intent) that you want to assign to user's utterances and the projects you want to connect to your orchestration project.
+1. **Define your schema**: Know your data and define the actions and relevant information that needs to be recognized from user's input utterances. Create the [intents](glossary.md#intent) that you want to assign to user's utterances and the projects you want to connect to your orchestration project.
 
-2. **Tag data**: The quality of data tagging is a key factor in determining model performance. 
-<!--  TODO: TO INCLUDE MORE GUIDANCE  -->
+2. **Label your data**: The quality of data tagging is a key factor in determining model performance. 
 
-3. **Train model**: Your model starts learning from your tagged data.
+3. **Train a model**: Your model starts learning from your tagged data.
 
-4. **View model evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
+4. **View the model's performance**: View the evaluation details for your model to determine how well it performs when introduced to new data.
 
-5. **Deploy model**: Deploying a model makes it available for use via the [prediction API](https://aka.ms/clu-runtime-api).
+5. **Improve the model**: After reviewing the model's performance, you can then learn how you can improve the model.
 
-6. **Predict intents**: Use your custom model to predict intents from user's utterances.
+6. **Deploy the model**: Deploying a model makes it available for use via the [prediction API](https://aka.ms/clu-runtime-api).
+
+7. **Predict intents**: Use your custom model to predict intents from user's utterances.
 
 ## Reference documentation and code samples
 
@@ -64,13 +65,13 @@ As you use orchestration workflow, see the following reference documentation and
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
 |REST APIs (Authoring)   | [REST API documentation](https://aka.ms/clu-authoring-apis)        |         |
-|REST APIs (Prediction)    | [REST API documentation](https://aka.ms/clu-runtime-api)        |         |
-|C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)        |
-|Python | [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples) |
+|REST APIs (Runtime)    | [REST API documentation](https://aka.ms/clu-runtime-api)        |         |
+|C#  (Runtime)   | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)        |
+|Python (Runtime)| [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples) |
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for CLU and orchestration workflow]() to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency note for CLU and orchestration workflow to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

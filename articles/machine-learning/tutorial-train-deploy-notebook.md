@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/05/2022
+ms.date: 06/14/2022
 ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -66,6 +66,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
 
+
 ## <a name="open"></a> Open the cloned notebook
 
 1. Open the **tutorials** folder that was cloned into your **User files** section.
@@ -79,7 +80,25 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
 
-This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). If you aren't using the compute instance, run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial. 
+## Install packages
+
+Once the compute instance is running and the kernel appears, add a new code cell to install packages needed for this tutorial.  
+
+1. At the top of the notebook, add a code cell.
+    :::image type="content" source="media/tutorial-train-deploy-notebook/add-code-cell.png" alt-text="Screenshot of add code cell for notebook.":::
+
+1. Add the following into the cell and then run the cell, either by using the **Run** tool or by using **Shift+Enter**.
+
+    ```bash
+    %pip install scikit-learn==0.22.1
+    %pip install scipy==1.5.2
+    ```
+
+You may see a few install warnings.  These can safely be ignored.
+
+## Run the notebook
+
+This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
@@ -213,11 +232,13 @@ with mlflow.start_run() as run:
 
 ## View experiment
 
-In the left-hand menu in Azure Machine Learning Studio, select __Experiments__ and then select your experiment (__azure-ml-in10-mins-tutorial__). An experiment is a grouping of many runs from a specified script or piece of code. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
+In the left-hand menu in Azure Machine Learning studio, select __Jobs__ and then select your job (__azure-ml-in10-mins-tutorial__). A job is a grouping of many runs from a specified script or piece of code.  Multiple jobs can be grouped together as an experiment.
+
+Information for the run is stored under that job. If the name doesn't exist when you submit a job, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
 
 ## Version control your models with the model registry
 
-You can use model registration to store and version your models in your workspace. Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. The code below registers and versions the model you trained above. Once you have executed the code cell below you will be able to see the model in the registry by selecting __Models__ in the left-hand menu in Azure Machine Learning Studio.
+You can use model registration to store and version your models in your workspace. Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. The code below registers and versions the model you trained above. Once you have executed the code cell below you will be able to see the model in the registry by selecting __Models__ in the left-hand menu in Azure Machine Learning studio.
 
 ```python
 # register the model
@@ -298,7 +319,7 @@ The scoring script file referenced in the code above can be found in the same fo
 
 ### View endpoint
 
-Once the model has been successfully deployed, you can view the endpoint by navigating to __Endpoints__ in the left-hand menu in Azure Machine Learning Studio. You will be able to see the state of the endpoint (healthy/unhealthy), logs, and consume (how applications can consume the model).
+Once the model has been successfully deployed, you can view the endpoint by navigating to __Endpoints__ in the left-hand menu in Azure Machine Learning studio. You will be able to see the state of the endpoint (healthy/unhealthy), logs, and consume (how applications can consume the model).
 
 ## Test the model service
 
@@ -345,5 +366,5 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 + Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
 + Learn how to [create clients for the web service](how-to-consume-web-service.md).
 + [Make predictions on large quantities of data](./tutorial-pipeline-batch-scoring-classification.md) asynchronously.
-+ Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
++ Monitor your Azure Machine Learning models with [Application Insights](./v1/how-to-enable-app-insights.md).
 + Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial.

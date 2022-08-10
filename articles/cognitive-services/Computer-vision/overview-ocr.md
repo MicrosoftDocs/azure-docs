@@ -9,15 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/05/2022
+ms.date: 06/13/2022
 ms.author: pafarley
-ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # What is Optical character recognition?
 
-Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as photos of street signs and products, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. Microsoft's OCR technologies support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
+Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as photos of street signs and products, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. Microsoft's OCR technologies support extracting printed text in [several languages](./language-support.md). 
+
+Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started with the REST API or a client SDK. Or, try out the capabilities of OCR quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ![OCR demos](./Images/ocr-demo.gif)
 
@@ -26,6 +30,9 @@ This documentation contains the following types of articles:
 * The [how-to guides](./how-to/call-read-api.md) contain instructions for using the service in more specific or customized ways.
 <!--* The [conceptual articles](how-to/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
+
+For a more structured approach, follow a Microsoft Learn module for OCR.
+* [Read Text in Images and Documents with the Computer Vision Service](/learn/modules/read-text-images-documents-with-computer-vision-service/)
 
 ## Read API 
 
@@ -38,9 +45,9 @@ The Computer Vision [Read API](https://westus.dev.cognitive.microsoft.com/docs/s
 The **Read** call takes images and documents as its input. They have the following requirements:
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
-* For PDF and TIFF files, up to 2000 pages (only first two pages for the free tier) are processed.
-* The file size must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
-* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This corresponds to about 8 font point text at 150 DPI.
+* For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
+* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
 ## Supported languages
 The Read API latest generally available (GA) model supports 164 languages for print text and 9 languages for handwritten text.

@@ -6,10 +6,13 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal 
-ms.date: 05/17/2022 
+ms.date: 06/24/2022
 ms.custom: kr2b-contr-experiment
 ---
+
 # Auto grow Azure Database for PostgreSQL storage using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 This article describes how you can use PowerShell to configure Azure Database for PostgreSQL server storage to scale up automatically without impacting the workload.
 

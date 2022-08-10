@@ -353,7 +353,7 @@ Set-ClusterQuorum –CloudWitness –AccountName $AzureStorageAccountName -Acces
 After you successfully install the Windows failover cluster, you need to adjust some thresholds, to be suitable for clusters deployed in Azure. The parameters to be changed are documented in [Tuning failover cluster network thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). Assuming that your two VMs that make up the Windows cluster configuration for ASCS/SCS are in the same subnet, change the following parameters to these values:
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- RouteHistoryLength = 30
 
 These settings were tested with customers and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough for real error conditions in SAP workloads or VM failure.  
 

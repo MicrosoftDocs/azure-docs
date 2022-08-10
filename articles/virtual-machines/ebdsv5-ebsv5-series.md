@@ -71,15 +71,15 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
 - Nested virtualization: Supported
 
-| Size | vCPU | Memory: GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E2bs_v5 | 2 | 16 | 4 | 9000/125 | 5500/156 | 10000/1200 | 2 | 10000 |
-| Standard_E4bs_v5 | 4 | 32 | 8 | 19000/250 | 11000/350 | 20000/1200 | 2 | 10000 |
-| Standard_E8bs_v5 | 8 | 64 | 16 | 38000/500 | 22000/625 | 40000/1200 | 4 | 10000 |
-| Standard_E16bs_v5 | 16 | 128 | 32 | 75000/1000 | 44000/1250 | 64000/2000 | 8 | 12500 
-| Standard_E32bs_v5 | 32 | 256 | 32 | 150000/1250 | 88000/2500 | 120000/4000 | 8 | 16000 |
-| Standard_E48bs_v5 | 48 | 384 | 32 | 225000/2000 | 120000/4000 | 120000/4000 | 8 | 16000 |
-| Standard_E64bs_v5 | 64 | 512 | 32 | 300000/4000 | 120000/4000 | 120000/4000 | 8 | 20000 | 
+| Size | vCPU | Memory: GiB | Max data disks | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_E2bs_v5 | 2 | 16 | 4 | 5500/156 | 10000/1200 | 2 | 10000 |
+| Standard_E4bs_v5 | 4 | 32 | 8 | 11000/350 | 20000/1200 | 2 | 10000 |
+| Standard_E8bs_v5 | 8 | 64 | 16 | 22000/625 | 40000/1200 | 4 | 10000 |
+| Standard_E16bs_v5 | 16 | 128 | 32 | 44000/1250 | 64000/2000 | 8 | 12500 
+| Standard_E32bs_v5 | 32 | 256 | 32 | 88000/2500 | 120000/4000 | 8 | 16000 |
+| Standard_E48bs_v5 | 48 | 384 | 32 | 120000/4000 | 120000/4000 | 8 | 16000 |
+| Standard_E64bs_v5 | 64 | 512 | 32 | 120000/4000 | 120000/4000 | 8 | 20000 | 
 
 > [!NOTE]
 > Accelerated networking is required and turned on by default on all Ebsv5 VMs. 

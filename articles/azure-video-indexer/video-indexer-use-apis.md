@@ -1,12 +1,12 @@
 ---
 title: Use the Azure Video Indexer API
 description: This article describes how to get started with Azure Video Indexer API.
-ms.date: 06/01/2022
+ms.date: 06/14/2022
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---
 
-# Tutorial: Use the Azure Video Indexer API
+# Use the Azure Video Indexer API
 
 Azure Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
@@ -207,6 +207,13 @@ Debug.WriteLine(playerWidgetLink);
 
 After you are done with this tutorial, delete resources that you are not planning to use.
 
+## Considerations
+
+* The JSON output produced by the API contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
+* We do not recommend that you use data directly from the artifacts folder for production purposes. Artifacts are intermediate outputs of the indexing process. They are essentially raw outputs of the various AI engines that analyze the videos; the artifacts schema may change over time. 
+
+    It is recommended that you use the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, as described in [Get insights and artifacts produced by the API](video-indexer-output-json-v2.md#get-insights-produced-by-the-api) and **not** [Get-Video-Artifact-Download-Url](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
+
 ## See also
 
 - [Azure Video Indexer overview](video-indexer-overview.md)
@@ -215,5 +222,5 @@ After you are done with this tutorial, delete resources that you are not plannin
 ## Next steps
 
 - [Examine details of the output JSON](video-indexer-output-json-v2.md)
-- Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer) that demonstrates important aspect of uploading and indexing a video. Following the code will give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advices.
+- Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer) that demonstrates important aspect of uploading and indexing a video. Following the code will give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advice.
 

@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/04/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ---
 
@@ -36,12 +36,13 @@ Use the following JSON in your request body. The model will be given the `{MODEL
 
 ```json
 {
-  "modelLabel": "{MODEL-NAME}",
-  "trainingConfigVersion": "{CONFIG-VERSION}",
-  "evaluationOptions": {
-    "kind": "percentage", 
-    "trainingSplitPercentage": 80,
-    "testingSplitPercentage": 20
+	"modelLabel": "{MODEL-NAME}",
+	"trainingConfigVersion": "{CONFIG-VERSION}",
+	"evaluationOptions": {
+		"kind": "percentage",
+		"trainingSplitPercentage": 80,
+		"testingSplitPercentage": 20
+	}
 }
 ```
 

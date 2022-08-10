@@ -94,7 +94,7 @@ command_job_for_sweep = command_job(
 
 This code defines a search space with two parameters - `learning_rate` and `keep_probability`. `learning_rate` has a normal distribution with mean value 10 and a standard deviation of 3. `keep_probability` has a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
 
-For the CLI, you can use the [sweep job YAML schema](/azure/machine-learning/reference-yaml-job-sweep)., to define the search space in your YAML:
+For the CLI, you can use the [sweep job YAML schema](./reference-yaml-job-sweep.md)., to define the search space in your YAML:
 ```YAML
     search_space:
         conv_size:
@@ -116,7 +116,7 @@ Specify the parameter sampling method to use over the hyperparameter space. Azur
 
 ### Random sampling
 
-[Random sampling](/azure/machine-learning/how-to-tune-hyperparameters) supports discrete and continuous hyperparameters. It supports early termination of low-performance jobs. Some users do an initial search with random sampling and then refine the search space to improve results.
+Random sampling supports discrete and continuous hyperparameters. It supports early termination of low-performance jobs. Some users do an initial search with random sampling and then refine the search space to improve results.
 
 In random sampling, hyperparameter values are randomly selected from the defined search space. After creating your command job, you can use the sweep parameter to define the sampling algorithm. 
 
@@ -328,7 +328,7 @@ Control your resource budget by setting limits for your sweep job.
 
 * `max_total_trials`: Maximum number of trial jobs. Must be an integer between 1 and 1000.
 * `max_concurrent_trials`: (optional) Maximum number of trial jobs that can run concurrently. If not specified, all jobs launch in parallel. If specified, must be an integer between 1 and 100.
-* `timeout`: Maximum time in minutes the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials.
+* `timeout`: Maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials.
 * `trial_timeout`: Maximum time in seconds each trial job is allowed to run. Once this limit is reached the system will cancel the trial. 
 
 >[!NOTE] 
@@ -338,10 +338,10 @@ Control your resource budget by setting limits for your sweep job.
 >The number of concurrent trial jobs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
 ```Python
-sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=4, timeout=120)
+sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=4, timeout=1200)
 ```
 
-This code configures the hyperparameter tuning experiment to use a maximum of 20 total trial jobs, running four trial jobs at a time with a timeout of 120 minutes for the entire sweep job.
+This code configures the hyperparameter tuning experiment to use a maximum of 20 total trial jobs, running four trial jobs at a time with a timeout of 1200 seconds for the entire sweep job.
 
 ## Configure hyperparameter tuning experiment
 
@@ -477,4 +477,4 @@ az ml job download --name <sweep-job> --output-name model
 
 ## Next steps
 * [Track an experiment](how-to-log-view-metrics.md)
-* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)

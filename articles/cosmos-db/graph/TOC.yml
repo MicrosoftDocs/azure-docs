@@ -16,6 +16,7 @@
     - name: NoSQL vs. relational databases
       href: ../relational-nosql.md?toc=/azure/cosmos-db/graph/toc.json
 - name: Quickstarts
+  expanded: true
   items:
     - name: Gremlin console
       href: create-graph-console.md
@@ -37,18 +38,58 @@
   items:
     - name: Azure CLI samples
       items:
-      - name: Overview Gremlin API samples
-        href: cli-samples.md
-      - name: Create account, keyspace, and table
-        href: ../scripts/cli/gremlin/create.md
-      - name: Create serverless
-        href: ../scripts/cli/gremlin/serverless.md
-      - name: Create with autoscale
-        href: ../scripts/cli/gremlin/autoscale.md
-      - name: Perform throughput operations
-        href: ../scripts/cli/gremlin/throughput.md
-      - name: Lock resources from deletion
-        href: ../scripts/cli/gremlin/lock.md
+        - name: Overview Gremlin API samples
+          href: cli-samples.md
+        - name: Create account, database and graph
+          href: ../scripts/cli/gremlin/create.md
+        - name: Create serverless
+          href: ../scripts/cli/gremlin/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/gremlin/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/gremlin/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/gremlin/lock.md
+        - name: Overview common API samples
+          href: ../common-cli-samples.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/graph/toc.json
+    - name: Azure PowerShell
+      items:
+        - name: Overview Gremlin API samples
+          href: powershell-samples.md
+        - name: Create account, database and graph
+          href: ../scripts/powershell/gremlin/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/gremlin/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/gremlin/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/gremlin/lock.md
+        - name: List and get databases and graphs
+          href: ../scripts/powershell/gremlin/list-get.md
+        - name: Overview common API samples
+          href: ../common-powershell-samples.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Account keys or connection strings
+          href: ../scripts/powershell/common/keys-connection-strings.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Change failover priority or trigger failover
+          href: ../scripts/powershell/common/failover-priority-update.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Create an account with IP Firewall
+          href: ../scripts/powershell/common/firewall-create.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Update account
+          href: ../scripts/powershell/common/account-update.md?toc=/azure/cosmos-db/graph/toc.json
+        - name: Update an account's regions
+          href: ../scripts/powershell/common/update-region.md?toc=/azure/cosmos-db/graph/toc.json
+    - name: Azure Resource Graph queries
+      href: ../resource-graph-samples.md?toc=/azure/cosmos-db/graph/toc.json
 - name: Concepts
   items:
     - name: Azure Cosmos DB resource model

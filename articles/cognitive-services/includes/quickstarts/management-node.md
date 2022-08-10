@@ -45,8 +45,7 @@ Install the following NPM packages:
 
 ```console
 npm install @azure/arm-cognitiveservices
-npm install @azure/ms-rest-js
-npm install @azure/ms-rest-nodeauth
+npm install @azure/identity
 ```
 
 Your app's `package.json` file will be updated with the dependencies.

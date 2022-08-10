@@ -4,7 +4,7 @@ description: Configure your deployment control plane for the SAP deployment auto
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 8/8/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
@@ -88,7 +88,14 @@ The table below contains the networking parameters.
 > | `management_firewall_subnet_address_prefix` | The address range for the subnet                                 | Mandatory  | For green field deployments.  | 
 > |                                             |                                                                  |            | |
 > | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Bastion subnet             | Mandatory  | For brown field deployments.  |
-> | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green field deployments.  | 
+> | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green field deployments.  |
+> |                                             |                                                                  |            | |
+> | `webapp_subnet_arm_id`		                  | The Azure resource identifier for the web app subnet             | Mandatory  | For brown field deployments using the web app |
+> | `webapp_subnet_address_prefix`              | The address range for the subnet                                 | Mandatory  | For green field deployments using the web app | 
+
+> [!NOTE]
+> When using an existing subnet for the web app, the subnet must be empty, in the same region as the resource group being deployed, and delegated to Microsoft.Web/serverFarms
+ 
 
 ### Deployer Virtual Machine Parameters
 
@@ -153,7 +160,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > | Variable                             | Description                                                            | Type        | Notes                         |
 > | ------------------------------------ | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
 > | `firewall_deployment`	               | Boolean flag controlling if an Azure firewall is to be deployed        | Optional    |                               |
-> | `bastion_deployment`	               | Boolean flag controlling if Azure bastion host is to be deployed       | Optional    |                               | 
+> | `bastion_deployment`	               | Boolean flag controlling if Azure Bastion host is to be deployed       | Optional    |                               | 
 > | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional    | Use only for test deployments |
 > | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used.                | Optional    | Recommended                   |
 
