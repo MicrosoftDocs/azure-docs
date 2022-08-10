@@ -6,7 +6,7 @@ author: angellan
 services: azure-communication-services
 
 ms.author: angellan
-ms.date: 08/04/2022
+ms.date: 08/09/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
 ---
@@ -22,11 +22,11 @@ Push notifications alert clients of incoming messages in a chat thread in situat
 - `Basic Version` : The user will be able to see a badge number of 1 on the app’s icon, receive a notification sound and see a pop-up alert banner. 
 - `Advanced Version`: Except for the features supported in basic version, the Contoso will be able to customize the title & message preview section in alert banner. 
 
-    <img src="./media/add-chat-push-notification/basic-version.png"  width="340" height="270" alt="This is basic version of push notification.">  
+    <img src="./media/add-chat-push-notification/basic-version.png"  width="340" height="270" alt="Screenshot of basic version of push notification.">  
 
     [Basic Version]
 
-    <img src="./media/add-chat-push-notification/advanced-version.png"  width="340" height="270" alt="This is advanced version of push notification."> 
+    <img src="./media/add-chat-push-notification/advanced-version.png"  width="340" height="270" alt="Screenshot of advanced version of push notification."> 
 
     [Advanced Version]
 
@@ -37,65 +37,65 @@ Access the sample code for this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Prerequisites
 
-1.Finish all the prerequisite steps in [Chat Quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-swift)
+1. Finish all the prerequisite steps in [Chat Quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-swift)
 
-2.ANH Setup  
+2. ANH Setup  
 Create an Azure Notification Hub within the same subscription as your Communication Services resource and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications.md#notification-hub-provisioning).
 
-3.APNS Cert Configuration  
+3. APNS Cert Configuration  
 Here we recommend creating a .p12 APNS cert and set it in Notification Hub.  
 
-`If you are not a Microsoft internal client`, please follow step 1 to step 9.   
-`If you are a Microsoft internal client`, please submit a ticket [here](https://aka.ms/mapsupport) and provide the bundle ID of your app to get a .p12 cert. Once you get a valid certificate issued, please execute the step 9.       
+   `If you are not a Microsoft internal client`, please follow step 1 to step 9.   
+   `If you are a Microsoft internal client`, please submit a ticket [here](https://aka.ms/mapsupport) and provide the bundle ID of your app to get a .p12 cert. Once you get a valid certificate issued, please execute the step 9.       
 
 * Step 1: Log in to the Apple Developer Portal. Navigate to `Certificates, IDs & Profiles > Identifiers > App IDs` and click the App ID associated with your app.
 
-  <img src="./media/add-chat-push-notification/cert-1.png"  width="700" height="230" alt="APNS Cert Configuration step 1.">  
+  <img src="./media/add-chat-push-notification/cert-1.png"  width="700" height="230" alt="Screenshot of APNS Cert Configuration step 1.">  
 
 * Step 2: On the screen for your App ID, check  `Capabilities > Push Notifications`. Click Save and respond “Confirm” to the Modify App Capabilities dialog box that appears. 
 
-  <img src="./media/add-chat-push-notification/cert-2.png"  width="700" height="350" alt="APNS Cert Configuration step 2-1.">  
+  <img src="./media/add-chat-push-notification/cert-2.png"  width="700" height="350" alt="Screenshot of APNS Cert Configuration step 2-1.">  
 
-  <img src="./media/add-chat-push-notification/cert-3.png"  width="700" height="210" alt="APNS Cert Configuration step 2-2.">  
+  <img src="./media/add-chat-push-notification/cert-3.png"  width="700" height="210" alt="Screenshot of APNS Cert Configuration step 2-2.">  
 
 * Step 3: In the same page, click `Capabilities > Push Notifications > Configure`. Click one of the following buttons:   
    * Development SSL Certificate > Create Certificate (for testing push notifications while developing an iOS app)  
    * Production SSL Certificate > Create Certificate (for sending push notifications in production)    
 
-  <img src="./media/add-chat-push-notification/cert-4.png"  width="700" height="320" alt="APNS Cert Configuration step 3."> 
+  <img src="./media/add-chat-push-notification/cert-4.png"  width="700" height="320" alt="Screenshot of APNS Cert Configuration step 3."> 
 
 * Step 4: Then you will be navigated to the below page. Here you will upload a Certificate Signing Request (CSR). Follow the next step to create a CSR.
 
-  <img src="./media/add-chat-push-notification/cert-5.png"  width="700" height="400" alt="APNS Cert Configuration step 4."> 
+  <img src="./media/add-chat-push-notification/cert-5.png"  width="700" height="400" alt="Screenshot of APNS Cert Configuration step 4."> 
 
 * Step 5: In a new browser tab, follow this [help page](https://help.apple.com/developer-account/#/devbfa00fef7) to create a CSR and save the file as “App name.cer”.
 
-  <img src="./media/add-chat-push-notification/cert-6.png"  width="700" height="360" alt="APNS Cert Configuration step 5 - 1."> 
-  <img src="./media/add-chat-push-notification/cert-7.png"  width="700" height="500" alt="APNS Cert Configuration step 5 - 2."> 
+  <img src="./media/add-chat-push-notification/cert-6.png"  width="700" height="360" alt="Screenshot of APNS Cert Configuration step 5 - 1."> 
+  <img src="./media/add-chat-push-notification/cert-7.png"  width="700" height="500" alt="Screenshot of APNS Cert Configuration step 5 - 2."> 
 
 * Step 6: Drag the .cer file to “Choose File” area. Then hit “continue” on the right top corner. 
 
-  <img src="./media/add-chat-push-notification/cert-8.png"  width="700" height="400" alt="APNS Cert Configuration step 6."> 
+  <img src="./media/add-chat-push-notification/cert-8.png"  width="880" height="400" alt="Screenshot of APNS Cert Configuration step 6."> 
 
 * Step 7: Click “Download” and save the file to local disk.
 
-  <img src="./media/add-chat-push-notification/cert-9.png"  width="700" height="220" alt="APNS Cert Configuration step 7."> 
+  <img src="./media/add-chat-push-notification/cert-9.png"  width="700" height="220" alt="Screenshot of APNS Cert Configuration step 7."> 
 
 * Step 8: Open the .cer file you downloaded; it will open Keychain Access. Select your certificate, right-click, and export your certificate in .p12 format. 
 
-  <img src="./media/add-chat-push-notification/cert-10.png"  width="700" height="330" alt="APNS Cert Configuration step 8 - 1."> 
-  <img src="./media/add-chat-push-notification/cert-11.png"  width="700" height="400" alt="APNS Cert Configuration step 8 - 2."> 
+  <img src="./media/add-chat-push-notification/cert-10.png"  width="700" height="330" alt="Screenshot of APNS Cert Configuration step 8 - 1."> 
+  <img src="./media/add-chat-push-notification/cert-11.png"  width="700" height="400" alt="Screenshot of APNS Cert Configuration step 8 - 2."> 
 
 * Step 9: Go to your notification hub, click “Apple (APNS)” under Settings and select “Certificate” under Authentication Mode. Also select the Application Mode based on your need. Then upload the .p12 file you just created. 
 
-  <img src="./media/add-chat-push-notification/cert-12.png"  width="700" height="360" alt="APNS Cert Configuration step 9."> 
+  <img src="./media/add-chat-push-notification/cert-12.png"  width="700" height="360" alt="Screenshot of APNS Cert Configuration step 9."> 
 
-4.XCode Configuration  
+4. XCode Configuration  
 * In XCode, go to  `Signing & Capabilities`. Add a capability by selecting "+ Capability", and then select “Push Notifications”.  
 
 * Add another capability by selecting “+ Capability”, and then select “Background Modes”. Also select “Remote Notifications” under Background Modes. 
 
-<img src="./media/add-chat-push-notification/xcode-config.png"  width="680" height="500" alt="Enable Push Notifications and Background modes in Xcode.">  
+<img src="./media/add-chat-push-notification/xcode-config.png"  width="680" height="500" alt="Screenshot of Enable Push Notifications and Background modes in Xcode.">  
 
 ## Implementation
 
