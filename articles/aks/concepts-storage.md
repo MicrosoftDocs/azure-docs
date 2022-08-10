@@ -43,13 +43,14 @@ Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types includ
 * Standard HDDs
 
 > [!TIP]
->For most production and development workloads, use Premium SSD. 
+>For most production and development workloads, use Premium SSD.
 
 Since Azure Disks are mounted as *ReadWriteOnce*, they're only available to a single node. For storage volumes that can be accessed by pods on multiple nodes simultaneously, use Azure Files.
 
 ### Azure Files
 
-Use *Azure Files* to mount an SMB 3.1.1 share or NFS 4.1 share backed by an Azure storage accounts to pods. Files let you share data across multiple nodes and pods and can use:
+Use *Azure Files* to mount an Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage accounts to pods. Files let you share data across multiple nodes and pods and can use:
+
 * Azure Premium storage backed by high-performance SSDs
 * Azure Standard storage backed by regular HDDs
 
@@ -60,6 +61,8 @@ Use *Azure Files* to mount an SMB 3.1.1 share or NFS 4.1 share backed by an Azur
 * Standard Storage
 
 ### Azure Blob Storage
+
+Use *Azure Blob Storage* to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
 
 * Block Blobs
 
@@ -119,7 +122,7 @@ For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-d
 | `azurefile-csi` | Uses Azure Standard storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-csi-premium` | Uses Azure Premium storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted.|
 | `azureblob-nfs-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using the NFS v3 protocol. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
-| `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using blobfuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
+| `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using BlobFuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
 
 Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes. 
 
