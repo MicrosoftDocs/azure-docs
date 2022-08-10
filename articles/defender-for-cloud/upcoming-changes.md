@@ -132,16 +132,15 @@ The new release will bring the following capabilities:
     |Blocked accounts with owner permissions on Azure resources should be removed|050ac097-3dda-4d24-ab6d-82568e7a50cf|
     |Blocked accounts with read and write permissions on Azure resources should be removed| 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
 
-### Removing security alerts for machines reporting to custom workspaces on other tenants
+### Removing security alerts for machines reporting to cross-tenant Log Analytics workspaces 
 
 **Estimated date for change:** September 2022
 
-Defender for Cloud lets you choose the workspace that your Log Analytics agents report to. When a machine belongs to one tenant (“Tenant A”) but its Log Analytics agent reports to a workspace in a different tenant (“Tenant B”), security alerts about the machine are reported to the second tenant (“Tenant B”).
+Defender for Cloud lets you choose the workspace that your Log Analytics agents report to. When a machine belongs to one tenant (“Tenant A”) but its Log Analytics agent reports to a workspace in a different tenant (“Tenant B”), security alerts about the machine are reported to the first tenant (“Tenant A”).
 
-With this change, the alerts reported to the second tenant will no longer appear in Defender for Cloud.
+With this change, alerts on machines connected to Log Analytics workspace in a different tenant will no longer appear in Defender for Cloud.
 
-If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the resource.
-
+If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the machine.
 
 ## Next steps
 
