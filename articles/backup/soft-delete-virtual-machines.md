@@ -18,7 +18,7 @@ Soft delete for VMs protects the backups of your VMs from unintended deletion. E
 
 ## Supported regions
 
-Soft delete is available in all public and national regions.
+Soft delete is available in all Azure Public and National regions.
 
 ## Soft delete for VMs using Azure portal
 
