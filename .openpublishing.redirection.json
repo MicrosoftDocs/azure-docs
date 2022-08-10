@@ -40330,7 +40330,7 @@
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
-      "redirect_url": "https://docs.microsoft.com/ai-builder/create-form-processing-model",
+      "redirect_url": "/ai-builder/create-form-processing-model",
       "redirect_document_id": false
     }
   ]
