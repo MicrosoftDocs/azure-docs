@@ -17,7 +17,7 @@ ms.devlang: azurecli
 
 This article describes how to expose applications on Azure Spring Apps to the internet from a public network.
 
-You can expose applications to the internet with TLS Termination or end-to-end TLS using Application Gateway, as described in [Expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md). These approaches work well, but Application Gateway can involve a complicated setup and extra expense.
+You can expose applications to the internet with TLS Termination or end-to-end TLS using Application Gateway. These approaches are described in [Expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md). These approaches work well, but Application Gateway can involve a complicated setup and extra expense.
 
 If you don't want to use Application Gateway for advanced operations, you can expose your applications to the internet with one click on Azure portal or one command on the Azure command by:
 
@@ -49,7 +49,7 @@ The assigned public FQDN (labeled **URL**) is now available. It can only be acce
 
 #### [CLI](#tab/azure-CLI)
 
-Update your app to assign an public endpoint to it. Customize the value of your app name based on your real environment.
+Update your app to assign a public endpoint to it. Customize the value of your app name based on your real environment.
 
 ```azurecli
 SPRING_CLOUD_APP=<app-name>

@@ -92,7 +92,7 @@ By default, `az spring app logs` prints only existing logs streamed to the app c
 az spring app logs --name auth-service --follow
 ```
 
-When you use the `--follow` argument to tail instant logs, the Azure Spring Apps log streaming service sends heartbeat logs to the client every minute unless your application is writing logs constantly. These heartbeat log messages look like the following: `2020-01-15 04:27:13.473: No log from server`.
+When you use the `--follow` argument to tail instant logs, the Azure Spring Apps log streaming service sends heartbeat logs to the client every minute unless your application is writing logs constantly. Heartbeat log messages use the following format: `2020-01-15 04:27:13.473: No log from server`.
 
 Run the following command to check all the logging options that are supported:
 
@@ -103,9 +103,9 @@ az spring app logs --help
 ### Format JSON structured logs
 
 > [!NOTE]
-> Formatting JSON structure logs requires spring extension version 2.4.0 or later.
+> Formatting JSON structured logs requires spring extension version 2.4.0 or later.
 
-When structured application logs are enabled for an app, they are printed in JSON format and can be difficult to read. You can use the `--format-json` argument to format logs in JSON format into a more readable format. For more information, see [Structured application log](./structured-app-log.md).
+Structured application logs are displayed in JSON format, which can be difficult to read. You can use the `--format-json` argument to format logs in JSON format into a more readable format. For more information, see [Structured application log](./structured-app-log.md).
 
 The following example shows how to use the `--format-json` argument:
 
@@ -150,7 +150,7 @@ Azure Spring Apps also enables you to access real-time app logs from a public ne
 
 2. Select the **Vnet injection** page.
 
-3. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This will take a few minutes.
+3. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
 
    :::image type="content" source="media/how-to-log-streaming/enable-logstream-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/enable-logstream-public-endpoint.png":::
 
@@ -169,7 +169,7 @@ After you've enabled the log stream public endpoint, you can access the app log 
 
 ## Secure traffic to the log streaming public endpoint
 
-Log streaming uses the same key as the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments) to authenticate the connections to your deployments. As a result, only those who have read access to the test keys can access log streaming.
+Log streaming uses the same key as the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments) to authenticate the connections to your deployments. As a result, only users who have read access to the test keys can access log streaming.
 
 To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
