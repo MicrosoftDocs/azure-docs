@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 08/07/2022
+ms.date: 08/08/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -46,9 +46,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.4 | 07/2022 | 4/2023 |
-| 22.2.3 | 07/2022 | 4/2023 |
-| 22.1.7 | 07/2022 | 4/2023 |
+| 22.2.4 | 07/2022 | 04/2023 |
+| 22.2.3 | 07/2022 | 04/2023 |
+| 22.1.7 | 07/2022 | 04/2023 |
 | 22.1.6 | 06/2022 | 10/2023 |
 | 22.1.5 | 06/2022 | 10/2023 |
 | 22.1.4 | 04/2022 | 10/2022 |
@@ -58,6 +58,45 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## August 2022
+
+- [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
+- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
+
+### New alert columns with timestamp data
+
+Starting with OT sensor version 22.2.4, Defender for IoT alerts in the Azure portal and the sensor console now show the following columns and data:
+
+- **Last detection**. Defines the last time the alert was detected in the network, and replaces the **Detection time** column.
+
+- **First detection**. Defines the first time the alert was detected in the network.
+
+- **Last activity**. Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication.
+
+The **First detection** and **Last activity** columns aren't displayed by default. Add them to your **Alerts** page as needed.
+
+> [!TIP]
+> If you're also a Microsoft Sentinel user, you'll be familiar with similar data from your Log Analytics queries. The new alert columns in Defender for IoT are mapped as follows:
+>
+> - The Defender for IoT **Last detection** time is similar to the Log Analytics **EndTime**
+> - The Defender for IoT **First detection** time is similar to the Log Analytics **StartTime**
+> - The Defender for IoT **Last activity** time is similar to the Log Analytics **TimeGenerated**
+For more information, see:
+
+- [View alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
+
+### Sensor health from the Azure portal (Public preview)
+
+For OT sensor versions 22.1.3 and higher, you can use the new sensor health widgets and table column data to monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+
+:::image type="content" source="media/release-notes/sensor-health.png" alt-text="Screenshot showing the new sensor health widgets." lightbox="media/release-notes/sensor-health.png":::
+
+We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
+
+For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
 
 ## July 2022
 
@@ -113,6 +152,7 @@ Now you can add any of the following parameters to your query to fine tune your 
 - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
 For more information, see [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
+>>>>>>> 3e9c47c4758cdb6f63a6873219cab9498206cb2a
 
 ### OT appliance hardware profile updates
 
@@ -590,7 +630,7 @@ Disabling these alerts also disables monitoring of related traffic. Specifically
 
 **Unauthorized Database Operation alert**
 Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
-- DDL traffic: alerting and monitoring are supported. 
+- DDL traffic: alerting and monitoring are supported.
 - DML traffic: Monitoring is supported.  Alerting isn't supported.
 
 **New Asset Detected alert**
