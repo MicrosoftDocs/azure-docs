@@ -3,7 +3,7 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/26/2022
+ms.date: 08/10/2022
 
 ---
 
@@ -97,10 +97,20 @@ The above example stores the value of the Identity Resource ID in *IDENTITY_RESO
 
 ### Assign permissions (decrypt and encrypt) to access key vault
 
-Use `az keyvault set-policy` to create an Azure KeyVault policy.
+#### For non-RBAC key vault
+
+If your key vault is not enabled with  `--enable-rbac-authorization`, you could use `az keyvault set-policy` to create an Azure KeyVault policy.
 
 ```azurecli-interactive
 az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+```
+
+#### For RBAC key vault
+
+If your key vault is enabled with `--enable-rbac-authorization`, you need to assign a RBAC role which at least contains decrypt, encrypt permission. 
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Crypto User" --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 ### Create an AKS cluster with KMS etcd encryption enabled
@@ -195,10 +205,20 @@ The above example stores the value of the Identity Resource ID in *IDENTITY_RESO
 
 ### Assign permissions (decrypt and encrypt) to access key vault
 
-Use `az keyvault set-policy` to create an Azure KeyVault policy.
+#### For non-RBAC key vault
+
+If your key vault is not enabled with  `--enable-rbac-authorization`, you could use `az keyvault set-policy` to create an Azure KeyVault policy.
 
 ```azurecli-interactive
 az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+```
+
+#### For RBAC key vault
+
+If your key vault is enabled with `--enable-rbac-authorization`, you need to assign a RBAC role which at least contains decrypt, encrypt permission. 
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Crypto User" --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 For private key vault, the AKS needs *Key Vault Contributor*  role to create private link between private key vault and cluster.
