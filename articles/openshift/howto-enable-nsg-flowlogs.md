@@ -16,7 +16,6 @@ keywords: azure, openshift, aro, red hat, azure CLI
 
 Flow logs allow you to analyze traffic for Network Security Groups in specific regions that have Azure Network Watcher configured.
 
-
 ## Prerequisites
 
 You must have an existing Azure Red Hat OpenShift cluster. Follow this guide to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
@@ -34,8 +33,7 @@ Create a storage account for storing the actual flow logs. It must be in the sam
 
 ## Configure service principal
 
-The service principal used by the cluster needs the [proper permissions](../network-watcher/required-rbac-permissions) in order to create necessary resources for the flow logs and to access the storage account.
-The easiest way to achieve that is by assigning it the network administrator and storage account contributor role on subscription level. Alternatively, you can create a custom role containing the required actions from the page linked above and assign it to the service principal.
+The service principal used by the cluster needs the [proper permissions](../network-watcher/required-rbac-permissions.md) in order to create necessary resources for the flow logs and to access the storage account. The easiest way to achieve that is by assigning it the network administrator and storage account contributor role on subscription level. Alternatively, you can create a custom role containing the required actions from the page linked above and assign it to the service principal.
 
 To get the service principal ID, run the following command:
 ```
@@ -53,7 +51,7 @@ To assign storage account contributor, run the following command:
 ```
 az role assignment create --role "17d1049b-9a84-46fb-8f53-869881c3d3ab" --assignee-object-id "{servicePrincipalObjectID}"
 ```
-See [this page](../role-based-access-control/built-in-roles) for IDs of built-in roles.
+See [Azure built-in roles](../role-based-access-control/built-in-roles.md) for IDs of built-in roles.
 
 Create a spec as in the following example, or update the existing spec to contain `spec.nsgFlowLogs` in case you are already using another preview feature:
 ```
@@ -72,6 +70,6 @@ spec:
     storageAccountResourceId: "subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
     version: {version}  
 ```
-See [this page](../network-watcher/network-watcher-nsg-flow-logging-portal) for possible values for `version` and `retentionDays`.
+See [Tutorial: Log network traffic to and from a virtual machine using the Azure portal](../network-watcher/network-watcher-nsg-flow-logging-portal.md) for possible values for `version` and `retentionDays`.
     
 The cluster will create flow logs for each Network Security Group in the cluster resource group.
