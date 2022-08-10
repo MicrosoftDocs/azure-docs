@@ -20,7 +20,7 @@ This article shows how to write entry scripts for specialized use cases.
 
 ## Prerequisites
 
-This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [this tutorial](how-to-deploy-and-where.md).
+This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [this tutorial](./v1/how-to-deploy-and-where.md).
 
 ## Automatically generate a Swagger schema
 

@@ -125,7 +125,7 @@ First, you'll need to create a user-assigned identity resource.
 
     Note the `id` property of the new identity.
 
-1. Run the `az containerapps identity assign` command to assign the identity to the app. The identities parameter is a space separated list.
+1. Run the `az containerapp identity assign` command to assign the identity to the app. The identities parameter is a space separated list.
 
     ```azurecli
     az containerapp identity assign --resource-group <GROUP_NAME> --name <APP_NAME> \
@@ -289,7 +289,7 @@ For more information on the REST endpoint, see [REST endpoint reference](#rest-e
 You can show the system-assigned and user-assigned managed identities using the following Azure CLI command.  The output will show the managed identity type, tenant IDs and principal IDs of all managed identities assigned to your container app.
 
 ```azurecli
-az containerapps identity show --name <APP_NAME> --resource-group <GROUP_NAME>
+az containerapp identity show --name <APP_NAME> --resource-group <GROUP_NAME>
 ```
 
 ## Remove a managed identity

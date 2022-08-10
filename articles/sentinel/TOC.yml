@@ -129,6 +129,8 @@
     items:
     - name: Investigate large datasets
       href: investigate-large-datasets.md
+    - name: Investigate entities with entity pages
+      href: entity-pages.md
   - name: Automate responses
     items:
     - name: Orchestration, automation, and response
@@ -472,6 +474,8 @@
         href: normalization-common-fields.md 
       - name: ASIM helper functions
         href: normalization-functions.md
+      - name: ASIM known issues
+        href: normalization-known-issues.md
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema
