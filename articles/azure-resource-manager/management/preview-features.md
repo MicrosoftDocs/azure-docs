@@ -154,11 +154,11 @@ Register a preview feature in your Azure subscription to expose more functionali
 After a preview feature is registered in your subscription, you'll see one of two states: **Registered** or **Pending**.
 
 - For a preview feature that doesn't require approval, the state is **Registered**.
-- If a preview feature requires approval, the registration state is **Pending**. You need to request approval from the Azure service offering the preview feature. Usually, you request access through a support ticket.
+- If a preview feature requires approval, the registration state is **Pending**. You must request approval from the Azure service offering the preview feature. Usually, you request access through a support ticket.
   - To request approval, submit an [Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
   - After the registration is approved, the preview feature's state changes to **Registered**.
 
-Some services require other methods, such as email, for requesting access to a preview feature. Check announcements about the preview feature for information about how to get access.
+Some services require other methods, such as email, to get approval for pending request. Check announcements about the preview feature for information about how to get access.
 
 # [Portal](#tab/azure-portal)
 
