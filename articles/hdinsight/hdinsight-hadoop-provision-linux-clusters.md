@@ -243,17 +243,9 @@ For more information, see [Sizes for virtual machines](../virtual-machines/sizes
 
 ### Disk attachment
 
-HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios.
+HDInsight cluster comes with pre-defined disk space based on SKU. Running some  large applications, can lead for insufficient disk space, (with disk full error -  ```LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE```) and job failures. 
 
-This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add the number of disks to worker nodes during HIVE and Spark cluster creation, while the selected disks will be part of the node manager’s local directories.
-
-On each of the **NodeManager** machines, **LocalResources** are ultimately localized in the target directories.
-
-By  normal configuration only the default disk is added as the local disk in NodeManager. For large applications this disk space may not be enough which can result in job failure.
-
-If the cluster is expected to run large data application, you can choose to add extra disks to the **NodeManager**.
-
-You can add number of disks per VM and each disk will be of 1 TB size.
+More discs can be added to the cluster using the new feature **NodeManager**’s local directory. At the time of Hive and Spark cluster creation, the number of discs can be selected and added to the worker nodes. The selected discs, which will be of size 1TB each, would be part of **NodeManager**'s local directories.
 
 1. From **Configuration + pricing** tab
 1. Select **Enable managed disk** option
