@@ -96,6 +96,6 @@ sections:
          No. Customers will need to set up their own disaster recovery strategy to manage outages. Autoscale only handles scaling existing VMs within the region they're created in.
          
       - question: |
-         If our session hosts are deployed across availability zones does autoscale consider the deployed zone of each host when performing scaling operations?
+         Does autoscale consider availability zones during scaling operations if session hosts are created in multiple zones within a region?
         answer: |
-         No. Customers will need to set up their own disaster recovery strategy to manage outages. Autoscale only scales VMs based on the region they're created in and so may not equally distribute the available hosts across all availability zones.
+         No. Autoscale does not know what availability zone a VM was created in and so may not perform scaling operations across all zones equally. 
