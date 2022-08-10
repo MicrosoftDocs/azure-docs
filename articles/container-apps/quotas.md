@@ -21,14 +21,13 @@ The following quotas are on a per subscription basis for Azure Container Apps.
 | Revisions | 100 | Container app | |
 | Replicas | 30 | Revision | |
 | Cores | 2 | Replica | Maximum number of cores that can be requested by a revision replica. |
-| Cores | 20 | Environment | Calculated by the total cores an environment can accommodate. For instance, the sum of cores requested by each active replica of all revisions on an environment. |
-| Maximum number of container apps | 100 | Region | You may have a maximum of 100 container apps per region. This limit is enforced at the environment level. |
+| Cores | 20 | Environment | Calculated by the total cores an environment can accommodate. For instance, the sum of cores requested by each active replica of all revisions in an environment. |
 
 ## Considerations
 
 * Pay-as-you-go and trial subscriptions are limited to 1 environment per region per subscription.
 * If an environment runs out of allowed cores:
-  * Provisioning times out with a failure.
-  * The app silently refuses to scale out.
+  * Provisioning times out with a failure
+  * The app silently refuses to scale out
 
 To request an increase in quota amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
