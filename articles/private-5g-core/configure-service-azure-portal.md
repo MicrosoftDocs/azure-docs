@@ -38,7 +38,8 @@ In this step, you'll configure basic settings for your new service using the Azu
 
     :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal. It shows the Create option in the command bar.":::
 
-1. On the **Basics** configuration tab, use the information you collected in [Collect top-level setting values](collect-required-information-for-service.md#collect-top-level-setting-values) to fill out each of the fields.
+1. On the **Basics** configuration tab, use the information you collected in [Collect top-level setting values](collect-required-information-for-service.md#collect-top-level-setting-values) to fill out each of the fields.  
+If you do not want to specify a QoS for this service, turn off the **Configured** toggle. If the toggle is off, the service will inherit the QoS of the parent SIM Policy.
 
     :::image type="content" source="media/configure-service-azure-portal/create-service-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a service.":::
 
