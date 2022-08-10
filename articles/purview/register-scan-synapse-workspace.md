@@ -279,7 +279,7 @@ PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_sour
 }
 ```
 
-To schedule the scan, additionally create a trigger for it after scan creation, refer to [Triggers - Create Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/create-trigger?tabs=HTTP).
+To schedule the scan, additionally create a trigger for it after scan creation, refer to [Triggers - Create Trigger](/rest/api/purview/scanningdataplane/triggers/create-trigger).
 
 ### Create and run scan
 
