@@ -13,7 +13,7 @@ Defender for Cloud has the ability to protect workloads that are stored in GitHu
 
 - **Microsoft Defender for DevOps** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your GitHub resources.
 
-For a reference list of all the recommendations Defender for Cloud can provide for GitHub resources, see [Reference list of DevOps recommendations](#reference-list-of-recommendations).
+You can view all of the [recommendations for Azure DevOps](recommendations-reference#devops-recommendations) resources.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
 **To connect your GitHub account to Microsoft Defender for Cloud**:
 
-1.  Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment Settings**.
 
@@ -77,4 +77,4 @@ When the process completes, the GitHub connector appears on your Environmental s
 The Defender for DevOps service automatically discovers your repositories and analyzes them for any security issues. The Inventory page will populate with your repositories, and the Recommendations page will show any security issues related to a repository.
 
 ## Next steps
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md)
+Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
