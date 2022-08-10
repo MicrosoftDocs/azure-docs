@@ -1,5 +1,6 @@
 ---
 title: What is a private endpoint?
+titleSuffix: Azure Private Link
 description: In this article, you'll learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: asudbring
