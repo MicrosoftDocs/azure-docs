@@ -2611,7 +2611,7 @@ Azure service: [Azure Spring Apps](../spring-apps/index.yml)
 
 ### Microsoft.CertificateRegistration
 
-Azure service: [App Service Certificates](../app-service/configure-ssl-certificate.md#import-an-app-service-certificate)
+Azure service: [App Service Certificates](../app-service/configure-ssl-certificate.md#buy-and-import-app-service-certificate)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
