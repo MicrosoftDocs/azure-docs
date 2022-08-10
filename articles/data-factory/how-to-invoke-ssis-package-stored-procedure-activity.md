@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 08/10/2022
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
 ---
