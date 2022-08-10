@@ -169,12 +169,12 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description | Mitigation |
 | --------- | --------- | --------- |
-| Effective routes and security rules unavailable for Private Endpoint network interface. | Effective routes and security rules won't be displayed for the Private Endpoint NIC in the Azure portal. | N/A |
+| Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. | N/A |
 | NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. | N/A |
 | No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that’s coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. | Limit ASG members to 50 or less. |
-| Destination port ranges supported up to a factor of 250K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br> Example inbound rule: </br> 1 source * 1 destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. | Keep port ranges under 250K |
+| Destination port ranges supported up to a factor of 250K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br></br> Example inbound rule: </br> 1 source * 1 destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. | Keep port ranges under 250K |
 | Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. | N/A |
-| Feature available in most public regions. | Not available currently in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
+| Feature available in most public regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
 
 ### NSG additional considerations
 
@@ -184,14 +184,14 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description | Mitigation |
 | --------- | --------- | --------- |
-| Traffic that's destined for a private endpoint through a user-defined route (UDR) might be asymmetric. | Return traffic from a private endpoint bypasses a network virtual appliance (NVA) and attempts to return to the source virtual machine. | Source network address translation (SNAT) is used to ensure symmetric routing. For all traffic to a private endpoint that uses a UDR, we recommend that you use SNAT for traffic at the NVA. |
-| Feature available in most public regions. | Not available currently in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
+| SNAT is recommended at all times. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored  | N/A |
+| Feature available in most public regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
 
-### ASG additional considerations
+### ASG
 
 | Limitation | Description | Mitigation |
 | --------- | --------- | --------- |
-| Feature available in most public regions. | Not available currently in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
+| Feature available in most public regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
 
 ## Next steps
 
