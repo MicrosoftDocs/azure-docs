@@ -135,6 +135,7 @@ The new release will bring the following capabilities:
 ### Removing security alerts for machines reporting to custom workspaces on other tenants
 
 **Estimated date for change:** September 2022
+
 MDC allows you to customize the workspace to which your Log Analytics agents report. When a machine belongs to one tenant (“Tenant A”) but its Log Analytics agent reports to a workspace in a different tenant (“Tenant B”), security alerts about the machine are reported to that second tenant (“Tenant B”).
 
 With this change, those alerts reported to the second tenant, will no longer appear in MDC.
