@@ -34,37 +34,57 @@ More Details on [Profisee MDM](https://profisee.com/master-data-management-what-
 
 ## Microsoft Purview & Profisee Integrated MDM - Better Together! 
 
-### Profisee MDM: True SaaS experience
+Microsoft Purview and Profisee MDM are often discussed as being a ‘Better Together’ value proposition. This is partly because of the complementary nature of the solutions with Microsoft Purview cataloging data sources and defining data standards, while Profisee MDM enforces those standards across master data drawn from multiple siloed sources. It is clear that either system has independent value, but it is also clear that each reinforces the other for a natural ‘Better Together’ synergy. Furthermore, the solution synergies go deeper than that.  
+  - Common technical foundation – Profisee was born out of Microsoft technologies using common tools, databases dand infrastructure so any ‘Microsoft shop’ will find the Profisee solution very familiar.  In fact, for many years Profisee MDM was built on Microsoft Master Data Services (MDS) and now that MDS is nearing end of life, Profisee is the premier upgrade/replacement solution for MDS. 
+  - Developer collaboration and joint development – Profisee and Purview developers have collaborated extensively to ensure a good complementary fit between their respective solutions to deliver a seamless integration that meets the needs of their customers. 
+  - Joint sales and deployments – Profisee has more MDM deployments on Azure, and jointly with Purview, than any other MDM vendor, and can be purchased through Azure Marketplace.  In FY2023 Profisee is the only MDM vendor with a Top Tier Microsoft partner certification available as a PaaS or SaaS offering through Azure Marketplace.
+  - Rapid and reliable deployment – Rapid and reliable deployment is critical for any enterprise software and Gartner points out that Profisee has more implementations taking under 90 days than any other MDM vendor.
+  - Inherently multi-domain – Profisee has an inherently multi-domain approach to MDM where there are no limitations to the number of specificity of master data domains.  This aligns well with customers looking to modernize their data estate who may start with a limited number of domains, but ultimately will benefit from maximizing domain coverage (matched to their data governance coverage) across their whole data estate.  
+  - Engineered for Azure – Profisee has been engineered to be cloud-native with options for both SaaS and PaaS deployments on Azure (see next section) 
 
-A fully managed instance of Profisee MDM hosted in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.
+## Profisee MDM: Deployment Flexibility – Turnkey SaaS Experience or PaaS Flexibility
+Profisee MDM has been engineered for a cloud-native experience and may be deployed on Azure in two ways – SaaS and PaaS.
 
-- **Platform and Management in One** -  Apply a true, end-to-end SaaS platform with one agreement and no third parties.  
-- **Industry-leading Cloud Service** - Hosted on Azure for industry-leading scalability and availability.  
-- **The fastest path to trusted data** - Leave the networking, firewalls and storage to us so you can deploy in minutes.  
+### Turnkey SaaS Experience
+A fully managed instance of Profisee MDM hosted by Profisee in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.  Profisee MDM SaaS can be purchased on Azure Marketplace.
+•	Platform and Management in One – Leverage a true, end-to-end SaaS platform with one agreement and no third parties.
+•	Industry-leading Cloud Service – Hosted on Azure for industry-leading scalability and availability.
+•	The fastest path to trusted data – Deploy in minutes with minimal technical knowledge. Leave the networking, firewalls and storage to us so you can deploy in minutes.
 
-### Profisee MDM: Ultimate PaaS flexibility
-
-Complete deployment flexibility and control, using the most efficient and low-maintenance option on the [Microsoft Azure](https://azure.microsoft.com/) cloud or on-premises.
-
+### Ultimate PaaS Flexibility
+Complete deployment flexibility and control, using the most efficient and low-maintenance option on the [Microsoft Azure](https://azure.microsoft.com/) cloud, on-prem or via a hybrid model.
 - **Modern Cloud Architecture** - Platform available as a containerized Kubernetes service.  
 - **Complete Flexibility & Autonomy** - Available in Azure, AWS, Google Cloud or on-prem.  
 - **Fast to Deploy, Easy to Maintain** - Fully containerized configuration streamlines patches and upgrades.  
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
 
-## Microsoft Purview - Profisee reference architecture
+## Microsoft Purview - Profisee Reference Architecture
+
+The reference architecture shows how both Microsoft Purview and Profisee MDM work together to provide a foundation of high-quality, trusted data for the Azure data estate.  It is also available as a short video walk-through.
+
+**Video: [Profisee Reference Architecture: MDM and Governance for Azure](https://profisee.wistia.com/medias/k72zte2wbr)**
 
 :::image type="content" alt-text="Diagram of Profisee-Purview Reference Architecture." source="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-purview-mdm-reference-architecture.png":::
+
+1.	Scan & classify metadata from LOB systems – uses pre-built Purview connectors to scan data sources and populate the Purview Data Catalog
+2.	Publish master data model to Purview – any master data entities created in Profisee MDM are seamlessly published into Purview to further populate the Purview Data Catalog and ensure Purview is ‘aware’ of this critical source of data 
+3.	Enrich master data model with governance details – Governance Data Stewards can enrich master data entity definitions with data dictionary and glossary information as well as ownership and sensitive data classifications, etc. in Purview
+4.	Leverage enriched governance data for data stewardship – any definitions and metadata available on Purview are visible in real-time in Profisee as guidance for the MDM Data Stewards
+5.	Load source data from business applications – Azure Data Factory extracts data from source systems with 100+ pre-built connectors and/or REST gateway
+	Transactional and unstructured data is loaded to downstream analytics solution – All ‘raw’ source data can be loaded to analytics database such as Synapse (Note that Synapse is generally the preferred analytic database but other such as Snowflake are also common).  Note that analysis on this raw information without proper master (‘golden’) data will be subject to inaccuracy as data overlaps, mismatches and conflicts will not yet have been resolved. 
+7.	Master data from source systems is loaded to Profisee MDM application – Multiple streams of ‘master’ data is loaded to Profisee MDM.  Note that master data is the data that defines a domain such as customer, product, asset, location, vendor, patient, household, menu item, ingredient, and so on.  This data is typically present in multiple systems and resolving differing definitions and matching and merging this data across systems is critical to the ability to use any cross-system data in a meaningful way. 
+8.	Master data is standardized, matched, merged, enriched and validated according to governance rules – Although data quality and governance rules may be defined in other systems (such as Purview), Profisee MDM is where they are enforced.  Source records are matched and merged both within and across source systems to create the most complete and correct record possible.  Data quality rules check each record for compliance to business and technical requirements.   
+9.	Additional data stewardship to review and confirm matches, data quality, and data validation issues, as required – Any record failing validation or matching with only a low probability score is subject to remediation and this usually means review by Data Stewards who are expert in the business.  A workflow process assigns records requiring review to Data Stewards.  Once records have been verified or corrected they are ready to use as a ‘golden record’ master.  
+10.	Direct access to curated master data including secure data access for reporting in Power BI – Power BI users may report directly on master data through a dedicated Power BI Connector that recognizes and enforces role-based security and hides various system fields for simplicity.
+11.	High-quality, curated master data published to downstream analytics solution – Verified master data can be published out to any target system using Azure Data Factory.  Master data including the parent-child lineage of merged records published into Azure Synapse (or wherever the ‘raw’ source transactional data was loaded).  With this combination of properly curated master data plus transactional data we have a solid foundation of trusted data for further analysis.         
+12.	Visualization and analytics with high-quality master data eliminates common data quality issues and delivers improved insights – Irrespective of the tools used for analysis, including machine learning, and visualization, well-curated master data forms a better and more reliable data foundation.  The alternative is to use whatever information you can get – and risk misleading results that can damage the business.   
 
 ### Reference architecture guides/reference documents
 
 - [Data Governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
 - [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
 - [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
-
-### Example scenario: Business & technical use case
-
-Let's take an example of a sample manufacturing company working across multiple data sources; it uses ADF to load the business critical data sources into Profisee, which is when Profisee works its magic and finds out the golden records and matching records and then we finally are able to enrich the metadata with Microsoft Purview (updates made by Microsoft Purview on Classifications, Sensitivity Labels, Glossary and all other Catalog features are reflected seamlessly into Profisee). Finally, they connect the enriched metadata detected by Microsoft Purview and cleansed/curated data by Profisee with Power BI or Azure ML for advanced analytics.
 
 ## Microsoft Purview - Profisee integration SaaS deployment on Azure Kubernetes Service (AKS) guide
 
