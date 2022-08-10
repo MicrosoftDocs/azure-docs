@@ -8,6 +8,8 @@ ms.date: 06/10/2022
 
 # Get started with Azure Video Indexer in Azure portal
 
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
+
 This Quickstart walks you through the steps to get started with Azure Video Indexer. You'll create an Azure Video Indexer account and its accompanying resources by using the Azure portal.
 
 To start using Azure Video Indexer, you'll need to create an Azure Video Indexer account. The account needs to be associated with a [Media Services][docs-ms] resource and a [managed identity][docs-uami]. The managed identity will need to have Contributor permissions role on the Media Services.

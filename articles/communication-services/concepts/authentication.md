@@ -29,6 +29,7 @@ The following table shows the Azure Communication Services SDKs and their authen
 | Identity          | Access Key or Azure AD authentication               |
 | SMS               | Access Key or Azure AD authentication               |
 | Phone Numbers     | Access Key or Azure AD authentication               |
+| Email             | Access Key or Azure AD authentication               |
 | Calling           | User Access Token                                   |
 | Chat              | User Access Token                                   |
 

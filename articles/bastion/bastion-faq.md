@@ -9,7 +9,7 @@ ms.author: cherylmc
 ---
 # Azure Bastion FAQ
 
-## <a name="host"></a>Bastion
+## <a name="host"></a>Bastion FAQs
 
 ### <a name="browsers"></a>Which browsers are supported?
 
@@ -84,7 +84,7 @@ Review any error messages and [raise a support request in the Azure portal](../a
 
 Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
-## <a name="vm"></a>VM features and connections
+## <a name="vm"></a>VM features and connection FAQs
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
 
@@ -163,7 +163,7 @@ Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
 
-## <a name="peering"></a>VNet peering
+## <a name="peering"></a>VNet peering FAQs
 
 ### Can I still deploy multiple Bastion hosts across peered virtual networks?
 
@@ -194,3 +194,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+## Next steps
+
+For more information, see [What is Azure Bastion](bastion-overview.md).
