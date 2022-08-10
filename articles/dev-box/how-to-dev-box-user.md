@@ -52,7 +52,7 @@ A DevCenter Dev Box User can:
 
 1. On the Members tab, select **Review + assign**.
 
-The user will now be able to view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [Developer Portal](https://aka.ms/developerportal).
+The user will now be able to view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
 ## Next steps
 

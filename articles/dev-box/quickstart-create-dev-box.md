@@ -30,7 +30,7 @@ In this quickstart, you will:
 
 ## Create a dev box
 
-1. Sign in to the [developer portal](https://aka.ms/developerportal).
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 2. Select **+ Add dev box**.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal showing the Add dev box button.":::
@@ -56,9 +56,9 @@ Once you've provisioned your dev box, you can access it in multiple ways.
 
 ### Browser
 
-For quick access in a browser tab, the Developer portal links directly to a browser session through which you can connect to and use your dev box.
+For quick access in a browser tab, the developer portal links directly to a browser session through which you can connect to and use your dev box.
 
-1. Sign in to the [developer portal](https://aka.ms/developerportal).
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. To connect to a dev box, select **Open in browser**.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-rdp.png" alt-text="Screenshot of dev box card showing the Open in browser option.":::
@@ -68,7 +68,7 @@ A new tab will open with an RD session to your dev box.
 ## Clean up resources
 
 When no longer needed, you can delete your dev box.
-1. Sign in to the [developer portal](https://aka.ms/developerportal).
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. For the dev box you want to delete, from the setting menu, select **Delete**.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the dev box Settings menu with the Delete option highlighted."::: 
