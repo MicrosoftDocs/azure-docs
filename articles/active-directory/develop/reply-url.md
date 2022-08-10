@@ -45,6 +45,8 @@ This table shows the maximum number of redirect URIs you can add to an app regis
 | Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant | 256 | `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs* |
 | Personal Microsoft accounts and work and school accounts | 100 | `signInAudience` field in the application manifest is set to *AzureADandPersonalMicrosoftAccount* |
 
+The maximan number of redirect URIS can not be raised for [security reasons](#restrictions-on-wildcards-in-redirect-uris). If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) as the solution.
+
 ## Maximum URI length
 
 You can use a maximum of 256 characters for each redirect URI you add to an app registration.
