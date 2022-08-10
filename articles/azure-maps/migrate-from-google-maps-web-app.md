@@ -75,7 +75,7 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 
 The following are some key differences between the Google Maps and Azure Maps Web SDKs, to be aware of:
 
-- In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is available. Embed the Web SDK package into apps. For more information, see this [documentation](how-to-use-map-control.md). This package also includes TypeScript definitions.
+- In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is available. Embed the Web SDK package into apps. For more information, see this [documentation](how-to-use-map-control.md). This package also includes TypeScript definitions.
 - You first need to create an instance of the Map class in Azure Maps. Wait for the maps `ready` or `load` event to fire before programmatically interacting with the map. This order will ensure that all the map resources have been loaded and are ready to be accessed.
 - Both platforms use a similar tiling system for the base maps. The tiles in Google Maps are 256 pixels in dimension; however, the tiles in Azure Maps are 512 pixels in dimension. To get the same map view in Azure Maps as Google Maps, subtract Google Maps zoom level by the number one in Azure Maps.
 - Coordinates in Google Maps are referred to as `latitude,longitude`, while Azure Maps uses `longitude,latitude`. The Azure Maps format is aligned with the standard `[x, y]`, which is followed by most GIS platforms.
@@ -87,7 +87,7 @@ The following are some key differences between the Google Maps and Azure Maps We
 
 ## Web SDK side-by-side examples
 
-This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](how-to-use-map-control.md).
+This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [npm module](how-to-use-map-control.md).
 
 **Topics**
 
