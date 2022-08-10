@@ -186,7 +186,7 @@ There are two devices registered in your IoT Central application:
 
 ### Data export configuration
 
-The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends the telemetry received from the OPC-UA server to an Azure Data Explorer environment. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
+The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends filtered telemetry received from the OPC-UA server to an Azure Data Explorer environment. The filter ensures that only data from the OPC-UA is exported. The data export uses a [transformation](howto-transform-data-internally.md) to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest. The following snippet shows the transformation query:
 
 ```jq
 {
@@ -213,9 +213,15 @@ The solution uses Azure Data Explore to store and analyze the OPC-UA telemetry. 
 - The **opcDeviceData** table stores the transformed data.
 - The **extractOpcTagData** function processes the data as it arrives in the **rawOpcData** table and adds transformed records to the **opcDeviceData** table.
 
-The solution includes several sample queries that generate plots from the data in the **opcDeviceData** table.
+You can query the transformed data in the **opcDeviceData** table. For example:
 
-<!-- to do: include some of sample queries from scott -->
+```kusto
+opcDeviceData
+| where enqueuedTime > ago(1d)
+| where tag=="DipData"
+| summarize avgValue = avg(value) by deviceId, bin(sourceTimestamp, 15m)
+| render timechart
+```
 
 ## Customize the solution
 
