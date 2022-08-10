@@ -173,10 +173,12 @@
       href: howto-move-resource-between-regions.md
     - name: Recover App Configuration stores
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
+    - name: Enable geo-replication (Preview)
+      href: howto-geo-replication.md
     - name: Disable public access
       href: howto-disable-public-access.md
     - name: Set up private access
-      href: howto-set-up-private-access.md
+      href: howto-set-up-private-access.md   
 - name: Reference
   items:
     - name: Client libraries
