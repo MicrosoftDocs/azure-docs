@@ -20,10 +20,6 @@ The Azure AD provisioning service includes a feature to help avoid accidental de
 The feature lets you specify a deletion threshold, above which an admin 
 needs to explicitly choose to allow the deletions to be processed.
 
-> [!NOTE]
-> Accidental deletions are not supported for our Workday / SuccessFactors integrations. It is also not supported for changes in scoping (e.g. changing a scoping filter or changing from "sync all users and groups" to "sync assigned users and groups"). Until the accidental deletions prevention feature is fully released, you'll need to access the Azure portal using this URL: https://aka.ms/AccidentalDeletionsPreview
-
-
 ## Configure accidental deletion prevention
 To enable accidental deletion prevention:
 1.  In the Azure portal, select **Azure Active Directory**.
@@ -34,11 +30,6 @@ threshold. Also, be sure the notification email address is completed. If the del
 5. Select **Save**, to save the changes.
 
 When the deletion threshold is met, the job will go into quarantine and a notification email will be sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
-
-## Known limitations
-There are two key limitations to be aware of and are actively working to address:
-- HR-driven provisioning from Workday and SuccessFactors don't support the accidental deletions feature. 
-- Changes to your provisioning configuration (e.g. changing scoping) isn't supported by the accidental deletions feature. 
 
 ## Recovering from an accidental deletion
 If you encounter an accidental deletion you'll see it on the provisioning status page.  It will say **Provisioning has been quarantined. See quarantine details for more information.**.
