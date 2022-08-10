@@ -117,8 +117,8 @@ Virtual WAN  does not support a scenario where VNets 5,6 connect to virtual hub 
    
    > [!NOTE]
    > To simplify the routing and to reduce the changes in the Virtual WAN hub route tables, we recommend the new BGP peering with Virtual WAN hub (preview). For more information, see the following articles: 
-   >* [Scenario: BGP peering with a virtual hub (preview)](scenario-bgp-peering-hub.md) 
-   >* [How to create BGP peering with virtual hub (preview) - Azure portal](create-bgp-peering-hub-portal.md)
+   >* [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md) 
+   >* [How to create BGP peering with virtual hub - Azure portal](create-bgp-peering-hub-portal.md)
    >
 
 3. Configure a static route for VNets 5,6 in VNet 2’s virtual network connection. To set up routing configuration for a virtual network connection, see [virtual hub routing](how-to-virtual-hub-routing.md#routing-configuration).
