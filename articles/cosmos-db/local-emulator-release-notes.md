@@ -115,36 +115,36 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 - This release introduces support for autoscale provisioned throughput. The added features include the option to set a custom maximum provisioned throughput level in request units (RU/s), enable autoscale on existing databases and containers, and API support through Azure Cosmos DB SDK.
 - Fix an issue while querying through large number of documents (over 1 GB) were the emulator will fail with internal error status code 500.
 
-### 2.9.2
+### `2.9.2`
 
 - This release fixes a bug while enabling support for MongoDb endpoint version 3.2. It also adds support for generating ETL traces for troubleshooting purposes using WPR instead of LOGMAN.
 
-### 2.9.1
+### `2.9.1`
 
 - This release fixes couple issues in the query API support and restores compatibility with older OSs such as Windows Server 2012.
 
-### 2.9.0
+### `2.9.0`
 
 - This release adds the option to set the consistency to consistent prefix and increase the maximum limits for users and permissions.
 
-### 2.7.2
+### `2.7.2`
 
 - This release adds MongoDB version 3.6 server support to the Azure Cosmos DB Emulator. To start a MongoDB endpoint that target version 3.6 of the service, start the emulator from an Administrator command line with `/EnableMongoDBEndpoint=3.6` option.
 
-### 2.7.0
+### `2.7.0`
 
 - This release fixes a regression in the Azure Cosmos DB Emulator that prevented users from executing SQL related queries. This issue impacts emulator users that configured SQL API endpoint and they're using .NET core or x86 .NET based client applications.
 
-### 2.4.6
+### `2.4.6`
 
 - This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos DB Emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
 
-### 2.4.3
+### `2.4.3`
 
 - Disabled starting the MongoDB service by default. Only the SQL endpoint is enabled as default. The user must start the endpoint manually using the emulator's `/EnableMongoDbEndpoint` command-line option. Now, it's like all the other service endpoints, such as Gremlin, Cassandra, and Table.
 - Fixes a bug in the emulator when starting with “/AllowNetworkAccess” where the Gremlin, Cassandra, and Table endpoints weren't properly handling requests from external clients.
 - Add direct connection ports to the Firewall Rules settings.
 
-### 2.4.0
+### `2.4.0`
 
 - Fixed an issue with emulator failing to start when network monitoring apps, such as Pulse Client, are present on the host computer.
