@@ -35,9 +35,36 @@ Account onboarding can be used to enable faster onboarding by replacing manual i
 
 For incorporating identity verification into your Apps, using AU10TIX  “Government Issued ID -Global” Verified ID follow these steps:
 
-1. As a developer you will provide these below steps to your tenant administrator to obtain the verification request URL and body for your application or website to request Verified IDs from your users.
+### Part 1
+
+As a developer you will provide these below steps to your tenant administrator to obtain the verification request URL and body for your application or website to request Verified IDs from your users.
+
 1. Go to [Microsoft Entra portal -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade). Note: Make sure this is the tenant you set up for Verified ID per the pre-requisites.
 1. Choose **Select Issuer**.
 1. Look for AU10TIX in the **Search/select issuers** drop-down.
+1. Check the **Government Issued ID – Global** or other credential type you have discussed with AU10TIX for your specific needs.
 
- 
+#Image
+
+1. Click **Add** and then click **Review**.
+1. Download the request body and Copy/paste POST API request URL.
+
+### Part 2
+
+As a developer you now have the request URL and body from your tenant admin, follow these steps to update your application or website:
+
+1. Add the request URL and body to your application or website to request Verified IDs from your users. Note: If you are using [one of the sample apps](https://aka.ms/vcsample) to begin with you will need to replace the contents of the presentation_request_config.json with the request body obtained.
+1. Be sure to replace the values for the "url", "state", and "api-key" with your respective values.
+1. [Grant permissions](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens) to your app to obtain access token for the Verified ID service request service principal.
+
+
+#Image
+
+## Test the user flow
+
+This will be specific to your application or website. However if you are using [one of the sample apps](https://aka.ms/vcsample) follow the steps here - [Run the test the sample app](https://aka.ms/vcsample)
+
+## Next steps
+
+- URL 01
+- URL 02
