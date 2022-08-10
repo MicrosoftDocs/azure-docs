@@ -276,7 +276,7 @@ sections:
           |Weekly fulls + daily incrementals + logs     |     The previous weekly fulls retention is recalculated as per latest policy. The previous incrementals are immediately deleted    |     The previous incrementals are immediately deleted    |    -     |
 
       - question: |
-          How can I manage the size of */opt/msawb* folder created in the root partition?
+          How can I manage the size of /opt/msawb folder created in the root partition?
         answer: |
           You could manage the space in the root folder using one of the following options:
           - Create an own LV for */opt/msawb*.
