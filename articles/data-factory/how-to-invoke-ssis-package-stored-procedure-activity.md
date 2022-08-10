@@ -94,11 +94,11 @@ In this section, you trigger a pipeline run and then monitor it.
 2. In the **Pipeline Run** window, select **Finish**. 
 3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
-    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Pipeline runs":::
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Screenshot that shows pipeline runs":::
 
 3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (stored procedure activity).
 
-    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png" alt-text="Activity runs":::
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png" alt-text="Screenshot that shows activity runs":::
 
 4. You can run the following **query** against the SSISDB database in SQL Database to verify that the package executed. 
 

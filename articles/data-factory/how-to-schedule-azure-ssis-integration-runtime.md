@@ -151,7 +151,7 @@ Now that your pipelines work as you expected, you can create triggers to run the
 4. In **Trigger Run Parameters** page, review any warning, and select **Finish**. 
 5. Publish the whole ADF settings by selecting **Publish All** in the factory toolbar. 
 
-   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png" alt-text="Publish"::: 
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png" alt-text="Screenshot that shows the Publish All button."::: 
 
 ### Monitor your pipelines and triggers in Azure portal
 
