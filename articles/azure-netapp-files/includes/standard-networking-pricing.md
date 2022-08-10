@@ -12,4 +12,4 @@ ms.custom: include file
 # azure-netapp-files/azure-netapp-files-network-topologies.md
 ---
 
-You can use standard network features without charge for free through September 30, 2022. Regular billing will beging October 1, 2022. Billing will be applicable only for the Global peering, and billed according to the [Azure pricing guidelines](https://azure.microsoft.com/pricing/details/virtual-network/).
+You can use standard network features without charge for free through September 30, 2022. Regular billing will begin October 1, 2022. Billing will be applicable only for Global peering, which will be billed according to the [Azure pricing guidelines](https://azure.microsoft.com/pricing/details/virtual-network/).
