@@ -641,20 +641,38 @@
       href: hyperscale/quickstart-distribute-tables.md
     - name: Run queries
       href: hyperscale/quickstart-run-queries.md
-    - name: Query from apps
+    - name: Build scalable apps
       items:
-      - name: Overview
-        href: hyperscale/howto-app-stacks-overview.md
-      - name: Python
-        href: hyperscale/howto-app-stacks-python.md
-      - name: Node.js
-        href: hyperscale/howto-app-stacks-nodejs.md
-      - name: C#
-        href: hyperscale/howto-app-stacks-csharp.md
-      - name: Java
-        href: hyperscale/howto-app-stacks-java.md
-      - name: Ruby
-        href: hyperscale/howto-app-stacks-ruby.md
+      - name: Data modeling
+        items:
+        - name: Overview
+          href: hyperscale/howto-build-scalable-apps-overview.md
+        - name: Concepts
+          href: hyperscale/howto-build-scalable-apps-concepts.md
+        - name: Classify workload
+          href: hyperscale/howto-build-scalable-apps-classify.md
+        - name: Workloads
+          items:
+            - name: Multi-tenant apps
+              href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
+            - name: Real-time apps
+              href: hyperscale/howto-build-scalable-apps-model-real-time.md
+            - name: High-throughput apps
+              href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
+      - name: App stacks
+        items:
+        - name: Overview
+          href: hyperscale/howto-app-stacks-overview.md
+        - name: Python
+          href: hyperscale/howto-app-stacks-python.md
+        - name: Node.js
+          href: hyperscale/howto-app-stacks-nodejs.md
+        - name: C#
+          href: hyperscale/howto-app-stacks-csharp.md
+        - name: Java
+          href: hyperscale/howto-app-stacks-java.md
+        - name: Ruby
+          href: hyperscale/howto-app-stacks-ruby.md
   - name: Tutorials
     items:
       - name: Model data
@@ -691,22 +709,6 @@
         href: hyperscale/howto-choose-distribution-column.md
       - name: Distribute and modify tables
         href: hyperscale/howto-modify-distributed-tables.md
-    - name: Build scalable apps
-      items:
-      - name: Overview
-        href: hyperscale/howto-build-scalable-apps-overview.md
-      - name: Concepts
-        href: hyperscale/howto-build-scalable-apps-concepts.md
-      - name: Workload classification
-        items:
-          - name: Overview
-            href: hyperscale/howto-build-scalable-apps-classify.md
-          - name: Multi-tenant apps
-            href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
-          - name: Real-time apps
-            href: hyperscale/howto-build-scalable-apps-model-real-time.md
-          - name: High-throughput apps
-            href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
     - name: Security and data access
       items:
       - name: Overview
