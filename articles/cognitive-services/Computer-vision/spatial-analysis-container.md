@@ -58,7 +58,7 @@ In this article, you'll download and install the following software packages. Th
 * [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) runtime.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
-In our example, we'll utilize an [NC series VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
+In our example, we'll utilize an [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
 
 ---
 
@@ -323,7 +323,7 @@ Use the below steps to deploy the container using the Azure CLI.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
 
-An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. The example below will use an [NC series](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM that has one K80 GPU.
+An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. The example below will use a [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
 
 #### Create the VM
 
@@ -336,13 +336,9 @@ Give your VM a name and select the region to be (US) West US 2.
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="Virtual machine configuration details." lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 
-To locate the VM size, select "See all sizes" and then view the list for "Non-premium storage VM sizes", shown below.
+To locate the VM size, select "See all sizes" and then view the list for "N-Series" and select **NC6s_v3**, shown below.
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-sizes.png" alt-text="Virtual machine sizes." lightbox="media/spatial-analysis/virtual-machine-sizes.png":::
-
-Then, select either **NC6** or **NC6_Promo**.
-
-:::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="promotional selection" lightbox="media/spatial-analysis/promotional-selection.png":::
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. Select on "Add" to bring up the extensions window with all available extensions. Search for and select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
