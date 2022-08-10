@@ -23,11 +23,11 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 - At least one application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Version 2.37.0 or higher of the Azure CLI must be installed. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 
-- The Container Apps extension installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name containerapp`.
+- The Container Apps extension must be installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name containerapp`.
 
 ## Prepare to create a connection
 
@@ -71,7 +71,7 @@ You can create a connection using an access key or a managed identity.
 ### [Managed identity](#tab/using-managed-identity)
 
 > [!IMPORTANT]
-> Using a managed identity requires you have the permission to modify [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
+> To use a managed identity, you must have the permission to modify [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
 
 1. Run the `az containerapp connection create` command to create a service connection from Container Apps to a Blob Storage with a system-assigned managed identity.
 
