@@ -2,7 +2,12 @@ This article lists the versions and features of Azure Active Directory Connect P
 > [!NOTE]
 > All new Provisioning Agent releases are made available through auto upgrade for existing installations and can be downloaded for new installations.
 
-Microsoft provides support for the latest agent version and one version before.
+>[!NOTE]
+> Azure Active Directory (AD) Connect Provisioning agent follows the [Modern Lifecycle Policy](https://docs.microsoft.com/lifecycle/policies/modern). Changes for products and services  under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
+>
+> Products governed by the Modern Policy follow a [continuous support and servicing model](https://docs.microsoft.com/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. 
+>
+> For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
