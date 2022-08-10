@@ -129,6 +129,12 @@ On your machine, create an environment variable `ACCESS_KEY`, and set its value 
 
 You've now configured your Playwright tests to run in the cloud with Microsoft Playwright Testing. The sample test configuration specifies multiple browser and device configurations.
 
+1. Navigate to the samples directory:
+
+    ```bash
+    cd samples/PlaywrightTestRunner
+    ```
+
 1. Run this command to run Playwright tests against browsers managed by the service:
 
     ```bash
