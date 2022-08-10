@@ -26,7 +26,7 @@ As an example, it can be difficult for a company to have a clear, single view of
 
 The ability to consolidate data from multiple disparate systems is key if we want to use the data to drive business insights and operational efficiencies – or any form of ‘digital transformation’. What we need in that case is high quality, trusted data that is ready to use, whether it's being consumed in basic enterprise metrics or advanced AI algorithms. Bridging this gap is the job of Data Governance and MDM, and in the Azure world that means [Microsoft Purview](https://azure.microsoft.com/services/purview/) and [Profisee MDM](https://profisee.com/platform). 
 
-:::image type="content" alt-text="Bridging the gap between what we have versus what we need is the job of Microsoft Purview and Profisee MDM" source="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png" lightbox="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png":::
+:::image type="content" alt-text="Illustration of bridging the gap between what we have versus what we need is the job of Microsoft Purview and Profisee MDM" source="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png" lightbox="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png":::
 
 While governance systems can *define* data standards, MDM is where they're *enforced*.  Data from different systems can be matched and merged, validated against data quality and governance standards, and remediated where required.  Then the new corrected and validated ‘master’ data can be shared to downstream analytics systems and then back into source systems to drive operational improvements. By properly creating and maintaining enterprise master data, we ensure that data is no longer a liability and cause for concern, but an asset of the business that enables improved operation and innovation.
 
@@ -37,24 +37,24 @@ More Details on [Profisee MDM](https://profisee.com/master-data-management-what-
 Microsoft Purview and Profisee MDM are often discussed as being a ‘Better Together’ value proposition due to the complementary nature of the solutions. Microsoft Purview excels at cataloging data sources and defining data standards, while Profisee MDM enforces those standards across master data drawn from multiple siloed sources. It's clear not only that either system has independent value to offer, but also that each reinforces the other for a natural ‘Better Together’ synergy that goes deeper than the independent offerings.
   - Common technical foundation – Profisee was born out of Microsoft technologies using common tools, databases & infrastructure so any ‘Microsoft shop’ will find the Profisee solution familiar.  In fact, for many years Profisee MDM was built on Microsoft Master Data Services (MDS) and now that MDS is nearing end of life, Profisee is the premier upgrade/replacement solution for MDS. 
   - Developer collaboration and joint development – Profisee and Purview developers have collaborated extensively to ensure a good complementary fit between their respective solutions to deliver a seamless integration that meets the needs of their customers. 
-  - Joint sales and deployments – Profisee has more MDM deployments on Azure, and jointly with Purview, than any other MDM vendor, and can be purchased through Azure Marketplace.  In FY2023 Profisee is the only MDM vendor with a Top Tier Microsoft partner certification available as a PaaS or SaaS offering through Azure Marketplace.
+  - Joint sales and deployments – Profisee has more MDM deployments on Azure, and jointly with Purview, than any other MDM vendor, and can be purchased through Azure Marketplace.  In FY2023 Profisee is the only MDM vendor with a Top Tier Microsoft partner certification available as an IaaS/CaaS or SaaS offering through Azure Marketplace.
   - Rapid and reliable deployment – Rapid and reliable deployment is critical for any enterprise software and Gartner points out that Profisee has more implementations taking under 90 days than any other MDM vendor.
   - Inherently multi-domain – Profisee offers an inherently multi-domain approach to MDM where there are no limitations to the number of specificity of master data domains.  This design aligns well with customers looking to modernize their data estate who may start with a limited number of domains, but ultimately will benefit from maximizing domain coverage (matched to their data governance coverage) across their whole data estate.  
-  - Engineered for Azure – Profisee has been engineered to be cloud-native with options for both SaaS and PaaS deployments on Azure (see next section) 
+  - Engineered for Azure – Profisee has been engineered to be cloud-native with options for both SaaS and managed IaaS/CaaS deployments on Azure (see next section) 
 
-## Profisee MDM: Deployment Flexibility – Turnkey SaaS Experience or PaaS Flexibility
-Profisee MDM has been engineered for a cloud-native experience and may be deployed on Azure in two ways – SaaS and PaaS.
+## Profisee MDM: Deployment Flexibility – Turnkey SaaS Experience or IaaS/CaaS Flexibility
+Profisee MDM has been engineered for a cloud-native experience and may be deployed on Azure in two ways – SaaS and Azure IaaS/CaaS/Kubernetes Cluster.
 
 ### Turnkey SaaS Experience
-A fully managed instance of Profisee MDM hosted by Profisee in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.  Profisee MDM SaaS can be purchased on Azure Marketplace.
+A fully managed instance of Profisee MDM hosted by Profisee in the Azure cloud. Full turn-key service for the easiest and fastest MDM deployment.  Profisee MDM SaaS can be purchased on [Azure Marketplace Profisee MDM - SaaS](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/profisee.profisee_saas_private/product~/).
 - **Platform and Management in one** – Leverage a true, end-to-end SaaS platform with one agreement and no third parties.
 - **Industry-leading Cloud service** – Hosted on Azure for industry-leading scalability and availability.
 - **The fastest path to Trusted Data** – Deploy in minutes with minimal technical knowledge. Leave the networking, firewalls and storage to us so you can deploy in minutes.
 
-### Ultimate PaaS Flexibility
-Complete deployment flexibility and control, using the most efficient and low-maintenance option on the [Microsoft Azure](https://azure.microsoft.com/) cloud, on-prem or via a hybrid model.
+### Ultimate IaaS/CaaS Flexibility
+Complete deployment flexibility and control, using the most efficient and low-maintenance option on the [Microsoft Azure](https://azure.microsoft.com/) Kubernetes Service, functioning as a fully customer hosted and managed IaaS/CaaS (container-as-a-service) deployment. The section below on "Microsoft Purview - Profisee integration deployment on Azure Kubernetes Service (AKS)" describes this deployment route in detail.
 - **Modern Cloud Architecture** - Platform available as a containerized Kubernetes service.  
-- **Complete Flexibility & Autonomy** - Available in Azure, AWS, Google Cloud or on-prem.  
+- **Complete Flexibility & Autonomy** - Available in Azure, AWS, Google Cloud or on-premises.  
 - **Fast to Deploy, Easy to Maintain** - Fully containerized configuration streamlines patches and upgrades.  
 
 More Details on [Profisee MDM Benefits On Modern Cloud Architecture](https://profisee.com/our-technology/modern-cloud-architecture/), [Profisee Advantage Videos](https://profisee.com/profisee-advantage/) and why it fits best with [Microsoft Azure](https://azure.microsoft.com/) cloud deployments!
@@ -86,7 +86,8 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 - [Operationalize Profisee with ADF Azure Data Factory, Azure Synapse Analytics and Power BI](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
 - [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
-## Microsoft Purview - Profisee integration SaaS deployment on Azure Kubernetes Service (AKS) guide
+## Microsoft Purview - Profisee integration deployment on Azure Kubernetes Service (AKS)
+Go to [https://github.com/Profisee/kubernetes](https://github.com/Profisee/kubernetes) and select Microsoft Purview [**Azure ARM**]. The deployment process detailed below is owned and hosted by you on your Azure subscription as an IaaS / CaaS (container-as-a-service) AKS Cluster.  
 
 1. [Create a user-assigned managed identity in Azure](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). You must have a managed identity created to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
     - Contributor role to the resource group where AKS will be deployed. It can either be assigned directly to the resource group **OR** at the subscription level and down.
@@ -162,13 +163,13 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
 
     :::image type="content" alt-text="Image 12 - Screenshot of Profisee Azure ARM Wizard Select Outputs Get FinalDeployment URL." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
     
-- Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client". Select the Downloads for "Profisee FastApp Studio" utility and the "Profisee Platform Tools". Install both these tools on your local client machine.
+- Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client". Select the Downloads for "Profisee FastApp Studio" utility and the "Profisee Platform Tools". Install both these tools on your local client machine.
 
     :::image type="content" alt-text="Image 13 - Screenshot of Profisee Client Tools Download" source="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png":::
     
-- Login to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you login with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
+- Log in to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you log in with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
 
-    :::image type="content" alt-text="Image 14 - Screenshot of Profisee FastApp Studio Post Login" source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
+    :::image type="content" alt-text="Image 14 - Screenshot of Profisee FastApp Studio once you sign in" source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
 
 - As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
 
