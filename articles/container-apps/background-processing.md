@@ -42,6 +42,8 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
+Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  This is expected behavior.
+
 ```powershell
 New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
 $WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
@@ -64,18 +66,18 @@ New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
 
 ## Set up a storage queue
 
-Choose a name for `STORAGE_ACCOUNT`. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
+Choose a name for `STORAGE_ACCOUNT_NAME`. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
 
 # [Bash](#tab/bash)
 
 ```bash
-STORAGE_ACCOUNT="<storage account name>"
+STORAGE_ACCOUNT_NAME="<storage account name>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT="<storage account name>"
+$STORAGE_ACCOUNT_NAME="<storage account name>"
 ```
 
 ---
@@ -86,7 +88,7 @@ Create an Azure Storage account.
 
 ```azurecli
 az storage account create \
-  --name $STORAGE_ACCOUNT \
+  --name $STORAGE_ACCOUNT_NAME \
   --resource-group $RESOURCE_GROUP \
   --location "$LOCATION" \
   --sku Standard_RAGRS \
@@ -111,16 +113,14 @@ Next, get the connection string for the queue.
 # [Bash](#tab/bash)
 
 ```azurecli
-QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString --out json | tr -d '"'`
+QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --out json | tr -d '"'`
 ```
 
 # [PowerShell](#tab/powershell)
 
-Here we use Azure CLI as there isn't an equivalent PowerShell to get the connection string for the storage account queue. 
+Here we use Azure CLI as there isn't an equivalent PowerShell cmdlet to get the connection string for the storage account queue. 
 
 ```powershell
-
-```azurecli
  $QUEUE_CONNECTION_STRING=(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --out json)  -replace '"',''
 ```
 
@@ -133,14 +133,14 @@ Now you can create the message queue.
 ```azurecli
 az storage queue create \
   --name "myqueue" \
-  --account-name $STORAGE_ACCOUNT \
+  --account-name $STORAGE_ACCOUNT_NAME \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queue = New-AzStorageQueue –Name "myqueue" `
+$queue = New-AzStorageQueue -Name "myqueue" `
   -Context $STORAGE_ACCOUNT.Context
 ```
 

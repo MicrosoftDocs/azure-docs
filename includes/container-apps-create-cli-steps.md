@@ -39,12 +39,6 @@ az extension add --name containerapp --upgrade
 Install-Module -Name Az.App
 ```
 
-Suppress breaking change warnings.
-
-```powershell
-Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
-```
-
 ---
 
 Now that the extension is installed, register the `Microsoft.App` namespace.
