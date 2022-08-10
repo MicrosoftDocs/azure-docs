@@ -5749,6 +5749,16 @@
             "source_path_from_root": "/articles/cognitive-services/Welcome.md",
             "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
             "redirect_document_id": true
-        }
+        },
+        {
+            "source_path": "articles/cognitive-services/language-service/custom-text-classification/how-to/improve-model.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/improve-model.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/view-model-evaluation",
+            "redirect_document_id": true
+          }
     ]
 }
