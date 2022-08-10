@@ -23,7 +23,7 @@ ms.author: radubulboaca
 
 ## Sample code
 
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts).
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/rooms-quickstart-java).
 
 ## Setting up
 
