@@ -1,17 +1,13 @@
 - name: Azure IoT Edge documentation
   href: index.yml
-- name: Azure IoT Edge versions
-  href: version-history.md
 - name: Azure IoT Edge for Linux on Windows (EFLOW)
   expanded: false
   items:
   - name: About EFLOW
     href: iot-edge-for-linux-on-windows.md
-  - name: Quickstarts
-    items:
-      - name: Deploy code to a Windows device
-        href: quickstart.md
-  - name : Concepts
+  - name: Deploy to a Windows device
+    href: quickstart.md
+  - name: Concepts
     items:
     - name: Benefits
       href: iot-edge-for-linux-on-windows-benefits.md
@@ -23,7 +19,7 @@
       href: iot-edge-for-linux-on-windows-networking.md
     - name: Platform support
       href: iot-edge-for-linux-on-windows-support.md
-  - name : Install and provision
+  - name: Install and provision
     items:
     - name: Single device
       items:
@@ -51,14 +47,14 @@
         href: how-to-configure-multiple-nics.md
       - name: VM on a DMZ
         href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md   
-    - name: Develop and debugging
-      href: tutorial-develop-for-linux-on-windows.md
     - name: Configure nested virtualization for Windows VMs
       href: nested-virtualization.md
     - name: Access TPM secrets
       href: how-to-access-dtpm.md
     - name: GPU acceleration
       href: gpu-acceleration.md
+  - name: Develop and debugging
+    href: tutorial-develop-for-linux-on-windows.md
   - name: Troubleshoot
     items:
     - name: Diagnose virtual machine
@@ -71,6 +67,8 @@
     items:
     - name: PowerShell functions
       href: reference-iot-edge-for-linux-on-windows-functions.md
+- name: Azure IoT Edge versions
+  href: version-history.md
 - name: Overview
   items:
   - name: About Azure IoT Edge
