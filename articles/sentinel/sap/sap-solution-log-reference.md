@@ -31,7 +31,7 @@ Users are *strongly encouraged* to use the functions as the subjects of their an
 - [SAPUsersEmail](#sapusersemail)
 - [SAPAuditLogConfiguration](#sapauditlogconfiguration)
 - [SAPAuditLogAnomalies](#sapauditloganomalies)
-- [SAPAuditLogConfigRecommend](#sapauditLogconfigrecommend)
+- [SAPAuditLogConfigRecommend](#sapauditlogconfigrecommend)
 - [SAPSystems](#sapsystems)
 - [SAPUsersGetVIP](#sapusersgetvip)
 - [SAPUsersHeader](#sapusersheader)

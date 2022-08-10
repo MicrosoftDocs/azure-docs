@@ -41,7 +41,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 ## Configure watchlists
 
-Threat Monitoring for SAP solution configuration is accomplished by providing customer-specific information in the provisioned watchlists.
+Microsoft Sentinel Solution for SAP configuration is accomplished by providing customer-specific information in the provisioned watchlists.
 
 > [!NOTE]
 >
@@ -82,25 +82,23 @@ All of these watchlists identify sensitive actions or data that can be carried o
 - SAP - Sensitive Roles
 - SAP - Privileged Users
 
-Threat Monitoring for SAP solution uses User Master data gathered from SAP systems to identify which users, profiles, and roles should be considered sensitive. Some sample data is included in the watchlists, though we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly.
+The Microsoft Sentinel Solution for SAP uses User Master data gathered from SAP systems to identify which users, profiles, and roles should be considered sensitive. Some sample data is included in the watchlists, though we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly.
 
 ## Start enabling analytics rules
-By default, all analytics rules provided in the Threat Monitoring for SAP solution are disabled. When you install the solution, it's best if you don't enable all the rules at once so you don't end up with a noisey workspace. Instead, use a staged approach, enabling rules over time, ensuring you aren't receiving noise or false positives. Ensure alerts are operationalized, that is, have a response plan for each of the alerts. We consider the following rules to be easiest to implement, so best to start with those:
+By default, all analytics rules provided in the Microsoft Sentinel Solution for SAP are provided as [alert rule templates](../manage-analytics-rule-templates.md#manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel). We recommend a staged approach, where a few rules are created from templates at a time, allowing time for fine tuning each scenario.
+ We consider the following rules to be easiest to implement, so best to start with those:
 
-1. Deactivation of Security Audit Log
-1. Client Configuration Change
 1. Change in Sensitive Privileged User
-1. Client configuration change
-1. Sensitive privileged user logon
-1. Sensitive privileged user makes a change in other
-1. Sensitive privilege user password change and login
-1. System configuration change
-1. Brute force (RFC)
-1. Function module tested
-1. The SAP audit log monitoring analytics rules
+2. Client configuration change
+3. Sensitive privileged user logon
+4. Sensitive privileged user makes a change in other
+5. Sensitive privilege user password change and login
+6. Brute force (RFC)
+7. Function module tested
+8. The SAP audit log monitoring analytics rules
 
 #### Configuring the SAP audit log monitoring analytics rules
-The two SAP Audit log monitor rules are delivered as ready to run out of the box, and allow for further fine tuning using watchlists:
+The two [SAP Audit log monitor rules](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using watchlists:
 - **SAP_Dynamic_Audit_Log_Monitor_Configuration**
   The **SAP_Dynamic_Audit_Log_Monitor_Configuration** is a watchlist detailing all available SAP standard audit log message IDs and can be extended to contain additional message IDs you might create on your own using ABAP enhancements on your SAP NetWeaver systems.This watchlist allows for customizing an SAP message ID (=event type), at different levels:
     -	Severities per production/ non-production systems -for example, debugging activity gets “High” for production systems, and “Disabled” for other systems
