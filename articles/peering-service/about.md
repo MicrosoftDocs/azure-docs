@@ -1,16 +1,30 @@
 ---
 title: Azure Peering Service overview
+<<<<<<< HEAD
 description: Learn about Azure Peering Service
+=======
+description: Learn about Azure Peering Service overview
+>>>>>>> parent of f4b8c9c97050 (fetch changes)
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: overview
+<<<<<<< HEAD
 ms.workload: Infrastructure-services
 ms.date: 06/30/2022
 ms.author: halkazwini
 ---
 
 # Azure Peering Service overview
+=======
+ms.tgt_pltfrm: na
+ms.workload: Infrastructure-services
+ms.date: 05/18/2020
+ms.author: halkazwini
+---
+
+# Azure Peering Service Overview
+>>>>>>> parent of f4b8c9c97050 (fetch changes)
 
 Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
@@ -27,17 +41,30 @@ For instructions on how to register Peering Service, see [Register Peering Servi
 > [!NOTE]
 > This article is intended for network architects in charge of enterprise connectivity to the cloud and to the internet.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of f4b8c9c97050 (fetch changes)
 ## What is Peering Service?
 
 Peering Service is:
 
 - An IP service that uses the public internet. 
+<<<<<<< HEAD
 - A collaboration platform with service providers and a value-added service that's intended to offer optimal and reliable routing via service provider partners to the Microsoft cloud over the public network.
+=======
+- A collaboration platform with service providers and a value-added service that's intended to offer optimal and reliable routing to the customer via service provider partners to the Microsoft cloud over the public network.
+>>>>>>> parent of f4b8c9c97050 (fetch changes)
 
 Peering Service is not a private connectivity product like Azure ExpressRoute or a VPN product.
 
 > [!NOTE]
+<<<<<<< HEAD
 > For more information about ExpressRoute, see [ExpressRoute documentation](../expressroute/expressroute-introduction.md).
+=======
+> For more information about ExpressRoute, see [ExpressRoute documentation](../expressroute/index.yml).
+>
+>>>>>>> parent of f4b8c9c97050 (fetch changes)
 
 ## Background
 
@@ -59,7 +86,11 @@ Enterprises looking for internet-first access to the cloud or considering SD-WAN
 - Ability to select the preferred service provider to connect to the Microsoft cloud.
 - Traffic insights such as latency reporting and prefix monitoring.
 - Optimum network hops (AS hops) from the Microsoft cloud.
+<<<<<<< HEAD
 - Route analytics and statistics: Events for BGP route anomalies (leak or hijack detection) and suboptimal routing.
+=======
+- Route analytics and statistics: Events for ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) route anomalies (leak or hijack detection) and suboptimal routing.
+>>>>>>> parent of f4b8c9c97050 (fetch changes)
 
 ### Robust, reliable peering
 
@@ -124,4 +155,8 @@ BGP route anomalies are reported in the Azure portal, if any.
 - To find a service provider partner, see [Peering Service partners and locations](location-partners.md).
 - To onboard a Peering Service connection, see [Onboarding Peering Service model](onboarding-model.md).
 - To register a connection by using the Azure portal, see [Register a Peering Service connection by using the Azure portal](azure-portal.md).
+<<<<<<< HEAD
 - To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+=======
+- To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+>>>>>>> parent of f4b8c9c97050 (fetch changes)
