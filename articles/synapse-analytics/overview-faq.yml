@@ -89,7 +89,7 @@ sections:
         answer: |
           Lakehouse is based on open direct-access data formats, such as Apache Parquet. It has first-class support for machine learning and data science. A Delta table is a view of data that is contained in a Delta Lake, which supports most options provided by Apache Spark DataFrame read and write APIs. Lakehouses can help with major challenges with data warehouses, like data staleness, reliability, total cost of ownership, and data lock-in. On Delta tables, optimizations like auto compaction and adaptive query plans are available. For a detailed guide to Delta Lake, please visit [Delta Lake Guide](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/Scala/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Scala.ipynb).
 
-       - question: |
+      - question: |
           What is Auto Compaction?
         answer: |
           Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](https://docs.microsoft.com/en-us/azure/databricks/delta/optimizations/auto-optimize).
