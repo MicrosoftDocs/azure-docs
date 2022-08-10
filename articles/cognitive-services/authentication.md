@@ -123,8 +123,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Some Azure Cognitive Services accept, and in some cases require, an access token. Currently, these services support access tokens:
 
 * Text Translation API
-* Speech Services: Speech-to-text REST API
-* Speech Services: Text-to-speech REST API
+* Speech Services: Speech-to-text API
+* Speech Services: Text-to-speech API
 
 >[!NOTE]
 > QnA Maker also uses the Authorization header, but requires an endpoint key. For more information, see [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
