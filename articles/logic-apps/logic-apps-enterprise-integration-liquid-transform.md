@@ -3,9 +3,7 @@ title: Convert JSON and XML with Liquid templates
 description: Transform JSON and XML by using Liquid templates as maps in workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: estfan, tonytang, azla
+ms.reviewer: divyaswarnkar, estfan, tonytang, azla
 ms.topic: how-to
 ms.date: 08/12/2022
 
@@ -14,22 +12,43 @@ ms.date: 08/12/2022
 
 # Transform JSON and XML using Liquid templates as maps in workflows using Azure Logic Apps
 
-When you want to perform basic JSON transformations in your logic apps, you can use native [data operations](logic-apps-perform-data-operations.md) such as **Compose** or **Parse JSON**. However, your scenario might require advanced and complex transformations, such as JSON to JSON, JSON to text, XML to JSON, or XML to text, that have elements such as iterations, control flows, and variables. For these cases, you can create and use templates that describe these transformations using the [Liquid](https://shopify.github.io/liquid/) open-source template language.
+When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add the appropriate **Liquid** built-in action to your workflow. You can use **Liquid** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
-Before you can perform a Liquid transformation in your logic app workflow, you must first create a Liquid template that defines the mapping that you want. You then [upload the template as a map](logic-apps-enterprise-integration-maps.md) into your [integration account](logic-apps-enterprise-integration-create-integration-account.md). When you add the **Transform JSON to JSON - Liquid** action to your workflow, you can then select the Liquid template as the map for the action to use.
+While no **Liquid** triggers are available, you can use any appropriate trigger or action to get or feed the source JSON or XML content into your workflow for transformation. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
-This article shows you how to complete these tasks:
+This article shows how to complete the following tasks:
 
 * Create a Liquid template.
-* Add the template to your integration account.
-* Add the Liquid transform action to your workflow.
+* Upload the template to your integration account for Consumption logic app workflows or to your Standard logic app resource for use in any child workflow.
+* Add a Liquid action to your workflow.
 * Select the template as the map that you want to use.
+
+For more information, review the following documentation:
+
+* [Perform data operations in Azure Logic Apps](logic-apps-perform-data-operations.md)
+* [Liquid open-source template language](https://shopify.github.io/liquid/)
+* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-type-and-host-environment-differences)
+* [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
+* [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
+* [Managed or Azure-hosted connectors overview for Azure Logic Apps](../connectors/managed.md) and [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An [integration account](logic-apps-enterprise-integration-create-integration-account.md)
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+
+  * Is associated with the same Azure subscription as your logic app resource.
+
+  * Exists in the same location or Azure region as your logic app resource.
+
+  * If you're working on a Consumption logic app workflow, your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+  * If you're working on a Standard logic app workflow, you can add maps either to your integration account or directly to your logic app resource. Liquid actions support selecting maps either from your logic app resource or a linked integration account.
+
+    If you [add maps directly to your logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-maps), you can use these maps across multiple workflows within the *same logic app resource*. However, you still need an integration account to store and use other artifacts, such as partners, agreements, and certificates, and if you want to use the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations.
+
+    However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 
 * Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/). Azure Logic Apps uses DotLiquid 2.0.361.
 
@@ -45,6 +64,10 @@ This article shows you how to complete these tasks:
   * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 ## Create the template
+
+Before you can perform a Liquid transformation in your logic app workflow, you must first create a Liquid template that defines the mapping that you want.
+You then [upload the template as a map](logic-apps-enterprise-integration-maps.md) into your [integration account](logic-apps-enterprise-integration-create-integration-account.md). When you add the **Transform JSON to JSON** action to your workflow, you can then select the Liquid template as the map for the action to use.
+
 
 1. Create the Liquid template that you use as a map for the JSON transformation. You can use any editing tool that you want.
 
