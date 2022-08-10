@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 08/04/2022
+ms.date: 08/09/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -37,11 +37,11 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
 ## Grant the Stream Analytics job permissions to access the Azure Cosmos DB account
 
-For the Stream Analytics job to access your Cosmos DB using managed identity, the service principal you created must have special permissions to your Azure Cosmos DB account. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you can use the following role:
+For the Stream Analytics job to access your Cosmos DB using managed identity, the service principal you created must have special permissions to your Azure Cosmos DB account. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you will use the following role:
 
-|Built-in role  |Description  |
-|---------|---------|
-|[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts. Allows retrieval of read/write keys. |
+|Built-in role  |
+|---------|
+|Cosmos DB Built-in Data Contributor|
 
 1. Select **Access control (IAM)**.
 
@@ -51,7 +51,7 @@ For the Stream Analytics job to access your Cosmos DB using managed identity, th
 
     | Setting | Value |
     | --- | --- |
-    | Role | DocumentDB Account Contributor |
+    | Role | Cosmos DB Built-in Data Contributor |
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 

@@ -1,5 +1,5 @@
 ---
-title: Issuer service communication examples (preview) - Azure Active Directory Verifiable Credentials
+title: Issuer service communication examples - Azure Active Directory Verifiable Credentials
 description: Details of communication between identity provider and issuer service
 author: barclayn
 manager: rkarlin
@@ -13,7 +13,7 @@ ms.author: barclayn
 ---
 
 
-# Issuer service communication examples (preview)
+# Issuer service communication examples
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 

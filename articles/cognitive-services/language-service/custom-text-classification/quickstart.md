@@ -49,4 +49,3 @@ When you start to create your own custom text classification projects, use the h
 * [Tag data](how-to/tag-data.md)
 * [Train a model](how-to/train-model.md)
 * [View model evaluation](how-to/view-model-evaluation.md)
-* [Improve a model](how-to/improve-model.md)

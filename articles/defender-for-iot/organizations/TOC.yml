@@ -219,8 +219,6 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Alert reference
-    href: alert-engine-messages.md
   - name: OT monitoring appliances
     items:
     - name: Overview
@@ -259,6 +257,10 @@
         href: appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
+  - name: Alert reference
+    href: alert-engine-messages.md
+  - name: Sensor health message reference
+    href: sensor-health-messages.md
   - name: Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
   - name: Defender for IoT CLI commands
