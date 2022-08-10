@@ -11,7 +11,7 @@ ms.custom:
 ---
 # Tutorial: Delete network functions on Azure Stack Edge
 
-In this tutorial, you learn how to delete Azure Network Function Manager - Network Function and Azure Network Function Manager - Device using the Azure Portal. 
+In this tutorial, you learn how to delete Azure Network Function Manager - Network Function and Azure Network Function Manager - Device using the Azure portal. 
 
 > [!div class="checklist"]
 > * Delete Network Function Manager - Network Function
@@ -28,7 +28,7 @@ In this tutorial, you learn how to delete Azure Network Function Manager - Netwo
 
    :::image type="content" source="./media/delete-functions/Select-Network-Function.png" alt-text="Screenshot of +Select Network Function." lightbox="./media/delete-functions/Select-Network-Function.png":::
 
-1. Click on **Delete** Network Function .
+1. Select **Delete** Network Function.
   
     :::image type="content" source="./media/delete-functions/delete-network-function.png" alt-text="Screenshot of +Delete Network Function." lightbox="./media/delete-functions/delete-network-function.png":::
 
@@ -37,16 +37,16 @@ In this tutorial, you learn how to delete Azure Network Function Manager - Netwo
    >:::image type="content" source="./media/delete-functions/failed-to-delete.png" alt-text="Screenshot of +Failed To Delete." lightbox="./media/delete-functions/failed-to-delete.png":::
    > 
    
-1. Navigate to search box within the **Azure Portal** and search for the **Managed Application** which was thrown as an exception in **Step 3**.
+1. Navigate to search box within the **Azure portal** and search for the **Managed Application** which was thrown as an exception in **Step 3**.
     :::image type="content" source="./media/delete-functions/managed-application.png" alt-text="Screenshot of +Managed Application." lightbox="./media/delete-functions/managed-application.png":::
 
-1. Click on **Delete** Managed Application
+1. Select **Delete** Managed Application
 :::image type="content" source="./media/delete-functions/delete-managed-application.png" alt-text="Screenshot of +Delete Managed Application." lightbox="./media/delete-functions/delete-managed-application.png":::
 
    > [!IMPORTANT]
    > Ensure that all the Network Function deployed within the Azure Network Function Manager is deleted before proceeding to the next step.
    >
 
-1. Navigate to the **Azure Network Manager - Devices** resource in which you have deleted a network function and click on **Delete** Azure Network Function Manager - Device
+1. Navigate to the **Azure Network Manager - Devices** resource in which you have deleted a network function and select **Delete** Azure Network Function Manager - Device
 
    :::image type="content" source="./media/delete-device/delete-network-function-manager.png" alt-text="Screenshot of +Delete Network Function Manager - Device." lightbox="./media/delete-device/delete-network-function-manager.png":::
