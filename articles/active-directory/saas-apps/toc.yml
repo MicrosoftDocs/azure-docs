@@ -238,7 +238,7 @@
         href: awarego-tutorial.md
       - name: AWS ClientVPN
         href: aws-clientvpn-tutorial.md
-      - name: AWS Single Sign-On
+      - name: AWS IAM Identity Center
         href: aws-single-sign-on-tutorial.md
       - name: Axiad Cloud
         href: axiad-cloud-tutorial.md
@@ -2664,7 +2664,7 @@
         href: autodesk-sso-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
-      - name: AWS Single Sign-On
+      - name: AWS IAM Identity Center
         href: aws-single-sign-on-provisioning-tutorial.md
       - name: BenQ IAM
         href: benq-iam-provisioning-tutorial.md 
@@ -2829,7 +2829,9 @@
       - name: H5mag
         href: h5mag-provisioning-tutorial.md
       - name: Ideo
-        href: ideo-provisioning-tutorial.md        
+        href: ideo-provisioning-tutorial.md
+      - name: Ideagen Cloud
+        href: ideagen-cloud-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: iPass SmartConnect
@@ -2930,6 +2932,8 @@
         href: oracle-cloud-infrastructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
+        href: palo-alto-networks-cloud-identity-engine-provisioning-tutorial.md
       - name: Palo Alto Networks SCIM Connector
         href: palo-alto-networks-scim-connector-provisioning-tutorial.md
       - name: PaperCut Cloud Print Management
