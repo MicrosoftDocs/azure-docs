@@ -44,7 +44,7 @@ To check and modify your diagnostics settings in the Azure portal:
 
 8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
    
-   - To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](https://docs.microsoft.com/en-us/azure/virtual-desktop/connection-latency#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+   - To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
    - To check graphics data <!--Note to Self: Ask Logan what to put here-->
 
 ### Connection network data
