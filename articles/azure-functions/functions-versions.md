@@ -37,7 +37,7 @@ The following table indicates which programming languages are currently supporte
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving to a later version is allowed even with apps that have existing functions. When your app has existing functions, be aware of any breaking changes between versions before moving to a later runtime version. The following sections detail changes between versions:
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Moving to a later version is allowed even with apps that have existing functions. When your app has existing functions, be aware of any breaking changes between versions before moving to a later runtime version. The following sections detail language-specific changes between versions (you can choose the programming language at the top of the page):
 
 + [Between 3.x and 4.x](#breaking-changes-between-3x-and-4x) 
 + [Between 2.x and 3.x](#breaking-changes-between-2x-and-3x)
@@ -320,7 +320,7 @@ To update your project to Azure Functions 4.x:
 
 ### Breaking changes between 3.x and 4.x
 
-The following are some changes to be aware of before upgrading a 3.x app to 4.x. For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22). More changes are expected during the preview period. Subscribe to [App Service Announcements](https://github.com/Azure/app-service-announcements/issues) for updates.
+The following are some language-specific changes to be aware of before upgrading a 3.x app to 4.x (you can choose the programming language at the top of the page). For a full list, see Azure Functions GitHub issues labeled [*Breaking Change: Approved*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22). More changes are expected during the preview period. Subscribe to [App Service Announcements](https://github.com/Azure/app-service-announcements/issues) for updates.
 
 #### Runtime
 
@@ -376,7 +376,7 @@ Azure Functions version 3.x is highly backwards compatible to version 2.x.  Many
 
 ### Breaking changes between 2.x and 3.x
 
-The following are the language-specific changes to be aware of before upgrading a 2.x app to 3.x.
+The following are the language-specific changes to be aware of before upgrading a 2.x app to 3.x (you can choose the programming language at the top of the page)
 
 ::: zone pivot="programming-language-csharp"
 The main differences between versions when running .NET class library functions is the .NET Core runtime. Functions version 2.x is designed to run on .NET Core 2.2 and version 3.x is designed to run on .NET Core 3.1.  
