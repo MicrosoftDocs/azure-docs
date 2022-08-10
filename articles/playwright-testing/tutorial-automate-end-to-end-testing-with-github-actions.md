@@ -179,30 +179,25 @@ Perform to following steps to create the GitHub Actions workflow:
 
 ## Analyze results
 
-After the tests finish, you notice that the GitHub Actions workflow failed because multiple tests didn't pass. You can use the information in the GitHub Actions summary and the log to analyze the test run. 
+Microsoft Playwright Testing provides rich error information to enable you to diagnose failing tests straight from your CI/CD pipeline. After the tests finish, you notice that the GitHub Actions workflow failed because multiple tests didn't pass. You can use the information in the GitHub Actions summary and the log to analyze the test run.
 
 1. Select **Actions** in your GitHub repository, and then select the Microsoft Playwright Testing workflow run.
 
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-workflow.png" alt-text="Screenshot that shows the GitHub Actions tab in GitHub.":::
 
-1. View the GitHub Actions summary for an overview of failing tests and error details.
-
-    Microsoft Playwright Testing provides rich error information to diagnose failing tests directly from your CI/CD pipeline:
-
-    * Browser configuration and line number in the test specification file.
-    * Error message with the received and expected values.
-    * Playwright call log.
-    * Extract of the test source code.
+1. Use the GitHub Actions summary for an overview of all failing tests and error details.
 
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary.png" alt-text="Screenshot that shows the Playwright test results in the GitHub Actions summary view.":::
 
     Alternatively, you can open the GitHub Actions log to view the detailed test results.
 
-1. Optionally, link directly from the summary view to the Microsoft Playwright Testing portal for further analysis of the test run.
+1. Optionally, access the Microsoft Playwright Testing portal directly by using the links in the summary view.
 
-    You can link to the entire test run or an individual test result. For more information, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
+    You can view the entire test run or access an individual test result.
 
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary-portal-links.png" alt-text="Screenshot that shows Playwright portal links in the GitHub Actions summary.":::
+
+    For more information about using the Microsoft Playwright Testing portal, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/playwright-testing-dashboard-failed-tests.png" alt-text="Screenshot that shows the list of failing tests in the Microsoft Playwright Testing portal.":::
 
