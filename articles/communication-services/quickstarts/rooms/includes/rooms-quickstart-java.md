@@ -21,6 +21,10 @@ ms.author: radubulboaca
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts).
+
 ## Setting up
 
 ### Create a new Java application
