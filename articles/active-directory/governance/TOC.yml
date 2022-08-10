@@ -79,15 +79,15 @@
     href: access-reviews-external-users.md
   - name: Lifecycle Workflows (Preview) 
     items:
-    - name: Lifecycle Workflows templates (Preview)
+    - name: Templates (Preview)
       href: lifecycle-workflow-templates.md    
-    - name: Lifecycle Workflows built-in tasks (Preview)
+    - name: Built-in tasks (Preview)
       href: lifecycle-workflow-tasks.md   
-    - name: Lifecycle Workflows Custom Task Extension (Preview)
+    - name: Custom Task Extension (Preview)
       href: lifecycle-workflow-extensibility.md
-    - name: Lifecycle Workflows Versioning (Preview)
+    - name: Versioning (Preview)
       href: lifecycle-workflow-versioning.md 
-    - name: Lifecycle Workflows history (Preview)
+    - name: History (Preview)
       href: lifecycle-workflow-history.md 
     - name: Parts of Lifecycle Workflows (Preview)
       href: lifecycle-workflows-concept-parts.md          
