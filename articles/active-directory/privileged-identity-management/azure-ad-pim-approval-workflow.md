@@ -3,25 +3,24 @@ title: Approve or deny requests for Azure AD roles in PIM - Azure AD | Microsoft
 description: Learn how to approve or deny requests for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: rkarlin
 editor: ''
-
 ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/07/2021
-ms.author: curtand
-ms.reviewer: shaunliu
+ms.date: 07/11/2022
+ms.author: amsliu
+ms.reviewer: japere
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Approve or deny requests for Azure AD roles in Privileged Identity Management
 
-With Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
+With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 
 ## View pending requests
 
@@ -94,6 +93,9 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentSche
 ````
 
 ## Approve requests
+
+>[!NOTE]
+>Approvers are not able to approve their own role activation requests.
 
 1. Find and select the request that you want to approve. An approve or deny page appears.
 

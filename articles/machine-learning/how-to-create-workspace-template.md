@@ -264,7 +264,7 @@ When using a customer-managed key, Azure Machine Learning creates a secondary re
 An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
 
 * Starts encrypting the local scratch disk for Azure Machine Learning compute clusters, providing you have not created any previous clusters in your subscription. If you have previously created a cluster in the subscription, open a support ticket to have encryption of the scratch disk enabled for your compute clusters.
-* Cleans up the local scratch disk between runs.
+* Cleans up the local scratch disk between jobs.
 * Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
 
@@ -661,7 +661,7 @@ To avoid this problem, we recommend one of the following approaches:
 
     After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then reuse the Key Vault by setting the `keyVault` property of the workspace to its ID.
 
-    To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
+    To get the ID of the Key Vault, you can reference the output of the original template job or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
 
     ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id

@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 06/09/2022
+ms.date: 08/04/2022
 ms.author: timwarner
 ms.custom: generated
 ---

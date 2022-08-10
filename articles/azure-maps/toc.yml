@@ -349,6 +349,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a filled map
+      href: power-bi-visual-filled-map.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
@@ -473,6 +475,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-maps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Understanding Azure Maps Transactions
+    href: understanding-azure-maps-transactions.md
   - name: Azure Maps videos
     href: /shows/
   - name: Open source projects

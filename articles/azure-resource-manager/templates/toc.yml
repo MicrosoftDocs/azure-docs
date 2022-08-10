@@ -306,7 +306,7 @@
   - name: Create templates
     items:
     - name: JSON structure
-      displayName: parameters,variables,resources,outputs,condition
+      displayName: parameters,variables,resources,outputs,condition,comments
       href: syntax.md
     - name: Write template expressions
       href: template-expressions.md

@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure Key Vault
 description: Sample Azure Resource Graph queries for Azure Key Vault showing use of resource types and tables to access Azure Key Vault related resources and properties.
-ms.date: 03/08/2022
+ms.date: 07/07/2022
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin

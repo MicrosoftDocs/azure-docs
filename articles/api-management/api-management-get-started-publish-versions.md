@@ -12,7 +12,7 @@ ms.author: danlep
 ---
 # Tutorial: Publish multiple versions of your API 
 
-There are times when it's impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want an approach that's easy to understand. As shown in this tutorial, it is possible to provided multiple *versions* in Azure API Management. 
+There are times when it's impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want an approach that's easy to understand. As shown in this tutorial, it is possible to provide multiple *versions* in Azure API Management. 
 
 For background, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/).
 
@@ -67,10 +67,12 @@ After creating the version, it now appears underneath **Demo Conference API** in
 
 ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/version-list.png)
 
-You can now edit and configure **v1** as an API that is separate from **Original**. Changes to one version do not affect another.
-
 > [!Note]
 > If you add a version to a non-versioned API, an **Original** is also automatically created. This version responds on the default URL. Creating an Original version ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original isn't created.
+
+## Edit a version
+
+After adding the version, you can now edit and configure it as an API that is separate from an Original. Changes to one version do not affect another. For example, add or remove API operations, or edit the OpenAPI specification. For more information, see [Edit an API](edit-api.md).
 
 ## Add the version to a product
 

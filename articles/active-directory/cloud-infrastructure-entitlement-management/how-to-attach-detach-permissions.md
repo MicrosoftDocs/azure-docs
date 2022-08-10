@@ -13,11 +13,6 @@ ms.author: kenwith
 
 # Attach and detach policies for Amazon Web Services (AWS) identities
 
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how you can attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities using the **Remediation** dashboard.
 
 > [!NOTE]

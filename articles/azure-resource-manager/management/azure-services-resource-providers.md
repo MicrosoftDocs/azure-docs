@@ -25,7 +25,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [API Management](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
-| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/overview.md) |
 | Microsoft.Attestation | Azure Attestation Service |
 | Microsoft.Authorization - [registered](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
@@ -46,7 +46,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../../cdn/index.yml) |
-| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
+| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-certificate.md#import-certificate-into-app-service) |
 | Microsoft.ChangeAnalysis | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |
@@ -123,7 +123,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering - [registered](#registration) | core |
 | Microsoft.Media | [Media Services](/azure/media-services/) |
-| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |

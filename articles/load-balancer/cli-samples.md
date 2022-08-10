@@ -4,14 +4,14 @@ titleSuffix: Azure Load Balancer
 description: Azure CLI Samples
 services: load-balancer
 documentationcenter: load-balancer
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: article
 ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: greglin
+ms.author: mbender
 
 ---
 # Azure CLI Samples for Load Balancer

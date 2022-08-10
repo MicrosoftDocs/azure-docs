@@ -110,6 +110,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    e. Select **Save**.
 
+   > [!NOTE]
+   > **User Attributes & Claims** allow only one group claim. To add a group claim, delete the existing group claim **user.groups [SecurityGroup]** already present in the       claims to add the new claim or edit the existing one to **All groups**.
+
    f. Select **Add a group claim**.
 
    g. Select **All groups**.

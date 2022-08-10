@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.custom: mvc, mode-ui
-ms.date: 10/18/2020
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal
@@ -17,9 +17,11 @@ ms.date: 10/18/2020
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to create a single Azure Database for PostgreSQL server and connect to it.
 
 ## Prerequisites
+
 An Azure subscription is required. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an Azure Database for PostgreSQL server
+
 Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database for PostgreSQL Single Server database. Search for and select *Azure Database for PostgreSQL servers*.
 
 >[!div class="mx-imgBorder"]
@@ -49,7 +51,6 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database 
    |Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.|
    |Compute + storage | *use the defaults*| The default pricing tier is **General Purpose**  with **4 vCores** and **100 GB** storage. Backup retention is set to **7 days** with **Geographically Redundant** backup option.<br/>Learn about the [pricing](https://azure.microsoft.com/pricing/details/postgresql/server/) and update the defaults if needed.|
 
-
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier can't later be scaled to General Purpose or Memory Optimized.
 
@@ -63,6 +64,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database 
 [Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
 
 ## Configure a firewall rule
+
 By default, the server that you create is not publicly accessible. You need to give permissions to your IP address. Go to your server resource in the Azure portal and select **Connection security** from left-side menu for your server resource. If you're not sure how to find your resource, see [Open resources](../../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
@@ -82,7 +84,6 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
 1. Make a note of your server name, server admin login name, password, and subscription ID for your newly created server from the **Overview** section of your server.
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-database-portal/overview-new.png" alt-text="get connection information.":::
-
 
 2. Open Azure Cloud Shell in the portal by selecting the icon on the upper-left side.
 
@@ -133,6 +134,7 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
 [Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
 
 ## Clean up resources
+
 You've successfully created an Azure Database for PostgreSQL server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting either the resource group or the PostgreSQL server.
 
 To delete the resource group:
@@ -150,6 +152,7 @@ To delete the server, select the **Delete** button on the **Overview** page of y
 [Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Migrate your database using export and import](./how-to-migrate-using-export-and-import.md) <br/>
 

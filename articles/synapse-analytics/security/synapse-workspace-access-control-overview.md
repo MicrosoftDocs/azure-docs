@@ -99,7 +99,7 @@ To simplify managing access control, you can use security groups to assign roles
 
 Synapse Studio will behave differently based on your permissions and the current mode:
 - **Synapse live mode:** Synapse Studio will prevent you from seeing published content, publishing content, or taking other actions if you don't have the required permission.  In some cases, you'll be prevented from creating code artifacts that you can't use or save. 
-- **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted if you have permission to publish changes to the live service (Synapse Artifact Publisher role), and the Azure Contributor role on the workspace.  
+- **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted if you have permission to publish changes to the live service (Synapse Artifact Publisher role).  
 
 In some cases, you're allowed to create code artifacts even without permission to publish or commit. This allows you to execute code (with the required execution permissions). For more information on the roles required for common tasks, see [Understand the roles required to perform common tasks in Azure Synapse](./synapse-workspace-understand-what-role-you-need.md).
 
@@ -110,6 +110,6 @@ If a feature is disabled in Synapse Studio, a tooltip will indicate the required
 
 - Learn more about [Synapse RBAC](./synapse-workspace-synapse-rbac.md)
 - Learn more about [Synapse RBAC roles](./synapse-workspace-synapse-rbac-roles.md)
-- Learn [How to set up access control](./how-to-set-up-access-control.md) for a Synapse Workspace using security groups.
-- Learn [How to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
-- Learn [How to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
+- Learn [how to set up access control](./how-to-set-up-access-control.md) for a Synapse Workspace using security groups.
+- Learn [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
+- Learn [how to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)

@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 07/20/2022
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -350,13 +350,13 @@ When you create a new Azure Cosmos account through an Azure Resource Manager tem
     "type": "Microsoft.DocumentDB/databaseAccounts",
     "identity": {
         "type": "UserAssigned",
-        "backupPolicy": {"type": "Continuous"},
         "userAssignedIdentities": {
             "<identity-resource-id>": {}
         }
     },
     // ...
     "properties": {
+        "backupPolicy": { "type": "Continuous" },
         "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
         "keyVaultKeyUri": "<key-vault-key-uri>"
         // ...
@@ -433,7 +433,7 @@ No, there's no charge to enable this feature.
 
 All the data stored in your Azure Cosmos account is encrypted with the customer-managed keys, except for the following metadata:
 
-- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account)
+- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-db-account)
 
 - The names of your [stored procedures](./stored-procedures-triggers-udfs.md)
 

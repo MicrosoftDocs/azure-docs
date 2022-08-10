@@ -21,7 +21,7 @@ In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/o
 
 This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-and-where.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](./v1/how-to-deploy-and-where.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
 
 ## Prerequisites
 
@@ -37,6 +37,8 @@ Run this code on either of these environments:
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` and `utils.py`
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -101,6 +103,8 @@ dataset.to_path()
 ### Create a compute target
 
 Create a compute target for your TensorFlow job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 cluster_name = "gpu-cluster"
@@ -277,7 +281,7 @@ For more information about distributed training, see the [Distributed GPU traini
 
 ## Deploy a TensorFlow model
 
-The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment
 
@@ -287,7 +291,7 @@ Instead of the traditional deployment route, you can also use the no-code deploy
 service = Model.deploy(ws, "tensorflow-web-service", [model])
 ```
 
-The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
+The full [how-to](./v1/how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
 
 ## Next steps
 
