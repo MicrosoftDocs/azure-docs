@@ -26,6 +26,8 @@ Follow the steps in this tutorial to:
 > - Add code for user login
 > - Test the app
 
+For additional guidance, refer to the [sample code](https://github.com/Azure-Samples/ms-identity-node) that shows how to use MSAL Node to login, logout and acquire an access token for a protected resource such as Microsoft Graph.
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/en/download/)
