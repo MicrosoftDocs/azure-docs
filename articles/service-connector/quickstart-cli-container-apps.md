@@ -23,7 +23,7 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 - At least one application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 - Version 2.37.0 or higher of the Azure CLI must be installed. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -66,7 +66,7 @@ You can create a connection using an access key or a managed identity.
     | **Name of the storage account**                                  | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
 
 > [!TIP]
-> If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new Blob Storage and directly connect it to your container app with a connection string.
+> If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new Blob Storage and directly connect it to your container app using a connection string.
 
 ### [Managed identity](#tab/using-managed-identity)
 
@@ -90,7 +90,7 @@ You can create a connection using an access key or a managed identity.
     | **Name of the storage account**                                  | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
 
 > [!NOTE]
-> If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly get connected to your app service with a managed identity.
+> If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly connect it to your container app using a managed identity.
 
 ---
 
