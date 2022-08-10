@@ -147,36 +147,40 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
     :::image type="content" alt-text="Image 13 - Screenshot of Profisee Client Tools Download" source="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png":::
     
 - Log-In to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you log-in with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
+
+    :::image type="content" alt-text="Image 13 - Screenshot of Profisee FastApp Studio Post Login" source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
+
 - As a final validation step to ensure successful installation and for checking whether Profisee has been succesfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
 
 ```{
   "OverallStatus": "Healthy",
-  "TotalCheckDuration": "0:1.13",
+  "TotalCheckDuration": "0:XXXXXXX",
   "DependencyHealthChecks": {
     "purview_service_health_check": {
       "Status": "Healthy",
-      "Duration": "00:00:01.1297181",
+      "Duration": "00:00:NNNN",
       "Description": "Successfully connected to Purview."
     },
     "governance_service_health_check": {
       "Status": "Healthy",
-      "Duration": "00:00:00.0000917",
-      "Description": "Purview cache loaded successfully. Total assets: 153; Instances: 1; Entities: 23; Attributes: 122; Relationships: 6; Hierarchies: 1"
+      "Duration": "00:00:NNNN",
+      "Description": "Purview cache loaded successfully. 
+      Total assets: NNN; Instances: 1; Entities: NNN; Attributes: NNN; Relationships: NNN; Hierarchies: NNN"
     },
     "messaging_db_health_check": {
       "Status": "Healthy",
-      "Duration": "00:00:00.0010970",
+      "Duration": "00:00:NNNN",
       "Description": null
     },
     "logging_db_health_check": {
       "Status": "Healthy",
-      "Duration": "00:00:00.0019520",
+      "Duration": "00:00:NNNN",
       "Description": null
     }
   }
 }
-
-An output response that looks similar as the above confirms successful installation, completes all the deployment steps; and succesfully validates whether Profisee has been succesfully connected to your Microsoft Purview and the two systems are able to communicate properly.
+```
+An output response that looks similar as the above confirms successful installation, completes all the deployment steps; and succesfully validates whether Profisee has been succesfully connected to your Microsoft Purview and indicates that the two systems are able to communicate properly.
 
 ## Next steps
 Through this guide, we learned of the importance of MDM in driving and supporting Data Governance in the context of the Azure data estate, and how to set up and deploy a Microsoft Purview-Profisee integration.
