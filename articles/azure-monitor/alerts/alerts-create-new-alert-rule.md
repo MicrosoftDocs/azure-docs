@@ -36,7 +36,7 @@ And then defining these elements for the resulting alert actions using:
 1. Select **Include all future resources** to include any future resources added to the selected scope.
 1. Select **Done**.
 1. Select **Next: Condition>** at the bottom of the page.
-1. In the **Select a signal** pane, filter the list of signals you can use by selecting values from these fields. The fields are pre-populated available values for your selected scope.
+1. In the **Select a signal** pane, filter the list of signals. The fields are pre-populated with the appropriate values for your selected scope.
     
     
     |Field  |Description  |
