@@ -103,23 +103,6 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-### Supported host operating systems
-
-Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
-
-- Amazon Linux 2
-- CentOS 8
-- Debian 10
-- Debian 11
-- Google Container-Optimized OS 
-- Red Hat Enterprise Linux 8
-- Ubuntu 16.04 
-- Ubuntu 18.04
-- Ubuntu 20.04
-- Ubuntu 22.04
-
-Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
-
 ### Network restrictions
 
 #### Private link
@@ -168,23 +151,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
-
-### Supported host operating systems
-
-Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
-
-- Amazon Linux 2
-- CentOS 8
-- Debian 10
-- Debian 11
-- Google Container-Optimized OS 
-- Red Hat Enterprise Linux 8
-- Ubuntu 16.04 
-- Ubuntu 18.04
-- Ubuntu 20.04
-- Ubuntu 22.04
-
-Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 
 ### Network restrictions
 
@@ -260,6 +226,8 @@ Defender for Containers relies on the **Defender extension** for several feature
 - Debian 10
 - Debian 11
 - Google Container-Optimized OS 
+- Mariner 1.0 
+- Mariner 2.0 
 - Red Hat Enterprise Linux 8
 - Ubuntu 16.04 
 - Ubuntu 18.04
