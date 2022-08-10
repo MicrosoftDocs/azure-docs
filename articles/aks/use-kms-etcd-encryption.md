@@ -221,6 +221,8 @@ If your key vault is enabled with `--enable-rbac-authorization`, you need to ass
 az role assignment create --role "Key Vault Crypto User" --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
 ```
 
+### Assign permission for creating private link
+
 For private key vault, the AKS needs *Key Vault Contributor*  role to create private link between private key vault and cluster.
 
 ```azurecli-interactive
