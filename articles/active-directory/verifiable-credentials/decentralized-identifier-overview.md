@@ -8,7 +8,7 @@ editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 20/08/2022
 ms.author: barclayn
 ms.reviewer: 
 ---
@@ -16,11 +16,6 @@ ms.reviewer:
 # Introduction to Microsoft Entra Verified ID
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Our digital and physical lives are increasingly linked to the apps, services, and devices we use to access a rich set of experiences. This digital transformation allows us to interact with hundreds of companies and thousands of other users in ways that were previously unimaginable.
 
