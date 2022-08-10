@@ -48,27 +48,27 @@ Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` wi
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 * Make sure to set `isPrimary` to `true` if you are intending to replace an existing primary node type.
 
-```json
-          {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeType2Name'))]",
-            "location": "[resourcegroup().location]",
-            "dependsOn": [
-              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-            ],
-            "properties": {
-                "isPrimary": false,
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                "vmSize": "[parameters('nodeType2VmSize')]",
-                "vmInstanceCount": "[parameters('nodeType2VmInstanceCount')]",
-                "dataDiskSizeGB": "[parameters('nodeType2DataDiskSizeGB')]",
-                "dataDiskType": "[parameters('nodeType2managedDataDiskType')]"
-           }
-```
+{
+    "apiVersion": "[variables('sfApiVersion')]",
+    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+    "name": "[concat(parameters('clusterName'), '/', parameters('nodeType2Name'))]",
+    "location": "[resourcegroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+    ],
+    "properties": {
+        "isPrimary": false,
+        "vmImagePublisher": "[parameters('vmImagePublisher')]",
+        "vmImageOffer": "[parameters('vmImageOffer')]",
+        "vmImageSku": "[parameters('vmImageSku')]",
+        "vmImageVersion": "[parameters('vmImageVersion')]",
+        "vmSize": "[parameters('nodeType2VmSize')]",
+        "vmInstanceCount": "[parameters('nodeType2VmInstanceCount')]",
+        "dataDiskSizeGB": "[parameters('nodeType2DataDiskSizeGB')]",
+        "dataDiskType": "[parameters('nodeType2managedDataDiskType')]"
+    }
+}
+
 For an example two node type configuration, see our [sample two node type ARM Template](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/SF-Managed-Standard-SKU-2-NT)
 
 ### Add with PowerShell
