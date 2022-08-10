@@ -83,7 +83,7 @@ Follow these steps to manually assign each role:
 1. On the Review + assign tab, select **Review + assign**.
 
 #### Dev center Managed Identity
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can search for Azure Compute Galleries to find your gallery.
+1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
 
 1. Select **Access Control (IAM)** from the left menu.
 
@@ -105,9 +105,9 @@ You can use the same managed identity in multiple DevCenters and Azure Compute G
 ## Attach a gallery to a dev center
 In order to use the images from a gallery in dev box definitions, you must first associate it with the dev center.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Open the dev center you want to attach the gallery to.
+2. Search for and select the dev center you want to attach the gallery to.
  
 :::image type="content" source="media/how-to-configure-azure-compute-gallery/devcenter-grid.png" alt-text="Screenshot showing the list of existing dev centers.":::
 
@@ -132,9 +132,9 @@ After successful addition, the images in the gallery will be available to select
 ## Remove a gallery from a dev center
 You can detach galleries from dev centers so that their images can no longer be used to create dev box definitions in the dev center. Galleries that are being actively used in dev box definitions cannot be removed from the dev center. The associated dev box definition must be deleted or updated to use an image from a different gallery before you can remove the gallery.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select the dev center you want to remove the gallery from.
+2. Search for and select the dev center you want to remove the gallery from.
 
 3. From the left menu, select **Azure compute galleries** to list the galleries attached to this dev center.
 
@@ -147,4 +147,5 @@ You can detach galleries from dev centers so that their images can no longer be 
 The gallery will be detached from the dev center. The gallery and its images won't be deleted, and you can reattach it if necessary. 
 
 ## Next steps
-- [Create a dev box pool](./quickstart-configure-dev-box-service.md)
+Learn more about Microsoft Dev Box:
+- [Microsoft Dev Box key concepts](./concept-dev-box-concepts.md)
