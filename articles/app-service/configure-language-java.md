@@ -1137,6 +1137,13 @@ When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups di
 
 The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../availability-zones/migrate-app-service.md). The JBoss EAP clustering feature is compatabile with the zone redundancy feature. 
 
+#### Auto-Scale Rules
+
+When configuring auto-scaling:
+- Ensure stability of the cluster
+- Set removal to **one** instance at a time
+- Remmoval interval should be 5 min or greater
+
 ### JBoss EAP App Service Plans
 
 <a id="jboss-eap-hardware-options"></a>
