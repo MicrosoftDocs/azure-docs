@@ -39833,6 +39833,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/how-to-send-additional-data.md",
+      "redirect_url": "/azure/iot-dps/concepts-custom-allocation#use-device-payloads-in-custom-allocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-custom-allocation-policies.md",
+      "redirect_url": "/azure/iot-dps/how-to-use-custom-allocation-policies",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/try-sample-label-tool",
       "redirect_document_id": false
