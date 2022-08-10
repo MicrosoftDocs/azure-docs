@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-|  (Open Source)History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<Server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
+|  (Open Source)History bundles were sorted with the oldest version first.   | We have recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<Server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
 
 #### **Known issues**
 
@@ -44,8 +44,8 @@ For more information about the currently known issues with the FHIR service, see
 
 |Azure Health Data Services  |Related information |
 | :----------------------------------- | :--------------- |
-|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](../../healthcare-apis/events/events-consume-logic-apps) and [Deploy Events Using the Azure Portal](./../healthcare-apis/events/events-deploy-portal). | 
-|One touch launch Azure MedTech deploy. |[Deploy the MedTech Service in the Azure Portal](../../healthcare-apis/iot/.deploy-iot-connector-in-azure.md)|
+|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](./../healthcare-apis/events/events-consume-logic-apps) and [Deploy Events Using the Azure Portal](./../healthcare-apis/events/events-deploy-portal.md). | 
+|One touch launch Azure MedTech deploy. |[Deploy the MedTech Service in the Azure Portal](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)|
 
 ### DICOM service
 
@@ -161,7 +161,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](events/events-message-structure.md) and [What are events?](events/events-overview.md). |
+|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](./../events/events-message-structure.md) and [What are events?](./../events/events-overview.md). |
 |Events documentation for Azure Health Data Services  |Updated docs to allow for better understanding, knowledge, and help for Events as it went GA. Updated troubleshooting for ease of use for the customer.  |
 |One touch deploy button for MedTech service launch in the portal |Enables easier deployment and use of MedTech service for customers without the need to go back and forth between pages or interfaces.  |
 
