@@ -13,7 +13,7 @@ Defender for Cloud has the ability to protect workloads that are stored in GitHu
 
 - **Microsoft Defender for DevOps** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your GitHub resources.
 
-You can view all of the [recommendations for Azure DevOps](recommendations-reference#devops-recommendations) resources.
+You can view all of the [recommendations for Azure DevOps](recommendations-reference.md) resources.
 
 ## Prerequisites
 
