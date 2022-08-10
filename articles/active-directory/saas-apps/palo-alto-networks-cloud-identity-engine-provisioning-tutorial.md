@@ -28,6 +28,7 @@ This tutorial describes the steps you need to perform in both Palo Alto Networks
 > * Remove users in Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service.
 > * Provision groups and group memberships in Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service.
+> * [Single sign-on](palo-alto-networks-cloud-identity-engine---cloud-authentication-service-tutorial.md) to Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service (recommended).
 
 ## Prerequisites
 
@@ -130,8 +131,8 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
 
-> [!NOTE]
-> **Schema Discovery** is enabled on this app. Hence you might see more attributes in the application than mentioned in the table above.
+    > [!NOTE]
+    > **Schema Discovery** is enabled on this app. Hence you might see more attributes in the application than mentioned in the table above.
           
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service**.
 
