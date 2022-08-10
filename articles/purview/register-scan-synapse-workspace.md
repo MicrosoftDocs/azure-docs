@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 08/10/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -235,16 +235,51 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
 1. In the Azure portal, go to the Azure Synapse workspace. 
 
-1. On the left pane, select **Firewalls**.
+1. On the left pane, select **Networking**.
 
 1. For **Allow Azure services and resources to access this workspace** control, select **ON**.
 
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, we do not support setting up scans for an Azure Synapse workspace from the Microsoft Purview governance portal, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. In this case:
->  - You can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
->  - You must use **SQL Auth** as authentication mechanism.
+> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, to scan serverless DBs, you can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to set up scan. See below example.
+
+Example of creating scan for serverless DB using API, replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings:
+
+```http
+PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_source_name>/scans/{scan_name}?api-version=2022-02-01-preview
+```
+
+```json
+{
+    "properties":{
+        "resourceTypes":{
+            "AzureSynapseServerlessSql":{
+                "scanRulesetName":"AzureSynapseSQL",
+                "scanRulesetType":"System",
+                "resourceNameFilter":{
+                    "resources":[ "{serverless_database_name_1}", "{serverless_database_name_2}", ...]
+                }
+            }
+        },
+        "credential":{
+            "referenceName":"{credential_name}",
+            "credentialType":"SqlAuth | ServicePrincipal | ManagedIdentity (if UAMI authentication)"
+        },
+        "collection":{
+            "referenceName":"{collection_name}",
+            "type":"CollectionReference"
+        },
+        "connectedVia":{
+            "referenceName":"{integration_runtime_name}",
+            "integrationRuntimeType":"SelfHosted (if self-hosted IR) | Managed (if VNet IR)"
+        }
+    },
+    "kind":"AzureSynapseWorkspaceCredential | AzureSynapseWorkspaceMsi (if system-assigned managed identity authentication)"
+}
+```
+
+To schedule the scan, additionally create a trigger for it after scan creation, refer to [Triggers - Create Trigger](https://docs.microsoft.com/en-us/rest/api/purview/scanningdataplane/triggers/create-trigger?tabs=HTTP).
 
 ### Create and run scan
 
