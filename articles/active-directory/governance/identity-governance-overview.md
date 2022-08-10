@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 12/22/2021
+ms.date: 8/10/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -52,7 +52,7 @@ Organizations need a process to manage access beyond what was initially provisio
 
 Typically, IT delegates access approval decisions to business decision makers.  Furthermore, IT can involve the users themselves.  For example, users that access confidential customer data in a company's marketing application in Europe need to know the company's policies. Guest users may be unaware of the handling requirements for data in an organization to which they have been invited.
 
-Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../enterprise-users/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).   [Azure AD entitlement management](entitlement-management-overview.md) also enables you to define how users request access across packages of group and team memberships, application roles, and SharePoint Online roles.
+Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../enterprise-users/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).   [Azure AD entitlement management](entitlement-management-overview.md) also enables you to define how users request access across packages of group and team memberships, application roles, and SharePoint Online roles.  For more information, see the [simplifying identity governance tasks with automation](#simplifying-identity-governance-tasks-with-automation) section below to select the appropriate Azure AD features for your access lifecycle automation scenarios.
 
 When a user attempts to access applications, Azure AD enforces [Conditional Access](../conditional-access/index.yml) policies. For example, Conditional Access policies can include displaying a [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to those terms](../conditional-access/require-tou.md) prior to being able to access an application. For more information, see [govern access to applications in your environment](identity-governance-applications-prepare.md).
 
@@ -89,15 +89,33 @@ Check out the [Getting started tab](https://portal.azure.com/#view/Microsoft_AAD
 ![Identity Governance getting started](./media/identity-governance-overview/getting-started.png)
 
 
-There are also tutorials for [managing access to resources in entitlement management](entitlement-management-access-package-first.md), [onboarding external users to Azure AD through an approval process](entitlement-management-onboard-external-user.md), [governing access to existing applications](identity-governance-applications-prepare.md).  You can also automate identity governance tasks through Microsoft Graph and PowerShell.
+There are also tutorials for [managing access to resources in entitlement management](entitlement-management-access-package-first.md), [onboarding external users to Azure AD through an approval process](entitlement-management-onboard-external-user.md), [governing access to your applications](identity-governance-applications-prepare.md) and the [application's existing users](identity-governance-applications-existing-users.md).
 
 If you have any feedback about Identity Governance features, click **Got feedback?** in the Azure portal to submit your feedback. The team regularly reviews your feedback.
 
 While there is no perfect solution or recommendation for every customer, the following configuration guides also provide the baseline policies Microsoft recommends you follow to ensure a more secure and productive workforce.
 
+- [Prerequisites for configuring Azure AD for identity governance](identity-governance-applications-prepare.md)
 - [Plan an access reviews deployment to manage resource access lifecycle](deploy-access-reviews.md)
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Securing privileged access](../roles/security-planning.md)
+
+## Simplifying identity governance tasks with automation
+
+Once you've started using these identity governance features, you can easily automate common identity governance scenarios. The following table shows how to get started for each scenario:
+
+| Scenario to automate | Automation guide |
+| ------- | --------------------- |
+| Creating, updating and deleting AD and Azure AD user accounts automatically for employees |[Plan cloud HR to Azure AD user provisioning](../app-provisioning/plan-cloud-hr-provision.md)|
+| Updating the membership of a group, based on changes to the member user's attributes | [Create a dynamic group](../enterprise-users/groups-create-rule.md)|
+| Assigning licenses | [group-based licensing](..enterprise-users/licensing-groups-assign.md) |
+| Adding and removing a user's group memberships, application roles, and SharePoint site roles, on a specific date | [Configure lifecycle settings for an access package in entitlement management](entitlement-management-access-package-lifecycle-policy.md)|
+| Running custom workflows when a user requests or receives access, or access is removed | [Trigger Logic Apps in entitlement management](entitlement-management-logic-apps-integration.md) (preview) |
+| Regularly reviewing memberships of guests in Microsoft groups and Teams, and removing guest memberships that are denied |[Create an access review](create-access-review.md) |
+| Removing guest accounts that were denied by a reviewer |[Review and remove external users who no longer have resource access](access-reviews-external-users.md) |
+| Removing guest accounts that have no access package assignments |[Manage the lifecycle of external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users) |
+| Provisioning users into on-premises and cloud applications that have their own directories or databases | [Configure automatic user provisioning](../app-provisioning/user-provisioning.md) with user assignments or [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) |
+| Other scheduled tasks | [Automate identity governance tasks with Azure Automation](identity-governance-automation.md) and Microsoft Graph via the [Microsoft.Graph.Identity.Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) PowerShell module|
 
 ## Appendix - least privileged roles for managing in Identity Governance features
 
