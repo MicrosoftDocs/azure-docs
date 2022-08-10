@@ -13,57 +13,96 @@ recommendations: false
 ---
 
 <!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD023 -->
 
 # What is the Form Recognizer SDK?
 
-Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to analyze text and structured data from your documents. The Form Recognizer software development kit (SDK) is a set of libraries and tools that enable you easily integrate Form Recognizer models and capabilities into your applications. The SDK is available in C#, Java, JavaScript, and Python programming languages and across platforms.
+Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to analyze text and structured data from documents. The Form Recognizer software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Form Recognizer models and capabilities into your applications. The SDK is available in C#, Java, JavaScript, and Python programming languages and across platforms.
 
 ## Supported languages
 
 Form Recognizer SDK supports the following languages and platforms:
 
 | Programming language | Package| Reference |Platform support |
-|----------------------|----------|----------| ----------------|
-|[C#](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4)  | [.NET](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
+|:----------------------:|:----------|:----------| :----------------|
+|[C#](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [.NET](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
 |[Java](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.5)| [Node.js](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | |[PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/) [Python](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+|[JavaScript](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Node.js](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[Python](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/)| [Python](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## How to use the Form Recognizer SDK in your applications
 
-1. Install the SDK client package for your programming language. Import that package into your application using a requirement specifier or directive at the top of your application:
+1. Install the SDK client package for your programming language.
 
-### [C#](#tab/csharp)
+    ### [C#/.NET](#tab/csharp)
 
-```csharp
-using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+    ```dotnetcli
+    dotnet add package Azure.AI.FormRecognizer --version 4.0.0-beta.5
+    ```
+
+   ```powershell
+   Install-Package Azure.AI.FormRecognizer -Version 4.0.0-beta.5
+   ```
+
+    ### [Java](#tab/java)
+
+    ```xml
+     <dependency>
+       <groupId>com.azure</groupId>
+       <artifactId>azure-ai-formrecognizer</artifactId>
+       <version>4.0.0-beta.5</version>
+     </dependency>
+    ```
+
+```kotlin
+implementation("com.azure:azure-ai-formrecognizer:4.0.0-beta.5")
 ```
 
-### [Java](#tab/java)
+    ### [JavaScript](#tab/javascript)
 
-```java
-import com.azure.ai.formrecognizer.*;
-import com.azure.ai.formrecognizer.models.*;
-import com.azure.ai.formrecognizer.DocumentAnalysisClient.*;
+    ```javascript
+    npm i @azure/ai-form-recognizer@4.0.0-beta.6
+    ```
 
-import com.azure.core.credential.AzureKeyCredential;
-```
+    ### [Python](#tab/python)
 
-### [JavaScript](#tab/javascript)
+    ```python
+    from azure.ai.formrecognizer import DocumentAnalysisClient
+    from azure.core.credentials import AzureKeyCredential
+    ```
+1. Import that package into your application using a requirement specifier or directive at the top of your application:
 
-```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
-```
+    ### [C#](#tab/csharp)
 
-### [Python](#tab/python)
+    ```csharp
+    using Azure;
+    using Azure.AI.FormRecognizer.DocumentAnalysis;
+    ```
 
-```python
-from azure.ai.formrecognizer import DocumentAnalysisClient
-from azure.core.credentials import AzureKeyCredential
-```
+    ### [Java](#tab/java)
 
----
+    ```java
+    import com.azure.ai.formrecognizer.*;
+    import com.azure.ai.formrecognizer.models.*;
+    import com.azure.ai.formrecognizer.DocumentAnalysisClient.*;
+
+    import com.azure.core.credential.AzureKeyCredential;
+    ```
+
+    ### [JavaScript](#tab/javascript)
+
+    ```javascript
+    const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+    ```
+
+    ### [Python](#tab/python)
+
+    ```python
+    from azure.ai.formrecognizer import DocumentAnalysisClient
+    from azure.core.credentials import AzureKeyCredential
+    ```
+
+    ---
 
 1. Set up authentication for your application. There are two supported methods for authentication:
 
@@ -110,7 +149,7 @@ async function main() {
 
 ### [C#](#tab/csharp)
 
-Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet):
+Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true):
 
 1. Install the [Azure Identity library for .NET](/dotnet/api/overview/azure/identity-readme):
 
@@ -139,9 +178,9 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### [Java](#tab/java)
 
-Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential?view=azure-java-stable), 
+Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential?view=azure-java-stable&preserve-view=true):
 
-1. Install the [Azure Identity library for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable):
+1. Install the [Azure Identity library for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true):
 
 ```xml
 <dependency>
@@ -171,9 +210,9 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### [JavaScript](#tab/javascript)
 
-Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest):
+Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest&preserve-view=true):
 
-1. Install the [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest):
+1. Install the [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true):
 
 ```javascript
 npm install @azure/identity
@@ -198,9 +237,9 @@ For more information, *see* [Create and authenticate a client](https://github.co
 
 ### [Python](#tab/python)
 
-Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python):
+Authorization is easiest using DefaultAzureCredential. It finds the best credential to use in its running environment. To use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true):
 
-1. Install the [Azure Identity library for Python](/python/api/overview/azure/identity-readme?view=azure-python):
+1. Install the [Azure Identity library for Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true):
 
 ```python
 pip install azure-identity
