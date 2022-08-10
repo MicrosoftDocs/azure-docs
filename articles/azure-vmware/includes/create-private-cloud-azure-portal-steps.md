@@ -23,7 +23,7 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
 
 1. On the **Azure VMware Solution** window, select **Create**.
 
-1. If you need more hosts, [request a host quota increase]( https://docs.microsoft.com/azure/azure-vmware/request-host-quota-azure-vmware-solution?WT.mc_id=Portal-VMCP).
+1. If you need more hosts, [request a host quota increase](https://docs.microsoft.com/azure/azure-vmware/request-host-quota-azure-vmware-solution?WT.mc_id=Portal-VMCP).
 
 1. On the **Basics** tab, enter values for the fields and then select **Review + Create**. 
 
