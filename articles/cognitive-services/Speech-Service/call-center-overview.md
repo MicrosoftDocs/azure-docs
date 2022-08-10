@@ -30,19 +30,17 @@ Telephony data typically used in Call Centers is generated through landlines, mo
 On top of it’s best-jn-market speech recognition models Azure Cognitive Services provides key building blocks to incorporate AI in Call and Contact Center use cases. A holistic implementation typically incorporates technologies from the Speech and Language Cognitive Services. 
 
 The Speech Service offers the following features:
-- [Real-time speech-to-text](./how-to-recognize-speech): Allow real-time recognition of audio from multiple inputs
-    - [Continuous recognition](./how-to-recognize-speech#use-continuous-recognition): Mostly used with real-time Call Center scenarios (Virtual Agents, Agent Assist) allows you to continuously recognize audio input and control how to process results based on multiple events
-- [Batch speech-to-text](./batch-transcription): Enables you to transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in Post Call Analytics scenarios
-- [Text-to-speech](./index-text-to-speech): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
-- [Speaker identification](./speaker-recognition-overview#speaker-identification): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for Call Center customer verification scenarios or fraud detection
-- [Language Identification](./language-identification): Is used to identify languages spoken in audio and can be used in real-time and post call analysis to control the environment (e.g. output language of a Virtual Agent) or to gain additional insights
+- [Real-time speech-to-text](./how-to-recognize-speech.md): Allow real-time recognition of audio from multiple inputs
+    - [Continuous recognition](./how-to-recognize-speech.md#use-continuous-recognition): Mostly used with real-time Call Center scenarios (Virtual Agents, Agent Assist) allows you to continuously recognize audio input and control how to process results based on multiple events
+- [Batch speech-to-text](./batch-transcription.md): Enables you to transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in Post Call Analytics scenarios
+- [Text-to-speech](./index-text-to-speech.md): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech
+- [Speaker identification](./speaker-recognition-overview#speaker-identification.md): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for Call Center customer verification scenarios or fraud detection
+- [Language Identification](./language-identification.md): Is used to identify languages spoken in audio and can be used in real-time and post call analysis to control the environment (e.g. output language of a Virtual Agent) or to gain additional insights
 
 And the Language Service offers the following:
-
-***>>Links for Language Service to be added!!***
-- [Personally Identifiable Information (PII) extraction](): Used to identify, categorize, and redact sensitive information in unstructured text. For example: phone numbers and email addresses.
-- [Conversation summarization](): Enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts.
-- [Sentiment analysis](): Provides sentiment labels (such as "negative", "neutral" and "positive") at a sentence and document-level.  
+- [Personally Identifiable Information (PII) detection](/azure/cognitive-services/language-service/personally-identifiable-information/overview): Identify, categorize, and redact sensitive information in unstructured text.
+- [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze and associate positive or negative sentiment with specific aspects of the transcriptions.
+- [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize what each conversation participant said about the predefined issues and resolutions.
 
 ## Speech Customization
 
@@ -50,8 +48,8 @@ The Speech service works well with built-in models. However, you might want to f
 
 | Speech feature | Model | Description |
 | -------------- | ----- | ----------- |
-| Speech-to-text | [Custom Speech overview](./custom-speech-overview) | With Custom Speech, you can evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. |
-| Text-to-speech | [Custom Neural Voice overview](./custom-neural-voice) | Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
+| Speech-to-text | [Custom Speech overview](./custom-speech-overview.md) | With Custom Speech, you can evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. |
+| Text-to-speech | [Custom Neural Voice overview](./custom-neural-voice.md) | Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
 
 
 ## Next steps
