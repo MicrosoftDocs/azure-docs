@@ -42,6 +42,15 @@
     "MD044": {
         "code_blocks": false,
         "names": [
+            ".NET",
+            "ASP.NET",
+            "Azure",
+            "JavaScript",
+            "NuGet",
+            "PowerShell",
+            "macOS",
+            "C#",
+            "CLI"
         ]
     },
     "MD045": false,
