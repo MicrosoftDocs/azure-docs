@@ -8,7 +8,7 @@ ms.custom: subject-rbac-steps, devx-track-azurecli
 
 # Tutorial: Encrypt Azure Container Registry with a Customer managed key 
 
-This article is part two in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the Customer managed key, their key features, and the considerations before you enable a Customer managed key on your registry. This article walks you through the steps using the Azure CLI, Azure portal, or a Resource Manager template.
+This article is part two in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview about a Customer managed key, key features, and the considerations before you enable a Customer managed key on your registry. This article walks you through the steps using the Azure CLI, Azure portal, or a Resource Manager template.
 
 In this article 
 
@@ -192,7 +192,7 @@ keyID=$(az keyvault key show \
 keyID=$(echo $keyID | sed -e "s/\/[^/]*$//")
 ```
 
-### Create a registry with customer-managed key
+### Create a registry with a Customer managed key
 
 1. Run the [az acr create][az-acr-create](/cli/azure/acr#az-acr-create) command to create a registry in the *Premium* service tier and enable the customer-managed key. 
 
