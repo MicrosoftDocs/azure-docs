@@ -425,7 +425,7 @@ Before you create new assignments, configure [provisioning of Azure AD users](..
 
    * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md).
    * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md).
-   * For other applications, follow steps 1-3 to [configure provisioning via Graph](app-provisioning/application-provisioning-configuration-api.md).
+   * For other applications, follow steps 1-3 to [configure provisioning via Graph APIs](../app-provisioning/application-provisioning-configuration-api.md).
 
 1. Check the [attribute mappings](../app-provisioning/customize-application-attributes.md) for provisioning to that application. Make sure that **Match objects using this attribute** is set for the Azure AD attribute and column that you used in the previous sections for matching.  
 
