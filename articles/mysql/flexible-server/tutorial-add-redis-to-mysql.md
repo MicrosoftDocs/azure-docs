@@ -28,7 +28,26 @@ For this quickstart you need:
 
 ## Populate the mysql database
 
-Use mysql workbench and import database sample 
+Use mysql workbench, and connect to the server 
+
+```sql
+CREATE DATABASE tododb;
+
+CREATE TABLE tasks
+(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	title nvarchar(100) NOT NULL,
+	completed TINYINT(1) NOT NULL
+);
+
+INSERT INTO tasks (title, completed) VALUES
+('Task1', 0),
+('Task2', 0),
+('Task3', 1),
+('Task4', 1),
+('Task5', 0);
+
+```
 
 ## Create a Redis cache 
 [!INCLUDE [redis-cache-create](../../azure-cache-for-redis/includes/redis-cache-create.md)]
@@ -37,7 +56,7 @@ Use mysql workbench and import database sample
 In the repository you will find some Python code that you can run in your EC2 instance. But first you need to configure some environment variables:
 ```
 syntax: shell
-$ export REDIS_URL=redis://your_redis_endpoint:6379/
+$ export REDIS_URL=redis://your_AZURE_redis_endpoint:6379/
 $ export DB_HOST=your_mysql_endpoint
 $ export DB_USER=admin
 $ export DB_PASS=your_admin_password
