@@ -19,7 +19,7 @@ The process for deploying Windows Server-based virtual machines (VMs) on Azure V
 > [!NOTE]
 > Windows Server scenarios support the following versions of Azure Active Directory (AD)-joined session hosts:
 > 
-> - WIndows Server 2019
+> - Windows Server 2019
 > - Windows Server 2022
 > 
 > However, Windows Server scenarios don't support the following versions of Azure AD-joined session hosts:
