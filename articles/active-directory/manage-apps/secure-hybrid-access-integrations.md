@@ -559,28 +559,28 @@ Microsoft has partnerships with these application delivery controller (ADC) prov
 
 | **ADC provider** | **Link** |
 | --- | --- |
-| Akamai Enterprise Application Access | [Tutorial: Azure AD SSO integration with Akamai](../saas-apps/akamai-tutorial.md) |
-| Citrix ADC | [Tutorial: Azure Active Directory single sign-on integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md) |
-| F5 BIG-IP Access Policy Manager | [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md) |
-| Kemp LoadMaster | [Tutorial: Azure Active Directory SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md) |
-| Pulse Secure Virtual Traffic Manager | [Tutorial: Azure Active Directory single sign-on (SSO) integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md) |
+| Akamai Enterprise Application Access | [Akamai Enterprise Application Access](../saas-apps/akamai-tutorial.md) |
+| Citrix ADC | [Citrix ADC](../saas-apps/citrix-netscaler-tutorial.md) |
+| F5 BIG-IP Access Policy Manager | [F5 BIG-IP Access Policy Manager](./f5-aad-integration.md) |
+| Kemp LoadMaster | [Kemp LoadMaster](../saas-apps/kemp-tutorial.md) |
+| Pulse Secure Virtual Traffic Manager | [Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md) |
 
 The following VPN solution providers connect with Azure AD to enable modern authentication and authorization methods like SSO and multifactor authentication.
 
 | **VPN vendor** | **Link** |
 | --- | --- |
-| Cisco AnyConnect | [Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco AnyConnect](../saas-apps/cisco-anyconnect.md) |
-| Fortinet FortiGate | [Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md) |
-| F5 BIG-IP Access Policy Manager | [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-aad-password-less-vpn.md) |
-| Palo Alto Networks GlobalProtect | [Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI](../saas-apps/paloaltoadmin-tutorial.md) |
-| Pulse Connect Secure | [Tutorial: Azure Active Directory single sign-on (SSO) integration with Pulse Secure PCS](../saas-apps/pulse-secure-pcs-tutorial.md) |
+| Cisco AnyConnect | [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md) |
+| Fortinet FortiGate | [Fortinet FortiGate](../saas-apps/fortigate-ssl-vpn-tutorial.md) |
+| F5 BIG-IP Access Policy Manager | [F5 BIG-IP Access Policy Manager](./f5-aad-password-less-vpn.md) |
+| Palo Alto Networks GlobalProtect | [Palo Alto Networks GlobalProtect](../saas-apps/paloaltoadmin-tutorial.md) |
+| Pulse Connect Secure | [Pulse Connect Secure](../saas-apps/pulse-secure-pcs-tutorial.md) |
 
 The following providers of software-defined perimeter (SDP) solutions connect with Azure AD to enable modern authentication and authorization methods like SSO and multifactor authentication.
 
 | **SDP vendor** | **Link** |
 | --- | --- |
-| Datawiza Access Broker | [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza](./datawiza-with-azure-ad.md) |
-| Perimeter 81 | [Tutorial: Azure Active Directory single sign-on (SSO) integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md) |
-| Silverfort Authentication Platform | [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort ](./silverfort-azure-ad-integration.md) |
-| Strata Maverics Identity Orchestrator | [Integrate Azure AD single sign-on with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md) |
-| Zscaler Private Access | [Tutorial: Integrate Zscaler Private Access (ZPA) with Azure Active Directory](../saas-apps/zscalerprivateaccess-tutorial.md) |
+| Datawiza Access Broker | [Datawiza Access Broker](./datawiza-with-azure-ad.md) |
+| Perimeter 81 | [Perimeter 81](../saas-apps/perimeter-81-tutorial.md) |
+| Silverfort Authentication Platform | [Silverfort Authentication Platform](./silverfort-azure-ad-integration.md) |
+| Strata Maverics Identity Orchestrator | [Strata Maverics Identity Orchestrator](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md) |
+| Zscaler Private Access | [Zscaler Private Access](../saas-apps/zscalerprivateaccess-tutorial.md) |
