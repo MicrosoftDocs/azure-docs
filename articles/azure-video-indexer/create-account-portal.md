@@ -62,7 +62,7 @@ This tab enables you to view details about your account.
 
 Select **Explore Azure Video Indexer's portal** to view your new account on the [Azure Video Indexer website](https://aka.ms/vi-portal-link).
 
-### Account details
+### Essential details
 
 |Name|Description|
 |---|---|
