@@ -57,8 +57,13 @@ When building a high-throughput app, keep some optimization in mind.
 
 ## Next steps
 
-We've completed the how-to for building scalable apps.
+We've completed the quickstart for building scalable apps. Next let's see how
+to connect and query Hyperscale (Citus) with a your programming language of
+choice.
 
-* Learn how to use specific [app stacks](howto-app-stacks-overview.md) with Hyperscale (Citus).
+> [!div class="nextstepaction"]
+> [App stacks >](quickstart-app-stacks-overview.md)
+
+* Learn how to use specific [app stacks](quickstart-app-stacks-overview.md) with Hyperscale (Citus).
 * You may now want to know how to [scale a server group](howto-scale-grow.md)
   to give your app more nodes and hardware capacity.

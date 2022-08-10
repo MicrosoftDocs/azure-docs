@@ -60,4 +60,4 @@ Before you start building a new app, you must first learn a little about the
 architecture of Hyperscale (Citus).
 
 > [!div class="nextstepaction"]
-> [Fundamental concepts for scaling >](howto-build-scalable-apps-concepts.md)
+> [Fundamental concepts for scaling >](quickstart-build-scalable-apps-concepts.md)

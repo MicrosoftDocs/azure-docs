@@ -110,7 +110,7 @@ Inserted 2 rows of data
 
 ## Step 2: Use the super power of distributed tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
@@ -197,5 +197,5 @@ conn.close()
 
 ## Next steps
 
-Learn to [build scalable applications](howto-build-scalable-apps-overview.md)
+Learn to [build scalable applications](quickstart-build-scalable-apps-overview.md)
 with Hyperscale (Citus).

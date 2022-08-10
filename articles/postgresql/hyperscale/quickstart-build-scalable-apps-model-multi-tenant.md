@@ -131,7 +131,7 @@ it easy to include a tenant ID in queries. Here are instructions:
 
 We've completed the how-to for building scalable apps.
 
-* Learn how to use specific [app stacks](howto-app-stacks-overview.md) with Hyperscale (Citus).
+* Learn how to use specific [app stacks](quickstart-app-stacks-overview.md) with Hyperscale (Citus).
 * You may now want to know how to [scale a server group](howto-scale-grow.md)
   to give your app more nodes and hardware capacity.
 * To migrate an existing multi-tenant app to Hyperscale (Citus), see

@@ -19,7 +19,7 @@ Hyperscale (Citus).
 ## Prerequisites
 
 This article assumes you know the [fundamental concepts for
-scaling](howto-build-scalable-apps-concepts.md). If you haven't read about
+scaling](quickstart-build-scalable-apps-concepts.md). If you haven't read about
 them, take a moment to do so.
 
 ## Characteristics of multi-tenant SaaS
@@ -67,10 +67,10 @@ them, take a moment to do so.
 Choose whichever fits your application the best:
 
 > [!div class="nextstepaction"]
-> [Model multi-tenant SaaS app >](howto-build-scalable-apps-model-multi-tenant.md)
+> [Model multi-tenant SaaS app >](quickstart-build-scalable-apps-model-multi-tenant.md)
 
 > [!div class="nextstepaction"]
-> [Model real-time analytics app](howto-build-scalable-apps-model-real-time.md)
+> [Model real-time analytics app](quickstart-build-scalable-apps-model-real-time.md)
 
 > [!div class="nextstepaction"]
-> [Model high-throughput app](howto-build-scalable-apps-model-high-throughput.md)
+> [Model high-throughput app](quickstart-build-scalable-apps-model-high-throughput.md)

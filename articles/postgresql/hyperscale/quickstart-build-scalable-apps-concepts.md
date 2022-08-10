@@ -106,4 +106,4 @@ without shuffling data between nodes.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Classify application workload >](howto-build-scalable-apps-classify.md)
+> [Classify application workload >](quickstart-build-scalable-apps-classify.md)

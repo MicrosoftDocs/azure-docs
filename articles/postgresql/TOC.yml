@@ -646,33 +646,33 @@
       - name: Data modeling
         items:
         - name: Overview
-          href: hyperscale/howto-build-scalable-apps-overview.md
+          href: hyperscale/quickstart-build-scalable-apps-overview.md
         - name: Concepts
-          href: hyperscale/howto-build-scalable-apps-concepts.md
+          href: hyperscale/quickstart-build-scalable-apps-concepts.md
         - name: Classify workload
-          href: hyperscale/howto-build-scalable-apps-classify.md
+          href: hyperscale/quickstart-build-scalable-apps-classify.md
         - name: Workloads
           items:
             - name: Multi-tenant apps
-              href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
+              href: hyperscale/quickstart-build-scalable-apps-model-multi-tenant.md
             - name: Real-time apps
-              href: hyperscale/howto-build-scalable-apps-model-real-time.md
+              href: hyperscale/quickstart-build-scalable-apps-model-real-time.md
             - name: High-throughput apps
-              href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
+              href: hyperscale/quickstart-build-scalable-apps-model-high-throughput.md
       - name: App stacks
         items:
         - name: Overview
-          href: hyperscale/howto-app-stacks-overview.md
+          href: hyperscale/quickstart-app-stacks-overview.md
         - name: Python
-          href: hyperscale/howto-app-stacks-python.md
+          href: hyperscale/quickstart-app-stacks-python.md
         - name: Node.js
-          href: hyperscale/howto-app-stacks-nodejs.md
+          href: hyperscale/quickstart-app-stacks-nodejs.md
         - name: C#
-          href: hyperscale/howto-app-stacks-csharp.md
+          href: hyperscale/quickstart-app-stacks-csharp.md
         - name: Java
-          href: hyperscale/howto-app-stacks-java.md
+          href: hyperscale/quickstart-app-stacks-java.md
         - name: Ruby
-          href: hyperscale/howto-app-stacks-ruby.md
+          href: hyperscale/quickstart-app-stacks-ruby.md
   - name: Tutorials
     items:
       - name: Model data
