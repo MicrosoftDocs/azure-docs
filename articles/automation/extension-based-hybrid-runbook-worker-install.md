@@ -617,7 +617,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
    ```
     
-1. Follow the steps [here]( /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
+1. Follow the steps [here](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
 
 1. Get the automation account details using this API call.
 
