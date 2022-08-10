@@ -87,13 +87,9 @@ landingContent:
         links:
           - text: What is Hyperscale (Citus)?
             url: hyperscale/overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Build scalable apps
-            url: hyperscale/howto-build-scalable-apps-overview.md
       - linkListType: quickstart
         links:
-          - text: Create a Hyperscale (Citus) cluster in the Azure Portal
+          - text: Quickstart
             url: hyperscale/quickstart-create-portal.md
 
 # Card
