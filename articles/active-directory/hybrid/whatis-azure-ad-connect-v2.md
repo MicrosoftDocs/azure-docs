@@ -17,8 +17,6 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 Azure AD Connect was released several years ago.  Since this time, several of the components that Azure AD Connect uses have been scheduled for deprecation and updated to newer versions.  Attempting to update all of these components individually would take time and planning. 
 
-
-
 To address this, we've bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components. 
 
 ## What are the major changes? 
@@ -65,7 +63,6 @@ More details about PowerShell prerequisites can be found [here](/powershell/scri
 
 ## What else do I need to know? 
 
-
 **Why is this upgrade important for me?** </br>
 Next year several of the components in your current Azure AD Connect server installations will go out of support. If you are using unsupported products, it will be harder for our support team to provide you with the support experience your organization requires. So we recommend all customers to upgrade to this newer version as soon as they can. 
 
@@ -96,6 +93,8 @@ No, the upgrade to SQL 2019 doesn't remove any SQL 2012 components from your ser
 Until one of the components that are being retired are actually deprecated, you will not see any impact. Azure AD Connect will keep on working. 
 
 We expect TLS 1.0/1.1 to be deprecated in 2022, and you need to make sure you aren't using these protocols by that date as your service may stop working unexpectedly. You can manually configure your server for TLS 1.2 though, and that doesn't require an update of Azure AD Connect to V2 
+
+Azure AD Connect Health will stop working after December 20222. We will auto upgrade all Health agents to a new version before the end of 2022, but we cannot auto upgrade if you are running AADConnect V1 due to compatibility issues with V versions.
 
 After December 2022, ADAL is planned to go out of support. When ADAL goes out of support, authentication may stop working unexpectedly, and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2 before December 2022. You can't upgrade to a supported authentication library with your current Azure AD Connect version. 
 
