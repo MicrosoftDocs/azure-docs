@@ -122,9 +122,9 @@ Your inbound IP address can change when you delete a binding, even if that bindi
 
 ## Enforce HTTPS
 
-By default, anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port.
-
 In your app page, in the left navigation, select **TLS/SSL settings**. Then, in **HTTPS Only**, select **On**.
+
+If selected **HTTPS Only**, **Off** It means anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port by selecting **On**. 
 
 ![Enforce HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 

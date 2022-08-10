@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 07/28/2022
+ms.date: 07/29/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -14,11 +14,18 @@ ms.author: barclayn
 
 ---
 
-# What's new in Microsoft Entra Verified ID (preview)
+# What's new in Microsoft Entra Verified ID
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
+
+## August 2022
+
+Microsoft Entra Verified ID is now generally available (GA) as the new member of the Microsoft Entra portfolio! [read more](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-verified-id-now-generally-available/ba-p/3295506) 
+
+### Known issues 
+- Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be available by 08/20/22.
 
 ## July 2022
 
