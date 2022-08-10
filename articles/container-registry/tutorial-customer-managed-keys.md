@@ -7,7 +7,7 @@ ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ---
 
-# Tutorial: An overview of Customer managed key encryption for your Azure Container Registry
+# Tutorial: An overview on Customer managed key encryption for your Azure Container Registry
 
 Azure container registry, automatically encrypts the images and other artifacts you store. By default, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md). You can supplement default encryption with an additional encryption layer using a customer-managed key.
 
@@ -55,7 +55,7 @@ Azure Container Registry supports both automatic and manual rotation  of registr
 
 * **Manually update the key version** -  With a registry encrypted with a specific key version, Azure Container Registry uses that version for encryption until you manually rotate the customer-managed key. So, we suggest specifying the key version when you enable registry encryption with a customer-managed key. So, that ACR will use a specific version of a key for registry encryption.
 
-For details, see [Choose key ID with version](container-registry-tutorial-enable-customer-managed-keys.md#option-1-manual-key-rotation---key-id-with-version) ,  or [Choose key ID without key version](container-registry-tutorial-enable-customer-managed-keys.md#option-2-automatic-key-rotation---key-id-omitting-version), and [Update key version](container-registry-tutorial-rotate-revoke-customer-managed-keys#create-or-update-key-version---cli) later in this tutorial.
+For details, see [Choose key ID with version](tutorial-enable-customer-managed-keys.md#option-1-manual-key-rotation---key-id-with-version) ,  or [Choose key ID without key version](tutorial-enable-customer-managed-keys.md#option-2-automatic-key-rotation---key-id-omitting-version), and [Update key version](tutorial-rotate-revoke-customer-managed-keys.md#create-or-update-key-version---cli) later in this tutorial.
 
 ## Next steps
 

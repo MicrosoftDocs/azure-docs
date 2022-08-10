@@ -7,6 +7,9 @@ ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ---
 
+
+# Rotate and Revoke a Customer managed key 
+
 This article is part three in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learnt to enable customer-managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a customer managed key, update key version and revoke the key.
 
 ## Rotate the Customer managed key
@@ -17,7 +20,7 @@ This article is part three in a four-part tutorial series. In [part one](tutoria
 
 > [!NOTE]
 > * To enable the registry's system-assigned identity in the portal, select **Settings** > **Identity** and set the system-assigned identity's status to **On**.
-> * Ensure that the required [key vault access](#enable-key-vault-access-by-managed-identity) is set for the identity you configure for key access.
+> * Ensure that the required [key vault access](tutorial-enable-customer-managed-keys.md#enable-key-vault-access-by-managed-identity) is set for the identity you configure for key access.
 
 ###  Create or update key version - CLI
 
