@@ -160,15 +160,15 @@ The DNS settings that you use to connect to a private-link resource are importan
 The network interface associated with the private endpoint contains the information that's required to configure your DNS. The information includes the FQDN and private IP address for a private-link resource. 
 
 For complete, detailed information about recommendations to configure DNS for private endpoints, see [Private endpoint DNS configuration](private-endpoint-dns.md).
- 
+
 ## Limitations
- 
+
 The following information lists the known limitations to the use of private endpoints: 
 
 ### Network security group
 
 | Limitation | Description |
-| --------- | --------- |
+| --------- | ------------ |
 | Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. |
 | NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. |
 | Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. |
@@ -179,7 +179,7 @@ The following information lists the known limitations to the use of private endp
 | Destination port ranges supported up to a factor of 250K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br></br> Example inbound rule: </br> 1 source * 1 destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. |
 | Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. |
 | Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast |
-| Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the UDR rule example in the next table. | No mitigation information is available at this time. |
+| Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the UDR rule example in the next table. |
   
 The following table shows an example of a dual port NSG rule:
   
