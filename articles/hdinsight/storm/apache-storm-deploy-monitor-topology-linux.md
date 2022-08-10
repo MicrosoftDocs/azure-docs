@@ -4,7 +4,7 @@ description: Learn how to deploy, monitor, and manage Apache Storm topologies us
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/18/2019
+ms.date: 07/19/2022
 ---
 
 # Deploy and manage Apache Storm topologies on Azure HDInsight

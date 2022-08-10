@@ -307,6 +307,14 @@ This step takes place once on the IoT Edge device during initial device setup.
    ```bash
    sudo iotedge config apply
    ```
+   
+6. Verify that your proxy settings are propagated using `docker inspect edgeAgent` in the `Env` section. If not, the container must be recreated.
+
+   ```bash
+   sudo docker rm -f edgeAgent
+   ```
+   
+7. The IoT Edge runtime should recreate `edgeAgent` within a minute. Once `edgeAgent` container is running again, `docker inspect edgeAgent` and verify the proxy settings matches the configuration file. 
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->

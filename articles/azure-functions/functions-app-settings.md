@@ -17,6 +17,9 @@ Example connection string values are truncated for readability.
 > [!NOTE]
 > You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted.
 
+> [!IMPORTANT]
+> Do not use an [instrumentation key](../azure-monitor/app/separate-resources.md#about-resources-and-instrumentation-keys) and a [connection string](../azure-monitor/app/sdk-connection-string.md#overview) simultaneously. Whichever was set last will take precedence.
+
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
 The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
@@ -24,6 +27,8 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 |Key|Sample value|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|`55555555-af77-484b-9032-64f83bb83bb`|
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -351,15 +356,25 @@ To avoid excessive module upgrades on frequent Worker restarts, checking for mod
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
+## PIP\_INDEX\_URL
+
+This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies that are found in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
+
+|Key|Sample value|
+|---|------------|
+|PIP\_INDEX\_URL|`http://my.custom.package.repo/simple` |
+
+To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-i) and using [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.
+The value for this setting indicates a extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
 
 |Key|Sample value|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
-To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 

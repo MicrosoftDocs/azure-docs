@@ -191,33 +191,28 @@
             "redirect_document_id": false
         }, 
         {
-            "source_path_from_root": "/articles/virtual-machine-scale-sets/orchestration-modes.md",
-            "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/orchestration-modes",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-cli.md",
-            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-cli.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md",
-            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-portal.md",
-            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-portal.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-powershell.md",
-            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-powershell.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-powershell",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-rest-api.md",
-            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-rest-api.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-rest-api",
             "redirect_document_id": false
         },
         {
@@ -297,7 +292,7 @@
           },	  
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets.md",
-            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets",
             "redirect_document_id": false
         }                                                                                                                                                             
     ]

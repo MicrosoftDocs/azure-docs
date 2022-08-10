@@ -1,17 +1,17 @@
 ---
-title: 'Azure VPN Client optional configuration steps: OpenVPN protocol - Windows'
+title: 'Azure VPN Client optional configuration steps: OpenVPN protocol'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure the Azure VPN Client optional configuration parameters for P2S OpenVPN connections.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/06/2022
+ms.date: 07/12/2022
 ms.author: cherylmc
 
 ---
-# Configure Azure VPN Client optional settings - OpenVPN protocol - Windows
+# Configure Azure VPN Client optional settings - OpenVPN protocol
 
-This article helps you configure optional settings for an Azure VPN Client installed on a Windows computer.
+This article helps you configure optional settings for the Azure VPN Client.
 
 * For information about installing the Azure VPN Client, see [Configure the Azure VPN client - Windows](openvpn-azure-ad-client.md).
 
@@ -100,11 +100,11 @@ Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<d
 </azvpnprofile>
 ```
 
-### <a name="forced-tunneling"></a>Direct all traffic to the VPN tunnel (force tunnel)
+### <a name="forced-tunneling"></a>Direct all traffic to the VPN tunnel (forced tunneling)
 
-You can include 0/0 if you're using the Azure VPN Client version 2.1900:39.0 or higher.
+You can include 0/0 if you're using the Azure VPN Client version 2.1900:39.0 or higher. Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**.
 
-Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**.
+For more information about configuring forced tunneling, including additional configuration options, see [How to configure forced tunneling](how-to-forced-tunnel.md).
 
 ```xml
 <azvpnprofile>

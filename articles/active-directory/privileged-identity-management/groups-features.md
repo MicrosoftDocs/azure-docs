@@ -3,7 +3,7 @@ title: Managing Privileged Access groups in Privileged Identity Management (PIM)
 description: How to manage members and owners of privileged access groups in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: amsliu
 manager: karenhoran
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: amsliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management
 

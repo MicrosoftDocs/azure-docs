@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/11/2022
+ms.date: 07/12/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -75,20 +75,22 @@ The Azure Blob Storage client libraries for .NET, Java, and Python support encry
 
 The Blob Storage and Queue Storage client libraries uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client libraries:
 
-- Version 2.x uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES.
-- Version 1.x uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
+- Version 2 uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES. The Blob Storage and Queue Storage SDKs support client-side encryption with v2.
+- Version 1 uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. The Blob Storage, Queue Storage, and Table Storage SDKs support client-side encryption with v1.
 
 > [!WARNING]
-> Using version 1.x of client-side encryption is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data.
+> Using client-side encryption v1 is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using v1, we recommend that you update your application to use client-side encryption v2 and migrate your data.
+>
+> The Azure Table Storage SDK supports only client-side encryption v1. Using client-side encryption with Table Storage is not recommended.
 
 The following table shows which client libraries support which versions of client-side encryption and provides guidelines for migrating to client-side encryption v2.
 
 | Client library | Version of client-side encryption supported | Recommended migration | Additional guidance |
 |--|--|--|--|
-| Blob Storage client libraries for .NET, Java, and Python, version 12.x and above | 2.0<br/><br/>1.0 (for backward compatibility only) | Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. | [Client-side encryption for blobs](../blobs/client-side-encryption.md) |
-| Blob Storage client library for .NET, Java, and Python, version 11.x and below | 1.0 (not recommended) | Update your application to use Blob Storage SDK version 12.x or later.<br/><br/>Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. | [Client-side encryption for blobs](../blobs/client-side-encryption.md) |
-| Queue Storage client library for .NET and Python, version 12.x and above | 2.0<br/><br/>1.0 (for backward compatibility only) | Update your code to use client-side encryption v2. | [Client-side encryption for queues](../queues/client-side-encryption.md) |
-| Queue Storage client library for .NET and Python, version 11.x and below | 1.0 (not recommended) | Update your application to use Blob Storage SDK version 12.x or later.<br/><br/>Update your code to use client-side encryption v2. | [Client-side encryption for queues](../queues/client-side-encryption.md) |
+| Blob Storage client libraries for .NET (version 12.13.0 and above), Java (version 12.18.0 and above), and Python (version 12.13.0 and above) | 2.0<br/><br/>1.0 (for backward compatibility only) | Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. | [Client-side encryption for blobs](../blobs/client-side-encryption.md) |
+| Blob Storage client library for .NET (version 12.12.0 and below), Java (version 12.17.0 and below), and Python (version 12.12.0 and below) | 1.0 (not recommended) | Update your application to use a version of the Blob Storage SDK that supports client-side encryption v2. See [SDK support matrix for client-side encryption](../blobs/client-side-encryption.md#sdk-support-matrix-for-client-side-encryption) for details.<br/><br/>Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. | [Client-side encryption for blobs](../blobs/client-side-encryption.md) |
+| Queue Storage client library for .NET (version 12.11.0 and above) and Python (version 12.4 and above) | 2.0<br/><br/>1.0 (for backward compatibility only) | Update your code to use client-side encryption v2. | [Client-side encryption for queues](../queues/client-side-encryption.md) |
+| Queue Storage client library for .NET (version 12.10.0 and below) and Python (version 12.3.0 and below) | 1.0 (not recommended) | Update your application to use a version of the Queue Storage SDK version that supports client-side encryption v2. See [SDK support matrix for client-side encryption](../queues/client-side-encryption.md#sdk-support-matrix-for-client-side-encryption)<br/><br/>Update your code to use client-side encryption v2. | [Client-side encryption for queues](../queues/client-side-encryption.md) |
 | Table Storage client library for .NET, Java, and Python | 1.0 (not recommended) | Not available. | N/A |
 
 ## Next steps
