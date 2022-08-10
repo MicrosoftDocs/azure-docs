@@ -93,7 +93,7 @@ For both modes, users who have previously registered a method that can be used f
 
 ### Interrupt mode
 
-Combined registration adheres to both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration. If only an SSPR policy is enabled, then users will be able to skip the registration interruption and complete it at a later time.
+Combined registration adheres to both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration. If only an SSPR policy is enabled, then users will be able to skip(indefinitely) the registration interruption and complete it at a later time.
 
 The following are sample scenarios where users might be prompted to register or refresh their security info:
 
