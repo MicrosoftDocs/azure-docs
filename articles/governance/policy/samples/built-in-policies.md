@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 07/20/2022
+ms.date: 08/08/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -103,9 +103,9 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
-## Container App
+## Container Apps
 
-[!INCLUDE [azure-policy-reference-policies-container-app](../../../../includes/policy/reference/bycat/policies-container-app.md)]
+[!INCLUDE [azure-policy-reference-policies-container-apps](../../../../includes/policy/reference/bycat/policies-container-apps.md)]
 
 ## Container Instance
 
@@ -159,6 +159,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
 
+## Health Bot
+
+[!INCLUDE [azure-policy-reference-policies-health-bot](../../../../includes/policy/reference/bycat/policies-health-bot.md)]
+
 ## Healthcare APIs
 
 [!INCLUDE [azure-policy-reference-policies-healthcare-apis](../../../../includes/policy/reference/bycat/policies-healthcare-apis.md)]
@@ -198,10 +202,6 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Managed Identity
 
 [!INCLUDE [azure-policy-reference-policies-managed-identity](../../../../includes/policy/reference/bycat/policies-managed-identity.md)]
-
-## Managed Labs
-
-[!INCLUDE [azure-policy-reference-policies-managed-labs](../../../../includes/policy/reference/bycat/policies-managed-labs.md)]
 
 ## Maps
 

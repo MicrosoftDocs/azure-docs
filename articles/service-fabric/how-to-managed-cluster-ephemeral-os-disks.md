@@ -57,7 +57,7 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 3. Deploy an ARM template through one of the methods below:
 
-   * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
+   * ARM portal custom template experience: [Custom deployment - Microsoft Azure](https://portal.azure.com/#create/Microsoft.Template). Select the following image to sign in to Azure, and provide your own values for the template parameters, then deploy the template.
 
       [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Standard-SKU-2-NT-Ephemeral%2Fazuredeploy.json)
 

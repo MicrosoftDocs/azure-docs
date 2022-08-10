@@ -31,7 +31,7 @@
   - name: CI/CD
     items:
     - name: Bicep with pipelines
-      displayName: continuous, ci, cd, CI/CD
+      displayName: continuous,ci,cd,CI/CD,AzureResourceGroupDeployment,AzureCLI
       href: add-template-to-azure-pipelines.md
     - name: Bicep with GitHub Actions
       displayName: continuous, ci, cd, CI/CD
@@ -354,6 +354,8 @@
       items:
       - name: Admin user name not literal
         href: linter-rule-admin-username-should-not-be-literal.md
+      - name: Artifacts parameters
+        href: linter-rule-artifacts-parameters.md
       - name: Max outputs
         href: linter-rule-max-outputs.md
       - name: Max parameters
@@ -380,8 +382,12 @@
         href: linter-rule-outputs-should-not-contain-secrets.md
       - name: Prefer interpolation
         href: linter-rule-prefer-interpolation.md
+      - name: Prefer unquoted property names
+        href: linter-rule-prefer-unquoted-property-names.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
+      - name: Secure secrets in parameters
+        href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
         href: linter-rule-simplify-interpolation.md
       - name: Use explicit values for module location parameters
