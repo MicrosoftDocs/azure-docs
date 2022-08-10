@@ -68,10 +68,11 @@ You can use this option after you've deployed an AMS resource.
 
 | **Priority** | **Name**                 | **Port** | **Protocol** | **Source** | **Destination**      | **Action** |
 |--------------|--------------------------|----------|--------------|------------|----------------------|------------|
-| 450          | allow_monitor            | 443      | TCP          |            | Azure Monitor         | Allow      |
-| 501          | allow_keyVault           | 443      | TCP          |            | Azure Key Vault        | Allow      |
-| 550          | allow_storage            | 443      | TCP          |            | Storage              | Allow      |
-| 600          | allow_azure_controlplane | 443      | Any          |            | Azure Resource Manager | Allow      |
+| 450          | allow_monitor            | 443      | TCP          |  Azure Function subnet           | Azure Monitor         | Allow      |
+| 501          | allow_keyVault           | 443      | TCP          |  Azure Function subnet           | Azure Key Vault        | Allow      |
+| 550          | allow_storage            | 443      | TCP          |   Azure Function subnet          | Storage              | Allow      |
+| 600          | allow_azure_controlplane | 443      | Any          |   Azure Function subnet          | Azure Resource Manager | Allow      |
+| 650      | allow_ams_to_source_system | Any  | Any   |  Azure Function subnet | Virtual Network or comma seperated IP addresses of the source system. | Allow      |
 | 660          | deny_internet            | Any      | Any          | Any        | Internet             | Deny       |
 
 
