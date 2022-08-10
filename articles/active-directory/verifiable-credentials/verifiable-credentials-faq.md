@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions - Azure Verifiable Credentials (preview)
+title: Frequently asked questions - Azure Verifiable Credentials
 description: Find answers to common questions about Verifiable Credentials
 author: barclayn
 manager: rkarlin
@@ -11,7 +11,7 @@ ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
 
-# Frequently Asked Questions (FAQ) (preview)
+# Frequently Asked Questions (FAQ)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Issue Microsoft Entra Verified ID credentials from an application (preview)
+title: Tutorial - Issue Microsoft Entra Verified ID credentials from an application
 description: In this tutorial, you learn how to issue verifiable credentials by using a sample app.
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.date: 06/16/2022
 ---
 
 
-# Issue Microsoft Entra Verified ID credentials from an application (preview)
+# Issue Microsoft Entra Verified ID credentials from an application
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 

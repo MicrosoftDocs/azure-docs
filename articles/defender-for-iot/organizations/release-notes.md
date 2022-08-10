@@ -61,6 +61,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## August 2022
 
+<<<<<<< HEAD
 - [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
 
 ### New alert columns with timestamp data
@@ -87,6 +88,19 @@ For more information, see:
 - [View alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
+=======
+- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
+
+### Sensor health from the Azure portal (Public preview)
+
+For OT sensor versions 22.1.3 and higher, you can use the new sensor health widgets and table column data to monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+
+:::image type="content" source="media/release-notes/sensor-health.png" alt-text="Screenshot showing the new sensor health widgets." lightbox="media/release-notes/sensor-health.png":::
+
+We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
+
+For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
+>>>>>>> 3cebc815e27766a3b95a9c08f7ca7342b7932c12
 
 ## July 2022
 
@@ -143,6 +157,7 @@ Now you can add any of the following parameters to your query to fine tune your 
 - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
 For more information, see [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
+>>>>>>> 3e9c47c4758cdb6f63a6873219cab9498206cb2a
 
 ### OT appliance hardware profile updates
 
