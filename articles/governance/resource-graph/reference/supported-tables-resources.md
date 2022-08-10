@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 04/18/2022
+ms.date: 08/09/2022
 ms.topic: reference
 ms.custom: generated
 author: timwarner-msft
@@ -27,6 +27,11 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 ## alertsmanagementresources
 
 - microsoft.alertsmanagement/alerts
+
+## appserviceresources
+- microsoft.web/sites/config/web
+- microsoft.web/sites/slots/config/web
+- microsoft.web/sites/workflows
 
 ## chaosresources
 
