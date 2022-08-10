@@ -163,49 +163,36 @@ For complete, detailed information about recommendations to configure DNS for pr
  
 ## Limitations
  
-The following table list the known limitations to the use of private endpoints: 
+The following information lists the known limitations to the use of private endpoints: 
 
-| Limitation | Description |Mitigation |
+### NSG 
+
+| Limitation | Description | Mitigation |
+| --------- | --------- | --------- |
+| Effective routes and security rules unavailable for Private Endpoint network interface. | Effective routes and security rules won't be displayed for the Private Endpoint NIC in the Azure portal. | N/A |
+| NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. | N/A |
+| No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that’s coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. | Limit ASG members to 50 or less. |
+| Destination port ranges supported up to a factor of 250K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br> Example inbound rule: </br> 1 source * 1 destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. | Keep port ranges under 250K |
+| Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. | N/A |
+| Feature available in most public regions. | Not available currently in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
+
+### NSG additional considerations
+
+- Outbound traffic denied from a private endpoint isn't a valid scenario, as the service provider can't originate traffic.
+
+### UDR
+
+| Limitation | Description | Mitigation |
 | --------- | --------- | --------- |
 | Traffic that's destined for a private endpoint through a user-defined route (UDR) might be asymmetric. | Return traffic from a private endpoint bypasses a network virtual appliance (NVA) and attempts to return to the source virtual machine. | Source network address translation (SNAT) is used to ensure symmetric routing. For all traffic to a private endpoint that uses a UDR, we recommend that you use SNAT for traffic at the NVA. |
+| Feature available in most public regions. | Not available currently in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
 
-> [!IMPORTANT]
-> Network security group (NSG) and UDR support for private endpoints is in preview in select regions. For more information, see [Preview of Private Link UDR support](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) and [Preview of Private Link network security group support](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/).
->
-> This preview version is provided without a service-level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Limitations of the preview version
-
-### Network security groups
+### ASG additional considerations
 
 | Limitation | Description | Mitigation |
-| ---------- | ----------- | ---------- |
-| Obtaining effective routes and security rules isn't available on a private-endpoint network interface. | You can't navigate to the network interface to view relevant information about the effective routes and security rules. | Q4CY2021 |
-| NSG flow logs aren't supported. | NSG flow logs don't work for inbound traffic that's destined for a private endpoint. | No mitigation information is available at this time. |
-| Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. | No mitigation information is available at this time. |
-| Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. | No mitigation information is available at this time. |
-| The number of address prefixes per NSG is limited. | Having more than 500 address prefixes in an NSG in a single rule isn't supported. | No mitigation information is available at this time. |
-| AllowVirtualNetworkAccess flag | Customers that set virtual network peering on their virtual network (virtual network A) with the *AllowVirtualNetworkAccess* flag set to *false* on the peering link to another virtual network (virtual network B) can't use the *VirtualNetwork* tag to deny traffic from virtual network B accessing private endpoint resources. The customers need to explicitly place a block for virtual network B’s address prefix to deny traffic to the private endpoint. | No mitigation information is available at this time. |
-| Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the UDR rule example in the next table. | No mitigation information is available at this time. |
-| | |
-  
-The following table shows an example of a dual port NSG rule:
-  
-| Priority | Source&nbsp;port&nbsp; | Destination&nbsp;port | Action | Effective&nbsp;action |
-| -------- | ----------- | ---------------- | ------ | ---------------- |
-| 10 | 10-12 | 10-12 | Allow/Deny | Single port range in source/destination ports will work as expected. |
-| 10 | 10-12, 13-14 | 14-15, 16-17 | Allow | Only source ports 10-12 and destination ports 14-15 will be allowed. |
-| 10 | 10-12, 13-14 | 120-130, 140-150 | Deny | Traffic from all source ports will be denied to all destination ports, because there are multiple source and destination port ranges. |
-| 10 | 10-12, 13-14 | 120-130 | Deny | Traffic from all source ports will be denied to destination ports 120-130 only. There are multiple source port ranges and a single destination port range. |
-| | |
+| --------- | --------- | --------- |
+| Feature available in most public regions. | Not available currently in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | N/A |
 
-| Limitation | Description | Mitigation |
-| ---------- | ----------- | ---------- |
-| Source Network Address Translation (SNAT) is recommended always. | Because of the variable nature of the private-endpoint data plane, we recommend using SNAT traffic that's destined to a private endpoint, which ensures that return traffic is honored. | No mitigation information is available at this time. |
-| | |
- 
 ## Next steps
 
 - For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md).
