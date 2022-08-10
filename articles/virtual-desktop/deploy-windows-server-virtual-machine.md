@@ -17,7 +17,15 @@ ms.custom: template-how-to
 The process for deploying Windows Server-based virtual machines (VMs) on Azure Virtual Desktop is slightly different than the one for VMs running other versions of Windows, such as Windows 10 or Windows 11. This guide will walk you through the process.
 
 > [!NOTE]
-> Windows Server scenarios don't support Azure Active Directory (AD)-joined session hosts.
+> Windows Server scenarios support the following versions of Azure Active Directory (AD)-joined session hosts:
+> 
+> - WIndows Server 2019
+> - Windows Server 2022
+> 
+> However, Windows Server scenarios don't support the following versions of Azure AD-joined session hosts:
+> 
+> - Windows Server 2012
+> - Windows Server 2016
 
 ## Prerequisites
 
@@ -32,11 +40,9 @@ Before you get started, you'll need to make sure you have the following things:
   - [Operating systems and licenses](prerequisites.md)
   - [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license)
 
-  For more information about Role-based Access Control (RBAC) roles, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
-
   If you're already using Windows Server-based Remote Desktop Services, you probably already have a licensing server set up in your environment. If you do, you can continue using the same license server as long as the Azure Virtual Desktop hosts have line-of-sight with the server.
 
-- You must assign your Windows Server VM the Remote Desktop Session Host role.
+- Your Windows Server VM should already be assigned the Remote Desktop Session Host role. Without that role, the Azure Virtual Desktop Agent won't install and the deployment won't work.
 
 ## Configure Windows Server-based VMs
 
@@ -46,7 +52,10 @@ To configure your VM:
 
 1. Follow the instructions from [Create a host pool using the Azure portal](create-host-pools-azure-marketplace.md) until you reach step 6 in [Virtual machine details](create-host-pools-azure-marketplace.md#virtual-machine-details). When it's time to select an image in the **Virtual machine details** field, either select a relevant Windows Server image or upload your own customized Windows Server image.
 
-2. For the **Domain to join** field, select **Active Directory**.
+2. For the **Domain to join** field, you can select either **Active Directory** or **Azure Active Directory**.
+   
+   >[!NOTE]
+   >If you select **Azure Active Directory**, you should not select the **Enroll VM with Intune** option, as Intune doesn't support Windows Server.
 
 3. Connect to the newly deployed VM using an account with local administrator privileges.
 
