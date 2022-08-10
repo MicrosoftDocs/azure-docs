@@ -166,7 +166,7 @@ To resolve this error, start the import or export operation before 15 minutes ha
 
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
 
-Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
+Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md). If you are using an access key to authenticate to storage account, having firewall exceptions on the storage account tends to fail the process.
 
 ## Next steps
 
