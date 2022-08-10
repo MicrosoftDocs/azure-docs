@@ -9,12 +9,31 @@ ms.date: 07/07/2022
 
 This article provides a list of frequently asked questions and answers about Enterprise IoT networks in Defender for IoT.
 
+## What is the difference between OT and Enterprise IoT? What additional security value can Enterprise IoT provide Microsoft Defender for Endpoint customers?
+
+### OT
+
+Microsoft Defender for IoT provides agentless network detection and response (NDR) designed to secure ICS/OT devices and protocols across all industries. It seamlessly integrates with IT security tools, providing the ideal platform for those pursuing IT/OT convergence.
+
+OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into Operational Technology (OT) / Industrial Control System (ICS) risks. Sensors carry out data collection, analysis, and alerting on-site, making them ideal for locations with low bandwidth or high latency.
+
+### Enterprise IoT 
+
+Enterprise IoT provides visibility and security for IoT devices in the corporate environment. 
+
+Enterprise IoT network protection extends agentless features beyond operational environments, providing coverage for all IoT devices in your environment. For example, an enterprise IoT environment may include printers, cameras, and purpose-built, proprietary, devices.
+
+- **In the Defender for Endpoint portal**: This is the GA offering for Enterprise IoT. P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint. Customers can onboard an Enterprise IoT plan in the same portal and gain security value by viewing alerts, recommendations and vulnerabilities for their discovered IoT devices.
+
+- **In the Azure portal**: Defender for IoT customers can view their discovered IoT devices in the **Device inventory** page in Defender for IoT in the Azure portal. To view Enterprise IoT devices in the Azure portal, you'll need to set up a network sensor (currently in Public Preview). 
+
 ## How can I start using Enterprise IoT?
 
-To get started, you'll need to:
+To get started, you'll need to add a Defender for IoT plan with Enterprise IoT to your Azure subscription from [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#onboard-a-defender-for-iot-plan).
 
-1. Add a Defender for IoT plan with Enterprise IoT to your Azure subscription from [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
-1. [Set up a Defender for IoT network sensor](tutorial-getting-started-eiot-sensor.md).
+- Microsoft 365 P2 customers can onboard the Enterprise IoT GA offering through the Microsoft Defender for Endpoint portal.
+		
+- Now in Public Preview - Defender for Endpoint customers can also install a network sensor to gain more visibility into additional IoT segments of the corporate network that were not previously covered by Defender for Endpoint. Deploying a network sensor is not a prerequisite for onboarding Enterprise IoT. For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md)
 
 If you’re a Defender for Endpoint customer, when adding your Defender for IoT plan, take care to exclude any devices already managed by Defender for Endpoint from your count of committed devices.
 
@@ -52,11 +71,9 @@ You can edit several properties for devices, and even delete devices from the De
 
 ## How does the integration between Microsoft Defender for Endpoint and Microsoft Defender for IoT work? 
 
-Integration between the two products takes place seamlessly, once you have:
-- Added a Defender for IoT plan with Enterprise IoT to an Azure subscription in Defender for Endpoint
-- Set up an Enterprise IoT or OT sensor from Defender for IoT in the Azure portal
+Integration between the two products takes place seamlessly, once you have [added a Defender for IoT plan with Enterprise IoT to an Azure subscription in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#onboard-a-defender-for-iot-plan).
 
-Once these requirements are met, discovered devices can be viewed in both Defender for IoT and Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+Discovered IoT devices can be viewed in both Defender for IoT and Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 ## Can I change the subscription I’m using for Defender for IoT?
 
@@ -74,7 +91,7 @@ If you haven't changed your plan from a trial to a monthly commitment by the tim
 
 To change your plan from a trial to a monthly or annual commitment, you'll need to cancel your trial plan and onboard a new plan in Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-## How is pricing for Defender for IoT affected now that support for Enterprise IoT networks is in General Availability?
+## How is the Defender for IoT pricing affected now that support for Enterprise IoT networks is in General Availability?
 
 For more information, see the [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) page.
 
