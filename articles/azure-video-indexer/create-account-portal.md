@@ -42,13 +42,13 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the regist
     | Name | Description|
     |---|---|
     |**Subscription**|If you have more than one subscription, select one from the list of Azure subscriptions that you have access to.|
-    |**Resource Group**|Select the new or existing resource. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](/azure/azure-resource-manager/management/overview.md#resource-groups).|
+    |**Resource group**|Select the new or existing resource. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../azure-resource-manager/management/overview.md#resource-groups).|
     |**Resource name**|Enter the name of the new Azure Video Indexer account, the name can contain letters, numbers and dashes with no spaces.|
-    |**Region**|Select the geographic region that will be used to deploy the Azure Video Indexer account. The location matches the **resource group location** you chose, if you'd like to change the selected location change the selected resource group or create a new one in the preferred location. [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
+    |**Region**|Select the geographic region that will be used to deploy the Azure Video Indexer account. The location matches the resource group location you chose, if you'd like to change the selected location change the selected resource group or create a new one in the preferred location. [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
     |**Existing content**|You can choose to have the videos, files, and data associated with the classic account, to be referred from the new account.|
     |**Available classic accounts**|Classic accounts available in the chosen subscription, resource group, and location.|
-    |**Media Services account name**|Select a Media Services that the new Azure Video Indexer account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected.|
-    |**Storage account**|Choose or create a new storage account in the same resource group.|
+    |**Media Services account name**|Select a Media Services that the new Azure Video Indexer account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected for your Azure Video Indexer account.|
+    |**Storage account** (appears when creating a new AMS account)|Choose or create a new storage account in the same resource group.|
     |**Managed identity**|Select an existing user-assigned managed identity or system-assigned managed identity or both when creating the account. The new Azure Video Indexer account will use the selected managed identity to access the Media Services associated with the account. If both user-assigned and system assigned managed identities will be selected during the account creation the **default** managed identity is the user-assigned managed identity. A contributor role should be assigned on the Media Services.|
 1. Select **Review + create** at the bottom of the form.
 
@@ -78,12 +78,10 @@ This tab contains sections for:
 
 ### Management API 
 
-![Image of Generate-access-token.](media/create-account-portal/generate-access-token.png)
-
 Use the **Management API** tab to manually generate access tokens for the account.
 This token can be used to authenticate API calls for this account. Each token is valid for one hour.
 
-#### Get access token
+#### To get the access token
 
 Choose the following:
 
