@@ -43,8 +43,8 @@ The following steps show you how to create and configure a dev center.
 1. Use the search box to locate dev box resources, and select dev centers.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
 
-1. On the dev centers page, select **+Add**. 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter.png" alt-text="Screenshot showing the Azure portal Dev center with create highlighted.":::
+1. On the dev centers page, select **+Create**. 
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center.png" alt-text="Screenshot showing the Azure portal Dev center with create highlighted.":::
 
 1. On the **Create a dev center** page, on the **Basics** tab, enter the following values:
 
@@ -81,8 +81,8 @@ To perform the steps in this section, you must have and existing virtual network
 
 1. Use the search box to locate dev box resources, and select network connections.
 
-1. On the **Network Connections** page, select **+Add**.
-     :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Add highlighted.":::
+1. On the **Network Connections** page, select **+Create**.
+     :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Create highlighted.":::
 
 1. Follow the steps on the appropriate tab to create your network connection.
    #### [Azure AD join](#tab/AzureADJoin/)
@@ -151,7 +151,7 @@ The following steps show you how to create and configure a dev box definition. Y
 
 1. Select **Dev box definitions**.
 
-1. On the **Dev box definitions** page, select **+Add**.
+1. On the **Dev box definitions** page, select **+Create**.
 
 1. On the **Create dev box definition** page, enter the following values:
 
@@ -179,7 +179,7 @@ The following steps show you how to create and configure a project in dev box.
 
 1. In the [Azure portal](https://portal.azure.com), use the search box to locate dev box resources, and select projects. 
 
-1. On the Projects page,  select **+Add**.
+1. On the Projects page,  select **+Create**.
  
 1. On the **Create a project** page, on the **Basics** tab, enter the following values:
 
