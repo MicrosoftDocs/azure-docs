@@ -7,12 +7,15 @@ ms.date: 08/09/2022
 
 # Enable VMware Cloud director service with Azure VMware solution (Public Preview)
 
+VMware Cloud Director Service (CDs) (VMware Cloud Director service | Managed Service | Cloud Solutions & Services) with Azure VMware Solutions enables Enterprise customers, to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
+
 In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware solution for enterprise customers to use Azure VMware Solutions resources and Azure VMware solutions private clouds with underlying resources for virtual datacenters.
 
 >[!IMPORTANT] 
 > Cloud director service (CDs) is now available to use with Azure VMware solutions under the Enterprise Agreement (EA) model only. It's not suitable for MSP / Hoster to resell Azure VMware Solution capacity to customers at this point. For more information, see [Azure Service terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#GeneralServiceTerms).
 
 ## Reference Architecture
+The following diagram shows typical architecture for Cloud Director Services with Azure VMware solutions and how they are connected. Communications to Azure VMware Solution endpoints from cloud Director service are supported by an SSL reverse proxy. 
 
 :::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how CDS is connected with Azure VMware solutions" border="false" lightbox="media/vmware-cds/reference-architecture-diagram-expanded.png":::
 
