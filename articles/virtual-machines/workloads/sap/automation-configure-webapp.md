@@ -1,19 +1,22 @@
 ---
-title: Configure a Deployer UX Web Application for SAP Deployment Automation Framework
+title: Configure a Deployer Web Application for SAP Deployment Automation Framework
 description: Configure a web app as a part of the control plane to help creating and deploying SAP workload zones and systems on Azure.
 author: wsheehan
 ms.author: wsheehan
 ms.reviewer: wsheehan
-ms.date: 06/21/2022
+ms.date: 08/1/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Configure the Control Plane UX Web Application
+# Configure the Control Plane Web Application
 
-As a part of the SAP automation framework control plane, you can optionally create an interactive web application that will assist you in creating the required configuration files and deploying SAP workload zones and systems using Azure DevOps Pipelines.
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that will assist you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
 
 :::image type="content" source="./media/automation-deployment-framework/webapp-front-page.png" alt-text="Web app front page":::
+
+> [!IMPORTANT]
+> Control Plane Web Application is currently in PREVIEW and not yet available in the main branch.
 
 ## Create an app registration 
 
@@ -57,7 +60,7 @@ rm ./manifest.json
 ```
 ---
 
-## Deploy via Azure DevOps (pipelines)
+## Deploy via Azure Pipelines
 
 For full instructions on setting up the web app using Azure DevOps, see [Use SAP Deployment Automation Framework from Azure DevOps Services](automation-configure-devops.md)
 
@@ -91,7 +94,7 @@ For full instructions on setting up the web app using the Azure CLI, see [Deploy
 
 ## Using the web app
 
-The web app allows you to create SAP workload zone objects and system infrastructure objects. These are essentially another representation of the Terraform configuration file.
+The web app allows you to create SAP workload zone objects and system infrastructure objects. These objects are essentially another representation of the Terraform configuration file.
 If deploying using Azure Pipelines, you have ability to deploy these workload zones and system infrastructures right from the web app.
 If deploying using the Azure CLI, you can download the parameter file for any landscape or system object you create, and use that in your command line deployments.
 

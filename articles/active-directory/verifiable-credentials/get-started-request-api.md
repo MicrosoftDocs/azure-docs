@@ -1,5 +1,5 @@
 ---
-title: How to call the Request Service REST API (preview)
+title: How to call the Request Service REST API
 description: Learn how to issue and verify by using the Request Service REST API
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
 ---
 
-# Request Service REST API (preview)
+# Request Service REST API
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
