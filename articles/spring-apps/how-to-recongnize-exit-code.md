@@ -48,6 +48,7 @@ The exit codes indicate the termination reasons of the application. Some common 
     For example : You configure 10GB for the -Xmx parameter of Jvm options, but the memory of app is up to 5GB. You should decrease the Xmx value 
         or increase the memory of app and make sure the value of Xmx is lower or equal to the memory limitation of app.
     This is called container out of memory(Container OOM).
+    
     For solving this problem, you can refer this article(https://review.docs.microsoft.com/en-us/azure/spring-apps/how-to-fix-app-restart-issues-caused-by-out-of-memory?branch=pr-en-us-197651).
   
   * 143 - The application exited because it failed to respond to health checking. It was caused by the out of memory error or some other errors.
