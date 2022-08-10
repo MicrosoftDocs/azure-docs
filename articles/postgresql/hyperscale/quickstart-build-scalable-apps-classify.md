@@ -6,6 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
+recommendations: false
 ms.date: 08/10/2022
 ---
 
