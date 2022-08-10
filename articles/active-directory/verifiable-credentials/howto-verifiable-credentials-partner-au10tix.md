@@ -14,7 +14,7 @@ ms.author: barclayn
 
 # Configure Verified ID by AU10TIX as your Identity Verification Partner
 
-In this sample tutorial, we provide guidance on how to integrate Microsoft Entra Verified ID with [AU10TIX](https://www.au10tix.com/). AU10TIX is a global leader in identity verification enabling companies to scale up their business by accelerating employee / customer onboarding and ongoing verification throughout the customer lifecycle. It is a 100% automated solution processing verification of ID documents + biometrics in 8 seconds or less. AU10TIX supports the verification of documents for over 190 countries reading documents in their regional languages. To learn more about AU10TIX and its complete set of solutions, please visit https://www.au10tix.com/. 
+In this sample tutorial, we provide guidance on how to integrate Microsoft Entra Verified ID with [AU10TIX](https://www.au10tix.com/). AU10TIX is a global leader in identity verification enabling companies to scale up their business by accelerating employee / customer onboarding and ongoing verification throughout the customer lifecycle. It is a 100% automated solution processing verification of ID documents + biometrics in 8 seconds or less. AU10TIX supports the verification of documents for over 190 countries reading documents in their regional languages. To learn more about AU10TIX and its complete set of solutions, visit https://www.au10tix.com/. 
 
 ## Pre-requisites
 
@@ -25,11 +25,14 @@ In this sample tutorial, we provide guidance on how to integrate Microsoft Entra
 
 Account onboarding can be used to enable faster onboarding by replacing manual identity verification often prone to errors. Verified IDs can be used to digitally onboard employees, students, citizens, or others to securely access resources and services. For example, rather than an employee needing to go to a central office to activate an employee badge, they can use a Verified ID to verify their identity to activate a badge that is delivered to them remotely. Rather than a citizen receiving a code they must redeem to access governmental services, they can use a Verified ID to prove their identity and gain access.
 
+
+:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="diagram of the verifiable credential solution":::
+
 ## Onboard with AU10TIX
 
-1. To inquire about Verified ID by AU10TIX, please book a free demo by completing the form located at the bottom of this [page](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program/). One of our Sales experts will contact you within 24hrs (subject to business hours).
+1. To inquire about Verified ID by AU10TIX, please book a free demo by completing the form located at the bottom of this [page](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program/). One of our Sales experts will contact you within 24 hrs (subject to business hours).
 
-1. Once onboarding is complete, you will be assigned a Customer Success Manager who along with our integration experts will guide you through the configuration process to setup Verified ID by AU10TIX within your organization.
+1. Once onboarding is complete, you will be assigned a Customer Success Manager who along with our integration experts will guide you through the configuration process to set up Verified ID by AU10TIX within your organization.
 
 ## Configure your Application to use Au10tix Verified ID
 
@@ -37,16 +40,19 @@ For incorporating identity verification into your Apps, using AU10TIX  “Govern
 
 ### Part 1
 
-As a developer you will provide these below steps to your tenant administrator to obtain the verification request URL and body for your application or website to request Verified IDs from your users.
+As a developer you can share these steps with your tenant administrator to obtain the verification request URL, and body for your application or website to request Verified IDs from your users.
 
-1. Go to [Microsoft Entra portal -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade). Note: Make sure this is the tenant you set up for Verified ID per the pre-requisites.
+1. Go to [Microsoft Entra portal -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade). 
+
+   >[!NOTE]
+   > Make sure this is the tenant you set up for Verified ID per the pre-requisites.
+
+1. Go to QuickStart > Verification Request > [Start](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/QuickStartVerifierBlade)
 1. Choose **Select Issuer**.
 1. Look for AU10TIX in the **Search/select issuers** drop-down.
+    :::image type="content" source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="screenshot of the portal section used to choose issuers":::
 1. Check the **Government Issued ID – Global** or other credential type you have discussed with AU10TIX for your specific needs.
-
-:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="diagram of the verifiable credential solution":::
-
-1. Click **Add** and then click **Review**.
+1. Select **Add** and then select **Review**.
 1. Download the request body and Copy/paste POST API request URL.
 
 ### Part 2
@@ -56,9 +62,6 @@ As a developer you now have the request URL and body from your tenant admin, fol
 1. Add the request URL and body to your application or website to request Verified IDs from your users. Note: If you are using [one of the sample apps](https://aka.ms/vcsample) to begin with you will need to replace the contents of the presentation_request_config.json with the request body obtained.
 1. Be sure to replace the values for the "url", "state", and "api-key" with your respective values.
 1. [Grant permissions](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens) to your app to obtain access token for the Verified ID service request service principal.
-
-
-:::image type="content" source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="screenshot of the portal section used to choose issuers":::
 
 ## Test the user flow
 
