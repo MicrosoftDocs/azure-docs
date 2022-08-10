@@ -106,7 +106,7 @@ conceptualContent:
       links:
         - url: ./openai/overview.md
           itemType: overview
-          text:  Azure OpenAI 
+          text:  Azure OpenAI (Preview)
         - url: ./openai/concepts/models.md
           itemType: overview
           text: Azure OpenAI Models
