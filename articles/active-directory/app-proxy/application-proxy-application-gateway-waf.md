@@ -24,38 +24,38 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure WAF on Application Gateway. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
 
-![diagram](./media/application-proxy-waf/appproxy-waf.png)
+![Diagram of deployment described.](./media/application-proxy-waf/application-proxy-waf.png)
 
 ### Configure Azure Application Gateway to send traffic to your internal application.
 
 Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal][appgw_quick].
 
-#### 1. Create a private-facing HTTPS listener.
+##### 1. Create a private-facing HTTPS listener.
 
 This will allow users to access the web application privately when connected to the corporate network.
 
-![Add Listener](./media/application-proxy-waf/appgw_listener.png)
+![Screenshot of Application Gateway listener.](./media/application-proxy-waf/application-gateway-listener.png)
 
-#### 2. Create a backend pool with the web servers.
+##### 2. Create a backend pool with the web servers.
 
 In this example, the backend servers have Internet Information Services (IIS) installed. 
 
-![Add backend](./media/application-proxy-waf/appgw_backend.png)
+![Screenshot of Application Gateway backend.](./media/application-proxy-waf/application-gateway-backend.png)
 
-#### 3. Create a backend setting. 
+##### 3. Create a backend setting. 
 
 This will determine how requests will reach the backend pool servers.
 
-![Add backend setting](./media/application-proxy-waf/appgw_backendsettings.png)
+![Screenshot of Application Gateway backend setting.](./media/application-proxy-waf/application-gw-backend-settings.png)
  
- #### 4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
+ ##### 4. Create a routing rule that ties the listener, the backend pool, and the backend setting created in the previous steps.
  
- ![Add rule1](./media/application-proxy-waf/appgw_addrule1.png)
- ![Add rule2](./media/application-proxy-waf/appgw_addrule2.png)
+ ![Screenshot of adding rule to Application Gateway 1.](./media/application-proxy-waf/application-gateway-add-rule-1.png)
+ ![Screenshot of adding rule to Application Gateway 2.](./media/application-proxy-waf/application-gateway-add-rule-2.png)
  
- #### 5. Enable the WAF in the Application Gateway and set it to Prevention mode.
+ ##### 5. Enable the WAF in the Application Gateway and set it to Prevention mode.
  
- ![enable waf](./media/application-proxy-waf/appgw_enablewaf.png)
+ ![Screenshot of enabling waf in Application Gateway.](./media/application-proxy-waf/application-gateway-enable-waf.png)
  
  ### Configure your application to be remotely accessed through Application Proxy in Azure AD.
  
@@ -63,7 +63,7 @@ As represented in the diagram above, both connector VMs, the Application Gateway
 
 For a detailed guide on how to add your application to Application Proxy in Azure AD, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory][appproxy-add-app]. For more information about performance considerations concerning the Application Proxy connectors, see [Optimize traffic flow with Azure Active Directory Application Proxy][appproxy-optimize]. 
  
-![App proxy config](./media/application-proxy-waf/appproxyconfig.png)
+![Screenshot of Application Proxy configuration.](./media/application-proxy-waf/application-proxy-configuration.png)
 
 In this example, the same URL was configured as the internal and external URL. Remote clients will access the application over the Internet on port 443, through the Application Proxy, whereas clients connected to the corporate network will access the application privately through the Application Gateway directly, also on port 443. For a detailed step on how to configure custom domains in Application Proxy, see [Configure custom domains with Azure AD Application Proxy][appproxy-custom-domain].
 
@@ -71,22 +71,22 @@ To ensure the connector VMs send requests to the Application Gateway, an [Azure 
 
 ### Test the application.
 
-After [adding a user for testing](/azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one. The user will be prompted to authenticate in Azure AD, and upon successfull authentication, will access the application. 
+After [adding a user for testing](/azure/active-directory/app-proxy/application-proxy-add-on-premises-application#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one. The user will be prompted to authenticate in Azure AD, and upon successful authentication, will access the application. 
 
-![authentication](./media/application-proxy-waf/signin2.png)
-![server response](./media/application-proxy-waf/appgwresponse.png)
+![Screenshot of authentication step.](./media/application-proxy-waf/sign-in-2.png)
+![Screenshot of server response.](./media/application-proxy-waf/application-gateway-response.png)
 
 ### Simulate an attack.
 
 To test if the WAF is blocking malicious requests, you can simulate an attack using a basic SQL injection signature. For example, "https://www.fabrikam.one/api/sqlquery?query=x%22%20or%201%3D1%20--".
 
-![waf 403 response](./media/application-proxy-waf/waf403.png)
+![Screenshot of WAF response.](./media/application-proxy-waf/waf-response.png)
 
 An HTTP 403 response confirms that the request was blocked by the WAF.
 
 The Application Gateway [Firewall logs][waf-logs] provide more details about the request and why it was blocked by the WAF.
 
-![waflog image](./media/application-proxy-waf/waflog.png)
+![Screenshot of waf logs.](./media/application-proxy-waf/waf-log.png)
 
 ## Next steps
 
