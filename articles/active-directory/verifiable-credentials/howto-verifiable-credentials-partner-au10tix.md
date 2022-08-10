@@ -44,7 +44,7 @@ As a developer you will provide these below steps to your tenant administrator t
 1. Look for AU10TIX in the **Search/select issuers** drop-down.
 1. Check the **Government Issued ID – Global** or other credential type you have discussed with AU10TIX for your specific needs.
 
-#Image
+:::image type="content" source="media/verified-id-partner-au10tix/vc-system-diagram.png" alt-text="diagram of the verifiable credential solution":::
 
 1. Click **Add** and then click **Review**.
 1. Download the request body and Copy/paste POST API request URL.
@@ -58,7 +58,7 @@ As a developer you now have the request URL and body from your tenant admin, fol
 1. [Grant permissions](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens) to your app to obtain access token for the Verified ID service request service principal.
 
 
-#Image
+:::image type="content" source="media/verified-id-partner-au10tix/select-issuers.png" alt-text="screenshot of the portal section used to choose issuers":::
 
 ## Test the user flow
 
