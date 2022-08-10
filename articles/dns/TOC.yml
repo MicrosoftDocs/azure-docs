@@ -55,6 +55,10 @@
       href: tutorial-alias-pip.md
     - name: Create alias records for Traffic Manager
       href: tutorial-alias-tm.md
+  - name: Private Resolver
+    items:
+    - name: Set up DNS failover using two private resolvers
+      href: dns-private-resolver-failover.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -66,7 +70,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/dns-security-baseline?toc=/azure/dns/TOC.json
+      href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
     items:
     - name: Zones and records
@@ -97,6 +101,12 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
     - name: FAQ
       href: dns-faq-private.yml
+  - name: Private Resolver
+    items:
+    - name: outbound endpoints
+      href: private-resolver-outbound.md
+    - name: Outbound endpoints
+      href: private-resolver-outbound.md
 - name: How-to guides
   items:
   - name: Public DNS
@@ -151,6 +161,10 @@
     items:
     - name: Troubleshooting guide
       href: dns-troubleshoot.md
+  - name: Private Resolver
+    items:
+    - name: Resolve Azure and on-premises domains
+      href: private-resolver-hybrid-dns.md
 - name: Reference
   items:
   - name: Public DNS
