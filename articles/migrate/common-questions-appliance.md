@@ -128,7 +128,7 @@ However, deleting the resource group also deletes other registered appliances, t
 
 ## Can I use the appliance with a different subscription or project?
 
-To use the appliance with a different subscription or project, you would need to reconfigure the existing appliance by running the [PowerShell installer script for the specific scenario](https://docs.microsoft.com/azure/migrate/deploy-appliance-script) (VMware/Hyper-V/Physical) on the appliance. The script will clean up the existing appliance components and settings to deploy a fresh appliance. Ensure to clear the browser cache before you start using the newly deployed appliance configuration manager.
+To use the appliance with a different subscription or project, you would need to reconfigure the existing appliance by running the [PowerShell installer script for the specific scenario](deploy-appliance-script.md) (VMware/Hyper-V/Physical) on the appliance. The script will clean up the existing appliance components and settings to deploy a fresh appliance. Ensure to clear the browser cache before you start using the newly deployed appliance configuration manager.
 
 Also, you cannot reuse an existing project key on a reconfigured appliance. Make sure you generate a new key from the desired subscription/project to complete the appliance registration.
 
