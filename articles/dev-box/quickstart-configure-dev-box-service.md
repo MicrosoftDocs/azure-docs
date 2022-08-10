@@ -206,7 +206,7 @@ The following steps show you how to create and configure a project in dev box.
 
 ## Next steps
 
-In this quickstart, you created a dev box project and the resources necessary to support it. You created a dev center, added a network connection, created a dev box definition, and a project.'
+In this quickstart, you created a dev box project and the resources necessary to support it. You created a dev center, added a network connection, created a dev box definition, and a project.
 
 To learn about how to manage dev box projects, advance to the next quickstart:
 
