@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 07/27/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -341,6 +341,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### Azure Front Door (classic) limits
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
+
+### Azure Route Server limits
+
+[!INCLUDE [Azure Route Server Limits](../../../includes/route-server-limits.md)]
 
 ### ExpressRoute limits
 

@@ -75,7 +75,7 @@ The following table shows the behavior of a blob copy operation, depending on th
 
 ### Rehydrate from a secondary region
 
-If you've configured your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS), then you can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to rehydrate blobs in the secondary region to another storage account that is located in that same secondary region. See [Rehydrate from a secondary region](archive-rehydrate-to-online-tier.md#rehydrate-from-a-secondary-region).
+If you've configured your storage account to use read-access geo-redundant storage (RA-GRS), then you can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to rehydrate blobs in the secondary region to another storage account that is located in that same secondary region. See [Rehydrate from a secondary region](archive-rehydrate-to-online-tier.md#rehydrate-from-a-secondary-region).
 
 To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#read-access-to-data-in-the-secondary-region).
 

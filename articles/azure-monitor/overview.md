@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 04/27/2022
+ms.date: 07/25/2022
 ms.reviewer: bwren
 
 ---
@@ -48,7 +48,7 @@ Azure Monitor uses a version of the [Kusto Query Language](/azure/kusto/query/) 
 
 ![Diagram that shows logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
-Change Analysis alerts you to live site issues, outages, component failures, or other change data. It also provides insights into those application changes, increases observability, and reduces the mean time to repair. You automatically register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription by going to Change Analysis via the Azure portal. For web app in-guest changes, you can enable Change Analysis by using the [Diagnose and solve problems tool](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool).
+Change Analysis alerts you to live site issues, outages, component failures, or other change data. It also provides insights into those application changes, increases observability, and reduces the mean time to repair. You automatically register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription by going to Change Analysis via the Azure portal. For web app in-guest changes, you can enable Change Analysis by using the [Diagnose and solve problems tool](./change/change-analysis-enable.md#enable-web-app-in-guest-change-collection-via-azure-portal).
 
 Change Analysis builds on [Azure Resource Graph](../governance/resource-graph/overview.md) to provide a historical record of how your Azure resources have changed over time. It detects managed identities, platform operating system upgrades, and hostname changes. Change Analysis securely queries IP configuration rules, TLS settings, and extension versions to provide more detailed change data.
 
@@ -164,6 +164,7 @@ Azure resources generate a significant amount of monitoring data. Azure Monitor 
 | Metrics | Metrics are numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time.<br><br>Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. For more information, see [Azure Monitor Metrics](essentials/data-platform-metrics.md). |
 | Logs    | [Logs](logs/data-platform-logs.md) are events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume.<br><br>Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/) which provides a powerful analysis engine and [rich query language](/azure/kusto/query/). For more information, see [Azure Monitor Logs](logs/data-platform-logs.md). |
 | Distributed traces | Traces are series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components.<br><br>Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](app/distributed-tracing.md), and trace data is stored with other application log data collected by Application Insights and stored in Azure Monitor Logs. For more information, see [What is Distributed Tracing?](app/distributed-tracing.md). |
+| Changes | Changes are a series of events that occur in your Azure application and resources. Change Analysis is a subscription-level observability tool that's built on the power of Azure Resource Graph. <br><br> Once Change Analysis is enabled, the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription. Change Analysis' integrations with Monitoring and Diagnostics tools provide data to help users understand what changes might have caused the issues. Read more about Change Analysis in [Use Change Analysis in Azure Monitor](./change/change-analysis.md). |
 
 
 > [!NOTE]

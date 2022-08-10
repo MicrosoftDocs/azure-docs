@@ -136,7 +136,7 @@ The created identity is required later for issuing access tokens. Store the rece
 
 ## Issue access tokens
 
-Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md). 
+Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). 
 
 In the following code, use the user variable that you created in the preceding step to get a token.
 
