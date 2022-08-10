@@ -57,7 +57,7 @@ Use the Defender for IoT **Workbooks** page to create custom Azure Monitor workb
     For each option, after you've defined all available settings, select the **Add...** or **Run...** button to create that workbook element. For example, **Add parameter** or **Run Query**.
 
     > [!TIP]
-    > You can build your queries in the [Azure Resource Graph Explorer](https://ms.portal.azure.com/#blade/HubsExtension/ArgQueryBlade) and copy them into your workbook query.
+    > You can build your queries in the [Azure Resource Graph Explorer](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade) and copy them into your workbook query.
 
 1. In the toolbar, select **Save** :::image type="icon" source="media/workbooks/save-icon.png" border="false"::: or **Save as** :::image type="icon" source="media/workbooks/save-as-icon.png" border="false"::: to save your workbook, and then select **Done editing**.
 

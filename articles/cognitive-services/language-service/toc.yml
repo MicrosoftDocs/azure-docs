@@ -63,7 +63,7 @@ items:
     href: custom-text-classification/language-support.md
   - name: Custom text classification FAQ
     href: custom-text-classification/faq.md
-  - name: Samples
+  - name: SDK samples
     items:
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
@@ -98,10 +98,8 @@ items:
       href: custom-text-classification/how-to/tag-data.md
     - name: Train a model
       href: custom-text-classification/how-to/train-model.md
-    - name: View model performance
+    - name: Model performance (preview)
       href: custom-text-classification/how-to/view-model-evaluation.md
-    - name: Improve a model
-      href: custom-text-classification/how-to/improve-model.md
     - name: Deploy a model
       href: custom-text-classification/how-to/deploy-model.md
     - name: Classify text
@@ -154,12 +152,12 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: Custom NER FAQ
     href: custom-named-entity-recognition/faq.md
-  - name: Samples
+  - name: SDK samples
     items:
     - name: Java
       href: https://aka.ms/sdk-samples-java
     - name: JavaScript
-      href: https://aka.ms/sdk-samples-java-script
+      href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cognitivelanguage/ai-language-text/samples-dev/customEntityRecognition.ts
     - name: C#
       href:  https://aka.ms/sdk-samples-dot-net
     - name: Python
@@ -190,10 +188,8 @@ items:
       href: custom-named-entity-recognition/how-to/use-autotagging.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
-    - name: View model performance
+    - name: Model performance (preview)
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
-    - name: Improve a model
-      href: custom-named-entity-recognition/how-to/improve-model.md
     - name: Deploy a model
       href: custom-named-entity-recognition/how-to/deploy-model.md
     - name: Extract entities from text
@@ -548,7 +544,7 @@ items:
     href: named-entity-recognition/quickstart.md
   - name: NER language support
     href: named-entity-recognition/language-support.md
-  - name: Samples
+  - name: SDK samples
     items:
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
@@ -693,7 +689,7 @@ items:
     href: personally-identifiable-information/quickstart.md
   - name: PII language support
     href: personally-identifiable-information/language-support.md
-  - name: Samples
+  - name: SDK samples
     items:
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
@@ -790,12 +786,16 @@ items:
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
-    - name: Migrate from QnA Maker
+    - name: Migrate from QnA Maker to Question Answering
+      href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
+    - name: Migrate knowledgebases from QnA Maker
       href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: question-answering/how-to/create-test-deploy.md
     - name: Export/import/refresh
       href: question-answering/how-to/export-import-refresh.md
+    - name: Smart URL refresh
+      href: question-answering/how-to/smart-url-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Move knowledge base
@@ -818,8 +818,6 @@ items:
       href: question-answering/how-to/prebuilt.md
     - name: Project Best practices
       href: question-answering/how-to/best-practices.md
-    - name: Migrate from QnA Maker to Question Answering
-      href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts
@@ -919,8 +917,6 @@ items:
         href: ../containers/index.yml
   - name: Tutorials
     items:
-    - name: Sentiment Analysis on streaming data using Azure Databricks
-      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
       href: /learn/modules/python-flask-build-ai-web-app/
   - name: Reference
@@ -1110,6 +1106,9 @@ items:
     href: concepts/migrate.md
   - name: Model lifecycle
     href: concepts/model-lifecycle.md
+  - name: Language Role-based access control
+    href: concepts/role-based-access-control.md
+    displayName: RBAC
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
   - name: Enterprise readiness

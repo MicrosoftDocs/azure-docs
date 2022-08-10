@@ -326,6 +326,8 @@ items:
           href: upgrade-to-data-lake-storage-gen2-how-to.md
       - name: Create and manage containers
         items:
+        - name: Manage containers (Azure portal)
+          href: blob-containers-portal.md
         - name: Manage containers (CLI)
           href: blob-containers-cli.md
         - name: Manage containers (PowerShell)
@@ -520,19 +522,31 @@ items:
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Synchronize'
           href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Properties and metadata'
+          href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Google Cloud Storage buckets'
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Troubleshoot AzCopy issues
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: BlobFuse
+        items:
+        - name: What is BlobFuse2?
+          href: blobfuse2-what-is.md
+        - name: Deploy BlobFuse2 on Linux
+          href: blobfuse2-how-to-deploy.md
+        - name: Deploy BlobFuse v1 on Linux
+          href: storage-how-to-mount-container-linux.md
+        - name: Troubleshooting
+          href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transfer data by using SFTP
         href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Mount storage from Linux using blobfuse
+      - name: Mount storage from Linux using BlobFuse
         href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -587,7 +601,11 @@ items:
           - name: Get started
             href: storage-blob-javascript-get-started.md
           - name: Work with SAS tokens
-            href: storage-blob-account-delegation-sas-create-javascript.md
+            items: 
+            - name: Account SAS
+              href: storage-blob-account-delegation-sas-create-javascript.md
+            - name: User SAS
+              href: storage-blob-create-user-delegation-sas-javascript.md
           - name: Work with containers
             items:
             - name: Create a container
@@ -692,6 +710,56 @@ items:
         href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy set-properties
+        href: ../common/storage-ref-azcopy-set-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: BlobFuse2
+      items:
+      - name: Configuration settings
+        href: blobfuse2-configuration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Commands
+        items:
+        - name: The BlobFuse2 command set
+          href: blobfuse2-commands.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 mount
+          href: blobfuse2-commands-mount.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 mount all
+            href: blobfuse2-commands-mount-all.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 mount list
+            href: blobfuse2-commands-mount-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 mountv1
+          href: blobfuse2-commands-mountv1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 unmount
+          href: blobfuse2-commands-unmount.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 unmount all
+            href: blobfuse2-commands-unmount-all.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 completion
+          href: blobfuse2-commands-completion.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 completion bash
+            href: blobfuse2-commands-completion-bash.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion fish
+            href: blobfuse2-commands-completion-fish.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion PowerShell
+            href: blobfuse2-commands-completion-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 completion zsh
+            href: blobfuse2-commands-completion-zsh.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 secure
+          href: blobfuse2-commands-secure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: BlobFuse2 secure encrypt
+            href: blobfuse2-commands-secure-encrypt.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure decrypt
+            href: blobfuse2-commands-secure-decrypt.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure get
+            href: blobfuse2-commands-secure-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: BlobFuse2 secure set
+            href: blobfuse2-commands-secure-set.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 version
+          href: blobfuse2-commands-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: BlobFuse2 help
+          href: blobfuse2-commands-help.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -914,6 +982,8 @@ items:
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Synchronize'
           href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Properties and metadata'
+          href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Google Cloud Storage buckets'
@@ -1018,6 +1088,8 @@ items:
         href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy set-properties
+        href: ../common/storage-ref-azcopy-set-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions

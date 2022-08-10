@@ -28,6 +28,11 @@ If you want to reuse the backend port across multiple rules, you must enable Flo
 
 When Floating IP is enabled, Azure changes the IP address mapping to the Frontend IP address of the Load Balancer frontend instead of backend instance's IP. Without Floating IP, Azure exposes the VM instances' IP. Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for more flexibility. Learn more [here](load-balancer-multivip-overview.md).
 
+In the diagrams below, you see how IP address mapping works before and after enabling Floating IP:
+:::image type="content" source="media/load-balancer-floating-ip/load-balancer-floating-ip-before.png" alt-text="This diagram shows network traffic through a load balancer before Floating IP is enabled.":::
+
+:::image type="content" source="media/load-balancer-floating-ip/load-balancer-floating-ip-after.png" alt-text="This diagram shows network traffic through a load balancer after Floating IP is enabled.":::
+
 Floating IP can be configured on a Load Balancer rule via the Azure portal, REST API, CLI, PowerShell, or other client. In addition to the rule configuration, you must also configure your virtual machine's Guest OS in order to use Floating IP.
 
 ## Floating IP Guest OS configuration
@@ -35,7 +40,7 @@ Floating IP can be configured on a Load Balancer rule via the Azure portal, REST
 In order to function, the Guest OS for the virtual machine needs to be configured to receive all traffic bound for the frontend IP and port of the load balancer. To accomplish this requires:
 * a loopback network interface to be added
 * configuring the loopback with the frontend IP address of the load balancer
-* ensure the system can send/receive packets on interfaces that do not have the IP address assigned to that interface (on Windows, this requires setting interfaces to use the "weak host" model; on Linux this model is normally used by default)
+* ensure the system can send/receive packets on interfaces that don't have the IP address assigned to that interface (on Windows, this requires setting interfaces to use the "weak host" model; on Linux this model is normally used by default)
 The host firewall also needs to be open to receiving traffic on the frontend IP port.
 
 > [!NOTE]
@@ -116,9 +121,5 @@ sudo ufw allow 80/tcp
 
 ## Next steps
 
-- See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
+- Learn about [using multiple frontends](load-balancer-multivip-overview.md) with Azure Load Balancer.
 - Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).
-- Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [Health Probes](load-balancer-custom-probe-overview.md).
-- Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md).
