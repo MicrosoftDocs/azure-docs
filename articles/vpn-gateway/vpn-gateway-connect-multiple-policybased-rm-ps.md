@@ -33,14 +33,14 @@ The following diagrams highlight the two models:
 ### Azure support for policy-based VPN
 Currently, Azure supports both modes of VPN gateways: route-based VPN gateways and policy-based VPN gateways. They are built on different internal platforms, which result in different specifications:
 
-| Category | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |  RouteBased VPN Gateway
+| Category | Policy-based VPN Gateway | Route-based VPN Gateway | Route-based VPN Gateway |  Route-based VPN Gateway
 | -------- | ----------------------- | ---------------------- | ---------------------- | ----------------------- |
 | **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3  | VpnGw4 and VpnGw5 |
 | **IKE version**          | IKEv1                       | IKEv2                            | IKEv1 and IKEv2         | IKEv1 and IKEv2   |
 | **Max. S2S connections** | **1**                       | 10                               | 30                      | 100               |
 |                          |                             |                                  |                         |                   |
 
-Previously, you could only use the PolicyBased VPN Gateway **Basic** SKU for policy-based VPNs. This meant you were limited to a single connection. Now, with custom IPsec/IKE policy, you can configure Azure RouteBased VPN gateways to use prefix-based traffic selectors with the option "**PolicyBasedTrafficSelectors**" to connect to on-premises policy-based VPN devices. This allows you to connect from an Azure virtual network and VPN gateway to multiple on-premises policy-based VPN/firewall devices, rather than being restricted to the single connection that the PolicyBased Basic SKU provides.
+Previously, when working with policy-based VPNs, you were limited to using the policy-based VPN gateway Basic SKU and could only connect to 1 on-premises VPN/firewall device. Now, using custom IPsec/IKE policy, you can use a route-based VPN gateway and connect to multiple policy-based VPN/firewall devices. To make a policy-based VPN connection using a route-based VPN gateway, configure the route-based VPN gateway to use prefix-based traffic selectors with the option **"PolicyBasedTrafficSelectors"**.
 
 > [!IMPORTANT]
 > 1. To enable this connectivity, your on-premises policy-based VPN devices must support **IKEv2** to connect to the Azure route-based VPN gateways. Check your VPN device specifications.
