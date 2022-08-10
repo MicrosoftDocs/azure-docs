@@ -195,6 +195,9 @@ Example Update Manifest with one Reference Step:
 }
 ```
 
+> [!NOTE]
+> In the [update manifest](/azure/iot-hub-device-update/update-manifest), each step should have different “installedCriteria” string if that string is being used to determine whether the step should be performed or not. 
+
 ## Parent Update vs. Child Update
 
 For Public Preview Refresh, we will refer to the top-level Update Manifest as `Parent Update` and refer to an Update Manifest specified in a Reference Step as `Child Update`.  
@@ -207,6 +210,11 @@ Inline step(s) specified in `Parent Update` will be applied to the Host Device. 
 
 > [!NOTE]
 > See [Steps Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-Aware Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
+
+> [!NOTE]
+> Steps Content Handler: 
+> IsInstalled validation logic for each step: The Device Update agent’s [step handler](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/steps_handler/README.md) checks to see if particular update is already installed i.e., checks for IsInstalled() resulted in a result code “900” which means ‘true’. If an update is already installed, to avoid re-installing an update that is already on the device, the DU agent will skip future steps because we use it to determine whether to perform the step or not.
+> Reporting an update result: The result of a step handler execution must be written to ADUC_Result struct in a desired result file as specified in --result-file option [learn more](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/steps_handler/README.md#steps-content-handler). Then based on results of the execution, for success return 0, for any fatal errors return -1 or 0xFF.
 
 ### Reference Step In Parent Update
 

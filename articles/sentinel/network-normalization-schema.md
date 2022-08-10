@@ -108,7 +108,7 @@ The following list mentions fields that have specific guidelines for Network Ses
 | <a name="eventsubtype"></a>**EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End` |
 | **EventResult** | Mandatory | Enumerated | If the source device does not provide an event result, **EventResult** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventResult** should be `Failure`. Otherwise, **EventResult** should be `Success`. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.3`.        |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.4`.        |
 | <a name="dvcaction"></a>**DvcAction** | Recommended | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction) field.<br><br>Example: `drop` |
 | **EventSeverity** | Optional | Enumerated | If the source device does not provide an event severity, **EventSeverity** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventSeverity** should be `Low`. Otherwise, **EventSeverity** should be `Informational`. |
 | **DvcInterface** | | | The DvcInterface field should alias either the [DvcInboundInterface](#dvcinboundinterface) or the [DvcOutboundInterface](#dvcoutboundinterface) fields. |
@@ -136,8 +136,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="networkdirection"></a>**NetworkDirection** | Optional | Enumerated | The direction of the connection or session:<br><br> - For the [EventType](#eventtype) `NetworkSession`, **NetworkDirection** represents the direction relative to the organization or cloud environment boundary. Supported values are `Inbound`, `Outbound`, `Local` (to the organization), `External` (to the organization) or `NA` (Not Applicable).<br><br> - For the [EventType](#eventtype) `EndpointNetworkSession`, **NetworkDirection** represents the direction relative to the endpoint. Supported values are `Inbound`, `Outbound`, `Local` (to the system), `Listen` or `NA` (Not Applicable). The `Listen` value indicates that a device has started accepting network connections but isn't actually, necessarily, connected. |
 | <a name="networkduration"></a>**NetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of the network session or connection.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [NetworkDuration](#networkduration). |
-| **NetworkIcmpCode** | Optional | Integer | For an ICMP message, the ICMP message type numeric value as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. If a [NetworkIcmpType](#networkicmptype) value is provided, this field is mandatory. If the value isn't available from the source, derive the value from the [NetworkIcmpType](#networkicmptype) field instead.<br><br>Example: `34` |
-|<a name="networkicmptype"></a> **NetworkIcmpType** | Optional | String | For an ICMP message, the ICMP message type text representation, as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections.<br><br>Example: `Destination Unreachable` |
+|<a name="networkicmptype"></a> **NetworkIcmpType** | Optional | String | For an ICMP message, the ICMP message type number, as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. |
+| **NetworkIcmpCode** | Optional | Integer | For an ICMP message, the ICMP code number as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. |
 | **NetworkConnectionHistory** | Optional | String | TCP flags and other potential IP header information. |
 | **DstBytes** | Recommended | Long | The number of bytes sent from the destination to the source for the connection or session. If the event is aggregated, **DstBytes** should be the sum over all aggregated sessions.<br><br>Example: `32455` |
 | **SrcBytes** | Recommended | Long | The number of bytes sent from the source to the destination for the connection or session. If the event is aggregated, **SrcBytes** should be the sum over all aggregated sessions.<br><br>Example: `46536` |
@@ -147,6 +147,15 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **NetworkPackets** | Optional | Long | The number of packets sent in both directions. If both **PacketsReceived** and **PacketsSent** exist, **BytesTotal** should equal their sum. The meaning of a packet is defined by the reporting device. If the event is aggregated, **NetworkPackets** should be the sum over all aggregated sessions.<br><br>Example: `6924` |
 |<a name="networksessionid"></a>**NetworkSessionId** | Optional | string | The session identifier as reported by the reporting device. <br><br>Example: `172\_12\_53\_32\_4322\_\_123\_64\_207\_1\_80` |
 | **SessionId** | Alias | String | Alias to [NetworkSessionId](#networksessionid). |
+| **TcpFlagsAck** | Optional | Boolean | The TCP ACK Flag reported. The acknowledgment flag is used to acknowledge the successful receipt of a packet. As we can see from the diagram above, the receiver sends an ACK as well as a SYN in the second step of the three way handshake process to tell the sender that it received its initial packet. |
+| **TcpFlagsFin** | Optional | Boolean | The TCP FIN Flag reported. The finished flag means there is no more data from the sender. Therefore, it is used in the last packet sent from the sender. |
+| **TcpFlagsSyn** | Optional | Boolean | The TCP SYN Flag reported. The synchronization flag is used as a first step in establishing a three way handshake between two hosts. Only the first packet from both the sender and receiver should have this flag set. |
+| **TcpFlagsUrg** | Optional | Boolean | The TCP URG Flag reported. The urgent flag is used to notify the receiver to process the urgent packets before processing all other packets. The receiver will be notified when all known urgent data has been received. See [RFC 6093](https://tools.ietf.org/html/rfc6093) for more details. |
+| **TcpFlagsPsh** | Optional | Boolean | The TCP PSH Flag reported. The push flag is somewhat similar to the URG flag and tells the receiver to process these packets as they are received instead of buffering them. |
+| **TcpFlagsRst** | Optional | Boolean | The TCP RST Flag reported. The reset flag gets sent from the receiver to the sender when a packet is sent to a particular host that was not expecting it. |
+| **TcpFlagsEce** | Optional | Boolean | The TCP ECE Flag reported. This flag is responsible for indicating if the TCP peer is [ECN capable](https://en.wikipedia.org/wiki/Explicit_Congestion_Notification). See [RFC 3168](https://tools.ietf.org/html/rfc3168) for more details. |
+| **TcpFlagsCwr** | Optional | Boolean | The TCP CWR Flag reported. The congestion window reduced flag is used by the sending host to indicate it received a packet with the ECE flag set. See [RFC 3168](https://tools.ietf.org/html/rfc3168) for more details. |
+| **TcpFlagsNs** | Optional | Boolean | The TCP NS Flag reported. The nonce sum flag is still an experimental flag used to help protect against accidental malicious concealment of packets from the sender. See [RFC 3540](https://tools.ietf.org/html/rfc3540) for more details |
 
 
 ### Destination system fields
@@ -287,14 +296,21 @@ The following fields are used to represent that inspection which a security devi
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| **NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
-| **NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
-| **Rule** | Mandatory | Alias | Either `NetworkRuleName` or `NetworkRuleNumber`. |
+| <a name="networkrulename"></a>**NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
+| <a name="networkrulenumber"></a>**NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
+| **Rule** | Mandatory | String | Either the value of [NetworkRuleName](#networkrulename) or the value of [NetworkRuleNumber](#networkrulenumber). Note that if the value of [NetworkRuleNumber](#networkrulenumber) is used, the type should be converted to string. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the network session.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the network session.<br><br>Example: `Trojan` |
 | **ThreatRiskLevel** | Optional | Integer | The risk level associated with the session. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatriskleveloriginal). |
 | <a name="threatriskleveloriginal"></a>**ThreatRiskLevelOriginal** | Optional | String | The risk level as reported by the reporting device. |
+| **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. |
+| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr` or `DstIpAddr`. |
+| **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
+| **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
+| **ThreatIsActive** | Optional | Boolean | True ID the threat identified is considered an active threat. | 
+| **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
+| **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
 
 
 ### Other fields
@@ -323,6 +339,11 @@ Theses are the changes in version 0.2.3 of the schema:
 - Added the `ipaddr_has_any_prefix` filtering parameter.
 - The `hostname_has_any` filtering parameter now matches either source or destination hostnames.
 - Added the fields `ASimMatchingHostname` and `ASimMatchingIpAddr`.
+
+Theses are the changes in version 0.2.4 of the schema:
+- Added the `TcpFlags` fields.
+- Updated `NetworkIcpmType` and `NetworkIcmpCode` to reflect the number value for both. 
+- Added additional inspection fields.
 
 ## Next steps
 

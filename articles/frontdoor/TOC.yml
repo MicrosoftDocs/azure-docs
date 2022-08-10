@@ -22,13 +22,21 @@
   expanded: true
   items:
   - name: Front Door
+    expanded: true
     items:
     - name: Standard/Premium
+      expanded: true
       items:
       - name: Create a Front Door - Portal
         href: create-front-door-portal.md
+      - name: Create a Front Door - PowerShell
+        href: create-front-door-powershell.md
       - name: Create a Front Door - CLI
         href: create-front-door-cli.md
+      - name: Create a Front Door - Bicep
+        href: create-front-door-bicep.md
+      - name: Create a Front Door - ARM template
+        href: create-front-door-template.md
     - name: Classic
       items:
       - name: Create a Front Door - Portal
@@ -126,6 +134,8 @@
           href: routing-methods.md
         - name: Routing limits
           href: front-door-routing-limits.md
+      - name: Endpoint
+        href: endpoint.md
       - name: Origin
         href: origin.md?pivots=front-door-standard-premium
       - name: Wildcard domain
@@ -148,6 +158,8 @@
         href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Private Link
         href: private-link.md
+      - name: Best practices
+        href: best-practices.md
     - name: Classic
       items:
         - name: Caching
@@ -572,7 +584,7 @@
       - name: Go SDK
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/contentdeliverynetwork
+        href: /javascript/api/overview/azure/cdn
     - name: Classic
       items:
       - name: Azure CLI
@@ -582,7 +594,7 @@
       - name: REST API
         href: /rest/api/frontdoor/#front-door-classic
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/frontdoor
+        href: /javascript/api/overview/azure/arm-frontdoor-readme
       - name: Java SDK
         href: /java/api/overview/azure/resourcemanager-cdn-readme
   - name: CDN
@@ -664,4 +676,3 @@
         href: https://stackoverflow.com/questions/tagged/azure-cdn
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-    

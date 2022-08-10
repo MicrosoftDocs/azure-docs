@@ -151,7 +151,7 @@ az iot hub invoke-module-method \
 
 Use the **UploadModuleLogs** direct method to send the requested logs to a specified Azure Blob Storage container.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
@@ -279,7 +279,7 @@ In the Azure portal, invoke the method with the method name `UploadModuleLogs` a
 
 Use the **UploadSupportBundle** direct method to bundle and upload a zip file of IoT Edge module logs to an available Azure Blob Storage container. This direct method runs the [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) command on your IoT Edge device to obtain the logs.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 > [!NOTE]

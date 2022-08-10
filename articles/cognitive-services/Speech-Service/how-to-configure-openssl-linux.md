@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/16/2020
+ms.date: 06/22/2022
 ms.author: jhakulin
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-three
 ROBOTS: NOINDEX
-ms.devlang: cpp, csharp, java, python
 ---
 
 # Configure OpenSSL for Linux
 
 With the Speech SDK, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. 
+
+> [!NOTE]
+> This article is only applicable where the Speech SDK is [supported on Linux](speech-sdk.md#supported-languages).
 
 To ensure connectivity, verify that OpenSSL certificates have been installed in your system. Run a command:
 ```bash
@@ -36,28 +38,29 @@ Check whether there's a `certs` subdirectory under OPENSSLDIR. In the example ab
 * If OPENSSLDIR is something other than `/usr/lib/ssl` or there's a single certificate bundle file instead of multiple individual files, you need to set an appropriate SSL environment variable to indicate where the certificates can be found.
 
 ## Examples
+Here are some example environment variables to configure per OpenSSL directory.
 
 - OPENSSLDIR is `/opt/ssl`. There's a `certs` subdirectory with many `.crt` or `.pem` files.
-Set environment variable `SSL_CERT_DIR` to point at `/opt/ssl/certs` before running a program that uses the Speech SDK. For example:
+Set the environment variable `SSL_CERT_DIR` to point at `/opt/ssl/certs` before using the Speech SDK. For example:
 ```bash
 export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
 - OPENSSLDIR is `/etc/pki/tls` (like on RHEL/CentOS based systems). There's a `certs` subdirectory with a certificate bundle file, for example `ca-bundle.crt`.
-Set environment variable `SSL_CERT_FILE` to point at that file before running a program that uses the Speech SDK. For example:
+Set the environment variable `SSL_CERT_FILE` to point at that file before using the Speech SDK. For example:
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## Certificate revocation checks
 
-When the Speech SDK connects to the Speech Service, it verifies that the Transport Layer Security (TLS) certificate reported by the remote endpoint is trusted and hasn't been revoked. This provides a layer of protection against attacks involving spoofing and other related vectors. The check is accomplished by retrieving a certificate revocation list (CRL) from a certificate authority (CA) used by Azure. A list of Azure CA download locations for updated TLS CRLs can be found in [this document](../../security/fundamentals/tls-certificate-changes.md).
+When the Speech SDK connects to the Speech Service, it checks the Transport Layer Security (TLS/SSL) certificate. The Speech SDK verifies that the certificate reported by the remote endpoint is trusted and hasn't been revoked. This verification provides a layer of protection against attacks involving spoofing and other related vectors. The check is accomplished by retrieving a certificate revocation list (CRL) from a certificate authority (CA) used by Azure. A list of Azure CA download locations for updated TLS CRLs can be found in [this document](../../security/fundamentals/tls-certificate-changes.md).
 
-If a destination posing as the Speech Service reports a certificate that's been revoked in a retrieved CRL, the SDK will terminate the connection and report an error via a `Canceled` event. Because the authenticity of a reported certificate can't be checked without an updated CRL, the Speech SDK will by default also treat a failure to download a CRL from an Azure CA location as an error.
+If a destination posing as the Speech Service reports a certificate that's been revoked in a retrieved CRL, the SDK will terminate the connection and report an error via a `Canceled` event. The authenticity of a reported certificate can't be checked without an updated CRL. Therefore, the Speech SDK will also treat a failure to download a CRL from an Azure CA location as an error.
 
 ### Large CRL files (>10 MB)
 
-One cause of CRL-related failures is the use of large CRL files. This is typically only applicable to special environments with extended CA chains and standard, public endpoints shouldn't encounter this class of issue.
+One cause of CRL-related failures is the use of large CRL files. This class of error is typically only applicable to special environments with extended CA chains. Standard public endpoints shouldn't encounter this class of issue.
 
 The default maximum CRL size used by the Speech SDK (10 MB) can be adjusted per config object. The property key for this adjustment is `CONFIG_MAX_CRL_SIZE_KB` and the value, specified as a string, is by default "10000" (10 MB). For example, when creating a `SpeechRecognizer` object (that manages a connection to the Speech Service), you can set this property in its `SpeechConfig`. In the snippet below, the configuration is adjusted to permit a CRL file size up to 15 MB.
 
@@ -71,7 +74,7 @@ config.SetProperty("CONFIG_MAX_CRL_SIZE_KB"", "15000");
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
+```cpp
 config->SetProperty("CONFIG_MAX_CRL_SIZE_KB"", "15000");
 ```
 
@@ -87,16 +90,16 @@ config.setProperty("CONFIG_MAX_CRL_SIZE_KB"", "15000");
 
 ::: zone pivot="programming-language-python"
 
-```Python
+```python
 speech_config.set_property_by_name("CONFIG_MAX_CRL_SIZE_KB"", "15000")
 ```
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-go"
 
-```ObjectiveC
-[config setPropertyTo:@"15000" byName:"CONFIG_MAX_CRL_SIZE_KB"];
+```go
+speechConfig.properties.SetPropertyByString("CONFIG_MAX_CRL_SIZE_KB", "15000")
 ```
 
 ::: zone-end
@@ -120,7 +123,7 @@ config.SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
+```cpp
 config->SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 ```
 
@@ -136,21 +139,22 @@ config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 
 ::: zone pivot="programming-language-python"
 
-```Python
+```python
 speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-go"
 
-```ObjectiveC
-[config setPropertyTo:@"true" byName:"OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE"];
+```go
+
+speechConfig.properties.SetPropertyByString("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
 
-To turn off certificate revocation checks, set the property `"OPENSSL_DISABLE_CRL_CHECK"` to `"true"`. Then, while connecting to the Speech Service, there will be no attempt to check or download a CRL and no automatic verification of a reported TLS certificate.
+To turn off certificate revocation checks, set the property `"OPENSSL_DISABLE_CRL_CHECK"` to `"true"`. Then, while connecting to the Speech Service, there will be no attempt to check or download a CRL and no automatic verification of a reported TLS/SSL certificate.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -162,7 +166,7 @@ config.SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
+```cpp
 config->SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 ```
 
@@ -178,16 +182,16 @@ config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 
 ::: zone pivot="programming-language-python"
 
-```Python
+```python
 speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-go"
 
-```ObjectiveC
-[config setPropertyTo:@"true" byName:"OPENSSL_DISABLE_CRL_CHECK"];
+```go
+speechConfig.properties.SetPropertyByString("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end
@@ -196,9 +200,9 @@ speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 
 By default, the Speech SDK will cache a successfully downloaded CRL on disk to improve the initial latency of future connections. When no cached CRL is present or when the cached CRL is expired, a new list will be downloaded.
 
-Some Linux distributions don't have a `TMP` or `TMPDIR` environment variable defined. This will prevent the Speech SDK from caching downloaded CRLs and cause it to download a new CRL upon every connection. To improve initial connection performance in this situation, you can [create a `TMPDIR` environment variable and set it to the accessible path of a temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
+Some Linux distributions don't have a `TMP` or `TMPDIR` environment variable defined, so the Speech SDK won't cache downloaded CRLs. Without `TMP` or `TMPDIR` environment variable defined, the Speech SDK will download a new CRL for each connection. To improve initial connection performance in this situation, you can [create a `TMPDIR` environment variable and set it to the accessible path of a temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [About the Speech SDK](speech-sdk.md)
+- [Speech SDK overview](speech-sdk.md)
+- [Install the Speech SDK](quickstarts/setup-platform.md)

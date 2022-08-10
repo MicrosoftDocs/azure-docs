@@ -34,6 +34,9 @@ To create a custom workbook based on any of these workbooks, select the **View W
 
 - **GPU**: Interactive GPU usage charts for each GPU-aware Kubernetes cluster node.
 
+>[!NOTE]
+> As per the Kubernetes [upstream announcement](https://kubernetes.io/blog/2020/12/16/third-party-device-metrics-reaches-ga/#nvidia-gpu-metrics-deprecated), GPU metrics collection will be disabled out of the box, please read instructions on how to continue collecting your GPU metrics [here](./container-insights-gpu-monitoring.md)
+
 ## Resource Monitoring workbooks
 
 - **Deployments**: Status of your deployments & Horizontal Pod Autoscaler(HPA) including custom HPA. 

@@ -8,17 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/16/2022
+ms.date: 07/28/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
 
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD036 -->
 
 # Quickstart: Azure Cognitive Services Translator
 
-In this quickstart, you learn to use the Translator service to [translate text](reference/v3-0-translate.md) using the programming language of your choice and the REST API.
+In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) with a programming language of your choice and the REST API.
+
+> [!NOTE]
+>
+> * For this quickstart it is recommended that you use a Translator text single-service subscription.
+> * With the single-service subscription you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
+> * If you choose to use the multi-service Cognitive Services subscription, it requires two authentication headers (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
+> * For more information on how to use the Ocp-Apim-Subscription-Region header, _see_ [Use the Text Translator APIs](translator-text-apis.md).
 
 ## Prerequisites
 
@@ -33,12 +42,15 @@ To get started, you'll need an active Azure subscription. If you don't have an A
     :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 * Use the free pricing tier (F0) to try the service and upgrade later to a paid tier for production.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=prerequisites)
 
 ## Headers
 
 To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to include the following headers with each request. Don't worry, we'll include the headers for you in the sample code for each programming language.
 
-For more information on Translator authentication options, *see* the [Translator v3 reference](/azure/cognitive-services/translator/reference/v3-0-reference#authentication) guide.
+For more information on Translator authentication options, _see_ the [Translator v3 reference](./reference/v3-0-reference.md#authentication) guide.
 
 |Header|Value| Condition  |
 |--- |:--- |:---|
@@ -50,7 +62,7 @@ For more information on Translator authentication options, *see* the [Translator
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and **never** post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../cognitive-services/cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, _see_ the Cognitive Services [security](../cognitive-services-security.md) article.
 
 ## Translate text
 
@@ -58,7 +70,7 @@ The core operation of the Translator service is translating text. In this quicks
 
 ### [C#: Visual Studio](#tab/csharp)
 
-### Set up
+### Set up your Visual Studio project
 
 1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
 
@@ -97,15 +109,18 @@ The core operation of the Translator service is translating text. In this quicks
 1. Select install from the right package manager window to add the package to your project.
 
     :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=set-up-your-visual-studio-project)
 
-### Build your application
+### Build your C# application
 
 > [!NOTE]
 >
 > * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
 > * The new output uses recent C# features that simplify the code you need to write.
 > * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
-> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+> * For more information, _see_ [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
 
 1. Open the **Program.cs** file.
 
@@ -147,12 +162,44 @@ class Program
 }
 
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=build-your-c#-application)
 
 ### Run your C# application
 
 Once you've added a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-:::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the rum program button in Visual Studio.":::
+:::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
+
+**Translation output:**
+
+After a successful call, you should see the following response:
+
+```json
+[
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
+]
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=run-your-c#-application)
 
 ### [Go](#tab/go)
 
@@ -164,7 +211,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 >
 > If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
 
-1. If you haven't done so already, [download and install Go](https://go.dev/doc/install]).
+1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
 
     * Download the Go version for your operating system.
     * Once the download is complete, run the installer.
@@ -173,6 +220,11 @@ You can use any text editor to write Go applications. We recommend using the lat
         ```console
           go version
         ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=set-up-your-go-environment)
+
+### Build your Go application
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-app**, and navigate to it.
 
@@ -240,6 +292,9 @@ func main() {
     fmt.Printf("%s\n", prettyJSON)
 }
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=build-your-go-application)
 
 ### Run your Go application
 
@@ -249,11 +304,40 @@ Once you've added a code sample to your application, your Go program can be exec
  go run translation.go
 ```
 
-### [Java](#tab/java)
+**Translation output:**
+
+After a successful call, you should see the following response:
+
+```json
+[
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
+]
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=run-your-go-application)
+
+### [Java: Gradle](#tab/java)
 
 ### Set up your Java environment
 
-* You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. *See* [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
+* You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. _See_ [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
 
   >[!TIP]
   >
@@ -265,6 +349,9 @@ Once you've added a code sample to your application, your Go program can be exec
   * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=set-up-your-java-environment)
 
 ### Create a new Gradle project
 
@@ -278,7 +365,7 @@ Once you've added a code sample to your application, your Go program can be exec
     mkdir translator-text-app; cd translator-text-app
    ```
 
-1. Run the `gradle init` command from the translator-text-app directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from the translator-text-app directory. This command will create essential build files for Gradle, including _build.gradle.kts_, which is used at runtime to create and configure your application.
 
     ```console
     gradle init --type basic
@@ -306,8 +393,11 @@ Once you've added a code sample to your application, your Go program can be exec
     implementation("com.google.code.gson:gson:2.9.0")
   }
   ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-a-gradle-project)
 
-### Create a Java Application
+### Create your Java Application
 
 1. From the translator-text-app directory, run the following command:
 
@@ -382,8 +472,11 @@ public class TranslatorText {
     }
 }
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=create-your-java-application)
 
-### Build and run your application
+### Build and run your Java application
 
 Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
@@ -399,9 +492,38 @@ Once you've added a code sample to your application, navigate back to your main 
     gradle run
     ```
 
-### [Node.js](#tab/nodejs)
+**Translation output:**
 
-### Create a Node.js Express application
+After a successful call, you should see the following response:
+
+```json
+[
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
+]
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=build-and-run-your-java-application)
+
+### [JavaScript: Node.js](#tab/nodejs)
+
+### Set up your Node.js Express project
 
 1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
@@ -447,6 +569,11 @@ Once you've added a code sample to your application, navigate back to your main 
     > * Type the following command **New-Item index.js**.
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-app` directory.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-nodejs-express-project)
+
+### Build your JavaScript application
 
 1. Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
 
@@ -480,8 +607,11 @@ Once you've added a code sample to your application, navigate back to your main 
     })
 
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-javascript-application)
 
-### Run your application
+### Run your JavaScript application
 
 Once you've added the code sample to your application, run your program:
 
@@ -493,9 +623,38 @@ Once you've added the code sample to your application, run your program:
     node index.js
     ```
 
+**Translation output:**
+
+After a successful call, you should see the following response:
+
+```json
+[
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
+]
+
+```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=run-your-javascript-application)
+
 ### [Python](#tab/python)
 
-### Create a Python application
+### Set up your Python project
 
 1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
 
@@ -511,6 +670,11 @@ Once you've added the code sample to your application, run your program:
 
     > [!NOTE]
     > We will also use a Python built-in package called json. It's used to work with JSON data.
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=set-up-your-python-project)
+
+### Build your Python application
 
 1. Create a new Python file called **translator-app.py** in your preferred editor or IDE.
 
@@ -553,8 +717,11 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 
 ```
+<!-- checked -->
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=build-your-python-application)
 
-### Run your python application
+### Run your Python application
 
 Once you've added a code sample to your application, build and run your program:
 
@@ -566,11 +733,9 @@ Once you've added a code sample to your application, build and run your program:
     python translator-app.py
     ```
 
----
+**Translation output:**
 
-### Translation output
-
-After a successful call, you should see the following response: 
+After a successful call, you should see the following response:
 
 ```json
 [
@@ -593,12 +758,24 @@ After a successful call, you should see the following response:
 ]
 
 ```
-
-That's it, congratulations! You have learned to use the Translator service to translate text.
-
-## Next step
-
- Explore the how-to documentation to learn about more Translation service capabilities:
-
+<!-- checked -->
 > [!div class="nextstepaction"]
-> [Use Text Translation APIs](translator-text-apis.md)
+> [My REST API call was successful](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=run-your-python-application)
+
+---
+
+## Next steps
+
+That's it, congratulations! You've learned to use the Translator service to translate text.
+
+ Explore our how-to documentation and take a deeper dive into Translation service capabilities:
+
+* [**Translate text**](translator-text-apis.md#translate-text)
+
+* [**Transliterate text**](translator-text-apis.md#transliterate-text)
+
+* [**Detect and identify language**](translator-text-apis.md#detect-language)
+
+* [**Get sentence length**](translator-text-apis.md#get-sentence-length)
+
+* [**Dictionary lookup and alternate translations**](translator-text-apis.md#dictionary-examples-translations-in-context)

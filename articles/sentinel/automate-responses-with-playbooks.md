@@ -92,9 +92,6 @@ There are many differences between these two resource types, some of which affec
 
 See [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-type-and-host-environment-differences) in the Logic Apps documentation for a detailed summary of the two resource types.
 
-> [!IMPORTANT]
-> - While the **Logic App (Standard)** resource type is generally available, Microsoft Sentinel's support for this resource type is in **Preview**.
-
 > [!NOTE]
 > - You'll notice an indicator in Standard workflows that presents as either *stateful* or *stateless*. Microsoft Sentinel does not support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
 > - Logic Apps Standard does not currently support Playbook templates. This means that you can't create a Standard workflow from within Microsoft Sentinel. Rather, you must create it in Logic Apps, and once it's created, you'll see it in Microsoft Sentinel.
@@ -252,7 +249,7 @@ For playbooks that are triggered by incident creation and receive incidents as t
     >
     > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear for your selection. Playbooks to which Microsoft Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant permission to Microsoft Sentinel on the spot by selecting the **Manage playbook permissions** link.
     >
-    > In a multi-tenant ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)) scenario, you must define the permissions on the tenant where the playbook lives, even if the automation rule calling the playbook is in a different tenant. To do that, you must have **Owner** permissions on the playbook's resource group.
+    > In a multi-tenant ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse)) scenario, you must define the permissions on the tenant where the playbook lives, even if the automation rule calling the playbook is in a different tenant. To do that, you must have **Owner** permissions on the playbook's resource group.
     >
     > There's a unique scenario facing a **Managed Security Service Provider (MSSP)**, where a service provider, while signed into its own tenant, creates an automation rule on a customer's workspace using [Azure Lighthouse](../lighthouse/index.yml). This automation rule then calls a playbook belonging to the customer's tenant. In this case, Microsoft Sentinel must be granted permissions on ***both tenants***. In the customer tenant, you grant them in the **Manage playbook permissions** panel, just like in the regular multi-tenant scenario. To grant the relevant permissions in the service provider tenant, you need to add an additional Azure Lighthouse delegation that grants access rights to the **Azure Security Insights** app, with the **Microsoft Sentinel Automation Contributor** role, on the resource group where the playbook resides. [Learn how to add this delegation](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
 

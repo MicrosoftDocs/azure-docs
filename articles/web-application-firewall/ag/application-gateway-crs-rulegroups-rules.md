@@ -131,6 +131,8 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="general-32"></a> General
 |RuleId|Description|
 |---|---|
+|200002|Failed to Parse Request Body.|
+|200003|Multipart Request Body Strict Validation.|
 |200004|Possible Multipart Unmatched Boundary.|
 
 ### <a name="crs800-32"></a> KNOWN-CVES
@@ -183,6 +185,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920274|Invalid character in request headers (outside of very strict set)|
 |920280|Request Missing a Host Header|
 |920290|Empty Host Header|
+|920300|Request Missing an Accept Header|
 |920310|Request Has an Empty Accept Header|
 |920311|Request Has an Empty Accept Header|
 |920320|Missing User Agent Header|

@@ -9,6 +9,7 @@ ms.author: pariks
 ms.custom: devx-track-azurepowershell
 ms.date: 06/20/2022
 ---
+
 # Auto grow storage in Azure Database for MySQL server using PowerShell
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

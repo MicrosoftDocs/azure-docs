@@ -1,12 +1,12 @@
 ---
 title: How to automatically apply sensitivity labels to your data in Microsoft Purview Data Map
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
-author: whhender
-ms.author: whhender
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 07/07/2022
 ---
 # How to automatically apply sensitivity labels to your data in the Microsoft Purview Data Map
 
@@ -57,7 +57,7 @@ After you've extended labeling to assets in the Microsoft Purview Data Map, all 
 1. Name the label. Then, under **Define the scope for this label**:
 
     - In all cases, select **Schematized data assets**.
-    - To label files, also select **Files & emails**. This option isn't required to label schematized data assets only
+    - To label files, also select **Items**. This option isn't required to label schematized data assets only.
 
     :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Automatically label in the Microsoft Purview compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
 
@@ -113,6 +113,10 @@ For example:
 :::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns-small.png" alt-text="Define auto-labeling rules for schematized data assets in the Microsoft Purview compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns.png":::
 
 ### Step 4: Publish labels
+
+If the Sensitivity label has been published previously, then no further action is needed. 
+
+If this is a new sensitivity label that has not been published before, then the label must be published for the changes to take effect. Follow [these steps to publish the label](/microsoft-365/compliance/create-sensitivity-labels#publish-sensitivity-labels-by-creating-a-label-policy).
 
 Once you create a label, you'll need to Scan your data in the Microsoft Purview Data Map to automatically apply the labels you've created, based on the autolabeling rules you've defined.
 

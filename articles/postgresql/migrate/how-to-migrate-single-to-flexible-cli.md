@@ -1,7 +1,7 @@
 ---
 title: "Migrate from Single Server to Flexible Server by using the Azure CLI"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Learn about migrating your Single Server databases to Azure database for PostgreSQL Flexible Server by using the Azure CLI.
+description: Learn about migrating your Single Server databases to Azure Database for PostgreSQL Flexible Server by using the Azure CLI.
 author: hariramt
 ms.author: hariramt
 ms.service: postgresql
@@ -16,7 +16,7 @@ ms.date: 05/09/2022
 This article shows you how to use the migration tool in the Azure CLI to migrate databases from Azure Database for PostgreSQL Single Server to Flexible Server.
 
 >[!NOTE]
-> The migration tool is in private preview.
+> The migration tool is in public preview.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ az postgres flexible-server migration --help
 
 That command gives you the following output:
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-help.png" alt-text="Screenshot of Azure C L I help." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-help.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-help.png":::
 
 The output lists the supported migration commands, along with their actions. Let's look at these commands in detail.
 
@@ -92,7 +92,7 @@ az postgres flexible-server migration create [--subscription]
 For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration create --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
+az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
 ```
 
 The `migration-name` argument used in the `create` command will be used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it will uniquely identify the migration attempt in the corresponding actions.
@@ -200,7 +200,7 @@ az postgres flexible-server migration list [--subscription]
 
 The `migration_name` parameter is the name assigned to the migration during the `create` command. Here's a snapshot of the sample response from the CLI command for showing details:
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png" alt-text="Screenshot of C L I migration name." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png" alt-text="Screenshot of Command Line Interface migration name." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png":::
 
 Note these important points for the command response:
 
@@ -240,7 +240,7 @@ az postgres flexible-server migration update [--subscription]
 To set logical replication on your source server, pass the value `true` to the `initiate-data-migration` property. For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration update --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --initiate-data-migration true"
+az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --initiate-data-migration true"
 ```
 
 If you enable it manually, *you still need to issue the preceding `update` command* for the migration to move out of the `WaitingForUserAction` state. The server doesn't need to restart again because that already happened via the portal action.
@@ -260,7 +260,7 @@ az postgres flexible-server migration update [--subscription]
 To give the migration permissions to overwrite any existing data in the target server, you need to pass the value `true` to the `overwrite-dbs` property. For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration update --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --overwrite-dbs true"
+az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --overwrite-dbs true"
 ```
 
 #### WaitingForCutoverTrigger
@@ -282,7 +282,7 @@ az postgres flexible-server migration update [--subscription]
 For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration update --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --cutover"
+az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --cutover"
 ```
 
 After you use the preceding command, use the command for showing details to monitor if the cutover has finished successfully. Upon successful cutover, migration will move to a `Succeeded` state. Update your application to point to the new Flexible Server target.
@@ -307,7 +307,7 @@ az postgres flexible-server migration delete [--subscription]
 For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration delete --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
+az postgres flexible-server migration delete --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
 ```
 
 For more information about this command, use the `help` parameter:

@@ -3,6 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 ms.topic: reference
 ms.date: 06/01/2022
+ms.reviewer: lualderm
 
 ---
 

@@ -18,9 +18,10 @@ This article outlines how to register PostgreSQL, and how to authenticate and in
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) | No |
+
 
 The supported PostgreSQL server versions are 8.4 to 12.x.
 
@@ -86,7 +87,7 @@ On the **Register sources (PostgreSQL)** screen, follow these steps:
 
 ## Scan
 
-Follow the steps below to scan PostgreSQL to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+Follow the steps below to scan PostgreSQL to automatically identify assets. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Authentication for a scan
 

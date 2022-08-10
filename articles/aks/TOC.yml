@@ -10,7 +10,7 @@
       href: supported-kubernetes-versions.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
-      displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul
+      displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
     - name: Solution architectures
       href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: Quickstarts
@@ -179,6 +179,8 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
+        - name: Automatically upgrade an AKS cluster
+          href: auto-upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
         - name: Use Draft (preview)
@@ -219,11 +221,13 @@
               href: use-multiple-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
+            - name: Use CVM
+              href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
-            - name: Start/stop node pools (preview)
+            - name: Start/stop node pools
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
@@ -239,7 +243,7 @@
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
-          href: ../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks#what-are-the-benefits-of-microsoft-defender-for-containers
+          href: ../defender-for-cloud/defender-for-containers-introduction.md
           maintainContext: true
         - name: Enable Defender for Containers
           href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks
@@ -295,6 +299,8 @@
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
+            - name: Enable FIPS
+              href: enable-fips-nodes.md
         - name: Application security
           items:
             - name: Use Azure AD pod identity (preview)
@@ -303,6 +309,8 @@
               href: use-network-policies.md  
             - name: Use pod security policies (preview)
               href: use-pod-security-policies.md
+            - name: Use Pod Security Admission
+              href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
                 - name: Secrets Store CSI Driver configuration
@@ -329,6 +337,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+        - name: Use API Server VNet Integration
+          href: api-server-vnet-integration.md
         - name: Bring your own CNI
           href: use-byo-cni.md
         - name: Create an internal load balancer
@@ -362,32 +372,40 @@
               href: nat-gateway.md              
         - name: Customize CoreDNS
           href: coredns-custom.md
-    - name: Configure data volumes
+    - name: Configure storage
       items:
-        - name: Azure disk - dynamic
-          href: azure-disks-dynamic-pv.md
-        - name: Azure disk - static
-          href: azure-disk-volume.md
-        - name: Azure Files - dynamic
-          href: azure-files-dynamic-pv.md
-        - name: Azure Files - static
-          href: azure-files-volume.md
-        - name: Azure HPC Cache
-          href: azure-hpc-cache.md
-        - name: NFS Server - static
-          href: azure-nfs-volume.md
-        - name: Azure NetApp Files
-          href: azure-netapp-files.md
-        - name: Use Azure Ultra Disks
-          href: use-ultra-disks.md
-    - name: CSI storage drivers
-      items:
-        - name: CSI storage drivers overview
-          href: csi-storage-drivers.md
-        - name: Azure disks CSI driver
-          href: azure-disk-csi.md
-        - name: Azure Files CSI driver
-          href: azure-files-csi.md
+        - name: CSI storage drivers
+          items:
+            - name: CSI storage drivers overview
+              href: csi-storage-drivers.md
+            - name: Azure Disks CSI driver
+              href: azure-disk-csi.md
+            - name: Azure Files CSI driver
+              href: azure-files-csi.md
+            - name: Azure Blob CSI driver
+              href: azure-blob-csi.md
+            - name: Azure NetApp Files
+              href: azure-netapp-files.md
+            - name: Use Azure Ultra Disks
+              href: use-ultra-disks.md
+        - name: Configure storage
+          items:
+            - name: Azure Blob - dynamic
+              href: azure-csi-blob-storage-dynamic.md
+            - name: Azure Blob - static
+              href: azure-csi-blob-storage-static.md
+            - name: Azure Disks - dynamic
+              href: azure-disks-dynamic-pv.md
+            - name: Azure Disks - static
+              href: azure-disk-volume.md
+            - name: Azure Files - dynamic
+              href: azure-files-dynamic-pv.md
+            - name: Azure Files - static
+              href: azure-files-volume.md
+            - name: Azure HPC Cache
+              href: azure-hpc-cache.md
+            - name: NFS Server - static
+              href: azure-nfs-volume.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
@@ -440,6 +458,8 @@
               href: dapr-overview.md
             - name: How to use Dapr
               href: dapr.md
+            - name: Migrate from Dapr OSS
+              href: dapr-migration.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
@@ -491,6 +511,8 @@
           href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
+        - name: Configure automated deployments (preview)
+          href: automated-deployments.md
         - name: CI/CD with Azure Pipelines
           href: ../aks/devops-pipeline.md
     - name: Troubleshoot
@@ -516,7 +538,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
-      href: /python/api/overview/azure/containerservice
+      href: /python/api/overview/azure/container-service
     - name: Java
       href: /java/api/overview/azure/containerservice
     - name: Node.js

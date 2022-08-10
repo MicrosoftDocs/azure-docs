@@ -104,6 +104,8 @@ items:
       href: how-to/call-analyze-image.md
     - name: Analyze videos in real time
       href: how-to/analyze-video.md
+    - name: Generate a smart-cropped thumbnail
+      href: how-to/generate-thumbnail.md
   - name: Concepts
     items:
     - name: Object detection
@@ -194,7 +196,7 @@ items:
       href: how-to/add-faces.md
     - name: Use the large-scale feature
       href: how-to/use-large-scale.md
-    - name: Use the PersonDirectory structure
+    - name: Use the PersonDirectory structure (preview)
       href: how-to/use-persondirectory.md
     - name: Use the HeadPose attribute
       href: how-to/use-headpose.md
@@ -262,6 +264,8 @@ items:
         href: spatial-analysis-container.md
       - name: Configure operations
         href: spatial-analysis-operations.md
+      - name: Use a local video file
+        href: spatial-analysis-local.md
       - name: Deploy a people counting web app
         href: Spatial-analysis-web-app.md
       - name: Logging and troubleshooting

@@ -4,8 +4,7 @@ description: Learn how to access download requests for your marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: JasonWHowell
-ms.author: jasonh
+ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 09/27/2021
 ---

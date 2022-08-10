@@ -318,7 +318,7 @@ traits:
 transformations:
     - read_delimited:
         encoding: ascii
-        header: all_files_have_same_headers
+        header: all_files_same_headers
         delimiter: " "
     - keep_columns: ["store_location", "zip_code", "date", "amount", "x", "y", "z"]
     - convert_column_types:

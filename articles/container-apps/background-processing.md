@@ -201,7 +201,7 @@ Create a file named *queue.json* and paste the following configuration code into
                             },
                             {
                                 "name": "QueueConnectionString",
-                                "secretref": "queueconnection"
+                                "secretRef": "queueconnection"
                             }
                         ]
                     }
