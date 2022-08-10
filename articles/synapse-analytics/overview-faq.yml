@@ -77,12 +77,12 @@ sections:
       - question: |
           Does Azure Synapse workspace Support CI/CD? 
         answer: |
-          Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Git. All pool definitions will be stored in Git as Azure Resource Manager (ARM) templates. Dedicated SQL pool objects (schemas, tables, views, etc.) will be managed with database projects with CI/CD support. For more information, check out this [CI and CD Guide](https://docs.microsoft.com/en-us/azure/synapse-analytics/cicd/continuous-integration-delivery).
+          Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Git. All pool definitions will be stored in Git as Azure Resource Manager (ARM) templates. Dedicated SQL pool objects (schemas, tables, views, etcetera.) will be managed with database projects with CI/CD support. For more information, check out this [CI and CD Guide](/azure/synapse-analytics/cicd/continuous-integration-delivery).
 
       - question: |
           What are the functional differences between dedicated SQL pools and serverless pools?
         answer: |
-          Capabilities and requirements are different between the two types of pools. Differences include database objects, query language capabilities, security, tools, data access, and data format. For detailed comparison of SQL pools and serverless pools, please visit [Pools Comparison](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-features). For best practices when using either type of pool, please view [Best Practices for Dedicated SQL Pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool) and [Best Practices for Serverless SQL Pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-serverless-sql-pool).
+          Capabilities and requirements are different between the two types of pools. Differences include database objects, query language capabilities, security, tools, data access, and data format. For detailed comparison of SQL pools and serverless pools, please visit [Pools Comparison](/azure/synapse-analytics/sql/overview-features). For best practices when using either type of pool, please view [Best Practices for Dedicated SQL Pool](/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool) and [Best Practices for Serverless SQL Pool](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool).
 
       - question: |
           What are Delta tables, and why should I use them?
@@ -109,7 +109,7 @@ sections:
       - question: |
           How are Azure Data Factory pipelines and Azure Synapse pipelines different?
         answer: |
-          Some examples of differences are support for global parameters, monitoring of Spark Jobs for Data Flow, and Integration Runtime sharing. For more information, check out this doc for [Data Integration - Synapse vs ADF](https://docs.microsoft.com/en-us/azure/synapse-analytics/data-integration/concepts-data-factory-differences). 
+          Some examples of differences are support for global parameters, monitoring of Spark Jobs for Data Flow, and Integration Runtime sharing. For more information, check out this doc for [Data Integration - Synapse vs ADF](/azure/synapse-analytics/data-integration/concepts-data-factory-differences). 
 
       - question: |
           How do I migrate existing pipelines from Azure Data Factory to an Azure Synapse workspace?
@@ -119,12 +119,12 @@ sections:
       - question: |
           How do I use an Apache Spark Job Definition?
         answer: |
-          Check out this [Quick Start Guide](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-transform-data-using-spark-job-definition).
+          Check out this [Quick Start Guide](/azure/synapse-analytics/quickstart-transform-data-using-spark-job-definition).
 
       - question: |
           Can I call notebooks from ADF pipelines?
         answer: |
-          There are two options for this use case. One option is to keep pipelines in ADF, and you will have to wrap in a web activity. For more information on this option, please view this [Web Activity Guide](h.ttps://docs.microsoft.com/en-us/azure/data-factory/control-flow-web-activity). The other option is to migrate the pipelines to Synapse. For more information on the second option, check out this [Migration Code Sample](https://github.com/Azure-Samples/Synapse/tree/main/Pipelines/ImportADFtoSynapse).
+          There are two options for this use case. One option is to keep pipelines in ADF, and you will have to wrap in a web activity. For more information on this option, please view this [Web Activity Guide](/azure/data-factory/control-flow-web-activity). The other option is to migrate the pipelines to Synapse. For more information on the second option, check out this [Migration Code Sample](https://github.com/Azure-Samples/Synapse/tree/main/Pipelines/ImportADFtoSynapse).
  
  - name: Apache Spark
     questions:
@@ -177,7 +177,7 @@ sections:
       - question: |
           What tools are available to me on Synapse Spark?
         answer: |
-           MSSparkUtils on Synapse Spark offers a variety of utilities to enhance your experience and to make integration with other tools and services easier. Work with file systems, get environment variables, chain notebooks together, and work with secrets with minimal manual steps. For full documentation, please visit [Microsoft Spark Utilities](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-csharp).
+           MSSparkUtils on Synapse Spark offers a variety of utilities to enhance your experience and to make integration with other tools and services easier. Work with file systems, get environment variables, chain notebooks together, and work with secrets with minimal manual steps. For full documentation, please visit [Microsoft Spark Utilities](/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-csharp).
       
   - name: Dedicated SQL Pools
     questions:
