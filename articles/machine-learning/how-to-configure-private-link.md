@@ -263,10 +263,6 @@ To enable public access, use the following steps:
 >
 > Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
 
-# [Python SDK v2](#tab/python)
-
-TODO - add v2 info
-
 # [Azure CLI extension 2.0](#tab/azurecliextensionv2)
 
 When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
@@ -279,10 +275,6 @@ az ml workspace update \
 ```
 
 You can also enable public network access by using a YAML file. For more information, see the [workspace YAML reference](reference-yaml-workspace.md).
-
-# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
-
-The Azure CLI [extension 1.0 for machine learning](v1/reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
 
 # [Portal](#tab/azure-portal)
 

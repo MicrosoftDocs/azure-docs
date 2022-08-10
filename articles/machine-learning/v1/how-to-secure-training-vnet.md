@@ -330,7 +330,7 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 ### Attach the VM or HDInsight cluster
 
-Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](../how-to-set-up-training-targets.md).
 
 ## Next steps
 

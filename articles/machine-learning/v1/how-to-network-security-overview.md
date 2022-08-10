@@ -237,7 +237,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
 * [Secure the training environment (v1)](how-to-secure-training-vnet.md)
 * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
-* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](../how-to-custom-dns.md)
 * [Use a firewall](../how-to-access-azureml-behind-firewall.md)
 * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
