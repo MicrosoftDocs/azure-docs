@@ -43,7 +43,7 @@ You'll need the `synapseml` library and several Azure resources. If possible, us
 
 <sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a Cognitive Services multi-service key and the region, and it'll work for both services.
 
-<sup>3</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
+<sup>3</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article listed in the prerequisites includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
 
 > [!NOTE]
 > All of the above resources support security features in the Microsoft Identity platform. For simplicity, this walkthrough assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
@@ -88,7 +88,7 @@ In this section, you'll create a cluster, install the `synapseml` library, and c
 
 Paste the following code into the first cell of your notebook. Replace the placeholders with endpoints and access keys for each resource. No other modifications are required, so run the code when you're ready.
 
-This code loads packages and sets up access to the Azure resources used in this workflow.
+This code imports packages and sets up access to the Azure resources used in this workflow.
 
 ```python
 import os
@@ -134,7 +134,7 @@ display(df2)
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices.
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](/azure/applied-ai-services/form-recognizer/concept-invoice) of Azure Forms Analyzer.
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
@@ -156,9 +156,9 @@ display(analyzed_df)
 
 Paste the following code into the fourth cell and run it. No modifications are required.
 
-This code loads FormOntologyLearner, a transformer that analyzes the output of Form Recognizer and infers a tabular data structure. The output of forms recognition is dynamic and varies based on the features detected in your content. Furthermore, the output is consolidated into a single output column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
+This code loads [FormOntologyLearner](https://mmlspark.blob.core.windows.net/docs/0.10.0/pyspark/synapse.ml.cognitive.html?highlight=formontologylearner#module-synapse.ml.cognitive.FormOntologyLearner), a transformer that analyzes the output of Form Recognizer and infers a tabular data structure. The output of forms recognition is dynamic and varies based on the features detected in your content. Furthermore, the AnalyzeInvoices transformer consolidates output into a single column. Because the output is dynamic and consolidated, it's difficult to use in downstream transformations that require more structure.
 
-FormOntologyLearner extends the utility of Forms Recognizer by looking for patterns that can be used to create a tabular data structure. It finds patterns that can be used to organize the output into multiple columns and rows, making the content consumable in other transformers, like AzureSearchWriter.
+FormOntologyLearner extends the utility of the AnalyzeInvoices transformer by looking for patterns that can be used to create a tabular data structure. It finds patterns that can be used to organize the output into multiple columns and rows, making the content consumable in other transformers, like AzureSearchWriter.
 
 ```python
 from synapse.ml.cognitive import FormOntologyLearner
@@ -208,7 +208,7 @@ display(translated_df)
 
 Paste the following code in the sixth cell and then run it. No modifications are required.
 
-This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. Because the output translations structure is an array, it's articulated in the index as a complex collection with subfields for each translated language. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
+This code loads [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch). It consumes a tabular dataset and infers a search index schema that defines one field for each column. The translations structure is an array, so it's articulated in the index as a complex collection with subfields for each language translation. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
 
 ```python
 from synapse.ml.cognitive import *
@@ -249,9 +249,9 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 ## Next steps
 
-In this walkthrough, you learned about the [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch) transformer in SynapseML, which is a new way of creating and loading search indexes in Azure Cognitive Search. The transformer takes tabular data as an input. The FormOntologyLearner can provide the necessary structure for output produced by Azure Forms Recognizer.
+In this walkthrough, you learned about the [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch) transformer in SynapseML, which is a new way of creating and loading search indexes in Azure Cognitive Search. The transformer takes structured JSON as an input. The FormOntologyLearner can provide the necessary structure for output produced by the Forms Recognizer transformers in SynapseML.
 
-As a next step, review the other tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
+As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Text Analytics with Cognitive Service](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
