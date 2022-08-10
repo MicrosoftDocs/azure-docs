@@ -46,7 +46,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
    az account show
    ```
 
-1. Azure cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions. Read more to learn about the [persistence mechanisms used in Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
+1. Azure cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions. Read more to learn about the [persistence mechanisms used in Cloud Shell](/azure/cloud-shell/persisting-shell-storage#how-cloud-shell-storage-works).
 
    :::image type="content" source="media/quickstart/Azure-storage-subscription-new.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/Azure-storage-subscription-new.png":::
 
