@@ -36,8 +36,16 @@ And then defining these elements for the resulting alert actions using:
 1. Select **Include all future resources** to include any future resources added to the selected scope.
 1. Select **Done**.
 1. Select **Next: Condition>** at the bottom of the page.
-1. In the **Select a signal** pane, the **Signal type**, **Monitor service**,  and **Signal name** fields are pre-populated with the available values for your selected scope. You can narrow the signal list using these fields. The **Signal type** determines which [type of alert](alerts-overview.md#types-of-alerts) rule you're creating.
-1. Select the **Signal name**, and follow the steps below depending on the type of alert you're creating.
+1. In the **Select a signal** pane, filter the list of signals you can use by selecting values from these fields. The fields are pre-populated available values for your selected scope.
+    
+    
+    |Field  |Description  |
+    |---------|---------|
+    |Signal type     |Filter by the [type of alert rule](alerts-overview.md#types-of-alerts) you're creating. |
+    |Monitor service    |Filter by the monitor service. This list includes platform data and any custom metrics that you have configured.         |
+
+ 
+1. Select the **Signal name**, and follow the steps in the tab below that corresponds to the the type of alert you're creating.
     ### [Metric alert](#tab/metric)
 
     1. In the **Configure signal logic** pane, you can preview the results of the selected metric signal. Select values for the following fields.
@@ -168,10 +176,23 @@ And then defining these elements for the resulting alert actions using:
     From this point on, you can select the **Review + create** button at any time.
 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+    If your target resource is in either of these regions:
+    - Sweden Central
+    - Germany West Central
+    you can select a **Region** to ensure that the relevant data processing occurs within that region. 
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot of the actions tab when creating a new alert rule.":::
 
-1. In the **Details** tab, define the **Project details** by selecting the **Subscription** and **Resource group**. 
+1. In the **Details** tab, define the **Project details**.
+    - Select the **Subscription**.
+    - Select the **Resource group**.
+    - (Optional) If your target resource is in any of these regions:
+        - North Europe
+        - West Europe
+        - Sweden Central
+        - Germany West Central
+      and you are creating a metric alert rule that monitors a custom metric, you can select a **Region** to ensure that the relevant data processing occurs within that region.  
+ 
 1. Define the **Alert rule details**.
 
     ### [Metric alert](#tab/metric)
