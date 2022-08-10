@@ -9,17 +9,20 @@ ms.date: 08/10/2022
 ms.reviewer: esarroyo
 ---
 
-# Azure Cosmos DB Emulator - Release notes and download information
+# Azure Cosmos DB Emulator - release notes and download information
 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-This article shows the Azure Cosmos DB Emulator released versions and it details the updates that were made. Only the latest version is made available to download and use and previous versions aren't actively supported by the Azure Cosmos DB Emulator developers.
+This article shows the Azure Cosmos DB Emulator released versions and it details the latest updates. The download center only has the latest version of the emulator available to download.
+
+> [!IMPORTANT]
+> Earlier versions of the Azure Cosmos DB Emulator aren't actively supported by the developer team.
 
 ## Download
 
 | | Link |
 | --- | --- |
-| **MSI download** | [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) |
+| **Download** | [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) |
 | **Get started** | [Develop locally with Azure Cosmos DB Emulator](local-emulator.md) |
 
 ## Release notes
@@ -34,13 +37,13 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.14.7` (May 9, 2022)
 
-- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update, there are couple issues that were addressed in this release:
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update, there are a couple of issues addressed in this release:
   - Update Data Explorer to the latest content and fix a broken link for the quick start sample documentation.
   - Add option to enable the Mongo API version for the Linux Cosmos DB emulator by setting the environment variable: `AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT` in the Docker container. Valid settings are: `3.2`, `3.6`, `4.0` and `4.2`
 
 ### `2.14.6` (March 7, 2022)
 
-- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update, there are couple issues that were addressed in this release:
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update, there are a couple of issues addressed in this release:
   - Fix for an issue related to high CPU usage when the emulator is running.
   - Add PowerShell option to set the Mongo API version: `-MongoApiVersion`. Valid settings are: `3.2`, `3.6` and `4.0`
 
@@ -54,7 +57,7 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.14.3` (September 8, 2021)
 
-- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. It also addresses issues with performance data that is collected and resets the base image for the Linux Cosmos emulator Docker image.
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. It also addresses issues with performance data that's collected and resets the base image for the Linux Cosmos emulator Docker image.
 
 ### `2.14.2` (August 12, 2021)
 
@@ -62,15 +65,15 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.14.1` (June 18, 2021)
 
-- This release improves the start-up time for the emulator while reducing the footprint of its data on the disk. This new optimization is activated by `/EnablePreview` argument.
+- This release improves the start-up time for the emulator while reducing the footprint of its data on the disk. Activate this new optimization by using the `/EnablePreview` argument.
 
 ### `2.14.0` (June 15, 2021)
 
-- This release updates the local Data Explorer content to latest Microsoft Azure version. It also fixes an issue when importing multiple document items by using the JSON file upload feature.
+- This release updates the local Data Explorer content to latest Microsoft Azure version. It also fixes an issue when importing many items by using the JSON file upload feature.
 
 ### `2.11.13` (April 21, 2021)
 
-- This release updates the local Data Explorer content to latest Microsoft Azure version and adds a new MongoDB endpoint configuration, "4.0".
+- This release updates the local Data Explorer content to latest Microsoft Azure version and adds a new MongoDB endpoint configuration, `4.0`.
 
 ### `2.11.11` (February 22, 2021)
 
@@ -78,7 +81,7 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.11.10` (January 5, 2021)
 
-- This release updates the local Data Explorer content to latest Microsoft Azure version. It also adds a new public option, `/ExportPemCert`, which allows the emulator user to directly export the public emulator's certificate as a .PEM file.
+- This release updates the local Data Explorer content to latest Microsoft Azure version. It also adds a new public option, `/ExportPemCert`, which enables the emulator user to directly export the public emulator's certificate as a `.PEM` file.
 
 ### `2.11.9` (December 3, 2020)
 
@@ -88,27 +91,27 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.11.8` (November 6, 2020)
 
-- This release includes an update for the Azure Cosmos DB Emulator Data Explorer and fixes an issue where "TLS 1.3" clients try to open the Data Explorer.
+- This release includes an update for the Azure Cosmos DB Emulator Data Explorer and fixes an issue where **transport layer security (TLS) 1.3** clients try to open the Data Explorer.
 
 ### `2.11.6` (October 6, 2020)
 
-- This release addresses a concurrency-related issue when multiple containers might be created at the same time. The issue can leave the emulator in a corrupted state and future API requests to the emulator's endpoint will fail with "service unavailable" errors. The work-around is to stop the emulator, reset of the emulator's local data and restart.
+- This release addresses a concurrency-related issue when creating more than one container at the same time. The issue can leave the emulator in a corrupted state and future API requests to the emulator's endpoint will fail with *service unavailable* errors. The work-around is to stop the emulator, reset of the emulator's local data and restart.
 
 ### `2.11.5` (August 23, 2020)
 
 - This release adds two new Azure Cosmos DB Emulator startup options:
-  - `/EnablePreview` - Enables preview features for the Azure Cosmos DB Emulator. The preview features that are still under development and they can be accessed via CI and sample writing.
+  - `/EnablePreview` - Enables preview features for the Azure Cosmos DB Emulator. The preview features that are still under development and are available via CI and sample writing.
   - `/EnableAadAuthentication` - Enables the emulator to accept custom Azure Active Directory tokens as an alternative to the Azure Cosmos primary keys. This feature is still under development; specific role assignments and other permission-related settings aren't currently supported.
 
 ### `2.11.2` (July 7, 2020)
 
-- This release changes how ETL traces required when troubleshooting the Azure Cosmos DB Emulator are collected. WPR (Windows Performance Runtime tools) is now the default tools for capturing ETL-based traces while old LOGMAN based capturing has been deprecated. With the latest Windows security update, LOGMAN stopped working as expected when executed through the Azure Cosmos DB Emulator.
+- This release changes how the Azure Cosmos DB Emulator collects traces. Windows Performance Runtime (WPR) is now the default tools for capturing event trace log-based traces while deprecating logman based capturing. With the latest Windows security update, LOGMAN stopped working as expected when executed through the Azure Cosmos DB Emulator.
 
 ### `2.11.1` (June 10, 2020)
 
 - This release fixes couple bugs related to Azure Cosmos DB Emulator Data Explorer:
   - Data Explorer fails to connect to the Azure Cosmos DB Emulator endpoint when hosted in some Web browser versions. Emulator users might not be able to create a database or a container through the Web page.
-  - Address an issue that prevented emulator users from creating an item from a JSON file using Data Explorer upload action.
+  - Resolved bug that prevented emulator users from creating an item from a JSON file using Data Explorer upload action.
 
 ### `2.11.0`
 
@@ -117,7 +120,7 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.9.2`
 
-- This release fixes a bug while enabling support for MongoDb endpoint version 3.2. It also adds support for generating ETL traces for troubleshooting purposes using WPR instead of LOGMAN.
+- This release fixes a bug while enabling support for MongoDb endpoint version 3.2. It also adds support for generating trace messages for troubleshooting purposes using [Windows Performance Recorder (WPR)](/windows-hardware/test/wpt/wpr-command-line-options) instead of [logman](/windows-server/administration/windows-commands/logman).
 
 ### `2.9.1`
 
@@ -141,10 +144,14 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.4.3`
 
-- Disabled starting the MongoDB service by default. Only the SQL endpoint is enabled as default. The user must start the endpoint manually using the emulator's `/EnableMongoDbEndpoint` command-line option. Now, it's like all the other service endpoints, such as Gremlin, Cassandra, and Table.
-- Fixes a bug in the emulator when starting with “/AllowNetworkAccess” where the Gremlin, Cassandra, and Table endpoints weren't properly handling requests from external clients.
+- MongoDB service is no longer started by default. By default, the emulator enables the SQL endpoint. The user must start the endpoint manually using the emulator's `/EnableMongoDbEndpoint` command-line option. Now, it's like all the other service endpoints, such as Gremlin, Cassandra, and Table.
+- Fixes a bug in the emulator when starting with “/AllowNetworkAccess” where the Gremlin, Cassandra, and Table endpoints weren't correctly handling requests from external clients.
 - Add direct connection ports to the Firewall Rules settings.
 
 ### `2.4.0`
 
 - Fixed an issue with emulator failing to start when network monitoring apps, such as Pulse Client, are present on the host computer.
+
+## Next steps
+
+- [Install and use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md)

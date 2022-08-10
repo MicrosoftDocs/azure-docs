@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 08/10/2022
 ---
 
 # Managed identities for Azure Stream Analytics
@@ -47,7 +47,7 @@ Below is a table that shows Azure Stream Analytics inputs and outputs that suppo
 |                 | Service Bus Topic             | Yes                                                                    | Yes                                      |
 |                 | Service Bus Queue             | Yes                                                                    | Yes                                      |
 |                 | Cosmos DB                     | Yes                                                                    | Yes                                      |
-|                 | Power BI                      | Yes                                                                    | No                                       |
+|                 | Power BI                      | No                                                                     | Yes                                      |
 |                 | Data Lake Storage Gen1        | Yes                                                                    | Yes                                      |
 |                 | Azure Functions               | No                                                                     | No                                       |
 |                 | Azure Database for PostgreSQL | No                                                                     | No                                       |
