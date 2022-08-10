@@ -24,7 +24,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
 | [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
-| [Removing security alerts for machines reporting to custom workspaces on other tenants](#removing-security-alerts-for-machines-reporting-to-custom-workspaces-on other-tenants) | September 2022 |
+| [Removing security alerts for machines reporting to cross tenant Log Analytics workspaces](#removing-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces) | September 2022 |
 
 
 ### Changes to recommendations for managing endpoint protection solutions
