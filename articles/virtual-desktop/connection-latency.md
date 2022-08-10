@@ -21,7 +21,7 @@ If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you
 
 - The round trip time measured in this table is protocol-agnostic and will record the measured latency for Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) connections.
 
-To start collecting this data, you’ll need to make sure you have diagnostics and the **NetworkData** and **GraphicsData** tables enabled in your Azure Virtual Desktop host pools.
+To start collecting this data, you’ll need to make sure you have diagnostics and the **Network Data Logs** and **Connection Graphics Data Logs** tables enabled in your Azure Virtual Desktop host pools.
 
 >[!NOTE]
 >Normal storage charges for Log Analytics will apply. Learn more at [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
@@ -34,7 +34,7 @@ To check and modify your diagnostics settings in the Azure portal:
 
 3. Select **Diagnostic settings**, then create a new setting if you haven't configured your diagnostic settings yet. If you've already configured your diagnostic settings, select **Edit setting**.
 
-4. Select **allLogs** or select the names of the diagnostics tables you want to collect data for, including **NetworkData** and **GraphicsData**. The *allLogs* parameter will automatically add new tables to your data table in the future.
+4. Select **allLogs** or select the names of the diagnostics tables you want to collect data for, including **Network Data Logs** and **Connection Graphics Data Logs**. The *allLogs* parameter will automatically add new tables to your data table in the future.
 
 5. Select where you want to send the collected data. Azure Virtual Desktop Insights users should select a Log Analytics workspace. 
 
@@ -63,9 +63,10 @@ The network data you collect for your data tables includes the following informa
 
 - The **source system**, **Subscription ID**, **Tenant ID**, and **type** (table name).
 
+#### Frequency
 The service generates these network data points every two minutes during an active session.
 
-## Connection graphics data
+### Connection graphics data
 
 You should consult the Graphics data table when common graphical experience indicators fall below the healthy threshold set by Azure Virtual Desktop. This table will help your admins track and understand the issue's symptoms, and can also show them the round trip time (RTT) and bandwidth usage when the symptom occurred. However, while the Graphics data table is a useful tool for troubleshooting poor user experience, since it's continuously populated throughout your session, it's not helpful for setting an environment baseline.
 
@@ -109,7 +110,7 @@ The graphics data you collect for your data tables includes the following inform
 
 - The **source system**, **Subscription ID**, **Tenant ID**, and **type** (table name).
 
-### Frequency
+#### Frequency
 
 The frequency of data collection varies depending on the graphical health of a connection. The table won't record data for "Good" scenarios, but will recording if any of the following metrics are recorded as "Poor" or "Okay," and the resulting data will be sent to your storage account. Data only records once every two minutes. The metrics involved in data collection are listed in the following table:
 
@@ -122,7 +123,7 @@ The frequency of data collection varies depending on the graphical health of a c
 >[!NOTE]
 >For end-to-end delay per frame, if any frame in a single second is delayed by over 300 ms, the service registers it as "Bad." If all frames in a single second take between 150 ms and 300 ms, the service marks it as "Okay."
 
-## Sample queries for Azure Log Analytics
+### Sample queries for Azure Log Analytics
 
 In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query).
 
