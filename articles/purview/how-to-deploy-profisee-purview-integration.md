@@ -10,11 +10,11 @@ ms.date: 07/15/2022
 ms.custom: template-how-to
 ---
 
-# Microsoft Purview - Profisee Integration
+# Microsoft Purview - Profisee MDM Integration
 
 Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Purview Unified Data Governance and MDM in the context of an Azure data estate; and more importantly, to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
-## Why Data Governance and Master Data Management (MDM) are Essential to the Modern Data Estate?
+## Why Data Governance and Master Data Management (MDM) are essential to the modern Data Estate?
 
 All organizations have multiple data sources, and the larger the organization the greater the number of data sources. Typically, there will be ERPs, CRMs, Legacy applications, regional versions of each of these, external data feeds and so on. Most of these businesses move massive amounts of data between applications, storage systems, analytics systems, and across departments within their organization. During these movements, and over time, data can get duplicated or become fragmented, and become stale or out of date. Hence, accuracy becomes a concern when using this data to drive insights into your business. 
 
@@ -32,7 +32,7 @@ While governance systems can *define* data standards, MDM is where they're *enfo
 
 More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview MDM Concepts and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview).
 
-## Microsoft Purview & Profisee Integrated MDM - Better Together! 
+## Microsoft Purview & Profisee MDM - Better Together! 
 
 Microsoft Purview and Profisee MDM are often discussed as being a ‘Better Together’ value proposition due to the complementary nature of the solutions. Microsoft Purview excels at cataloging data sources and defining data standards, while Profisee MDM enforces those standards across master data drawn from multiple siloed sources. It's clear not only that either system has independent value to offer, but also that each reinforces the other for a natural ‘Better Together’ synergy that goes deeper than the independent offerings.
   - Common technical foundation – Profisee was born out of Microsoft technologies using common tools, databases & infrastructure so any ‘Microsoft shop’ will find the Profisee solution familiar.  In fact, for many years Profisee MDM was built on Microsoft Master Data Services (MDS) and now that MDS is nearing end of life, Profisee is the premier upgrade/replacement solution for MDS. 
