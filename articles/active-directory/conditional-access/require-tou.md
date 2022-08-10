@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 11/21/2019
+ms.date: 08/05/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
@@ -52,11 +52,11 @@ This section provides you with the steps to create a sample ToU. When you create
 1. In Microsoft Word, create a new document.
 1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
+1. Search for and select **Azure Active Directory**. From the menu on the left-hand side select **Security**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. On the **Azure Active Directory** page, in the **Security** section, click **Conditional Access**.
+1. Select **Conditional Access**.
 
    ![Conditional Access](./media/require-tou/03.png)
 
