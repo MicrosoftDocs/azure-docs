@@ -215,8 +215,6 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Alert reference
-    href: alert-engine-messages.md
   - name: OT monitoring appliances
     items:
     - name: Overview
@@ -275,14 +273,16 @@
       items:
       - name: Authentication and password management
         href: api/management-auth-apis.md
-      - name: Inventory management
-        href: api/management-inventory-apis.md
+      - name: Appliance management
+        href: api/management-appliance-apis.md
       - name: Alert management
         href: api/management-alert-apis.md
       - name: Vulnerability management
         href: api/management-vulnerability-apis.md
       - name: Partner integration
         href: api/management-integration-apis.md
+  - name: Sensor health message reference
+    href: sensor-health-messages.md
   - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions - service

@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 08/07/2022
+ms.date: 08/08/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -59,6 +59,20 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## August 2022
+
+- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
+
+### Sensor health from the Azure portal (Public preview)
+
+For OT sensor versions 22.1.3 and higher, you can use the new sensor health widgets and table column data to monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+
+:::image type="content" source="media/release-notes/sensor-health.png" alt-text="Screenshot showing the new sensor health widgets." lightbox="media/release-notes/sensor-health.png":::
+
+We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
+
+For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
+
 ## July 2022
 
 |Service area  |Updates  |
@@ -112,7 +126,12 @@ Now you can add any of the following parameters to your query to fine tune your 
 - “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**.
 - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
+<<<<<<< HEAD
 For more information, see [devicecves (Get device CVEs)](api/management-integration-apis.md#devicecves-get-device-cves).
+=======
+For more information, see [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
+>>>>>>> 3e9c47c4758cdb6f63a6873219cab9498206cb2a
+>>>>>>> 3cebc815e27766a3b95a9c08f7ca7342b7932c12
 
 ### OT appliance hardware profile updates
 

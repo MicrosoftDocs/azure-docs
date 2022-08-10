@@ -306,7 +306,7 @@ curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [
 ```rest
 curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.0/16"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
 ```
-
+---
 
 ### DELETE
 
@@ -351,28 +351,28 @@ curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "A
 ---
 
 ### GET
- <!--left off here, already did put-->
-Retrieve a log of all the open, close, and update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
+
+Retrieve a log of all the *open* ([POST](#post)), *close* ([DELETE](#delete)), and *update* ([PUT](#put)) actions that were performed using this API for handling maintenance windows. T
 
 # [Request](#tab/maintenanceWindow-request-put)
 
 **Query parameters**:
 
-|Name  |Description  |
-|---------|---------|
-| **fromDate** | Filters the logs from the predefined date and later. The format is `YYYY-MM-DD`.|
-| **toDate** | Filters the logs up to the predefined date. The format is `YYYY-MM-DD`. |
-| **ticketId** | Filters the logs related to a specific ticket ID. |
-| **tokenName** | Filters the logs related to a specific token name. |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+| **fromDate** | Filters the logs from the predefined date and later. The format is `YYYY-MM-DD`.|`2022-08-10` |Optional |
+| **toDate** | Filters the logs up to the predefined date. The format is `YYYY-MM-DD`. |`2022-08-10` | Optional|
+| **ticketId** | Filters the logs related to a specific ticket ID. | `9a5fe99c-d914-4bda-9332-307384fe40bf` |Optional |
+| **tokenName** | Filters the logs related to a specific token name. | quarterly-sanity-window |Optional |
 
 **Error codes**:
 
-|Code  |Description  |
-|---------|---------|
-|**200 (OK)**     |  The action was successfully completed.       |
-|**400 (Bad Request)**     | The date format is wrong.     |
-|**204 (No Content)**:     |  There is no data to show.      |
-|**500 (Internal Server Error)**     |  Any other unexpected error.       |
+|Code  |Message  | Description |
+|---------|---------|---------|
+|**200**     | OK | The action was successfully completed.       |
+|**204**:     | No Content | There is no data to show.      |
+|**400**  | Bad Request   | The date format is incorrect.     |
+|**500**     |    Internal Server Error    | Any other unexpected error.  |
 
 
 # [Response](#tab/maintenanceWindow-response-put)
@@ -383,16 +383,17 @@ Array of JSON objects that represent maintenance window operations.
 
 **Response structure**:
 
-| Name | Type | Comment | Required / Optional |
+| Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
-| **dateTime** | String | Example: "2012-04-23T18:25:43.511Z" | Required |
-| **ticketId** | String | Example: "9a5fe99c-d914-4bda-9332-307384fe40bf" | Required |
-| **tokenName** | String | - | Required |
-| **engines** | Array of string | - | Optional |
-| **sensorIds** | Array of string | - | Optional |
-| **subnets** | Array of string | - | Optional |
-| **ttl** | Numeric | - | Optional |
-| **operationType** | String | Values are "OPEN", "UPDATE", and "CLOSE" | Required |
+| **id** | Long integer | Not nullable | An internal ID for the current log |
+| **dateTime** | String | Not nullable | The time that the activity occurred, for example:  `2022-04-23T18:25:43.511Z `|
+| **ticketId** | String | Not nullable | The maintenance window ID. For example: `9a5fe99c-d914-4bda-9332-307384fe40bf` |
+| **tokenName** | String | Not nullable | The maintenance window token name. For example: `quarterly-sanity-window` |
+| **engines** | Array of strings | Nullable | The engines on which the maintenance window applies, as supplied during maintenance window creation: `Protocol Violation`, `Policy Violation`, `Malware`, `Anomaly`, or `Operational`  |
+| **sensorIds** | Array of string | Nullable| The sensors on which the maintenance window applies, as supplied during maintenance window creation. |
+| **subnets** | Array of string | Nullable | The subnets on which the maintenance window applies, as supplied during maintenance window creation.|
+| **ttl** | Numeric | Nullable | The maintenance window's Time to Live (TTL), as supplied during maintenance window creation or update. |
+| **operationType** | String | Not nullable | One of the following values: `OPEN`, `UPDATE`, and `CLOSE` |
 
 # [Curl command](#tab/maintenanceWindow-get-curl)
 
@@ -458,23 +459,21 @@ curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20
 ---
 
 
-
-
 ## pcap (Request alert PCAP)
 
 Use this API to request a PCAP file related to an alert.
 
 **URI**: `/external/v2/alerts/`
+
 ### GET
 
 # [Request](#tab/pcap-request)
 
 **Query parameters**:
 
-
-|Name  |Description  |Example  |
-|---------|---------|---------|
-|id     | CM alert ID        |    `/external/v2/alerts/pcap/<id>`     |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**id**     | Alert ID from the on-premises management console        |    `/external/v2/alerts/pcap/<id>`     | Required |
 
 # [Request](#tab/pcap-response)
 
@@ -482,20 +481,22 @@ Use this API to request a PCAP file related to an alert.
 
 Message string with the operation status details:
 
-|Name  |Description |
-|---------|---------|
-|**Success**     |  JSON object that contains data regarding the requested PCAP file       |
-|**Failure**     |  JSON object that contains error message       |
+| Status code | Message | Description |
+|--|--|--|
+|**200 (OK)**    | - |  JSON object with data about the requested PCAP file. For more information, see [Data fields](#data-fields).    |
+|**500 (Internal Server Error)**| Alert not found     |  The supplied alert ID wasn't found on the on-premises management console.    |
+|**500 (Internal Server Error)**|  Error while getting token for xsense id `<number>`  | An error occurred when getting the sensor's token for the specified sensor ID   |
+|**500 (Internal Server Error)**|   -   |  Any other unexpected error.    |
 
 #### Data fields
 
-|Name|Type|Required / Optional|
-|-|-|-|
-|**id**|Numeric|Required|
-|**xsenseId**|Numeric|Required|
-|**xsenseAlertId**|Numeric|Required|
-|**downloadUrl**|String|Required|
-|**token**|String|Required|
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+|**id**|Numeric|Not nullable| The on-premises management console alert ID |
+|**xsenseId**|Numeric|Not nullable| The sensor ID |
+|**xsenseAlertId**|Numeric|Not nullable| The sensor console alert ID |
+|**downloadUrl**|String|Not nullable| The URL used to download the PCAP file |
+|**token**|String|Not nullable| The sensor's token, to be used when downloading the PCAP file |
 
 
 **Response example**: Success
