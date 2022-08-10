@@ -12,15 +12,23 @@ ms.custom: template-how-to
 
 # Microsoft Purview - Profisee Integration
 
-Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place to get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
+Master data management (MDM) is a key pillar of any unified data governance solution. Microsoft Purview supports master data management with our partner [Profisee](https://profisee.com/profisee-advantage/). This tutorial compiles reference and integration deployment materials in one place; firstly to put Purview Unified Data Governance and MDM in the context of an Azure data estate, and get you started on your MDM journey with Microsoft Purview through our integration with Profisee.
 
-## What, why and how of MDM - Master Data Management?
+## Why Data Governance and Master Data Management (MDM) are Essential to the Modern Data Estate ?
 
-Many businesses today have large data estates that move massive amounts of data between applications, storage systems, analytics systems, and across departments within their organization. During these movements, and over time, data can be accidentally duplicated or become fragmented, and become stale or out of date. Hence, accuracy becomes a concern when using this data to drive insights into your business. 
+All organizations have multiple data sources, and the larger the organization the greater the number of data sources. Typically, there will be ERPs, CRMs, Legacy applications, regional versions of each of these, external data feeds and so on. Most of these businesses move massive amounts of data between applications, storage systems, analytics systems, and across departments within their organization. During these movements, and over time, data can get duplicated or become fragmented, and become stale or out of date. Hence, accuracy becomes a concern when using this data to drive insights into your business. 
+
+Inevitably, data that was created in different ‘silos’ with different (or no) governance standards to meet the needs of their respective applications will always have issues.  When you look at the data drawn from each of these applications you will see that it is inconsistent in terms of both the standardization of data values and often in terms of the values themselves, and most often individual records are incomplete. In fact, it would be surprising if this were not the case – but it does present a problem, as what is really needed is data that is complete, and consistent, and accurate.  
 
 To protect the quality of data within an organization, master data management (MDM) arose as a discipline that creates a source of truth for enterprise data so that an organization can check and validate their key assets. These key assets, or master data assets, are critical records that provide context for a business. For example, master data might include information on specific products, employees, customers, financial structures, suppliers, or locations. Master data management ensures data quality across an entire organization by maintaining an authoritative consolidated de-duplicated set of the master data records, and ensuring data remains consistent across your organization's complete data estate.
 
-As an example, it can be difficult for a company to have a clear, single view of their customers. Customer data may differ between systems, there may be duplicated records due to incorrect entry, or shipping and customer service systems may vary due to name, address, or other attributes. Master data management consolidates all this differing information about the customer it into a single, standard format that can be used to check data across an organizations entire data estate. Not only does this improve quality of data by eliminating mismatched data across departments, but it ensures that data analyzed for business intelligence (BI) and other applications is trustworthy and up to date, reduces data load by removing duplicate records across the organization, and streamlines communications between business systems.
+As an example, it can be difficult for a company to have a clear, single view of their customers. Customer data may differ between systems, there may be duplicated records due to incorrect entry, or shipping and customer service systems may vary due to name, address, or other attributes. Master data management consolidates and standardizes all this differing information about the customer. This standardization process may involve automatic or user-defined rules, validations and checks. It is the job of the MDM system to ensure your data remains consistent within the framework of these rules over time. Not only does this improve quality of data by eliminating mismatched data across departments, but it ensures that data analyzed for business intelligence (BI) and other applications is trustworthy and up to date, reduces data load by removing duplicate records across the organization, and streamlines communications between business systems.
+
+The ability to consolidate data from multiple disparate systems is key if we want to use the data to drive business insights and operational efficiencies – or any form of ‘digital transformation’. What we need in that case is high quality, trusted data that is ready to use, whether it is being consumed in basic enterprise metrics or advanced AI algorithms. Bridging this gap is the job of Data Governance and MDM, and in the Azure world that means [Microsoft Purview](https://azure.microsoft.com/services/purview/) and [Profisee MDM]((https://profisee.com/platform). 
+
+:::image type="content" alt-text="Bridging the gap between what we have versus what we need is the job of Microsoft Purview and Profisee MDM" source="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png" lightbox="./media/how-to-deploy-profisee-purview/purview-profisee-bridging-the-gap.png":::
+
+While governance systems can *define* data standards, MDM is where they are *enforced*.  Data from different systems can be matched and merged, validated against data quality and governance standards, and remediated where required.  Then the new corrected and validated ‘master’ data can be shared to downstream analytics systems as well as back into source systems to drive operational improvements. By properly creating and maintaining enterprise master data, we ensure that data is no longer a liability and cause for concern, but an asset of the business that enables improved operation and innovation.
 
 More Details on [Profisee MDM](https://profisee.com/master-data-management-what-why-how-who/) and [Profisee-Purview MDM Concepts and Azure Architecture](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview).
 
@@ -134,8 +142,42 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
 
     :::image type="content" alt-text="Image 12 - Screenshot of Profisee Azure ARM Wizard Select Outputs Get FinalDeployment URL." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
     
-- Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client".
+- Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee SaaS deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client". Select the Downloads for "Profisee FastApp Studio" utility and the "Profisee Platform Tools". Install both these tools on your local client machine.
+
+    :::image type="content" alt-text="Image 13 - Screenshot of Profisee Client Tools Download" source="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png":::
+    
+- Log-In to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you log-in with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
+- As a final validation step to ensure successful installation and for checking whether Profisee has been succesfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
+
+```{
+  "OverallStatus": "Healthy",
+  "TotalCheckDuration": "0:1.13",
+  "DependencyHealthChecks": {
+    "purview_service_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:01.1297181",
+      "Description": "Successfully connected to Purview."
+    },
+    "governance_service_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:00.0000917",
+      "Description": "Purview cache loaded successfully. Total assets: 153; Instances: 1; Entities: 23; Attributes: 122; Relationships: 6; Hierarchies: 1"
+    },
+    "messaging_db_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:00.0010970",
+      "Description": null
+    },
+    "logging_db_health_check": {
+      "Status": "Healthy",
+      "Duration": "00:00:00.0019520",
+      "Description": null
+    }
+  }
+}
+
+An output response that looks similar as the above confirms successful installation, completes all the deployment steps; and succesfully validates whether Profisee has been succesfully connected to your Microsoft Purview and the two systems are able to communicate properly.
 
 ## Next steps
-Through this guide, we learned how to set up and deploy a Microsoft Purview-Profisee integration.
-For more usage details on Profisee and Profisee FastApp, especially how to configure data models, data quality, MDM and various other features of Profisee - Register on [Profisee Academy Tutorials and Demos](https://profisee.com/demo/) for further detailed tutorials on the Profisee side of MDM!
+Through this guide, we learned of the importance of MDM in driving and supporting Data Governance in the context of the Azure data estate, and how to set up and deploy a Microsoft Purview-Profisee integration.
+For more usage details on Profisee MDM, register for scheduled trainings, live product demonstration and Q&A on [Profisee Academy Tutorials and Demos](https://profisee.com/demo/)!
