@@ -2712,7 +2712,7 @@ Azure service: [Azure Maps](../azure-maps/index.yml)
 
 ### Microsoft.Media
 
-Azure service: [Media Services](/media-services/)
+Azure service: [Media Services](/azure/media-services)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

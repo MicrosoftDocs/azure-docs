@@ -131,6 +131,8 @@
       href: concept-app-configuration-event.md
     - name: Soft delete
       href: concept-soft-delete.md
+    - name: Geo-replication 
+      href: concept-geo-replication.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
