@@ -169,7 +169,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | --------- |
-| Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. | N/A |
+| Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. |
 | NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. |
 | Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. |
 | Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. |
@@ -193,6 +193,10 @@ The following table shows an example of a dual port NSG rule:
 ### NSG additional considerations
 
 - Outbound traffic denied from a private endpoint isn't a valid scenario, as the service provider can't originate traffic.
+
+- The following services may require all destination ports to be open when leveraging a private endpoint and adding NSG security filters:
+
+    - Cosmos DB: For more information see, [Service port ranges](/azure/cosmos-db/sql/sql-sdk-connection-modes#service-port-ranges).
 
 ### UDR
 
