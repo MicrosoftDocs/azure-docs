@@ -151,3 +151,7 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 ### `2.4.0`
 
 - Fixed an issue with emulator failing to start when network monitoring apps, such as Pulse Client, are present on the host computer.
+
+## Next steps
+
+- [Install and use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md)
