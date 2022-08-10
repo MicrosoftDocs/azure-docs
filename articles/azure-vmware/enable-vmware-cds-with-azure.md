@@ -60,7 +60,7 @@ Create the following components in tenant’s dedicated Azure vNet to establish 
 •	Edit connection configuration to enable policy-based VPN. 
 
 ## Create Azure virtual network gateway
-To create a Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](articles/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway.md)
+To create a Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](articles/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway)
 
 ## Create local network gateway
 1.	Log in to the Azure portal and select **Local network gateway** from marketplace and then select **Create**.
