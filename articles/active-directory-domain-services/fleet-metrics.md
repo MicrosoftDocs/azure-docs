@@ -10,54 +10,84 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 08/09/2022
 ms.author: justinha
 
 ---
 # Check fleet metrics of Azure Active Directory Domain Services
 
-Azure AD Domain Services metrics are implemented through Azure Monitoring and now available to customer as a metrics scope. 
+Administrators can use Azure Monitor Metrics to configure a scope for Azure Active Directory Domain Services (Azure AD DS) and gain insights into how the service is performing. 
 
 :::image type="content" border="true" source="media/fleet-metrics/select.png" alt-text="Screenshot of how to select Azure AD DS for fleet metrics.":::
 
-The metrics are exposed to customers through Azure Monitor’s Metrics blade and can be accessed from Azure Monitor’s Metrics or on Azure AD Domain Services instance.
+You can access Azure AD DS metrics from two places:
 
-:::image type="content" border="true" source="media/fleet-metrics/metrics-scope.png" alt-text="Screenshot of how to select scope for Azure AD DS.":::
+- In Azure Monitor Metrics, select the Azure AD DS instance as the **Scope**:
 
+  :::image type="content" border="true" source="media/fleet-metrics/metrics-scope.png" alt-text="Screenshot of how to select scope for Azure AD DS.":::
 
-:::image type="content" border="true" source="media/fleet-metrics/metrics-instance.png" alt-text="Screenshot of how to select an Azure AD DS instance as the scope for fleet metrics.":::
+- In Azure AD DS, under **Monitoring**, click **Metrics**:
+
+  :::image type="content" border="true" source="media/fleet-metrics/metrics-instance.png" alt-text="Screenshot of how to select an Azure AD DS instance as the scope for fleet metrics.":::
 
 ## Metrics definitions and descriptions
 
-The full list of metrics definition and descriptions can be seen here:
-https://msazure.visualstudio.com/One/_git/AzureMonitorResourceProviderOnboarding?path=/src/resourceproviders/microsoft.aad/domainservices/prod/manifest.json
-
+You can select a metric for more details about the data collection. 
 
 :::image type="content" border="true" source="media/fleet-metrics/descriptions.png" alt-text="Screenshot of fleet metric descriptions.":::
 
-## Azure Monitor Alert
+The following table describes the metrics that are available for Azure AD DS.
 
-Implementing metrics through Azure Monitor brings us the benefit of metric alert.
+| Metric | Description |
+|--------|-------------|
+|DNS - Total Query Received/sec |The average number of queries received by DNS server in each second. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|Total Response Sent/sec |The average number of responses sent by DNS server in each second. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|NTDS - LDAP Successful Binds/sec|The number of LDAP successful binds per second for the NTDS object. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|% Committed Bytes In Use |The ratio of Memory\\\Committed Bytes to the Memory\\\Commit Limit. Committed memory is the physical memory in use for which space has been reserved in the paging file should it need to be written to disk. The commit limit is determined by the size of the paging file. If the paging file is enlarged, the commit limit increases, and the ratio is reduced. This counter displays the current percentage value only; it is not an average. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|Total Processor Time |The percentage of elapsed time that the processor spends to execute a non-Idle thread. It is calculated by measuring the percentage of time that the processor spends executing the idle thread and then subtracting that value from 100%. (Each processor has an idle thread that consumes cycles when no other threads are ready to run). This counter is the primary indicator of processor activity, and displays the average percentage of busy time observed during the sample interval. It should be noted that the accounting calculation of whether the processor is idle is performed at an internal sampling interval of the system clock (10ms). On todays fast processors, % Processor Time can therefore underestimate the processor utilization as the processor may be spending a lot of time servicing threads between the system clock sampling interval. Workload based timer applications are one example  of applications  which are more likely to be measured inaccurately as timers are signaled just after the sample is taken. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|Kerberos Authentications |The number of times that clients use a ticket to authenticate to this computer per second. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|NTLM Authentications|The number of NTLM authentications processed per second for the Active Directory on this domain controller or for local accounts on this member server. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|% Processor Time (dns)|The percentage of elapsed time that all of dns process threads used the processor to execute instructions. An instruction is the basic unit of execution in a computer, a thread is the object that executes instructions, and a process is the object created when a program is run. Code executed to handle some hardware interrupts and trap conditions are included in this count. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|% Processor Time (lsass)|The percentage of elapsed time that all of lsass process threads used the processor to execute instructions. An instruction is the basic unit of execution in a computer, a thread is the object that executes instructions, and a process is the object created when a program is run. Code executed to handle some hardware interrupts and trap conditions are included in this count. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
+|NTDS - LDAP Searches/sec |The average number of searches per second for the NTDS object. It is backed by performance counter data from the domain controller, and can be filtered or split by role instance.|
 
-Metric alert is just one of the alerts Azure Monitor supports, see https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview for different alert types and mechanisms for alert notifications.
+## Azure Monitor alert
 
-  -	To view and manage Azure Monitor alert, a user needs to be assigned monitoring roles https://docs.microsoft.com/en-us/azure/azure-monitor/roles-permissions-security 
-  -	Azure AD Domain Services metrics are now available as an alert signal. Alert can be created from Azure Monitor -> Alert blade (Figure 5), or from “New alert rule” on any of AAD DS Metrics blade (Figure 4).
+You can configure metric alerts for Azure AD DS to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](/azure/azure-monitor/alerts/alerts-overview). 
 
-:::image type="content" border="true" source="media/fleet-metrics/available-alerts.png" alt-text="Screenshot of available alerts.":::
 
-:::image type="content" border="true" source="media/fleet-metrics/define.png" alt-text="Screenshot of how to define a threshold.":::
+To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](/azure/azure-monitor/roles-permissions-security). 
+ 
+There are two ways to create a new alert. Azure AD Domain Services metrics are now available as an alert signal. 
 
+- Click **Azure Monitor** > **Alert**: 
+
+  :::image type="content" border="true" source="media/fleet-metrics/available-alerts.png" alt-text="Screenshot of available alerts.":::
+
+
+- In Azure AD DS Metrics, click **New alert**:
+
+  :::image type="content" border="true" source="media/fleet-metrics/new-alert.png" alt-text="Screenshot of how to create a new alert in Azure AD DS Metrics.":::
+
+The following screenshot shows how to define a metric alert with a threshold for **Total Processor Time**:
+
+:::image type="content" border="true" source="media/fleet-metrics/define.png" alt-text="Screenshot of defining a threshold.":::
+
+The following screenshot shows a metrics alert triggered for **Total Processor Time**:
 
 :::image type="content" border="true" source="media/fleet-metrics/trigger.png" alt-text="Screenshot of alert trigger.":::
 
+The following screenshot shows an email notification after an alert activation:
+
 :::image type="content" border="true" source="media/fleet-metrics/trigger-details.png" alt-text="Screenshot of alert trigger details.":::
+
+The following screenshot shows an email notification after an alert deactivation:
 
 :::image type="content" border="true" source="media/fleet-metrics/resolution.png" alt-text="Screenshot of alert resolution.":::
 
-## Future improvement
+## Select multiple resources
 
-It will be interesting to see if there are upvote for our metrics to enable multi-selection so as to correlate with other resource types.
+You can upvote to enable multiple resource selection to correlate data between resource types.
 
 :::image type="content" border="true" source="media/fleet-metrics/upvote.png" alt-text="Screenshot of feature upvote.":::
 
