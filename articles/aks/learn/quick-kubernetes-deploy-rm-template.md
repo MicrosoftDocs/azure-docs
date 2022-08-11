@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-### [Azure CLI](#tab/azure-cli) 
+### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -62,6 +62,12 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 ## Review the template
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/aks/).
+
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/azuredeploy.json":::
+
+The resource defined in the Bicep file include:
+
+- [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=json&pivots=deployment-language-bicep)
 
 For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
@@ -119,7 +125,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
     ```output
     NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
     aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
     aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
@@ -148,7 +154,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
     ```plaintext
     NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
     aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
     aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
