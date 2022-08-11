@@ -38,7 +38,7 @@ Basically, Multivariate Anomaly Detector includes three main steps, **data prepa
 For data preparation, you should prepare two parts of data, **training data** and **inference data**. As for training data, you should upload your data to Blob Storage and generate an SAS url which will be used in training API. As for inference data, you could either use the same data format as training data, or send the data into API header which will be a json format. This depends on what API you would use in inference process.
  
 ### Training
-When training a model, you should call an asynchronized API on your training data, which means you won't get the model status immediately after calling this API, you should request another API to get the model status.
+When training a model, you should call an asynchronized API on your training data, which means you won't get the model status immediately after calling this API, you should requessf jjsfd jijisjist another API to get the model status.
  
 ### Inference
 In inference process, you have two options to choose, asynchroized API or synchronized API. If you would like to do a batch validation, you are suggested to use asynchronized API. If you want to do streaming in a short granularity and get the inference result immediately after each API request, you are suggested to use synchronized API.

@@ -533,16 +533,6 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
     ```
     For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
     
-## <span id="csv">Local files (CSV)</span>
-
-> [!NOTE]
-> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV, and performs anomaly detection on single time series data. For analyzing multi-dimensional metrics, including real-time data ingestion, anomaly notification, root cause analysis, and cross-metric incident analysis, use other supported data sources.
-
-**Requirements on data in CSV:**
-- Have at least one column, which represents measurements to be analyzed. For a better and quicker user experience, try a CSV file that contains two columns: a timestamp column and a metric column. The timestamp format should be as follows: `2021-03-30T00:00:00Z`, and the `seconds` part is best to be `:00Z`. The time granularity between every record should be the same.
-- The timestamp column is optional. If there's no timestamp, Metrics Advisor will use timestamp starting from today (`00:00:00` Coordinated Universal Time). The service maps each measure in the row at a one-hour interval.
-- There is no re-ordering or gap-filling happening during data ingestion. Make sure that your data in the CSV file is ordered by the timestamp ordering **ascending (ASC)**.
- 
 ## Next steps
 
 * While you're waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
