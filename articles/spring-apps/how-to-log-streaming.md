@@ -23,11 +23,11 @@ This article describes how to enable log streaming in Azure CLI to get real-time
 ## Prerequisites
 
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, minimum version 1.0.0. You can install the extension by using the following command: `az extension add --name spring`
-- An instance of **Azure Spring Apps** with a running application. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
+- An instance of Azure Spring Apps with a running application. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 ## Use Azure CLI to produce tail logs
 
-This section provides examples of using Azure CLI to produce tail logs. To avoid repeatedly specifying your resource group and service instance name, set your default resource group name and cluster name, as follows:
+This section provides examples of using Azure CLI to produce tail logs. To avoid repeatedly specifying your resource group and service instance name, use the following commands set your default resource group name and cluster name:
 
 ```azurecli
 az config set defaults.group=<service-group-name>
@@ -36,15 +36,15 @@ az config set defaults.spring-cloud=<service-instance-name>
 
 The resource group and service name are omitted in the following examples.
 
-### Tail log for an app with a single instance
+### View the tail log for an app with a single instance
 
-If an app named *auth-service* has only one instance, you can view the log of the app instance with the following command:
+If an app named `auth-service` has only one instance, you can view the log of the app instance with the following command:
 
 ```azurecli
 az spring app logs --name <application-name>
 ```
 
-This command returns logs similar to the following examples, where *auth-service* is the application name.
+This command returns logs similar to the following examples, where `auth-service` is the application name.
 
 ```output
 ...
@@ -56,9 +56,9 @@ This command returns logs similar to the following examples, where *auth-service
 ...
 ```
 
-### Tail log for an app with multiple instances
+### View the tail log for an app with multiple instances
 
-If multiple instances exist for the app named *auth-service*, you can view the instance log by using the `-i/--instance` option.
+If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option.
 
 First, run the following command to get the app instance names:
 
@@ -94,7 +94,7 @@ az spring app logs --name auth-service --follow
 
 When you use the `--follow` argument to tail instant logs, the Azure Spring Apps log streaming service sends heartbeat logs to the client every minute unless your application is writing logs constantly. Heartbeat log messages use the following format: `2020-01-15 04:27:13.473: No log from server`.
 
-Run the following command to check all the logging options that are supported:
+Use the following command to check all the logging options that are supported:
 
 ```azurecli
 az spring app logs --help
@@ -105,7 +105,7 @@ az spring app logs --help
 > [!NOTE]
 > Formatting JSON structured logs requires spring extension version 2.4.0 or later.
 
-Structured application logs are displayed in JSON format, which can be difficult to read. You can use the `--format-json` argument to format logs in JSON format into a more readable format. For more information, see [Structured application log](./structured-app-log.md).
+Structured application logs are displayed in JSON format, which can be difficult to read. You can use the `--format-json` argument to format logs in JSON format into a more readable format. For more information, see [Structured application log for Azure Spring Apps](./structured-app-log.md).
 
 The following example shows how to use the `--format-json` argument:
 
@@ -138,43 +138,47 @@ Single vip registry refresh property : null
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
 
-## Stream an Azure Spring Apps app log in a vnet injection instance
+## Stream an Azure Spring Apps app log in a VNet injection instance
 
-For an Azure Spring Apps instance deployed in custom virtual network, you can access log streaming by default from a private network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
+For an Azure Spring Apps instance deployed in a custom virtual network, you can access log streaming by default from a private network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
 
 Azure Spring Apps also enables you to access real-time app logs from a public network using Azure portal or the Azure CLI.
 
-#### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Networking** tab in the menu on the left.
+Use the following steps to enable a log streaming endpoint on the public network.
 
-2. Select the **Vnet injection** page.
+1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Networking** tab in the navigation menu.
 
-3. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
+1. Select the **Vnet injection** page.
+
+1. Switch the status of **Log streaming on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
 
    :::image type="content" source="media/how-to-log-streaming/enable-logstream-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/enable-logstream-public-endpoint.png":::
 
 #### [CLI](#tab/azure-CLI)
 
-Run the following command to update your instance to enable log stream public endpoint.
+Use the following command to enable the log stream public endpoint.
 
 ```azurecli
 az spring update \
-    --resource-group $RESOURCE_GROUP \
-    --service $SPRING_CLOUD_NAME \
+    --resource-group <resource-group-name> \
+    --service <service-instance-name> \
     --enable-log-stream-public-endpoint true
 ```
 
 After you've enabled the log stream public endpoint, you can access the app log from a public network as you would access a normal instance.
 
+---
+
 ## Secure traffic to the log streaming public endpoint
 
-Log streaming uses the same key as the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments) to authenticate the connections to your deployments. As a result, only users who have read access to the test keys can access log streaming.
+Log streaming uses the same key as the test endpoint described in [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md) to authenticate the connections to your deployments. As a result, only users who have read access to the test keys can access log streaming.
 
-To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
-> If you can't access app logs in the vnet injection instance from the internet after you've enbled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
+> If you can't access app logs in the VNet injection instance from the internet after you've enabled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
 
 ## Next steps
 

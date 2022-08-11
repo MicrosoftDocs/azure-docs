@@ -1,6 +1,6 @@
 ---
-title:  Expose applications to the internet from a public network
-description: This article describes how to expose applications to the internet from a public network.
+title: Expose applications on Azure Spring Apps to the internet from a public network
+description: Describes how to expose applications on Azure Spring Apps to the internet from a public network.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -19,23 +19,18 @@ This article describes how to expose applications on Azure Spring Apps to the in
 
 You can expose applications to the internet with TLS Termination or end-to-end TLS using Application Gateway. These approaches are described in [Expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md). These approaches work well, but Application Gateway can involve a complicated setup and extra expense.
 
-If you don't want to use Application Gateway for advanced operations, you can expose your applications to the internet with one click on Azure portal or one command on the Azure command by:
-
-- Assigning a public FQDN for your application in a vnet injection instance.
-- Using a public URL to access your application from both inside and outside the virtual network.
-- Securing traffic to the public endpoint.
- 
-The only extra expense is a standard public IP for one Azure Spring Apps service, regardless of how many apps you want to expose.
+If you don't want to use Application Gateway for advanced operations, you can expose your applications to the internet with one click using the Azure portal or one command using the Azure CLI. The only extra expense is a standard public IP for one Azure Spring Apps service instance, regardless of how many apps you want to expose.
 
 ## Prerequisites
 
 - An Azure Spring Apps service instance deployed in a virtual network and an app created in it. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
-## Assign a public FQDN for your application in a vnet injection instance
+## Assign a public fully qualified domain name (FQDN) for your application in a VNet injection instance
 
-After following the steps in  [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md), you can assign a public FQDN for your application.
 
-#### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
+
+Use the following steps to assign a public FQDN for your application.
 
 1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Apps** tab in the menu on the left.
 
@@ -47,32 +42,33 @@ After following the steps in  [Deploy Azure Spring Apps in a virtual network](./
 
 The assigned public FQDN (labeled **URL**) is now available. It can only be accessed within the public network.
 
-#### [CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
-Update your app to assign a public endpoint to it. Customize the value of your app name based on your real environment.
+Use the following command to assign a public endpoint to your app. Be sure to replace the placeholders with your actual values.
 
 ```azurecli
-SPRING_CLOUD_APP=<app-name>
 az spring app update \
     --resource-group <resource-group-name> \
-    --name <app-instance-name> \
-    --service <service-name> \
+    --name <app-name> \
+    --service <service-instance-name> \
     --assign-public-endpoint true
 ```
 
+---
+
 ## Use a public URL to access your application from both inside and outside the virtual network
 
-You can use a **public URL** to access your application both inside or outside the virtual network. Follow the steps in [Access your application in a private network](./access-app-virtual-network.md) to bind the domain `.private.azuremicroservices.io` to the service runtime Subnet private IP address in your private DNS zone while keeping the **Assign Endpoint** in a disable state. You can then access the app using the **public URL** from both inside and outside the virtual network. 
+You can use a public URL to access your application both inside and outside the virtual network. Follow the steps in [Access your application in a private network](./access-app-virtual-network.md) to bind the domain `.private.azuremicroservices.io` to the service runtime Subnet private IP address in your private DNS zone while keeping the **Assign Endpoint** in a disable state. You can then access the app using the **public URL** from both inside and outside the virtual network. 
 
 ## Secure traffic to the public endpoint
 
-To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
-> If you couldn't access your application in vnet injection instance from internet after you have assigned a public FQDN, please check your network security group first to see whether you have allowed such inbound traffic.
+> If you couldn't access your application in VNet injection instance from internet after you have assigned a public FQDN, check your network security group first to see whether you have allowed such inbound traffic.
 
 ## Next steps
 
-- [Exposing applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
-- [Troubleshooting Azure Spring Apps in VNET](./troubleshooting-vnet.md)
-- [Customer Responsibilities for Running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md)
+- [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
+- [Troubleshooting Azure Spring Apps in virtual networks](./troubleshooting-vnet.md)
+- [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md)
