@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permissions.
 
-You can set locks that prevent either deletions or modifications. In the portal, these locks are called **Delete** and **Read-only**. In the command line, these locks are called **CanNotDelete** and **ReadOnly**. In the left navigation panel, the subscription lock feature's name is **Resource locks**, while the resource group lock feature's name is **Locks**.  
+You can set locks that prevent either deletions or modifications. In the portal, these locks are called **Delete** and **Read-only**. In the command line, these locks are called **CanNotDelete** and **ReadOnly**. 
 
 - **CanNotDelete** means authorized users can read and modify a resource, but they can't delete it.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the **Reader** role provides.
@@ -21,12 +21,22 @@ Unlike role-based access control (RBAC), you use management locks to apply a res
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the same parent lock. The most restrictive lock in the inheritance takes precedence.
 
+[Extension resources](extension-resource-types.md) inherit locks from the resource they're applied to. For example, Microsoft.Insights/diagnosticSettings is an extension resource type. If you apply a diagnostic setting to a storage blob, and lock the storage account, you're unable to delete the diagnostic setting. This inheritance makes sense because the full resource ID of the diagnostic setting is:
+
+`/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-name}/blobServices/default/providers/microsoft.insights/diagnosticSettings/{setting-name}"`
+
+Which matches the scope of the resource ID of the resource that is locked:
+
+`/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-name}`
+
 If you have a **Delete** lock on a resource and attempt to delete its resource group, the feature blocks the whole delete operation. Even if the resource group or other resources in the resource group are unlocked, the deletion doesn't happen. You never have a partial deletion.
 
 When you [cancel an Azure subscription](../../cost-management-billing/manage/cancel-azure-subscription.md#what-happens-after-subscription-cancellation):
 * A resource lock doesn't block the subscription cancellation.
 * Azure preserves your resources by deactivating them instead of immediately deleting them.
 * Azure only deletes your resources permanently after a waiting period.
+
+
 
 ## Understand scope of locks
 
@@ -100,6 +110,8 @@ To delete everything for the service, including the locked infrastructure resour
 ## Configure locks
 
 ### Portal
+
+In the left navigation panel, the subscription lock feature's name is **Resource locks**, while the resource group lock feature's name is **Locks**.
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
