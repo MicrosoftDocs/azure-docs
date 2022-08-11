@@ -644,5 +644,4 @@ Executing the main class should now produce the following output:
 
 ## Next steps
 
-Learn to [build scalable applications](quickstart-build-scalable-apps-overview.md)
-with Hyperscale (Citus).
+[!INCLUDE[app-stack-next-steps](includes/app-stack-next-steps.md)]
