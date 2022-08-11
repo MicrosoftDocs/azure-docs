@@ -15,7 +15,7 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create an ARM-based account (Preview)
+  - name: Create an ARM-based account (preview)
     href: create-account-portal.md
   - name: Create a classic account
     href: connect-to-azure.md
@@ -97,10 +97,8 @@
         href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
-  - name: Connect an existing account to ARM (Preview)
+  - name: Connect an existing account to ARM (preview)
     href: connect-classic-account-to-arm.md
-  - name: Manage account connected to Azure
-    href: manage-account-connected-to-azure.md
   - name: Add contributor role to Media Services
     href: add-contributor-role-on-the-media-service.md    
   - name: Upload and index videos
@@ -156,6 +154,10 @@
     href: network-security.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
+- name: Troubleshooting  
+  items:
+  - name: Repair connections, examine errors/warnings
+    href: manage-account-connected-to-azure.md
 - name: Reference
   items:
   - name: Azure Video Indexer API
