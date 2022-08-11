@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 08/11/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for Azure SQL DB (preview)
@@ -39,19 +39,18 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Azure SQL Database configuration
-Each Azure SQL Database server needs a Managed Identity assigned to it.
-You can use the following PowerShell script:
+Each Azure SQL Database server needs a Managed Identity assigned to it. You can do this from Azure Portal by navigating to the Azure SQL Server that hosts the Azure SQL DB, navigating to Identity on the side menu, checking status to *On* and then saving. See screenshot:
+![Screenshot shows how to assign system managed identity to Azure SQL Server.](./media/how-to-data-owner-policies-sql//assign-identity-azure-sql-db.png)
+
+
+You will also need to enable external policy based authorization on the server. You can do this in Power Shell
+
 ```powershell
 Connect-AzAccount
 
 $context = Get-AzSubscription -SubscriptionId xxxx-xxxx-xxxx-xxxx
 Set-AzContext $context
 
-Set-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME" -AssignIdentity
-```
-You will also need to enable external policy based authorization on the server.
-
-```powershell
 $server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
 
 #Initiate the call to the REST API to set externalPolicyBasedAuthorization to true
