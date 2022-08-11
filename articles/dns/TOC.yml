@@ -103,10 +103,8 @@
       href: dns-faq-private.yml
   - name: Private Resolver
     items:
-    - name: outbound endpoints
-      href: private-resolver-outbound.md
-    - name: Outbound endpoints
-      href: private-resolver-outbound.md
+    - name: Endpoints and rulesets
+      href: private-resolver-endpoints-rulesets.md
 - name: How-to guides
   items:
   - name: Public DNS

@@ -4,7 +4,7 @@ description: Configure regional failover using two Azure DNS Private Resolvers
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/10/2022
 ms.author: greglin
 ---

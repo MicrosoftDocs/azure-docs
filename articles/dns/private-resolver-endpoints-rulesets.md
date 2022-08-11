@@ -1,6 +1,6 @@
 ---
-title: Azure DNS Private Resolver outbound endpoint
-description: In this article, understand the Azure DNS Private Resolver outbound endpoint
+title: Azure DNS Private Resolver endpoints and rulesets
+description: In this article, understand the Azure DNS Private Resolver endpoints and rulesets
 services: dns
 ms.custom: references_regions
 author: greg-lindsay
@@ -11,7 +11,7 @@ ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
 
-# Azure DNS Private Resolver: outbound endpoint
+# Azure DNS Private Resolver endpoints and rulesets
 
 ## How it works
 

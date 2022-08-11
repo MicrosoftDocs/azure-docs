@@ -78,6 +78,10 @@ landingContent:
             url: ./dns-private-resolver-get-started-portal.md
           - text: Create an Azure DNS Private Resolver using Windows PowerShell
             url: ./dns-private-resolver-get-started-powershell.md
+      - linkListType: tutorial
+        links:
+          - text: Set up DNS failover using private resolvers
+            url: dns-private-resolver-failover.md
 
 # Card
   - title: Use alias records
