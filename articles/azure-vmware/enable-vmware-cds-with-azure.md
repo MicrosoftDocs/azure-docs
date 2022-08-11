@@ -64,8 +64,8 @@ To create an Azure virtual network gateway, see the [create-a-virtual-network-ga
 
 ### Create IPSEC connection on VPN gateway
 1. Select tenant1 VPN Gateway (created earlier) and then select **Connection** (in left pane) to add new IPSEC connection with tenant1 orgVDC Edge gateway.  
+1. Enter the following details.
 
-1. Enter the following details.  
      | **Name** | **Connection name** |
      |:---------- | :--------------| 
      | Connection Type | Site to Site |
@@ -73,6 +73,7 @@ To create an Azure virtual network gateway, see the [create-a-virtual-network-ga
      | Local Network Gateway | Tenant’s Local Gateway |
      | PSK | Shared Key (provide a password) |   
      | IKE Protocol | IKEV2 (ORG-VDC is using IKEv2) |
+
 1. Select **Ok** to deploy local network gateway. 
 
 ### Configure IPsec Connection 
