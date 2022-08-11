@@ -71,7 +71,7 @@ Before you can perform a Liquid transformation in your logic app workflow, you m
 
 1. Create the Liquid template that you use as a map for the JSON transformation. You can use any editing tool that you want.
 
-   The JSON to JSON tranformation example in this article uses the following sample Liquid template:
+   The JSON to JSON transformation example in this article uses the following sample Liquid template:
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -104,11 +104,6 @@ After you create your Liquid template, you now have to upload the template based
 
 * If you're working on a Standard logic app workflow, you can [upload your template to your integration account](#upload-template-integration-account), or [upload your template to your logic app resource](#upload-template-standard-logic-app).
 
-Before you If you're working on a Consumption logic app workflow, you have to first  You then [upload the template as a map](logic-apps-enterprise-integration-maps.md) into your [integration account](logic-apps-enterprise-integration-create-integration-account.md). When you add the **Transform JSON to JSON** action to your workflow, you can then select the Liquid template as the map for the action to use.
-
-
-You can upload the template as a map directly to your logic app resource. However, if you already have an integration account with the maps that you want to use, you can also [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
-
 <a name="upload-template-integration-account"></a>
 
 ### Upload template to integration account
@@ -123,16 +118,16 @@ You can upload the template as a map directly to your logic app resource. Howeve
 
    ![Screenshot showing integration accounts pane with integration account selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-1. On the integration account navigation menu, under **Settings**, select **Maps**.
+1. On the integration account's navigation menu, under **Settings**, select **Maps**.
 
     ![Screenshot showing integration account navigation menu with "Maps" selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-maps.png)
 
-1. On the **Maps** pane, select **Add**, and then provide the following details for your map:
+1. On the **Maps** pane, select **Add**. Provide the following information about your map:
 
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Name** | `JsonToJsonTemplate` | The name for your map, which is "JsonToJsonTemplate" in this example |
-   | **Map type** | **liquid** | The type for your map. For JSON to JSON transformation, you must select **liquid**. |
+   | **Map type** | **Liquid** | The type for your map. For JSON to JSON transformation, you must select **Liquid**. |
    | **Map** | `SimpleJsonToJsonTemplate.liquid` | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    |||
 
@@ -141,6 +136,25 @@ You can upload the template as a map directly to your logic app resource. Howeve
 <a name="upload-template-standard-logic-app"></a>
 
 ### Upload template to Standard logic app
+
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app resource. Make sure that you're at the resource level, not the workflow level.
+
+1. On your logic app resource's navigation menu, under **Artifacts**, select **Maps**.
+
+1. On the **Maps** pane toolbar, select **Add**.
+
+1. On the **Add Map** pane, provide the following information about your template:
+
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Name** | `JsonToJsonTemplate` | The name for your map, which is "JsonToJsonTemplate" in this example |
+   | **Map type** | **Liquid** | The type for your map. For JSON to JSON transformation, you must select **Liquid**. |
+   | **Map** | `SimpleJsonToJsonTemplate.liquid` | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   |||
+
+1. When you're done, select **OK**.
+
+   After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
 ---
 
@@ -204,7 +218,6 @@ The following steps show how to add a Liquid transformation action for Consumpti
    This example continues with the Request trigger named **When a HTTP request is received**.
 
 1. On the workflow designer, under the step where you want to add the Liquid action, select **Choose an operation**.
-
 
 
 ---
