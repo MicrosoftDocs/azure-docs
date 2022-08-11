@@ -264,7 +264,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux                                                   | X | X |   |
+| AlmaLinux 8.*                                               | X | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X |   |
@@ -272,7 +272,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | CentOS Linux 6                                              |   | X |   |
 | CentOS Linux 6.5+                                           |   | X | X |
 | Debian 11 <sup>1</sup>                                      | X |   |   |
-| Debian 10 <sup>1</sup>                                      | X |   |   |
+| Debian 10 <sup>1</sup>                                      | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
 | Debian 7                                                    |   |   | X |
@@ -286,7 +286,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
-| Rocky Linux                                                 | X | X |   |
+| Rocky Linux 8.*                                             | X | X |   |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |

@@ -386,6 +386,6 @@ automl_settings = {
     * For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train.md).
     * For a low-code or no-code experience: [Create your automated ML experiments in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
-* Learn more about [how and where to deploy a model](how-to-deploy-managed-online-endpoints.md).
+* Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).
 
 * Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).

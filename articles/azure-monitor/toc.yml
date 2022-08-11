@@ -469,7 +469,7 @@ items:
     - name: Install Azure Monitor Agent
       displayName: Azure Monitor agent
       items:
-      - name: Using extension
+      - name: Using the agent extension
         href: agents/azure-monitor-agent-manage.md
       - name: Using Windows client installer (preview)
         href: agents/azure-monitor-agent-windows-client.md

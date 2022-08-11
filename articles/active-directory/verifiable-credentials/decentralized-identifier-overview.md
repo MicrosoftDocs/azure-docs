@@ -1,5 +1,5 @@
 ---
-title: Introduction to Microsoft Entra Verified ID (preview)
+title: Introduction to Microsoft Entra Verified ID
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 ms.reviewer: 
 ---
 
-# Introduction to Microsoft Entra Verified ID (preview)
+# Introduction to Microsoft Entra Verified ID
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
