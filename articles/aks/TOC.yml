@@ -550,7 +550,7 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skill with Microsoft Learn
+    - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/

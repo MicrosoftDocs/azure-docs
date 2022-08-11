@@ -476,8 +476,8 @@ The following table lists the prebuilt neural voices supported in each language.
 | Arabic (United Arab Emirates) | `ar-AE` | Male | `ar-AE-HamdanNeural` | General |
 | Arabic (Yemen) | `ar-YE` | Female | `ar-YE-MaryamNeural` | General |
 | Arabic (Yemen) | `ar-YE` | Male | `ar-YE-SalehNeural` | General |
-| Azerbaijani (Azerbaijan) | `az-AZ` | Female | `az-AZ-BabekNeural` <sup>New</sup> | General |
-| Azerbaijani (Azerbaijan) | `az-AZ` | Male | `az-AZ-BanuNeural` <sup>New</sup> | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Male | `az-AZ-BabekNeural` <sup>New</sup> | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Female | `az-AZ-BanuNeural` <sup>New</sup> | General |
 | Bangla (Bangladesh) | `bn-BD` | Female | `bn-BD-NabanitaNeural` | General |
 | Bangla (Bangladesh) | `bn-BD` | Male | `bn-BD-PradeepNeural` | General |
 | Bengali (India) | `bn-IN` | Female | `bn-IN-TanishaaNeural` | General |
