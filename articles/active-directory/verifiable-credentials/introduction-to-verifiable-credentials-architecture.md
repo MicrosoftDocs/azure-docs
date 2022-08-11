@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory architecture overview (preview)
+title: Azure Active Directory architecture overview
 description: Learn foundational information to plan and design your solution
 documentationCenter: ''
 author: barclayn
@@ -11,7 +11,7 @@ ms.date: 07/19/2022
 ms.author: barclayn
 ---
 
-# Microsoft Entra Verified ID architecture overview (preview)
+# Microsoft Entra Verified ID architecture overview
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
