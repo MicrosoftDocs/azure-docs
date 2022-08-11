@@ -1,6 +1,6 @@
 ---
-title: "Visualization and reporting for Teradata migrations"
-description: Learn about Microsoft and third-party BI tools for reports and visualizations in Azure Synapse Analytics compared to Teradata.
+title: "Visualization and reporting for Oracle migrations"
+description: Learn about Microsoft and third-party BI tools for reports and visualizations in Azure Synapse Analytics compared to Oracle.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 07/12/2022
+ms.date: 07/15/2022
 ---
 
-# Visualization and reporting for Teradata migrations
+# Visualization and reporting for Oracle migrations
 
-This article is part four of a seven-part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. The focus of this article is best practices for visualization and reporting.
+This article is part four of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for visualization and reporting.
 
 ## Access Azure Synapse Analytics using Microsoft and third-party BI tools
 
@@ -51,7 +51,7 @@ For consistent results after migration, all BI tools and application dependencie
   - Roles assigned to user groups
   - Users assigned to user groups and/or roles
 
-Access and security are important considerations for data access in the migrated system and are discussed in more detail in [Security, access, and operations for Teradata migrations](3-security-access-operations.md).
+Access and security are important considerations for data access in the migrated system and are discussed in more detail in [Security, access, and operations for Oracle migrations](3-security-access-operations.md).
 
 >[!TIP]
 >Existing users, user groups, roles, and assignments of access security privileges need to be migrated first for migration of reports and visualizations to succeed.
@@ -180,7 +180,7 @@ In most cases, there's a workaround to the incompatibilities. For example, you c
 >[!TIP]
 >Schema incompatibilities include legacy warehouse DBMS table types and data types that are unsupported on Azure Synapse.
 
-To identify the reports affected by schema incompatibilities, run queries against the system catalog of your legacy data warehouse to identify the tables with unsupported data types. Then, you can use metadata from your BI tool to identify the reports that access data in those tables. For more information about how to identify object type incompatibilities, see [Unsupported Teradata database object types](5-minimize-sql-issues.md#unsupported-teradata-data-types).
+To identify the reports affected by schema incompatibilities, run queries against the system catalog of your legacy data warehouse to identify the tables with unsupported data types. Then, you can use metadata from your BI tool to identify the reports that access data in those tables. For more information about how to identify object type incompatibilities, see [Unsupported Oracle database object types](1-design-performance-migration.md#unsupported-oracle-database-object-types).
 
 >[!TIP]
 >Query the system catalog of your legacy warehouse DBMS to identify schema incompatibilities with Azure Synapse.
@@ -201,7 +201,7 @@ Your reporting portfolio might include embedded query services, reports, dashboa
 
 #### Use EXPLAIN statements to find SQL incompatibilities
 
-You can find SQL incompatibilities by reviewing the logs of recent SQL activity in your legacy Teradata data warehouse. Use a script to extract a representative set of SQL statements to a file. Then, prefix each SQL statement with an `EXPLAIN` statement, and run those `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary unsupported SQL extensions will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach lets you assess the extent of SQL incompatibilities.
+You can find SQL incompatibilities by reviewing the logs of recent SQL activity in your legacy Oracle data warehouse. Use a script to extract a representative set of SQL statements to a file. Then, prefix each SQL statement with an `EXPLAIN` statement, and run those `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary unsupported SQL extensions will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach lets you assess the extent of SQL incompatibilities.
 
 Metadata from your legacy data warehouse DBMS can also help you identify incompatible views. As before, capture a representative set of SQL statements from the applicable logs, prefix each SQL statement with an `EXPLAIN` statement, and run those `EXPLAIN` statements in Azure Synapse to identify views with incompatible SQL.
 
@@ -233,14 +233,14 @@ A key element of data warehouse migration is testing of reports and dashboards i
 >[!TIP]
 >Test and tune performance to minimize compute costs.
 
-For information about how to migrate users, user groups, roles, and privileges, see [Security, access, and operations for Teradata migrations](3-security-access-operations.md).
+For information about how to migrate users, user groups, roles, and privileges, see [Security, access, and operations for Oracle migrations](3-security-access-operations.md).
 
 Automate testing as much as possible to make each test repeatable and to support a consistent approach to evaluating test results. Automation works well for known regular reports, and can be managed via [Azure Synapse pipelines](../../get-started-pipelines.md) or [Azure Data Factory](../../../data-factory/introduction.md) orchestration. If you already have a suite of test queries in place for regression testing, you can use the existing testing tools to automate post migration testing.
 
 >[!TIP]
 >Best practice is to build an automated test suite to make tests repeatable.
 
-Ad-hoc analysis and reporting are more challenging and require compilation of a set of tests to verify that the same reports and dashboards from before and after migration are consistent. If you find inconsistencies, then your ability to compare metadata lineage across the original and migrated systems during migration testing becomes crucial. That comparison can highlight differences and pinpoint where inconsistencies originated, when detection by other means is difficult.
+Ad-hoc analysis and reporting are more challenging and require compilation of a set of tests to verify that the same reports and dashboards from before and after migration are consistent. If you find inconsistencies, then your ability to compare metadata lineage across the original and migrated systems during migration testing becomes crucial.  That comparison can highlight differences and pinpoint where inconsistencies originated, when detection by other means is difficult.
 
 >[!TIP]
 >Leverage tools that compare metadata lineage to verify results.
@@ -281,8 +281,8 @@ Some BI tools have what is known as a semantic metadata layer. That layer simpli
 
 >[!TIP]
 >Some BI tools have semantic layers that simplify business user access to physical data structures in your data warehouse or data mart.
- 
-In a data warehouse migration, changes to column names or table names may be forced upon you. For example, in Teradata, table names can have a "#". In Azure Synapse, the "#" is only allowed as a prefix to a table name to indicate a temporary table. In Teradata, TEMPORARY TABLES do not necessarily have a "#" in the name, but in Synapse they must. You may need to do some rework to change table mappings in such cases. 
+
+In a data warehouse migration, you might be forced to change column or table names. For example, Oracle allows a `#` character in table names, but Azure Synapse only allows `#` as a table name prefix to indicate a temporary table. In Oracle, TEMPORARY TABLES do not necessarily have a "#" in the name, but in Synapse they must. You may need to do some rework to change table mappings in such cases. 
 
 To achieve consistency across multiple BI tools, create a universal semantic layer by using a data virtualization server that sits between BI tools and applications and Azure Synapse. In the data virtualization server, use common data names for high-level objects like dimensions, measures, hierarchies, and joins. That way you configure everything, including calculated fields, joins, and mappings, only once instead of in every tool. Then, point all BI tools at the data virtualization server.
 
@@ -310,4 +310,4 @@ Structural changes to the data model of your data warehouse or data mart can occ
 
 ## Next steps
 
-To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Teradata migrations](5-minimize-sql-issues.md).
+To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Oracle migrations](5-minimize-sql-issues.md).
