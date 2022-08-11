@@ -76,7 +76,7 @@ The core operation of the Translator service is translating text. In this quicks
 
    > [!TIP]
    >
-   > If you're new to Visual Studio, try the [**Introduction to Visual Studio**](/learn/modules/go-get-started/) Microsoft Learn module.
+   > If you're new to Visual Studio, try the [Introduction to Visual Studio](/learn/modules/go-get-started/) Learn module.
 
 1. Open Visual Studio.
 
@@ -209,7 +209,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 > [!TIP]
 >
-> If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
+> If you're new to Go, try the [Get started with Go](/learn/modules/go-get-started/) Learn module.
 
 1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
 
@@ -529,7 +529,7 @@ After a successful call, you should see the following response:
 
     > [!TIP]
     >
-    > If you're new to Node.js, try the [**Introduction to Node.js**](/learn/modules/intro-to-nodejs/) Microsoft Learn module.
+    > If you're new to Node.js, try the [Introduction to Node.js](/learn/modules/intro-to-nodejs/) Learn module.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `translator-app`.
 
@@ -660,7 +660,7 @@ After a successful call, you should see the following response:
 
     > [!TIP]
     >
-    > If you're new to Python, try the [**Introduction to Python**](/learn/paths/beginner-python/) Microsoft Learn module.
+    > If you're new to Python, try the [Introduction to Python](/learn/paths/beginner-python/) Learn module.
 
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 

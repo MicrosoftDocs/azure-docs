@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 07/29/2022
+ms.date: 08/10/2022
 ms.author: anfdocs
 ---
 
@@ -20,7 +20,14 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## August 2022
+
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md)
+You can now create VM consistent snapshot backups of VMs on Azure NetApp Files datastores using [Cloud Backup for Virtual Machines](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). The associated virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated and consistent backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores.
+
 ## July 2022
+
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now in public preview. You can [Back up Azure NetApp Files datastores and VMs using Cloud Backup](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). This virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores. 
 
 * [Active Directory connection enhancement: Reset Active Directory computer account password](create-active-directory-connections.md#reset-active-directory) (Preview)
     If you (accidentally) reset the password of the AD computer account on the AD server or the AD server is unreachable, you can now safely reset the computer account password to preserve connectivity to your volumes directly from the portal. 
@@ -33,7 +40,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) (Preview)
 
-    [Azure NetApp Files datastores for Azure VMware Solution](https://azure.microsoft.com/blog/power-your-file-storageintensive-workloads-with-azure-vmware-solution) is now in public preview. This new integration between Azure VMware Solution and Azure NetApp Files will enable you to [create datastores via the Azure VMware Solution resource provider with Azure NetApp Files NFS volumes](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and mount the datastores on your private cloud clusters of choice. Along with the integration of Azure disk pools for Azure VMware Solution, this will provide more choice to scale storage needs independently of compute resources. For your storage-intensive workloads running on Azure VMware Solution, the integration with Azure NetApp Files helps to easily scale storage capacity beyond the limits of the local instance storage for AVS provided by vSAN and lower your overall total cost of ownership for storage-intensive workloads.
+    [Azure NetApp Files datastores for Azure VMware Solution](https://azure.microsoft.com/blog/power-your-file-storageintensive-workloads-with-azure-vmware-solution) is now in public preview. This new integration between Azure VMware Solution and Azure NetApp Files will enable you to [create datastores via the Azure VMware Solution resource provider with Azure NetApp Files NFS volumes](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and mount the datastores on your private cloud clusters of choice. Along with the integration of Azure disk pools for Azure VMware Solution, this will provide more choice to scale storage needs independently of compute resources. For your storage-intensive workloads running on Azure VMware Solution, the integration with Azure NetApp Files helps to easily scale storage capacity beyond the limits of the local instance storage for Azure VMware Solution provided by vSAN and lower your overall total cost of ownership for storage-intensive workloads.
 
     Regional Coverage: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East US, France Central, Germany West Central, Japan West, North Central US, North Europe, South Central US, Southeast Asia, Switzerland West, UK South, UK West, West Europe, West US. Regional coverage will expand as the preview progresses.
 
