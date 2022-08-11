@@ -26,7 +26,7 @@ sections:
       - question: |
           I manage multiple Azure AD directories. How do I switch to the one that has Azure Active Directory Premium?
         answer: |
-          To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account is not listed here, select **Sign out.** Next, use the global admin credentials of the directory that has Azure Active Directory Premium (P1 or P2) enabled to sign in.
+          To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account isn't listed here, select **Sign out.** Next, use the global admin credentials of the directory that has Azure Active Directory Premium (P1 or P2) enabled to sign in.
 
       - question: |
           What version of identity roles are supported by Azure AD Connect Health?
@@ -39,7 +39,7 @@ sections:
           |Azure AD Connect | Version 1.0.9125 or higher|
           |Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
           
-          Windows Server Core installations are not supported.
+          Windows Server Core installations aren't supported.
           
           The features provided by the service may differ based on the role and the operating system. All of the features may not be available, for all operating system versions. See the feature descriptions for details.
           
@@ -49,7 +49,7 @@ sections:
           * The first Connect Health Agent requires at least one Azure AD Premium (P1 or P2) license.
           * Each additional registered agent requires 25 more Azure AD Premium (P1 or P2) licenses.
           * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
-          * AAD Connect Health licensing does not require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
+          * AAD Connect Health licensing doesn't require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
           
           Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
           
@@ -66,7 +66,7 @@ sections:
       - question: |
           Does Azure AD Connect Health support Azure Germany Cloud?
         answer: |
-          Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report).
+          Azure AD Connect Health isn't supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report).
           
           | Roles | Features | Supported in German Cloud |
           | ------ | --------------- | --- |
@@ -80,14 +80,14 @@ sections:
   - name: Installation questions
     questions:
       - question: |
-          Does my agent installation get updated automatically when there is a new version of the agent?
+          Does my agent installation get updated automatically when there's a new version of the agent?
         answer: | 
-           Yes, all agents will get updated automatically when there is a new version of the agent.
+           Yes, all agents will get updated automatically when there's a new version of the agent.
            
       - question: |
            Can I opt out or disable automatic upgrade of the agent?
         answer: |
-           No, automatic upgrade is mandatory. If you do not want the agent to be upgraded when a new version is released, you should uninstall the agent.
+           No, automatic upgrade is mandatory. If you don't want the agent to be upgraded when a new version is released, you should uninstall the agent.
        
       - question: |
           What is the impact of installing the Azure AD Connect Health Agent on individual servers?
@@ -129,7 +129,7 @@ sections:
       - question: |
           Does Azure AD Connect Health support Basic authentication when connecting to HTTP proxies?
         answer: |
-          No. A mechanism to specify an arbitrary user name and password for Basic authentication is not currently supported.
+          No. A mechanism to specify an arbitrary user name and password for Basic authentication isn't currently supported.
 
       - question: |
           What firewall ports do I need to open for the Azure AD Connect Health Agent to work?
@@ -139,7 +139,7 @@ sections:
       - question: |
           Why do I see two servers with the same name in the Azure AD Connect Health portal?
         answer: |
-          When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Health portal. If you manually remove an agent from a server or remove the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal.
+          When you remove an agent from a server, the server isn't automatically removed from the Azure AD Connect Health portal. If you manually remove an agent from a server or remove the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal.
           
           You might reimage a server or create a new server with the same details (such as machine name). If you did not remove the already registered server from the Azure AD Connect Health portal, and you installed the agent on the new server, you might see two entries with the same name.
           
@@ -148,7 +148,7 @@ sections:
       - question: |
           Can I install the Azure AD Connect health agent on Windows Server Core?
         answer: |
-          No.  Installation on Server Core is not supported.
+          No.  Installation on Server Core isn't supported.
 
   - name: Health Agent registration and data freshness
     questions:
@@ -159,24 +159,24 @@ sections:
           
           * The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This issue is common on web application proxy servers. Make sure that you have allowed outbound communication to the required endpoints and ports. See the [requirements section](how-to-connect-health-agent-install.md#requirements) for details.
           * Outbound communication is subjected to an TLS inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
-          * The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) to delegate access to other users.
+          * The user doesn't have access to perform the registration of the agent. Global admins have access by default. You can use [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) to delegate access to other users.
           
       - question: |
-          I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?
+          I am getting alerted that "Health Service data isn't up to date." How do I troubleshoot the issue?
         answer: |
-          Azure AD Connect Health generates the alert when it does not receive all the data points from the server in the last two hours. [Read more](how-to-connect-health-data-freshness.md).
+          Azure AD Connect Health generates the alert when it doesn't receive all the data points from the server in the last two hours. [Read more](how-to-connect-health-data-freshness.md).
           
   - name: Operations questions
     questions:
       - question: |
           Do I need to enable auditing on the web application proxy servers?
         answer: |
-          No, auditing does not need to be enabled on the web application proxy servers.
+          No, auditing doesn't need to be enabled on the web application proxy servers.
 
       - question: |
           How do Azure AD Connect Health Alerts get resolved?
         answer: |
-          Azure AD Connect Health alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service periodically. For a few alerts, the suppression is time-based. In other words, if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
+          Azure AD Connect Health alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service periodically. For a few alerts, the suppression is time-based. In other words, if the same error condition isn't observed within 72 hours from alert generation, the alert is automatically resolved.
 
       - question: |
           I am getting alerted that "Test Authentication Request (Synthetic Transaction) failed to obtain a token." How do I troubleshoot the issue?
@@ -224,12 +224,12 @@ sections:
       - question: |
           Why are my ADFS audits not being generated?
         answer: |
-          Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, set the local security policy to log Application Generated failures and success.
+          Please use the PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs aren't in disabled state. Read more about [ADFS audit logs](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated isn't configured). In this case, set the local security policy to log Application Generated failures and success.
           
       - question: |
           When will the agent certificate be automatic renewed before expiration?
         answer: |
-          The agent certification will be automatic renewed **6 months** before its expiration date. If it is not renewed, ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
+          The agent certification will be automatic renewed **6 months** before its expiration date. If it isn't renewed, ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
           
 additionalContent: |
 
