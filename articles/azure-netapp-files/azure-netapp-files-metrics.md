@@ -78,7 +78,7 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 - *Is volume replication transferring*    
     Whether the status of the volume replication is ‘transferring’. 
 
-- *Volume replication lag time* 
+- *Volume replication lag time* <br>
     Lag time is the actual amount of time the replication lags behind the source. It indicates the age of the replicated data in the destination volume relative to the source volume.
 
 > [!NOTE]
