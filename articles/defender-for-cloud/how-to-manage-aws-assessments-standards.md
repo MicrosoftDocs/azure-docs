@@ -1,13 +1,13 @@
 ---
-title: Manage assessments and standards
-description: Learn how to create custom security assessments and standards for your multicloud environment.
+title: Manage AWS assessments and standards
+description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 08/07/2022
+ms.date: 08/11/2022
 ---
 
-# Manage assessments and standards
+# Manage AWS assessments and standards
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available regulatory standards like GCP CIS 1.1.0, GCP CIS 1.2.0, or AWS CIS 1.2.0, AWS Foundational Security Best Practices, AWS PCI DSS 3.2.1. If you want, you can create your own custom standards, and assessments to meet specific internal requirements.
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available regulatory standards such as AWS CIS 1.2.0, AWS Foundational Security Best Practices, AWS PCI DSS 3.2.1. If you want, you can create your own custom standards, and assessments to meet specific internal requirements.
 
 There are three types of resources that are needed to create and manage custom assessments:
 
@@ -18,53 +18,9 @@ There are three types of resources that are needed to create and manage custom a
 - Standard: defines a set of assessments
 - Standard assignment: defines the scope, which the standard will evaluate. For example, specific AWS account/s.
 
-You can either use the built-in regulatory compliance standard or create your own custom standards and assessments.
+You can either use the built-in regulatory compliance standards or create your own custom standards and assessments.
 
-## Assign built in and custom compliance standard to your GCP project
-
-### Assign a built-in regulatory compliance standard to your GCP project
-
-**To assign a built-in regulatory compliance standard GCP project**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-
-1. Select the relevant GCP project.
-
-1. Select **Standards** > **Add** > **Standard**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-standard.png" alt-text="Screenshot that shows you where to navigate to, to add a GCP standard.":::
-
-1. Select a built-in standard from the drop-down menu.
-
-     :::image type="content" source="media/how-to-manage-assessments-standards/drop-down-menu.png" alt-text="Screenshot that shows you the standard options you can choose from the drop-down menu.":::
-
-1. Select **Save**.
-
-### Create a new custom standard for your GCP project
-
-**To create a new custom standard for your GCP project**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-
-1. Select the relevant GCP project.
-
-1. Select **Standards** > **Add** > **Standard**.
-
-1. Select **New standard**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-gcp-standard.png" alt-text="Screenshot that shows you where to select a new GCP standard.":::
-
-1. Enter a name, description and select which assessments you want to add.
-
-1. Select **Save**.
-
-## Assign built in and custom compliance standard to your AWS account
-
-### Assign a built-in regulatory compliance standard to your AWS account
+## Assign a built-in regulatory compliance standard to your AWS account
 
 **To assign a built-in regulatory compliance standard to your AWS account**:
 
@@ -76,13 +32,13 @@ You can either use the built-in regulatory compliance standard or create your ow
 
 1. Select **Standards** > **Add** > **Standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/aws-standard.png" alt-text="Screenshot that shows you where to navigate to, to add a GCP standard.":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/aws-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add a AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-standard.png":::
 
 1. Select a built-in standard from the drop-down menu.
 
 1. Select **Save**.
 
-### Create a new custom standard for your AWS account
+## Create a new custom standard for your AWS account
 
 **To create a new custom standard for your AWS account**:
 
@@ -96,76 +52,13 @@ You can either use the built-in regulatory compliance standard or create your ow
 
 1. Select **New standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-gcp-standard.png" alt-text="Screenshot that shows you where to select a new AWS standard.":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/new-gcp-standard.png" alt-text="Screenshot that shows you where to select a new AWS standard." lightbox="media/how-to-manage-assessments-standards/new-gcp-standard.png":::
 
 1. Enter a name, description and select which assessments you want to add.
 
 1. Select **Save**.
 
-## Assign built-in and custom assessments to your GCP project
-
-### Assign a built-in assessment to your GCP project
-
-**To assign a built-in assessment to your GCP project**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-
-1. Select the relevant GCP project.
-
-1. Select **Standards** > **Add** > **Assessment**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-assessment.png" alt-text="Screenshot that shows where to navigate to, to select GCP assessment.":::
-
-1. Select **Existing assessment**.
-
-1. Select all relevant assessments from the drop-down menu.
-
-1. Select the standards from the drop-down menu.
-
-1. Select **Save**.
-
-### Assign a custom assessment to your GCP project
-
-**To assign a custom assessment to your GCP project**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-
-1. Select the relevant GCP project.
-
-1. Select **Standards** > **Add** > **Assessment**.
-
-1. Select **New assessment (preview)**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-assessment.png" alt-text="Screenshot of the new assessment screen for a GCP project.":::
-
-1. In the general section, enter a name and severity.
-
-1. In the query section, select an assessment template from the drop-down menu, or use the following query schema: 
-
-    For example:
-
-    **Ensure that Cloud Storage buckets have uniform bucket-level access enabled**
-
-    ```Bash
-    let UnhealthyBuckets = Storage_Bucket 
-      extend RetentionPolicy = Record.retentionPolicy 
-      where isnull(RetentionPolicy) or isnull(RetentionPolicy.isLocked) or tobool(RetentionPolicy.isLocked)==false 
-      project BucketName = RecordIdentifierInfo.CloudNativeResourceName; Logging_LogSink 
-      extend Destination = split(Record.destination,'/')[0] 
-      where Destination == 'storage.googleapis.com' 
-      extend LogBucketName = split(Record.destination,'/')[1] 
-      extend HealthStatus = iff(LogBucketName in(UnhealthyBuckets), 'UNHEALTHY', 'HEALTHY')"
-    ```
-
-    See the [how to build a query](#how-to-build-a-query) section for more examples.
-
-## Assign built-in and custom assessments to your AWS account
-
-### Assign a built-in assessment to your AWS account
+## Assign a built-in assessment to your AWS account
 
 **To assign a built-in assessment to your AWS account**:
 
@@ -177,7 +70,7 @@ You can either use the built-in regulatory compliance standard or create your ow
 
 1. Select **Standards** > **Add** > **Assessment**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-assessment.png" alt-text="Screenshot that shows where to navigate to, to select an AWS assessment.":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-assessment.png" alt-text="Screenshot that shows where to navigate to, to select an AWS assessment." lightbox="media/how-to-manage-assessments-standards/gcp-assessment.png":::
 
 1. Select **Existing assessment**.
 
@@ -187,7 +80,7 @@ You can either use the built-in regulatory compliance standard or create your ow
 
 1. Select **Save**.
 
-### Assign a custom assessment to your AWS account
+## Assign a custom assessment to your AWS account
 
 **To assign a custom assessment to your AWS account**:
 
@@ -201,7 +94,7 @@ You can either use the built-in regulatory compliance standard or create your ow
 
 1. Select **New assessment (preview)**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-aws-assessment.png" alt-text="Screenshot of the adding a new assessment screen for your AWS account.":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/new-aws-assessment.png" alt-text="Screenshot of the adding a new assessment screen for your AWS account." lightbox="media/how-to-manage-assessments-standards/new-aws-assessment.png":::
 
 1. Enter a name, severity and select an assessment from the drop-down menu.
 
@@ -209,7 +102,7 @@ You can either use the built-in regulatory compliance standard or create your ow
 
     If you’d like to create a new query, select the ‘[Azure Data Explorer](https://dataexplorer.azure.com/clusters/securitydatastoreus.centralus/databases/DiscoveryMockDataAws)’ link. The explorer will contain mock data on all of the supported native APIs. The data will appear in the same structure as contracted in the API.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/azure-data-explorer.png" alt-text="Screenshot that shows where to select to select the Azure Data Explorer link.":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/azure-data-explorer.png" alt-text="Screenshot that shows where to select to select the Azure Data Explorer link." lightbox="media/how-to-manage-assessments-standards/azure-data-explorer.png":::
 
     See the [how to build a query](#how-to-build-a-query) section for more examples.
 
@@ -221,45 +114,7 @@ You can either use the built-in regulatory compliance standard or create your ow
 
 The last row of the query should return all the original columns (don’t use ‘project’, ‘project-away). End the query with an if statement that defines the healthy or unhealthy conditions: `| extend HealthStatus = iff([boolean-logic-here], 'UNHEALTHY','HEALTHY')`.
 
-### Sample GCP queries
-
-**Ensure that Cloud Storage buckets have uniform bucket-level access enabled**
-
-```bash
-let UnhealthyBuckets = Storage_Bucket 
-| extend RetentionPolicy = Record.retentionPolicy 
-| where isnull(RetentionPolicy) or isnull(RetentionPolicy.isLocked) or tobool(RetentionPolicy.isLocked)==false 
-| project BucketName = RecordIdentifierInfo.CloudNativeResourceName; Logging_LogSink 
-| extend Destination = split(Record.destination,'/')[0] 
-| where Destination == 'storage.googleapis.com' 
-| extend LogBucketName = split(Record.destination,'/')[1] 
-| extend HealthStatus = iff(LogBucketName in(UnhealthyBuckets), 'UNHEALTHY', 'HEALTHY')"
-```
-
-**Ensure VM disks for critical VMs are encrypted**
-
-```bash
-Compute_Disk 
-| extend DiskEncryptionKey = Record.diskEncryptionKey 
-| extend IsVmNotEncrypted = isempty(tostring(DiskEncryptionKey.sha256)) 
-| extend HealthStatus = iff(IsVmNotEncrypted ,'UNHEALTHY' ,'HEALTHY')"
-```
-
-**Ensure Compute instances are launched with Shielded VM enabled**
-
-```bash
-Compute_Instance 
-| extend InstanceName = tostring(Record.id)  
-| extend ShieldedVmExist = tostring(Record.shieldedInstanceConfig.enableIntegrityMonitoring) =~ 'true' and tostring(Record.shieldedInstanceConfig.enableVtpm) =~ 'true' 
-| extend HealthStatus = iff(ShieldedVmExist, 'HEALTHY', 'UNHEALTHY')"
-```
-
-You can use the following links to learn more about Kusto queries:
-- [KQL quick reference](/azure/data-explorer/kql-quick-reference)
-- [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/)
-- [Must Learn KQL](https://azurecloudai.blog/2021/11/17/must-learn-kql-part-1-tools-and-resources/)
-
-### Sample AWS KQL queries
+### Sample KQL queries
 
 When building a KQL query, you should use the following table structure:
 

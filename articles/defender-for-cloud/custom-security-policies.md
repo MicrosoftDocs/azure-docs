@@ -1,12 +1,12 @@
 ---
-title: Create custom security policies in Microsoft Defender for Cloud
+title: Create custom Azure security policies in Microsoft Defender for Cloud
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 08/11/2022
 zone_pivot_groups: manage-asc-initiatives
 ---
 
-# Create custom security initiatives and policies
+# Create custom Azure security initiatives and policies
 
 To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Defender for Cloud's knowledge of industry and regulatory standards.
 
