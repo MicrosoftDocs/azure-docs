@@ -13,15 +13,15 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. Zero Touch Provisioning enables automated, standardized device configuration of one or more devices before they are activated.
+This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. Zero Touch Provisioning enables automated, standardized device configuration of one or more devices before they're activated.
 
 Use Zero Touch Provisioning as an alternative to the local web user interface setup sequence. You can run as many rounds of configuration changes and updates as necessary, until the device is activated. After device activation, use the Azure portal user interface or the device local web user interface to modify device configuration.
 
 Usage considerations:
 
-- You can apply updates to a device until it is activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
-- You cannot update device authentication using Zero Touch Provisioning. To update device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
-- You can only provision single-node devices using Zero Touch Provisioning. Two-node cluster configuration is not supported.
+- You can apply updates to a device until it's activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
+- You can't update device authentication using Zero Touch Provisioning. To update device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
+- You can only provision single-node devices using Zero Touch Provisioning. Two-node cluster configuration isn't supported.
 - You can apply individual configuration updates to a device using PowerShell cmdlets, or you can apply bulk configuration updates using a JSON file.
 
 ## About device setup and configuration
@@ -37,7 +37,7 @@ Device setup and configuration includes declarations that define the configurati
 - Update
 - Activation
 
-A device update operation does not have to include every declaration; you can include only the declarations that create a desired configuration for your device.
+A device update operation doesn't have to include every declaration; you can include only the declarations that create a desired configuration for your device.
 
 The following PowerShell cmdlets are supported to configure Azure Stack Edge devices:
 
@@ -181,7 +181,7 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | to-json
    ```
 
-   Here is an example of output showing node.id:
+   Here's an example of output showing node.id:
 
    ![PowerShell output showing Azure Stack Edge node.id](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-node-id.png)
 
@@ -211,7 +211,7 @@ Run the following cmdlets in PowerShell:
 
 ## Activate a device
 
-Use the following steps to activate an Azure Stack Edge device. Note that a device activation key cannot be undone, reused, or applied to a different device.
+Use the following steps to activate an Azure Stack Edge device. Note that a device activation key can't be undone, reused, or applied to a different device.
 
 1. Retrieve the activation key for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device).
 
@@ -251,7 +251,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that a devi
    Get-DeviceConfiguration | to-json
    ```
 
-   Here is an example of output showing device activation status:
+   Here's an example of output showing device activation status:
 
    ![PowerShell output showing Azure Stack Edge device activation status](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-device-activation.png)
 
