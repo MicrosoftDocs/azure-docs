@@ -87,7 +87,7 @@ Use the following steps to sign into a device, change the password, and fetch th
 1. Sign into the device and update the device password.
 
    ```azurepowershell
-   Set-Login “https://<IP address>” “<Password1>”
+   Set-Login “https://<IP address>” “<Password1>” “<NewPassword>”
    ```
    For any subsequent sign-in, use:
 
