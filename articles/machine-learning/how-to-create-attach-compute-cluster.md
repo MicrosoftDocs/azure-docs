@@ -294,8 +294,6 @@ To update an existing cluster:
 
 # [Studio](#tab/azure-studio)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
-
 During cluster creation or when editing compute cluster details, in the **Advanced settings**, toggle **Assign a managed identity** and specify a system-assigned identity or user-assigned identity.
 
 ---
