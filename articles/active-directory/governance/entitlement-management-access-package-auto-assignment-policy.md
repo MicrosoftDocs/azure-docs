@@ -24,11 +24,13 @@ ms.collection: M365-identity-device-management
 
 You can use rules to determine access package assignment based on user properties in Azure Active Directory (Azure AD), part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
 
+During this preview, you can have at most one automatic assignment policy in an access package.
+
 This article describes how to create an access package automatic assignment policy for an existing access package.
 
 ## Create an automatic assignment policy (Preview)
 
-To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.  During this preview, you can have at most one automatic assignment policy in an access package.
+To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager
 
@@ -53,8 +55,8 @@ To create a policy for an access package, you need to start from the access pack
 
 1. Click **Create** to save the policy.
 
-> [!NOTE]
-> In this preview, Entitlement management will automatically create a dynamic security group corresponding to each policy, in order to evaluate the users in scope. This group should not be modified except by Entitlement Management itself.  This group may also be modified or deleted automatically by Entitlement Management, so don't use this group for other applications or scenarios.
+   > [!NOTE]
+   > In this preview, Entitlement management will automatically create a dynamic security group corresponding to each policy, in order to evaluate the users in scope. This group should not be modified except by Entitlement Management itself.  This group may also be modified or deleted automatically by Entitlement Management, so don't use this group for other applications or scenarios.
 
 1. Azure AD will evaluate the users in the organization that are in scope of this rule, and create assignments for those users who don't already have assignments to the access package.  It may take several minutes for the evaluation to occur, or for subsequent updates to user's attributes to be reflected in the access package assignments.
 
