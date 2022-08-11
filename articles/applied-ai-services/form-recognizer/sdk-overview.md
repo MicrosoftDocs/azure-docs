@@ -25,18 +25,18 @@ Form Recognizer SDK supports the following languages and platforms:
 
 | Programming language | Package| Reference |Platform support |
 |:----------------------:|:----------|:----------| :----------------|
-|[C#/.NET](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [.NET](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
+|[C#](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [.NET](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
 |[Java](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|[Windows, macOS, Linux](/java/openjdk/install)|
 |[JavaScript](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Node.js](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
 |[Python](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Python](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## How to use the Form Recognizer SDK in your applications
 
-Form Recognizer SDKs enable using and managing the Form Recognizer service in your application code. The SDK builds on the underlying Form Recognizer REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Form Recognizer SDK for your preferred language:
+Form Recognizer SDKs enable the use and management of the Form Recognizer service in your application code. The SDK builds on the underlying Form Recognizer REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Form Recognizer SDK for your preferred language:
 
 ### 1. Install the SDK client library
 
-### [C#/.NET/.NET](#tab/csharp)
+### [C#/.NET](#tab/csharp)
 
 ```dotnetcli
 dotnet add package Azure.AI.FormRecognizer --version 4.0.0-beta.5
@@ -219,7 +219,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance and `**TokenCredential`** variable:
+1. Create your **`DocumentAnalysisClient`** instance and **`TokenCredential`** variable:
 
     ```java
     TokenCredential credential = new DefaultAzureCredentialBuilder().build();
@@ -247,7 +247,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance including the `**DefaultAzureCredential`**:
+1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
 
     ```javascript
     const { DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
@@ -292,17 +292,17 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 #### Build your application
 
-Your code will first create a client object to interact with the Form Recognizer SDK and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-v3-sdk-rest-api.md) in a language of your choice.
+First, you'll create a client object to interact with the Form Recognizer SDK and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-v3-sdk-rest-api.md) in a language of your choice.
 
 ## Help options
 
-The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-form-recognizer) forums are available for the developer community to ask and answer questions about Azure Form Recognizer and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with 'azure-form-recognizer'.
+The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-form-recognizer) forums are available for the developer community to ask and answer questions about Azure Form Recognizer and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
+> [**Try the Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+> [**Explore the Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
 
