@@ -81,6 +81,9 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 ### How long does it take to get a short code? What happens after a short code program brief application is submitted?
 Once you have submitted the short code program brief application in the Azure portal, Azure Communication Services works with the aggregators to get your application approved by each mobile carrier. This process generally takes 8-12 weeks.
 
+### How is my data being used for short code provisioning?
+Short code service involves an integration between Microsoft, SMS aggregators and the wireless carriers. Wireless carriers are the final reviewers and approvers of the short code application. Microsoft must share the short code program brief information with the carriers for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a short code program brief, you agree that Microsoft may share the program brief details as necessary for provisioning the short code.
+
 ## Character and rate limits
 ### What is the SMS character limit?
  The size of a single SMS message is 140 bytes. The character limit per single message being sent depends on the message content and encoding used. Azure Communication Services supports both GSM-7 and UCS-2 encoding. 
@@ -119,20 +122,29 @@ As with similar Azure services, customers will be notified at least 30 days prio
 
 ## Toll-Free Verification
 ### What is toll free verification and why is it mandatory?
-The toll-free verification process ensures that your services running on TFNs comply with carrier policies and industry best practices. This also provides relevant service information to reduce the likelihood of false positive filtering and wrongful spam blocks.  
+The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and industry best practices. This also provides relevant service information to reduce the likelihood of false positive filtering and wrongful spam blocks.  
 
-Effective September 30, 2022, all new toll-free numbers (TFNs) must complete a toll-free verification process. If unverified, the TFNs may face SMS service interruptions. Verification can take up to 2-3 weeks. Numbers that are in-market today but aren’t verified will need to complete the verification prior to September 30, 2022.  
+September 30, 2022 onwards, all new TFNs must complete a toll-free verification process. All existing TFNs must complete a toll-free verification process by September 30, 2022. If unverified, the TFNs may face SMS service interruptions. Verification can take up to 2-3 weeks.
  
 This decision has been made to ensure that the toll-free messaging channel is aligned with both short code and 10 DLC, whereby all services are reviewed. It also ensures that the sending brand and the type of traffic your messaging channels deliver is known, documented, and verified. 
 
 ### How do I submit a toll-free verification?
-[Annie to add]
+For submitting the toll-free verification form, go to the Azure Communications Service Resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed in the infobox at the top of the phone numbers page. 
+
+### How is my data being used?
+Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
 
 ### What happens if I don't verify my toll-free numbers? 
 Unverified numbers may face SMS service interruptions and are subject to carrier filtering and throttling.
 
 ### How long will the process take?
-Toll-free verifications can take up to 2-3 weeks.
+Toll-free verifications can take up to 2-3 weeks. 
+
+### What happens after I submit the toll-free verification form?
+Once we receive your toll-free verification form, we will relay it to the toll-free messaging aggregator for them to review and approve it. This process takes 2-3 weeks. 
+
+### Can I send messages while I wait for approval?
+You will be able to send messages while you wait for approval but the traffic will be subject to carrier filtering and throttling if its flagged as spam.
  
 ## Emergency support
 ### Can a customer use Azure Communication Services for emergency purposes?

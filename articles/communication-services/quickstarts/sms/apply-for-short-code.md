@@ -15,6 +15,8 @@ ms.custom: mode-other
 ---
 # Quickstart: Apply for a short code
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 > [!Data sharing notice]
@@ -75,7 +77,7 @@ This section requires you to provide an estimate of the number of messages you p
 ### Template Information
 This section captures sample messages related to opt-in, opt-out, and other message flows. This tab features a message samples view where you can review sample templates to help you create a template for your use case.  
 
-You can opt-in to use Azure Communication Services opt-out management support for short codes. The opt-out management service will automatically use your responses for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. This service is configurable and will be configured for your short code if you would like to opt-in to it. 
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
 
 :::image type="content" source="./media/apply-for-short-code/templates-01.png" alt-text="Screenshot showing template details section":::
 
