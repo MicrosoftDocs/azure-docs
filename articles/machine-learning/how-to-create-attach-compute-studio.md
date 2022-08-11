@@ -38,7 +38,7 @@ To see all compute targets for your workspace, use the following steps:
 
     :::image type="content" source="media/how-to-create-attach-studio/view-compute-targets.png" alt-text="View list of compute targets":::
 
-## Create in your workspace
+## Compute instance and clusters
 
 You can create compute instances and compute clusters in your workspace, using the Azure Machine Learning SDK, CLI, or studio:
 
@@ -46,6 +46,10 @@ You can create compute instances and compute clusters in your workspace, using t
 * [Compute cluster](how-to-create-attach-compute-cluster.md)
 
 In additions, you can use the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) to create compute instances and compute clusters in your workspace.
+
+## Kubernetes cluster
+
+For information on configuring and attaching a Kubrnetes cluster to your workspace, see [Configure Kubernetes cluster for Azure Machine Learning](how-to-attach-kubernetes-anywhere.md).
 
 ## Other compute targets
 
