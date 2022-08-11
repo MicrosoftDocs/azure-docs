@@ -174,7 +174,7 @@ For you to successfully link and use your integration account with your logic ap
 
 ### [Consumption](#tab/consumption)
 
-For your Consumption logic app workflow to access the B2B artifacts in your integration account, you must first link your logic app resource to your integration account. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
+For your Consumption logic app workflow to access artifacts in your integration account, you must first link your logic app resource to your integration account. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. In the [Azure portal](https://portal.azure.com), open an existing logic app resource, or create a new logic app resource.
 
@@ -194,7 +194,7 @@ Now your logic app workflow can use the artifacts in your integration account pl
 
 ### [Standard](#tab/standard)
 
-You can optionally link your Standard logic app resource to your integration account. By linking your integration account to multiple logic apps, you don't have to upload maps or schemas to each individual logic app. Any and all workflows in the *same logic app resource* can use the artifacts in that integration account. Some actions support selecting maps and schemas *either* from your logic app resource or from your linked integration account.
+You can optionally link your Standard logic app resource to your integration account. By linking your integration account to multiple logic apps, you don't have to upload maps or schemas to each individual logic app. All workflows in the *same logic app resource* can use the artifacts in that integration account. Some actions support selecting maps and schemas *either* from your logic app resource or from your linked integration account.
 
 #### Find your integration account's callback URL
 
@@ -381,7 +381,7 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 1. To acknowledge your understanding that any scripts or tools associated with the moved resources won't work until you update them with the new resource IDs, select the confirmation box, and then select **OK**.
 
-1. After you finish, make sure that you update any and all scripts with the new resource IDs for your moved resources.  
+1. After you finish, make sure that you update all scripts with the new resource IDs for your moved resources.  
 
 ## Delete integration account
 

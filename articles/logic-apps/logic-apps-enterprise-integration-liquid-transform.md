@@ -49,7 +49,7 @@ For more information, review the following documentation:
   > To use an integration account with a logic app workflow, both resources 
   > must exist in the same Azure subscription and Azure region.
 
-  * If you're working on a Consumption logic app workflow, your integration account also requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+  * If you're working on a Consumption logic app workflow, your integration account also requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
   * If you're working on a Standard logic app workflow, you can upload maps directly to your logic app resource, so an integration account is optional. However, if you have an integration account with the maps that you want to use, you can also [link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account). By linking your integration account to multiple logic apps, you don't have to upload maps to each individual logic app.
 
@@ -73,8 +73,8 @@ Before you can perform a Liquid transformation in your logic app workflow, you m
 
    The JSON to JSON transformation example in this article uses the following sample Liquid template:
 
-   ```json
-   {%- assign deviceList = content.devices | Split: ', ' -%}
+   ```
+   { %- assign deviceList = content.devices | Split: ', ' -% }
 
    {
       "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
@@ -92,7 +92,7 @@ Before you can perform a Liquid transformation in your logic app workflow, you m
    }
    ```
 
-1. Save the template by using the `.liquid` extension. This example uses `SimpleJsonToJsonTemplate.liquid`.
+1. Save the template by using the **.liquid** extension. This example uses **SimpleJsonToJsonTemplate.liquid**.
 
 <a name="upload-template"></a>
 
@@ -166,7 +166,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
 
-1. If your workflow doesn't yet have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations doesn't have any triggers available.
+1. If your workflow doesn't yet have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
    This example continues with the Request trigger named **When a HTTP request is received**.
 
@@ -174,13 +174,13 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. Under the **Choose an operation** search box, select **All**. In the search box, enter **liquid**.
 
-1. From the actions list, select the the Liquid action that you want to use.
+1. From the actions list, select the Liquid action that you want to use.
 
    This example continues using the action named **Transform JSON to JSON**.
 
-   ![Screenshot showing the Consumption workflow designer with a Liquid action selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-liquid-action-consumption.png)
+   ![Screenshot showing Consumption workflow designer with a Liquid action selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-liquid-action-consumption.png)
 
-1. For the **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
+1. In the action's **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
 
    1. Click inside the **Content** box so that the dynamic content list appears.
 
@@ -188,26 +188,22 @@ The following steps show how to add a Liquid transformation action for Consumpti
    
       For this example, from the dynamic content list, under **When a HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
 
-      ![Screenshot showing the Liquid action's "Content" property with the open dynamic content list and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-consumption.png)
+      ![Screenshot showing Consumption workflow, Liquid action's "Content" property, an open dynamic content list, and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-consumption.png)
 
 1. For the **Map** property, open the **Map** list, and select your Liquid template.
 
-   This example continues with a template named "JsonToJsonTemplate".
+   This example continues with the template named **JsonToJsonTemplate**.
 
-   ![Screenshot showing the selected template to use as a map.](./media/logic-apps-enterprise-integration-liquid-transform/select-map-to-use-consumption.png)
+   ![Screenshot showing Consumption workflow, Liquid action's "Map" property, and the selected template.](./media/logic-apps-enterprise-integration-liquid-transform/select-map-to-use-consumption.png)
 
-   If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
-   To link your logic app to the integration account that has the Liquid template or map, follow these steps:
-
-   1. On your logic app menu, select **Workflow settings**.
-
-   1. From the **Select an integration account** list, select your integration account. When you're done, select **Save**.
-
-      ![Screenshot showing "Workflow settings" pane, "Select an integration account" list expanded with an example integration account selected, and "Save" selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account-to-link-consumption.png)
+   > [!NOTE]
+   >
+   > If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
+   > Make sure to [link your logic app resource to the integration account that has the Liquid template or map](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
    When you're done, the action looks similar to the following example:
 
-   ![Screenshot showing the finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-consumption.png)
+   ![Screenshot showing Consumption workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-consumption.png)
 
 ### [Standard](#standard)
 
@@ -221,40 +217,40 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. On the **Add an action** pane that appears, under the search box, select **Built-in**.
 
-1. In the search box, enter **liquid**. From the actions list, select the the Liquid action that you want to use.
+1. In the search box, enter **liquid**. From the actions list, select the Liquid action that you want to use.
 
    This example continues using the action named **Transform JSON to JSON**.
 
-   ![Screenshot showing the Standard workflow designer with a Liquid action selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-liquid-action-standard.png)
+   ![Screenshot showing Standard workflow with a Liquid action selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-liquid-action-standard.png)
 
-1. For the **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
+1. In the action's **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
 
    1. Click inside the **Content** box so that the dynamic content list appears.
 
    1. From the dynamic content list, select the JSON data that you want to transform.
-   
-      For this example, from the dynamic content list, under **When a HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
 
-      ![Screenshot showing the Liquid action's "Content" property with the open dynamic content list and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-standard.png)
+      For this example, in the dynamic content list, under **When a HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
 
-1. For the **Map** property, open the **Map** list, and select your Liquid template.
+      ![Screenshot showing Standard workflow, Liquid action's "Content" property with dynamic content list opened, and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-standard.png)
 
-   This example continues with a template named "JsonToJsonTemplate".
+1. From the **Source** list, select either **LogicApp** or **IntegrationAccount** as your Liquid template source.
 
-   ![Screenshot showing the selected template to use as a map.](./media/logic-apps-enterprise-integration-liquid-transform/select-map-to-use-standard.png)
+   This example continues by selecting **IntegrationAccount**.
 
-   If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
-   To link your logic app to the integration account that has the Liquid template or map, follow these steps:
+1. From the **Name** list, select your Liquid template.
 
-   1. On your logic app menu, select **Workflow settings**.
+   This example continues with the template named **JsonToJsonTemplate**.
 
-   1. From the **Select an integration account** list, select your integration account. When you're done, select **Save**.
+   ![Screenshot showing Standard workflow and selected template.](./media/logic-apps-enterprise-integration-liquid-transform/select-map-to-use-standard.png)
 
-      ![Screenshot showing "Workflow settings" pane, "Select an integration account" list expanded with an example integration account selected, and "Save" selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account-to-link-standard.png)
+   > [!NOTE]
+   >
+   > If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
+   > Make sure to [link your logic app resource to the integration account that has the Liquid template or map](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
 
    When you're done, the action looks similar to the following example:
 
-   ![Screenshot showing the finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-standard.png)
+   ![Screenshot showing Standard workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-standard.png)
 
 ---
 
@@ -305,7 +301,7 @@ The following example shows the sample inputs and outputs:
 
 The following Liquid template shows an example transformation for XML to JSON:
 
-``` json
+```json
 [{% JSONArrayFor item in content -%}
       {{item}}
   {% endJSONArrayFor -%}]
@@ -323,7 +319,7 @@ The following example shows the sample inputs and outputs:
 
 The following Liquid template shows an example transformation for XML to text:
 
-``` json
+```json
 {{content.firstName | Append: ' ' | Append: content.lastName}}
 ```
 
@@ -377,7 +373,7 @@ The following example shows the sample inputs and outputs:
 
     * Sorts only in string-alphanumeric order. For more information, see [Numeric sort](https://github.com/Shopify/liquid/issues/980).
 
-    * Uses *case-insensitive* order, not case-sensitive order. For more information, see [Sort filter does not follow casing behavior from Shopify's specification]( https://github.com/dotliquid/dotliquid/issues/393).
+    * Uses *case-insensitive* order, not case-sensitive order. For more information, see [Sort filter doesn't follow casing behavior from Shopify's specification]( https://github.com/dotliquid/dotliquid/issues/393).
 
 ## Next steps
 
