@@ -153,7 +153,7 @@ Advance to the next article to learn how to add an Azure Storage queue binding t
 
 # [.NET 6 Isolated](#tab/isolated-process)
 
-To learn more about working with C# functions that run in an isolated process, see the [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated process .
+To learn more about working with C# functions that run in an isolated process, see the [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated process .
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]
