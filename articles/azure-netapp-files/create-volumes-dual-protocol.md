@@ -140,6 +140,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         This feature enables encryption for only in-flight SMB3 data. It does not encrypt NFSv3 in-flight data. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for more information. 
 
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
+        <!-- add content -->
 
     * If you selected NFSv4.1 and SMB for the dual-protocol volume versions, indicate whether you want to enable **Kerberos** encryption for the volume.
 
