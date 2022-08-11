@@ -41,11 +41,14 @@ az containerapp env create \
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
 
 ```powershell
-New-AzOperationalInsightsWorkspace `
-  -ResourceGroupName $RESOURCE_GROUP ` 
-  -Name MyWorkspace -Location $Location ` 
-  -PublicNetworkAccessForIngestion "Enabled" ` 
-  -PublicNetworkAccessForQuery "Enabled"
+$CmdArgs = @{
+  Name = myworkspace
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  PublicNetworkAccessForIngestion "Enabled"
+  PublicNetworkAccessForQuery "Enabled"
+}
+New-AzOperationalInsightsWorkspace @CmdArgs
 $WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
 $WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
 ```
@@ -53,12 +56,16 @@ $WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGr
 To create the environment, run the following command:
 
 ```powershell
-New-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -AppLogConfigurationDestination "log-analytics" `
-  -Location $LOCATION `
-  -LogAnalyticConfigurationCustomerId $WORKSPACE_ID `
-  -LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY
+$CmdArgs = @{
+  EnvName = $CONTAINERAPPS_ENVIRONMENT
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+  WorkspaceId = $WORKSPACE_ID
+  WorkspaceSharedKey = $WORKSPACE_SHARED_KEY
+  AppLogConfigurationDestination = "log-analytics"
+  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
+}
+New-AzContainerAppManagedEnv @CmdArgs
 ```
 
 ---
@@ -83,18 +90,24 @@ az containerapp create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$IMAGE_OBJ = New-AzContainerAppTemplateObject `
-  -Name my-container-app `
-  -Image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+$ImageParams = @{
+  Name = my-container-app
+  Image = mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+}
+$IMAGE_OBJ = New-AzContainerAppTemplateObject @ImageParams
 $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
-New-AzContainerApp -Name my-container-app `
- -Location $LOCATION `
- -ResourceGroupName $RESOURCE_GROUP `
- -ManagedEnvironmentId $ENV_ID `
- -TemplateContainer $IMAGE_OBJ `
- -IngressTargetPort 80 `
- -IngressExternal
+$CmdArgs = @{
+  Name = my-container-app
+  Location = $LOCATION
+  ResourceGroupName = $RESOURCE_GROUP
+  ManagedEnvironmentId = $ENV_ID
+  TemplateContainer = $IMAGE_OBJ
+  IngressTargetPort = 80
+  IngressExternal = 'true'
+}
+
+New-AzContainerApp @CmdArgs
 ```
 
 ---
