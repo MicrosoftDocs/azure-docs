@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 07/29/2022
+ms.date: 08/01/2022
 ---
 
 # Add linter settings in the Bicep config file
@@ -24,6 +24,9 @@ The following example shows the rules that are available for configuration.
       "enabled": true,
       "rules": {
         "adminusername-should-not-be-literal": {
+          "level": "warning"
+        },
+        "artifacts-parameters": {
           "level": "warning"
         },
         "no-hardcoded-env-urls": {
@@ -57,6 +60,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-protectedsettings-for-commandtoexecute-secrets": {
+          "level": "warning"
+        },
+        "secure-secrets-in-params": {
           "level": "warning"
         },
         "use-stable-resource-identifiers": {

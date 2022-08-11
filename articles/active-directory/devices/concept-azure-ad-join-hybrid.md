@@ -27,7 +27,7 @@ Hybrid Azure AD joined devices require network line of sight to your on-premises
 | **Primary audience** | Suitable for hybrid organizations with existing on-premises AD infrastructure |
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
-| **Operating Systems** | Windows 11, Windows 10 or 8.1 |
+| **Operating Systems** | Windows 11, Windows 10 or 8.1 except Home editions |
 |   | Windows Server 2008/R2, 2012/R2, 2016, 2019 and 2022 |
 | **Provisioning** | Windows 11, Windows 10, Windows Server 2016/2019/2022 |
 |   | Domain join by IT and autojoin via Azure AD Connect or ADFS config |

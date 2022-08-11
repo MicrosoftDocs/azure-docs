@@ -20,7 +20,7 @@ The Speech service allows you to [convert text into synthesized speech](#convert
 The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A subscription key for the endpoint or region that you plan to use is required. Here are links to more information:
 
 - For a complete list of voices, see [Language and voice support for the Speech service](language-support.md#text-to-speech).
-- For information about regional availability, see [Speech service supported regions](regions.md#text-to-speech).
+- For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
 - For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
 > [!IMPORTANT]
