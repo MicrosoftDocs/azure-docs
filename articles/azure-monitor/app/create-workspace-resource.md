@@ -167,7 +167,7 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
 ```
 
 > [!NOTE]
-> * For more information on resource properties, see [Property values](https://docs.microsoft.com/azure/templates/microsoft.insights/components?tabs=bicep#property-values)
+> * For more information on resource properties, see [Property values](/azure/templates/microsoft.insights/components?tabs=bicep#property-values)
 > * Flow_Type and Request_Source are not used, but are included in this sample for completeness.
 
 #### Parameters file
