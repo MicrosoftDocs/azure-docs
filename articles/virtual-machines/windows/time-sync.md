@@ -158,9 +158,9 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-For w32time to be able to use the new poll intervals, the NtpServers need to be marked as using them. If servers are annotated with 0x1 bitflag mask, that would override this mechanism and w32time would use SpecialPollInterval instead. Make sure that specified NTP servers are either using 0x8 flag or no flag at all:
+For `w32time` to be able to use the new poll intervals, the NtpServers need to be marked as using them. If servers are annotated with the `0x1` bitflag mask, that would override this mechanism and `w32time` would use `SpecialPollInterval` instead. Make sure that specified NTP servers are either using the `0x8` flag or no flag at all:
 
-Check what flags are being used for the used NTP servers.
+Check what flags are being used for the NTP servers.
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
