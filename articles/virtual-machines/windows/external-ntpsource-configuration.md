@@ -66,7 +66,7 @@ To check current time source in your client, from an elevated command prompt run
 3. Create a new GPO, for example *Clients Time Sync*, in the container *Group Policy Objects*.
 4. Right-click on the newly created GPO and Edit.
 5. In the *Group Policy Management Editor* navigate to the *Configure Windows NTP Client* policy under *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service* -> *Time Providers*
-6. Set it to *Enabled*, configure the parameter *NTPServer* to point to a Domain Controller in your Domain followed by `,0x8` for example: `DC1.contoso.com,0x8` and configure *Type* to NT5DS. For all the other paramenters you can use the default values, or use custom ones according to your corporate needs.
+6. Set it to *Enabled*, configure the parameter *NTPServer* to point to a Domain Controller in your Domain followed by `,0x8` for example: `DC1.contoso.com,0x8` and configure *Type* to NT5DS. For all the other parameters you can use the default values, or use custom ones according to your corporate needs.
 7. Link the GPO to the Organizational Unit where your clients are located.
 
 >[!IMPORTANT]
