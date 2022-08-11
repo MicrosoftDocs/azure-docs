@@ -32,7 +32,7 @@ Form Recognizer SDK supports the following languages and platforms:
 
 ## How to use the Form Recognizer SDK in your applications
 
-Form Recognizer SDKs enable the use and management of the Form Recognizer service in your application code. The SDK builds on the underlying Form Recognizer REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Form Recognizer SDK for your preferred language:
+The Form Recognizer SDK enables the use and management of the Form Recognizer service in your application. The SDK builds on the underlying Form Recognizer REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Form Recognizer SDK for your preferred language:
 
 ### 1. Install the SDK client library
 
@@ -163,7 +163,7 @@ async function main() {
 
 ---
 
-### Use an Azure Active Directory (Azure AD) token credential
+#### Use an Azure Active Directory (Azure AD) token credential
 
 > [!NOTE]
 > Regional endpoints do not support AAD authentication. Create a [custom subdomain](/azure/cognitive-services/authentication?tabs=powershell#create-a-resource-with-a-custom-subdomain) for your resource in order to use this type of authentication.
@@ -290,9 +290,9 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ---
 
-#### Build your application
+### 4. Build your application
 
-First, you'll create a client object to interact with the Form Recognizer SDK and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-v3-sdk-rest-api.md) in a language of your choice.
+First, you'll create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-v3-sdk-rest-api.md) in a language of your choice.
 
 ## Help options
 
