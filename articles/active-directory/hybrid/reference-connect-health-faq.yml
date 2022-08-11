@@ -41,7 +41,7 @@ sections:
           
           Windows Server Core installations are not supported.
           
-         The features provided by the service may differ based on the role and the operating system. All of the features may not be available, for all operating system versions. See the feature descriptions for details.
+          The features provided by the service may differ based on the role and the operating system. All of the features may not be available, for all operating system versions. See the feature descriptions for details.
           
       - question: |
           How many licenses do I need to monitor my infrastructure?
