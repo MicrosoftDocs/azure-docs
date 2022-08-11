@@ -17,10 +17,10 @@ This article describes how to automate initial device configuration and activati
 
 Use Zero Touch Provisioning as an alternative to the local web user interface setup sequence. You can run as many rounds of configuration changes and updates as necessary, until the device is activated. After device activation, use the Azure portal UI or the local web UI to modify device configuration.
 
-Note the following usage considerations:
+Usage considerations:
 
-- You can apply updates to a device until it is activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-deploy-connect?pivots=single-node).
-- You cannot update device authentication using Zero Touch Provisioning. To update device authentication settings, see [Change device password](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-manage-access-power-connectivity-mode#change-device-password).
+- You can apply updates to a device until it is activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
+- You cannot update device authentication using Zero Touch Provisioning. To update device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
 - You can only provision single-node devices using Zero Touch Provisioning. Two-node cluster configuration is not supported.
 - You can apply configuration updates to a device using individual PowerShell cmdlets, or you can apply bulk configuration updates using a JSON file.
 
@@ -30,7 +30,7 @@ Device setup and configuration includes a root-level “Device” element and de
 - Device endpoint
 - Password
 - Certificates
-- Encryption at-rest
+- Encryption at rest
 - Web proxy
 - Network
 - Time
@@ -58,7 +58,7 @@ Before you begin, make sure that you:
 
 1. Have a client running Windows 10 or Windows Server 2016 or later.
 1. Are running PowerShell version 5.1 or later.
-1. Are connected to the local web UI of an Azure Stack Edge device. For more information, see [Connect to Azure Stack Edge Pro with GPU](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-connect?pivots=single-node).
+1. Are connected to the local web UI of an Azure Stack Edge device. For more information, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 1. Download the [PowerShell module](https://aka.ms/aseztp-ps).
 
 ## Import the module and sign into the device
