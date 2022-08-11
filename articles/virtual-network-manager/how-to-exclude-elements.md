@@ -13,9 +13,7 @@ ms.custom: template-concept, ignite-fall-2021
 
 In this article, you'll learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. You'll also learn how to use the advanced editor to update conditional statements of an existing network group.
 
-*Azure Policy* is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions which define group membership, as opposed to explicit lists of virtual networks. This condition will continue to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fullfilment of the condition changes, with no Network Manager operation required.
-
-Read more about the full capabilities of [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview).
+[Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions which define group membership, as opposed to explicit lists of virtual networks. This condition will continue to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
