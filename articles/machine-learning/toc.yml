@@ -585,6 +585,8 @@
             - name: Create event-driven workflows
               displayName: event grid
               href: how-to-use-event-grid.md
+            - name: Schedule a pipeline job
+              href: how-to-schedule-pipeline-job.md
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
@@ -682,6 +684,8 @@
           href: reference-yaml-data.md
         - name: Model
           href: reference-yaml-model.md
+        - name: Schedule
+          href: reference-yaml-schedule.md 
         - name: Compute
           items: 
             - name: Compute cluster (AmlCompute)
