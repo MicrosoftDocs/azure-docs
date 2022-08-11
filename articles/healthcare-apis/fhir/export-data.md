@@ -16,7 +16,7 @@ Before attempting to use `$export`, make sure that your FHIR service is configur
 
 ## Calling the `$export` endpoint
 
-After setting up FHIR service to connect with an ADLS Gen2 storage account, you can call the `$export` endpoint and the FHIR service will export data into a blob storage container inside the storage account. The example request below exports all resources into a container specified by name (`{{containerName}}`). Note that the container in the ADLS Gen2 account must be created beforehand if you want to specify the `{{containerName}}` in the request.
+After setting up the FHIR service to connect with an ADLS Gen2 storage account, you can call the `$export` endpoint and the FHIR service will export data into a blob storage container inside the storage account. The example request below exports all resources into a container specified by name (`{{containerName}}`). Note that the container in the ADLS Gen2 account must be created beforehand if you want to specify the `{{containerName}}` in the request.
 
 ```
 GET {{fhirurl}}/$export?_container={{containerName}}
@@ -49,7 +49,7 @@ In addition to checking the presence of exported files in your storage account, 
 
 Currently the FHIR service supports `$export` to ADLS Gen2 storage accounts, with the following limitations:
 
-- The user can take advantage of [hierarchical namespaces](../../storage/blobs/data-lake-storage-namespace.md) in ADLS Gen2, yet there isn't a way to target `$export` operations to a specific subdirectory within a container. The FHIR service only provides the ability to specify the container (where a new folder for each `$export` operation is created).
+- ADLS Gen2 provides [hierarchical namespaces](../../storage/blobs/data-lake-storage-namespace.md), yet there isn't a way to target `$export` operations to a specific subdirectory within a container. The FHIR service is only able to specify the destination container for the export (where a new folder for each `$export` operation is created).
 - Once an `$export` operation is complete and all data has been written inside a folder, the FHIR service doesn't export anything to that folder again since subsequent exports to the same container will be inside a newly created folder.
 
 To export data to a storage account behind a firewall, see [Configure settings for export](configure-export-data.md).
