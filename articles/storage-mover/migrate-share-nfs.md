@@ -5,20 +5,29 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: tutorial
-ms.date: 06/21/2022
-ms.custom: template-tutorial
+ms.date: 08/10/2022
+ms.custom: template-quickstart
 ---
 
-# Tutorial: Migrate an NFS share to an Azure blob container using Azure Storage Mover
+# Quickstart: Migrate an NFS share to an Azure blob container using Azure Storage Mover
 
-After your cloud resources are deployed and the agent VM is registered, it’s time to start a copy.
+Azure Storage Mover is a hybrid service which relies on both cloud as well as on-premises components.
+
+The cloud service portion of Storage Mover consists of a series of Azure resources deployed within an Azure resource group. The on-premises components consist of one or more virtual machines (VMs) deployed within your environment which act as migration agents.
+
+All agent management tasks beyond basic settings will be performed from Azure.  – in this release
+exclusively through Azure PowerShell, and later also from the Azure portal.
+The agent is provided as a Hyper-V, version 1, virtual hard disk (*.vhdx) image. It needs to be 
+registered to your cloud resources, which in turn creates a trust relationship. You will be registering 
+the agent to the Azure Storage Mover primary resource, called a Storage Mover.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing completion steps
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Provision Azure resources
+> * Provision on-premises resources
+> * Start a copy job
+> * Deprovision and dispose of resources
 
 <!-- 4. Prerequisites 
 
