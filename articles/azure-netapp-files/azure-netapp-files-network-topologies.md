@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 08/11/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning

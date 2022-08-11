@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 08/10/2022
+ms.date: 08/11/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -22,8 +22,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 ## August 2022
 
 * [Standard network features](configure-network-features.md) are now generally available.
-
-    You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
+    Standard network features now includes Global and cross-region VNet peering. You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
     [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)] 
 
 ## July 2022
