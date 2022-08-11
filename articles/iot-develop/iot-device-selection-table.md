@@ -109,7 +109,7 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
 ## Application Selection Visual
 
-![IoT Device Selection Visual](/assets/IoT%20Device%20Selection%20Visual.png)
+:::image type="content" source="media/iot-device-selection-table/iot-device-selection-visual.png" alt-text="Common selection criteria with possible hardware choices":::
 
 ## Terminology and ML Requirements
 
