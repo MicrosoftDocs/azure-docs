@@ -15,15 +15,10 @@ Azure Storage Mover is a hybrid service which relies on both cloud as well as on
 
 The cloud service portion of Storage Mover consists of a series of Azure resources deployed within an Azure resource group. The on-premises components consist of one or more virtual machines (VMs) deployed within your environment which act as migration agents.
 
-All agent management tasks beyond basic settings will be performed from Azure.  – in this release
-exclusively through Azure PowerShell, and later also from the Azure portal.
-The agent is provided as a Hyper-V, version 1, virtual hard disk (*.vhdx) image. It needs to be 
-registered to your cloud resources, which in turn creates a trust relationship. You will be registering 
-the agent to the Azure Storage Mover primary resource, called a Storage Mover.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+
 > * Provision Azure resources
 > * Provision on-premises resources
 > * Start a copy job
@@ -40,19 +35,9 @@ First prerequisite is a link to a free trial account if one exists. If there are
 
 There are only two prerequisites to running the script:
 
-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Data Mover resource in an Azure resource group.
-
-  There is no portal support at this time. You can verify this prerequisite using the following PowerShell cmdlet.
-
-  ```azurepowershell
-  Get-AzDataMover -ResourceGroup [myResourceGroup]
-  ```
-
-- An available NFS share on a machine accessible by the agent on its local network.
-  Reference the machine by IP when making the source Endpoint to avoid DNS issues. The path for an NFS share adheres to the following structure: ```<serverIP>:/<shareName>```. An NFS share is also known as an “NFS export”.
-
+- An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Azure subscription enabled for the Storage Mover preview.
+- 
 
 ## Prepare your migration resources
 
