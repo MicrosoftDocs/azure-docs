@@ -133,11 +133,13 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
     * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
 
-        This feature will hide directories and files created under a share from users who do not have access permissions to the share. Users will still be able to view the share. You can only enable access-based enumeration if the dual-protocol volume uses NTFS security style.
+        This feature will hide directories and files created under a share from users who do not have access permissions. Users will still be able to view the share. You can only enable access-based enumeration if the dual-protocol volume uses NTFS security style.
 
     * If you want to enable SMB3 protocol encryption for the dual-protocol volume, select **Enable SMB3 Protocol Encryption**.   
 
         This feature enables encryption for only in-flight SMB3 data. It does not encrypt NFSv3 in-flight data. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for more information. 
+
+    * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
     * If you selected NFSv4.1 and SMB for the dual-protocol volume versions, indicate whether you want to enable **Kerberos** encryption for the volume.
 
