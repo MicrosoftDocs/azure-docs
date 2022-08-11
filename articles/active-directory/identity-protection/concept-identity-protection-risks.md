@@ -71,7 +71,7 @@ Premium detections are visible only to Azure AD Premium P2 customers. Customers 
 | Anonymous IP address | Real-time | This risk detection type indicates sign-ins from an anonymous IP address (for example, Tor browser or anonymous VPN). These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, and so on) for potentially malicious intent. |
 | Admin confirmed user compromised | Offline | This detection indicates an admin has selected 'Confirm user compromised' in the Risky users UI or using riskyUsers API. To see which admin has confirmed this user compromised, check the user's risk history (via UI or API). |
 | Azure AD threat intelligence | Offline | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
-
+| Anomalous credential changes (public preview) | Offline | This detection focuses specifically on detection of post authenticated anomalous behavior performed by a workload identity (service principal). Post-authentication behavior will be assessed for anomalies based on an action and/or sequence of actions occurring for the account. <br><br> Based on the scoring of anomalies identified, the offline detection may score the account as low, medium, or high risk. The risk allocation from the offline detection will be available within the Risky workload identities reporting blade. A new detection type identified as Anomalous service principal activity will appear in filter options, where P2 licensing is available. |
 ### User-linked detections
 
 #### Premium user risk detections
