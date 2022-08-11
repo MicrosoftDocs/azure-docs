@@ -63,7 +63,7 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/aks/).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/azuredeploy.json":::
 
 The resource defined in the Bicep file include:
 
