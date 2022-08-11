@@ -1,12 +1,12 @@
 ---
-title: Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)
+title: Enable Public IP to the NSX Edge for Azure VMware Solution
 description: This article shows how to enable internet access for your Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 07/21/2022
 ---
 
-# Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)
+# Enable Public IP to the NSX Edge for Azure VMware Solution
 
 In this article, you'll learn how to enable Public IP to the NSX Edge for your Azure VMware Solution. 
 
@@ -16,7 +16,7 @@ In this article, you'll learn how to enable Public IP to the NSX Edge for your A
 Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. 
 
 >[!IMPORTANT]
->To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
+>The use of Public IPv4 addresses can be consumed directly in Azure VMware Solution and charged based on the Public IPv4 prefix shown on [Pricing - Virtual Machine IP Address Options.](https://azure.microsoft.com/en-us/pricing/details/ip-addresses/).
 
 The Public IP is configured in Azure VMware Solution through the Azure portal and the NSX-T Data center interface within your Azure VMware Solution private cloud.
 
@@ -26,9 +26,6 @@ With this capability, you have the following features:
 - Inbound and outbound internet access for your workload VMs.
 - DDoS Security protection against network traffic in and out of the Internet. 
 - HCX Migration support over the Public Internet.
-
->[!TIP]
->To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
 ## Reference   architecture    
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.
