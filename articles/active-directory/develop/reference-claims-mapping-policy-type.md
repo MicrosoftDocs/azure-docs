@@ -336,9 +336,9 @@ The ID element identifies which property on the source provides the value for th
 | User | lastpasswordchangedatetime | Last Password Change Date/Time |
 | User | mobilephone | Mobile Phone |
 | User | officelocation | Office Location |
-| User | onpremisesdomainname | On-Premises Domain Name |
-| User | onpremisesimmutableid | On-Premises Immutable ID |
-| User | onpremisessyncenabled | On-Premises Sync Enabled |
+| User | onpremisesdomainname | On-premises Domain Name |
+| User | onpremisesimmutableid | On-premises Immutable ID |
+| User | onpremisessyncenabled | On-premises Sync Enabled |
 | User | preferreddatalocation | Preferred Data Location |
 | User | proxyaddresses | Proxy Addresses |
 | User | usertype | User Type |
