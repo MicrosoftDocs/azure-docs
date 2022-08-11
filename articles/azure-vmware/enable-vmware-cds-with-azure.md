@@ -14,7 +14,7 @@ In this article, you'll learn how to enable VMware Cloud Director service (CDs) 
 >[!IMPORTANT] 
 > Cloud director service (CDs) is now available to use with Azure VMware solutions under the Enterprise Agreement (EA) model only. It's not suitable for MSP / Hoster to resell Azure VMware Solution capacity to customers at this point. For more information, see [Azure Service terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#GeneralServiceTerms).
 
-## Reference Architecture
+## Reference architecture
 The following diagram shows typical architecture for Cloud Director Services with Azure VMware solutions and how they are connected. Communications to Azure VMware Solution endpoints from cloud Director service are supported by an SSL reverse proxy. 
 
 :::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how CDS is connected with Azure VMware solutions" border="false" lightbox="media/vmware-cds/reference-architecture-diagram-expanded.png":::
@@ -28,11 +28,10 @@ To provide access to vNET based Azure resources, each tenant can have their own 
 
 :::image type="content" source="media/vmware-cds/site-to-site-vpn-diagram.png" alt-text="Diagram showing site to site VPN connection and how CDS is connected with Azure VMware solutions." border="false" lightbox="media/vmware-cds/site-to-site-vpn-diagram-expanded.png":::
 
-As shown in figure above, Organization 01 has two organization Virtual datacenters (VDCs), VDC1 and VDC2. The virtual data center of each organization has its own Azure vNETs connected with their respective organization VDC Edge gateway through IPSEC VPN.
+As shown in diagram above, Organization 01 has two organization Virtual datacenters (VDCs), VDC1 and VDC2. The virtual datacenter of each organization has its own Azure vNETs connected with their respective organization VDC Edge gateway through IPSEC VPN.
 Providers provide public IP addresses to the organization VDC Edge gateway for IPSEC VPN configuration. ORG VDC Edge gateway’s firewall blocks all traffic by default, specific allow rules needs to be added on Organization Edge gateway firewall.
 
 Organization VDCs can be part of a single organization but it still provides isolation between them. For example, VM1 hosted in organization VDC1 cannot ping Azure VM JSVM2 for tenant2.
-
 
 ### Prerequisite  
 - Organization VDC is configured with an Edge gateway and has Public IPs assigned to it to establish IPSEC VPN by provider.
@@ -53,7 +52,7 @@ Create the following components in tenant’s dedicated Azure vNet to establish 
 - Edit connection configuration to enable policy-based VPN. git status
 
 ### Create Azure virtual network gateway
-To create a Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](tutorial-configure-networking.md#create-a-virtual-network-gateway)
+To create an Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](tutorial-configure-networking.md#create-a-virtual-network-gateway)
 
 ### Create local network gateway
 1.	Log in to the Azure portal and select **Local network gateway** from marketplace and then select **Create**.
@@ -64,20 +63,20 @@ To create a Azure virtual network gateway, see the [create-a-virtual-network-gat
 1.	Similarly, create Local network gateway for tenant2.
 
 ### Create IPSEC connection on VPN gateway
-1. Select tenant1 VPN Gateway (created earlier) and then select connection (in left plane) to add new IPSEC connection with tenant1 orgVDC Edge gateway.  
+1. Select tenant1 VPN Gateway (created earlier) and then select **Connection** (in left pane) to add new IPSEC connection with tenant1 orgVDC Edge gateway.  
 
 1. Enter the following details.  
-     | Name | Connection Name |
-     |--------- | --------| 
+     | **Name** | **Connection name** |
+     |:---------- | :--------------| 
      | Connection Type | Site to Site |
      | VPN Gateway | Tenant’s VPN Gateway |
      | Local Network Gateway | Tenant’s Local Gateway |
      | PSK | Shared Key (provide a password) |   
-     | IKE Protocol| IKEV2 (ORG-VDC is using IKEv2) |
+     | IKE Protocol | IKEV2 (ORG-VDC is using IKEv2) |
 1. Select **Ok** to deploy local network gateway. 
 
 ### Configure IPsec Connection 
-Cloud Director Service supports a policy-based VPN.  Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
+Cloud Director Service supports a policy-based VPN. Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
 
 1. Select the connection you created earlier and then select **configuration** to view the default settings. 
 1. **IPSEC/IKE Policy** 
