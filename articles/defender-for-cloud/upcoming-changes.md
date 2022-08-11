@@ -65,7 +65,7 @@ Runtime protection is currently a preview feature for Arc-enabled Kubernetes clu
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** July 2022
+**Estimated date for change:** September 2022
 
 Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In June, we'll be making the changes outlined below.
 
