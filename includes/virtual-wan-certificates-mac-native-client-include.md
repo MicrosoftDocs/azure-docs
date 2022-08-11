@@ -38,7 +38,7 @@ Verify that both the client and the root certificate are installed.
 
 1. Go to **System Preferences -> Network**. On the Network page, click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure virtual network.
 
-   :::image type="content" source="./media/virtual-wan-certificates-mac-native-client/mac/new.png" alt-text="Screenshot shows the Network window to click on +." lightbox="./media/virtual-wan-certificates-mac-native-client/mac/new.png":::
+   :::image type="content" source="./media/virtual-wan-certificates-mac-native-client/mac/new.png" alt-text="Screenshot shows the Network window to click on the plus sign." lightbox="./media/virtual-wan-certificates-mac-native-client/mac/new.png":::
 
 1. On the **Select the interface** page, click the arrows next to **Interface:**. From the dropdown, click **VPN**.
 
