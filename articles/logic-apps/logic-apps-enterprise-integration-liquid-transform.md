@@ -237,7 +237,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. After your workflow finishes running, go to the workflow's run history, and examine the **Transform JSON to JSON** action's inputs and outputs, for example:
 
-   ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+   ![Screenshot showing example output.](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
 <a name="other-transformations"></a>
 
