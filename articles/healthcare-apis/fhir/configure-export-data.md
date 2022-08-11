@@ -12,13 +12,13 @@ ms.author: mikaelw
 
 # Configure export settings and set up a storage account
 
-FHIR service supports the $export command that allows you to export the data out of the FHIR service account to a storage account.
+The FHIR service supports the `$export` operation [specified by HL7](https://hl7.org/fhir/uv/bulkdata/export/index.html). In the FHIR service implementation, calling the `$export` endpoint causes the FHIR service to export data into an Azure Data Lake Storage Gen2 (ADLS Gen2) account.
 
-The three steps below are used in configuring export data in the FHIR service:
+There are three steps in configuring the `$export` operation for the FHIR service:
 
 - Enable managed identity for the FHIR service.
-- Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access them.
-- Select the storage account in the FHIR service as the destination.
+- Set up a new or existing ADLS Gen2 account and grant the FHIR service permission to access the account.
+- Select the ADLS Gen2 account as the export destination for the FHIR service.
 
 ## Enable managed identity on the FHIR service
 
