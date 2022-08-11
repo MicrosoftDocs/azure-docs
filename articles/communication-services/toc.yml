@@ -130,6 +130,8 @@ items:
     href: quickstarts/telemetry-application-insights.md
   - name: Add file sharing to your application with UI Library
     href: tutorials/file-sharing-tutorial.md
+  - name: Enable Push Notifications in your chat app
+    href: tutorials/add-chat-push-notifications.md
 - name: Concepts
   expanded: false
   items:

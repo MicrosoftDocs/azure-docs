@@ -107,7 +107,7 @@ az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-
 
 #### For RBAC key vault
 
-If your key vault is enabled with `--enable-rbac-authorization`, you need to assign a RBAC role which at least contains decrypt, encrypt permission. 
+If your key vault is enabled with `--enable-rbac-authorization`, you need to assign the "Key Vault Administrator" RBAC role which has decrypt, encrypt permission. 
 
 ```azurecli-interactive
 az role assignment create --role "Key Vault Crypto User" --assignee-object-id $IDENTITY_OBJECT_ID --assignee-principal-type "ServicePrincipal" --scope $KEYVAULT_RESOURCE_ID
