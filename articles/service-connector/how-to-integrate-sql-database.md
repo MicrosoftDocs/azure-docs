@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/11/2022
 ---
 
 # Integrate Azure SQL Database with Service Connector
@@ -20,6 +20,8 @@ This page shows all the supported compute services, clients, and authentication 
 
 ## Supported authentication types and clients
 
+### Azure App Service
+
 | Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
 | .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
@@ -31,6 +33,16 @@ This page shows all the supported compute services, clients, and authentication 
 | Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python - Django    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Ruby               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### Azure Container Apps
+
+### Azure Spring Apps
+
+| Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
+|--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
+| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
 ## Default environment variable names or application properties
 

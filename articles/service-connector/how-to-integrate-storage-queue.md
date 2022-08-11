@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Queue Storage with Service Connector
 description: Integrate Azure Queue Storage into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/11/2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Integrate Azure Queue Storage with Service Connector
@@ -21,6 +21,8 @@ This page shows the supported authentication types and client types of Azure Que
 
 ## Supported authentication types and client types
 
+### Azure App Service
+
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
@@ -28,6 +30,23 @@ This page shows the supported authentication types and client types of Azure Que
 | Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+### Azure Container Apps
+
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
+| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+### Azure Spring Cloud
+
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
 
 ## Default environment variable names or application properties
 

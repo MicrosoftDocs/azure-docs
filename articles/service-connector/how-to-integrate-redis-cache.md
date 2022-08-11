@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Cache for Redis and Azure Cache Redis Enterprise with Service Connector
 description: Integrate Azure Cache for Redis and Azure Cache Redis Enterprise into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/11/2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Integrate Azure Cache for Redis with Service Connector
@@ -21,14 +21,36 @@ This page shows the supported authentication types and client types of Azure Cac
 
 ## Supported Authentication types and client types
 
+### Azure App Service
+
 | Client type                                         | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
 |-----------------------------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
 | .NET (StackExchange.Redis)                          |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Go (go-redis)                                       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java (Jedis)                                        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java - Spring Boot (spring-boot-starter-data-redis) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Node.js (node-redis)                                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python (redis-py)                                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None                                                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### Azure Container Apps
+
+| Client type                                         | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
+|-----------------------------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET (StackExchange.Redis)                          |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Go (go-redis)                                       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (Jedis)                                        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (spring-boot-starter-data-redis) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js (node-redis)                                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python (redis-py)                                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None                                                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### Azure Spring Apps
+
+| Client type                                         | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
+|-----------------------------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| Java (Jedis)                                        |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (spring-boot-starter-data-redis) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 
 ## Default environment variable names or application properties
 
