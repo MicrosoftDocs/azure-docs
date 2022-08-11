@@ -9,7 +9,7 @@ ms.service: iot-hub-device-update
 ---
 # Introduction
 
-When managing IoT devices, in some use cases you would need to configure or modify the the source package repository used to store and deliver over-the-air updates to your fleet of devices. 
+This article describes how to configure or modify the the source package repository used with [Package updates](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-ubuntu-agent).
 
 Such as:
 - You need to deliver over-the-air updates to your devices from a private package repository with approved versions of libraries and components
@@ -30,6 +30,6 @@ Follow the below steps to update Azure IoT Edge on Ubuntu Server 18.04 x64 by co
 
 1. Configure the package repository of your choice with the OSConfig’s configure package repo module. See [how to](https://docs.microsoft.com/azure/osconfig/howto-pmc?tabs=portal%2Csingle#example-1--specify-desired-package-sources). This should be the location where you wish to store packages to be downloaded to the device. Customers can use these modules as is or OSConfig is also extensible for customers to write a their own modules. Note: Only available for Linux devices.
 2. Upload your packages to the above configured repository.
-3. Create an (APT manifest)[ https://docs.microsoft.com/en-us/azure/iot-hub-device-update/device-update-apt-manifest], which provides the Device Update agent with the information it needs to download and install the packages specified in the APT manifest file (and their dependencies) from the repository.
+3. Create an [APT manifest]( https://docs.microsoft.com/en-us/azure/iot-hub-device-update/device-update-apt-manifest), which provides the Device Update agent with the information it needs to download and install the packages specified in the APT manifest file (and their dependencies) from the repository.
 4. Follow steps from [here](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-ubuntu-agent#prerequisites) to do a package update with Device Update. Device Update is used to deploy package updates to a large number of devices and at scale. 
 5. Monitor results of the package update by following these [steps](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-ubuntu-agent#monitor-the-update-deployment).
