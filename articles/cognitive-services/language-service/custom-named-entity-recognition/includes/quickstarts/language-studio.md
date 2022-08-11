@@ -19,7 +19,7 @@ ms.author: aahi
 
 ## Create a new Azure Language resource and Azure storage account
 
-Before you can use custom NER, you’ll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You’ll also need an Azure storage account, where you can upload your dataset that will be used to build your model.
+Before you can use custom NER, you'll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You'll also need an Azure storage account, where you can upload your dataset that will be used to build your model.
 
 > [!IMPORTANT]
 > To quickly get started, we recommend creating a new Azure Language resource using the steps provided in this article. Using the steps in this article will let you create the Language resource and storage account at the same time, which is easier than doing it later.
@@ -58,7 +58,7 @@ Typically after you create a project, you go ahead and start [tagging the docume
 
 ## Deploy your model
 
-Generally after training a model you would review its [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/view-model-evaluation.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 [!INCLUDE [Deploy a model using Language Studio](../language-studio/deploy-model.md)]
 
