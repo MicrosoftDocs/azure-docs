@@ -48,7 +48,7 @@ $rg = @{
     Name = 'myAVNMResourceGroup'
     Location = $location
 }
-New-AzResourceGroup $rg
+New-AzResourceGroup @rg
 
 ```
 
@@ -133,7 +133,7 @@ $virtualnetworkA | Set-AzVirtualNetwork
 $subnetB = @{
     Name = 'default'
     VirtualNetwork = $virtualNetworkB
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfigC = Add-AzVirtualNetworkSubnetConfig @subnetB
 $virtualnetworkB | Set-AzVirtualNetwork
@@ -141,7 +141,7 @@ $virtualnetworkB | Set-AzVirtualNetwork
 $subnetC = @{
     Name = 'default'
     VirtualNetwork = $virtualNetworkC
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.2.0.0/24'
 }
 $subnetConfigC = Add-AzVirtualNetworkSubnetConfig @subnetC
 $virtualnetworkC | Set-AzVirtualNetwork
@@ -161,7 +161,6 @@ $virtualnetworkC | Set-AzVirtualNetwork
     ```
         
 ### Option 1: Static membership
-
     
 1. Add the static member to the network group with the following commands:
     1. Static members must have a network group scoped unique name. It's recommended to use a consistent hash of the virtual network ID. Below is an approach using the ARM Templates uniqueString() implementation.
@@ -373,7 +372,5 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
 
 ## Next steps
 
-After you've created the Azure Virtual Network Manager, continue on to learn how to block network traffic by using the security admin configuration:
-
 > [!div class="nextstepaction"]
-> [Block network traffic with security admin rules](how-to-block-network-traffic-powershell.md)
+> Learn how to [Block network traffic with security admin rules](how-to-block-network-traffic-powershell.md)
