@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Metrics Explorer
-description: Learn how to create your first metric chart with Azure Metrics Explorer.
+title: Get started with Azure Monitor metrics explorer
+description: Learn how to create your first metric chart with Azure Monitor metrics explorer.
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.author: vitalyg
 ms.reviewer: vitalyg
 ---
 
-# Get started with Azure Metrics Explorer
+# Get started with metrics explorer
 
-Azure Monitor Metrics Explorer is a component of the Azure portal that you can use to plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. Use Metrics Explorer to investigate the health and utilization of your resources.
+Azure Monitor metrics explorer is a component of the Azure portal that you can use to plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. Use metrics explorer to investigate the health and utilization of your resources.
 
 ## Where do I start?
 
@@ -27,11 +27,11 @@ Start in the following order:
 
 To create a metric chart, from your resource, resource group, subscription, or Azure Monitor view, open the **Metrics** tab and follow these steps:
 
-1. Select the **Select a scope** button to open the resource scope picker. You can use the picker to select the resources you want to see metrics for. The resource should already be populated if you opened Metrics Explorer from the resource's menu. To learn how to view metrics across multiple resources, see [View multiple resources in the Azure Metrics Explorer](./metrics-dynamic-scope.md).
+1. Select the **Select a scope** button to open the resource scope picker. You can use the picker to select the resources you want to see metrics for. The resource should already be populated if you opened metrics explorer from the resource's menu. To learn how to view metrics across multiple resources, see [View multiple resources in Azure Monitor metrics explorer](./metrics-dynamic-scope.md).
 
     > ![Screenshot that shows selecting a resource.](./media/metrics-getting-started/scope-picker.png)
 
-1. For some resources, you must pick a namespace. The namespace is a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types have only one namespace.
+1. For some resources, you must pick a namespace. The namespace is a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing metrics for files, tables, blobs, and queues. Many resource types have only one namespace.
 
 1. Select a metric from a list of available metrics.
 
@@ -65,7 +65,7 @@ For examples that have filtering and splitting applied, see [Metric chart exampl
 
 ## Share your metric chart
 
-There are three ways to share your metric chart. See the following instructions on how to share information from your metrics charts by using Excel, a link, or a workbook.
+There are three ways to share your metric chart. See the following instructions on how to share information from your metric charts by using Excel, a link, or a workbook.
 
 ### Download to Excel
 
@@ -87,12 +87,12 @@ Select **Share** > **Send to Workbook**. In the **Send to Workbook** window, you
 
 ## Advanced chart settings
 
-You can customize the chart style and title, and modify advanced chart settings. When you're finished with customization, pin the chart to a dashboard or save it to a workbook. You can also configure metrics alerts. Follow [product documentation](../essentials/metrics-charts.md) to learn about these and other advanced features of Azure Monitor Metrics Explorer.
+You can customize the chart style and title, and modify advanced chart settings. When you're finished with customization, pin the chart to a dashboard or save it to a workbook. You can also configure metrics alerts. Follow [product documentation](../essentials/metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 ## Next steps
 
-* [Learn about advanced features of Metrics Explorer](../essentials/metrics-charts.md)
-* [Viewing multiple resources in Metrics Explorer](./metrics-dynamic-scope.md)
-* [Troubleshooting Metrics Explorer](metrics-troubleshoot.md)
+* [Learn about advanced features of metrics explorer](../essentials/metrics-charts.md)
+* [Viewing multiple resources in metrics explorer](./metrics-dynamic-scope.md)
+* [Troubleshooting metrics explorer](metrics-troubleshoot.md)
 * [See a list of available metrics for Azure services](./metrics-supported.md)
 * [See examples of configured charts](../essentials/metric-chart-samples.md)
