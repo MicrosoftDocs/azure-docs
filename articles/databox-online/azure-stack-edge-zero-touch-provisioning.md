@@ -101,11 +101,6 @@ Use the following steps to sign into a device, change the password, and fetch th
    Get-DeviceConfiguration | to-json
    ```
 
-   Example output:
-
-
-
-
 ## Apply a partial configuration to a device
 
 Use the following steps to prepare a JSON package with the configuration to apply to devices. This sequence of cmdlets signs into the device, sets the time zone, updates the ServerType property, creates a JSON package for those properties, and then applies the package to the device.
@@ -164,10 +159,6 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
    ```
 
-Example output:
-
-
-
 ## Apply a full configuration to a device, without device activation
 
 Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to update configuration settings on one or more devices.
@@ -220,18 +211,9 @@ Run the following cmdlets in PowerShell:
 
 ## Activate a device
 
-TBD
+Use the following steps to activate an Azure Stack Edge device. Note that a device activation key cannot be undone, reused, or applied to a different device.
 
-1.	Retrieve activation key
-2.	Create package
-3.	Run package
-4.	Monitor operation status
-
-Use the following steps to activate an Azure Stack Edge device.
-
-Note that a device activation key cannot be undone, reused, or applied to a different device.
-
-1. Retrieve the activation key for your device. For detailed steps, see <>. 
+1. Retrieve the activation key for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device).
 
 1. Sign into the device.
 
@@ -296,8 +278,6 @@ Use the following steps to sign into the device, fetch the status of the webProx
    ```azurepowershell
    $p.device.webproxy
    ```
-
-   Example output:
 
 ## Troubleshooting
 
