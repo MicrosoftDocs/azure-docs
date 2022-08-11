@@ -142,11 +142,10 @@ Where the file *create-instance.yml* is:
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
 
 
----
 
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-## Enable SSH access
+### Enable SSH access
 
 SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
@@ -155,6 +154,8 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 ### Connect with SSH
 
 [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+
+---
 
 ## Create on behalf of (preview)
 
