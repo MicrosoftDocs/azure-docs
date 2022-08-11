@@ -117,9 +117,9 @@ runcmd:
   - nodejs index.js
 ```
 
-Create the network interfaces with `az network nic create`. To create the virtual machines, you use `az vm create`.
+Create the network interfaces with `az network nic create`. To create the virtual machines, you use `az vm create` on bash shell.
 
-```azurecli-interactive
+```Bashshell-interactive
 for i in `seq 1 2`; do
   az network nic create \
     --resource-group myResourceGroupAG \
