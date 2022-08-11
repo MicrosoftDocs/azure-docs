@@ -81,6 +81,6 @@ We must provide at least one next step, but should provide no more than three. T
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Concept: Selecting a breakfast food](overview.md)
-- [How-to: cook a waffle](overview.md)
-- [How-to: cook a pancake](overview.md)
+- [Concept: Selecting a breakfast food](service-service-overview.md)
+- [How-to: cook a waffle](service-service-overview.md)
+- [How-to: cook a pancake](service-service-overview.md)

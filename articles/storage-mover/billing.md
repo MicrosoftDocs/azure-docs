@@ -66,5 +66,5 @@ The cost of your upload bandwidth from the location of your Azure Storage Mover 
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Step 1](overview.md)
-- [Step 2](overview.md)
+- [Step 1](service-overview.md)
+- [Step 2](service-overview.md)

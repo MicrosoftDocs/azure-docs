@@ -63,5 +63,5 @@ We must provide at least one next step, but should provide no more than three. T
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Step 1](overview.md)
-- [Step 2](overview.md)
+- [Step 1](service-overview.md)
+- [Step 2](service-overview.md)
