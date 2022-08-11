@@ -248,7 +248,7 @@ Because tabular models in Azure Analysis Services are much the same as tabular m
 
 ### Contribute!
 
-Analysis Services documentation, like this article, is open source. To learn more about how you can contribute, see the [Docs contributor guide](/contribute/). 
+Analysis Services documentation, like this article, is open source. To learn more about how you can contribute, see our [contributor guide](/contribute/). 
 
 Azure Analysis Services documentation also uses [GitHub Issues](/teamblog/a-new-feedback-system-is-coming-to-docs). You can provide feedback about the product or documentation. Use **Feedback** at the bottom of an article. GitHub Issues are not enabled for the shared Analysis Services documentation. 
 
