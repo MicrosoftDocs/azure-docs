@@ -120,7 +120,7 @@ All configurable properties used to set up Git repositories with a pattern are l
 | `repos."pattern"`                  | No             | An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.                                  |
 | `repos."default-label"`            | No             | The default label of the Git repository should be the *branch name*, *tag name*, or *commit-id* of the repository.                                                 |
 | `repos."search-paths`"             | No             | An array of strings used to search subdirectories of the Git repository.                                                                                           |
-| `repos."username"`                 | No             | The username that's used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`.                      |
+| `repos."username"`                 | No             | The username that's used to access the Git repository server, required when the Git repository server supports `Http Basic Authentication`.                      |
 | `repos."password"`                 | No             | The password or personal access token used to access the Git repository server, required when the Git repository server supports `Http Basic Authentication`.      |
 | `repos."private-key"`              | No             | The SSH private key to access Git repository, required when the URI starts with *git@* or *ssh://*.                                                                |
 | `repos."host-key"`                 | No             | The host key of the Git repository server shouldn't include the algorithm prefix as covered by `host-key-algorithm`.                                               |
@@ -135,7 +135,7 @@ The following table shows some examples for the **Additional repositories** sect
 | *test-config-server-app-1/dev*  | The pattern and repository URI matches a Spring boot application named `test-config-server-app-1` with a dev profile.  |
 | *test-config-server-app-2/prod* | The pattern and repository URI matches a Spring boot application named `test-config-server-app-2` with a prod profile. |
 
-:::image type="content" source="media/spring-cloud-tutorial-config-server/additional-repositories.png" lightbox="media/spring-cloud-tutorial-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the 'Additional repositories' table highlighted.":::
+:::image type="content" source="media/how-to-config-server/additional-repositories.png" lightbox="media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the 'Additional repositories' table highlighted.":::
 
 ## Attach your Config Server repository to Azure Spring Apps
 
@@ -151,17 +151,13 @@ Now that your configuration files are saved in a repository, take the following 
 
 1. Select **Validate**.
 
-    ![Navigate to config server](media/how-to-config-server/portal-config.png)
+   :::image type="content" source="media/how-to-config-server/portal-config.png" lightbox="media/how-to-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing the Config Server page.":::
 
 1. When validation is complete, select **Apply** to save your changes.
 
-    ![Validating config server](media/how-to-config-server/validate-complete.png)
+   :::image type="content" source="media/how-to-config-server/validate-complete.png" lightbox="media/how-to-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted.":::
 
-Updating the configuration can take a few minutes.
-
-![Updating config server](media/how-to-config-server/updating-config.png)
-
-You should get a notification when the configuration is complete.
+Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
 ### Enter repository information directly to the Azure portal
 
@@ -173,7 +169,7 @@ You should get a notification when the configuration is complete.
 
    - **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Edit Authentication** button, represented by a pencil icon. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Apps. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-   ![The Edit Authentication pane basic auth](media/spring-cloud-tutorial-config-server/basic-auth.png)
+   :::image type="content" source="media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Defalut repository section showing the Edit Authorization pane.":::
 
    > [!CAUTION]
    > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Apps because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. As a result, this approach isn't viable when you use those repository servers with Azure Spring Apps.
@@ -247,9 +243,9 @@ Azure Spring Apps can access Git repositories that are public, secured by SSH, o
 
    - Add the repository URL that you saved in the previous section.
    - Select **Authentication** and then select **HTTP Basic**.
-   - The __username__ is the user name that you saved in the previous section.
-   - The __password__ is the password that you saved in the previous section.
-   - Select **Apply** and then wait for the operation to complete.
+   - Specify a **username** -- the user name that you saved in the previous section.
+   - Specify a **password** -- the password that you saved in the previous section.
+   - Select **Apply**, and then wait for the operation to complete.
 
    ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
