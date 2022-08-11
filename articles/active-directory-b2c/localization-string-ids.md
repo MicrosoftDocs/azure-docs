@@ -374,7 +374,7 @@ The following are the IDs for a [Verification display control](display-control-v
 .verificationInfoText div{display: block!important}
 ```
 
-<sup>2</sup> This error message is displayed to the user if they enter a verification code but instead of completing the verification by clicking on the verify button, they click the continue button.
+<sup>2</sup> This error message is displayed to the user if they enter a verification code, but instead of completing the verification by selecting on the **Verify** button, they select the **Continue** button.
   
 ### Verification display control example
 
