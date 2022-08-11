@@ -20,7 +20,7 @@ There are several types of encryption available for your managed disks, includin
 
 - **Encryption at host** ensures that data stored on the VM host hosting your VM is encrypted at rest and flows encrypted to the Storage clusters. For full details, see [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-- **Confidential Disk Encryption** binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. The TPM and VM guest state is always encrypted using keys an attested, secure release protocol which bypasses the hypervisor and host operating system. Currently only available for the OS disk. Encryption at host may be used for other disks on a Confidential VM in addition to Confidential Disk Encryption. For full details, see [DCasv5 and ECasv5 series confidential VMs](../confidential-computing/confidential-vm-overview#full-disk-encryption).
+- **Confidential Disk Encryption** binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. The TPM and VM guest state is always encrypted using keys an attested, secure release protocol which bypasses the hypervisor and host operating system. Currently only available for the OS disk. Encryption at host may be used for other disks on a Confidential VM in addition to Confidential Disk Encryption. For full details, see [DCasv5 and ECasv5 series confidential VMs](../confidential-computing/confidential-vm-overview.md#full-disk-encryption).
 
 Encryption is part of a layered approach to security and should be used with other recommendations to secure Virtual Machines and their disks. For full details, see [Security recommendations for virtual machines in Azure](security-recommendations.md) and [Restrict import/export access to managed disks](disks-enable-private-links-for-import-export-portal.md).
 
@@ -45,4 +45,5 @@ Here is a comparison of SSE, ADE, and encryption at host.
 - [Azure Disk Encryption for Windows VMs](./windows/disk-encryption-overview.md)
 - [Server-side encryption of Azure Disk Storage](./disk-encryption.md)
 - [Encryption at host](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [DCasv5 and ECasv5 series confidential VMs](../azure/confidential-computing/confidential-vm-overview.md#full-disk-encryption)
 - [Azure Security Fundamentals - Azure encryption overview](../security/fundamentals/encryption-overview.md)
