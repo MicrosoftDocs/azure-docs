@@ -57,8 +57,8 @@
       href: tutorial-alias-tm.md
   - name: Private Resolver
     items:
-    - name: Set up DNS failover using two private resolvers
-      href: dns-private-resolver-failover.md
+    - name: Set up DNS failover using private resolvers
+      href: tutorial-dns-private-resolver-failover.md
 - name: Samples
   items:
   - name: Azure PowerShell
