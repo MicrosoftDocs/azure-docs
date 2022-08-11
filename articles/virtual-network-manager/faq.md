@@ -136,16 +136,16 @@ No, an Azure Virtual WAN hub can't be in a network group at this time.
 
 No, an Azure Virtual WAN hub isn't supported as the hub in a hub and spoke topology at this time.
 
-## My Virtual Network is not getting the configurations I am expecting. How do I troubleshoot?
+## My Virtual Network isn't getting the configurations I'm expecting. How do I troubleshoot?
 
 ### Have you deployed your configuration to the VNet's region?
 
-Configurations in Azure Virtual Network Manager do not take effect until they are deployed. Make a deployment to the virtual networks region with the appropiate configurations.
+Configurations in Azure Virtual Network Manager don't take effect until they're deployed. Make a deployment to the virtual networks region with the appropriate configurations.
 ### Is your virtual network in scope?
-A network manager is only delegated enough access to apply configurations to virtual networks within your scope. Even if a resource is in your network group, it if is out of scope, it will not receive any configurations.
+A network manager is only delegated enough access to apply configurations to virtual networks within your scope. Even if a resource is in your network group but out of scope, it will not receive any configurations.
 
 ### Are you applying security rules to a VNet containing Azure SQL Managed Instances?
-Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, the application of Admin rules will be skipped on VNets containing any of these Intent Policies. Since allow rules pose no risk of conflict, you can opt to apply Allow Only rules by setting the If you only wish to use Allow rules, you can set AllowOnlyRules on securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices.
+Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, the application of Admin rules will be skipped on VNets containing any of these Intent Policies. Since allow rules pose no risk of conflict, you can opt to apply *Allow Only* rules by setting the If you only wish to use Allow rules, you can set AllowOnlyRules on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
 
 ## Limits
 
@@ -174,7 +174,7 @@ Azure SQL Managed Instance has some network requirements. These are enforced thr
 
 * Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the subscription and resource group scopes.
 
-* Virtual networks cannot be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
+* Virtual networks can't be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
 
 * Azure Virtual Network Manager policies don't support the standard policy compliance evaluation cycle. For more information, see [Evaluation triggers](/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers).
 ## Next steps

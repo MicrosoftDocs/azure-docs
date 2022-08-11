@@ -24,9 +24,9 @@ A *network group* is global container that includes a set of virtual network res
 
 ## Group membership
 
-Group membership is a many-to-many relationship, such that one group holds many virtual networks and any given virtual network can participate in multiple network groups. When part of a network group, the virtual network will receive any configurations applied to the group and deployed to the virtual networks region. 
+Group membership is a many-to-many relationship, such that one group holds many virtual networks and any given virtual network can participate in multiple network groups. As part of a network group, the virtual network will receive any configurations applied to the group and deployed to the virtual networks region. 
 
-A virtual network can be set to join a network group in multiple ways. This membership is an at-least-one condition, so the group will remain in the group so long as there is anything adding it, and leave the group when these sources are gone. The two types are group memberships are *static* and *dynamic* memberships.
+A virtual network can be set to join a network group in multiple ways. The two types are group memberships are *static* and *dynamic* memberships.
 
 ### Static membership
 
@@ -37,11 +37,11 @@ Static membership allows you to explicitly add virtual networks to a group by ma
 Dynamic membership gives you the flexibility of selecting multiple virtual networks at scale if they meet the conditional statements you defined. Based in Azure Policy, dynamic membership is useful for scenarios where you have large number of virtual networks, or if membership is dictated by a condition instead of an explicit list. Learn about [How Azure Policy works with Network Groups](concept-azure-policy-integration.md).
 
 ### Membership visibility
-All group membership is recorded in Azure Resource Graph and available for your use. Each virtual network receives a single entry in the graph, which specifies both all the groups the virtual network is a member of, as well as what contributing sources are responsible for that membership, either static members or various policy resources. Learn how to [view applied configurations](how-to-view-applied-configurations.md#network-group-membership).
+All group membership is recorded in Azure Resource Graph and available for your use. Each virtual network receives a single entry in the graph. This entry specifies all the groups the virtual network is a member of, and what contributing sources are responsible for that membership, such as static members or various policy resources. Learn how to [view applied configurations](how-to-view-applied-configurations.md#network-group-membership).
 
 ## Network group and Azure Policy
 
-When you create a network group, an Azure Policy is created so that Azure Virtual Network Manager gets notified about changes made to virtual network membership. The policies defined are available for you to see, but they are not editable by users today. Creating, changing, and deleting Azure Policy definitions and assignments for network groups is only possible through the Azure Network Manager today.
+When you create a network group, an Azure Policy is created so that Azure Virtual Network Manager gets notified about changes made to virtual network membership. The policies defined are available for you to see, but they aren't editable by users today. Creating, changing, and deleting Azure Policy definitions and assignments for network groups is only possible through the Azure Network Manager today.
 
 To create an Azure Policy initiative definition and assignment for Azure Virtual Network Manager resources, create and deploy a network group with the necessary configurations. To update an existing Azure Policy initiative definition or corresponding assignment, you'll need to change and deploy changes to the network group within the Azure Virtual Network Manager resource. To delete an Azure Policy initiative definition and assignment, you'll need to undeploy and delete the Azure Virtual Network Manager resources associated with your policy. This may include removing a configuration, deleting a configuration, and deleting a network group. For more information on deletion, review the Azure Virtual Network Manager [checklist for removing components](concept-remove-components-checklist.md).
 
