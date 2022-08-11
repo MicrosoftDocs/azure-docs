@@ -168,7 +168,7 @@
   - name: Java
     href: /java/api/overview/azure/containerinstance
   - name: Node.js
-    href: /javascript/api/overview/azure/containerinstances
+    href: /javascript/api/overview/azure/container-instances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
   - name: YAML  

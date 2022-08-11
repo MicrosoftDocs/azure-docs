@@ -200,7 +200,7 @@ If you have sites connected to a Virtual WAN VPN gateway in the same virtual hub
 
 ### To change gateway size
 
-In the following example, an ExpressRoute gateway is modified to 3 scale units.
+In the following example, an ExpressRoute gateway is modified to a different scale unit (3 scale units).
 
 ```azurepowershell-interactive
 Set-AzExpressRouteGateway -ResourceGroupName "testRG" -Name "testergw" -MinScaleUnits 3
