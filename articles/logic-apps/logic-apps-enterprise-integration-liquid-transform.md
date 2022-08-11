@@ -201,7 +201,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    1. On your logic app menu, select **Workflow settings**.
 
-   1. From the **Select an Integration account** list, select your integration account. When you're done, select **Save**.
+   1. From the **Select an integration account** list, select your integration account. When you're done, select **Save**.
 
       ![Screenshot showing "Workflow settings" pane, "Select an integration account" list expanded with an example integration account selected, and "Save" selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account-to-link-consumption.png)
 
@@ -217,8 +217,44 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    This example continues with the Request trigger named **When a HTTP request is received**.
 
-1. On the workflow designer, under the step where you want to add the Liquid action, select **Choose an operation**.
+1. On the designer, under the step where you want to add the Liquid action, select the plus sign (**+**), and then select **Add an action**.
 
+1. On the **Add an action** pane that appears, under the search box, select **Built-in**.
+
+1. In the search box, enter **liquid**. From the actions list, select the the Liquid action that you want to use.
+
+   This example continues using the action named **Transform JSON to JSON**.
+
+   ![Screenshot showing the Standard workflow designer with a Liquid action selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-liquid-action-standard.png)
+
+1. For the **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
+
+   1. Click inside the **Content** box so that the dynamic content list appears.
+
+   1. From the dynamic content list, select the JSON data that you want to transform.
+   
+      For this example, from the dynamic content list, under **When a HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
+
+      ![Screenshot showing the Liquid action's "Content" property with the open dynamic content list and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-standard.png)
+
+1. For the **Map** property, open the **Map** list, and select your Liquid template.
+
+   This example continues with a template named "JsonToJsonTemplate".
+
+   ![Screenshot showing the selected template to use as a map.](./media/logic-apps-enterprise-integration-liquid-transform/select-map-to-use-standard.png)
+
+   If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
+   To link your logic app to the integration account that has the Liquid template or map, follow these steps:
+
+   1. On your logic app menu, select **Workflow settings**.
+
+   1. From the **Select an integration account** list, select your integration account. When you're done, select **Save**.
+
+      ![Screenshot showing "Workflow settings" pane, "Select an integration account" list expanded with an example integration account selected, and "Save" selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account-to-link-standard.png)
+
+   When you're done, the action looks similar to the following example:
+
+   ![Screenshot showing the finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-standard.png)
 
 ---
 
