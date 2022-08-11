@@ -112,7 +112,7 @@ from azure.core.credentials import AzureKeyCredential
 
 There are two supported methods for authentication
 
-* Use a [Form Recognizer API key](#use-your-api-key-from-the-azure-portal) with AzureKeyCredential from azure.core.credentials.
+* Use a [Form Recognizer API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
 
 * Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis).
 
