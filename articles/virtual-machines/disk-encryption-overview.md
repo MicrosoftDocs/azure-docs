@@ -2,7 +2,7 @@
 title: Overview of managed disk encryption options
 description: Overview of managed disk encryption options
 author: msmbaldwin
-ms.date: 02/14/2022
+ms.date: 08/12/2022
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.service: virtual-machines
@@ -20,21 +20,24 @@ There are several types of encryption available for your managed disks, includin
 
 - **Encryption at host** ensures that data stored on the VM host hosting your VM is encrypted at rest and flows encrypted to the Storage clusters. For full details, see [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
+- **Confidential Disk Encryption** binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. The TPM and VM guest state is always encrypted using keys an attested, secure release protocol which bypasses the hypervisor and host operating system. Currently only available for the OS disk. Encryption at host may be used for other disks on a Confidential VM in addition to Confidential Disk Encryption. For full details, see [DCasv5 and ECasv5 series confidential VMs](../confidential-computing/confidential-vm-overview#full-disk-encryption).
+
 Encryption is part of a layered approach to security and should be used with other recommendations to secure Virtual Machines and their disks. For full details, see [Security recommendations for virtual machines in Azure](security-recommendations.md) and [Restrict import/export access to managed disks](disks-enable-private-links-for-import-export-portal.md).
 
 ## Comparison
 
 Here is a comparison of SSE, ADE, and encryption at host.
 
-| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Does not use your VM's CPU | Works for custom images | Microsoft Defender for Cloud disk encryption status |
-|--|--|--|--|--|--|--|--|--|
-| **Encryption at rest with platform-managed key (SSE+PMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
-| **Encryption at rest with customer-managed key (SSE+CMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
-| **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |&#10060; | &#10060; Does not work for custom Linux images | Healthy |
-| **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
+| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Does not use your VM's CPU | Works for custom images | Enhanced Key Protection | Microsoft Defender for Cloud disk encryption status |
+|--|--|--|--|--|--|--|--|--|--|
+| **Encryption at rest with platform-managed key (SSE+PMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | &#10060; | Unhealthy, not applicable if exempt |
+| **Encryption at rest with customer-managed key (SSE+CMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | &#x2705; | &#10060; | Unhealthy, not applicable if exempt |
+| **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |&#10060; | &#10060; Does not work for custom Linux images | &#10060; | Healthy |
+| **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#10060; | Unhealthy, not applicable if exempt |
+| **Confidential Disk Encryption** | &#x2705; For the OS disk only | &#10060; | &#x2705; For the OS disk only | &#x2705; For the OS disk only| &#x2705; For the OS disk only |&#10060; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
 
-> [!Important]
-> For Encryption at Host, Microsoft Defender for Cloud does not detect the encryption state. We are in the process of updating Microsoft Defender
+> [!IMPORTANT]
+> For Encryption at Host and Confidential Disk Encryption, Microsoft Defender for Cloud does not detect the encryption state. We are in the process of updating Microsoft Defender
 
 ## Next steps
 
