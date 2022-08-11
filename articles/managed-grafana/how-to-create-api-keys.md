@@ -53,7 +53,7 @@ Run the command below to make an HTTP request and check its status code.
 
 ## Manage API keys
 
-Existing API keys are listed in **Configuration >  API keys**. By default, only active API keys are displayed. Select **Include expired keys** to view all created keys, and select **Delete** / **x**  to delete the API key.
+Existing API keys are listed in **Configuration >  API keys**. By default, only active API keys are displayed. Select **Include expired keys** to view all created keys, and select **X** (Delete) to delete the API key.
 
 :::image type="content" source="media/create-api-keys/manage-keys.png" alt-text="Screenshot of the Grafana dashboard. API keys are listed under Configuration > API keys.":::
 
