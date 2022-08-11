@@ -259,7 +259,7 @@ You can recover the password for the on-premises management console or the senso
 
     :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
 
-   All files downloaded from the Azure portal are signed by root of trust so that your machines use signed assets only.
+   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 1. On the Password recovery screen, select **Upload**. **The Upload Password Recovery File** window will open.
 

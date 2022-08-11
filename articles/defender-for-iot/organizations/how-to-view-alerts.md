@@ -161,9 +161,6 @@ You can generate the following alert reports:
 
 PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event.
 
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
-
-
 ## View alerts in the Defender for IoT portal
 
 If your deployment was set up to work with cloud-connected sensors, Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
