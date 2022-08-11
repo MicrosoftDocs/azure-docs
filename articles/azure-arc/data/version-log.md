@@ -26,7 +26,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
 |`arcdata` Azure CLI extension version|1.4.5 ([Download](https://arcdataazurecliextension.blob.core.windows.net/stage/arcdata-1.4.5-py2.py3-none-any.whl))|
 |Arc enabled Kubernetes helm chart extension version|1.2.20381002|
-|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.5.0 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/arc-1.5.0.vsix))</br>1.5.0 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/azcli-1.5.0.vsix))|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.5.1 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/arc-1.5.1.vsix))</br>1.5.1 ([Download](https://azuredatastudioarcext.blob.core.windows.net/stage/azcli-1.5.1.vsix))|
 
 ## July 12, 2022
 
