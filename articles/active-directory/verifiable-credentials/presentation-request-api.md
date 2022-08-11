@@ -194,7 +194,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 |Property |Type |Description |
 |---------|---------|---------|
 | `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
-| `code` |string |The code returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
+| `requestStatus` |string |The status returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
 | `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer's domain. </li><li>The verifiable credential issuer's domain validation status. </li></ul> |
@@ -205,7 +205,7 @@ The following example demonstrates a callback payload when the authenticator app
 ```json
 {
     "requestId": "e4ef27ca-eb8c-4b63-823b-3b95140eac11",
-    "code":"request_retrieved",
+    "requestStatus":"request_retrieved",
     "state": "92d076dd-450a-4247-aa5b-d2e75a1a5d58"
 }
 ```
@@ -215,7 +215,7 @@ The following example demonstrates a callback payload after the verifiable crede
 ```json
 {
   "requestId": "e4ef27ca-eb8c-4b63-823b-3b95140eac11",
-  "code": "presentation_verified",
+  "requestStatus": "presentation_verified",
   "state": "92d076dd-450a-4247-aa5b-d2e75a1a5d58",
   "subject": "did:ion:EiAlrenrtD3Lsw0GlbzS1O2YFdy3Xtu8yo35W<SNIP>…",
   "issuers": [
