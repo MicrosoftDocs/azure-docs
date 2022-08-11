@@ -53,13 +53,13 @@ The following example shows the rules that are available for configuration.
         "prefer-unquoted-property-names": {
           "level": "warning"
         },
+        "protect-commandtoexecute-secrets": {
+          "level": "warning"
+        },
         "secure-parameter-default": {
           "level": "warning"
         },
         "simplify-interpolation": {
-          "level": "warning"
-        },
-        "protect-commandtoexecute-secrets": {
           "level": "warning"
         },
         "secure-secrets-in-params": {
