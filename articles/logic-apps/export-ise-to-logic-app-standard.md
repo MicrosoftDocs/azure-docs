@@ -1,14 +1,25 @@
-Logic Apps Extension - VS Code Export Tool
+---
+title: Exporting ISE Workflows to Logic Apps Standard
+description: Learn how to use the VS Code Extension to export logic apps workflows from an Integration Service Environment (ISE) to a Logic App Standard project.
+services: logic-apps
+ms.suite: integration
+ms.reviewer: estfan, wsilveira
+ms.topic: walkthrough
+ms.date: 08/11/2022
+#Customer intent: As a developer, I want to export one or more ISE workflows to a Logic App Standard workflow.
+---
 
-ISE to Logic Apps Standard
+# Exporting ISE Workflows to Logic Apps Standard
 
-# Introduction
+> [!NOTE]
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The Logic App Standard sku adds a sleuth of new or improved functionality to the Logic Apps ecosystem such as Virtual Network (VNET) integration, private endpoints, compute isolation – in combination with Application Services Environment, low latency – with stateless Logic Apps, local debugging and development, and more.
 
 Logic Apps Standard can be used to replace Integration Services Environment (ISE), on most of the scenarios where ISE was initially required – network integration or isolation and compute isolation, for example. But moving from ISE to Logic Apps Standard requires moving workflows that are already implemented in that platform to a Logic App Standard Application. The Export feature on the VS Code Extension now provide you with the ability to export logic apps workflows from ISE to a local Logic App Standard project, where will be able to test locally, amend your workflows as required and get it ready to be deployed directly from VS Code or to plug it on your DevOps process.
 
-*This is not a migration tool. Exporting will replicate the workflow definition, connections, and any integration artefacts into a Standard Logic App VS Code project. ISE Logic Apps being exported will not be deleted, meaning all run and trigger history will be preserved. As a user you are in complete control on when you complete a migration, opting to delete or disable your previous Logic App, once you have testing and validated your workflows on the new platform.*
+> [!NOTE] This is not a migration tool. Exporting will replicate the workflow definition, connections, and any integration artefacts into a Standard Logic App VS Code > project. ISE Logic Apps being exported will not be deleted, meaning all run and trigger history will be preserved. As a user you are in complete control on when you > complete a migration, opting to delete or disable your previous Logic App, once you have testing and validated your workflows on the new platform.*
 
 ## Scope
 
