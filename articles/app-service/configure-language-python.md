@@ -278,7 +278,7 @@ App Service ignores any errors that occur when processing a custom startup comma
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```
 
-    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org). If you are using scale rules to scale your web app up and down, you can dynamically set the number of workers using the `NUM_CORES` environment variable in our startup command, for example: `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers)
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
