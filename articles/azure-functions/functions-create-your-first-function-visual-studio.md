@@ -15,7 +15,7 @@ adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) version of .NET. To create C# functions  [in an isolated process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions) before getting started. see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). 
+By default, this article shows you how to create C# functions that run [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) versions of .NET. To create C# functions [in an isolated process](dotnet-isolated-process-guide.md), see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) before getting started. 
 
 In this article, you learn how to:
 
