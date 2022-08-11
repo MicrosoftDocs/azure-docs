@@ -60,6 +60,14 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: Multiple concurrent writing requests occur, which causes conflicts on file content.
 
+## Error code: AzureBlobFailedToCreateContainer
+
+- **Message**: `Unable to create Azure Blob container. Endpoint: '%endpoint;', Container Name: '%containerName;'.`
+
+- **Cause**: This error happens when copying data with Azure Blob Storage account public access.
+
+- **Recommendation**: For more information about connection errors in the public endpoint, see [Connection error in public endpoint](security-and-access-control-troubleshoot-guide.md#connection-error-in-public-endpoint).
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
