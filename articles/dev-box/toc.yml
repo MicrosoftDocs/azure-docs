@@ -36,6 +36,8 @@
       href: how-to-configure-azure-compute-gallery.md
 - name: Reference
   items:
+    - name: REST API
+      href: https://aka.ms/dev-box/restapidocs
 - name: Resources
   items: 
     - name: Azure roadmap
