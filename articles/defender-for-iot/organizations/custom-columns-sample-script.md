@@ -10,7 +10,7 @@ ms.date: 07/12/2022
 
 This article shows a sample script to use when adding custom columns to your on-premises management console **Device inventory** page.
 
-For more information, see [[Add data using automation](#tab/automation)](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#add-data-using-automationtabautomation).
+For more information, see [Add to and enhance device inventory data](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#add-to-and-enhance-device-inventory-data).
 
 ## Sample script for custom columns
 
