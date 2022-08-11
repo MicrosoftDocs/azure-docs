@@ -32,12 +32,10 @@ The information presented in this table assumes you have a connectivity or secur
 
 | Action | Steps |
 | ------ | ----- |
-| Add or remove a virtual network using static membership | 1. Modify the network group's static membership by adding or deleting a virtual network. |
-| Add a virtual network using Azure Policy | Create/Update a definition with a conditional that includes your resource.  </br> Assign definition to a scope that includes your resource |
-| Remove a virtual network using Azure Policy | Update a definition with a conditional that includes your resource, or deactivate the policy definition by deleting the Assignment resource.  </br> * Network Group membership is an At-Least-One relationship. If a virtual network is added to the network group by multiple sources, all must be removed before the virtual network can leave the network group. |
-| Add, remove, or update security rules | * If the security configuration is applied to a network group, all members are updated automatically. |
-| Add, remove, or update rule collections | * If the security configuration is applied to a network group containing static members, you'll need to deploy the configuration again to take effect. </br> * Network groups containing dynamic members are updated automatically. |
-| Add, remove, or update configurations | Make the necessary changes to your configuration resources and then redeploy your entire regional goal state to each region. |
+| Add or remove a virtual network using static membership | Modify the network group's static membership by adding or deleting a virtual network. |
+| Add a virtual network using Azure Policy | 1. Create/Update a definition with a conditional that includes your resource.  </br> 2. Assign definition to a scope that includes your resource |
+| Remove a virtual network using Azure Policy | 1. Modify the policy definition condition that includes your virtual network so the virtual network is no longer meets the condition, or deactivate the policy definition by deleting the Assignment resource.  </br> 2. If a virtual network is added to the network group by multiple sources, all sources must be removed before the virtual network can leave the network group. |
+| Add, remove, or update configurations | 1. Make the necessary changes to your configuration resources. </br> 2. Redeploy your configuration and goal state to each region. |
 ## Next steps
 
 Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
