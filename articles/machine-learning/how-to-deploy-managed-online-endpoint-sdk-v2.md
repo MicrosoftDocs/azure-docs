@@ -5,9 +5,9 @@ description: Learn to deploy your machine learning model to Azure using Python S
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssambare
+ms.author: sehan
 ms.reviewer: larryfr
-author: shivanissambare
+author: dem108
 ms.date: 05/25/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment

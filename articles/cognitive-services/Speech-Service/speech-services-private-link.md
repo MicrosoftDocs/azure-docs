@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/07/2021
-ms.author: alexeyo 
+ms.author: alexeyo
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -43,8 +43,8 @@ This article describes the usage of the private endpoints with Speech service. U
 
 ## Turn on private endpoints
 
-We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints. 
-You can create a private DNS zone during the provisioning process. 
+We recommend using the [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints.
+You can create a private DNS zone during the provisioning process.
 If you're using your own DNS server, you might also need to change your DNS configuration.
 
 Decide on a DNS strategy *before* you provision private endpoints for a production Speech resource. And test your DNS changes, especially if you use your own DNS server.
@@ -72,7 +72,7 @@ This check is *required*.
 
 Follow these steps to test the custom DNS entry from your virtual network:
 
-1. Log in to a virtual machine located in the virtual network to which you've attached your private endpoint. 
+1. Log in to a virtual machine located in the virtual network to which you've attached your private endpoint.
 1. Open a Windows command prompt or a Bash shell, run `nslookup`, and confirm that it successfully resolves your resource's custom domain name.
 
    ```dos
@@ -90,7 +90,7 @@ Follow these steps to test the custom DNS entry from your virtual network:
 
 ### Resolve DNS from other networks
 
-Perform this check only if you've turned on either the **All networks** option or the **Selected Networks and Private Endpoints** access option in the **Networking** section of your resource. 
+Perform this check only if you've turned on either the **All networks** option or the **Selected Networks and Private Endpoints** access option in the **Networking** section of your resource.
 
 If you plan to access the resource by using only a private endpoint, you can skip this section.
 
@@ -115,8 +115,8 @@ If you plan to access the resource by using only a private endpoint, you can ski
 
 ## Adjust an application to use a Speech resource with a private endpoint
 
-A Speech resource with a custom domain interacts with Speech Services in a different way. 
-This is true for a custom-domain-enabled Speech resource both with and without private endpoints. 
+A Speech resource with a custom domain interacts with Speech Services in a different way.
+This is true for a custom-domain-enabled Speech resource both with and without private endpoints.
 Information in this section applies to both scenarios.
 
 Follow instructions in this section to adjust existing applications and solutions to use a Speech resource with a custom domain name and a private endpoint turned on.
@@ -125,7 +125,7 @@ A Speech resource with a custom domain name and a private endpoint turned on use
 
 > [!NOTE]
 > A Speech resource without private endpoints that uses a custom domain name also has a special way of interacting with Speech Services.
-> This way differs from the scenario of a Speech resource that uses a private endpoint. 
+> This way differs from the scenario of a Speech resource that uses a private endpoint.
 > This is important to consider because you may decide to remove private endpoints later.
 > See _Adjust an application to use a Speech resource without private endpoints_ later in this article.
 
@@ -139,9 +139,9 @@ Speech-to-text has two REST APIs. Each API serves a different purpose, uses diff
 
 The Speech-to-text REST APIs are:
 - [Speech-to-text REST API v3.0](rest-speech-to-text.md), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md)
-- [Speech-to-text REST API for short audio](rest-speech-to-text-short.md), which is used for online transcription 
+- [Speech-to-text REST API for short audio](rest-speech-to-text-short.md), which is used for online transcription
 
-Usage of the Speech-to-text REST API for short audio and the Text-to-speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article. 
+Usage of the Speech-to-text REST API for short audio and the Text-to-speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article.
 
 Speech-to-text REST API v3.0 uses a different set of endpoints, so it requires a different approach for the private-endpoint-enabled scenario.
 
@@ -242,7 +242,7 @@ All possible values for the region (first element of the DNS name) are listed in
 
 So the earlier example (`westeurope.stt.speech.microsoft.com`) stands for a Speech-to-text endpoint in West Europe.
 
-Private-endpoint-enabled endpoints communicate with Speech service via a special proxy. Because of that, *you must change the endpoint connection URLs*. 
+Private-endpoint-enabled endpoints communicate with Speech service via a special proxy. Because of that, *you must change the endpoint connection URLs*.
 
 A "standard" endpoint URL looks like: <p/>`{region}.{speech service offering}.speech.microsoft.com/{URL path}`
 
@@ -265,18 +265,18 @@ Notice the details:
 - The host name `westeurope.stt.speech.microsoft.com` is replaced by the custom domain host name `my-private-link-speech.cognitiveservices.azure.com`.
 - The second element of the original DNS name (`stt`) becomes the first element of the URL path and precedes the original path. So the original URL `/speech/recognition/conversation/cognitiveservices/v1?language=en-US` becomes `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
-**Example 2.** An application uses the following URL to synthesize speech in West Europe by using a custom voice model:
-```http
-https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
+**Example 2.** An application uses the following URL to synthesize speech in West Europe:
+```
+wss://westeurope.tts.speech.microsoft.com/cognitiveservices/websocket/v1
 ```
 
 The following equivalent URL uses a private endpoint, where the custom domain name of the Speech resource is `my-private-link-speech.cognitiveservices.azure.com`:
 
-```http
-https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
+```
+wss://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/websocket/v1
 ```
 
-The same principle in Example 1 is applied, but the key element this time is `voice`.
+The same principle in Example 1 is applied, but the key element this time is `tts`.
 
 #### Modifying applications
 

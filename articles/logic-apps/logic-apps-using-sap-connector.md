@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 08/02/2022
 tags: connectors
 ---
 
@@ -1258,8 +1258,10 @@ The following example is an RFC call with a table parameter. This example call a
    <TCPICDAT>
       <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
          <LINE>exampleFieldInput1</LINE>
+      </ABAPTEXT>
       <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
          <LINE>exampleFieldInput2</LINE>
+      </ABAPTEXT>
       <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
          <LINE>exampleFieldInput3</LINE>
       </ABAPTEXT>
