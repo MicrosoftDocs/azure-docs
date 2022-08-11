@@ -30,7 +30,9 @@ Dispatching approaches range from traditional reverse proxies like Apache, to Pl
 
 ## Primary Azure services used 
 
-[Azure Application Gateway](../../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../../application-gateway/configuration-front-end-ip.md) and/or [internal private](../../../application-gateway/configuration-front-end-ip.md) http routing and [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link.md), [security](../../../application-gateway/features.md), and [auto-scaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md) for instance. Workloads in other virtual networks (VNet) or even Azure Subscriptions that shall communicate with SAP through the app gateway can be connected via [private links](../../../application-gateway/private-link-configure.md). Azure Application Gateway is focused on exposing web applications, hence offers a Web Application Firewall.
+[Azure Application Gateway](../../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../../application-gateway/configuration-front-end-ip.md) and/or [internal private](../../../application-gateway/configuration-front-end-ip.md) http routing and [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link.md), [security](../../../application-gateway/features.md), and [auto-scaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md) for instance. Azure Application Gateway is focused on exposing web applications, hence offers a Web Application Firewall. Workloads in other virtual networks (VNet) that shall communicate with SAP through the Azure Application Gateway can be connected via [private links](../../../application-gateway/private-link-configure.md) even cross-tenant.
+
+:::image type="content" source="media/expose-sap-process-orchestration-on-azure/private-link.png" alt-text="Diagram that shows cross tenant communication via Azure Application Gateway.":::
 
 [Azure Firewall](../../../firewall/overview.md) handles public internet-based and/or internal private routing for traffic types on Layer 4-7 of the OSI model. It offers filtering and threat intelligence, which feeds directly from Microsoft Cyber Security.
 
@@ -69,7 +71,7 @@ One of the scenarios for SAP Process Orchestration communication is inbound flow
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/inbound-1a.png" alt-text="Diagram that shows inbound http scenario with SAP Process Orchestration on Azure.":::
 
-## Scenario 1.B: Outbound http connectivity focused
+## Scenario 1.B: Outbound http/ftp connectivity focused
 
 For the reverse communication direction "Process Orchestration" may leverage the VNet routing to reach workloads on-premises or Internet-based targets via the Internet breakout. Azure Application Gateway acts as a reverse proxy in such scenarios. For `non-http` communication, consider adding Azure Firewall. For more information, see [Scenario 4](#scenario-4-file-based) and [Comparing Gateway components](#comparing-gateway-setups).
 

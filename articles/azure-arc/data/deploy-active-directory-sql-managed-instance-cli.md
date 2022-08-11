@@ -4,8 +4,8 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/28/2022
 ms.topic: how-to
@@ -227,7 +227,7 @@ az sql mi-arc create
 To delete a SQL Managed Instance, use `az sql mi-arc delete`. See the following examples for both connectivity modes:
 
 
-### [Indirectly-Connected mode](#tab/indirectly-connected-mode)
+### [Indirectly connected mode](#tab/indirectly-connected-mode)
 
 ```azurecli
 az sql mi-arc delete --name < SQL MI name >  --k8s-namespace < namespace > --use-k8s
@@ -239,7 +239,7 @@ Example:
 az sql mi-arc delete --name contososqlmi --k8s-namespace arc --use-k8s
 ```
 
-### [Directly-Connected mode](#tab/directly-connected-mode)
+### [Directly connected mode](#tab/directly-connected-mode)
 
 ```azurecli
 az sql mi-arc delete --name < SQL MI name > --resource-group < resource group > 

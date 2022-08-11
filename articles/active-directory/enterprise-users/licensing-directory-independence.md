@@ -3,14 +3,14 @@ title: Characteristics of multi-tenant interaction - Azure AD | Microsoft Docs
 description: Understanding the data independence of your Azure Active Directory organizations
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management

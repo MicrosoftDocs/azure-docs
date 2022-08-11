@@ -1,6 +1,6 @@
 ---
 title: Firewall configuration and Teams customization
-description: Learn the firewall configuration requirements that enable customized Teams calling experiences.
+description: Learn the firewall configuration requirements of calling applications for Teams users.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -13,7 +13,7 @@ ms.subservice: teams-interop
 ms.custom: kr2b-contr-experiment
 ---
 
-# Firewall configuration for customized Teams calling experiences
+# Firewall configuration of calling applications for Teams users
 
 Azure Communication Services allow you to build custom Teams calling experiences.
 

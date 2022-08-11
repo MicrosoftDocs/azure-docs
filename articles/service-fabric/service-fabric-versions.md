@@ -108,7 +108,6 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | --- | --- | --- |
 | Ubuntu 20.04 | April 2025 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 | Ubuntu 18.04 | April 2023 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
-| Ubuntu 16.04 | April 2021 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 
 ## Service Fabric version name and number reference
 The following table lists the version names of Service Fabric and their corresponding version numbers.
@@ -131,17 +130,17 @@ The following table lists the version names of Service Fabric and their correspo
 | 8.1 CU1 | 8.1.321.9590 | 8.1.323.1 |
 | 8.1 RTO | 8.1.316.9590 | 8.1.320.1 |
 | 8.0 CU3 | 8.0.536.9590 | 8.0.527.1 |
-| 8.0 CU2 | 8.0.521.9590 | NA |
-| 8.0 CU1 | 8.0.516.9590 | 8.0.515.1 | 
-| 8.0 RTO | 8.0.514.9590 | 8.0.513.1 | 
+| 8.0 CU2 | 8.0.521.9590 | Not applicable |
+| 8.0 CU1 | 8.0.516.9590 | 8.0.515.1 |
+| 8.0 RTO | 8.0.514.9590 | 8.0.513.1 |
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
-| 7.2 CU3 | 7.2.433.9590 | NA |
+| 7.2 CU3 | 7.2.433.9590 | Not applicable |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
-| 7.2 RTO | 7.2.413.9590 | NA |
-| 7.1 CU10 | 7.1.510.9590 | NA |
+| 7.2 RTO | 7.2.413.9590 | Not applicable |
+| 7.1 CU10 | 7.1.510.9590 | Not applicable |
 | 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |

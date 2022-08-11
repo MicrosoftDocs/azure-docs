@@ -167,6 +167,8 @@
           href: core/howto-manage-devices-individually.md
         - name: Manage devices in bulk with jobs
           href: core/howto-manage-devices-in-bulk.md
+        - name: Migrate devices to IoT Hub
+          href: core/howto-migrate-to-iot-hub.md
     - name: Extend your application
       items:
         - name: Configure rules

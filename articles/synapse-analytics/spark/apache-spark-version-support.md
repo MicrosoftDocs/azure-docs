@@ -5,7 +5,7 @@ author: DaniBunny
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 07/19/2022
+ms.date: 07/20/2022
 ms.author: dacoelho 
 ms.reviewer: martinle
 ---
@@ -49,7 +49,7 @@ The following table lists the runtime name, Apache Spark version, and release da
 | ----- | ----- | ----- | ----- | ----- |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | GA | July 8, 2023 | July 8, 2024 |
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | LTS | January 26, 2023 | January 26, 2024 |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __LTS<br/>End of Life to be announced__ | __July 22, 2022__ | July 21, 2023 |
+| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __LTS<br/>End of Life to be announced__ | __July 29, 2022__ | July 28, 2023 |
 
 ## Runtime release stages
 
@@ -60,7 +60,7 @@ For the complete runtime for Apache Spark lifecycle and support policies, refer 
 Azure Synapse runtime for Apache Spark patches are rolled out monthly containing bug, feature and security fixes to the Apache Spark core engine, language environments, connectors and libraries.
 
 The patch policy differs based on the [runtime lifecycle stage](./runtime-for-apache-spark-lifecycle-and-supportability.md):
-1. Generally Available (GA) runtime: Receive no upgrades on major versions (i.e. 3.x -> 4.x). And will upgrade a minor version (i.e. 3.x -> 3.y) as long as there are no deprecation/regression impacts.
+1. Generally Available (GA) runtime: Receive no upgrades on major versions (i.e. 3.x -> 4.x). And will upgrade a minor version (i.e. 3.x -> 3.y) as long as there are no deprecation or regression impacts.
 2. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
 3. Long Term Support (LTS) runtime will be patched with security fixes only.
 4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.

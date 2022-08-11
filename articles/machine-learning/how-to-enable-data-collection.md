@@ -64,6 +64,8 @@ The path to the output data in the blob follows this syntax:
 
 - [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
 
+- Use a docker image based on Ubuntu 18.04, which is shipped with `libssl 1.0.0`, the essential dependency of [modeldatacollector](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector). You can refer to [prebuilt images](/azure/machine-learning/concept-prebuilt-docker-images-inference).
+
 ## Enable data collection
 
 You can enable [data collection](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector) regardless of the model you deploy through Azure Machine Learning or other tools.

@@ -2,9 +2,10 @@
 title: How to administer Azure Cache for Redis
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
 author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 07/22/2021
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
@@ -33,7 +34,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 
 :::image type="content" source="media/cache-administration/redis-cache-reboot-cluster-2.png" alt-text="screenshot of shard options":::
 
-To reboot one or more nodes of your cache, select the nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shards to reboot and then select **Reboot**. After a few minutes, the selected nodes reboot, and are back online a few minutes later.
+To reboot one or more nodes of your cache, select the nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shards to reboot, and then select **Reboot**. After a few minutes, the selected nodes reboot, and are back online a few minutes later.
 
 The effect on your client applications varies depending on which nodes you reboot.
 
@@ -106,7 +107,7 @@ If you don't specify a maintenance window, updates can be made at any time.
 
 ### What type of updates are made during the scheduled maintenance window?
 
-Only Redis server updates are made during the scheduled maintenance window. The maintenance window doesn't apply to Azure updates or updates to the VM operating system.
+Only Redis server updates are made during the scheduled maintenance window. The maintenance window doesn't apply to Azure updates or updates to the host operating system.
 
 ### Can I manage scheduled updates using PowerShell, CLI, or other management tools?
 

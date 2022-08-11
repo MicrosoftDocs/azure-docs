@@ -6,30 +6,30 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 07/22/2022
 ms.author: jasteppe
 ---
 
-# The MedTech service data flows
+# MedTech service data flow
 
-This article provides an overview of the MedTech service data flows. You'll learn about the different data processing stages within the MedTech service that transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
+This article provides an overview of the MedTech service data flow. You'll learn about the different data processing stages within the MedTech service that transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
-Data from health-related devices or medical devices flows through a path in which the MedTech service transforms data into FHIR, and then data is stored on and accessed from the FHIR service. The health data path follows these steps in this order: ingest, normalize, group, transform, and persist. In this data flow, health data is retrieved from the device in the first step of ingestion. After the data is received, it's processed or normalized per user-selected or user-created schema templates, so that the health data is simpler to process and can be grouped. Health data is grouped into three Operate parameters. After the health data is normalized and grouped, it can be processed or transformed through FHIR destination mappings, and then saved or persisted on the FHIR service.
+Data from health-related devices or medical devices flows through a path in which the MedTech service transforms data into FHIR, and then data is stored on and accessed from the FHIR service. The health data path follows these steps in this order: ingest, normalize, group, transform, and persist. Health data is retrieved from the device in the first step of ingestion. After the data is received, it's processed, or normalized per a user-selected/user-created schema template called the device mapping. Normalized health data is simpler to process and can be grouped. In the next step, health data is grouped into three Operate parameters. After the health data is normalized and grouped, it can be processed or transformed through FHIR destination mappings, and then saved or persisted on the FHIR service.
 
-This article goes into more depth about each step in the data flow. The next steps are [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md) by using Device mappings (the normalization step) and FHIR destination mappings (the transformation step).
+This article goes into more depth about each step in the data flow. The next steps are [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md) by using a device mapping (the normalization step) and a FHIR destination mapping (the transformation step).
 
-This next section of the article describes the stages that IoMT (Internet of Medical Things) data goes through once received from an event hub and into the MedTech service.
+This next section of the article describes the stages that IoMT (Internet of Medical Things) device data goes through as it processed through the MedTech service.
 
-:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="Screenshot of IoMT data as it flows from IoT devices into an event hub. IoMT data is ingested by MedTech service as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
+:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="Screenshot of IoMT data as it flows from IoT devices into an Azure event hub. IoMT data is ingested by the MedTech service as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
 ## Ingest
-Ingest is the first stage where device data is received into the MedTech service. The ingestion endpoint for device data is hosted on an [Azure Event Hubs](../../event-hubs/index.yml). Azure Event Hubs platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
+Ingest is the first stage where device data is received into the MedTech service. The ingestion endpoint for device data is hosted on an [Azure Event Hubs](../../event-hubs/index.yml). The Azure Event Hubs platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device data.
 
 ## Normalize
-Normalize is the next stage where device data is retrieved from the above event hub and processed using the Device mappings. This mapping process results in transforming device data into a normalized schema. 
+Normalize is the next stage where device data is retrieved from the above event hub and processed using the device mapping. This mapping process results in transforming device data into a normalized schema. 
 
 The normalization process not only simplifies data processing at later stages but also provides the capability to project one input message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single message. This input message would create four separate FHIR resources. Each resource would represent different vital sign, with the input message projected into four different normalized messages.
 
