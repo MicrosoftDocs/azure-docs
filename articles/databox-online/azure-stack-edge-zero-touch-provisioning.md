@@ -72,7 +72,7 @@ Use the following steps to import the PowerShell module, sign into the device, a
    Import-Module Drive:\<Local path>\ZtpRestHelpers.ps1
    ```
 
-1. Sign into the device using the Set-Login cmdlet. First time signin to the device requires password reset.
+1. Sign into the device using the Set-Login cmdlet. First time sign into the device requires password reset.
 
    ```azurepowershell
    Set-Login "https://<IP address>" "<Password1>" “<NewPassword>”
@@ -89,7 +89,7 @@ Use the following steps to sign into a device, change the password, and fetch th
    ```azurepowershell
    Set-Login “https://<IP address>” “<Password1>” “<NewPassword>”
    ```
-   For any subsequent sign-in, use:
+   For any subsequent sign into the device, use:
 
    ```azurepowershell
    Set-Login “https://<SerialNumber>.local” “<Password>”
@@ -117,7 +117,7 @@ Run the following cmdlets in PowerShell:
     Set-Login "https://<IP address>" "<Password>"
     ```
 
-1. Set the time zone property.
+1. Set the TimeZone property.
 
    ```azurepowershell
    $time = New-Object PSObject -Property @{ timezone = "Hawaiian Standard Time" }
@@ -175,7 +175,7 @@ Run the following cmdlets in PowerShell:
 
 1. Before you update the device with a new configuration, update the JSON file with the device node.id of the device to be updated. Each device has a unique node.id.
 
-   Fetch the node.id from the device with the following commands from PowerShell:
+   Fetch the node.id from the device with the following command from PowerShell:
 
    ```azurepowershell
    Get-DeviceConfiguration | to-json
@@ -197,7 +197,7 @@ Run the following cmdlets in PowerShell:
    $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
    ```
 
-1. Monitor update status as the operation runs. It may take 10 minutes for the operation to complete.
+1. Monitor update status as the operation runs. It may take 10 minutes or more for the operation to complete.
 
    ```azurepowershell
    Get-DeviceConfigurationStatus | to-json
@@ -213,7 +213,7 @@ Run the following cmdlets in PowerShell:
 
 Use the following steps to activate an Azure Stack Edge device. Note that a device activation key can't be undone, reused, or applied to a different device.
 
-1. Retrieve the activation key for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device).
+1. Retrieve the activation key for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device) sections.
 
 1. Sign into the device.
 
