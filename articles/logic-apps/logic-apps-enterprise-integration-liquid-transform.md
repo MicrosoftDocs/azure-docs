@@ -160,7 +160,7 @@ After you create your Liquid template, you now have to upload the template based
 
 The following steps show how to add a Liquid transformation action for Consumption and Standard logic app workflows.
 
-### [Consumption](#consumption)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
 
@@ -203,7 +203,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    ![Screenshot showing Consumption workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-consumption.png)
 
-### [Standard](#standard)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
 
