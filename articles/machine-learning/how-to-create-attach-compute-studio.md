@@ -1,5 +1,5 @@
 ---
-title: Create training & deploy computes (studio)
+title: Manage training & deploy computes (studio)
 titleSuffix: Azure Machine Learning
 description: Use studio to manage training and deployment compute resources (compute targets) for machine learning
 services: machine-learning
@@ -8,11 +8,11 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/05/2022
+ms.date: 08/11/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q1, event-tier1-build-2022
 ---
-# Create compute targets for model training and deployment in Azure Machine Learning studio
+# Manage compute targets for model training and deployment in Azure Machine Learning studio
 
 In this article, learn how to manage compute targets in Azure Machine studio.  
 
