@@ -109,7 +109,7 @@ import { devices, PlaywrightTestConfig } from "@playwright/test";
 
 var playwrightServiceConfig = new PlaywrightService({
     accessKey: process.env.ACCESS_KEY || "",
-    dashboard: process.env.DASHBOARD || "DefaultGroup"
+    dashboard: process.env.DASHBOARD || "Default Group"
 });
 
 const config: PlaywrightTestConfig = {
