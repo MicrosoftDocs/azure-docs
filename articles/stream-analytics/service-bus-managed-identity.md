@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 08/10/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -37,13 +37,9 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
 ## Grant the Stream Analytics job permissions to access Azure Service Bus
 
-For the Stream Analytics job to access your Service Bus using managed identity, the service principal you created must have special permissions to your Azure Service Bus resource. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace. For Azure Stream Analytics you would need these:
+For the Stream Analytics job to access your Service Bus using managed identity, the service principal you created must have special permissions to your Azure Service Bus resource. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace. For Azure Stream Analytics you would need this role:
 
-- [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Enables data access to Service Bus namespace and its entities (queues, topics, subscriptions, and filters)
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use this role to give send access to Service Bus namespace and its entities.
-
-> [!TIP] 
-> When you assign roles, assign only the needed access. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
 1. Select **Access control (IAM)**.
 
@@ -53,7 +49,7 @@ For the Stream Analytics job to access your Service Bus using managed identity, 
 
     | Setting | Value |
     | --- | --- |
-    | Role | Azure Service Bus Data Owner or Azure Service Bus Data Sender |
+    | Role | Azure Service Bus Data Sender |
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 
