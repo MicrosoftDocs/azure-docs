@@ -18,7 +18,7 @@ Flow logs allow you to analyze traffic for Network Security Groups in specific r
 
 ## Prerequisites
 
-You must have an existing Azure Red Hat OpenShift cluster. Follow this guide to [create a private Azure Red Hat OpenShift cluster](howto-create-private-cluster-4x.md).
+You must have an existing Azure Red Hat OpenShift cluster. Follow [this guide](tutorial-create-cluster.md) to create a private Azure Red Hat OpenShift cluster.
 
 ## Configure Azure Network Watcher
 
@@ -26,14 +26,15 @@ Make sure an Azure Network Watcher exists in the applicable region or use the on
 ```
 "subscriptions/{subscriptionID}/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_eastus"
 ```
+See [Enable Azure Network Watcher](../network-watcher/enable-network-watcher-flow-log-settings.md)for more information.
 
 ## Create storage account
 
-Create a storage account for storing the actual flow logs. It must be in the same region as where the flow logs are going to be created. It cannot be in the same resource group as the cluster's resources.
+[Create a storage account](../storage/common/storage-account-create.md) (or use an existing storage account) for storing the actual flow logs. It must be in the same region as where the flow logs are going to be created. It cannot be in the same resource group as the cluster's resources.
 
 ## Configure service principal
 
-The service principal used by the cluster needs the [proper permissions](../network-watcher/required-rbac-permissions.md) in order to create necessary resources for the flow logs and to access the storage account. The easiest way to achieve that is by assigning it the network administrator and storage account contributor role on subscription level. Alternatively, you can create a custom role containing the required actions from the page linked above and assign it to the service principal.
+The service principal used by the cluster needs the [proper permissions](../network-watcher/required-rbac-permissions.md) in order to create the necessary resources for the flow logs, and to access the storage account. The easiest way to achieve that is by assigning it the network administrator and storage account contributor roles at the subscription level. Alternatively, you can create a custom role containing the required actions from the page linked above and assign it to the service principal.
 
 To get the service principal ID, run the following command:
 ```
@@ -53,7 +54,7 @@ az role assignment create --role "17d1049b-9a84-46fb-8f53-869881c3d3ab" --assign
 ```
 See [Azure built-in roles](../role-based-access-control/built-in-roles.md) for IDs of built-in roles.
 
-Create a spec as in the following example, or update the existing spec to contain `spec.nsgFlowLogs` in case you are already using another preview feature:
+Create a manifest as in the following example, or update the existing object to contain `spec.nsgFlowLogs` in case you are already using another preview feature:
 ```
 apiVersion: "preview.aro.openshift.io/v1alpha1"
 kind: PreviewFeature
