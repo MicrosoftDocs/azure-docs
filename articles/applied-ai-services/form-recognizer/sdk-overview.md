@@ -287,7 +287,7 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ---
 
-#### Write code supported by the Form Recognizer SDK
+#### Write aligned with the Form Recognizer SDK
 
 Your code will first create a client object to interact with Form Recognizer SDK and then call methods on that client object to interact with the service. The SDK provides both synchronous and asynchronous methods. For more insight, try the [quickstart](quickstarts/get-started-v3-sdk-rest-api.md) in a language of your choice.
 
