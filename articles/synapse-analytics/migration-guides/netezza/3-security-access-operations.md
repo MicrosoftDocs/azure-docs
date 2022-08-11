@@ -281,12 +281,6 @@ User-defined restore points are also supported, allowing manual triggering of sn
 
 As well as the snapshots described previously, Azure Synapse also performs as standard a geo-backup once per day to a [paired data center](/azure/best-practices-availability-paired-regions). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region aren't available.
 
-| Technique | Description |
-|-----------|-------------|
-| **Scheduler rules**                      | Scheduler rules influence the scheduling of plans. Each scheduler rule specifies a condition or set of conditions. Each time the scheduler receives a plan, it evaluates all modifying scheduler rules and carries out the appropriate actions. Each time the scheduler selects a plan for execution, it evaluates all limiting scheduler rules. The plan is executed only if doing so wouldn't exceed a limit imposed by a limiting scheduler rule. Otherwise, the plan waits. This provides you with a way to classify and manipulate plans in a way that influences the other WLM techniques (SQB, GRA, and PQE). |
-| **Guaranteed resource allocation (GRA)** | You can assign a minimum share and a maximum percentage of total system resources to entities called *resource groups*. The scheduler ensures that each resource group receives system resources in proportion to its minimum share. A resource group receives a larger share of resources when other resource groups are idle, but never receives more than its configured maximum percentage. Each plan is associated with a resource group, and the settings of that resource group settings determine what fraction of available system resources are to be made available to process the plan. |
-| **Short query bias (SQB)**               | Resources (that is, scheduling slots, memory, and preferential queuing) are reserved for short queries. A short query is a query for which the cost estimate is less than a specified maximum value (the default is two seconds). With SQB, short queries can run even when the system is busy processing other, longer queries. |
-| **Prioritized query execution (PQE)**    | Based on settings that you configure, the system assigns a priority&mdash;critical, high, normal, or low&mdash;to each query. The priority depends on factors such as the user, group, or session associated with the query. The system can then use the priority as a basis for allocating resources. |
 
 ### Workload management
 
@@ -295,6 +289,12 @@ As well as the snapshots described previously, Azure Synapse also performs as st
 
 Netezza incorporates various features for managing workloads:
 
+| Technique | Description |
+|-----------|-------------|
+| **Scheduler rules**                      | Scheduler rules influence the scheduling of plans. Each scheduler rule specifies a condition or set of conditions. Each time the scheduler receives a plan, it evaluates all modifying scheduler rules and carries out the appropriate actions. Each time the scheduler selects a plan for execution, it evaluates all limiting scheduler rules. The plan is executed only if doing so wouldn't exceed a limit imposed by a limiting scheduler rule. Otherwise, the plan waits. This provides you with a way to classify and manipulate plans in a way that influences the other WLM techniques (SQB, GRA, and PQE). |
+| **Guaranteed resource allocation (GRA)** | You can assign a minimum share and a maximum percentage of total system resources to entities called *resource groups*. The scheduler ensures that each resource group receives system resources in proportion to its minimum share. A resource group receives a larger share of resources when other resource groups are idle, but never receives more than its configured maximum percentage. Each plan is associated with a resource group, and the settings of that resource group settings determine what fraction of available system resources are to be made available to process the plan. |
+| **Short query bias (SQB)**               | Resources (that is, scheduling slots, memory, and preferential queuing) are reserved for short queries. A short query is a query for which the cost estimate is less than a specified maximum value (the default is two seconds). With SQB, short queries can run even when the system is busy processing other, longer queries. |
+| **Prioritized query execution (PQE)**    | Based on settings that you configure, the system assigns a priority&mdash;critical, high, normal, or low&mdash;to each query. The priority depends on factors such as the user, group, or session associated with the query. The system can then use the priority as a basis for allocating resources. |
 
 Azure Synapse automatically logs resource utilization statistics. Metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Azure Synapse also logs connectivity information, such as failed connection attempts.
 
