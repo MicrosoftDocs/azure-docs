@@ -97,11 +97,13 @@ If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `Reque
 
 ### Signature
 
-A `Signature` element in `AuthnRequest` elements is optional. Azure AD can be configured (Preview) to enforce the requirement of signed authentication requests. If enabled, only signed authentication requests are accepted, otherwise the requestor verification is provided for by only responding to registered Assertion Consumer Service URLs. 
+A `Signature` element in `AuthnRequest` elements is optional. Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs. 
 
 ### Subject
 
-Don't include a `Subject` element. Azure AD doesn't support specifying a subject for a request and will return an error if one is provided.
+Don't include a `Subject` element. Azure AD doesn't support specifying a subject in `AuthnRequest` and will return an error if one is provided.
+
+A subject can instead be provided by adding a `login_hint` parameter to the HTTP request to the single sign-on URL, with the subject's NameID as the parameter value.
 
 ## Response
 

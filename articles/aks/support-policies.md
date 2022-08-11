@@ -29,7 +29,7 @@ Microsoft manages and monitors the following components through the control pane
 * Etcd or a compatible key-value store, providing Quality of Service (QoS), scalability, and runtime
 * DNS services (for example, kube-dns or CoreDNS)
 * Kubernetes proxy or networking (except when [BYOCNI](use-byo-cni.md) is used)
-* Any additional addon or system component running in the kube-system namespace
+* Any additional [add-ons][add-ons] or system component running in the kube-system namespace
 
 AKS isn't a Platform-as-a-Service (PaaS) solution. Some components, such as agent nodes, have *shared responsibility*, where users must help maintain the AKS cluster. User input is required, for example, to apply an agent node operating system (OS) security patch.
 
@@ -165,3 +165,6 @@ When a technical support issue is root-caused by one or more upstream bugs, AKS 
   * The issue, including links to upstream bugs.
   * The workaround and details about an upgrade or another persistence of the solution.
   * Rough timelines for the issue's inclusion, based on the upstream release cadence.
+
+
+[add-ons]: integrations.md#add-ons

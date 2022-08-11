@@ -14,14 +14,14 @@ ms.custom: how-to, devx-track-python
 
 # Manage experiments and runs with MLflow
 
-Experiments and runs in Azure Machine Learning can be queried using MLflow client. This removes the need of any Azure ML specific SDKs to manage anything that happens inside of a training job, allowing dependencies removal and creating a more seamless transition between local runs and cloud. 
+Experiments and runs in Azure Machine Learning can be queried using MLflow. This removes the need of any Azure Machine Learning specific SDKs to manage anything that happens inside of a training job, allowing dependencies removal and creating a more seamless transition between local runs and cloud. 
 
 > [!NOTE]
 > The Azure Machine Learning Python SDK v2 (preview) does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure ML.
 
-MLflow client allows you to:
+MLflow allows you to:
 
-* Create, delete and search for experiments in a workspace
+* Create, delete and search for experiments in a workspace.
 * Start, stop, cancel and query runs for experiments.
 * Track and retrieve metrics, parameters, artifacts and models from runs.
 
@@ -34,11 +34,11 @@ Use MLflow to query and manage all the experiments in Azure Machine Learning. Th
 ### Prerequisites
 
 * Install `azureml-mlflow` plug-in.
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML MLtracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md)
+* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML tracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md).
 
 ### Support matrix for querying runs and experiments
 
-The MLflow client exposes several methods to retrieve runs, including options to control what is returned and how. Use the following table to learn about which of those methods are currently supported in MLflow when connected to Azure Machine Learning:
+The MLflow SDK exposes several methods to retrieve runs, including options to control what is returned and how. Use the following table to learn about which of those methods are currently supported in MLflow when connected to Azure Machine Learning:
 
 | Feature | Supported by MLflow | Supported by Azure ML |
 | :- | :-: | :-: |
@@ -57,12 +57,12 @@ The MLflow client exposes several methods to retrieve runs, including options to
 | Filtering runs with string comparators (params, tags, and attributes): `=` and `!=` | **&check;** | **&check;**<sup>2</sup> |
 | Filtering runs with string comparators (params, tags, and attributes): `LIKE`/`ILIKE` | **&check;** |  |
 | Filtering runs with comparators `AND` | **&check;** | **&check;** |
-| Filtering runs with comparators `OR` | **&check;** |  |
+| Filtering runs with comparators `OR` |  |  |
 | Renaming experiments | **&check;** |  |
 
 > [!NOTE]
 > - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure ML.
-> - <sup>2</sup> `!=` for tags not supported
+> - <sup>2</sup> `!=` for tags not supported.
 
 ## Getting all the experiments
 
@@ -144,13 +144,13 @@ You can also order by metrics to know which run generated the best results:
   
 ### Filtering runs
 
-You can also look for a run with a specific combination in the hyperparameters using the parameter `filter_string`. Use `params` to access run's parameters and `metrics` to access metrics logged in the run:
+You can also look for a run with a specific combination in the hyperparameters using the parameter `filter_string`. Use `params` to access run's parameters and `metrics` to access metrics logged in the run. MLflow supports expressions joined by the AND keyword (the syntax does not support OR):
 
   ```python
   mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
                      filter_string="params.num_boost_round='100'")
   ```
-  
+
 ### Filter runs by status
 
 You can also filter experiment by status. It becomes useful to find runs that are running, completed, canceled or failed. In MLflow, `status` is an `attribute`, so we can access this value using the expression `attributes.status`. The following table shows the possible values:
@@ -250,6 +250,9 @@ MLflow also allows you to both operations at once and download and load the mode
   ```python
   model = mlflow.xgboost.load_model(f"runs:/{last_run.info.run_id}/{artifact_path}")
   ```
+
+> [!TIP]
+> You can also load models from the registry using MLflow. View [loading MLflow models with MLflow](how-to-manage-models-mlflow.md#loading-models-from-registry) for details.
 
 ## Getting child (nested) runs
 

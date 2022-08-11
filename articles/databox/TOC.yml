@@ -36,7 +36,9 @@
             href: data-box-deploy-copy-data-via-copy-service.md
           - name: To managed disks
             href: data-box-deploy-copy-data-from-vhds.md
-        - name: 4 - Return, upload, verify
+        - name: 4 - Prepare to ship
+          href: data-box-deploy-prepare-to-ship.md
+        - name: 5 - Return, upload, verify
           href: data-box-deploy-picked-up.md
       - name: Export data from Azure
         items: 
@@ -268,3 +270,5 @@
       href: https://azure.microsoft.com/pricing/details/databox/disk/
     - name: Data Box partners
       href: https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf
+    - name: Data Box hardware additional terms
+      href: data-box-hardware-additional-terms.md

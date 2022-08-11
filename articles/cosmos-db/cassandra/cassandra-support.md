@@ -174,7 +174,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | `REVOKE` | No |
 | `SELECT` | Yes |
 | `UPDATE` | Yes |
-| `TRUNCATE` | No |
+| `TRUNCATE` | Yes |
 | `USE` | Yes |
 
 ## Lightweight Transactions (LWT)
@@ -247,7 +247,30 @@ You can connect to the Cassandra API in Azure Cosmos DB by using the CQLSH insta
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+<!-- If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below. -->
+
+1. Install [Python 3](https://www.python.org/downloads/windows/)    
+1. Install PIP
+    1. Before install PIP, download the get-pip.py file.
+    1. Launch a command prompt if it isn't already open. To do so, open the Windows search bar, type cmd and select the icon.
+    1. Then, run the following command to download the get-pip.py file:
+    ```bash
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 
+    ```
+1. Install PIP on Windows
+```bash
+python get-pip.py
+```
+1. Verify the PIP installation (look for a message from step 3 to confirm which folder PIP was installed in and then navigate to that folder and run the command pip help).
+1. Install CQLSH using PIP
+```bash
+pip3 install cqlsh==5.0.3
+```
+4. Install [Python 2](https://www.python.org/downloads/windows/)
+5. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-your-connection-string).
+
+> [!NOTE]
+>  You would need to set the environment variables to point to  the Python 2 folder.
 
 **Install on Unix/Linux/Mac:**
 
@@ -275,7 +298,7 @@ export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
 # Connect to Azure Cosmos DB API for Cassandra:
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl --protocol-version=4
 ```
 **Connect with Docker:**
 ```bash

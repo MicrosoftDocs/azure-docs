@@ -18,6 +18,8 @@
       href: howto-develop-create-instance.md
     - name: The Azure CLI
       href: quickstart-cli-create.md
+    - name: By using a Bicep template
+      href: quickstart-bicep-template.md
   - name: Connect to the instance
     expanded: true
     items:
@@ -106,6 +108,10 @@
       href: howto-troubleshoot-resource-logs.md
   - name: Move across regions
     href: howto-move-across-regions.md
+  - name: Scale
+    items:
+    - name: Autoscale
+      href: howto-scale-autoscale.md
 
 - name: Concepts
   expanded: true
@@ -160,7 +166,10 @@
       href: reference-server-sdk-python.md
   - name: Control plane
     href: /rest/api/webpubsub/
-
+  - name: Azure CLI
+    href: /cli/azure/webpubsub
+  - name: Web PubSub client specification
+    href: reference-client-specification.md
 - name: Resources
   items:
   - name: Samples

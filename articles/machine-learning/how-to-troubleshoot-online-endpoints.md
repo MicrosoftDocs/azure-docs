@@ -240,11 +240,19 @@ Make sure model and code artifacts are registered to the same workspace as the d
   az ml code show --name <code-name> --version <version>
   ```
  
-  You can also check if the blobs are present in the workspace storage account.
+You can also check if the blobs are present in the workspace storage account.
 
 - For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
+   
+   ```azurecli
+   az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+   ```
+  
+- If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
-  `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+  ```azurecli
+  az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
+  ```
 
 #### azureml-fe not ready
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
@@ -274,7 +282,22 @@ For more information, see [Resolve resource not found errors](../azure-resource-
 
 ### ERROR: OperationCancelled
 
-Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority. Retrying the operation might allow it to be performed without cancellation.
+Below is a list of reasons you might run into this error:
+
+* [Operation was cancelled by another operation which has a higher priority](#operation-cancelled-by-another-higher-priority-operation)
+* [Operation was cancelled due to a previous operation waiting for lock confirmation](#operation-cancelled-waiting-for-lock-confirmation)
+
+#### Operation cancelled by another higher priority operation
+
+Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority.
+
+Retrying the operation might allow it to be performed without cancellation.
+
+#### Operation cancelled waiting for lock confirmation
+
+Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we do not run into race conditions. This error happens when the operation you submitted is the same as another operation that is currently still waiting for confirmation that it has received the lock to proceed. It may indicate that you have submitted a very similar request too soon after the initial request.
+
+Retrying the operation after waiting a few seconds up to a minute may allow it to be performed without cancellation.
 
 ### ERROR: InternalServerError
 
@@ -303,7 +326,7 @@ When you access online endpoints with REST requests, the returned status codes a
 | 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
 | 404 | Not found | Your URL isn't correct. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](/azure/azure-monitor/essentials/metrics-getting-started). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
+| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
 | 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |

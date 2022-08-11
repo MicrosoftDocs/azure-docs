@@ -75,10 +75,6 @@
           href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
-    - name: Create a secure workspace
-      href: tutorial-create-secure-workspace.md
-    - name: Create a secure workspace with templates
-      href: tutorial-create-secure-workspace-template.md
     - name: Build a training pipeline (Python SDK V2)(preview)
       href: tutorial-pipeline-python-sdk.md
 - name: Samples
@@ -109,6 +105,9 @@
         - name: Deep learning
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
         - name: AutoML
           items: 
             - name: Automated ML overview
@@ -139,8 +138,6 @@
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: concept-model-management-and-deployment.md
-        - name: Open-source integrations
-          href: concept-open-source.md
         - name: ML pipelines
           href: concept-ml-pipelines.md
         - name: ML components
@@ -188,9 +185,6 @@
         - name: Compute target
           displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
           href: concept-compute-target.md
-        - name: Plan and manage costs
-          displayName: low priority VM
-          href: concept-plan-manage-cost.md
     - name: Work with Data
       items: 
         - name: Access data
@@ -216,8 +210,14 @@
           href: concept-vulnerability-management.md
 - name: Infrastructure & security
   items:
+    - name: Tutorials & templates
+      items:
+        - name: "Tutorial: Create a secure workspace in Azure portal"
+          href: tutorial-create-secure-workspace.md
+        - name: "Tutorial: Create a secure workspace with templates"
+          href: tutorial-create-secure-workspace-template.md
     - name: Identity & access management
-      items: 
+      items:
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
@@ -225,10 +225,8 @@
           href: how-to-assign-roles.md
         - name: Use managed identities for access control
           href: how-to-use-managed-identities.md
-        - name: Use Azure AD identity in AKS deployments
-          href: how-to-use-azure-ad-identity.md
     - name: Network security
-      items: 
+      items:
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -295,6 +293,9 @@
         - name: Use studio
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
+    - name: Plan and manage costs
+      displayName: low priority VM
+      href: concept-plan-manage-cost.md
     - name: Monitor Azure Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure coding
@@ -409,21 +410,6 @@
             href: how-to-train-with-custom-image.md
           - name: Migrate from Estimators to ScriptRunConfig
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-          - name: Reinforcement learning
-            href: how-to-use-reinforcement-learning.md
-          - name: Track & monitor training
-            items:
-              - name: Monitor training jobs
-                displayName: cancel, fail, status, child run
-                href: how-to-track-monitor-analyze-runs.md
-              - name: Log & view metrics, parameters and files
-                displayName: troubleshoot, log, files, tracing, metrics
-                href: how-to-log-view-metrics.md
-              - name: Visualize runs with TensorBoard
-                displayName: log, monitor, metrics
-                href: how-to-monitor-tensorboard.md
-              - name: Migrate from SDK v1 logging to MLflow
-                href: reference-migrate-sdk-v1-mlflow-tracking.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
@@ -431,6 +417,21 @@
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
+        - name: Track & monitor training
+          items:
+            - name: Monitor training jobs
+              displayName: cancel, fail, status, child run
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Log & view metrics, parameters and files
+              displayName: troubleshoot, log, files, tracing, metrics
+              href: how-to-log-view-metrics.md
+            - name: Log MLflow models
+              href: how-to-log-mlflow-models.md
+            - name: Visualize runs with TensorBoard
+              displayName: log, monitor, metrics
+              href: how-to-monitor-tensorboard.md
+            - name: Migrate from SDK v1 logging to MLflow
+              href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Train and track with MLflow
           items:
             - name: Track experiments with MLflow
@@ -560,6 +561,8 @@
               - name: Deploy MLflow models
                 displayName: mlflow models deployment plugin
                 href: how-to-deploy-mlflow-models.md
+              - name: Using MLflow models for no-code deployment
+                href: how-to-log-mlflow-models.md
               - name: Convert custom model to MLflow model
                 displayName: ncd, no code deploy, no-code deployment
                 href: how-to-convert-custom-model-to-mlflow.md
@@ -759,7 +762,7 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
     - name: Service limits
-      href: resource-limits-quotas-capacity.md
+      href: resource-limits-capacity.md
     - name: Conda licensing
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability

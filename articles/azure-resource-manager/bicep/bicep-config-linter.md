@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 08/01/2022
 ---
 
 # Add linter settings in the Bicep config file
@@ -22,15 +22,20 @@ The following example shows the rules that are available for configuration.
   "analyzers": {
     "core": {
       "enabled": true,
-      "verbose": false,
       "rules": {
         "adminusername-should-not-be-literal": {
+          "level": "warning"
+        },
+        "artifacts-parameters": {
           "level": "warning"
         },
         "no-hardcoded-env-urls": {
           "level": "warning"
         },
         "no-unnecessary-dependson": {
+          "level": "warning"
+        },
+        "no-unused-existing-resources": {
           "level": "warning"
         },
         "no-unused-params": {
@@ -45,6 +50,9 @@ The following example shows the rules that are available for configuration.
         "prefer-interpolation": {
           "level": "warning"
         },
+        "prefer-unquoted-property-names": {
+          "level": "warning"
+        },
         "secure-parameter-default": {
           "level": "warning"
         },
@@ -52,6 +60,12 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-protectedsettings-for-commandtoexecute-secrets": {
+          "level": "warning"
+        },
+        "secure-secrets-in-params": {
+          "level": "warning"
+        },
+        "use-stable-resource-identifiers": {
           "level": "warning"
         },
         "use-stable-vm-image": {
@@ -86,7 +100,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
 {
   "analyzers": {
     "core": {
-      "verbose": false,
       "enabled": true,
       "rules": {
         "no-hardcoded-env-urls": {

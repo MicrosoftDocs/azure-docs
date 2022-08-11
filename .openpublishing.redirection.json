@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/api-management/zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-api-mgt",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/find-unattached-nics.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/find-unattached-nics",
       "redirect_document_id": false
@@ -430,6 +435,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/language-service/custom-text-classification/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
       "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
       "redirect_document_id": true
@@ -621,22 +636,22 @@
     },
     {
       "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
-      "redirect_url": "/articles/load-balancer/concepts",
+      "redirect_url": "/azure/load-balancer/concepts",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/resource-manager-template-samples.md",
-      "redirect_url": "/articles/frontdoor/front-door-quickstart-template-samples",
+      "redirect_url": "/azure/frontdoor/front-door-quickstart-template-samples",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/concept-health-probes.md",
-      "redirect_url": "/articles/frontdoor/front-door-health-probes",
+      "redirect_url": "/azure/frontdoor/front-door-health-probes",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/concept-ddos.md",
-      "redirect_url": "/articles/frontdoor/front-door-ddos",
+      "redirect_url": "/azure/frontdoor/front-door-ddos",
       "redirect_document_id": false
     },
     {
@@ -651,7 +666,7 @@
     },
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
-      "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
+      "redirect_url": "/azure/frontdoor/front-door-geo-filtering",
       "redirect_document_id": false
     },
     {
@@ -5907,6 +5922,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/manage-runas-account.md",
+      "redirect_url": "/azure/automation/manage-run-as-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
       "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
       "redirect_document_id": true
@@ -6311,6 +6331,46 @@
       "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption-java.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-java.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-client-side-encryption-python.md",
+      "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption-python.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
       "redirect_url": "/azure/storage/common/storage-account-overview",
@@ -6869,6 +6929,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/monitor-metrics.md",
+      "redirect_url": "/azure/azure-functions/monitor-functions",
       "redirect_document_id": false
     },
     {
@@ -7587,6 +7652,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/agents-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/azure/azure-monitor/agents/agents-overview.md#log-analytics-agent",
+      "redirect_url": "/azure/azure-monitor/agents/log-analytics-agent",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/deploy-computer-vision-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": true
@@ -7679,7 +7754,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/view-model-evaluation.md",
       "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/concepts/data-formats.md",
@@ -10333,8 +10408,8 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/classic-deployment-model-quota-increase-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/classic-deployment-model-quota-increase-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/how-to-create-azure-support-request.md",
@@ -10378,43 +10453,78 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/spot-quota",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/networking-quota-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/networking-quota-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/networking-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/per-vm-quota-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/per-vm-quota-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/per-vm-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/regional-quota-requests.md",
-      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
-      "redirect_document_id": true
+      "redirect_url": "/azure/quotas/regional-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/resource-manager-core-quotas-request.md",
-      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_url": "/azure/quotas/regional-quota-requests",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-portal/supportability/resource-manager-core-quotas-request.md",
-      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_url": "/azure/quotas/regional-quota-requests",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
-      "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md", 
+      "redirect_url": "/troubleshoot/azure/general/region-access-request-process",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-portal/supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
+      "redirect_url": "/azure/quotas/spot-quota",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/quotas-overview.md",
+      "redirect_url": "/azure/quotas/quotas-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/view-quotas.md",
+      "redirect_url": "/azure/quotas/view-quotas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/per-vm-quota-requests.md",
+      "redirect_url": "/azure/quotas/per-vm-quota-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/regional-quota-requests.md",
+      "redirect_url": "/azure/quotas/regional-quota-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/spot-quota.md",
+      "redirect_url": "/azure/quotas/spot-quota",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/classic-deployment-model-quota-increase-requests.md",
+      "redirect_url": "/azure/quotas/classic-deployment-model-quota-increase-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/networking-quota-requests.md",
+      "redirect_url": "/azure/quotas/networking-quota-requests",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/managed-applications/concepts-custom-providers-built-in-policy.md",
@@ -22252,6 +22362,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-get-started-provision-powershell.md",
       "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-powershell",
       "redirect_document_id": false
@@ -22862,11 +22977,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
-      "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/storage/storage-https-custom-domain-cdn.md",
       "redirect_url": "/azure/storage/blobs/storage-https-custom-domain-cdn",
       "redirect_document_id": true
@@ -23260,21 +23370,6 @@
     {
       "source_path_from_root": "/articles/storage/common/storage-moving-data.md",
       "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption-java.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/storage/storage-client-side-encryption-python.md",
-      "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
       "redirect_document_id": true
     },
     {
@@ -24652,11 +24747,6 @@
       "source_path_from_root": "/articles/traffic-manager/disable-enable-or-delete-a-profile.md",
       "redirect_url": "/azure/traffic-manager/traffic-manager-manage-profiles",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-windows-7-and-10.md",
-      "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/troubleshoot-client-connection.md",
@@ -37363,16 +37453,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
-      "redirect_url": "/articles/azure-monitor/app/change-analysis-visualizations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#troubleshoot",
-      "redirect_url": "/articles/azure-monitor/app/change-analysis-troubleshoot",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/personalizer/encrypt-data-at-rest",
       "redirect_document_id": false
@@ -40240,12 +40320,17 @@
     },    
     {
       "source_path_from_root": "/articles/virtual-machines/windows/connect-logon.md",
-      "redirect_url": "/articles/virtual-machines/windows/connect-rdp",
+      "redirect_url": "/azure/virtual-machines/windows/connect-rdp",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
-      "redirect_url": "/articles/virtual-machines/windows/connect-winrm",
+      "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+      "redirect_url": "/ai-builder/create-form-processing-model",
       "redirect_document_id": false
     }
   ]
