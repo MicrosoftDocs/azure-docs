@@ -53,9 +53,9 @@ For each month, we truncate the SLA attainment at three places after the decimal
 
 | Month     | 2021    | 2022    |
 | ---       | ---     | ---     |
-| January   |         | 99.999% |
+| January   |         | 99.998% |
 | February  | 99.999% | 99.999% |
-| March     | 99.568% | 99.999% |
+| March     | 99.568% | 99.998% |
 | April     | 99.999% | 99.999% |
 | May       | 99.999% | 99.999% |
 | June      | 99.999% | 99.999% |
