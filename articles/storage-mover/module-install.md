@@ -37,7 +37,7 @@ After completing the steps within this article, you'll be able to complete the r
 
   For additional help installing PowerShellGet, see the article on [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-<!-- ####NOTE####   I don't want to keep updating the version number above - how  can this be done better? -->
+  <!-- ####NOTE####   I don't want to keep updating the version number above - how  can this be done better? -->
 
 ## Remove previous installations and modules
 
@@ -49,54 +49,56 @@ After ensuring that no `AzureRM` and `Az` modules exist locally, follow the guid
 
 ## Install Storage Mover modules
 
-1. Copy the **StorageMoverRC1** folder to your local machine. The folder contains the Storage Mover PowerShell modules and scripts. You can access the folder at [\\xstoreself.corp.microsoft.com\scratch\XDataMove\Public Preview\PSCmdlets\StorageMoverRC1](file://xstoreself.corp.microsoft.com/scratch/XDataMove/Public%Preview/PSCmdlets/StorageMoverRC1).
-1. Open PowerShell with elevated privileges and navigate to your local copy of the **StorageMoverRC1** folder. Run the **RegisterRepository.ps1** script to create a local repository which references the modules within the **pkgs** file. You can provide a custom name for the new repository by supplying a value for the `-RepositoryName` and `PkgsPath` parameters. Running  **RegisterRepository.ps1** with no parameters will create a repository with the same name as its containing folder.
+1. First, copy the folder containing the Storage Mover PowerShell modules and scripts to the file system of your local machine. You can access the `StorageMoverRC1` folder at [https://paste.microsoft.com/0162a457-7e30-44ab-85e5-75514c078c73](https://paste.microsoft.com/0162a457-7e30-44ab-85e5-75514c078c73).
 
-The sample code below shows the creation of a custom repository name using the optional parameters.
+1. Next, open PowerShell with elevated privileges and navigate to your local copy of the `StorageMoverRC1` folder. Create a local repository referencing the modules within the `pkgs` folder by running the `RegisterRepository.ps1` script.
 
-```PowerShell
-cd C:\Temp\StorageMoverRC1\
-.\RegisterRepository.ps1 `
- -RepositoryName StorageMover `
- -PkgsPath C:\Temp\StorageMoverRC1\pkgs                                                                                               
-```
+  Running `RegisterRepository.ps1` with no parameters will create a repository with the same name as its containing folder. You can also specify a custom name for the new repository by supplying values for two parameters. The `-RepositoryName` parameter stores the desired name of the repository, and the `-PkgsPath` parameter expects the path to the `pkgs` folder within `StorageMoverRC1`. Both parameters are required when creating a repository with a specific name.
 
-The following response indicates that the repository was created. You should see results similar to those shown.
+  The sample code below shows the creation of a custom repository name using the optional parameters.
+  
+  ```PowerShell
+  cd C:\Temp\StorageMoverRC1\
+  .\RegisterRepository.ps1 `
+  -RepositoryName StorageMover `
+  -PkgsPath C:\Temp\StorageMoverRC1\pkgs                                                                                               
+  ```
 
-```Response
-Registered repository 'StorageMover' at location 'C:\Temp\StorageMoverRC1\pkgs'
-To install modules from this repository, please run the following:
+  The response indicates that the repository was created. You should see results similar to those shown.
 
-Install-Module -Name Az.StorageMover -Repository StorageMover -AllowPrerelease -AllowClobber -Force -SkipPublisherCheck
-```
+  ```Response
+  Registered repository 'StorageMover' at location 'C:\Temp\StorageMoverRC1\pkgs'
+  To install modules from this repository, please run the following:
+  
+  Install-Module -Name Az.StorageMover -Repository StorageMover -AllowPrerelease -AllowClobber -Force -SkipPublisherCheck
+  ```
 
-> [!TIP]
-> If you're updating PowerShell cmdlet binaries stored in the same local folder, you may receive an error asking you to use a different name. You can use the following sample code to list and unregister conflicting repository names.
+  > [!TIP]
+  > If you're updating PowerShell cmdlet binaries stored in the same local folder, you may receive an error asking you to use a different name. You can use the following sample code to list and unregister conflicting repository names.
 
->    ```powershell
->    Get-PSRepository
->    Unregister-PSRepository -Name [conflicting repository name]
->   ```
+  >    ```powershell
+  >    Get-PSRepository
+  >    Unregister-PSRepository -Name [conflicting repository name]
+  >   ```
 
-1. After the **RegisterRepository.ps1** script has successfully run, install the modules by running the following command.
+1. After the `RegisterRepository.ps1` script has successfully run, install the modules using the `Install-Module` command as shown in the following example.
 
   ```powershell
   Install-Module -Name Az.StorageMover -Repository [Repository Name] –AllowPrerelease –AllowClobber –Force
   ```
 
-  If you're using PowerShell 5.1, this will install the modules in *C:\Program Files\WindowsPowerShell\Modules*. PowerShell 6.0 and greater will install the modules in *C:\Program Files\PowerShell\Modules*.
+  If you're using PowerShell 5.1, the modules will be installed in `C:\Program Files\WindowsPowerShell\Modules`. PowerShell 6.0 and greater will install the modules in `C:\Program Files\PowerShell\Modules`.
 
-> [!IMPORTANT]
-> If the PowerShell binary is unsigned or the **Restricted** execution policy is in effect on your machine, you may encounter an error. To run unsigned scripts, start PowerShell with the *Run as Administrator* option and then use the following command to change the execution policy on the computer to **Unrestricted**.
-
-> ```powershell
-> Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-> ```
-
-> You may also face issues with importing the module due to strong name validation. Import the following registry keys to skip strong name validation if needed.
-> *[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,*]*
-> *[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\StrongName\Verification\*,*]*
-> For more information, see the article for the [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy) cmdlet.
+  > [!IMPORTANT]
+  > If the PowerShell binary is unsigned or the **Restricted** execution policy is in effect on your machine, you may encounter an error. To run unsigned scripts, start PowerShell with the *Run as Administrator* option and then use the following command to change the execution policy on the computer to **Unrestricted**.
+  > ```powershell
+  > Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+  > ```
+  >
+  > You may also face issues with importing the module due to strong name validation. Import the following registry keys to skip strong name validation if needed.
+  > *[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,*]*
+  > *[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\StrongName\Verification\*,*]*
+  > For more information, see the article for the [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy) cmdlet.
 
 1. Run the following sample code in PowerShell to verify that you have successfully installed the cmdlets.
 
@@ -104,7 +106,7 @@ Install-Module -Name Az.StorageMover -Repository StorageMover -AllowPrerelease -
     Get-Command -Module Az.StorageMover
     ```
 
-  You should receive a response similar to the following example.
+    You should receive a response similar to the following example.
 
     ```Response
     CommandType     Name                    Version    Source
