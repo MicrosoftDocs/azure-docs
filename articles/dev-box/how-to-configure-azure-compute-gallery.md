@@ -47,10 +47,8 @@ To allow the services to perform these actions, you must provide permissions to 
 ### Create a dev center Managed Identity
 1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Use the search box to locate Dev Box resources, and select Dev center.
+1. In the search box, type *Dev box* and select **Dev centers** from the list.
 1. Open your DevCenter and select **Identity** from the left menu.
-1. Use the search box to locate Dev Box resources, and select dev center.
-1. Open your dev center and select **Identity** from the left menu.
 1. On the **User assigned** tab, select **+ Add**.
 1. In Add user assigned managed identity, select the user-assigned managed identity that you created in step 1 and then select **Add**.
 
@@ -66,7 +64,7 @@ Follow these steps to manually assign each role:
 #### Windows 365 Service Principal
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Use the search box to locate the Azure Compute Gallery you want to attach to the dev center.
+1. In the search box, type *Azure Compute Gallery* and select the gallery you want to attach to the dev center.
 
 1. Select the **Access Control (IAM)** menu item.
 
@@ -107,23 +105,25 @@ In order to use the images from a gallery in dev box definitions, you must first
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search for and select the dev center you want to attach the gallery to.
+2. In the search box, type *Dev box* and select **Dev centers** from the list.
+ 
+3.  Select the dev center you want to attach the gallery to.
  
 :::image type="content" source="media/how-to-configure-azure-compute-gallery/devcenter-grid.png" alt-text="Screenshot showing the list of existing dev centers.":::
 
-3. From the left menu, select **Azure compute galleries** to list the galleries attached to this dev center.
+4. From the left menu, select **Azure compute galleries** to list the galleries attached to this dev center.
  
 :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid-empty.png" alt-text="Screenshot showing the Azure compute galleries page. There are no existing Azure compute galleries.":::
 
-4. Select **+ Add** to select a gallery to attach.
+5. Select **+ Add** to select a gallery to attach.
 
-5. In Add Azure compute gallery, select your gallery. If you have access to more than one gallery with the same name, the subscription name is shown in parentheses.
+6. In Add Azure compute gallery, select your gallery. If you have access to more than one gallery with the same name, the subscription name is shown in parentheses.
  
 :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-add.png" alt-text="Screenshot showing the Select a Gallery to add option.":::
 
-6. If there's a name conflict in the dev center, then you must provide a unique name to use for this gallery.
+7. If there's a name conflict in the dev center, then you must provide a unique name to use for this gallery.
 
-7. Select **Add**.
+8. Select **Add**.
   
 :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Screenshot showing the Azure compute galleries page with example galleries listed.":::
 
@@ -134,11 +134,13 @@ You can detach galleries from dev centers so that their images can no longer be 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search for and select the dev center you want to remove the gallery from.
+2. In the search box, type *Dev box* and select **Dev centers** from the list.
+ 
+3. Select the dev center you want to remove the gallery from.
 
-3. From the left menu, select **Azure compute galleries** to list the galleries attached to this dev center.
+4. From the left menu, select **Azure compute galleries** to list the galleries attached to this dev center.
 
-4. Select the gallery you want to remove, and then select **Remove**.
+5. Select the gallery you want to remove, and then select **Remove**.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/remove-gallery-from-devcenter.png" alt-text="Screenshot showing the Azure compute galleries page with a gallery selected and the Remove button highlighted.":::
 

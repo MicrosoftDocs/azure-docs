@@ -24,7 +24,9 @@ A Dev Center Project Admin can manage a project by:
  
 Follow the instructions below to add role assignments for this role.
 
-1. In the [Azure portal](https://portal.azure.com), use the search box to locate Dev Box resources, and select Projects. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+ 
+1. In the search box, type *Dev box* and select **Projects**. 
 
 1. Select the project you want to provide your team members access to.
  
