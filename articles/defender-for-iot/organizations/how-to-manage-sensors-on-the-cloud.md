@@ -110,6 +110,8 @@ Sensors that you've on-boarded to Defender for IoT are listed on the Defender fo
 
 Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page.
 
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 |Task |Description  |
 |---------|---------|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-threat-intelligence.png" border="false"::: **Push threat intelligence updates**     | OT sensors only. <br><br>Available for bulk actions from the **Sites and sensors** toolbar, for individual sensors from the **...** options menu, or from a sensor details page.     <br><br>For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).   |
@@ -124,8 +126,6 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support (Public preview)](#upload-a-diagnostics-log-for-support-public-preview).|
-
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 ## Reactivate an OT sensor
 
