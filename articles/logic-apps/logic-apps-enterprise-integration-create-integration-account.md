@@ -53,7 +53,7 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 * If you're working on a Standard logic app workflow, you have the following options:
 
-  * To use B2B artifacts other than maps and schemas from your integration account in your workflow, you don't need to link your integration account to your Standard logic app resource.
+  * To use B2B artifacts other than maps and schemas from your integration account in your workflow, you don't have to link your integration account to your Standard logic app resource.
 
   * To use maps and schemas in your workflow, you can upload these artifacts directly to your logic app resource. Although not required, you can also link your integration account to your logic app resource. Some actions, such as **Liquid**, **Flat File**, and others, support selecting maps *either* from your linked integration account or from your logic app resource. You can use these artifacts across all child workflows within the *same logic app resource*.
 
@@ -67,7 +67,7 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 Integration accounts are available in different tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/). Based on the tier you choose, creating an integration account might incur costs. For more information, review [Azure Logic Apps pricing and billing models](logic-apps-pricing.md#integration-accounts) and [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-Based on your requirements and scenarios, determine the appropriate integration account tier to create. Both your integration account and logic app resource must use the *same* location or Azure region. The following table describes the available tiers:
+Based on your requirements and scenarios, determine the appropriate integration account tier to create. The following table describes the available tiers:
 
 | Tier | Description |
 |------|-------------|
@@ -77,6 +77,11 @@ Based on your requirements and scenarios, determine the appropriate integration 
 |||
 
 For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-resource-create), or [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount).
+
+> [!IMPORTANT]
+>
+> For you to successfully link and use your integration account with your logic app, 
+> make sure that both resources exist in the *same* Azure subscription and Azure region.
 
 ### [Portal](#tab/azure-portal)
 
@@ -148,9 +153,9 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
 
    For more information about pricing, see these resources:
 
-   * [Logic Apps pricing model](logic-apps-pricing.md#integration-accounts)
-   * [Logic Apps limits and configuration](logic-apps-limits-and-config.md#integration-account-limits)
-   * [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+   * [Azure Logic Apps pricing model](logic-apps-pricing.md#integration-accounts)
+   * [Azure Logic Apps limits and configuration](logic-apps-limits-and-config.md#integration-account-limits)
+   * [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 To import an integration account by using a JSON file, use the [az logic integration-account import](/cli/azure/logic/integration-account#az-logic-integration-account-import) command:
 
@@ -165,11 +170,11 @@ az logic integration-account import --name integration_account_01 \
 
 ## Link to logic app
 
-For you to successfully link your logic app and integration account, both resources must use the same Azure subscription and Azure region.
+For you to successfully link and use your integration account with your logic app, make sure that both resources use the *same* Azure subscription and Azure region.
 
 ### [Consumption](#tab/consumption)
 
-For your Consumption logic app workflow to access the B2B artifacts in your integration account, you must first link your logic app resource to your integration account. Both logic app and integration account must use the same Azure subscription and Azure region. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
+For your Consumption logic app workflow to access the B2B artifacts in your integration account, you must first link your logic app resource to your integration account. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. In the [Azure portal](https://portal.azure.com), open an existing logic app resource, or create a new logic app resource.
 
@@ -189,7 +194,7 @@ Now your logic app workflow can use the artifacts in your integration account pl
 
 ### [Standard](#tab/standard)
 
-Optionally, you can link your Standard logic app resource to your integration account. Any and all child workflows in the *same logic app resource* can use the artifacts in that integration account.
+You can optionally link your Standard logic app resource to your integration account. By linking your integration account to multiple logic apps, you don't have to upload maps or schemas to each individual logic app. Any and all workflows in the *same logic app resource* can use the artifacts in that integration account. Some actions support selecting maps and schemas *either* from your logic app resource or from your linked integration account.
 
 #### Find your integration account's callback URL
 
@@ -211,7 +216,7 @@ Before you can link your integration account to a Standard logic app resource, y
 
 1. On the **Configuration** pane, check whether the app setting named **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** exists.
 
-1. If the app setting doesn't exist, select **New application setting**.
+1. If the app setting doesn't exist, under the **Configuration** pane toolbar, select **New application setting**.
 
 1. Provide the following values for the app setting:
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divyaswarnkar, estfan, tonytang, azla
 ms.topic: how-to
-ms.date: 08/12/2022
+ms.date: 08/15/2022
 
 # Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps
 ---
@@ -36,15 +36,24 @@ For more information, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+* Your logic app workflow and basic knowledge about how to create logic app workflows. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, review the following documentation:
 
-  * Is associated with the same Azure subscription as your logic app resource.
+  * [Quickstart: Create your first Consumption logic app workflow with multi-tenant Azure Logic Apps](quickstart-create-first-logic-app-workflow.md)
 
-  * Exists in the same location or Azure region as your logic app resource.
+  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
-  * If you're working on a Consumption logic app workflow, your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+* Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 
-  * If you're working on a Standard logic app workflow, you can upload maps directly to your logic app resource. Although not required, you can also link your integration account to your logic app resource. Liquid actions support selecting maps *either* from your logic app resource or your linked integration account. You can use these maps across all child workflows within the *same logic app resource*.
+  > [!NOTE]
+  >
+  > To use an integration account with a logic app workflow, both resources 
+  > must exist in the same Azure subscription and Azure region.
+
+  * If you're working on a Consumption logic app workflow, your integration account also requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+  * If you're working on a Standard logic app workflow, you can upload maps directly to your logic app resource, so an integration account is optional. However, if you have an integration account with the maps that you want to use, you can also [link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account). By linking your integration account to multiple logic apps, you don't have to upload maps to each individual logic app.
+
+    For Standard workflows, Liquid actions support selecting maps *either* from your logic app resource or from your linked integration account. You can then use these maps across all child workflows within the *same logic app resource*.
 
 * Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/). Azure Logic Apps uses DotLiquid 2.0.361.
 
@@ -54,21 +63,15 @@ For more information, review the following documentation:
   > which differs in specific cases from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). 
   > For more information, see [Liquid template considerations](#liquid-template-considerations).
 
-* Basic knowledge about how to create logic app workflows. Liquid operations don't have any triggers available, so your workflow has to include a trigger at least. For more information, review the following documentation:
+<a name="create-template"></a>
 
-  * [Quickstart: Create your first Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md)
-
-  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
-
-## Create the template
+## Step 1 - Create the template
 
 Before you can perform a Liquid transformation in your logic app workflow, you must first create a Liquid template that defines the mapping that you want.
-You then [upload the template as a map](logic-apps-enterprise-integration-maps.md) into your [integration account](logic-apps-enterprise-integration-create-integration-account.md). When you add the **Transform JSON to JSON** action to your workflow, you can then select the Liquid template as the map for the action to use.
-
 
 1. Create the Liquid template that you use as a map for the JSON transformation. You can use any editing tool that you want.
 
-   For this example, create the sample Liquid template as described in this section:
+   The JSON to JSON tranformation example in this article uses the following sample Liquid template:
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -91,7 +94,24 @@ You then [upload the template as a map](logic-apps-enterprise-integration-maps.m
 
 1. Save the template by using the `.liquid` extension. This example uses `SimpleJsonToJsonTemplate.liquid`.
 
-## Upload the template
+<a name="upload-template"></a>
+
+## Step 2 - Upload Liquid template
+
+After you create your Liquid template, you now have to upload the template based on the following scenario:
+
+* If you're working on a Consumption logic app workflow, [upload your template to your integration account](#upload-template-integration-account).
+
+* If you're working on a Standard logic app workflow, you can [upload your template to your integration account](#upload-template-integration-account), or [upload your template to your logic app resource](#upload-template-standard-logic-app).
+
+Before you If you're working on a Consumption logic app workflow, you have to first  You then [upload the template as a map](logic-apps-enterprise-integration-maps.md) into your [integration account](logic-apps-enterprise-integration-create-integration-account.md). When you add the **Transform JSON to JSON** action to your workflow, you can then select the Liquid template as the map for the action to use.
+
+
+You can upload the template as a map directly to your logic app resource. However, if you already have an integration account with the maps that you want to use, you can also [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
+
+<a name="upload-template-integration-account"></a>
+
+### Upload template to integration account
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -118,7 +138,13 @@ You then [upload the template as a map](logic-apps-enterprise-integration-maps.m
 
    ![Screenshot showing "Add Map" pane with new template uploaded.](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
 
-## Add the Liquid transformation action
+<a name="upload-template-standard-logic-app"></a>
+
+### Upload template to Standard logic app
+
+---
+
+## Step 3 - Add the Liquid transformation action
 
 The following steps show how to add a Liquid transformation action for Consumption and Standard logic app workflows.
 
@@ -183,7 +209,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 ---
 
-## Test your logic app
+## Test your workflow
 
 1. By using [Postman](https://www.getpostman.com/postman) or a similar tool and the `POST` method, send a call to the Request trigger's URL and include the JSON input to transform, for example:
 
@@ -200,17 +226,73 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
+<a name="other-transformations"></a>
+
+### Other Liquid transformations
+
+You can use Liquid to perform other transformations, for example:
+
+* [JSON to text](#json-text)
+* [XML to JSON](#xml-json)
+* [XML to text](#xml-text)
+
+<a name="json-text"></a>
+
+#### Transform JSON to text
+
+The following Liquid template shows an example transformation for JSON to text:
+
+```json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
+
+The following example shows the sample inputs and outputs:
+
+![Screenshot showing example output for JSON to text transformation.](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+<a name="xml-json"></a>
+
+#### Transform XML to JSON
+
+The following Liquid template shows an example transformation for XML to JSON:
+
+``` json
+[{% JSONArrayFor item in content -%}
+      {{item}}
+  {% endJSONArrayFor -%}]
+```
+
+The `JSONArrayFor` loop is a custom looping mechanism for XML input so that you can create JSON payloads that avoid a trailing comma. Also, the `where` condition for this custom looping mechanism uses the XML element's name for comparison, rather than the element's value like other Liquid filters. For more information, see [Deep Dive on set-body Policy - Collections of Things](https://azure.microsoft.com/blog/deep-dive-on-set-body-policy).
+
+The following example shows the sample inputs and outputs:
+
+![Screenshot showing example output for XML to JSON transformation.](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+<a name="xml-text"></a>
+
+#### Transform XML to text
+
+The following Liquid template shows an example transformation for XML to text:
+
+``` json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
+
+The following example shows the sample inputs and outputs:
+
+![Screenshot showing example output for XML to text transformation.](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+
 <a name="template-considerations"></a>
 
 ## Liquid template considerations
 
 * Liquid templates follow the [file size limits for maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) in Azure Logic Apps.
 
-* The **Transform JSON to JSON - Liquid** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid). This implementation is a port to the .NET Framework from the [Shopify implementation for Liquid](https://shopify.github.io/liquid/) and differs in [specific cases](https://github.com/dotliquid/dotliquid/issues).
+* The **Transform JSON to JSON** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid). This implementation is a port to the .NET Framework from the [Shopify implementation for Liquid](https://shopify.github.io/liquid/) and differs in [specific cases](https://github.com/dotliquid/dotliquid/issues).
 
   Here are the known differences:
 
-  * The **Transform JSON to JSON - Liquid** action natively outputs a string, which can include JSON, XML, HTML, and so on. The Liquid action only indicates that the expected text output from the Liquid template's is a JSON string. The action instructs your logic app to parse input as a JSON object and applies a wrapper so that Liquid can interpret the JSON structure. After the transformation, the action instructs your logic app to parse the text output from Liquid back to JSON.
+  * The **Transform JSON to JSON** action natively outputs a string, which can include JSON, XML, HTML, and so on. The Liquid action only indicates that the expected text output from the Liquid template's is a JSON string. The action instructs your logic app to parse input as a JSON object and applies a wrapper so that Liquid can interpret the JSON structure. After the transformation, the action instructs your logic app to parse the text output from Liquid back to JSON.
 
     DotLiquid doesn't natively understand JSON, so make sure that you escape the backslash character (`\`) and any other reserved JSON characters.
 
@@ -247,62 +329,6 @@ The following steps show how to add a Liquid transformation action for Consumpti
     * Sorts only in string-alphanumeric order. For more information, see [Numeric sort](https://github.com/Shopify/liquid/issues/980).
 
     * Uses *case-insensitive* order, not case-sensitive order. For more information, see [Sort filter does not follow casing behavior from Shopify's specification]( https://github.com/dotliquid/dotliquid/issues/393).
-
-<a name="other-transformations"></a>
-
-## Other transformations using Liquid
-
-Liquid isn't limited to only JSON transformations. You can also use Liquid to perform other transformations, for example:
-
-* [JSON to text](#json-text)
-* [XML to JSON](#xml-json)
-* [XML to text](#xml-text)
-
-<a name="json-text"></a>
-
-### Transform JSON to text
-
-Here's the Liquid template that's used for this example:
-
-```json
-{{content.firstName | Append: ' ' | Append: content.lastName}}
-```
-
-Here are the sample inputs and outputs:
-
-![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
-
-<a name="xml-json"></a>
-
-### Transform XML to JSON
-
-Here's the Liquid template that's used for this example:
-
-``` json
-[{% JSONArrayFor item in content -%}
-      {{item}}
-  {% endJSONArrayFor -%}]
-```
-
-The `JSONArrayFor` loop is a custom looping mechanism for XML input so that you can create JSON payloads that avoid a trailing comma. Also, the `where` condition for this custom looping mechanism uses the XML element's name for comparison, rather than the element's value like other Liquid filters. For more information, see [Deep Dive on set-body Policy - Collections of Things](https://azure.microsoft.com/blog/deep-dive-on-set-body-policy).
-
-Here are the sample inputs and outputs:
-
-![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
-
-<a name="xml-text"></a>
-
-### Transform XML to text
-
-Here's the Liquid template that's used for this example:
-
-``` json
-{{content.firstName | Append: ' ' | Append: content.lastName}}
-```
-
-Here are the sample inputs and outputs:
-
-![Example output XML to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## Next steps
 
