@@ -21,7 +21,9 @@ This article presents the different ways you can find the [request unit](../requ
 
 When you perform operations against the Azure Cosmos DB Cassandra API, the RU charge is returned in the incoming payload as a field named `RequestCharge`. You have multiple options for retrieving the RU charge.
 
-### [.NET SDK](#tab/dotnet-sdk)
+## Use a Cassandra Driver
+
+### [.NET Driver](#tab/dotnet-driver)
 
 When you use the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/), you can retrieve the incoming payload under the `Info` property of a `RowSet` object:
 
@@ -32,7 +34,7 @@ double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["Reques
 
 For more information, see [Quickstart: Build a Cassandra app by using the .NET SDK and Azure Cosmos DB](manage-data-dotnet.md).
 
-### [Java SDK](#tab/java-sdk)
+### [Java Driver](#tab/java-driver)
 
 When you use the [Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core), you can retrieve the incoming payload by calling the `getExecutionInfo()` method on a `ResultSet` object:
 
