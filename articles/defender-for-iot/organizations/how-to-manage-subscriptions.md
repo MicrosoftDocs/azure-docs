@@ -161,17 +161,15 @@ Business considerations may require that you apply your existing IoT sensors to 
 
 **To switch to a new subscription**:
 
-1. Onboard a new plan to the new subscription you want to use. For more information, see: 
+1. Onboard a new plan to the new subscription you want to use. For more information, see:
 
     [Onboard a plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) in the Azure portal
 
     [Onboard a plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks) in Defender for Endpoint
 
-1. Register your sensors under the new subscription. For more information, see [Set up an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#set-up-an-enterprise-iot-sensor).
+1. Onboard your sensors again under the new subscription. For OT sensors, [upload a new activation](how-to-manage-individual-sensors.md#upload-new-activation-files) file for your sensors.
 
-1. [Upload a new activation](how-to-manage-individual-sensors.md#upload-new-activation-files) file for your sensors.
-
-1. Delete the sensor identities from the legacy subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)..
+1. Delete the sensor identities from the legacy subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the legacy subscription.
 

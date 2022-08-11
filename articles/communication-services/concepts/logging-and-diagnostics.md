@@ -2,11 +2,11 @@
 title: Communication Services Logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging in Azure Communication Services
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services

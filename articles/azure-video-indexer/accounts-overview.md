@@ -14,7 +14,8 @@ This article gives an overview of Azure Video Indexer accounts and provides link
 
 Classic and ARM (Azure Resource Manager) are both paid accounts with similar data plane capabilities and pricing. The main difference is that classic accounts control plane is managed by Azure Video Indexer and ARM accounts control plane is managed by Azure Resource Manager.
 Going forward, ARM account support more Azure native features and integrations such as: Azure Monitor, Private endpoints, Service tag and CMK (Customer managed key).  
-**The recommended paid account type is the ARM-based account**  
+
+A trial account is automatically created the first time you visit the [www.videoindexer.ai/](https://www.videoindexer.ai/) website. A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. 
 
 ### To generate an access token
 
@@ -22,8 +23,6 @@ Going forward, ARM account support more Azure native features and integrations s
 |---|---|---|---|
 |Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic
 |Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic
-
-A trial Azure Video Indexer account has limitation on number of videos, support, and SLA. 
 
 ### Indexing
 
@@ -34,7 +33,7 @@ For more details, see [Pricing](https://azure.microsoft.com/pricing/details/vide
 
 ### Create accounts
 
-* ARM accounts: [Get started with Azure Video Indexer in Azure portal](create-account-portal.md)
+* ARM accounts: [Get started with Azure Video Indexer in Azure portal](create-account-portal.md). **The recommended paid account type is the ARM-based account**.  
 
     * Upgrade a trial account to an ARM based account and [**import** your content for free](connect-to-azure.md#import-your-content-from-the-trial-account).  
 * Classic accounts: [Create classic accounts using API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Paid-Account).
