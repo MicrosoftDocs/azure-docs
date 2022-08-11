@@ -14,26 +14,26 @@ ms.custom: subject-rbac-steps
 
 # Converting your data to FHIR
 
-The `$convert-data` custom endpoint in the FHIR service enables converting health data from different legacy formats to FHIR. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion mapping. You can customize these conversion templates as needed. Currently the `$convert-data` operation supports three types of data conversion: **HL7v2 to FHIR**, **C-CDA to FHIR**, and **JSON to FHIR** (JSON to FHIR templates are intended for custom conversion mapping).
+The `$convert-data` custom endpoint in the FHIR service enables converting health data from different formats to FHIR. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion mapping. You can customize these conversion templates as needed. Currently the `$convert-data` operation supports three types of data conversion: **HL7v2 to FHIR**, **C-CDA to FHIR**, and **JSON to FHIR** (JSON to FHIR templates are intended for custom conversion mapping).
 
 > [!NOTE]
-> The `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of legacy health data formats into the FHIR format. However, the `$convert-data` operation is not an ETL pipeline in itself. We recommend you use an ETL engine based on Azure Logic Apps or Azure Data Factory for a complete workflow in converting your legacy data to FHIR. The workflow might include: data reading and ingestion, data validation, making `$convert-data` API calls, data pre/post-processing, data enrichment, data de-duplication, and loading the data for persistence in the FHIR service.
+> The `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of health data formats into the FHIR format. However, the `$convert-data` operation is not an ETL pipeline in itself. We recommend you use an ETL engine based on Azure Logic Apps or Azure Data Factory for a complete workflow in converting your data to FHIR. The workflow might include: data reading and ingestion, data validation, making `$convert-data` API calls, data pre/post-processing, data enrichment, data de-duplication, and loading the data for persistence in the FHIR service.
 
 ## Using the `$convert-data` endpoint
 
-The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. Calling the `$convert-data` endpoint causes the FHIR service to perform a conversion on legacy health data:
+The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. Calling the `$convert-data` endpoint causes the FHIR service to perform a conversion on health data sent in an API request:
 
 `POST {{fhirurl}}/$convert-data`
 
-The legacy health data is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the legacy data converted to FHIR.
+The health data is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service will return a FHIR `Bundle` response with the data converted to FHIR.
 
 ### Parameters Resource
 
-A `$convert-data` API call packages the legacy health data inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request. See the table below for a description of the parameters. 
+A `$convert-data` API call packages the health data for conversion inside a JSON-formatted [Parameters resource](http://hl7.org/fhir/parameters.html) in the body of the request. See the table below for a description of the parameters. 
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
-| `inputData`      | Legacy data payload to be converted to FHIR. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON |
+| `inputData`      | Data payload to be converted to FHIR. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON |
 | `inputDataType`   | Type of data input. | ```HL7v2```, ``Ccda``, ``Json`` |
 | `templateCollectionReference` | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection in [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). The reference is to an image containing Liquid templates to use for conversion. This can be a reference either to default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting them on ACR, and registering to the FHIR service. | For ***default/sample*** templates: <br> **HL7v2** templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br><br> For ***custom*** templates: <br> `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>` |
 | `rootTemplate` | The root template to use while transforming the data. | For **HL7v2**:<br> "ADT_A01", "ADT_A02", "ADT_A03", "ADT_A04", "ADT_A05", "ADT_A08", "ADT_A11",  "ADT_A13", "ADT_A14", "ADT_A15", "ADT_A16", "ADT_A25", "ADT_A26", "ADT_A27", "ADT_A28", "ADT_A29", "ADT_A31", "ADT_A47", "ADT_A60", "OML_O21", "ORU_R01", "ORM_O01", "VXU_V04", "SIU_S12", "SIU_S13", "SIU_S14", "SIU_S15", "SIU_S16", "SIU_S17", "SIU_S26", "MDM_T01", "MDM_T02"<br><br> For **C-CDA**:<br> "CCD", "ConsultationNote", "DischargeSummary", "HistoryandPhysical", "OperativeNote", "ProcedureNote", "ProgressNote", "ReferralNote", "TransferSummary" <br><br> For **JSON**: <br> "ExamplePatient", "Stu3ChargeItem" <br> |
@@ -44,7 +44,7 @@ A `$convert-data` API call packages the legacy health data inside a JSON-formatt
 > [!WARNING]
 > Default templates are released under MIT License and are **not** supported by Microsoft Support.
 >
-> Default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and may change at any point when Microsoft releases updates to the FHIR service. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** in an Azure Container Registry instance, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify that the conversion behavior meets your requirements. 
+> Default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and may change at any point when Microsoft releases updates for the FHIR service. In order to have consistent data conversion behavior across different versions of the FHIR service, you must 1) **host your own copy of templates** in an Azure Container Registry instance, 2) register the templates to the FHIR service, 3) use your registered templates in your API calls, and 4) verify that the conversion behavior meets your requirements. 
 
 #### Sample Request
 
@@ -102,7 +102,7 @@ You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/
 
 ## Host your own templates
 
-It's recommended that you host your own copy of templates in an Azure Container Registry (ACR) instance. There are six steps involved in hosting your own templates and using them in the `$convert-data` operation:
+It's recommended that you host your own copy of templates in an Azure Container Registry (ACR) instance. There are six steps involved in hosting your own templates and using them for `$convert-data` operations:
 
 1. Create an Azure Container Registry instance.
 2. Push the templates to your Azure Container Registry.
@@ -230,11 +230,11 @@ Make a call to the `$convert-data` API specifying your template reference in the
 
 `<RegistryServer>/<imageName>@<imageDigest>`
 
-You should receive a `Bundle` response containing the legacy health data converted into the FHIR format.
+You should receive a `Bundle` response containing the health data converted into the FHIR format.
 
 ## Next steps
 
-In this article, you've learned about the `$convert-data` endpoint for converting legacy health data to FHIR using the FHIR service in Azure Health Data Services. For information about how to export FHIR data from the FHIR service, see
+In this article, you've learned about the `$convert-data` endpoint for converting health data to FHIR using the FHIR service in Azure Health Data Services. For information about how to export FHIR data from the FHIR service, see
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
