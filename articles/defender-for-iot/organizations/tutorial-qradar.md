@@ -82,7 +82,17 @@ Create a forwarding rule from your on-premises management console to forward ale
 
    :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of the Create a Forwarding Rule window.":::
 
+<<<<<<< HEAD
 1. Define the QRadar IP address and timezone, and then select **Save**.
+=======
+The following is an example of a payload sent to QRadar:
+
+```sample payload
+<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
+```
+
+## Map notifications to QRadar
+>>>>>>> fead19ad4dc8fcacf91f87c88b9b468b0fce1373
 
 1. Sign into your QRadar console, select **QRadar**> **Log Activity** .
 
