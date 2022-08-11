@@ -42,7 +42,7 @@ Security defaults make it easier to help protect your organization from these id
 
 ## Enabling security defaults
 
-If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation.
+If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation. 
 
 To enable security defaults in your directory:
 
@@ -174,6 +174,10 @@ To create an emergency access account:
 You may choose to [disable password expiration](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) for these accounts using Azure AD PowerShell.
 
 For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+
+### B2B guest users
+
+Any B2B Guest users that access your directory will be subject to the same controls as your organization's users.
 
 ### Disabled MFA status
 
