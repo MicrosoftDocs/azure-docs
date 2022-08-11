@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 08/11/2022
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -76,21 +76,17 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for the SQL Managed Instance linked service:
+These generic properties are supported for an SQL Managed Instance linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureSqlMI**. | Yes |
 | connectionString |This property specifies the **connectionString** information that's needed to connect to SQL Managed Instance by using SQL authentication. For more information, see the following examples. <br/>The default port is 1433. If you're using SQL Managed Instance with a public endpoint, explicitly specify port 3342.<br> You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
-| tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
-| credentials | Specify the user-assigned managed identity as the credential object. | Yes, when you use user-assigned managed identity authentication |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows the service to access it. If not specified, the default Azure integration runtime is used. |Yes |
 
-For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
+For different authentication types, refer to the following sections on specific properties, prerequisites and JSON samples, respectively:
 
 - [SQL authentication](#sql-authentication)
 - [Service principal authentication](#service-principal-authentication)
@@ -98,6 +94,8 @@ For different authentication types, refer to the following sections on prerequis
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### SQL authentication
+
+To use SQL authentication authentication type, specify the generic properties that are described in the preceding section.
 
 **Example 1: use SQL authentication**
 
@@ -171,7 +169,15 @@ For different authentication types, refer to the following sections on prerequis
 
 ### Service principal authentication
 
-To use a service principal-based Azure AD application token authentication, follow these steps:
+To use service principal authentication, in addition to the generic properties that are described in the preceding section, specify the following properties
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| servicePrincipalId | Specify the application's client ID. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
+
+You also need to follow the steps below:
 
 1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
@@ -229,7 +235,7 @@ To use a service principal-based Azure AD application token authentication, foll
 
 A data factory or Synapse workspace can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
 
-To use system-assigned managed identity authentication, follow these steps.
+To use system-assigned managed identity authentication, specify the generic properties that are described in the preceding section, and follow these steps.
 
 1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
@@ -274,7 +280,13 @@ To use system-assigned managed identity authentication, follow these steps.
 
 A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
 
-To use user-assigned managed identity authentication, follow these steps.
+To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+
+You also need to follow the steps below: 
 
 1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
