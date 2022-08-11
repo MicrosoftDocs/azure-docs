@@ -66,7 +66,7 @@ To create a Azure virtual network gateway, see the [create-a-virtual-network-gat
 ### Create IPSEC connection on VPN gateway
 1. Select tenant1 VPN Gateway (created earlier) and then select connection (in left plane) to add new IPSEC connection with tenant1 orgVDC Edge gateway.  
 
-1. Enter the following details.
+1. Enter the following details.  
      | Name | Connection Name |
      |--------- | --------| 
      | Connection Type | Site to Site |
@@ -79,13 +79,13 @@ To create a Azure virtual network gateway, see the [create-a-virtual-network-gat
 ### Configure IPsec Connection 
 Cloud Director Service supports a policy-based VPN.  Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
 
-Select the connection you created earlier and then select **configuration** to view the default settings. 
-- **IPSEC/IKE Policy** 
-- **Enable policy base traffic selector**
- - Modify all other parameters to match what you have in OrgVDC.  
+1. Select the connection you created earlier and then select **configuration** to view the default settings. 
+1. **IPSEC/IKE Policy** 
+1. **Enable policy base traffic selector**
+1. Modify all other parameters to match what you have in OrgVDC.  
     >[!Note]
     > Both source and destination of the tunnel should have identical settings for IKE,SA, DPD etc.
-- Select **Save**.
+1. Select **Save**.
 
 ### Configure VPN on organization VDC Edge router
 1. Log in to Organization CDS tenant portal and select tenant’s edge gateway. 
