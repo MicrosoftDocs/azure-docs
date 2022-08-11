@@ -1489,8 +1489,6 @@ Assign the Lifecycle Workflows Administrator role to users who need to do the fo
 - Launch on-demand workflow runs
 - Inspect workflow execution logs
 
-Learn more
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
