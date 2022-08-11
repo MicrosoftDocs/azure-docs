@@ -54,15 +54,17 @@ In this section, you create a .NET console app, using C#, that initiates a remot
 
 1. In **Create a new project**, find and select the **Console App (.NET Framework)** project template, and then select **Next**.
 
-1. In **Configure your new project**, name the project *TriggerReboot*, and select .NET Framework version 4.5.1 or later. Select **Create**.
+1. In **Configure your new project**, name the project *TriggerReboot*, then select **Next**.
 
-    ![New Visual C# Windows Classic Desktop project](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png" alt-text="Screenshot that shows how to configure a new Visual Studio project." lightbox="./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png":::
+
+1. Accept the default version of the .NET Framework, then select **Create** to create the project.
 
 1. In **Solution Explorer**, right-click the **TriggerReboot** project, and then select **Manage NuGet Packages**.
 
 1. Select **Browse**, then search for and select **Microsoft.Azure.Devices**. Select **Install** to install the **Microsoft.Azure.Devices** package.
 
-    ![NuGet Package Manager window](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-nuget-devices.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-nuget-devices.png" alt-text="Screenshot that shows how to install the Microsoft.Azure.Devices package." lightbox="./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-nuget-devices.png":::
 
    This step downloads, installs, and adds a reference to the [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package and its dependencies.
 
@@ -139,13 +141,13 @@ To create the simulated device app, follow these steps:
 
 1. In **Configure your new project**, name the project *SimulateManagedDevice*, and for **Solution**, select **Add to solution**. Select **Create**.
 
-    ![Name and add your project to the solution](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png" alt-text="Screenshot that shows how to name a new Visual Studio project." lightbox="./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png":::
 
 1. In Solution Explorer, right-click the new **SimulateManagedDevice** project, and then select **Manage NuGet Packages**.
 
 1. Select **Browse**, then search for and select **Microsoft.Azure.Devices.Client**. Select **Install**.
 
-    ![NuGet Package Manager window Client app](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
+   :::image type="content" source="./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png" alt-text="Screenshot that shows how to install the Microsoft.Azure.Devices.Client package." lightbox="./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png":::
 
    This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
 

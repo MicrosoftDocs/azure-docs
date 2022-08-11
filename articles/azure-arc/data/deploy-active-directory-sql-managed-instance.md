@@ -4,8 +4,8 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 04/05/2022
 ms.topic: how-to
@@ -202,24 +202,15 @@ To deploy an Azure Arc-enabled SQL Managed Instance for Azure Arc Active Directo
 
 To support Active Directory authentication on SQL, the deployment specification uses the following fields:
 
+### [Customer-managed keytab mode](#tab/customer-managed-keytab-mode)
+
 - **Required** (For AD authentication)
    - `spec.security.activeDirectory.connector.name` 
       Name of the pre-existing Active Directory connector custom resource to join for AD authentication. When provided, system will assume that AD authentication is desired.
-
-### [Customer-managed keytab mode](#tab/customer-managed-keytab-mode)
-
    - `spec.security.activeDirectory.accountName`
       Name of the Active Directory account for this managed instance. 
    - `spec.security.activeDirectory.keytabSecret`
      Name of the Kubernetes secret hosting the pre-created keytab file by users. This secret must be in the same namespace as the managed instance. This parameter is only required for the AD deployment in customer-managed keytab mode. 
-
-### [System-managed keytab mode](#tab/system-managed-keytab-mode)
-
-   - `spec.security.activeDirectory.accountName`
-      Name of the Active Directory (AD) account for this SQL. This account will be automatically generated for this SQL by the system and must not exist in the domain before deploying SQL. 
-
----
-
   - `spec.services.primary.dnsName`
       You provide a DNS name for the primary SQL endpoint.
   - `spec.services.primary.port`
@@ -228,6 +219,26 @@ To support Active Directory authentication on SQL, the deployment specification 
 - **Optional**
   - `spec.security.activeDirectory.connector.namespace`
      Kubernetes namespace of the pre-existing Active Directory connector to join for AD authentication. When not provided, system will assume the same namespace as SQL.
+
+### [System-managed keytab mode](#tab/system-managed-keytab-mode)
+
+- **Required** (For AD authentication)
+   - `spec.security.activeDirectory.connector.name` 
+      Name of the pre-existing Active Directory connector custom resource to join for AD authentication. When provided, system will assume that AD authentication is desired.
+   - `spec.security.activeDirectory.accountName`
+      Name of the Active Directory (AD) account for this SQL. This account will be automatically generated for this SQL by the system and must not exist in the domain before deploying SQL. 
+  - `spec.services.primary.dnsName`
+      You provide a DNS name for the primary SQL endpoint.
+  - `spec.services.primary.port`
+      You provide a port number for the primary SQL endpoint.
+
+- **Optional**
+  - `spec.security.activeDirectory.connector.namespace`
+     Kubernetes namespace of the pre-existing Active Directory connector to join for AD authentication. When not provided, system will assume the same namespace as SQL.
+   - `spec.security.activeDirectory.encryptionTypes`
+      List of Kerberos encryption types to allow for the automatically generated AD account provided in `spec.security.activeDirectory.accountName`. Accepted values are RC4, AES128 and AES256. It defaults to allow all encryption types when there is no value provided. You can disable RC4 by providing only AES128 and AES256 as encryption types.
+
+---
 
 ### Prepare deployment specification for SQL Managed Instance for Azure Arc
 

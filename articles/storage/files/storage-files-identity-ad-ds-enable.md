@@ -76,11 +76,11 @@ $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 $SamAccountName = "<sam-account-name-here>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
-# ServiceLogonAccount does not support AES256 encryption.
 # If you don't provide the OU name as an input parameter, the AD identity that represents the 
 # storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
 # Specify the encryption algorithm used for Kerberos authentication. Using AES256 is recommended.
+# Note that ServiceLogonAccount does not support AES256 encryption.
 $EncryptionType = "<AES256|RC4|AES256,RC4>"
 
 # Select the target subscription for the current session
@@ -181,7 +181,7 @@ Set-AzStorageAccount `
 To enable AES-256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
 > [!IMPORTANT]
-> The domain object that represents your storage account must be created as a computer object in the on-premises AD domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does.
+> The domain object that represents your storage account must be created as a computer object in the on-premises AD domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Note that Service Logon Accounts do not support AES256 encryption.
 
 Replace `<domain-object-identity>` and `<domain-name>` with your values, then run the following cmdlet to configure AES-256 support:
 

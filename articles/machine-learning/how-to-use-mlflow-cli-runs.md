@@ -26,23 +26,23 @@ In this article, learn how to enable [MLflow Tracking](https://mlflow.org/docs/l
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLflow and Azure Machine Learning functionality including MLflow Project support (preview) and model deployment.
 
-> [!IMPORTANT]
-> When using the Azure Machine Learning SDK v2, no native logging is provided. Instead, use MLflow's tracking capabilities. For more information, see [How to log and view metrics (v2)](how-to-log-view-metrics.md).
- 
-> [!TIP]
+> [!Tip] 
+> If you want to track experiments running on Azure Databricks or Azure Synapse Analytics, see the dedicated articles [Track Azure Databricks ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-databricks.md) or [Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-synapse.md).
+
+> [!NOTE]
 > The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
-> [!NOTE] 
-> You can use the [MLflow Skinny client](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
-
 ## Prerequisites
+
+* Install the `mlflow` package. 
+    * You can use the [MLflow Skinny](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
 
 * Install the `azureml-mlflow` package. 
 * [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
-* Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
-* Install and set up SDK(v2) for Python
+* (Optional) Install and [set up Azure ML CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
+* (Optional) Install and set up Azure ML SDK(v2) for Python.
 
 
 ## Track runs from your local machine or remote compute

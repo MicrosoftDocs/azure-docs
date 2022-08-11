@@ -123,7 +123,7 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
-            - name: Use directory schema extension attributes in claims
+            - name: Use directory extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
               href: active-directory-saml-claims-customization.md
@@ -148,8 +148,6 @@
           href: workload-identity-federation.md
         - name: Trust an external identity provider (federation)
           href: workload-identity-federation-create-trust.md
-        - name: Configure an app to trust a GitHub repo
-          href: workload-identity-federation-create-trust-github.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
         - name: Exchange AD FS SAML for Microsoft Graph access token

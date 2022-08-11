@@ -48,7 +48,7 @@ There are limits, per subscription, for deploying resources using Azure Compute 
 - 100 galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
-- 10 image version replicas, per subscription, per region
+- 100 image version replicas, per subscription, per region however 50 replicas should be sufficient for most use cases
 - Any disk attached to the image must be less than or equal to 1TB in size
 
 For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.

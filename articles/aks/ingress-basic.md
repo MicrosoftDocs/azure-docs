@@ -149,7 +149,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
+helm install ingress-nginx ingress-nginx/ingress-nginx \
     --version 4.1.3 \
     --namespace ingress-basic \
     --create-namespace \
