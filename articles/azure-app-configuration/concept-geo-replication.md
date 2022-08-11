@@ -48,6 +48,6 @@ Each replica created will add extra charges. Reference the [App Configuration pr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to enable Geo replication](./quickstart-feature-flag-aspnet-core.md)  
+> [How to enable Geo replication](./howto-geo-replication.md)  
 
 > [Resiliency and Disaster Recovery](./concept-disaster-recovery.md)
