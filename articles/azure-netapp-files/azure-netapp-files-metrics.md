@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
-You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**.  Then click **Metric** to view the available metrics: 
+You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**. Then select **Metric** to view the available metrics: 
 
 [ ![Snapshot that shows how to navigate to the Metric pull-down.](../media/azure-netapp-files/metrics-navigate-volume.png) ](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
@@ -117,7 +117,7 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
     Write throughput in bytes per second.
 
 * *Other throughput*   
-    Other throughput (that is not read or write) in bytes per second.
+    Other throughput (that isn't read or write) in bytes per second.
 
 ## Volume backup metrics  
 
@@ -128,7 +128,7 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
     Shows whether the last volume backup or restore operation is successfully completed.  `1` is successful. `0` is unsuccessful.
 
 * *Is Volume Backup Suspended*   
-    Shows whether the backup policy is suspended for the volume.  `1` is not suspended. `0` is suspended.
+    Shows whether the backup policy is suspended for the volume.  `1` isn't suspended. `0` is suspended.
 
 * *Volume Backup Bytes*   
     The total bytes backed up for this volume.
