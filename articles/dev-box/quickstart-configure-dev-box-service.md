@@ -75,7 +75,7 @@ The following steps show you how to create and configure a dev center.
 ## Create a network connection
 Network connections determine the region into which dev boxes are deployed and allow them to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 
-To perform the steps in this section, you must have and existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network?branch=main) to create them. 
+To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network?branch=main) to create them. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -165,9 +165,9 @@ The following steps show you how to create and configure a dev box definition. Y
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Screenshot showing the create dev box definition page with suggested images highlighted.":::
 
-   For your image, consider using either:
-   - Windows 11 Enterprise Cloud PC + Microsoft 365 Apps
-   - Windows 10 Enterprise Cloud PC, version 21H2 + Microsoft 365 Apps
+   For your image, consider using either of these Cloud PCs:
+   - Windows 11 Enterprise + Microsoft 365 Apps 21H2
+   - Windows 10 Enterprise + Microsoft 365 Apps 21H2
       
    These images are preconfigured with productivity tools like Microsoft Teams and configured for optimal performance.
 
