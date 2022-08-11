@@ -1,10 +1,10 @@
 ---
-title: Log & view parameters, metrics and files
+title: Log & view parameters, metrics and files with MLflow
 titleSuffix: Azure Machine Learning
 description: Enable logging on your ML training runs to monitor real-time run metrics with MLflow, and to help diagnose errors and warnings.
 services: machine-learning
-author: swinner95
-ms.author: shwinne
+ms.author: amipatel
+author: amibp
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-# Log & view metrics and log files
+# Log & view metrics and log files with MLflow
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](./v1/how-to-log-view-metrics.md)
@@ -247,11 +247,6 @@ Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Exp
 Select the logged metrics to render charts on the right side.
 
 :::image type="content" source="media/how-to-log-view-metrics/metrics-old.png" alt-text="Screenshot of the current metrics view.":::
-
-For a customizable view of your job metrics (preview), use the preview panel to enable the feature. Once enabled, you can add/remove charts and customize them by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
-
-:::image type="content" source="media/how-to-log-view-metrics/metrics-new.png" alt-text="Screenshot of the new metrics view.":::
-
 
 ### View and download log files for a job 
 

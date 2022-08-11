@@ -41,7 +41,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](../how-to-deploy-and-where.md).
+- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
@@ -51,9 +51,9 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these variables, see [How and where to deploy models](../how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](../how-to-deploy-and-where.md).
+- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - An Azure Kubernetes Service cluster connected to your workspace. For more information, see [Create and attach an Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md).
 
@@ -157,7 +157,7 @@ After the model is deployed and service starts, azureml-fe will automatically di
 
 ## Deploy to AKS
 
-To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](../how-to-deploy-and-where.md).
+To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > The number of models to be deployed is limited to 1,000 models per deployment (per container).
@@ -313,11 +313,11 @@ Microsoft Defender for Cloud provides unified security management and advanced t
 ## Next steps
 
 * [Use Azure RBAC for Kubernetes authorization](../../aks/manage-azure-rbac.md)
-* [Secure inferencing environment with Azure Virtual Network](../how-to-secure-inferencing-vnet.md)
+* [Secure inferencing environment with Azure Virtual Network](how-to-secure-inferencing-vnet.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
 * [Deployment troubleshooting](../how-to-troubleshoot-deployment.md)
 * [Update web service](../how-to-deploy-update-web-service.md)
-* [Use TLS to secure a web service through Azure Machine Learning](../how-to-secure-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights.md)
 * [Collect data for models in production](../how-to-enable-data-collection.md)
