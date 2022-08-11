@@ -48,21 +48,24 @@ The most important difference between a forecasting regression task type and reg
 
 You can specify separate [training data and validation data](concept-automated-ml.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
 
-For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is  used for validation by default. Pass the training and validation data together, and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage
+For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is used for validation by default. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage.
 
-![rolling origin cross validation](./media/how-to-auto-train-forecast/rolling-origin-cross-validation.svg)
-
-You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+Pass your training and validation data as one dataset to the parameter, training_data.  You can also set the number of cross validation folds with the parameter `n_cross_validations` and set the number of periods between two consecutive cross-validation folds with `cv_step_size`.  you can also leave either or both parameters empty and AutoML will set them automatically. 
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
                              training_data= training_data,
-                             n_cross_validations=3,
+                             n_cross_validations=”auto”, # Could be customized as an integer
+                             cv_step_size = “auto”, # Could be customized as an integer
                              ...
                              **time_series_settings)
 ```
+
+:::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separates the training and validation sets based on the cross validation step size.":::
+
+You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
