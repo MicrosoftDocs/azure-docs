@@ -54,7 +54,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **New standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-gcp-standard.png" alt-text="Screenshot that shows you where to select a new GCP standard." lightbox="media/how-to-manage-assessments-standards/new-gcp-standard.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-standard.png" alt-text="Screenshot that shows you where to select a new GCP standard." lightbox="media/how-to-manage-assessments-standards/gcp-standard.png":::
 
 1. Enter a name, description and select which assessments you want to add.
 
