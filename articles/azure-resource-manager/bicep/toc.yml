@@ -41,7 +41,7 @@
       displayName: continuous, ci, cd, CI/CD
 - name: Tutorials
   items:
-  - name: Microsoft Learn - Bicep
+  - name: Learn modules for Bicep
     href: learn-bicep.md
   - name: Learn live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
