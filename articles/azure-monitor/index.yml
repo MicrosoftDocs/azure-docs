@@ -74,7 +74,7 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Microsoft Learn learning path
+          - text: Learning path
             url: /learn/paths/monitor-usage-performance-availability-resources-azure-monitor/
 
   # Card
