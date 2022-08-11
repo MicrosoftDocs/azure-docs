@@ -343,4 +343,4 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
 - [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md)
-- [Troubleshooting  online endpoints de
+- [Troubleshooting  online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
