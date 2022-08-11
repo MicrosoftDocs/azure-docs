@@ -47,6 +47,6 @@ The table below summarizes all the observability capabilities supported by API M
 
 ## Next Steps
 
-* Get started with [Azure Monitor metrics and logs](api-management-howto-use-azure-monitor.md)
+- Get started with [Azure Monitor metrics and logs](api-management-howto-use-azure-monitor.md)
 - Learn how to log requests with [Application Insights](api-management-howto-app-insights.md)
 - Learn how to log events through [Event Hubs](api-management-howto-log-event-hubs.md) 
