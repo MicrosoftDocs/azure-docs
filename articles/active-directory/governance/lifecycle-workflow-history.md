@@ -21,12 +21,12 @@ Workflows created using Lifecycle Workflows allow for the automation of lifecycl
 
 ## Lifecycle Workflows history types
 
-When looking at the history of your workflow, Lifecycle Workflows allow you to view history summaries in two separate ways:
+Every time a workflow is processed, an event is logged. These history events are stored, and can be used to gain information about workflows for historical, and auditing, purposes. To make this information easier to read, Lifecycle Workflows provide summaries for quick use. Lifecycle Workflows allow you to view history summaries in two separate ways:
 
 - **user processed**: Shows a summary of users processed by a workflow, and which tasks failed, successfully, and totally ran for them. 
-- **runs**: Shows a summary of workflow runs in terms of the workflow. Successful, failed and total task information when a workflow runs is noted.
+- **runs**: Shows a summary of workflow runs in terms of the workflow. Successful, failed, and total task information when a workflow runs are noted.
 
-Summaries allow you to quickly gain details about how a workflow ran for itself, or users, without going into further details in logs. 
+Summaries allow you to quickly gain details about how a workflow ran for itself, or users, without going into further details in logs.  For a step by step guide on getting this information, see [Check the status of a workflow (Preview)](check-status-workflow.md)
 
 ## Basic Summary information
 
@@ -45,7 +45,7 @@ The cards at the top of the user history page give you a summary in count form. 
 |Failed tasks     | The total number of failed tasks for users.        |
 
 
-For a complete guide on getting this information, see: [User workflow history using the Azure Portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
+For a complete guide on getting user processed summary information, see: [User workflow history using the Azure Portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
 
 Like with the User summary page, you are also able to see a summary of workflow runs at the top of the runs page:
 :::image type="content" source="media/lifecycle-workflow-history/lcw-runs-summary-concept.png" alt-text="lcw runs summary":::
@@ -103,9 +103,7 @@ When filtering workflow history based on either start or completed date, you can
 > [!NOTE]
 > By default workflow history is stored for up to 30 days. To get workflow information older than 30 days, such as information about tasks it had at a given date, see [Workflow versioning](lifecycle-workflow-versioning.md).
 
-For a guide on filtering based on dates, see:
-
-- [Get a summary of runs using Microsoft Graph](check-status-workflow.md#get-a-summary-of-runs-using-microsoft-graph)
+For a guide on filtering based on dates, see: [Get a summary of runs using Microsoft Graph](check-status-workflow.md#get-a-summary-of-runs-using-microsoft-graph)
 
 
 
