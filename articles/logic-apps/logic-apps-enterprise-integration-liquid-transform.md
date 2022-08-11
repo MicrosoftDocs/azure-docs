@@ -12,9 +12,9 @@ ms.date: 08/15/2022
 
 # Transform JSON and XML using Liquid templates as maps in workflows using Azure Logic Apps
 
-When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add the appropriate **Liquid** built-in action to your workflow. You can use **Liquid** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
+When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use **Liquid** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
-While no **Liquid** triggers are available, you can use any appropriate trigger or action to get or feed the source JSON or XML content into your workflow for transformation. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
+While no **Liquid** triggers are available, you can use any trigger or action to get or feed the source JSON or XML content into your workflow for transformation. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
 This article shows how to complete the following tasks:
 
@@ -92,7 +92,7 @@ Before you can perform a Liquid transformation in your logic app workflow, you m
    }
    ```
 
-1. Save the template by using the **.liquid** extension. This example uses **SimpleJsonToJsonTemplate.liquid**.
+1. Save the template with the **.liquid** extension. This example uses **SimpleJsonToJsonTemplate.liquid**.
 
 <a name="upload-template"></a>
 
@@ -166,7 +166,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
 
-1. If your workflow doesn't yet have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
+1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
    This example continues with the Request trigger named **When a HTTP request is received**.
 
@@ -209,7 +209,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
 
-1. If your workflow doesn't yet have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations doesn't have any triggers available.
+1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
    This example continues with the Request trigger named **When a HTTP request is received**.
 
