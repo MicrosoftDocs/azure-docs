@@ -165,9 +165,9 @@ The following steps show you how to create and configure a dev box definition. Y
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Screenshot showing the create dev box definition page with suggested images highlighted.":::
 
-   For your image, consider using either:
-   - Windows 11 Enterprise Cloud PC + Microsoft 365 Apps
-   - Windows 10 Enterprise Cloud PC, version 21H2 + Microsoft 365 Apps
+   For your image, consider using either of these Cloud PCs:
+   - Windows 11 Enterprise + Microsoft 365 Apps 21H2
+   - Windows 10 Enterprise + Microsoft 365 Apps 21H2
       
    These images are preconfigured with productivity tools like Microsoft Teams and configured for optimal performance.
 
