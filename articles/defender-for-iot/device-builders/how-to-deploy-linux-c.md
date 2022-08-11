@@ -2,7 +2,7 @@
 title: Install & deploy Linux C agent
 description: Learn how to install and deploy the Defender for IoT C-based security agent on Linux
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy Defender for IoT C based security agent for Linux
@@ -48,7 +48,7 @@ This script performs the following function:
 
 1. Installs prerequisites.
 
-1. Adds a service user (with interactive sign in disabled).
+1. Adds a service user (with interactive sign-in disabled).
 
 1. Installs the agent as a **Daemon** - assumes the device uses **systemd** for service management.
 

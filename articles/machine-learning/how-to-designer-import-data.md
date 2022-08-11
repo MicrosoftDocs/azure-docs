@@ -9,25 +9,25 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer
+ms.custom: designer, event-tier1-build-2022
 ---
 
 # Import data into Azure Machine Learning designer
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
-* **Azure Machine Learning datasets** - Register [datasets](concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
-* **Import Data component** - Use the [Import Data](algorithm-module-reference/import-data.md) component to directly access data from online datasources.
+* **Azure Machine Learning datasets** - Register [datasets](./v1/concept-data.md) in Azure Machine Learning to enable advanced features that help you manage your data.
+* **Import Data component** - Use the [Import Data](algorithm-module-reference/import-data.md) component to directly access data from online data sources.
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Use Azure Machine Learning datasets
 
-We recommend that you use [datasets](concept-data.md#datasets) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
+We recommend that you use [datasets](./v1/concept-data.md) to import data into the designer. When you register a dataset, you can take full advantage of advanced data features like [versioning and tracking](how-to-version-track-datasets.md) and [data monitoring](how-to-monitor-datasets.md).
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
+You can register existing datasets [programatically with the SDK](./v1/how-to-create-register-datasets.md#create-datasets-from-datastores) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
 
 You can also register the output for any designer component as a dataset.
 
@@ -68,7 +68,7 @@ If you register a file dataset, the output port type of the dataset is **AnyDire
 
 ## Import data using the Import Data component
 
-While we recommend that you use datasets to import data, you can also use the [Import Data](algorithm-module-reference/import-data.md) component. The Import Data component skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](concept-data.md#datastores) or HTTP URL.
+While we recommend that you use datasets to import data, you can also use the [Import Data](algorithm-module-reference/import-data.md) component. The Import Data component skips registering your dataset in Azure Machine Learning and imports data directly from a [datastore](./v1/concept-data.md) or HTTP URL.
 
 For detailed information on how to use the Import Data component, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
@@ -77,7 +77,7 @@ For detailed information on how to use the Import Data component, see the [Impor
 
 ## Supported sources
 
-This section lists the data sources supported by the designer. Data comes into the designer from either a datastore or from [tabular dataset](how-to-create-register-datasets.md#dataset-types).
+This section lists the data sources supported by the designer. Data comes into the designer from either a datastore or from [tabular dataset](./v1/how-to-create-register-datasets.md#dataset-types).
 
 ### Datastore sources
 For a list of supported datastore sources, see [Access data in Azure storage services](how-to-access-data.md#supported-data-storage-service-types).

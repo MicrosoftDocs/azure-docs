@@ -4,7 +4,7 @@ description: Learn the process to request an increase for the CPU cores allocate
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/07/2020
+ms.date: 04/01/2022
 ---
 # Requesting quota increases for Azure HDInsight
 

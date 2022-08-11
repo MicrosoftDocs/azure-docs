@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to monitor and scale a singl
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -24,7 +25,7 @@ This sample CLI script scales compute, storage and IOPS for a single Azure Datab
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/monitor-and-scale/monitor-and-scale.sh" range="4-87":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/monitor-and-scale/monitor-and-scale.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -40,12 +41,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | **Command** | **Notes** |
 |---|---|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group in which all resources are stored|
-|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|Creates a Flexible Server that hosts the databases.|
-|[az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list)|Lists the Azure Monitor metric value for the resources.|
-|[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)|Updates properties of the Flexible Server.|
-|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|Deletes a Flexible Server.|
-|[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group in which all resources are stored|
+|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create)|Creates a Flexible Server that hosts the databases.|
+|[az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list)|Lists the Azure Monitor metric value for the resources.|
+|[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-update)|Updates properties of the Flexible Server.|
+|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-delete)|Deletes a Flexible Server.|
+|[az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources.|
 
 ## Next steps
 

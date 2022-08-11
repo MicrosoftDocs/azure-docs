@@ -5,9 +5,9 @@ services: iot-central
 ms.service: iot-central
 ms.topic: how-to
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
-ms.author: avneets
-author: avneet723
-ms.date: 08/18/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/15/2022
 
 # This article applies to solution builders.
 ---
@@ -80,5 +80,5 @@ You're now ready to use your C500 device in your IoT Central application.
 
 Some suggested next steps are to:
 
-- Read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md)
+- Read about [How devices connect](overview-iot-central-developer.md#how-devices-connect)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)

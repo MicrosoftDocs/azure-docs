@@ -4,7 +4,7 @@ description: Learn how to use the Operations APIs, which are part of the SaaS Fu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 11/10/2021
+ms.date: 03/07/2022
 author: arifgani
 ms.author: argani
 ---
@@ -27,7 +27,7 @@ Get list of the pending operations for the specified SaaS subscription. The publ
 |    `subscriptionId` | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API.  |
 
 *Request headers:*
- 
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`     |  `application/json` |
@@ -52,7 +52,7 @@ Returns pending operations on the specified SaaS subscription.
       "offerId": "offer1", // purchased offer ID
       "publisherId": "contoso",
       "planId": "silver", // purchased plan ID
-      "quantity": "20", // purchased amount of seats, will be empty is not relevant
+      "quantity": 20, // purchased amount of seats, will be empty is not relevant
       "action": "Reinstate",
       "timeStamp": "2018-12-01T00:00:00", // UTC
       "status": "InProgress" // the only status that can be returned in this case
@@ -118,7 +118,7 @@ Response body:
   "offerId": "offer1", // purchased offer ID
   "publisherId": "contoso",
   "planId": "silver", // purchased plan ID
-  "quantity": "20", // purchased amount of seats
+  "quantity": 20, // purchased amount of seats
   "action": "ChangePlan", // Can be ChangePlan, ChangeQuantity or Reinstate
   "timeStamp": "2018-12-01T00:00:00", // UTC
   "status": "InProgress", // Possible values: NotStarted, InProgress, Failed, Succeeded, Conflict (new quantity / plan is the same as existing)

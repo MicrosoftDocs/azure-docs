@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure Application Gateway 
 description: Start here to learn how to monitor Azure Application Gateway 
-author: vhorne
-ms.author: victorh
+author: greg-lindsay
+ms.author: greglin
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/10/2021
@@ -46,16 +46,11 @@ This is just a subset of the metrics available for Application Gateway. For more
 
 ## Azure Monitor Network Insights
 
-<!-- OPTIONAL SECTION.  Only include if your service has an "insight" associated with it. Examples of insights include
-  - CosmosDB https://docs.microsoft.com/azure/azure-monitor/insights/cosmosdb-insights-overview
-  - If you still aren't sure, contact azmondocs@microsoft.com.>
--->
-
 Some services in Azure have a special focused pre-built monitoring dashboard in the Azure portal that provides a starting point for monitoring your service. These special dashboards are called "insights".
 
 <!-- Give a quick outline of what your "insight page" provides and refer to another article that gives details -->
 
-Azure Monitor Network Insights provides a comprehensive view of health and metrics for all deployed network resources (including Application Gateway), without requiring any configuration. For more information, see [Azure Monitor Network Insights](../azure-monitor/insights/network-insights-overview.md).
+Azure Monitor Network Insights provides a comprehensive view of health and metrics for all deployed network resources (including Application Gateway), without requiring any configuration. For more information, see [Azure Monitor Network Insights](../network-watcher/network-insights-overview.md).
 
 ## Monitoring data 
 
@@ -179,7 +174,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you are creating or running an application which use Application Gateway [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
 <!-- end -->
 
-The following tables lists common and recommended alert rules for Application Gateway.
+The following tables list common and recommended alert rules for Application Gateway.
 
 <!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 

@@ -1,11 +1,11 @@
 ---
 title: Prevent accidental deletion - Azure file shares
 description: Learn about soft delete for Azure file shares and how you can use it to for data recovery and preventing accidental deletion.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 services: storage
 ---
@@ -52,3 +52,7 @@ When you initially enable soft delete, we recommend using a small retention peri
 ## Next steps
 
 To learn how to enable and use soft delete, continue to [Enable soft delete](storage-files-enable-soft-delete.md).
+
+To learn how to prevent a storage account from being deleted or modified, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
+
+To learn how to apply locks to resources and resource groups, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).

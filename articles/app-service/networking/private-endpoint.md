@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 02/17/2022
+ms.date: 03/04/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit, references_regions
 # Using Private Endpoints for Azure Web App
 
 > [!IMPORTANT]
-> Private Endpoint is available for Windows and Linux Web App, containerized or not, hosted on these App Service Plans : **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
+> Private Endpoint is available for Windows and Linux Web App, containerized or not, hosted on these App Service Plans : **Basic**, **Standard**, **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -46,12 +46,12 @@ You can also deploy the Private Endpoint in a different region than the Web App.
 
 From a security perspective:
 
-- When you enable Private Endpoints to your Web App, you disable all public access.
+- By default, when you enable Private Endpoints to your Web App, you disable all public access.
 - You can enable multiple Private Endpoints in others VNets and Subnets, including VNets in other regions.
 - The IP address of the Private Endpoint NIC must be dynamic, but will remain the same until you delete the Private Endpoint.
 - The NIC of the Private Endpoint can't have an NSG associated.
 - The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint: see [Disable network policies for private endpoints][disablesecuritype]. As a result, you can't filter by any NSG the access to your Private Endpoint.
-- When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App isn't evaluated.
+- By default, when you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App isn't evaluated.
 - You can eliminate the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. When you deploy a Private Endpoint for a Web App, you can only reach this specific Web App through the Private Endpoint. If you have another Web App, you must deploy another dedicated Private Endpoint for this other Web App.
 
 In the Web HTTP logs of your Web App, you'll find the client source IP. This feature is implemented using the TCP Proxy protocol, forwarding the client IP property up to the Web App. For more information, see [Getting connection Information using TCP Proxy v2][tcpproxy].

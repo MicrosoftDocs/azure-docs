@@ -58,7 +58,9 @@ There are multiple ways to turn off default outbound access:
 
     * Associate a standard load balancer with outbound rules configured.
 
-    * Associate a public IP to the virtual machine's network interface.
+    * Associate a Basic public IP to the virtual machine's network interface (if there is only one network interface).
+    
+    * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single one with a Standard public IP will prevent default outbound access for the virtual machine).
 
 2.	Use Flexible orchestration mode for virtual machine scale sets.
 
@@ -68,9 +70,10 @@ There are multiple ways to turn off default outbound access:
 
 NAT gateway is the recommended approach to have explicit outbound connectivity. A firewall can also be used to provide this access.
 
-## Limitations
+## Constraints
 
 * Connectivity maybe needed for Windows Updates.
+
 * Default outbound access IP doesn't support fragmented packets. 
 
 ## Next steps

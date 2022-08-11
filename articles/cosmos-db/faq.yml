@@ -2,8 +2,9 @@
 metadata:
   title: "Frequently asked questions on different APIs in Azure Cosmos DB"
   description: "Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling."
-  author: markjbrown
-  ms.author: mjbrown
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: faq
   ms.date: 09/01/2019
@@ -249,7 +250,7 @@ additionalContent: |
   
   To learn about frequently asked questions in other APIs, see:
 
-  * Frequently asked questions about [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-faq.yml)
+  * Frequently asked questions about [Azure Cosmos DB API for MongoDB](mongodb/mongodb-faq.yml)
   * Frequently asked questions about [Gremlin API in Azure Cosmos DB](gremlin-api-faq.yml)
   * Frequently asked questions about [Cassandra API in Azure Cosmos DB](cassandra/cassandra-faq.yml)
   * Frequently asked questions about [Table API in Azure Cosmos DB](table/table-api-faq.yml)

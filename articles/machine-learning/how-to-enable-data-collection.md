@@ -6,14 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: sgilley
-ms.author: copeters
-author: lostmygithubaccount
+ms.author: scottpolly
+author: s-polly
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: data4ml
-
+ms.custom: data4ml, sdkv1, event-tier1-build-2022
 ---
 # Collect data from models in production
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster. The collected data is then stored in Azure Blob storage.
 
@@ -62,6 +63,8 @@ The path to the output data in the blob follows this syntax:
 - You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
 - [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
+
+- Use a docker image based on Ubuntu 18.04, which is shipped with `libssl 1.0.0`, the essential dependency of [modeldatacollector](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector). You can refer to [prebuilt images](/azure/machine-learning/concept-prebuilt-docker-images-inference).
 
 ## Enable data collection
 

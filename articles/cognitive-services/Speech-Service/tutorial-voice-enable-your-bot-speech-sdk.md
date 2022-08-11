@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 01/24/2022
 ms.author: eur
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 ---
 
 # Tutorial: Voice-enable your bot
@@ -75,7 +75,7 @@ This section walks you through creating a resource group in the West US region. 
 
 ### Choose an Azure region
 
-Ensure that you use a [supported Azure region](regions.md#voice-assistants). The Direct Line Speech channel uses the text-to-speech service, which has neural and standard voices. Neural voices are used at [these Azure regions](regions.md#prebuilt-neural-voices), and standard voices (retiring) are used at [these Azure regions](how-to-migrate-to-prebuilt-neural-voice.md).
+Ensure that you use a [supported Azure region](regions.md#voice-assistants). The Direct Line Speech channel uses the text-to-speech service, which has neural and standard voices. Neural voices are used at [these Azure regions](regions.md#speech-service), and standard voices (retiring) are used at [these Azure regions](how-to-migrate-to-prebuilt-neural-voice.md).
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -174,7 +174,7 @@ Follow these steps to use the Bot Framework Emulator to test your echo bot runni
 
 ## Deploy your bot to Azure App Service
 
-The next step is to deploy the echo bot to Azure. There are a few ways to deploy a bot, including the [Azure CLI](/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot). This tutorial focuses on publishing directly from Visual Studio.
+The next step is to deploy the echo bot to Azure. There are a few ways to deploy a bot, including the [Azure CLI](/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/13.core-bot). This tutorial focuses on publishing directly from Visual Studio.
 
 > [!NOTE]
 > If **Publish** doesn't appear as you perform the following steps, use Visual Studio Installer to add the **ASP.NET and web development** workload.
@@ -334,7 +334,7 @@ If you get an error message in your main app window, use this table to identify 
 |Error (AuthenticationFailure) : WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name| On the **Settings** page of the app, make sure that you entered the subscription key and its region correctly. |
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: We could not connect to the bot before sending a message | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1002. Error details: The server returned status code '503' when status code '101' was expected | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) box and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
-|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your subscription key doesn't support neural voices. See [neural voices](./regions.md#prebuilt-neural-voices) and [standard voices](how-to-migrate-to-prebuilt-neural-voice.md).|
+|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your subscription key doesn't support neural voices. See [neural voices](./regions.md#speech-service) and [standard voices](how-to-migrate-to-prebuilt-neural-voice.md).|
 
 If the actions in the table don't address your problem, see [Voice assistants: Frequently asked questions](faq-voice-assistants.yml). If you still can't resolve your problem after following all the steps in this tutorial, please enter a new issue on the [Voice Assistant GitHub page](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
@@ -486,18 +486,18 @@ If you're not going to continue using the echo bot deployed in this tutorial, yo
 1. Find the **SpeechEchoBotTutorial-ResourceGroup** resource group. Select the three dots (...).
 1. Select **Delete resource group**.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Build your own client app by using the Speech SDK](./quickstarts/voice-assistants.md?pivots=programming-language-csharp)
-
-## See also
+## Explore documentation
 
 * [Deploy to an Azure region near you](https://azure.microsoft.com/global-infrastructure/locations/) to see the improvement in bot response time.
-* [Deploy to an Azure region that supports high-quality neural text-to-speech voices](./regions.md#prebuilt-neural-voices).
+* [Deploy to an Azure region that supports high-quality neural text-to-speech voices](./regions.md#speech-service).
 * Get pricing associated with the Direct Line Speech channel:
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Build and deploy your own voice-enabled bot:
   * Build a [Bot Framework bot](https://dev.botframework.com/). Then [register it with the Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech) and [customize your bot for voice](/azure/bot-service/directline-speech-bot).
   * Explore existing [Bot Framework solutions](https://microsoft.github.io/botframework-solutions/index): [Build a virtual assistant](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) and [extend it to Direct Line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Build your own client app by using the Speech SDK](./quickstarts/voice-assistants.md?pivots=programming-language-csharp)

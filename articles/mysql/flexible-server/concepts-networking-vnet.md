@@ -1,10 +1,11 @@
 ---
 title: Private Network Access overview - Azure Database for MySQL Flexible Server
 description: Learn about private access networking option in the Flexible Server deployment option for Azure Database for MySQL
-author: Madhusoodanan
-ms.author: dimadhus
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: vivgk
+ms.author: vivgk
 ms.date: 8/6/2021
 ---
 
@@ -27,6 +28,9 @@ Azure Database for MySQL - Flexible Server supports client connectivity from:
 * Virtual networks across Azure regions. (Global peered VNets)
 
 Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to which you can then deploy Azure resources. Azure Database for MySQL - Flexible Server requires a [delegated subnet](../../virtual-network/subnet-delegation-overview.md). A delegated subnet is an explicit identifier that a subnet can host a only Azure Database for MySQL - Flexible Servers. By delegating the subnet, the service gets explicit permissions to create service-specific resources in the subnet to seamlessly manage your Azure Database for MySQL - Flexible Server.
+
+> [!NOTE]
+> The smallest range you can specify for a subnet is /29, which provides eight IP addresses, of which five will be utilized by Azure internally, whereas a Azure Database for MySQL - Flexible server you would require one IP address per node to be allocated from the delegated subnet when private access is enabled. HA enabled servers would need two and Non-HA server would need one IP address. Recommendation is to reserve at least 2 IP address per flexible server keeping in mind that we can enable high availability options later.
 
 Azure Database for MySQL - Flexible Server integrates with Azure [Private DNS zones](../../dns/private-dns-privatednszone.md) to provide a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. Private DNS zone can be linked to one or more virtual networks by creating [virtual network links](../../dns/private-dns-virtual-network-links.md)
 
@@ -73,14 +77,16 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 * If you use Azure API, an Azure Resource Manager template (ARM template), or Terraform, please create private DNS zones that end with `mysql.database.azure.com` and use them while configuring flexible servers with private access. For more information, see the [private DNS zone overview](../../dns/private-dns-overview.md).
 
    > [!IMPORTANT]
-   > Private DNS zone names must end with `mysql.database.azure.com`.
+   > Private DNS zone names must end with `mysql.database.azure.com`. If you are connecting to the Azure Database for MySQL - Flexible sever with SSL and are using an option to perform full verification (sslmode=VERTIFY_IDENTITY) with certificate subject name, use \<servername\>.mysql.database.azure.com in your connection string.
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 
 ## Integration with custom DNS server
 
-If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. The forwarder IP address should be [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). The custom DNS server should be inside the VNet or reachable via the VNET's DNS Server setting. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
+If you are using the custom DNS server then you must **use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server**. The forwarder IP address should be [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). The custom DNS server should be inside the VNet or reachable via the VNET's DNS Server setting. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
+> [!IMPORTANT]
+   > For successful provisioning of the Flexible Server, even if you are using a custom DNS server, **you must not block DNS traffic to [AzurePlatformDNS](../../virtual-network/service-tags-overview.md) using [NSG](../../virtual-network/network-security-groups-overview.md)**.
 ## Private DNS zone and VNET peering
 
 Private DNS zone settings and VNET peering are independent of each other. Please refer to the [Using Private DNS Zone](concepts-networking-vnet.md#using-private-dns-zone) section above for more details on creating and using Private DNS zones.
@@ -109,10 +115,6 @@ You can then use the flexible servername (FQDN) to connect from the client appli
 * After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move the virtual network into another resource group or subscription.
 * Subnet size (address spaces) cannot be increased once resources exist in the subnet
 * Flexible server doesn't support Private Link. Instead, it uses VNet injection to make flexible server available within a VNet.
-
-> [!NOTE]
-> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
-
 ## Next steps
 
 * Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md)

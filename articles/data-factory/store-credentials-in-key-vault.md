@@ -9,7 +9,7 @@ ms.date: 01/21/2022
 ms.author: abnarain
 ---
 
-# Store credential in Azure Key Vault
+# Store credentials in Azure Key Vault
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

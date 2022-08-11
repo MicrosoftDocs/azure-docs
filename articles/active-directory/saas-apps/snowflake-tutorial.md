@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/22/2021
+ms.date: 07/14/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Snowflake
@@ -124,7 +124,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Snowflake SSO
 
-1. In a different web browser window, login to Snowflake as a Security Administrator.
+1. In a different web browser window, log in to Snowflake as a Security Administrator.
 
 1. **Switch Role** to **ACCOUNTADMIN**, by clicking on **profile** on the top right side of page.
 
@@ -135,11 +135,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open the **downloaded Base 64 certificate** in notepad. Copy the value between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----" and paste this content into the **SAML2_X509_CERT**.
 
-1. In the **SAML2_ISSUER**, paste **Identifier** value which you have copied from the Azure portal.
+1. In the **SAML2_ISSUER**, paste **Identifier** value, which you have copied from the Azure portal.
 
-1. In the **SAML2_SSO_URL**, paste **Login URL** value which you have copied from the Azure portal.
+1. In the **SAML2_SSO_URL**, paste **Login URL** value, which you have copied from the Azure portal.
 
-1. In the **SAML2_PROVIDER**, give the value like `AzureAD`.
+1. In the **SAML2_PROVIDER**, give the value like `CUSTOM`.
 
 1. Select the **All Queries** and click **Run**.
 
@@ -164,6 +164,18 @@ CREATE [ OR REPLACE ] SECURITY INTEGRATION [ IF NOT EXISTS ]
     [ SAML2_SNOWFLAKE_ISSUER_URL = '<string_literal>' ]
     [ SAML2_SNOWFLAKE_ACS_URL = '<string_literal>' ]
 ```
+
+If you are using a new Snowflake URL with an organization name as the login URL, it is necessary to update the following parameters:
+
+ Alter the integration to add Snowflake Issuer URL and SAML2 Snowflake ACS URL, please follow  the step-6 in [this](https://community.snowflake.com/s/article/HOW-TO-SETUP-SSO-WITH-ADFS-AND-THE-SNOWFLAKE-NEW-URL-FORMAT-OR-PRIVATELINK) article for more information.
+
+1. [ SAML2_SNOWFLAKE_ISSUER_URL = '<string_literal>' ] 
+
+    alter security integration `<your security integration name goes here>` set SAML2_SNOWFLAKE_ISSUER_URL = `https://<organization_name>-<account name>.snowflakecomputing.com`;
+
+2. [ SAML2_SNOWFLAKE_ACS_URL = '<string_literal>' ]
+
+    alter security integration `<your security integration name goes here>` set SAML2_SNOWFLAKE_ACS_URL = `https://<organization_name>-<account name>.snowflakecomputing.com/fed/login`;
 
 > [!NOTE]
 > Please follow [this](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration.html) guide to know more about how to create a SAML2 security integration.
@@ -202,13 +214,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal. This will redirect to Snowflake Sign on URL where you can initiate the login flow.  
 
-* Go to Snowflake Sign-on URL directly and initiate the login flow from there.
+* Go to Snowflake Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Snowflake for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Snowflake tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Snowflake for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Snowflake tile in the My Apps, if configured in SP mode you would be redirected to the application Sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Snowflake for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 05/18/2019
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Explore Java trace logs in Application Insights
@@ -18,6 +19,8 @@ If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your t
 
 > [!TIP]
 > You only need to set your Application Insights Instrumentation Key once for your application. If you are using a framework like Java Spring, you may have already registered the key elsewhere in your app's configuration.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Using the Application Insights Java agent
 

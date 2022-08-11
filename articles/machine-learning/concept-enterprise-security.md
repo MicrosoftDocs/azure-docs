@@ -5,11 +5,12 @@ description: 'Securely use Azure Machine Learning: authentication, authorization
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 07/28/2022
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -30,7 +31,7 @@ Here's the authentication process for Azure Machine Learning using multi-factor 
 
 1. The client signs in to Azure AD and gets an Azure Resource Manager token.
 1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning.
-1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster). This token is used by the user compute target to call back into the Machine Learning service after the run is complete. The scope is limited to the workspace.
+1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster). This token is used by the user compute target to call back into the Machine Learning service after the job is complete. The scope is limited to the workspace.
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
@@ -46,7 +47,7 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 
 The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token is not accessible to users and cannot be used by them to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
 
-The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, and to [deploy Azure Container Instances for web service endpoints](how-to-deploy-azure-container-instance.md).
+The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, and to [deploy Azure Container Instances for web service endpoints](v1/how-to-deploy-azure-container-instance.md).
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
@@ -72,7 +73,6 @@ For more information, see the following articles:
 * [Connect to storage services](how-to-access-data.md)
 * [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
 * [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
-* [Use Azure AD managed identity with your web service](how-to-use-azure-ad-identity.md)
 
 ## Network security and isolation
 
@@ -87,7 +87,9 @@ For more information, see the following documents:
 * [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 * [Secure workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure training environment](how-to-secure-training-vnet.md)
-* [Secure inference environment](how-to-secure-inferencing-vnet.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Configure firewall](how-to-access-azureml-behind-firewall.md)
@@ -98,7 +100,7 @@ For more information, see the following documents:
 
 Azure Machine Learning uses a variety of compute resources and data stores on the Azure platform. To learn more about how each of these supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
 
-When deploying models as web services, you can enable transport-layer security (TLS) to encrypt data in transit. For more information, see [Configure a secure web service](how-to-secure-web-service.md).
+When deploying models as web services, you can enable transport-layer security (TLS) to encrypt data in transit. For more information, see [Configure a secure web service](./v1/how-to-secure-web-service.md).
 
 ## Vulnerability scanning
 
@@ -111,7 +113,7 @@ When deploying models as web services, you can enable transport-layer security (
 ## Next steps
 
 * [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
-* [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
+* [Secure Azure Machine Learning web services with TLS](./v1/how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)
 * [Use Azure Machine Learning with Azure Virtual Network](how-to-network-security-overview.md)

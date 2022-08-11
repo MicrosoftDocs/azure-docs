@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 07/05/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -65,6 +65,8 @@ After these configurations are complete, follow the guidance to [verify registra
 ### Configure a service connection point
 
 Your devices use a service connection point (SCP) object during the registration to discover Azure AD tenant information. In your on-premises Active Directory instance, the SCP object for the hybrid Azure AD joined devices must exist in the configuration naming context partition of the computer's forest. There's only one configuration naming context per forest. In a multi-forest Active Directory configuration, the service connection point must exist in all forests that contain domain-joined computers.
+
+The SCP object contains two keywords values – `azureADid:<TenantID>` and `azureADName:<verified domain>`. The `<verified domain>` value in the `azureADName` keyword dictates the type of the device registration flow (federated or managed) the device will follow after reading the SCP value from your on-premises Active Directory instance. More about the managed and federated flows can be found in the article [How Azure AD device registration works](device-registration-how-it-works.md).    
 
 You can use the [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)) cmdlet to retrieve the configuration naming context of your forest.  
 

@@ -9,6 +9,7 @@ ms.author: deeikele
 author: denniseik
 ms.date: 01/05/2022
 ms.topic: how-to
+ms.tool: terraform
 ---
 
 # Manage Azure Machine Learning workspaces using Terraform
@@ -122,10 +123,6 @@ There are several options to connect to your private link endpoint workspace. To
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### Current limitations
-
-* It is currently not possible to use Terraform for the deployment of workspaces using customer-managed encryption keys, while using a user-assigned managed identity. You can create a CMK workspace using a system-assigned managed identity.
-
 ## Next steps
 
 * To learn more about Terraform support on Azure, see [Terraform on Azure documentation](/azure/developer/terraform/).
@@ -139,3 +136,4 @@ There are several options to connect to your private link endpoint workspace. To
   
 * To learn more about network configuration options, see [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](./how-to-network-security-overview.md).
 * For alternative Azure Resource Manager template-based deployments, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
+* For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

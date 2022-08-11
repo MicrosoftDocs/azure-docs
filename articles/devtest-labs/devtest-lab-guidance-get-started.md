@@ -2,6 +2,8 @@
 title: Popular scenarios for using Azure DevTest Labs
 description: This article describes primary Azure DevTest Labs scenarios, and how an organization can begin exploring DevTest Labs.
 ms.topic: conceptual
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 02/03/2022
 ms.reviewer: christianreddington,anthdela,juselph
 ---

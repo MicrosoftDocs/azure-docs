@@ -22,37 +22,7 @@ This article will walk you through the setup process for creating a host pool fo
 
 ## Prerequisites
 
-There are two different sets of requirements depending on if you're an IT professional setting up a deployment for your organization or an app developer serving applications to customers.
-
-### Requirements for IT professionals
-
-You'll need to enter the following parameters to create a host pool:
-
-- The VM image name
-- VM configuration
-- Domain and network properties
-- Azure Virtual Desktop host pool properties
-
-You'll also need to know the following things:
-
-- Where the source of the image you want to use is. Is it from Azure Gallery or is it a custom image?
-- Your domain join credentials.
-
-### Requirements for app developers
-
-If you're an app developer who's using remote app streaming for Azure Virtual Desktop to deliver apps to your customers, here's what you'll need to get started:
-
-- If you plan on serving your organization's app to end-users, make sure you actually have that app ready. For more information, see [How to host custom apps with Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
-- If existing Azure Gallery image options don't meet your needs, you'll also need to create your own custom image for your session host VMs. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
-- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool. To learn more, see [Set up managed identities](./remote-app-streaming/identities.md).
-
-### Final requirements
-
-Finally, make sure you've registered the Microsoft.DesktopVirtualization resource provider. If you haven't already, go to **Subscriptions**, select the name of your subscription, and then select **Resource providers**. Search for **DesktopVirtualization**, select **Microsoft.DesktopVirtualization**, and then select **Register**.
-
-If you're an IT professional creating a network, when you create a Azure Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md). (If you're an app developer, you don't need to worry about this part.)
-
-Last but not least, if you don't have an Azure subscription already, make sure to [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start following these instructions.
+Before you can create a host pool, make sure you've completed the prerequisites. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md).
 
 ## Begin the host pool setup process
 
@@ -63,9 +33,9 @@ To start creating your new host pool:
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
    
    >[!NOTE]
-   > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
+   > If you need to access the Azure US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
    > 
-   >If you're accessing the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/).
+   > If you need to access the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/) instead.
 
 2. Enter **Azure Virtual Desktop** into the search bar, then find and select **Azure Virtual Desktop** under Services.
 
@@ -105,6 +75,11 @@ To start creating your new host pool:
 10. Select **Next: Virtual Machines >**.
 
 11. If you've already created virtual machines and want to use them with the new host pool, select **No**, select **Next: Workspace >** and jump to the [Workspace information](#workspace-information) section. If you want to create new virtual machines and register them to the new host pool, select **Yes**.
+ 
+12. Once you create your host pool, you can get the host pool's registration key by going to the host pool's **Overview** page and selecting **Registration key**. Use this key when adding virtual machines created outside of Azure Virtual Desktop to your host pool.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot showing the registration key option in the host pool overview blade, highlighted with a red border.](media/registration-key-host-pool-page.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -112,7 +87,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
+After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
 
 ```azurecli
 az desktopvirtualization hostpool create --name "MyHostPool" \
@@ -164,17 +139,18 @@ To set up your virtual machine within the Azure portal host pool setup process:
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the Trusted Launch security features available to select from.](https://user-images.githubusercontent.com/62080236/146099320-24cbfdfe-c5ec-43c1-b6b9-ad02378c3709.png)
 
-6. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
+6. Next, choose the image that needs to be used to create the virtual machine. You can choose **Gallery** for new host pool deployments with **Storage blob** no longer available.
 
-    - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
+    - After choosing **Gallery**, select a Windows image that meets your requirements from the drop-down menu:
 
-      - Windows 10 Enterprise multi-session, Version 1909
-      - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps
+      - Windows 11 Enterprise multi-session (Gen2)
+      - Windows 11 Enterprise multi-session + Microsoft 365 Apps (Gen2)
+      - Windows 10 Enterprise multi-session, Version 21H2 (Gen2)
+      - Windows 10 Enterprise multi-session, Version 21H2 + Microsoft 365 Apps (Gen2)
       - Windows Server 2019 Datacenter
-      - Windows 10 Enterprise multi-session, Version 2004
-      - Windows 10 Enterprise multi-session, Version 2004 + Microsoft 365 Apps
+     
 
-      If you don't see the image you want, select **See all images**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers. Make sure that the image you choose is one of the [supported OS images](overview.md#supported-virtual-machine-os-images).
+      If you don't see the image you want, select **See all images**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers. Make sure that the image you choose is one of the [supported OS images](prerequisites.md#operating-systems-and-licenses).
 
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the Azure portal with a list of images from Microsoft displayed.](media/marketplace-images.png)
@@ -184,7 +160,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the My Items tab.](media/my-items.png)
 
-    - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
+    - If you are adding a VM to a host pool that allows **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
    
    The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](./faq.yml#which-availability-option-is-best-for-me-).
 
@@ -211,7 +187,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
     If you choose **Advanced**, select an existing network security group that you've already configured.
 
-12. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory** (Preview).
+12. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory**.
 
     - For Active Directory, provide an account to join the domain and choose if you want to join a specific domain and organizational unit.
 
@@ -223,7 +199,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 13. Under **Virtual Machine Administrator account**, enter the credentials for the local admin account to be added while creating the VM. You can use this account for management purposes in both AD and Azure AD-joined VMs.
 
-14. Under **Post update custom configuration**, you can enter the location of an Azure Resource Manager template to perform custom configurations on your session hosts after you create them. You'll need to enter the URLs for both the Azure Resource Manager template file and the Azure Resource Manager template parameter file. 
+14. Under **Custom configuration**, you can enter the location of an Azure Resource Manager template to perform custom configurations on your session hosts after you create them. You'll need to enter the URLs for both the Azure Resource Manager template file and the Azure Resource Manager template parameter file. To learn more and find an example custom configuration script, see the [Sample Custom Configuration Solution](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/arm-template-customization).
 
       >[!NOTE]
       >Azure Virtual Desktop doesn't support provisioning Azure resources in the template.
@@ -232,7 +208,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az vm create](/cli/azure/vm#az_vm_create) command to create a new Azure virtual machine:
+Use the [az vm create](/cli/azure/vm#az-vm-create) command to create a new Azure virtual machine:
 
 ```azurecli
 az vm create --name "MyVMName" \
@@ -282,7 +258,7 @@ To register the desktop app group to a workspace:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az_desktopvirtualization_workspace_create) command to create the new workspace:
+Use the [az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az-desktopvirtualization-workspace-create) command to create the new workspace:
 
 ```azurecli
 az desktopvirtualization workspace create --name "MyWorkspace" \
@@ -310,7 +286,7 @@ After that, you're all done!
 If you'd rather use an automated process, [download our Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to provision your new host pool instead.
 
 >[!NOTE]
->If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file. You can find the JSON file [here](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
+>If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file.
 
 ## Next steps
 

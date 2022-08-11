@@ -2,7 +2,7 @@
 title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents. 
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 07/20/2022
 ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -12,7 +12,7 @@ In addition to its [default event schema](event-schema.md), Azure Event Grid nat
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing and consuming cloud-based events. This schema allows for uniform tooling, standard ways of routing and handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
-CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
+CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/main/docs/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
 
 This article describes how to use the CloudEvents schema with Event Grid.
 
@@ -126,79 +126,35 @@ If you're already familiar with Event Grid, you might be aware of the endpoint v
 <a name="azure-functions"></a>
 
 ## Use with Azure Functions
-
-The [Azure Functions Event Grid binding](../azure-functions/functions-bindings-event-grid.md) doesn't natively support CloudEvents, so HTTP-triggered functions are used to read CloudEvents messages. When you use an HTTP trigger to read CloudEvents, you have to write code for what the Event Grid trigger does automatically:
-
-* Sends a validation response to a [subscription validation request](../event-grid/webhook-event-delivery.md)
-* Invokes the function once per element of the event array contained in the request body
-
-For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](../azure-functions/functions-bindings-http-webhook.md).
-
-The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
+The following example shows an Azure Functions version 3.x function that uses a `CloudEvent` binding parameter and `EventGridTrigger`.
 
 ```csharp
-[FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
+using Azure.Messaging;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
 {
-    log.LogInformation("C# HTTP trigger function processed a request.");
-    if (req.Method == HttpMethod.Options)
+    public static class CloudEventTriggerFunction
     {
-        // If the request is for subscription validation, send back the validation code
-        
-        var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Headers.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
-
-        return response;
+        [FunctionName("CloudEventTriggerFunction")]
+        public static void Run(
+            ILogger logger,
+            [EventGridTrigger] CloudEvent e)
+        {
+            logger.LogInformation("Event received {type} {subject}", e.Type, e.Subject);
+        }
     }
-
-    var requestmessage = await req.Content.ReadAsStringAsync();
-    var message = JToken.Parse(requestmessage);
-
-    // The request isn't for subscription validation, so it's for an event.
-    // CloudEvents schema delivers one event at a time.
-    log.LogInformation($"Source: {message["source"]}");
-    log.LogInformation($"Time: {message["eventTime"]}");
-    log.LogInformation($"Event data: {message["data"].ToString()}");
-
-    return req.CreateResponse(HttpStatusCode.OK);
 }
 ```
 
-The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
+For more information, see [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-csharp). 
 
-```javascript
-module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-    
-    if (req.method == "OPTIONS") {
-        // If the request is for subscription validation, send back the validation code
-        
-        context.log('Validate request received');
-        context.res = {
-            status: 200,
-            headers: {
-                'Webhook-Allowed-Origin': 'eventgrid.azure.net',
-            },
-         };
-    }
-    else
-    {
-        var message = req.body;
-        
-        // The request isn't for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        var event = JSON.parse(message);
-        context.log('Source: ' + event.source);
-        context.log('Time: ' + event.eventTime);
-        context.log('Data: ' + JSON.stringify(event.data));
-    }
- 
-    context.done();
-};
-```
+
 
 ## Next steps
 
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
-* We encourage you to test, comment on, and [contribute to CloudEvents](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md).
+* We encourage you to test, comment on, and [contribute to CloudEvents](https://github.com/cloudevents/spec/blob/main/docs/CONTRIBUTING.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

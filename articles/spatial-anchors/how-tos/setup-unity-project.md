@@ -32,14 +32,17 @@ Before including the Azure Spatial Anchors SDK in your Unity project, be sure to
 ### Import ASA packages
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-### HoloLens only
+### Extra Configurations
+If you are developing for HoloLens or Android please follow the additional setup steps below
+
+# [HoloLens](#tab/ExtraConfigurationsHoloLens)
 
 #### Configure your Unity project XR settings
-When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. For more information, see [Setting up your XR configuration - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr) and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/choosing-unity-version).
+When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. For more information, see [Setting up your XR configuration - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/new-openxr-project-without-mrtk) and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/choosing-unity-version).
 
 Azure Spatial Anchors SDK versions 2.9.0 or earlier only provide support for the Windows XR plugin (`com.unity.xr.windowsmr`), so the Azure Spatial Anchors windows package has an explicit dependency on the Windows XR Plugin.
 
-Azure Spatial Anchors SDK versions 2.10.0 or later provide support for both the Mixed Reality OpenXR plugin ([com.microsoft.mixedreality.openxr](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=package&feed=Unity-packages&view=overview&package=com.microsoft.mixedreality.openxr&protocolType=Npm)) and the Windows XR plugin  ([com.unity.xr.windowsmr](https://docs.unity3d.com/Manual/com.unity.xr.windowsmr.html)). You need to include either the `com.microsoft.mixedreality.openxr` package or the `com.unity.xr.windowsmr` package in your project depending on your choice.
+Azure Spatial Anchors SDK versions 2.10.0 or later provide support for both the Mixed Reality OpenXR plugin ([com.microsoft.mixedreality.openxr](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=package&feed=Unity-packages&view=overview&package=com.microsoft.mixedreality.openxr&protocolType=Npm)) and the Windows XR plugin  `com.unity.xr.windowsmr`. You need to include either the `com.microsoft.mixedreality.openxr` package or the `com.unity.xr.windowsmr` package in your project depending on your choice.
 
 #### Configure your Unity project capabilities
 
@@ -50,7 +53,8 @@ Be sure to enable the following capabilities in your Unity project:
 
 > [!WARNING]
 > Failure to enable the PrivateNetworkClientServer capability may lead to a failure to query anchors when the device is using a network that is configured to be private.
-### Android only: Configure the mainTemplate.gradle file
+# [Android](#tab/ExtraConfigurationsAndroid)
+Configure the mainTemplate.gradle file
 
 1. Go to **Edit** > **Project Settings** > **Player**.
 2. In the **Inspector Panel** for **Player Settings**, select the **Android** icon.

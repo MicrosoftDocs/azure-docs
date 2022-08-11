@@ -77,6 +77,9 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 Before calling the APIs that generate the backup and restore, you need to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package to retrieve the token.
 
+> [!IMPORTANT]
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../active-directory/develop/msal-migration.md) for more details. 
+
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
@@ -314,7 +317,7 @@ Check out the following related resources for the backup/restore process:
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 - [How to move Azure API Management across regions](api-management-howto-migrate.md)
 
-API Management **Premium** tier also supports [zone redundancy](zone-redundancy.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
+API Management **Premium** tier also supports [zone redundancy](../availability-zones/migrate-api-mgt.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

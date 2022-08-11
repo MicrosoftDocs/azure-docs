@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Create and deploy custom modules - Machine Learning on Azure IoT Edge'
 description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.'
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -588,7 +588,7 @@ With the router and classifier in place, we expect to receive regular messages c
 
 1. In the Azure portal, navigate to your IoT Hub.
 
-1. From the menu on the left pane, under **Messaging**, select **Message routing**.
+1. From the menu on the left pane, under **Hub settings**, select **Message routing**.
 
 1. On the **Routes** tab, select **Add**.
 
@@ -683,7 +683,7 @@ We don't want to route the new prediction data to our old storage location, so u
 
 Configure the IoT Hub file upload feature to enable the file writer module to upload files to storage.
 
-1. From the left pane menu in your IoT Hub, under **Messaging**, choose **File upload**.
+1. From the left pane menu in your IoT Hub, under **Hub settings**, choose **File upload**.
 
 1. Select **Azure Storage Container**.
 

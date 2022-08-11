@@ -42,7 +42,7 @@ In this article, commands are formatted for [Cloud Shell](https://shell.azure.co
 
 The first step in setting up key logging is connecting to the subscription containing your key vault. This is especially important if you have multiple subscriptions associated with your account.
 
-With the Azure CLI, you can view all your subscriptions by using the [az account list](/cli/azure/account#az_account_list) command. Then you connect to one by using the [az account set](/cli/azure/account#az_account_set) command:
+With the Azure CLI, you can view all your subscriptions by using the [az account list](/cli/azure/account#az-account-list) command. Then you connect to one by using the [az account set](/cli/azure/account#az-account-set) command:
 
 ```azurecli-interactive
 az account list
@@ -66,7 +66,7 @@ For additional ease of management, you'll also use the same resource group as th
 
 You also need to provide a storage account name. Storage account names must be unique, between 3 and 24 characters in length, and use numbers and lowercase letters only. Lastly, you create a storage account of the `Standard_LRS` SKU.
 
-With the Azure CLI, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. 
+With the Azure CLI, use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -92,9 +92,9 @@ The ID of the storage account is in the following format: "/subscriptions/*your-
 
 ## Obtain your key vault resource ID
 
-In the [CLI quickstart](quick-create-cli.md) and [PowerShell quickstart](quick-create-powershell.md), you created a key with a unique name. Use that name again in the following steps. If you can't remember the name of your key vault, you can use the Azure CLI [az keyvault list](/cli/azure/keyvault#az_keyvault_list) command, or the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet, to list them.
+In the [CLI quickstart](quick-create-cli.md) and [PowerShell quickstart](quick-create-powershell.md), you created a key with a unique name. Use that name again in the following steps. If you can't remember the name of your key vault, you can use the Azure CLI [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command, or the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet, to list them.
 
-Use the name of your key vault to find its resource ID. With the Azure CLI, use the [az keyvault show](/cli/azure/keyvault#az_keyvault_show) command.
+Use the name of your key vault to find its resource ID. With the Azure CLI, use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command.
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -124,7 +124,7 @@ az monitor diagnostic-settings create --storage-account "<storage-account-id>" -
 
 Optionally, you can set a retention policy for your logs, so that older logs are automatically deleted after a specified amount of time. For example, you might set a retention policy that automatically deletes logs older than 90 days.
 
-With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
+With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
@@ -174,7 +174,7 @@ To configure diagnostic settings in the Azure portal, follow these steps:
 
 Your Key Vault logs are in the *insights-logs-auditevent* container in the storage account that you provided. To view the logs, you have to download blobs.
 
-First, list all the blobs in the container.  With the Azure CLI, use the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
+First, list all the blobs in the container.  With the Azure CLI, use the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) command.
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -190,7 +190,7 @@ From the output of either the Azure CLI command or the Azure PowerShell cmdlet, 
 
 Because you can use the same storage account to collect logs for multiple resources, the full resource ID in the blob name is useful to access or download just the blobs that you need.
 
-But first, download all the blobs. With the Azure CLI, use the [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) command, pass it the names of the blobs, and the path to the file where you want to save the results.
+But first, download all the blobs. With the Azure CLI, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command, pass it the names of the blobs, and the path to the file where you want to save the results.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

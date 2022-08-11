@@ -570,6 +570,10 @@ Select the **About** tab from the device page.
 :::zone-end
 
 :::zone pivot="iot-toolset-cmake"
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Verify the device status
 
 To view the device status in IoT Central portal:

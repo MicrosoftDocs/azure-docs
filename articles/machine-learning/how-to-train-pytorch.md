@@ -5,15 +5,17 @@ description: Learn how to run your PyTorch training scripts at enterprise scale 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: minxia
-author: mx-iao
+ms.author: larryfr
+author: blackmist
 ms.date: 02/28/2022
 ms.topic: how-to
-
-#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train PyTorch models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning.
 
@@ -36,6 +38,8 @@ Run this code on either of these environments:
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -69,7 +73,7 @@ ws = Workspace.from_config()
 
 ### Get the data
 
-The dataset consists of about 120 training images each for turkeys and chickens, with 100 validation images for each class. We'll download and extract the dataset as part of our training script `pytorch_train.py`. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html).
+The dataset consists of about 120 training images each for turkeys and chickens, with 100 validation images for each class. We'll download and extract the dataset as part of our training script `pytorch_train.py`. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). For more steps on creating a JSONL to train with your own data, see this [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass/auto-ml-image-classification-multiclass.ipynb).
 
 ### Prepare training script
 
@@ -86,6 +90,8 @@ shutil.copy('pytorch_train.py', project_folder)
 ### Create a compute target
 
 Create a compute target for your PyTorch job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 
@@ -239,7 +245,7 @@ model = run.register_model(model_name='pytorch-birds', model_path='outputs/model
 
 > [!TIP]
 > The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model by using the Run object. In the training script `pytorch_train.py`, a PyTorch save object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
@@ -267,8 +273,7 @@ To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your tra
 
 In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
-- [How and where to deploy models](how-to-deploy-and-where.md)
+- [How and where to deploy models](./v1/how-to-deploy-and-where.md)
 - [Track run metrics during training](how-to-log-view-metrics.md)
 - [Tune hyperparameters](how-to-tune-hyperparameters.md)
-- [Deploy a trained model](how-to-deploy-and-where.md)
 - [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -17,6 +17,8 @@ ms.custom: ignite-fall-2021
 
 QnA Maker automatically encrypts your data when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
 
+[!INCLUDE [Custom question answering](includes/new-version.md)]
+
 ## About encryption key management
 
 By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.

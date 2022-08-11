@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Azure IoT connected waste management | Microsoft Docs
 description: This tutorial shows you how to deploy and use the connected waste management application template for IoT Central.
-author: miriambrus
-ms.author: miriamb
-ms.date: 12/22/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/16/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -263,8 +263,8 @@ Here's how:
 
 If you're not going to continue to use this application, delete your application with the following steps:
 
-1. From the left pane of your Azure IoT Central app, select **Administration**.
-1. Select  **Application** > **Management** > **Delete**.
+1. From the left pane of your Azure IoT Central app, select **Application**.
+1. Select  **Management > Delete**.
 
 ## Next steps
 

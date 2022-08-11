@@ -38,6 +38,10 @@ items:
     href: routing-preference-azure-kubernetes-service-cli.md
 - name: Concepts
   items:
+  - name: Custom IP address prefix (BYOIP)
+    href: custom-ip-address-prefix.md
+  - name: Manage a custom IP address prefix (BYOIP)
+    href: manage-custom-ip-address-prefix.md
   - name: Public IPs
     href: public-ip-addresses.md
   - name: Private IPs
@@ -56,6 +60,10 @@ items:
     href: routing-preference-overview.md
   - name: Routing preference Unmetered
     href: routing-preference-unmetered.md
+  - name: Monitoring
+    items:
+    - name: Monitor public IP addresses
+      href: monitor-public-ip.md
   - name: Security
     items:
     - name: Public IP security baseline
@@ -64,6 +72,14 @@ items:
   items:
     - name: Configure IP addresses for an Azure network interface
       href: virtual-network-network-interface-addresses.md
+    - name: Create a custom IP address prefix (BYOIP)
+      items:
+      - name: Portal
+        href: create-custom-ip-address-prefix-portal.md      
+      - name: PowerShell
+        href: create-custom-ip-address-prefix-powershell.md
+      - name: CLI
+        href: create-custom-ip-address-prefix-cli.md
     - name: Resource management
       items:
       - name: Load balancer
@@ -158,6 +174,8 @@ items:
     href: /dotnet/api/overview/azure/virtual-network
   - name: Java
     href: /java/api/
+  - name: Monitoring data
+    href: monitor-public-ip-reference.md
   - name: Node.js
     href: /javascript/azure#azure-sdk
   - name: Python

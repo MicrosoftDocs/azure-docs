@@ -1,23 +1,22 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/17/2021
+ms.date: 04/12/2022
 ms.service: virtual-wan
 ms.topic: include
 
 #This include is used in multiple articles. Before modifying, verify that any changes apply to all articles that use this include.
 ---
+1. Go to your **Virtual WAN**.
 
-1. Navigate to your **Virtual WAN**.
+1. In the left pane, under Connectivity, select **Virtual network connections**.
 
-1. Select **Virtual network connections**.
-
-1. On the virtual network connection page, select **+Add connection**.
+1. On the **Virtual network connections** page, click **+Add connection**.
 
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add.png" alt-text="Screenshot shows add.":::
 
 1. On the **Add connection** page, configure the required settings. For more information about routing settings, see [About routing](../articles/virtual-wan/about-virtual-hub-routing.md).
- 
+
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection.png" alt-text="Screenshot shows VNet connection page.":::
 
    * **Connection name**: Name your connection.
@@ -29,4 +28,4 @@ ms.topic: include
    * **Associate Route Table**: You can select the route table that you want to associate.
    * **Static routes**: You can use this setting to specify next hop.
 
-1. Once you have completed the settings you want to configure, select **Create** to create the connection.
+1. Once you've completed the settings you want to configure, select **Create** to create the connection.

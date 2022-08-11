@@ -4,24 +4,24 @@ titleSuffix: Azure Cognitive Search
 description: Reference for the simple query syntax used for full text search queries in Azure Cognitive Search.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/16/2022
 ---
 
 # Simple query syntax in Azure Cognitive Search
 
-Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search.
+Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because it's flexible, it's the default for queries in Azure Cognitive Search.
 
-The simple syntax is used for query expressions passed in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [**`$filter`**](search-filters.md) and [**`$orderby`**](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
+The simple syntax is used for query expressions passed in the "search" parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the ["$filter"](search-filters.md) and ["$orderby"](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
 
-Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md), consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
+Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, its implementation in Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md), consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
 ## Example (simple syntax)
 
-Although **`queryType`** is set below, it's the default and can be omitted unless you are reverting from an alternative type. The following example is a search over independent terms, with a requirement that all matching documents include "pool".
+This example shows a simple query, distinguished by `"queryType": "simple"` and valid syntax. Although query type is set below, it's the default and can be omitted unless you are reverting from an alternative type. The following example is a search over independent terms, with a requirement that all matching documents include "pool".
 
 ```http
 POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
@@ -32,13 +32,13 @@ POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs
 }
 ```
 
-The **`searchMode`** parameter is relevant in this example. Whenever boolean operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched. Otherwise, you can use the default `searchMode=any` that favors recall over precision.
+The "searchMode" parameter is relevant in this example. Whenever boolean operators are on the query, you should generally set `"searchMode=all"` to ensure that *all* of the criteria is matched. Otherwise, you can use the default `"searchMode=any"` that favors recall over precision.
 
 For additional examples, see [Simple query syntax examples](search-query-simple-examples.md). For details about the query request and parameters, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
 ## Keyword search on terms and phrases
 
-Strings passed to the **`search`** parameter can include terms or phrases in any supported language, boolean operators, precedence operators, wildcard or prefix characters for "starts with" queries, escape characters, and URL encoding characters. The **`search`** parameter is optional. Unspecified, search (`search=*` or `search=" "`) returns the top 50 documents in arbitrary (unranked) order.
+Strings passed to the "search" parameter can include terms or phrases in any supported language, boolean operators, precedence operators, wildcard or prefix characters for "starts with" queries, escape characters, and URL encoding characters. The "search" parameter is optional. Unspecified, search (`search=*` or `search=" "`) returns the top 50 documents in arbitrary (unranked) order.
 
 + A *term search* is a query of one or more terms, where any of the terms are considered a match.
 
@@ -46,11 +46,11 @@ Strings passed to the **`search`** parameter can include terms or phrases in any
 
   Depending on your search client, you might need to escape the quotation marks in a phrase search. For example, in Postman in a POST request, a phrase search on `"Roach Motel"` in the request body would be specified as `"\"Roach Motel\""`.
 
-By default, all terms or phrases passed in the **`search`** parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you are using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time.
+By default, all strings passed in the "search" parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you are using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time. You can [test tokenization on specific strings](/rest/api/searchservice/test-analyzer) to confirm the output.
 
-Any text with one or more terms is considered a valid starting point for query execution. Azure Cognitive Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
+Any text input with one or more terms is considered a valid starting point for query execution. Azure Cognitive Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
 
-As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a **`searchMode`** parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see the NOT operator under [Boolean operators](#boolean-operators).
+As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a "searchMode" parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see the NOT operator under [Boolean operators](#boolean-operators).
 
 ## Boolean operators
 
@@ -60,7 +60,7 @@ You can embed Boolean operators in a query string to improve the precision of a 
 |----------- |--------|-------|
 | `+` | `pool + ocean` | An AND operation. For example, `pool + ocean` stipulates that a document must contain both terms.|
 | `|` | `pool | ocean` | An OR operation finds a match when either term is found. In the example, the query engine will return match on documents containing either `pool` or `ocean` or both. Because OR is the default conjunction operator, you could also leave it out, such that `pool ocean` is the equivalent of  `pool | ocean`.|
-| `-` | `pool – ocean` | A NOT operation returns matches on documents that exclude the term. <br/><br/>To get the expected behavior on a NOT expression, consider setting **`searchMode=all`** on the request. Otherwise, under the default of **`searchMode=any`**, you will get matches on `pool`, plus matches on all documents that do not contain `ocean`, which could be a lot of documents. The **`searchMode`** parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there is no `+` or `|` operator on the other terms). Using **`searchMode=all`** increases the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". <br/><br/>When deciding on a **`searchMode`** setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
+| `-` | `pool – ocean` | A NOT operation returns matches on documents that exclude the term. </p>To get the expected behavior on a NOT expression, set `"searchMode=all"` on the request. Otherwise, under the default of `"searchMode=any"`, you will get matches on `pool`, plus matches on all documents that do not contain `ocean`, which could be a lot of documents. The "searchMode" parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there is no `+` or `|` operator on the other terms). Using `"searchMode=all"` increases the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". </p>When deciding on a "searchMode" setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
 
 <a name="prefix-search"></a>
 

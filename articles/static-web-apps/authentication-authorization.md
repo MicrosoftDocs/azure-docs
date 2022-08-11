@@ -70,6 +70,21 @@ For example:
 <a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
 ```
 
+Additionally, you can redirect unauthenticated users back to the referring page after they log in. To configure this behavior, create a [response override](configuration.md#response-overrides) rule that sets `post_login_redirect_uri` to `.referrer`.
+
+For example:
+
+```json
+{
+  "responseOverrides": {
+    "401": {
+      "redirect": "/.auth/login/github?post_login_redirect_uri=.referrer",
+      "statusCode": 302
+    }
+  }
+}
+```
+
 ## Logout
 
 The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
@@ -214,7 +229,7 @@ To configure Static Web Apps to use an API function as the role assignment funct
 
 ### Create a function for assigning roles
 
-After defining the `rolesSource` property in your app's configuration, add an [API function](apis.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
+After defining the `rolesSource` property in your app's configuration, add an [API function](apis-functions.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
 
 Each time a user successfully authenticates with an identity provider, the specified function is called via the POST method. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
 

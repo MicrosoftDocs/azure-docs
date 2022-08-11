@@ -1,17 +1,15 @@
 ---
-title: Monitor the health of your Microsoft Sentinel data connectors | Microsoft Docs
+title: Monitor the health of your Microsoft Sentinel data connectors
 description: Use the SentinelHealth data table and the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
-author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 12/30/2021
-ms.author: yelevin
+ms.date: 07/28/2022
+ms.service: microsoft-sentinel
 ---
 
----
 # Monitor the health of your data connectors
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 After you've configured and connected your Microsoft Sentinel workspace to your data connectors, you'll want to monitor your connector health, viewing any service or data source issues, such as authentication, throttling, and more.
 
@@ -21,12 +19,12 @@ This article describes how to use the following features, which allow you to kee
 
 - **Data connectors health monitoring workbook**. This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
-- ***SentinelHealth* data table**. (Public preview) Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions.
+- ***SentinelHealth* data table**. (Public preview) Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
-    > [!NOTE]
-    > The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
-    >
-
+> [!IMPORTANT]
+>
+> The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Use the health monitoring workbook
 
@@ -69,18 +67,9 @@ There are three tabbed sections in this workbook:
 
 ## Use the SentinelHealth data table (Public preview)
 
-To get data connector health data from the *SentinelHealth* data table, you must first [turn on the Microsoft Sentinel health feature](#turn-on-microsoft-sentinel-health-for-your-workspace) for your workspace.
+To get data connector health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](monitor-sentinel-health.md).
 
 Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
-
-> [!TIP]
-> To configure the retention time for your health events, see the [Log Analytics retention configuration documentation](../azure-monitor/logs/manage-cost-storage.md).
->
-
-> [!IMPORTANT]
->
-> The SentinelHealth data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ### Supported data connectors
 
@@ -92,32 +81,6 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Office ATP](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
-
-### Turn on Microsoft Sentinel health for your workspace
-
-1. In Microsoft Sentinel, under the **Configuration** menu on the left, select **Settings** and expand the **Health** section.
-
-1. Select **Configure Diagnostic Settings** and create a new diagnostic setting.
-
-    - In the **Diagnostic setting name** field, enter a meaningful name for your setting.
-
-    - In the **Category details** column, select **DataConnectors**.
-
-    - Under **Destination details**, select **Send to Log Analytics workspace**, and select your subscription and workspace from the dropdown menus.
-
-1. Select **Save** to save your new setting.
-
-The *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
-
-
-### Access the *SentinelHealth* table
-
-In the Microsoft Sentinel **Logs** page, run a query on the  *SentinelHealth* table. For example:
-
-```kusto
-SentinelHealth
- | take 20
-```
 
 ### Understanding SentinelHealth table events
 
@@ -206,7 +169,7 @@ For more information, see [Azure Monitor alerts overview](../azure-monitor/alert
 
 ### SentinelHealth table columns schema
 
-The following table describes the columns and data generated in the *SentinelHealth* data table:
+The following table describes the columns and data generated in the SentinelHealth data table for data connectors:
 
 | ColumnName    | ColumnType     | Description|
 | ----------------------------------------------- | -------------- | --------------------------------------------------------------------------- |
@@ -223,7 +186,6 @@ The following table describes the columns and data generated in the *SentinelHea
 | **RecordId**      | String         | A unique identifier for the record that can be shared with the support team for better correlation as needed.                |
 | **ExtendedProperties**        | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname) value and the [Status](#status) of the event: <br><br>- For `Data fetch status change` events with a success indicator, the bag contains a ‘DestinationTable’ property to indicate where data from this connector is expected to land. For failures, the contents vary depending on the failure type.    |
 | **Type**          | String         | `SentinelHealth`                         |
-| | | |
 
 ## Next steps
 

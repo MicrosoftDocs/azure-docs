@@ -3,7 +3,7 @@ title: 'Application Insights: languages, platforms, and integrations | Microsoft
 description: Languages, platforms, and integrations available for Application Insights
 ms.topic: conceptual
 ms.date: 10/29/2021
-ms.reviewer: olegan
+ms.reviewer: mmcc
 ---
 
 # Supported languages
@@ -20,7 +20,7 @@ ms.reviewer: olegan
 * [Azure VM and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
-* [Azure Cloud Services](./cloudservices.md), including both web and worker roles
+* [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 ### Auto-instrumentation (enable without code changes)
 * [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)

@@ -43,9 +43,11 @@ Once you've chosen your storage method, check out [Azure Virtual Desktop pricing
 
 Azure Files offers two different tiers of storage: premium and standard. These tiers let you tailor the performance and cost of your file shares to meet your scenario's requirements.
 
-- Premium file shares are backed by solid-state drives (SSDs) and are deployed in the FileStorage storage account type. Premium file shares provide consistent high performance and low latency for input and output (IO) intensive workloads. 
+- Premium file shares are backed by solid-state drives (SSDs) and are deployed in the FileStorage storage account type. Premium file shares provide consistent high performance and low latency for input and output (IO) intensive workloads. Premium file shares use a provisioned billing model, where you pay for the amount of storage you would like your file share to have, regardless of how much you use.
 
-- Standard file shares are backed by hard disk drives (HDDs) and are deployed in the general purpose version 2 (GPv2) storage account type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability, such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
+- Standard file shares are backed by hard disk drives (HDDs) and are deployed in the general purpose version 2 (GPv2) storage account type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability, such as general-purpose file shares and dev/test environments. Standard file shares use a pay-as-you-go billing model, where you pay based on storage usage, including data stored and transactions.
+
+To learn more about how billing works in Azure Files, see [Understand Azure Files billing](../storage/files/understanding-billing.md).
 
 The following table lists our recommendations for which performance tier to use based on your workload. These recommendations will help you select the performance tier that meets your performance targets, budget, and regional considerations. We've based these recommendations on the example scenarios from [Remote Desktop workload types](/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
 
@@ -61,14 +63,9 @@ For more information about Azure Files performance, see [File share and file sca
 
 ## Next steps
 
-To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
+To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
-- [Create an Azure file share with a domain controller](create-file-share.md)
-- [Create an Azure file share with Azure Active Directory](create-profile-container-azure-ad.md)
-- [Create an Azure file share with Azure Active Directory Domain Services](create-profile-container-adds.md)
-- [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
-- The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) also apply when you use an FSLogix profile container instead of a user profile disk
-
-You can also start from the very beginning and set up your own Azure Virtual Desktop solution at [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
+- [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)

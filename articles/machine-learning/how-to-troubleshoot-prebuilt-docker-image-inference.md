@@ -5,8 +5,8 @@ description: 'Troubleshooting steps for using prebuilt Docker images for inferen
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssambare
-author: shivanissambare
+ms.author: sehan
+author: dem108
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
@@ -55,7 +55,7 @@ For problems when deploying a model from Azure Machine Learning to Azure Contain
 HTTP server in our Prebuilt Docker Images run as *non-root user*, it may not have access right to all directories. 
 Only write to directories you have access rights to. For example, the `/tmp` directory in the container.
 
-## Extra python packages not installed
+## Extra Python packages not installed
 
 * Check if there's a typo in the environment variable or file name.
 * Check the container log to see if `pip install -r <your_requirements.txt>` is installed or not.

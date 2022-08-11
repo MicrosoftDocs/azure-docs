@@ -28,7 +28,7 @@ Login-AzAccount
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
 
 ## Create a key vault
 
@@ -56,7 +56,7 @@ Now, you have created a Key Vault, stored a key, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 
@@ -65,3 +65,4 @@ In this quickstart you created a Key Vault and stored a certificate in it. To le
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
 - Review the [Key Vault security overview](../general/security-features.md)
+.md)

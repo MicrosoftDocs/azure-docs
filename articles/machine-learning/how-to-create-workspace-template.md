@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 10/21/2021
+ms.date: 03/08/2022
 
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -85,7 +85,6 @@ See the [Azure portal](#use-the-azure-portal) section if you prefer using the gr
 
 # [Azure CLI](#tab/azcli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az group create --name "examplegroup" --location "eastus"
@@ -102,8 +101,6 @@ New-AzResourceGroup -Name "examplegroup" -Location "eastus"
 Once your resource group is successfully created, deploy the template with the following command:
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \
@@ -169,18 +166,18 @@ The following example template demonstrates how to create a workspace with three
 * Enable encryption for the workspace.
 * Uses an existing Azure Key Vault to retrieve customer-managed keys. Customer-managed keys are used to create a new Cosmos DB instance for the workspace.
 
-    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
-
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-For more information, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
+For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
 
 > [!IMPORTANT]
 > There are some specific requirements your subscription must meet before using this template:
 > * You must have an existing Azure Key Vault that contains an encryption key.
 > * The Azure Key Vault must be in the same region where you plan to create the Azure Machine Learning workspace.
 > * You must specify the ID of the Azure Key Vault and the URI of the encryption key.
+> 
+> For steps on creating the vault and key, see [Configure customer-managed keys](how-to-setup-customer-managed-keys.md).
 
 __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:	
 
@@ -267,7 +264,7 @@ When using a customer-managed key, Azure Machine Learning creates a secondary re
 An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
 
 * Starts encrypting the local scratch disk for Azure Machine Learning compute clusters, providing you have not created any previous clusters in your subscription. If you have previously created a cluster in the subscription, open a support ticket to have encryption of the scratch disk enabled for your compute clusters.
-* Cleans up the local scratch disk between runs.
+* Cleans up the local scratch disk between jobs.
 * Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
 
@@ -664,7 +661,7 @@ To avoid this problem, we recommend one of the following approaches:
 
     After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then reuse the Key Vault by setting the `keyVault` property of the workspace to its ID.
 
-    To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
+    To get the ID of the Key Vault, you can reference the output of the original template job or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
 
     ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id

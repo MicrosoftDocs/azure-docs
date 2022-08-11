@@ -12,11 +12,14 @@ ms.date: 03/18/2021
 
 Follow this article to learn how to add multiple server credentials on the appliance configuration manager to perform software inventory (discover installed applications), agentless dependency analysis and discover web apps, and SQL Server instances and databases.
 
-The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate: Discovery and assessment to discover on-premises servers running in VMware environment and send server configuration and performance metadata to Azure. The appliance can also be used to perform software inventory, agentless dependency analysis and discover of web app, and SQL Server instances and databases.
+The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate: Discovery and assessment to discover on-premises servers and send server configuration and performance metadata to Azure. The appliance can also be used to perform software inventory, agentless dependency analysis and discover of web app, and SQL Server instances and databases.
 
-If you want to use these features, you can provide server credentials by following the steps below. The appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
+> [!Note]
+> Currently the discovery of web apps and SQL Server instances and databases is only available in appliance used for discovery and assessment of servers running in VMware environment.
 
-## Add credentials for servers running in VMware environment
+If you want to use these features, you can provide server credentials by following the steps below. In case of servers running on vCenter Server(s) and Hyper-V host(s)/cluster(s), the appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
+
+## Add server credentials
 
 ### Types of server credentials supported
 
@@ -26,9 +29,12 @@ The types of server credentials supported are listed in the table below:
 
 Type of credentials | Description
 --- | ---
-**Domain credentials** | You can add **Domain credentials** by selecting the option from the drop-down in the **Add credentials** modal. <br/><br/> To provide domain credentials, you need to specify the **Domain name** which must be provided in the FQDN format (for example, prod.corp.contoso.com). <br/><br/> You also need to specify a friendly name for credentials, username, and password. <br/><br/> The domain credentials added will be automatically validated for authenticity against the Active Directory of the domain. This is to prevent any account lockouts when the appliance attempts to map the domain credentials against discovered servers. <br/><br/>For the appliance to validate the domain credentials with the domain controller, it should be able to resolve the domain name. Ensure that you have provided the correct domain name while adding the credentials else the validation will fail.<br/><br/> The appliance will not attempt to map the domain credentials that have failed validation. You need to have at least one successfully validated domain credential or at least one non-domain credential to proceed with software inventory.<br/><br/>The domain credentials mapped automatically against the Windows servers will be used to perform software inventory and can also be used to discover web apps, and SQL Server instances and databases _(if you have configured Windows authentication mode on your SQL Servers)_.<br/> [Learn more](/dotnet/framework/data/adonet/sql/authentication-in-sql-server) about the types of authentication modes supported on SQL Servers.
+**Domain credentials** | You can add **Domain credentials** by selecting the option from the drop-down in the **Add credentials** modal. <br/><br/> To provide domain credentials, you need to specify the **Domain name** which must be provided in the FQDN format (for example, prod.corp.contoso.com). <br/><br/> You also need to specify a friendly name for credentials, username, and password. It is recommended to provide the credentials in the UPN format, for example, user1@contoso.com. <br/><br/> The domain credentials added will be automatically validated for authenticity against the Active Directory of the domain. This is to prevent any account lockouts when the appliance attempts to map the domain credentials against discovered servers. <br/><br/>For the appliance to validate the domain credentials with the domain controller, it should be able to resolve the domain name. Ensure that you have provided the correct domain name while adding the credentials else the validation will fail.<br/><br/> The appliance will not attempt to map the domain credentials that have failed validation. You need to have at least one successfully validated domain credential or at least one non-domain credential to start the discovery.<br/><br/>The domain credentials mapped automatically against the Windows servers will be used to perform software inventory and can also be used to discover web apps, and SQL Server instances and databases _(if you have configured Windows authentication mode on your SQL Servers)_.<br/> [Learn more](/dotnet/framework/data/adonet/sql/authentication-in-sql-server) about the types of authentication modes supported on SQL Servers.
 **Non-domain credentials (Windows/Linux)** | You can add **Windows (Non-domain)** or **Linux (Non-domain)** by selecting the required option from the drop-down in the **Add credentials** modal. <br/><br/> You need to specify a friendly name for credentials, username, and password.
 **SQL Server Authentication credentials** | You can add **SQL Server Authentication** credentials by selecting the option from the drop-down in the **Add credentials** modal. <br/><br/> You need to specify a friendly name for credentials, username, and password. <br/><br/> You can add this type of credentials to discover SQL Server instances and databases running in your VMware environment, if you have configured SQL Server authentication mode on your SQL Servers.<br/> [Learn more](/dotnet/framework/data/adonet/sql/authentication-in-sql-server) about the types of authentication modes supported on SQL Servers.<br/><br/> You need to provide at least one successfully validated domain credential or at least one Windows (Non-domain) credential so that the appliance can complete the software inventory to discover SQL installed on the servers before it uses the SQL Server authentication credentials to discover the SQL Server instances and databases.
+
+> [!Note]
+> Currently the SQL Server authentication credentials can only be provided in appliance used for discovery and assessment of servers running in VMware environment.
 
 Check the permissions required on the Windows/Linux credentials to perform the software inventory, agentless dependency analysis and discover web apps, and SQL Server instances and databases.
 
@@ -61,4 +67,4 @@ Feature | Windows credentials | Linux credentials
 
 ## Next steps
 
-Review the tutorials for [discovery of servers running in your VMware environment](tutorial-discover-vmware.md)
+Review the tutorials for discovery of servers running in your [VMware environment](tutorial-discover-vmware.md) or [Hyper-V environment](tutorial-discover-hyper-v.md) or for [discovery of physical servers](tutorial-discover-physical.md)

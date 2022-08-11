@@ -5,8 +5,9 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 05/18/2020 
+ms.date: 04/05/2022
 ms.custom: devx-track-azurepowershell
+ms.reviewer: robb
 ---
 # Resource Manager template samples for Azure Monitor
 

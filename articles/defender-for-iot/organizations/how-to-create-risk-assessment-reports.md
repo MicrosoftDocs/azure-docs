@@ -99,6 +99,6 @@ Create a risk assessment report based on detections made by sensors that are man
 1. Select **Import logo**.
 1. Choose a logo to add to the header of your Risk assessment reports.
 
-## See also
+## Next steps
 
-[Attack vector reporting](how-to-create-attack-vector-reports.md)
+For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md).

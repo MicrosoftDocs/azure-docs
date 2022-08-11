@@ -1,8 +1,6 @@
 ---
 title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
-author: craigshoemaker
-ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.devlang: csharp, javascript
@@ -21,8 +19,6 @@ This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless
 > This article is for Azure Functions 1.x. For information about how to use these bindings in Functions 2.x and higher, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
 >This binding was originally named DocumentDB. In Functions version 1.x, only the trigger was renamed Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
-
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
 > Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB's API for MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).

@@ -3,14 +3,14 @@ title: Azure Virtual Network
 description: Learn about Azure Virtual Network concepts and features, including address space, subnets, regions, and subscriptions. 
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 # Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
-ms.author: kumud
+ms.author: mbender
 ---
 
 # What is Azure Virtual Network?
@@ -37,7 +37,7 @@ Azure resources communicate securely with each other in one of the following way
 
 ### Communicate with on-premises resources
 
-You can connect your on-premises computers and networks to a virtual network using any combination of the following options:
+You can connect your on-premises computers and networks to a virtual network using any of the following options:
 
 - **Point-to-site virtual private network (VPN):** Established between a virtual network and a single computer in your network. Each computer that wants to establish connectivity with a virtual network must configure its connection. This connection type is great if you're just getting started with Azure, or for developers, because it requires little or no changes to your existing network. The communication between your computer and a virtual network is sent through an encrypted tunnel over the internet. To learn more, see [Point-to-site VPN](../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-network%2ftoc.json#).
 - **Site-to-site VPN:** Established between your on-premises VPN device and an Azure VPN Gateway that is deployed in a virtual network. This connection type enables any on-premises resource that you authorize to access a virtual network. The communication between your on-premises VPN device and an Azure VPN gateway is sent through an encrypted tunnel over the internet. To learn more, see [Site-to-site VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
@@ -75,8 +75,9 @@ Virtual networks and subnets span all availability zones in a region. You don't 
 
 ## Pricing
 
-There is no charge for using Azure VNet, it is free of cost. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products. To learn more, see [VNet pricing](https://azure.microsoft.com/pricing/details/virtual-network/) and the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+There is no charge for using Azure VNet; it is free of cost. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products. To learn more, see [VNet pricing](https://azure.microsoft.com/pricing/details/virtual-network/) and the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Next steps
- - Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md) .
+ - Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md).
  - To get started using a virtual network, create one, deploy a few VMs to it, and communicate between the VMs. To learn how, see the [Create a virtual network](quick-create-portal.md) quickstart.
+ - [Learn module: Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)

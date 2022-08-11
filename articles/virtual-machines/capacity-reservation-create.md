@@ -1,5 +1,5 @@
 ---
-title: Create a Capacity Reservation in Azure (preview)
+title: Create a Capacity Reservation in Azure
 description: Learn how to reserve Compute capacity in an Azure region or an Availability Zone by creating a Capacity Reservation.
 author: bdeforeest
 ms.author: bidefore
@@ -10,7 +10,9 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Create a Capacity Reservation (preview)
+# Create a Capacity Reservation
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
 Capacity Reservation is always created as part of a Capacity Reservation group. The first step is to create a group if a suitable one doesn’t exist already, then create reservations. Once successfully created, reservations are immediately available for use with virtual machines. The capacity is reserved for your use as long as the reservation is not deleted.     
 
@@ -18,18 +20,15 @@ A well-formed request for Capacity Reservation group should always succeed as it
 
 A Capacity Reservation creation succeeds or fails in its entirety. For a request to reserve 10 instances, success is returned only if all 10 could be allocated. Otherwise, the Capacity Reservation creation will fail. 
 
-> [!IMPORTANT]
-> Capacity Reservation is currently in public preview.
-> This preview version is provided without a service-level agreement, and we do not recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## Considerations
 
 The Capacity Reservation must meet the following rules: 
 - The location parameter must match the location property for the parent Capacity Reservation group. A mismatch will result in an error. 
 - The VM size must be available in the target region. Otherwise, the reservation creation will fail. 
-- The subscription must have sufficient approved quota equal to or more than the quantity of VMs being reserved for the VM series and for the region overall. If needed, [request more quota](../azure-portal/supportability/per-vm-quota-requests.md).
+- The subscription must have available quota equal to or more than the quantity of VMs being reserved for the VM series and for the region overall. If needed, [request more quota](../azure-portal/supportability/per-vm-quota-requests.md). 
+    - As needed to satisfy existing quota limits, single VMs can be done in stages. Create a capacity reservation with a smaller quantity and reallocate that quantity of virtual machines. This will free up quota to increase the quantity reserved and add more virtual machines. Alternatively, if the subscription uses different VM sizes in the same series, reserve and redeploy VMs for the first size. Then add a reservation to the group for another size and redeploy the VMs for the new size to the reservation group. Repeat until complete. 
+    - For Scale Sets, available quota will be required unless the Scale Set or its VM instances are deleted, capacity is reserved, and the Scale Set instances are added using reserved capacity. If the Scale Set is updated using blue green deployment, then reserve the capacity and deploy the new Scale Set to the reserved capacity at the next update. 
 - Each Capacity Reservation group can have exactly one reservation for a given VM size. For example, only one Capacity Reservation can be created for the VM size `Standard_D2s_v3`. Attempt to create a second reservation for `Standard_D2s_v3` in the same Capacity Reservation group will result in an error. However, another reservation can be created in the same group for other VM sizes, such as `Standard_D4s_v3`, `Standard_D8s_v3`, and so on.  
 - For a Capacity Reservation group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and a third Capacity Reservation for `Standard_D2s_v3` in `Zone 3` is supported.
 

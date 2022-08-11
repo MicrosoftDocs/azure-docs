@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 01/26/2022
+ms.date: 07/29/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -15,7 +15,6 @@ An App Service Environment is an Azure App Service feature that provides a fully
 > [!NOTE]
 > This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
 > 
-
 An App Service Environment can host your:
 
 - Windows web apps
@@ -79,12 +78,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
 
-- Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
-- Deploy your apps by using FTP.
-- Use remote debugging with your apps.
 - Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
-- Configure an IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps.
-- Configure a custom domain suffix.
 - Perform a backup and restore operation on a storage account behind a firewall.
 
 ## Pricing
@@ -101,40 +95,54 @@ Reserved Instance pricing for Isolated v2 is available and is described in [How 
 
 App Service Environment v3 is available in the following regions:
 
-| Normal and dedicated host regions | Availability zone regions |
-|---|---|
-| Australia East | Australia East |
-| Australia Southeast | Brazil South |
-| Brazil South | Canada Central |
-| Canada Central | Central India |
-| Central India | Central US |
-| Central US | East Asia |
-| East Asia | East US |
-| East US | East US 2 |
-| East US 2 | France Central |
-| France Central | Germany West Central |
-| Germany West Central | Japan East |
-| Japan East | Korea Central |
-| Korea Central | North Europe |
-| North Central US | Norway East |
-| North Europe | South Africa North |
-| Norway East | South Central US |
-| South Africa North | Southeast Asia |
-| South Central US | UK South |
-| Southeast Asia | West Europe |
-| Switzerland North | West US 2 |
-| UAE North | West US 3 |
-| UK South |  |
-| UK West |  |
-| West Central US |  |
-| West Europe |  |
-| West US |  |
-| West US 2 |  |
-| West US 3 |  |
-| US Gov Texas |  |
-| US Gov Arizona |  |
-| US Gov Virginia |  |
+### Azure Public:
+
+| Region               | Normal and dedicated host   | Availability zone support   |
+| -------------------- | :-------------------------: | :-------------------------: |
+| Australia East       | x                           | x                           |
+| Australia Southeast  | x                           |                             |
+| Brazil South         | x                           | x                           |
+| Canada Central       | x                           | x                           |
+| Canada East          | x                           |                             |
+| Central India        | x                           | x                           |
+| Central US           | x                           | x                           |
+| East Asia            | x                           | x                           |
+| East US              | x                           | x                           |
+| East US 2            | x                           | x                           |
+| France Central       | x                           | x                           |
+| Germany West Central | x                           | x                           |
+| Japan East           | x                           | x                           |
+| Korea Central        | x                           | x                           |
+| North Central US     | x                           |                             |
+| North Europe         | x                           | x                           |
+| Norway East          | x                           | x                           |
+| South Africa North   | x                           | x                           |
+| South Central US     | x                           | x                           |
+| Southeast Asia       | x                           | x                           |
+| Sweden Central       | x                           | x                           |
+| Switzerland North    | x                           | x                           |
+| UAE North            | x                           |                             |
+| UK South             | x                           | x                           |
+| UK West              | x                           |                             |
+| West Central US      | x                           |                             |
+| West Europe          | x                           | x                           |
+| West US              | x                           |                             |
+| West US 2            | x                           | x                           |
+| West US 3            | x                           | x                           |
+
+### Azure Government:
+
+| Region               | Normal and dedicated host   | Availability zone support   |
+| -------------------- | :-------------------------: | :-------------------------: |
+| US Gov Texas         | x                           |                             |
+| US Gov Arizona       | x                           |                             |
+| US Gov Virginia      | x                           |                             |
 
 ## App Service Environment v2
 
 App Service Environment has three versions: App Service Environment v1, App Service Environment v2, and App Service Environment v3. The information in this article is based on App Service Environment v3. To learn more about App Service Environment v2, see [App Service Environment v2 introduction](./intro.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://azure.microsoft.com/resources/using-app-service-environment-v3-in-compliance-oriented-industries/)

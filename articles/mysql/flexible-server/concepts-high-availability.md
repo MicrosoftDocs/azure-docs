@@ -1,10 +1,11 @@
 ---
 title: Zone-redundant HA with Azure Database for MySQL - Flexible Server
 description: Get a conceptual overview of zone-redundant high availability in Azure Database for MySQL - Flexible Server.
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 08/26/2021
 ---
 
@@ -28,7 +29,9 @@ You can choose the availability zone for the primary and the standby replica. Pl
 
 :::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram that shows the architecture for zone-redundant high availability.":::
 
-The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). These files are replicated to the standby server via the storage-level replication available with ZRS. If there's a failover: 
+The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). The log files are replicated to the standby server via the storage-level replication available with ZRS and applied to stand by server continuously.
+
+If there's a failover: 
 - The standby replica is activated. 
 - The binary log files of the primary server continue to apply to the standby server to bring it online to the last committed transaction on the primary. 
 
@@ -48,7 +51,7 @@ The standby server offers infrastructure redundancy with a separate virtual mach
 
 :::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Diagram that shows the architecture for same-zone high availability.":::
 
-The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). These files are replicated to the standby server via the storage-level replication available with LRS.
+The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). The log files are replicated to the standby server via the storage-level replication available with LRS and applied to stand by server continuously.
 
 If there's a failover: 
 - The standby replica is activated. 
@@ -62,7 +65,7 @@ Automatic backups, both snapshots and log backups, are performed on locally redu
 
 >[!Note]
 >For both zone-redundant and same-zone HA:
->* If there's a failure, the time needed for the standby replica to take over the role of primary depends on the binary log application on the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds. 
+>* If there's a failure, the time needed for the standby replica to take over the role of primary depends on the binary log application on the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds.
 >* The standby server isn't available for read or write operations. It's a passive standby to enable fast failover.
 >* Always use a fully qualified domain name (FQDN) to connect to your primary server. Avoid using an IP address to connect. If there's a failover, after the primary and standby server roles are switched, a DNS A record might change. That change would prevent the application from connecting to the new primary server if an IP address is used in the connection string.
 
@@ -81,6 +84,19 @@ The overall failover time depends on the current workload and the last checkpoin
 Unplanned service downtime can be caused by software bugs or infrastructure faults like compute, network, or storage failures, or power outages that affect the availability of the database. If the database becomes unavailable, replication to the standby replica is severed and the standby replica is activated as the primary database. DNS is updated, and clients reconnect to the database server and resume their operations. 
 
 The overall failover time is expected to be between 60 and 120 seconds. But, depending on the activity in the primary database server at the time of the failover (like large transactions and recovery time), the failover might take longer.
+
+#### How automatic failover detection works in HA enabled servers
+
+The primary server and the secondary server has two network endpoints,
+- Customer Endpoint: Customer connects and runs query on the instance using this endpoint.
+- Management Endpoint: Used internally for service communications to management components and to connect to backend storage.
+
+The health monitor component continuously does the following checks
+* The monitor pings to the nodes Management network Endpoint. If this check fails two times continuously, it triggers automatic failover operation.  The scenario like node is unavailable/not responding because of OS issue, networking issue between management components and nodes etc. will be addressed by this health check.
+* The monitor also runs a simple query on the Instance. If the queries fail to run, automatic failover will be triggered. The scenarios like MySQL demon crashed/ stopped/hung, Backend storage issue etc., will be addressed by this health check.
+
+>[!Note]
+>If there are any networking issue between the application and the customer networking endpoint (Private/Public access), either in networking path , on the endpoint or DNS issues in client side, the health check does not monitor this scenario. If you are using private access, make sure that the NSG rules for the VNet does not block the communication to the instance customer networking endpoint on port 3306. For public access make sure that the firewall rules are set and network traffic is allowed on port 3306 (if network path has any other firewalls). The DNS resolution from the client application side also needs to be taken care of.
 
 ## Monitoring for high availability
 The health of your HA is continuously monitored and reported on the overview page. Here are the replication statuses:

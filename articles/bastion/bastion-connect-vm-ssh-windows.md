@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Create an SSH connection to a Windows VM using Azure Bastion
 
-This article shows you how to securely and seamlessly create an RDP connection to your Windows VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. You can also connect to a Windows VM using RDP. For information, see [Create an RDP connection to a Windows VM](bastion-connect-vm-rdp-windows.md).
+This article shows you how to securely and seamlessly create an SSH connection to your Windows VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. You can also connect to a Windows VM using RDP. For information, see [Create an RDP connection to a Windows VM](bastion-connect-vm-rdp-windows.md).
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
@@ -58,7 +58,7 @@ Currently, Azure Bastion only supports connecting to Windows VMs via SSH using *
 
 ## <a name="username"></a>Connect: Using username and password
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="Screenshot of  overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
 
@@ -73,7 +73,7 @@ Currently, Azure Bastion only supports connecting to Windows VMs via SSH using *
 
 ## <a name="privatekey"></a>Connect: Manually enter a private key
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="Screenshot shows the overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
 1. After you select Bastion, click **Use Bastion**. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./quickstart-host-portal.md).
@@ -89,7 +89,7 @@ Currently, Azure Bastion only supports connecting to Windows VMs via SSH using *
 
 ## <a name="ssh"></a>Connect: Using a private key file
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="Screenshot depicts the overview for a virtual machine in Azure portal with Connect selected" lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
 1. After you select Bastion, click **Use Bastion**. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./quickstart-host-portal.md).
@@ -105,7 +105,7 @@ Currently, Azure Bastion only supports connecting to Windows VMs via SSH using *
 
 ## <a name="akv"></a>Connect: Using a private key stored in Azure Key Vault
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
+1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="Screenshot is the overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
 1. After you select Bastion, click **Use Bastion**. If you didn't provision Bastion for the virtual network, see [Configure Bastion](./quickstart-host-portal.md).

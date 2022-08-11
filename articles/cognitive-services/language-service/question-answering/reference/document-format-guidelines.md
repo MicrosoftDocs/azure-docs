@@ -3,8 +3,8 @@ title: Import document format guidelines - question answering
 description: Use these guidelines for importing documents to get the best results for your content with question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.topic: reference
 ms.date: 01/23/2022
 ---
@@ -61,7 +61,8 @@ Below is an example of an unstructured PDF document:
 > [!div class="mx-imgBorder"]
 > ![Unstructured  document example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
 
- Currently this functionality is available only via document upload and only for PDF and DOC file formats.
+> [!NOTE]
+> QnA pairs are not extracted in the "Edit sources" tab for unstructured sources.
 
 > [!IMPORTANT]
 > Support for unstructured file/content is available only in question answering.
@@ -98,12 +99,12 @@ Any additional columns in the source file are ignored.
 
 ### Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories. The import format needs to be similar to the exported knowledgebase format.
 
-| Question  | Answer  | Source| Metadata (1 key: 1 value) |
-|-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
-| Question2 | Answer2 | Editorial|    `Key:Value`       |
+| Question  | Answer  | Source| Metadata (1 key: 1 value) | QnaId |
+|-----------|---------|----|---------------------|------|
+| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> | QnaId 1 |
+| Question2 | Answer2 | Editorial|    `Key:Value`       | QnaId 2 |
 
 <a href="#formatting-considerations"></a>
 
@@ -154,7 +155,7 @@ Question answering can process semi-structured support web pages, such as web ar
 
 ## Import and export knowledge base
 
-**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in the language studio. They cannot be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
+**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in Language Studio. They cannot be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
 
 When you import the knowledge base through these **TSV and XLS files**, the question answer pairs get added to the editorial source and not the sources from which the question and answers were extracted in the exported knowledge base.
 

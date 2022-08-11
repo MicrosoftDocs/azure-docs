@@ -6,11 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 06/15/2022
+
 
 ms.author: justinha
 author: vimrang
-manager: daveba
+manager: karenhoran
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
@@ -34,7 +35,7 @@ Let's cover each step:
 
 1. The user tries to access an application, such as [MyApps portal](https://myapps.microsoft.com/).
 1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
-1. The user enters their username into the Azure AD sign in page, and then clicks **Next**.
+1. The user enters their username into the Azure AD sign-in page, and then clicks **Next**.
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
@@ -49,7 +50,7 @@ Let's cover each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us). For the correct endpoint for other environments, see the specific Microsoft cloud docs. 
+1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us). For the correct endpoint for other environments, see the specific Microsoft cloud docs. 
 
    The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
@@ -82,7 +83,7 @@ Since multiple authentication binding policy rules can be created with different
 
 1. Exact match is used for strong authentication via policy OID. If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the custom rule is defined as **Policy OID** with value **1.2.3.4.5** with MFA, only certificate A will satisfy MFA and credential B will satisfy only single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
 1. Policy OID rules will take precedence over certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strong authentication binding priority than the issuer.
-1. If one CA binds to MFA, all user certificates that this CA issues qualify as MFA. The same logic applies for single-factor authentication.
+1. If one CA binds to MFA, all user certificates that the CA issues qualify as MFA. The same logic applies for single-factor authentication.
 1. If one policy OID binds to MFA, all user certificates that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as MFA.
 1. If there is a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, where one binds to single-factor authentication and the other binds to MFA) then treat the certificate as a single-factor authentication.
 1. One certificate can only have one valid strong authentication binding (that is, a certificate cannot bind to both single-factor and MFA).
@@ -101,7 +102,7 @@ Use the highest priority (lowest number) binding.
    1. If a unique user is found, authenticate the user.
    1. If a unique user is not found, authentication fails.
 1. If the X.509 certificate field is not on the presented certificate, move to the next priority binding.
-1. If the specified X.509 certificate field is found on the certificate, but Azure AD does not find a user object in the directory matching that value, the authentication fails. Azure AD does not attempt to use the next binding in the list in this case. Only if the X.509 certificate field is not on the certificate does it tries the next binding, as mentioned in Step 2.
+1. If the specified X.509 certificate field is found on the certificate, but Azure AD does not find a user object in the directory matching that value, the authentication fails. Azure AD does not attempt to use the next binding in the list in this case. Only if the X.509 certificate field is not on the certificate does it try the next binding, as mentioned in Step 2.
 
 ## Understanding the certificate revocation process
 
@@ -117,7 +118,7 @@ An admin can configure the CRL distribution point during the setup process of th
 >[!IMPORTANT]
 >If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
 
-As of now, we don't support Online Certificate Status Protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is must faster every time. Customers must publish CRLs for certificate revocation.
+As of now, we don't support Online Certificate Status Protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign-in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is much faster every time. Customers must publish CRLs for certificate revocation.
 
 **Typical flow of the CRL check:**
 
@@ -196,7 +197,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
 ### Test multifactor authentication
 
-For the next test scenario, configure the authentication policy where the Issuer subject rule satisfies multifactor authentication.
+For the next test scenario, configure the authentication policy where the **policyOID** rule satisfies multifactor authentication.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
@@ -207,7 +208,7 @@ For the next test scenario, configure the authentication policy where the Issuer
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/several-entries.png":::  
 
-   The entry with **Interrupted** status provides has more diagnostic info in the **Additional Details** tab. 
+   The entry with **Interrupted** status has more diagnostic info on the **Additional Details** tab. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/interrupted-user-details.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." :::  
 
@@ -229,10 +230,18 @@ For the next test scenario, configure the authentication policy where the Issuer
  
 - The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
+- There is a double prompt for iOS because iOS only supports pushing certificates to a device storage. When an organization pushes user certificates to an iOS device through Mobile Device Management (MDM) or when a user accesses first-party or native apps, there is no access to device storage. Only Safari can access device storage.
+
+  When an iOS client sees a client TLS challenge and the user clicks **Sign in with certificate**, iOS client knows it cannot handle it and sends a completely new authorization request using the Safari browser. The user clicks **Sign in with certificate** again, at which point Safari which has access to certificates for authentication in device storage. This requires users to click **Sign in with certificate** twice, once in app’s WKWebView and once in Safari’s System WebView.
+
+  We are aware of the UX experience issue and are working to fix this on iOS and to have a seamless UX experience.
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)

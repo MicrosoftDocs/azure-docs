@@ -61,3 +61,7 @@ output notAPassword string = '...'
 ```
 
 It is good practice to add a comment explaining why the rule does not apply to this line.
+
+## Next steps
+
+For more information about the linter, see [Use Bicep linter](./linter.md).

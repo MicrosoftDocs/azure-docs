@@ -3,503 +3,128 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 06/07/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-## Create a new Azure resource and Azure Blob Storage account
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
 
-Before you can use custom NER, you’ll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You’ll also need an Azure storage account, where you can upload your dataset that will be used to building your model.
+## Create a new Azure Language resource and Azure storage account
+
+Before you can use custom NER, you'll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You'll also need an Azure storage account, where you can upload your dataset that will be used in building your model.
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later.
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the Language resource, and create and/or connect a storage account at the same time, which is easier than doing it later.
 >
-> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See [project creation article](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
+> If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [create project](../../how-to/create-project.md#using-a-pre-existing-language-resource)  for information.
 
-1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
+[!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
-    |Azure resource requirement  |Required value  |
-    |---------|---------|
-    |Location | "West US 2" or "West Europe"         |
-    |Pricing tier     | Standard (**S**) pricing tier        |
-
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments.
-
-    |Storage account value  |Recommended value  |
-    |---------|---------|
-    | Name | Any name |
-    | Performance | Standard |
-    | Account kind| Storage (general purpose v1) |
-    | Replication | Locally redundant storage (LRS)
-    |Location | Any location closest to you, for best latency.        |
-
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
 
 ## Upload sample data to blob container
 
 [!INCLUDE [Uploading sample data for custom NER](blob-storage-upload.md)]
 
-### Get your resource keys endpoint
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Upload-sample-data-to-blob-container" target="_target">I ran into an issue</a>
 
-* Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
+### Get your resource keys and endpoint
 
-* From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you’ll need the key for `Ocp-Apim-Subscription-Key` header.
-:::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../../../media/azure-portal-resource-credentials.png":::
+[!INCLUDE [Get keys and endpoint Azure Portal](../get-keys-endpoint-azure.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-resource-keys-and-endpoint" target="_target">I ran into an issue</a>
 
 ## Create a custom NER project
 
-Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+Once your resource and storage account are configured, create a new custom NER project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-> [!NOTE]
-> The project name is case sensitive for all operations.
+Use the tags file you downloaded from the [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) in the previous step and add it to the body of the following request. 
 
-Create a **POST** request using the following URL, headers, and JSON body to create your project and import the tags file.
+### Trigger import project job 
 
-Use the following URL to create a project and import your tags file. Replace the placeholder values below with your own values. 
+[!INCLUDE [Import a project using the REST API](../rest-api/import-project.md)]
 
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import?api-version=2021-11-01-preview
-```
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
 
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+### Get import job status
 
-### Headers
+ [!INCLUDE [get import project status](../rest-api/get-import-status.md)]
 
-Use the following header to authenticate your request. 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-import-job-status" target="_target">I ran into an issue</a>
 
-|Key|Value|
-|--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+## Train your model
 
-### Body
+Typically after you create a project, you go ahead and start [tagging the documents](../../how-to/tag-data.md) you have in the container connected to your project. For this quickstart, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
 
-Use the following JSON in your request. Replace the placeholder values below with your own values. Use the tags file available in the [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) tab
+### Start training job
 
-```json
-{
-    "api-version": "2021-11-01-preview",
-    "metadata": {
-        "name": "MyProject",
-        "multiLingual": true,
-        "description": "Trying out custom NER",
-        "modelType": "Extraction",
-        "language": "string",
-        "storageInputContainerName": "YOUR-CONTAINER-NAME",
-        "settings": {}
-    },
-    "assets": {
-        "extractors": [
-        {
-            "name": "Entity1"
-        },
-        {
-            "name": "Entity2"
-        }
-    ],
-    "documents": [
-        {
-            "location": "doc1.txt",
-            "language": "en-us",
-            "extractors": [
-                {
-                    "regionOffset": 0,
-                    "regionLength": 500,
-                    "labels": [
-                        {
-                            "extractorName": "Entity1",
-                            "offset": 25,
-                            "length": 10
-                        },                    
-                        {
-                            "extractorName": "Entity2",
-                            "offset": 120,
-                            "length": 8
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "location": "doc2.txt",
-            "language": "en-us",
-            "extractors": [
-                {
-                    "regionOffset": 0,
-                    "regionLength": 100,
-                    "labels": [
-                        {
-                            "extractorName": "Entity2",
-                            "offset": 20,
-                            "length": 5
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-    }
-}
-```
-For the metadata key: 
+After your project has been imported, you can start training your model. 
 
-|Key  |Value  | Example |
-|---------|---------|---------|
-| `modelType  `    | Your Model type. | Extraction |
-|`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
+[!INCLUDE [train model](../rest-api/train-model.md)]
 
-This request will return an error if:
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Start-training-your-job" target="_target">I ran into an issue</a>
 
-* The selected resource doesn't have proper permission for the storage account. 
+### Get training job status
 
-## Start training your model
+Training could take sometime between 10 and 30 minutes for this sample dataset. You can use the following request to keep polling the status of the training job until it is successfully completed.
 
-After your project has been created, you can begin training a custom NER model. Create a **POST** request using the following URL, headers, and JSON body to start training an NER model.
-ate a **POST** request using the following URL, headers, and JSON body to start training a text classification model.
+[!INCLUDE [get training model status](../rest-api/get-training-status.md)]
 
-### Request URL
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-training-job-status" target="_target">I ran into an issue</a>
 
-Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
-
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train?api-version=2021-11-01-preview
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-
-### Headers
-
-Use the following header to authenticate your request. 
-
-|Key|Value|
-|--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
-### Request body
-
-Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
-
-```json
-{
-  "modelLabel": "MyModel",
-  "runValidation": true
-}
-```
-
-|Key  |Value  | Example |
-|---------|---------|---------|
-|`modelLabel  `    | Your Model name.   | MyModel |
-|`runValidation`     | Boolean value to run validation on the test set.   | True |
-
-Once you send your API request, you’ll receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
-
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
-``` 
-
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You’ll use this URL in the next step to get the training status. 
-
-## Get Training Status
-
-Use the following **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
-
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Headers
-
-Use the following header to authenticate your request. 
-
-|Key|Value|
-|--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
-### Response Body
-
-Once you send the request, you’ll get the following response. 
-
-```json
-{
-  "jobs": [
-    {
-      "result": {
-        "trainedModelLabel": "MyModel",
-        "trainStatus": {
-          "percentComplete": 0,
-          "elapsedTime": "string"
-        },
-        "evaluationStatus": {
-          "percentComplete": 0,
-          "elapsedTime": "string"
-        }
-      },
-      "jobId": "string",
-      "createdDateTime": "2021-10-19T23:24:41.572Z",
-      "lastUpdatedDateTime": "2021-10-19T23:24:41.572Z",
-      "expirationDateTime": "2021-10-19T23:24:41.572Z",
-      "status": "unknown",
-      "errors": [
-        {
-          "code": "unknown",
-          "message": "string"
-        }
-      ]
-    }
-  ],
-  "nextLink": "string"
-}
-```
 ## Deploy your model
 
-Create a **PUT** request using the following URL, headers, and JSON body to start deploying a custom NER model.
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/view-model-evaluation.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version=2021-11-01-preview
-```
+### Start deployment job
 
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
+[!INCLUDE [deploy model](../rest-api/deploy-model.md)]
 
-### Headers
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Submit-deployment-job" target="_target">I ran into an issue</a>
 
-Use the following header to authenticate your request. 
+### Get deployment job status
 
-|Key|Value|
-|--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+[!INCLUDE [get deployment status](../rest-api/get-deployment-status.md)]
 
-### Request body
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-deployment-job-status" target="_target">I ran into an issue</a>
 
-Use the following JSON in your request. Use the name of the model you want to deploy.  
+## Extract custom entities
 
-```json
-{
-  "trainedModelLabel": "MyModel",
-  "deploymentName": "prod"
-}
-```
+After your model is deployed, you can start using it to extract entities from your text using the [prediction API](https://aka.ms/ct-runtime-swagger). In the sample dataset you downloaded earlier you can find some test documents that you can use in this step.
 
-Once you send your API request, you’ll receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
+### Submit a custom NER task
 
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
-``` 
+[!INCLUDE [submit a custom NER task using the REST API](../rest-api/submit-task.md)]
 
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Submit-custom-ner-task" target="_target">I ran into an issue</a>
 
-## Get the deployment status
+### Get task results
 
-Use the following **GET** request to query the status of your model's publishing process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+[!INCLUDE [get custom NER task results](../rest-api/get-results.md)]
 
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Headers
-
-Use the following header to authenticate your request. 
-
-|Key|Value|
-|--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
-
-### Submit custom NER task
-
-Now that your model is deployed, you can begin sending entity recognition tasks to it 
-
-> [!NOTE]
-> Project names is case sensitive.
-
-Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
-
-`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
-
-#### Body
-
-```json
-    {
-    "displayName": "MyJobName",
-    "analysisInput": {
-        "documents": [
-            {
-                "id": "doc1", 
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
-            },
-            {
-                "id": "doc2",
-                "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-            }
-        ]
-    },
-    "tasks": {
-        "customEntityRecognitionTasks": [      
-            {
-                "parameters": {
-                      "project-name": "MyProject",
-                      "deployment-name": "MyDeploymentName"
-                      "stringIndexType": "TextElements_v8"
-                }
-            }
-        ]
-    }
-}
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|displayName|"MyJobName"|Your job Name|
-|documents|[{},{}]|List of documents to run tasks on|
-|ID|"doc1"|a string document identifier|
-|text|"Lorem ipsum dolor sit amet"| You document in string format|
-|"tasks"|[]| List of tasks we want to perform.|
-|--|customEntityRecognitionTasks|Task identifer for task we want to perform. |
-|parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. The project name is case-sensitive.|
-|deployment-name| "MyDeploymentName"| Your deployment name|
-
-#### Response
-
-You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
-`operation-location` is formatted like this:
-
- `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
-
-You will use this endpoint in the next step to get the custom recognition task results.
-
-### Get task status and results
-
-Use the following **GET** request to query the status/results of the custom recognition task. You can use the endpoint you received from the previous step.
-
-`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`.
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
-
-### Response Body
-
-The response will be a JSON document with the following parameters
-
-```json
-{
-    "createdDateTime": "2021-05-19T14:32:25.578Z",
-    "displayName": "MyJobName",
-    "expirationDateTime": "2021-05-19T14:32:25.578Z",
-    "jobId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "lastUpdateDateTime": "2021-05-19T14:32:25.578Z",
-    "status": "completed",
-    "errors": [],
-    "tasks": {
-        "details": {
-            "name": "MyJobName",
-            "lastUpdateDateTime": "2021-03-29T19:50:23Z",
-            "status": "completed"
-        },
-        "completed": 1,
-        "failed": 0,
-        "inProgress": 0,
-        "total": 1,
-        "tasks": {
-    "customEntityRecognitionTasks": [
-        {
-            "lastUpdateDateTime": "2021-05-19T14:32:25.579Z",
-            "name": "MyJobName",
-            "status": "completed",
-            "results": {
-                "documents": [
-                    {
-                        "id": "doc1",
-                        "entities": [
-                            {
-                                "text": "Government",
-                                "category": "restaurant_name",
-                                "offset": 23,
-                                "length": 10,
-                                "confidenceScore": 0.0551877357
-                            }
-                        ],
-                        "warnings": []
-                    },
-                    {
-                        "id": "doc2",
-                        "entities": [
-                            {
-                                "text": "David Schmidt",
-                                "category": "artist",
-                                "offset": 0,
-                                "length": 13,
-                                "confidenceScore": 0.8022353
-                            }
-                        ],
-                        "warnings": []
-                    }
-                ],
-                "errors": [],
-                "statistics": {
-                    "documentsCount":0,
-                    "validDocumentsCount":0,
-                    "erroneousDocumentsCount":0,
-                    "transactionsCount":0
-                }
-                    }
-                }
-            ]
-        }
-    }
-```
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Get-task-results" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 
-When you no longer need your project, you can delete it with the following **DELETE** request. Replace the placeholder values with your own values.   
+[!INCLUDE [Delete project using the REST API](../rest-api/delete-project.md)]
 
-```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-
-### Headers
-
-Use the following header to authenticate your request. 
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>

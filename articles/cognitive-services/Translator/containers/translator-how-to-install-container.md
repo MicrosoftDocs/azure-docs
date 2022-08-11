@@ -25,7 +25,7 @@ See the list of [languages supported](../language-support.md) when using Transla
 > [!IMPORTANT]
 >
 > * Translator container is in gated preview and to use it you must submit an online request, and have it approved. See [Request approval to run container](#request-approval-to-run-container) below for more information.
-> * Translator container supports limited features compared to the cloud offerings.  Please refer to **Container: Translate** for more details.
+> * Translator container supports limited features compared to the cloud offerings.  *See* [**Container translate methods**](translator-container-supported-parameters.md) for more details.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -53,11 +53,11 @@ All Cognitive Services containers require three primary elements:
 
 * **EULA accept setting**. An end-user license agreement (EULA) set with a value of `Eula=accept`.
 
-* **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource _Keys and Endpoint_ page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
+* **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource **Keys and Endpoint** page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 
 > [!IMPORTANT]
 >
-> * Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
+> * Keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
 ## Host computer
 
@@ -97,13 +97,13 @@ Application for Gated Services**](https://aka.ms/csgate-translator) to request a
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to download a container image from Microsoft Container registry and run it.
 
 ```Docker
-docker run --rm -it -p 5000:80 --memory 12g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 4 \
 -v /mnt/d/TranslatorContainer:/usr/local/models \
 -e apikey={API_KEY} \
 -e eula=accept \
 -e billing={ENDPOINT_URI} \
 -e Languages=en,fr,es,ar,ru  \
-mcr.microsoft.com/azure-cognitive-services/translator/text-translation
+mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview
 ```
 
 The above command:
@@ -165,7 +165,7 @@ There are several ways to validate that the container is running:
 
 #### English &leftrightarrow; German
 
-Navigate to the swagger page: `<http://localhost:5000/swagger/index.html>`
+Navigate to the swagger page: `http://localhost:5000/swagger/index.html`
 
 1. Select **POST /translate**
 1. Select **Try it out**

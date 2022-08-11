@@ -1,9 +1,10 @@
 ---
 title: How to install IoT Edge on Kubernetes | Microsoft Docs 
 description: Learn on how to install IoT Edge on Kubernetes using a local development cluster environment
-author: kgremban
+author: PatAltimore
 
-ms.author: veyalla
+ms.author: patricka
+ms.reviewer: veyalla
 ms.date: 12/09/2021
 ms.topic: conceptual
 ms.service: iot-edge

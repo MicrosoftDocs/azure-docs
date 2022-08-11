@@ -2,16 +2,16 @@
 title: Microsoft identity platform scopes, permissions, & consent
 description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2022
-ms.author: ryanwi
-ms.reviewer: ludwignick, phsignor
+ms.date: 04/21/2022
+ms.author: marsma
+ms.reviewer: jawoods, ludwignick, phsignor
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
 ---
 
@@ -21,7 +21,7 @@ Applications that integrate with the Microsoft identity platform follow an autho
 
 ## Scopes and permissions
 
-The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *application ID URI*. 
+The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *application ID URI*.
 
 Here are some examples of Microsoft web-hosted resources:
 
@@ -73,7 +73,7 @@ If you request the OpenID Connect scopes and a token, you'll get a token to call
 
 ### openid
 
-If an app signs in by using [OpenID Connect](active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope appears on the work account consent page as the **Sign you in** permission. On the personal Microsoft account consent page, it appears as the **View your profile and connect to apps and services using your Microsoft account** permission. 
+If an app signs in by using [OpenID Connect](active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope appears on the work account consent page as the **Sign you in** permission.
 
 By using this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. The permission also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the Microsoft identity platform token endpoint to acquire ID tokens. The app can use these tokens for authentication.
 
@@ -127,13 +127,13 @@ With the Microsoft identity platform endpoint, you can ignore the static permiss
 Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. You can also front load your consent experience and ask for all permissions in one initial authorization request. If your app requires a large number of permissions, you can gather those permissions from the user incrementally as they try to use certain features of the app over time.
 
 > [!IMPORTANT]
-> Dynamic consent can be convenient, but presents a big challenge for permissions that require admin consent, since the admin consent experience doesn't know about those permissions at consent time. If you require admin privileged permissions or if your app uses dynamic consent, you must register all of the permissions in the Azure portal (not just the subset of permissions that require admin consent). This enables tenant admins to consent on behalf of all their users.
+> Dynamic consent can be convenient, but presents a big challenge for permissions that require admin consent.  The admin consent experience in the **App registrations** and **Enterprise applications** blades in the portal doesn't know about those dynamic permissions at consent time. We recommend that a developer list all the admin privileged permissions that are needed by the app in the portal.  This enables tenant admins to consent on behalf of all their users in the portal, once.  Users won't need to go through the consent experience for those permissions on sign in. The alternative is to use dynamic consent for those permissions. To grant admin consent, an individual admin signs in to the app, triggers a consent prompt for the appropriate permissions, and selects **consent for my entire org** in the consent dialogue.
 
 ### Admin consent
 
 [Admin consent](#using-the-admin-consent-endpoint) is required when your app needs access to certain high-privilege permissions. Admin consent ensures that administrators have some additional controls before authorizing apps or users to access highly privileged data from the organization.
 
-[Admin consent done on behalf of an organization](#requesting-consent-for-an-entire-tenant) still requires the static permissions registered for the app. Set those permissions for apps in the app registration portal if you need an admin to give consent on behalf of the entire organization. This reduces the cycles required by the organization admin to set up the application.
+[Admin consent done on behalf of an organization](#requesting-consent-for-an-entire-tenant) is highly recommended if your app has an enterprise audience. Admin consent done on behalf of an organization requires the static permissions to be registered for the app in the portal. Set those permissions for apps in the app registration portal if you need an admin to give consent on behalf of the entire organization.  The admin can consent to those permissions on behalf of all users in the org, once.  The users will not need to go through the consent experience for those permissions when signing in to the app. This is easier for users and reduces the cycles required by the organization admin to set up the application.
 
 ## Requesting individual user consent
 

@@ -7,4 +7,4 @@
 ---
 
 > [!IMPORTANT]
-> You can't set a retention policy. However, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](../articles/azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period).
+> You can't set a retention policy. However, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](../articles/azure-monitor/logs/data-retention-archive.md).

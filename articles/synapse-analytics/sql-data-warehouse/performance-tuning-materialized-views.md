@@ -1,14 +1,13 @@
 ---
 title: Performance tune with materialized views
 description: Learn about recommendations and considerations you should know as you use materialized views to improve your query performance. 
-author: XiaoyuMSFT
-manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 08/17/2021
+author: XiaoyuMSFT
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.reviewer: wiassaf
 ---
 
 # Performance tune with materialized views
@@ -73,7 +72,7 @@ In comparison to other tuning options such as scaling and statistics management,
 
 **Need different data distribution strategy for faster query performance**
 
-Dedicated SQL pool is a distributed query processing system.  Data in a SQL table is distributed across 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).   
+Dedicated SQL pool is a distributed query processing system.  Data in a SQL table is distributed upto 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).   
 
 The data distribution is specified at the table creation time and stays unchanged until the table is dropped. Materialized view, being a virtual table on disk, supports hash and round_robin data distributions.  Users can choose a data distribution that is different from the base tables but optimal for the performance of queries that use the views.  
 

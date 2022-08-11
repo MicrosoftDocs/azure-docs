@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a Linux VM s
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor: 
 
 ms.service: active-directory
@@ -39,7 +39,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 - To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
-    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account associated with the Azure subscription in which you'd like to create resources.
+    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account associated with the Azure subscription in which you'd like to create resources.
 
 ## Create a Cosmos DB account 
 
@@ -152,71 +152,7 @@ The CURL response gives you the list of Keys.  For example, if you get the read-
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
 
-Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.  For a quick example, you can pass the access key to the Azure CLI.  You can get the `<COSMOS DB CONNECTION URL>` from the **Overview** tab on the Cosmos DB account blade in the Azure portal.  Replace the `<ACCESS KEY>` with the value you obtained above:
-
-```azurecli-interactive
-az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
-```
-
-This CLI command returns details about the collection:
-
-```output
-{
-  "collection": {
-    "_conflicts": "conflicts/",
-    "_docs": "docs/",
-    "_etag": "\"00006700-0000-0000-0000-5a8271e90000\"",
-    "_rid": "Es5SAM2FDwA=",
-    "_self": "dbs/Es5SAA==/colls/Es5SAM2FDwA=/",
-    "_sprocs": "sprocs/",
-    "_triggers": "triggers/",
-    "_ts": 1518498281,
-    "_udfs": "udfs/",
-    "id": "Test",
-    "indexingPolicy": {
-      "automatic": true,
-      "excludedPaths": [],
-      "includedPaths": [
-        {
-          "indexes": [
-            {
-              "dataType": "Number",
-              "kind": "Range",
-              "precision": -1
-            },
-            {
-              "dataType": "String",
-              "kind": "Range",
-              "precision": -1
-            },
-            {
-              "dataType": "Point",
-              "kind": "Spatial"
-            }
-          ],
-          "path": "/*"
-        }
-      ],
-      "indexingMode": "consistent"
-    }
-  },
-  "offer": {
-    "_etag": "\"00006800-0000-0000-0000-5a8271ea0000\"",
-    "_rid": "f4V+",
-    "_self": "offers/f4V+/",
-    "_ts": 1518498282,
-    "content": {
-      "offerIsRUPerMinuteThroughputEnabled": false,
-      "offerThroughput": 400
-    },
-    "id": "f4V+",
-    "offerResourceId": "Es5SAM2FDwA=",
-    "offerType": "Invalid",
-    "offerVersion": "V2",
-    "resource": "dbs/Es5SAA==/colls/Es5SAM2FDwA=/"
-  }
-}
-```
+Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.
 
 ## Next steps
 

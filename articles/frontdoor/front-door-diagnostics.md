@@ -1,6 +1,6 @@
 ---
-title: Monitoring metrics and logs in Azure Front Door| Microsoft Docs
-description: This article describes the different metrics and access logs that Azure Front Door supports
+title: Monitoring metrics and logs in - Azure Front Door (classic)
+description: This article describes the different metrics and access logs that Azure Front Door (classic) supports
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -8,13 +8,13 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
-ms.author: yuajia
+ms.date: 03/22/2022
+ms.author: duau
 ---
 
-# Monitoring metrics and logs in Azure Front Door
+# Monitoring metrics and logs in Azure Front Door (classic)
 
-By using Azure Front Door, you can monitor resources in the following ways:
+When using Azure Front Door (classic), you can monitor resources in the following ways:
 
 - **Metrics**. Azure Front Door currently has eight metrics to view performance counters.
 - **Logs**. Activity and diagnostic logs allow performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
@@ -34,12 +34,16 @@ Metrics are a feature for certain Azure resources that allow you to view perform
 | BackendHealthPercentage | Backend Health Percentage | Percent | Backend</br>BackendPool | The percentage of successful health probes from Front Door to backends. |
 | WebApplicationFirewallRequestCount | Web Application Firewall Request Count | Count | PolicyName</br>RuleName</br>Action | The number of client requests processed by the application layer security of Front Door. |
 
+> [!NOTE]
+> Activity log doesn't include any GET operations or operations that you perform by using either the Azure portal or the original Management API.
+>
+
 ## <a name="activity-log"></a>Activity logs
 
-Activity logs provide information about the operations done on Front Door. They also determine the what, who, and when for any write operations (put, post, or delete) taken on Front Door.
+Activity logs provide information about the operations done on an Azure Front Door (classic) profile. They also determine the what, who, and when for any write operations (put, post, or delete) done against an Azure Front Door (classic) profile.
 
 >[!NOTE]
->Activity logs don't include read (get) operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
+>If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.
 
 Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor. To view activity logs:
 
@@ -57,9 +61,9 @@ Activity logs provide insights into the operations done on Azure resources. Diag
 
 :::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Diagnostic logs":::
 
-To configure diagnostic logs for your Front Door:
+To configure diagnostic logs for your Azure Front Door (classic):
 
-1. Select your Azure Front Door.
+1. Select your Azure Front Door (classic) profile.
 
 2. Choose **Diagnostic settings**.
 
@@ -74,7 +78,7 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. |
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |
@@ -89,7 +93,7 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 | TimeTaken | The length of time from first byte of request into Front Door to last byte of response out, in seconds. |
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
 | UserAgent | The browser type that the client used. |
-| ErrorInfo | This field contains the specific type of error for further troubleshooting. </br> Possible values include: </br> **NoError**: Indicates no error was found. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br> **ClientDisconnected**: Request failure because of client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address couldn't be resolved. </br> **OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin wasn't able to established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned too large of a response header. </br> **RestrictedIP**: The request was blocked because of restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
+| ErrorInfo | This field contains the specific type of error for further troubleshooting. </br> Possible values include: </br> **NoError**: Indicates no error was found. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br> **ClientDisconnected**: Request failure because of client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address couldn't be resolved. </br> **OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin wasn't able to established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned too large of a response header. </br> **RestrictedIP**: The request was blocked because of restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. </br> **SSLMismatchedSNI**:The request was invalid because the HTTP message header did not match the value presented in the TLS SNI extension during SSL/TLS connection setup.|
 
 ### Sent to origin shield deprecation
 The raw log property **isSentToOriginShield** has been deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
@@ -120,16 +124,17 @@ If the value is false, then it means the request is responded from origin shield
 | Routing rule with caching enabled. Cache misses at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Empty | 1. True</br>2. False | 1. MISS</br>2. HIT |
 | Routing rule with caching enabled. Caches miss at edge POP but PARTIAL cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Backend that helps populate cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
 | Routing rule with caching enabled. Cache PARTIAL_HIT at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
-| Routing rule with caching enabled. Cache misses at both edge and parent cache POPP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. MISS</br>2. MISS |
+| Routing rule with caching enabled. Cache misses at both edge and parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. MISS</br>2. MISS |
+| Error processing the request |  |  |  |  | N/A |
 
 > [!NOTE]
-> For caching scenarios, the value for Cache Status will be partial_hit when some of the bytes for a request get served from Front Door edge or origin shield cache while some of the bytes get served from the origin for large objects.
+> For caching scenarios, the value for Cache Status will be partial_hit when some of the bytes for a request get served from the Azure Front Door edge or origin shield cache while some of the bytes get served from the origin for large objects.
 
-Front Door uses a technique called object chunking. When a large file is requested, the Front Door retrieves smaller pieces of the file from the origin. After the Front Door POP server receives a full or byte-ranges of the file requested, the Front Door edge server requests the file from the origin in chunks of 8 MB.
+Azure Front Door uses a technique called object chunking. When a large file is requested, the Azure Front Door retrieves smaller pieces of the file from the origin. After the Azure Front Door POP server receives a full or byte-ranges of the file requested, the Azure Front Door edge server requests the file from the origin in chunks of 8 MB.
 
-After the chunk arrives at the Front Door edge, it's cached and immediately served to the user. The Front Door then prefetches the next chunk in parallel. This prefetch ensures the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested), all byte ranges are available (if requested), or the client closes the connection. For more information on the byte-range request, see RFC 7233. The Front Door caches any chunks as they're received. The entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the Front Door cache. If not all the chunks are cached on the Front Door, prefetch is used to request chunks from the origin. This optimization relies on the ability of the origin server to support byte-range requests. If the origin server doesn't support byte-range requests, this optimization isn't effective.
+After the chunk arrives at the Azure Front Door edge, it's cached and immediately served to the user. The Azure Front Door then prefetches the next chunk in parallel. This prefetch ensures the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested), all byte ranges are available (if requested), or the client closes the connection. For more information on the byte-range request, see RFC 7233. The Azure Front Door caches any chunks as they're received. The entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the Azure Front Door cache. If not all the chunks are cached on the Azure Front Door, prefetch is used to request chunks from the origin. This optimization relies on the ability of the origin server to support byte-range requests. If the origin server doesn't support byte-range requests, this optimization isn't effective.
 
 ## Next steps
 
-- [Create a Front Door profile](quickstart-create-front-door.md)
-- [How Front Door works](front-door-routing-architecture.md)
+- Learn how to [create an Azure Front Door (classic) profile](quickstart-create-front-door.md)
+- Learn [how Azure Front Door (classic) works](front-door-routing-architecture.md)

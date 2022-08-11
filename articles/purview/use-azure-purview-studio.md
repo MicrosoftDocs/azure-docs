@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Purview Studio
-description: This article describes how to use Azure Purview Studio. 
+title: Use the Microsoft Purview governance portal
+description: This article describes how to use the Microsoft Purview governance portal. 
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 02/12/2022
 ---
 
-# Use Azure Purview Studio
+# Use the Microsoft Purview governance portal
 
-This article gives an overview of some of the main features of Azure Purview.
+This article gives an overview of some of the main features of Microsoft Purview.
 
 ## Prerequisites
 
-* An Active Azure Purview account is already created in Azure portal and the user has permissions to access [Azure Purview Studio](https://web.purview.azure.com/resource/).
+* An Active Microsoft Purview account is already created in Azure portal and the user has permissions to access [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
-## Launch Azure Purview account
+## Launch Microsoft Purview account
 
-* To launch your Azure Purview account, go to Azure Purview accounts in Azure portal, select the account you want to launch and launch the account.
+* To launch your Microsoft Purview account, go to Microsoft Purview accounts in Azure portal, select the account you want to launch and launch the account.
 
-  :::image type="content" source="./media/use-purview-studio/open-purview-studio.png" alt-text="Screenshot of Azure Purview window in Azure portal, with Azure Purview Studio button highlighted." border="true":::
+  :::image type="content" source="./media/use-purview-studio/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
-* Another way to launch Azure Purview account is to go to `https://web.purview.azure.com`, select **Azure Active Directory** and an account name to launch the account.
+* Another way to launch Microsoft Purview account is to go to `https://web.purview.azure.com`, select **Azure Active Directory** and an account name to launch the account.
 
 ## Home page
 
-**Home** is the starting page for the Azure Purview client.
+**Home** is the starting page for the Microsoft Purview client.
 
 :::image type="content" source="./media/use-purview-studio/purview-homepage.png" alt-text="Screenshot of the homepage.":::
 
@@ -51,22 +51,22 @@ The following list summarizes the main features of **Home page**. Each number in
    * For *data source admin* + *data reader*, the buttons are **Browse assets**, **View glossary**, and **Knowledge center**.
   
    > [!NOTE]
-   > For more information about Azure Purview roles, see [Access control in Azure Purview](catalog-permissions.md).
+   > For more information about Microsoft Purview roles, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 5. The left navigation bar helps you locate the main pages of the application.   
 6. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the Data Catalog](how-to-search-catalog.md) and [Browse by asset type](how-to-browse-catalog.md).  **My items** tab is a list of data assets owned by the logged-on user.
-7. **Links** contains links to region status, documentation, pricing, overview, and Azure Purview status
+7. **Links** contains links to region status, documentation, pricing, overview, and Microsoft Purview status
 8. The top navigation bar contains information about release notes/updates, change purview account, notifications, help, and feedback sections.
 
 ## Knowledge center
 
-Knowledge center is where you can find all the videos and tutorials related to Azure Purview.
+Knowledge center is where you can find all the videos and tutorials related to Microsoft Purview.
 
 ## Localization
 
-Azure Purview is localized in 18 languages. To change the language used, go to the **Settings** from the top bar and select the desired language from the dropdown.
+Microsoft Purview is localized in 18 languages. To change the language used, go to the **Settings** from the top bar and select the desired language from the dropdown.
 
-:::image type="content" source="./media/use-purview-studio/localization.png" alt-text="Screenshot of how to localize Azure Purview studio.":::
+:::image type="content" source="./media/use-purview-studio/localization.png" alt-text="Screenshot of how to localize the Microsoft Purview governance portal.":::
 
 > [!NOTE]
 > Only generally available features are localized. Features still in preview are in English regardless of which language is selected.
@@ -74,7 +74,7 @@ Azure Purview is localized in 18 languages. To change the language used, go to t
 
 ## Guided tours
 
-Each UX in Azure Purview Studio will have guided tours to give overview of the page. To start the guided tour, select **help** on the top bar and select **guided tours**.
+Each UX in the Microsoft Purview governance portal will have guided tours to give overview of the page. To start the guided tour, select **help** on the top bar and select **guided tours**.
 
 :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Screenshot of the guided tour.":::
 
