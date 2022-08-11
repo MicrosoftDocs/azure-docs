@@ -20,7 +20,7 @@ The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-
 |:---|:---|:---|
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | [See below](#extension-versions) | [See below](#extension-versions) |
+| TypeHandlerVersion  | See [Azure Monitor Agent extension versions](./azure-monitor-agent-extension-versions.md) | [Azure Monitor Agent extension versions](./azure-monitor-agent-extension-versions.md) |
 
 ## Extension versions
 [View Azure Monitor Agent extension versions](./azure-monitor-agent-extension-versions.md).
@@ -36,7 +36,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
    | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy ARM templates |  
 - **Non-Azure**: For installing the agent on physical servers and virtual machines hosted *outside* of Azure (i.e. on-premises) or in other clouds, you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first (at no added cost)
 - **Authentication**: [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) must be enabled on Azure virtual machines. Both system-assigned and user-assigned managed identities are supported.
-  - **User-assigned**: This is recommended for large scale deployments, configurable via [built-in Azure policies](#using-azure-policy). It can be created once and shared across multiple VMs, and is thus more scalable than system-assigned. If User-assigned managed identity is used, you must pass the managed identity details to Azure Monitor agent via extension settings:
+  - **User-assigned**: This is recommended for large-scale deployments, configurable via [built-in Azure policies](#using-azure-policy). You can create a user-assigned managed identity once and share it across multiple VMs, and is thus more scalable than a system-assigned managed identity. If you use a user-assigned managed identity, you must pass the managed identity details to Azure Monitor Agent via extension settings:
     ```json
     {
       "authentication": {
@@ -47,7 +47,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
       }
     }
     ```
-    We recommend using `mi_res_id` as the `identifier-name`, and the below sample commands will only show usage with `mi_res_id` for the sake of brevity. For more details on `mi_res_id`, `object_id`, and `client_id`, visit the [managed identity docs](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
+    We recommend using `mi_res_id` as the `identifier-name`. The sample commands below only show usage with `mi_res_id` for the sake of brevity. For more details on `mi_res_id`, `object_id`, and `client_id`, see the [managed identity documentation](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
   - **System-assigned**: This is suited for initial testing or small deployments. When used at scale (for example, for all VMs in a subscription) it results in substantial number of identities created (and deleted) in Azure AD (Azure Active Directory). To avoid this churn of identities, it is recommended to use user-assigned managed identities instead. **For Arc-enabled servers, system-assigned managed identity is enabled automatically** (as soon as you install the Arc agent) as it's the only supported type for Arc-enabled servers.
   - This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
 - **Networking**: The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. Additionally, the virtual machine must have access to the following HTTPS endpoints:
