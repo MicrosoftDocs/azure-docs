@@ -24,7 +24,7 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
 #### Client certificate
 
-The client certificate is used for authentication and is required. Typically, you can just click the client certificate to install. For more information about how to install a client certificate, see [Install a client certificate](install-client-certificates.md).
+The client certificate is used for authentication and is required. Typically, you can just click the client certificate to install. For more information about how to install a client certificate, see [Install a client certificate](../articles/virtual-wan/install-client-certificates.md).
 
 #### Verify certificate install
 
