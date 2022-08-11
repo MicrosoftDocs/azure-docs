@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 08/01/2022
+ms.date: 08/11/2022
 ---
 
 # Overview of Microsoft Defender for Containers
