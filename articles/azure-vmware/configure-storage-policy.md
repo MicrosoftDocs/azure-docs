@@ -121,10 +121,6 @@ You'll run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage p
 You'll run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage policy for a cluster,
 
 
->[!NOTE]
->Changing the storage policy of the default management cluster (Cluster-1) isn't allowed.
-
-
 1. Select **Run command** > **Packages** > **Set-ClusterDefaultStoragePolicy**.
 
 1. Provide the required values or change the default values, and then select **Run**.

@@ -41,7 +41,8 @@ The exception is if combining data in the same workspace helps you reach a [comm
 If you create separate workspaces for other criteria then you'll usually create additional workspace pairs. For example, if you have two Azure tenants, you may create four workspaces - an operational and security workspace in each tenant.
 
 
-- **If you use both Azure Monitor and Microsoft Sentinal**, create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
+- **If you use both Azure Monitor and Microsoft Sentinel**, create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
+- **If you use both Microsoft Sentinel and Microsoft Defender for Cloud**, consider using the same workspace for both solutions to keep security data in one place.
 
 
 ### Azure tenants
@@ -106,7 +107,7 @@ While you should avoid sending duplicate data to multiple workspaces because of 
 ### Data access control
 When you grant a user [access to a workspace](manage-access.md#azure-rbac), they have access to all data in that workspace. This is appropriate for a member of a central administration or security team who must access data for all resources. Access to the workspace is also determined by resource-context RBAC and table-level RBAC.
 
-Resource-context RBAC](manage-access.md#access-mode)
+[Resource-context RBAC](manage-access.md#access-mode)
 By default, if a user has read access to an Azure resource, they inherit permissions to any of that resource's monitoring data sent to the workspace. This allows users to access information about resources they manage without being granted explicit access to the workspace. If you need to block this access, you can change the [access control mode](manage-access.md#access-control-mode) to require explicit workspace permissions.
 
 - **If you want users to be able to access data for their resources**, keep the default access control mode of *Use resource or workspace permissions*.

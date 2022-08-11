@@ -95,7 +95,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
+Monthly payments are not available for: Databricks, Synapse Analytics - Pre-purchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 

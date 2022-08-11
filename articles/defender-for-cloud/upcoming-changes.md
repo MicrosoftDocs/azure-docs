@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 07/10/2022
+ms.date: 08/10/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,9 +21,11 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
 | [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | July 2022 |
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
 | [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
+| [Removing security alerts for machines reporting to cross tenant Log Analytics workspaces](#removing-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces) | September 2022 |
+| [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation) | September 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -72,6 +74,30 @@ The following table lists the alerts that will be deprecated during June 2022.
 
 These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
 
+### Deprecate API App policies for App Service
+
+**Estimated date for change:** July 2022
+
+We will be deprecating the following policies to corresponding policies that already exist to include API apps:
+
+| To be deprecated | Changing to |
+|--|--|
+|`Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'` | `App Service apps should have 'Client Certificates (Incoming client certificates)' enabled` | 
+| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest 'Python version` |
+| `CORS should not allow every resource to access your API App` | `App Service apps should not have CORS configured to allow every resource to access your apps` |
+| `Managed identity should be used in your API App` | `App Service apps should use managed identity` |
+| `Remote debugging should be turned off for API Apps` | `App Service apps should have remote debugging turned off` |
+| `Ensure that 'PHP version' is the latest, if used as a part of the API app` | `App Service apps that use PHP should use the latest 'PHP version'`|
+| `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
+| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
+| `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
+
+### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
+
+**Estimated date for change:** August 2022
+
+Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc, will begin to incur charges in August.
+
 ### Multiple changes to identity recommendations
 
 **Estimated date for change:** July 2022
@@ -106,29 +132,25 @@ The new release will bring the following capabilities:
     |Blocked accounts with owner permissions on Azure resources should be removed|050ac097-3dda-4d24-ab6d-82568e7a50cf|
     |Blocked accounts with read and write permissions on Azure resources should be removed| 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
 
-### Deprecate API App policies for App Service
+### Removing security alerts for machines reporting to cross-tenant Log Analytics workspaces 
 
-**Estimated date for change:** July 2022
+**Estimated date for change:** September 2022
 
-We will be deprecating the following policies to corresponding policies that already exist to include API apps:
+Defender for Cloud lets you choose the workspace that your Log Analytics agents report to. When a machine belongs to one tenant (“Tenant A”) but its Log Analytics agent reports to a workspace in a different tenant (“Tenant B”), security alerts about the machine are reported to the first tenant (“Tenant A”).
 
-| To be deprecated | Changing to |
-|--|--|
-|`Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'` | `App Service apps should have 'Client Certificates (Incoming client certificates)' enabled` | 
-| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest 'Python version` |
-| `CORS should not allow every resource to access your API App` | `App Service apps should not have CORS configured to allow every resource to access your apps` |
-| `Managed identity should be used in your API App` | `App Service apps should use managed identity` |
-| `Remote debugging should be turned off for API Apps` | `App Service apps should have remote debugging turned off` |
-| `Ensure that 'PHP version' is the latest, if used as a part of the API app` | `App Service apps that use PHP should use the latest 'PHP version'`|
-| `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
-| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
-| `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
+With this change, alerts on machines connected to Log Analytics workspace in a different tenant will no longer appear in Defender for Cloud.
 
-### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
+If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the machine.
 
-**Estimated date for change:** August 2022
+### Legacy Assessments APIs deprecation
 
-Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc, will begin to incur charges in August.
+The following APIs are set to be deprecated:
+
+- Security Tasks
+- Security Statuses
+- Security Summaries
+
+These three APIs exposed old formats of assessments and will be replaced by the [Assessments APIs](/rest/api/securitycenter/assessments) and [SubAssessments APIs](/rest/api/securitycenter/sub-assessments). All data that is exposed by these legacy APIs will also be available in the new APIs.
 
 ## Next steps
 

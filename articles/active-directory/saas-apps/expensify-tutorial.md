@@ -119,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Expensify SSO
 
-To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](https://help.expensify.com/domain-control). For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
+To enable SSO in Expensify, you first need to enable **Domain Control** in the application. For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
 
 ![Configure Single Sign-On](./media/expensify-tutorial/domain-control.png)
 

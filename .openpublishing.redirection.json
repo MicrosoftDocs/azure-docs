@@ -435,6 +435,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/language-service/custom-text-classification/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
       "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
       "redirect_document_id": true
@@ -7642,6 +7652,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/agents-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/azure/azure-monitor/agents/agents-overview.md#log-analytics-agent",
+      "redirect_url": "/azure/azure-monitor/agents/log-analytics-agent",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/deploy-computer-vision-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": true
@@ -7734,7 +7754,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/view-model-evaluation.md",
       "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/concepts/data-formats.md",
@@ -24729,11 +24749,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-desktop/connect-windows-7-and-10.md",
-      "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/troubleshoot-client-connection.md",
       "redirect_url": "/azure/virtual-desktop/troubleshoot-client",
       "redirect_document_id": false
@@ -40311,6 +40326,11 @@
     {
       "source_path_from_root": "/articles/virtual-machines/windows/winrm.md",
       "redirect_url": "/azure/virtual-machines/windows/connect-winrm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+      "redirect_url": "/ai-builder/create-form-processing-model",
       "redirect_document_id": false
     }
   ]

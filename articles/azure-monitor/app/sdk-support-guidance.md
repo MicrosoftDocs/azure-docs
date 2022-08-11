@@ -20,11 +20,12 @@ Support engineers are expected to provide SDK update guidance according to the f
 
 |Current SDK version in use |Alternative version available |Update policy for support |
 |---------|---------|---------|
-|Latest stable minor version of a GA SDK                                        | Newer supported stable version                 | **UPDATE REQUIRED**    |
-|Unsupported ([support policy](/lifecycle/faq/azure))                           | Any supported version                          | **UPDATE REQUIRED**    |
-|Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**    |
-|Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED** |
-|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
+|Latest GA SDK                                                                  | No newer supported stable version              | **NO UPDATE NECESSARY** |
+|Stable minor version of a GA SDK                                               | Newer supported stable version                 | **UPDATE RECOMMENDED**  |
+|Unsupported ([support policy](/lifecycle/faq/azure))                           | Any supported version                          | **UPDATE REQUIRED**     |
+|Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**     |
+|Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED**  |
+|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED**  |
 
 > [!TIP]
 > Switching to [auto-instrumentation](codeless-overview.md) eliminates the need for manual SDK updates.

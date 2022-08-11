@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 07/28/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -48,7 +48,7 @@ A system-assigned managed identity is unique to your search service and bound to
 
 ### [**Azure portal**](#tab/portal-sys)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. Under **Settings**, select **Identity**.
 
@@ -182,7 +182,7 @@ A managed identity must be paired with an Azure role that determines permissions
 
 The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps are similar.
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
+1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
 
 1. In Azure Storage, select **Access control (AIM)** on the left navigation pane.
 
@@ -249,9 +249,8 @@ An indexer creates, uses, and remembers the container used for the cached enrich
 
 ```json
 "cache": {
-  "id": "{object-id}",
   "enableReprocessing": true,
-  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};"
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
 },
 ```
 

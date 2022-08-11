@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/12/2022
+ms.date: 08/09/2022
 ms.author: rbeckers
 ms.custom: devx-track-csharp
 ---
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 Compared to v2, the v3 version of the Speech services REST API for speech-to-text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
 
 > [!IMPORTANT]
-> The Speech-to-text REST API v2.0 is deprecated. Please migrate your applications to the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+> The Speech-to-text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
 
 ## Forward compatibility
 

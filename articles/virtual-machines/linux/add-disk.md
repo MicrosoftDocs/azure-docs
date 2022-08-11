@@ -2,7 +2,7 @@
 title: Add a data disk to Linux VM using the Azure CLI 
 description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
@@ -93,7 +93,7 @@ sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
 ```
 
-Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lsblk commands to not return the UUID for the new filesystem immediately.
 
 
 ### Mount the disk
