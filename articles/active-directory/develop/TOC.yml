@@ -123,7 +123,7 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
-            - name: Use directory schema extension attributes in claims
+            - name: Use directory extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
               href: active-directory-saml-claims-customization.md
