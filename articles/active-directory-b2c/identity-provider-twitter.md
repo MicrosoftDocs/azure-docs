@@ -48,7 +48,7 @@ To enable sign-in for users with a Twitter account in Azure AD B2C, you need to 
 
   ::: zone pivot="b2c-custom-policy"
 
-  1. For the **Callback URI/Redirect URL**, enter `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy-id/oauth1/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Use all lowercase letters when entering your tenant name and user flow ID even if they are defined with uppercase letters in Azure AD B2C. Replace:
+      1. For the **Callback URI/Redirect URL**, enter `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy-id/oauth1/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Use all lowercase letters when entering your tenant name and user flow ID even if they are defined with uppercase letters in Azure AD B2C. Replace:
         - `your-tenant-name` with the name of your tenant name.
         - `your-domain-name` with your custom domain.
         - `your-policy-id` with the identifier of your user flow. For example, `b2c_1a_signup_signin_twitter`. 
@@ -57,15 +57,15 @@ To enable sign-in for users with a Twitter account in Azure AD B2C, you need to 
 
   ::: zone pivot="b2c-user-flow"
 
-  1. For the **Callback URI/Redirect URL**, enter `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-name/oauth1/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Use all lowercase letters when entering your tenant name and user flow ID even if they are defined with uppercase letters in Azure AD B2C. Replace:
+      1. For the **Callback URI/Redirect URL**, enter `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-name/oauth1/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Use all lowercase letters when entering your tenant name and user flow ID even if they are defined with uppercase letters in Azure AD B2C. Replace:
         - `your-tenant-name` with the name of your tenant name.
         - `your-domain-name` with your custom domain.
         - `your-user-flow-name` with the identifier of your user flow. For example, `b2c_1_signup_signin_twitter`. 
   ::: zone-end
 
-  1. For the **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name`.
-    1. Enter a URL for the **Terms of service**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
-    1. Enter a URL for the **Privacy policy**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
+      1. For the **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name`.
+        1. Enter a URL for the **Terms of service**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
+        1. Enter a URL for the **Privacy policy**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
 1. Select **Save**. 
 
 ::: zone pivot="b2c-user-flow"
