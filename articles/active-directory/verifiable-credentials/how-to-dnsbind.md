@@ -1,5 +1,5 @@
 ---
-title: Link your Domain to your Decentralized Identifier (DID) (preview) - Microsoft Entra Verified ID
+title: Link your Domain to your Decentralized Identifier (DID) - Microsoft Entra Verified ID
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your domain to your Decentralized Identifier (DID) (preview)
+# Link your domain to your Decentralized Identifier (DID)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 

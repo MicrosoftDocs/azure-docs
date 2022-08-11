@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 08/05/2022
 
 ms.author: mimart
 author: msmimart
@@ -60,6 +60,7 @@ For external users who are using internal credentials, the **Issuer** property i
 ### User Principal Name
 
 The user principal name for a B2B collaboration user object contains an #EXT# identifier.
+
 ### User type
 
 This property indicates the relationship of the user to the host tenancy. This property can have two values:
@@ -85,8 +86,8 @@ Microsoft account |  This user is homed in a Microsoft account and authenticates
 {host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
-mail | This user has an email address that doesn't match with verified Azure AD or SAML/WS-Fed domains, and is not a Gmail address or a Microsoft account.
-phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and is not a Gmail address or Microsoft account.
+mail | This user has an email address that doesn't match with verified Azure AD or SAML/WS-Fed domains, and isn't a Gmail address or a Microsoft account.
+phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and isn't a Gmail address or Microsoft account.
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the issuer field is clicked.
 
 ### Directory synced
@@ -105,15 +106,16 @@ Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azu
 
 It's possible to convert UserType from Member to Guest and vice-versa by editing the user's profile in the Azure portal or by using PowerShell. However, the UserType property represents the user's relationship to the organization. Therefore, you should change this property only if the relationship of the user to the organization changes. If the relationship of the user changes, should the user principal name (UPN) change? Should the user continue to have access to the same resources? Should a mailbox be assigned?
 
-## Remove guest user limitations
+## Guest user permissions
 
-There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members.
+Guest users have [default restricted directory permissions](../fundamentals/users-default-permissions.md). They can manage their own profile, change their own password, and retrieve some information about other users, groups, and apps. However, they can't read all directory information. 
 
-It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user.
+There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md) article.
 
 ![Screenshot showing the External users option in the user settings](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
+
 Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see "Add guests to the global address list" in the [Microsoft 365 per-group guest access article](/microsoft-365/solutions/per-group-guest-access).
 
 ## Can I update a guest user's email address?

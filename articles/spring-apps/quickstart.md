@@ -2,7 +2,7 @@
 title: "Quickstart - Deploy your first application to Azure Spring Apps"
 description: In this quickstart, we deploy an application to Azure Spring Apps.
 author: karlerickson
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 10/18/2021
 ms.author: karler

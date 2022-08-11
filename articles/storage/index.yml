@@ -150,6 +150,8 @@ additionalContent:
             text: Use the AzCopy command-line tool
           - url: ./blobs/quickstart-storage-explorer.md
             text: Use the Azure Storage Explorer GUI-based tool              
+          - url: ./blobs/blobfuse2-what-is.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            text: Use BlobFuse2 to mount Azure blobs on Linux
         # Card
         - title: Control costs
           links:
