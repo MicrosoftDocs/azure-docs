@@ -34,7 +34,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 - Request Service API **[Error codes](error-codes.md)** have been **updated** 
 - The **[Admin API](admin-api.md)** is made **public** and is documented. The Azure portal is using the Admin API and with this REST API you can automate the onboarding or your tenant and creation of credential contracts.
 - Find issuers and credentials to verify via the [The Microsoft Entra Verified ID Network](how-use-vcnetwork.md).
-- For migrating your Azure Storage based credentials to become Managed Credentials there is a PowerShell script in the [github samples repo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/contractmigration/scripts/contractmigration) for the task.
+- For migrating your Azure Storage based credentials to become Managed Credentials there is a PowerShell script in the [GitHub samples repo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/contractmigration/scripts/contractmigration) for the task.
 
 - We also made the following updates to our Plan and design docs:
     - (updated) [architecture planning overview](introduction-to-verifiable-credentials-architecture.md).
