@@ -1,5 +1,5 @@
 ---
-title: Microsoft Learn modules for Azure Communication Services
+title: Learn modules for Azure Communication Services
 description: Learn about the available Learn modules for Azure Communication Services.
 author: tophpalmer
 manager: chpalm

@@ -59,7 +59,7 @@ The following example shows the rules that are available for configuration.
         "simplify-interpolation": {
           "level": "warning"
         },
-        "use-protectedsettings-for-commandtoexecute-secrets": {
+        "protect-commandtoexecute-secrets": {
           "level": "warning"
         },
         "secure-secrets-in-params": {
