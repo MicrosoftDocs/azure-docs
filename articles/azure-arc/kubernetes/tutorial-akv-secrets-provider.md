@@ -163,6 +163,9 @@ You should see output similar to the example below. Note that it may take severa
                "type": "Microsoft.KubernetesConfiguration/extensions",
                "apiVersion": "2021-09-01",
                "name": "[parameters('ExtensionInstanceName')]",
+               "identity": {
+                "type": "SystemAssigned"
+               },
                "properties": {
                    "extensionType": "[parameters('ExtensionType')]",
                    "releaseTrain": "[parameters('ReleaseTrain')]",

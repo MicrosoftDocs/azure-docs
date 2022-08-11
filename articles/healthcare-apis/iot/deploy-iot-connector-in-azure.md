@@ -43,7 +43,7 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
    * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
    * **Resource Group** - Choose an existing Resource Group or create a new Resource Group.
    * **Region** - The Azure region of the Resource Group used for the deployment. This field will auto-fill based on the Resource Group region.
-   * **Basename** - Will be used to append the name the Azure services to be deployed.
+   * **Basename** - Will be used to append the name the Azure resources and services to be deployed.
    * **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (could be the same or different region than your Resource Group). 
 
 2. Leave the **Device Mapping** and **Destination Mapping** fields with their default values.
@@ -55,8 +55,8 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
    :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png" alt-text="Screenshot of Azure portal page displaying validation box and Create button for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-create.png"::: 
 
 5. After a successful deployment, there will be remaining configurations that will need to be completed by you for a fully functional MedTech service:
-   * Provide a working device mapping file. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
-   * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
+   * Provide a working device mapping. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
+   * Provide a working FHIR destination mapping. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
    * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
 
    > [!IMPORTANT]

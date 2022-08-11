@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 08/01/2022
+ms.date: 08/03/2022
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -66,10 +66,6 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
     ```azurepowershell-interactive
     Install-Module -Name Az.ConnectedKubernetes
     ```
-
-    > [!IMPORTANT]
-    > While the **Az.ConnectedKubernetes** PowerShell module is in preview, you must install it separately using
-    > the `Install-Module` cmdlet.
 
 * [Log in to Azure PowerShell](/powershell/azure/authenticate-azureps) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
   * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).

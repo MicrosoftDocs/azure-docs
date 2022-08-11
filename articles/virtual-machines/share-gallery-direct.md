@@ -47,13 +47,14 @@ During the preview:
 - Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 - PowerShell, Ansible, and Terraform aren't supported at this time.
+- Not available in Government clouds
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 ## Prerequisites
 
 You need to create a [new direct shared gallery ](./create-gallery.md#create-a-direct-shared-gallery). A direct shared gallery has the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
-## Share to subscriptions and tenants
+## How sharing with direct shared gallery works
 
 First you create a gallery under `Microsoft.Compute/Galleries` and choose `groups` as a sharing option.
 
@@ -61,6 +62,9 @@ When you are ready, you share your gallery with subscriptions and tenants. Only 
 
 ### [Portal](#tab/portaldirect)
 
+> [!NOTE]
+> **Known issue**: In the Azure portal, If you get an error "Failed to update Azure compute gallery", please verify if you have owner (or) compute gallery sharing admin permission on the gallery.
+>
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
@@ -86,6 +90,7 @@ To share the gallery:
 
 1. If you would like to share with someone within your organization, for **Type** select *Subscription* or *Tenant* and choose the appropriate item from the **Tenants and subscriptions** drop-down. If you want to share with someone outside of your organization, select either *Subscription outside of my organization* or *Tenant outside of my organization* and then paste or type the ID into the text box.
 1. When you are done adding items, select **Save**.
+
 
 ### [CLI](#tab/clidirect)
 

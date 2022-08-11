@@ -219,7 +219,7 @@ Authenticating with a service principal uses the [Azure Identity package for Pyt
 * `AZURE_CLIENT_SECRET` - The password/credential generated for the service principal.
 
 > [!TIP]
-> During development, consider using the [python-dotenv](https://pypi.org/project/python-dotenv/) package to set these environment variables. Python-dotenv loads environment variables from `.env` files. The standard `.gitignore` file for Python automatically excludes `.env` files, so they shouldn't be checked into any github repos during development.
+> During development, consider using the [python-dotenv](https://pypi.org/project/python-dotenv/) package to set these environment variables. Python-dotenv loads environment variables from `.env` files. The standard `.gitignore` file for Python automatically excludes `.env` files, so they shouldn't be checked into any GitHub repos during development.
 
 The following example demonstrates using python-dotenv to load the environment variables from a `.env` file and then using `DefaultAzureCredential` to create the credential object:
 
