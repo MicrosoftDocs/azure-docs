@@ -528,7 +528,7 @@ To run the tests, navigate to the **Test Explorer** and select **Run All Tests i
 
 To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and select **Run > Debug Last Run**.
 
-## Azure Functions tools with Visual Studio 
+## Azure Functions tools with Visual Studio 2017
 
 Azure Functions Tools is available in the Azure development workload starting with Visual Studio 2017. In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio. 
 
