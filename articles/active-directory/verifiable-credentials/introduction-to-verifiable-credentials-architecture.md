@@ -15,9 +15,6 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 It’s important to plan your verifiable credential solution so that in addition to issuing and or validating credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t reviewed them already, we recommend you review  [Introduction to Microsoft Entra Verified ID](decentralized-identifier-overview.md) and the [FAQs](verifiable-credentials-faq.md), and then complete the [Getting Started](get-started-verifiable-credentials.md) tutorial. 
 
 This architectural overview introduces the capabilities and components of the Microsoft Entra Verified ID service. For more detailed information on issuance and validation, see 
@@ -82,7 +79,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
 * In the scenario above, both the issuer and verifier have a DID, and a DID document. The DID document contains the public key, and the list of DNS web domains associated with the DID (also known as linked domains).
 
-* Woodgrove (issuer) signs their employees’ VCs with its public key; similarly, Proseware (verifier) signs requests to present a VC using its key, which is also associated with its DID.
+* Woodgrove (issuer) signs their employees’ VCs with its private key; similarly, Proseware (verifier) signs requests to present a VC using its key, which is also associated with its DID.
 
 A ***trust system*** is the foundation in establishing trust between decentralized systems. It can be a distributed ledger or it can be something centralized, such as [DID Web](https://w3c-ccg.github.io/did-method-web/). 
 

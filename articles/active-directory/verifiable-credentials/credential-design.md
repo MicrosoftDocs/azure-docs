@@ -20,10 +20,6 @@ Verifiable credentials definitions are made up of two components, *display* defi
 
 This article explains how to modify both types of definitions to meet the requirements of your organization. 
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Display definition: wallet credential visuals
 
 Microsoft Entra Verified ID offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great after they're issued to users.
@@ -98,7 +94,7 @@ The rules definition is a simple JSON document that describes important properti
 
 ### Attestations
 
-The following four attestation types are currently available to be configured in the rules definition. They're used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your decentralized identifier (DID).
+The following four attestation types are currently available to be configured in the rules definition. They are different ways of providing claims used by the Entra verified ID issuing service to be inserted into a verifiable credential and attest to that information with your decentralized identifier (DID). Multiple attestation types can be used in the rules definition. 
 
 * **ID token**: When this option is configured, you'll need to provide an Open ID Connect configuration URI and include the claims that should be included in the verifiable credential. Users are prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. To configure this option, see this [how to guide](how-to-use-quickstart-idtoken.md)
 

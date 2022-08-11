@@ -147,7 +147,7 @@ The `RequestCredential` provides information about the requested credentials the
 |---------|---------|---------|
 | `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
 | `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
-| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. |
+| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. If the `acceptedIssuers` collection is empty, then the presentation request will accept a credential type issued by any issuer. |
 | `configuration.validation` | [Configuration.Validation](#configurationvalidation-type) | Optional settings for presentation validation.|
 
 ### Configuration.Validation type
@@ -157,7 +157,7 @@ The `Configuration.Validation` provides information about the presented credenti
 |Property |Type |Description |
 |---------|---------|---------|
 | `allowRevoked` |  Boolean | Determines if a revoked credential should be accepted. Default is `false` (it shouldn't be accepted). |
-| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `true` (it should be validated). Setting this flag to `false` means you'll accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
+| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
 
 ## Successful response
 

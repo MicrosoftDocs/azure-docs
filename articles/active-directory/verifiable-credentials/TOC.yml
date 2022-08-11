@@ -10,11 +10,11 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Set up the Verifiable Credentials service
+  - name: Set up the Verified ID service
     href: verifiable-credentials-configure-tenant.md
   - name: Issue a verifiable credential
     href: verifiable-credentials-configure-issuer.md
-  - name: Verify a Verifiable Credential
+  - name: Verify a verifiable credential
     href: verifiable-credentials-configure-verifier.md
 - name: Concepts
   expanded: true
@@ -52,9 +52,9 @@
     href: how-to-dnsbind.md
   - name: Register your website ID
     href: how-to-register-didwebsite.md
-  - name: Revoke a Verifiable Credential
+  - name: Revoke a verifiable credential
     href: how-to-issuer-revoke.md
-  - name: Opt out of verifiable credentials
+  - name: Opt out of Verified ID service
     href: how-to-opt-out.md
 - name: Samples
   expanded: true

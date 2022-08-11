@@ -81,7 +81,7 @@ The Verifiable Credentials Service Request is the Request Service API, and it ne
 
 To set up Microsoft Entra Verified ID, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then, select **Verifiable Credentials (Preview)**.
+1. In the [Azure portal](https://portal.azure.com/), search for *Verified ID*. Then, select **Verified ID**.
 
 1. From the left menu, select **Getting started**.
 
@@ -152,7 +152,7 @@ To add the required permissions, follow these steps:
 
 ## Service endpoint configuration
 
-1. In the Azure portal, navigate to the Verifiable credentials page.
+1. Navigate to the Verified ID in the Azure portal.  
 1. Select **Registration**.
 1. Notice that there are two sections:
     1. Website ID registration

@@ -17,12 +17,6 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 ## Prerequisites
 
 To link your DID to your domain, you need to have completed the following.
@@ -111,8 +105,8 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 ## How do you update the linked domain on your DID?
 
-1. Navigate to the Verifiable Credentials | Getting Started page.  
-1. On the left side of the page, select **Domain**.
+1. Navigate to the Verified ID in the Azure portal.  
+1. On the left side of the page, select **Registration**.
 1. In the Domain box, enter your new domain name.
 1. Select **Publish**.
 
@@ -139,7 +133,7 @@ If the trust system is ION, once the domain changes are published to ION, the do
 
 ## Distribute well-known config
 
-1. From the Azure portal, navigate to the Verifiable Credentials page. Select **Domain** and choose **Verify this domain**
+1. From the Azure portal, navigate to the Verified ID page. Select **Registration** and choose **Verify** for the domain
 
 2. Download the did-configuration.json file shown in the image below.
 

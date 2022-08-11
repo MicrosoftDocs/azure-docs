@@ -16,7 +16,7 @@ ms.date: 06/16/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-In [Issue Microsoft Entra Verified ID credentials from an application (preview)](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
+In [Issue Microsoft Entra Verified ID credentials from an application](verifiable-credentials-configure-issuer.md), you learn how to issue and verify credentials by using the same Azure Active Directory (Azure AD) tenant. In this tutorial, you go over the steps needed to present and verify your first verifiable credential: a verified credential expert card.
 
 As a verifier, you unlock privileges to subjects that possess verified credential expert cards. In this tutorial, you run a sample application from your local computer that asks you to present a verified credential expert card, and then verifies it.
 
@@ -35,16 +35,16 @@ In this article, you learn how to:
 - If you want to clone the repository that hosts the sample app, install [Git](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- [ngrok](https://ngrok.com/) (free).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account.
 - A mobile device with Microsoft Authenticator:
-  - Android version 6.2108.5654 or later installed.
-  - iOS version 6.5.82 or later installed.
+  - Android version 6.2206.3973 or later installed.
+  - iOS version 6.6.2 or later installed.
 
 ## Gather tenant details to set up your sample application
 
 Now that you've set up your Microsoft Entra Verified ID service, you're going to gather some information about your environment and the verifiable credentials you set. You use these pieces of information when you set up your sample application.
 
-1. From **Verifiable credentials (Preview)**, select **Organization settings**.
+1. From **Verified ID**, select **Organization settings**.
 1. Copy the **Tenant identifier** value, and record it for later.
 1. Copy the **Decentralized identifier** value, and record it for later.
 

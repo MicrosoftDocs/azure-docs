@@ -19,9 +19,6 @@ ms.author: barclayn
 
 Microsoft Entra Verified ID includes the Request Service REST API. This API allows you to issue and verify credentials. This article shows you how to start using the Request Service REST API.
 
-> [!IMPORTANT]
-> The Request Service REST API is currently in preview. This preview version is provided without a service level agreement, and you can occasionally expect breaking changes and deprecation of the API while in preview. The preview version of the API isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## API access token
 
 Your application needs to include a valid access token with the required permissions so that it can access the Request Service REST API. Access tokens issued by the Microsoft identity platform contain information (scopes) that the Request Service REST API uses to validate the caller. An access token ensures that the caller has the proper permissions to perform the operation they're requesting.
@@ -313,7 +310,7 @@ Authorization: Bearer  <token>
         "clientName": "Verifiable Credential Expert Sample"
     },
     "type": "VerifiedCredentialExpert",
-    "manifestUrl": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert1",
+    "manifest": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert1",
     "pin": {
         "value": "3539",
         "length": 4

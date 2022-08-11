@@ -21,11 +21,6 @@ This page contains commonly asked questions about Verifiable Credentials and Dec
 - [Conceptual questions about decentralized identity](#conceptual-questions)
 - [Questions about using Verifiable Credentials preview](#using-the-preview)
 
-> [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## The basics
 
 ### What is a DID? 
@@ -51,9 +46,9 @@ There are multiple ways of offering a recovery mechanism to users, each with the
 
 ### How can a user trust a request from an issuer or verifier? How do they know a DID is the real DID for an organization?
 
-We implement [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Azure Active Directory Verifiable Credentials has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
+We implement [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Entra Verified ID has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
 
-### Why does the Verifiable Credential preview use ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
+### Why does the Entra Verified ID support ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
 Microsoft now offers two different trust systems, Web and ION. You may choose to use either one of them during tenant onboarding. ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special crypto asset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.
 
@@ -73,7 +68,7 @@ Yes! The following repositories are the open-sourced components of our services.
 There are no special licensing requirements to issue Verifiable credentials. All you need is An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ### Updating the VC Service configuration
-The following instructions will take 15 mins to complete and are only required if you have been using the Azure AD Verifiable Credentials service prior to April 25, 2022. You are required to execute these steps to update the existing service principals in your tenant that run the verifiable credentials service the following is an overview of the steps:
+The following instructions will take 15 mins to complete and are only required if you have been using the Entra Verified ID service prior to April 25, 2022. You are required to execute these steps to update the existing service principals in your tenant that run the verifiable credentials service the following is an overview of the steps:
 
 1. Register new service principals for the Azure AD Verifiable Service
 1. Update the Key Vault access policies
@@ -163,12 +158,12 @@ For the Request API the new scope for your application or Postman is now:
 
 ```3db474b9-6a0c-4840-96ac-1fceb342124f/.default ```
 
-### How do I reset the Azure AD Verifiable credentials service?
+### How do I reset the Entra Verified ID service?
 
-Resetting requires that you opt out and opt back into the Azure Active Directory Verifiable Credentials service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID to use during issuance and presentation.
+Resetting requires that you opt out and opt back into the Entra Verified ID service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID to use during issuance and presentation.
 
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
-1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
+1. Go over the Entra Verified ID [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
     1. If you are in the European region, it's recommended that your Azure Key Vault and container are in the same European region otherwise you may experience some performance and latency issues. Create new instances of these services in the same EU region as needed.
 1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) your verifiable credentials service. You need to recreate your credentials.
     1. If your tenant needs to be configured as an issuer, it's recommended that your storage account is in the European region as your Verifiable Credentials service.
@@ -176,14 +171,14 @@ Resetting requires that you opt out and opt back into the Azure Active Directory
 
 ### How can I check my Azure AD Tenant's region?
 
-1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Azure Active Directory Verifiable credentials deployment.
+1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Entra Verified ID deployment.
 1. Under Manage, select Properties
     :::image type="content" source="media/verifiable-credentials-faq/region.png" alt-text="settings delete and opt out":::
 1. See the value for Country or Region. If the value is a country or a region in Europe, your Microsoft Entra Verified ID service will be set up in Europe.
 
 ### How can I check if my tenant has the new Hub endpoint?
 
-1. In the Azure portal, go to the Verifiable Credentials service.
+1. Navigate to the Verified ID in the Azure portal.  
 1. Navigate to the Organization Settings. 
 1. Copy your organization’s Decentralized Identifier (DID). 
 1. Go to the ION Explorer and paste the DID in the search box 
@@ -213,7 +208,7 @@ Resetting requires that you opt out and opt back into the Azure Active Directory
     ],
 ```
 
-### If I reconfigure the Azure AD Verifiable Credentials service, do I need to relink my DID to my domain?
+### If I reconfigure the Entra Verified ID service, do I need to relink my DID to my domain?
 
 Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](how-to-dnsbind.md) with your domain.
 
@@ -223,4 +218,4 @@ No, at this point it isn't possible to keep your tenant's DID after you have opt
 
 ## Next steps
 
-- [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
+- [Customize your verifiable credentials](credential-design.md)

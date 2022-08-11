@@ -40,18 +40,18 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- [ngrok](https://ngrok.com/) (free).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account.
 - A mobile device with Microsoft Authenticator:
-  - Android version 6.2108.5654 or later installed.
-  - iOS version 6.5.82 or later installed.
+  - Android version 6.2206.3973 or later installed.
+  - iOS version 6.6.2 or later installed.
 
 ## Create the verified credential expert card in Azure
 
 In this step, you create the verified credential expert card by using Microsoft Entra Verified ID. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
 
-1. Using the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then select **Verifiable Credentials (Preview)**.
+1. Using the [Azure portal](https://portal.azure.com/), search for **Verified ID** and select it.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
-1. In **Create a new credential**, do the following:
+1. In **Create credential**, select **Custom Credential** and click **Next**:
 
     1. For **Credential name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
 
@@ -132,7 +132,7 @@ The following screenshot demonstrates how to create a new credential:
 
 Now that you have a new credential, you're going to gather some information about your environment and the credential that you created. You use these pieces of information when you set up your sample application.
 
-1. In Verifiable Credentials, select **Issue credential** and switch to **Custom issue**. 
+1. In Verifiable Credentials, select **Issue credential**. 
 
     ![Screenshot that shows how to select the newly created verified credential.](media/verifiable-credentials-configure-issuer/issue-credential-custom-view.png)
 
