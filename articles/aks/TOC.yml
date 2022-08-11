@@ -97,6 +97,8 @@
       href: servicemesh-about.md
     - name: Sustainable software engineering
       href: concepts-sustainable-software-engineering.md      
+    - name: Dapr
+      href: dapr-overview.md
     - name: GitOps
       href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
       maintainContext: True
@@ -452,9 +454,7 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: Dapr overview
-              href: dapr-overview.md
-            - name: How to use Dapr
+            - name: How to use the Dapr extension
               href: dapr.md
             - name: Migrate from Dapr OSS
               href: dapr-migration.md
