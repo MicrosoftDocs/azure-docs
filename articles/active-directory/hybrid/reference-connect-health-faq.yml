@@ -80,6 +80,16 @@ sections:
   - name: Installation questions
     questions:
       - question: |
+          Does my agent installation get updated automatically when there is a new version of the agent?
+        answer: | 
+           Yes, all agents will get updated automatically when there is a new version of the agent.
+           
+      - question: |
+           Can I opt out or disable automatic upgrade of the agent?
+        answer: |
+           No, automatic upgrade is mandatory. If you do not want the agent to be upgraded when a new version is released, you should uninstall the agent.
+       
+      - question: |
           What is the impact of installing the Azure AD Connect Health Agent on individual servers?
         answer: |
           The impact of installing the Microsoft Azure AD Connect Health Agent, AD FS, web application proxy servers, Azure AD Connect (sync) servers, domain controllers is minimal with respect to the CPU, memory consumption, network bandwidth, and storage.
