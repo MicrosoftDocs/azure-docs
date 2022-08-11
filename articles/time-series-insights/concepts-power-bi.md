@@ -1,5 +1,5 @@
 ---
-title: 'Power BI integration - Azure Time Series Insights Gen 2 | Microsoft Docs'
+title: 'Power BI integration - Azure Time Series Insights Gen 2'
 description: Learn about Power BI integration in Azure Time Series Insight.
 author: msrsrinivasan
 ms.author: radhsrin
