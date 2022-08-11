@@ -24,6 +24,17 @@ Updates in July include:
 - [Defender for Container's VA adds support for the detection of language specific packages (Preview)](#defender-for-containers-va-adds-support-for-the-detection-of-language-specific-packages-preview)
 - [Protect against the Operations Management Suite vulnerability CVE-2022-29149](#protect-against-the-operations-management-suite-vulnerability-cve-2022-29149)
 - [Integration with Entra Permissions Management](#integration-with-entra-permissions-management)
+- [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit)
+
+**Estimated date for change:** June 2022
+
+The Key Vault recommendations listed here are currently disabled so that they don't impact your secure score. We will change their effect to "audit".
+
+| Recommendation name | Recommendation ID |
+| ------- | ------ |
+| Validity period of certificates stored in Azure Key Vault should not exceed 12 months | fc84abc0-eee6-4758-8372-a7681965ca44 |
+| Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
+| Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
 
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
@@ -68,6 +79,16 @@ Defender for Cloud has integrated with [Microsoft Entra Permissions Management](
 Each Azure subscription, AWS account, and GCP project that you onboard, will now show you a view of your [Permission Creep Index (PCI)](../active-directory/cloud-infrastructure-entitlement-management/ui-dashboard.md).
 
 Learn more about [Entra Permission Management (formerly Cloudknox)](other-threat-protections.md#entra-permission-management-formerly-cloudknox)
+
+### Key Vault recommendations changed to "audit"
+
+The effect for the Key Vault recommendations listed here was changed to "audit":
+
+| Recommendation name | Recommendation ID |
+| ------- | ------ |
+| Validity period of certificates stored in Azure Key Vault should not exceed 12 months | fc84abc0-eee6-4758-8372-a7681965ca44 |
+| Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
+| Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
 
 ## June 2022
 

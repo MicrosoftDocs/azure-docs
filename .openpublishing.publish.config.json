@@ -1022,6 +1022,9 @@
     "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
     "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
     "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
-    ".openpublishing.redirection.virtual-desktop.json"
+    ".openpublishing.redirection.virtual-desktop.json",
+    "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+    "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services-renamed.json",
+    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json"
   ]
 }

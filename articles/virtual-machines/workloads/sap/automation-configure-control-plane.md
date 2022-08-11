@@ -4,7 +4,7 @@ description: Configure your deployment control plane for the SAP deployment auto
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 8/8/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---

@@ -62,6 +62,9 @@ The following example shows the rules that are available for configuration.
         "use-protectedsettings-for-commandtoexecute-secrets": {
           "level": "warning"
         },
+        "secure-secrets-in-params": {
+          "level": "warning"
+        },
         "use-stable-resource-identifiers": {
           "level": "warning"
         },

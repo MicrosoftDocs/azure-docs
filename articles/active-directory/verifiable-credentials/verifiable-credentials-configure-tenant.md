@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure your tenant for Microsoft Entra Verified ID (preview)
+title: Tutorial - Configure your tenant for Microsoft Entra Verified ID
 description: In this tutorial, you learn how to configure your tenant to support the Verifiable Credentials service. 
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -12,7 +12,7 @@ ms.date: 06/27/2022
 
 ---
 
-# Configure your tenant for Microsoft Entra Verified ID (preview)
+# Configure your tenant for Microsoft Entra Verified ID
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 

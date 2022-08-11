@@ -45,6 +45,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
     - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type** and **Custom location** fields.
     - Select the recommended packet core version in the **Version** field.
+    - Ensure **AKS-HCI** is selected in the **Platform** field.
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 

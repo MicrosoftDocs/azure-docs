@@ -41,7 +41,7 @@
       displayName: continuous, ci, cd, CI/CD
 - name: Tutorials
   items:
-  - name: Microsoft Learn - Bicep
+  - name: Learn modules for Bicep
     href: learn-bicep.md
   - name: Learn live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
@@ -386,6 +386,8 @@
         href: linter-rule-prefer-unquoted-property-names.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
+      - name: Secure secrets in parameters
+        href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
         href: linter-rule-simplify-interpolation.md
       - name: Use explicit values for module location parameters

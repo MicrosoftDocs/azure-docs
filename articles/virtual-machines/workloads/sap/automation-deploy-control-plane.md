@@ -281,7 +281,10 @@ cd sap-automation/deploy/scripts
 The script will install Terraform and Ansible and configure the deployer.
 
 
-## Deploy the web app software
+## Deploy the Control Plane Web Application
+
+> [!IMPORTANT]
+> Control Plane Web Application is currently in PREVIEW and not yet available in the main branch.
    
 If you would like to use the web app, follow the steps below. If not, ignore this section.
 
