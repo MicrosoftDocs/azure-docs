@@ -30,7 +30,7 @@ All boards listed support users of all experience levels.
 | Section | Description |
 |--------------|-----------|
 | [Start Here](#start-here) | A guide to using this selection list. Includes suggested selection criteria.|
-| [Selection Diagram](#selection-diagram) | A visual that summarizes common selection criteria with possible hardware choices. |
+| [Selection Diagram](#application-selection-visual) | A visual that summarizes common selection criteria with possible hardware choices. |
 | [Terminology and ML Requirements](#terminology-and-ml-requirements) | Terminology and acronym definitions and device requirements for edge machine learning (ML). |
 | [MCU Device List](#mcu-device-list) | A list of recommended MCUs, for example, ESP32, with tech specs and alternatives. |
 | [SBC Device List](#sbc-device-list) | A list of recommended SBCs, for example, Raspberry Pi, with tech specs and alternatives. |
