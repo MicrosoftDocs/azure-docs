@@ -16,12 +16,10 @@ items:
   items: 
     - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Continuous regression testing (CI/CD)
-      items:
-        - name: Automate with GitHub Actions
-          href: tutorial-cicd-github-actions.md
-        - name: Automate with Azure Pipelines
-          href: tutorial-cicd-azure-pipelines.md
+    - name: Automate regression tests with GitHub Actions
+      href: tutorial-cicd-github-actions.md
+    - name: Automate regression tests with Azure Pipelines
+      href: tutorial-cicd-azure-pipelines.md
 - name: Concepts
   items: 
     - name: Key concepts
