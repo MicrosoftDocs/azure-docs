@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Calling SDK RAW media overview 
 titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of RAW media 
+description: Provides an overview of media access 
 author: laithrodan
 manager: 
 services: azure-communication-services
@@ -27,7 +27,7 @@ The Azure Communication Services SDKs provides access to the media streams from 
 •	Process/Transform: Media can be transformed locally on the client (for example add background blur) or be used for processing in a cloud service (for example to use it with your customer NLPU for conversation insights).
 •	Provide context or inject back the Transformed Media: The output of the transformed media streams (ex, sentiment analysis) can be used to provide context  or augmented media streams can be injected into the interaction through the client SDK or through the media streaming API via the server SDK. 
 
-# Media access via the Calling Client SDK
+## Media access via the Calling Client SDK
 During a call, developers can access the audio and video media streams. Outgoing local audio and video media streams can be pre-processed, before being sent to the encoder. Incoming remote captured media streams can be post-processed before playback on screen or speaker. For incoming audio mixed media access, the client calling SDK can have access to the mixed incoming remote audio stream which includes the mixed audio streams of the top four most dominant speakers on the call. For incoming remote unmixed audio the client calling SDK will have access to the individual audio streams of each participant on the call.  
 :::image type="content" source="./media/raw-media/raw-media-overview-2.png" alt-text="diagram of raw media overview architecture.":::
 
