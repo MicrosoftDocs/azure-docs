@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: tutorial
-ms.date: 7/20/2022 
+ms.date: 08/11/2022 
 ---
 
 # Tutorial: Call Grafana APIs programmatically
@@ -134,4 +134,4 @@ If you're not going to continue to use these resources, delete them with the fol
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Grafana UI](./grafana-app-ui.md)
+> [Create and manage API keys](./how-to-create-api-keys.md)
