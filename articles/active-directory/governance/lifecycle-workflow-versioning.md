@@ -14,50 +14,44 @@ ms.custom: template-concept
 
 
 
-Workflows created using Lifecycle Workflows can be updated as needed to satisfy the needs of users as they move through their lifecycle in your organization. To manage updates in workflows, Lifecycle Workflows introduce the concept of workflow versioning. Workflow versions are separate workflows built using the same information of an original workflow, but with updated parameters so that they're reported differently within logs. Workflow versions can change the actions or even scope of an existing workflow.  Understanding how workflow versioning is handled during the workflow update process allows you to strategically set up workflows so that workflows tasks, and conditions, are always relevant for users the workflow runs for.
+Workflows created using Lifecycle Workflows can be updated as needed to satisfy organizational requirements  in terms of auditing the lifecycle of users in your organization. To manage updates in workflows, Lifecycle Workflows introduce the concept of workflow versioning. Workflow versions are new versions of existing workflows triggered by updating execution conditions or it's tasks. Workflow versions can change the actions or even scope of an existing workflow.  Understanding how workflow versioning is handled during the workflow update process allows you to strategically set up workflows so that workflows tasks, and conditions, are always relevant for users the workflow runs for.
 
 
 ## Versioning benefits
 
-Using versioning with Lifecycle Workflows has many benefits over the alternative of creating a new workflow for each use case. These benefits show up in its ability to improve the reporting process for troubleshooting and record keeping capabilities in two ways:
+Versioning with Lifecycle Workflows has many benefits over the alternative of creating a new workflow for each use case. These benefits show up in its ability to improve the reporting process for troubleshooting and record keeping capabilities in two ways:
 
-- **Infinite history**- While history, by default, in our audit logs only report information from the previous 30 days, workflow versioning is able to report information about changes to the workflow from its creation.
-- **Processed user tracking**- Allows tracking of which specific version of a workflow processed a user.
+- **Long-term retention**- Versioning allows for longer retention of workflow information than by simply using the audit logs. While the audit logs only store information from the previous 30 days, with versioning you are able to keep track of workflow details from creation.
+- **Traceability**- Allows tracking of which specific version of a workflow processed a user.
 
-## Workflow properties that won't trigger the creation of a new workflow version
+## Workflow properties and versions
 
-While updates to workflows created using Lifecycle Workflows can trigger the creation of a new version, this isn't always the case. There are parameters of workflows, known as basic properties, that can be updated without a new version of the workflow being created. The list of these parameters, as shown in the API, are as follows:
+While updates to workflows can trigger the creation of a new version, this isn't always the case. There are parameters of workflows, known as basic properties, that can be updated without a new version of the workflow being created. The list of these parameters are as follows:
 
 
-|parameter  |description  |
-|---------|---------|
-|displayName     | A unique string that identifies the workflow.        |
-|description     | A string that describes the purpose of the workflow for administrative use. (Optional) |
-|isEnabled     | A boolean value that denotes whether the workflow is set to run or not. If set to “true" then the workflow can run as on schedule, or be run on demand.        |
-|IsSchedulingEnabled  | A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.        |
+
+- displayName     
+- description    
+- isEnabled    
+- IsSchedulingEnabled  
 
 
 You'll find these corresponding parameters in the Azure portal under the **Properties** section of the workflow you're updating.
 :::image type="content" source="media/lifecycle-workflow-versioning/lcw-basic-updateable-properties.png" alt-text="updated basic properties LCW":::
 
- For a step by step guide on updating these properties using both the Azure portal and the API via Microsoft Graph, see: [Manage workflow properties](manage-workflow-properties.md).
+For a step by step guide on updating these properties using both the Azure portal and the API via Microsoft Graph, see: [Manage workflow properties](manage-workflow-properties.md).
 
-## Workflow properties that will trigger the creation of a new workflow version
+Properties that will trigger the creation of a new version are as follows:
 
-Updates made to argument properties of a workflow will trigger the creation of a new version of that workflow. These arguments in the API include:
-
-
-|parameters  |description  |
-|---------|---------|
-|tasks     | An argument in a workflow that has a unique displayName and a description. It defines the specific tasks to be executed in the workflow.         |
-|executionConditions     | An argument defining when and for who the workflow will run.        |
+- tasks     
+- executionConditions     
  
 
-While new versions of these workflows are made as soon as you make the updates in the Azure portal, making a new version of a workflow using the API with Microsoft Graph requires running the workflow creation call again with the changes included. For a step by step guide for both processes, see: [Manage Workflow Versions](manage-workflow-tasks.md).
+While new versions of these workflows are made as soon as you make the updates in the Azure portal, making a new version of a workflow using the API with Microsoft Graph requires running the workflow creation call again with the changes included. For a step by step guide for updating either tasks or execution conditions, see: [Manage Workflow Versions](manage-workflow-tasks.md).
 
 ## What information is contained in workflow version history
 
-Unlike with changing basic properties of a workflow, newly created workflow versions can be radically different from previous versions. Tasks can be added or removed, and who the workflow runs for can be different. Due to the vast changes that can happen to a workflow between versions, version information is also there to give detailed information about not only the current version of the workflow, but also its previous iterations.
+Unlike with changing basic properties of a workflow, newly created workflow versions can be completely different from previous versions. Tasks can be added or removed, and who the workflow runs for can be different. Due to the vast changes that can happen to a workflow between versions, version information is also there to give detailed information about not only the current version of the workflow, but also its previous iterations.
 
 Information contained in version information as shown in the Azure portal:
 
@@ -71,38 +65,18 @@ Detailed **Version information** are as follows:
 |---------|---------|
 |Version Number     | An integer denoting which version of the workflow the information is for. Sequentially goes up with each new workflow version.        |
 |Last modified date     | The last time the workflow was updated. If a new version of a workflow is created, this time will still show the creation time of the newest version of the workflow       |
-|Last modified by     | Who last modified this workflow      |
+|Last modified by     | Who last modified this workflow version      |
 |Created date     |  The date and time for when a workflow version was created   |
 |Created by     | Who created this specific version of the workflow.       |
-
-
-Detailed information for **BASICS** data are as follows:
-
-
-|parameter  |description  |
-|---------|---------|
 |Name     | Name of the workflow at this version.       |
 |Description     | Description of the workflow at this version.      |
 |Category     | Category of the workflow.      |
-|Trigger type     | The trigger type for the workflow.     |
-|Days from event     | Number of days before or after event timing. Won't appear if the trigger type is set to on-demand.        |
-|Event timing     | Defines timing as before or after the days from event parameter. Won't appear if the trigger type is set to on-demand.        |
-|Event user attribute     | Attribute used for the trigger. Won't appear if the trigger type is set to on-demand.        |
+|Execution Conditions    | Defines for who and when the workflow runs in this version.     |
+|Tasks   | The tasks present in this workflow version. If viewing through the API you are also able to see task arguments. For specific task definitions, see: [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md)    |
 
-Detailed information for **Configure** information are as follows:
 
 > [!NOTE]
 > If the workflow is on-demand, the configure information will not be present.
-
-
-|parameter  |description  |
-|---------|---------|
-|Scope type     | The user scope for executing the workflow.      |
-|Rule     |  Rules for the scope for executing a workflow.     |
-
-
-
-For the **Review tasks** section you'll see a list of tasks included in the specific version of the workflow, and their enabled status. For specific task definitions, see: [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).
 
 
 ## Next steps
