@@ -802,8 +802,8 @@
     - name: Windows
       displayName: Time sync
       href: ./windows/time-sync.md
-    - name: Windows
-      displayName: External Source Time sync Azure Windows VMs
+    - name: Active Directory Windows VMs in Azure
+      displayName: External Source Time Sync for Azure Windows VMs
       href: ./windows/external-ntpsource-configuration.md
   - name: Run Command
     items:

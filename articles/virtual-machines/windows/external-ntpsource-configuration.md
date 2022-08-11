@@ -14,7 +14,7 @@ ms.author: ndelvillar
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-Use this guide to learn how to setup time synchronization for your Azure Windows VMs with an external time source.
+Use this guide to learn how to setup time synchronization for your Azure Windows VMs that belong to an Active Directory domain with an external time source.
 
 ## Time configuration for Azure VMs
 
