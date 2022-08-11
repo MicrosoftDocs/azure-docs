@@ -80,13 +80,13 @@ az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resour
 If you need to recover a deleted resource, navigate to the Azure portal and select your Cognitive Services subscription. 
 Select "Manage deleted resources". 
 
-:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="sample":::
+:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="How to recover a deleted resource step 1":::
 
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to recover.
 Select the deleted resource and click Recover. 
 
-:::image type="content" source="media/managing-deleted-resources.png" alt-text="sample":::
+:::image type="content" source="media/managing-deleted-resources.png" alt-text="How to recover a deleted resource step 2":::
 
 ---
 
@@ -130,14 +130,14 @@ If you wish to purge a deleted resource, the steps are similar when recovering a
 Navigate to the Azure portal and select your Cognitive Services subscription.
 Select "Manage deleted resources".
 
-:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="sample":::
+:::image type="content" source="media/recovery-of-deleted-resources.png" alt-text="How to purge a deleted resource step 1":::
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
 Select the deleted resource and click Purge.
 Purging will permanently delete a Cognitive Services resource. 
 
 
-:::image type="content" source="media/managing-deleted-resources.png" alt-text="sample":::
+:::image type="content" source="media/managing-deleted-resources.png" alt-text="How to purge a deleted resource step 2":::
 
 ---
 
