@@ -89,29 +89,13 @@ ISE Core Connectors will be deployed as managed connectors. As new service provi
 -   Request,
 -   ApiConnectionNotification
 
-**  
-**
-
-# **Extension Installation for Private Preview**
-
-During Private Preview, the extension update will be distributed as a VISX file. You can find the VISX file [here](https://aka.ms/lastandard/export/visx).
-
-Follow the instructions below to install the VISX file:
-
-1.  Download the VSIX to your local machine
-2.  under extensions:click on the elipsis (...) and select Install from VSIX, then select the file downloaded.
-
-    ![](media/export-ise-to-logicapp-standard/f9a68c97c6279dbe279dae502f4bd9e6.png)
-
-3.  Follow the VS Code instructions
-
 ## **Export Process Walkthrough**
 
 Follow the steps below to export a group of logic apps workflows from ISE to a local project
 
 1.  At the logic apps standard extension, click the export button
 
-    ![](media/export-ise-to-logicapp-standard/29c03427b2c0f41c46ba5d78b2047d5a.png)
+    ![Graphical user interface, text, application Description automatically generated](media/export-ise-to-logicapp-standard/29c03427b2c0f41c46ba5d78b2047d5a.png)
 
     1.  Select the correct subscription and ISE environment, then click next
 
@@ -146,24 +130,6 @@ Follow the steps below to export a group of logic apps workflows from ISE to a l
     1.  After this is complete, a new workspace will be open. Start reviewing the README.md file for post deployment steps
 
 ## Post-deployment steps
-
-### Extension Bundle
-
-During the Private Preview, you need to use a custom bundle for LA standard. The reason for this is that the exported package uses parameterization in the connections.json file. The current bundle implementation has a bug associated to this component, and is not able to render it during runtime. This bundle has the fix for the bug, and the PR for this fix is currently being reviewed to be deployed across regions.
-
-After the export package has been unzipped and opened by VSCode, Add an appsetting in the local.settings.json file in the values section with the other appsettings:
-
-"FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://cdnforlogicappsv2.blob.core.windows.net/logicapps-parameterizationfix"
-
-Then open the host.json file and adjust the version of the bundle to the following value:
-
-"extensionBundle": {
-
-"id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-
-"version": "[1.\*, 1.1.58280138]"
-
-}
 
 ## Integration Account actions and content
 
