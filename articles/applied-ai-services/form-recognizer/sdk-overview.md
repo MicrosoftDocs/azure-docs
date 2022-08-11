@@ -36,75 +36,77 @@ The SDKS support using and managing the Form Recognizer from your programming la
 
 ### 1. Install the SDK client package for your programming language
 
-    ### [C#/.NET](#tab/csharp)
+### [C#/.NET](#tab/csharp)
 
-    ```dotnetcli
-    dotnet add package Azure.AI.FormRecognizer --version 4.0.0-beta.5
-    ```
+```dotnetcli
+dotnet add package Azure.AI.FormRecognizer --version 4.0.0-beta.5
+```
 
-   ```powershell
-   Install-Package Azure.AI.FormRecognizer -Version 4.0.0-beta.5
-   ```
+```powershell
+Install-Package Azure.AI.FormRecognizer -Version 4.0.0-beta.5
+```
 
-    ### [Java](#tab/java)
+### [Java](#tab/java)
 
-    ```xml
-     <dependency>
-       <groupId>com.azure</groupId>
-       <artifactId>azure-ai-formrecognizer</artifactId>
-       <version>4.0.0-beta.5</version>
-     </dependency>
-    ```
+```xml
+    <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-ai-formrecognizer</artifactId>
+    <version>4.0.0-beta.5</version>
+    </dependency>
+```
 
-    ```kotlin
-    implementation("com.azure:azure-ai-formrecognizer:4.0.0-beta.5")
-    ```
+```kotlin
+implementation("com.azure:azure-ai-formrecognizer:4.0.0-beta.5")
+```
 
-    ### [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
-    ```javascript
-    npm i @azure/ai-form-recognizer@4.0.0-beta.6
-    ```
+```javascript
+npm i @azure/ai-form-recognizer@4.0.0-beta.6
+```
 
-    ### [Python](#tab/python)
+### [Python](#tab/python)
 
-    ```python
-    pip install azure-ai-formrecognizer==3.2.0b6
-    ```
+```python
+pip install azure-ai-formrecognizer==3.2.0b6
+```
+
+---
 
 ### 2. Import your programming language SDK package into your application
 
-    ### [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
-    ```csharp
-    using Azure;
-    using Azure.AI.FormRecognizer.DocumentAnalysis;
-    ```
+```csharp
+using Azure;
+using Azure.AI.FormRecognizer.DocumentAnalysis;
+```
 
-    ### [Java](#tab/java)
+### [Java](#tab/java)
 
-    ```java
-    import com.azure.ai.formrecognizer.*;
-    import com.azure.ai.formrecognizer.models.*;
-    import com.azure.ai.formrecognizer.DocumentAnalysisClient.*;
+```java
+import com.azure.ai.formrecognizer.*;
+import com.azure.ai.formrecognizer.models.*;
+import com.azure.ai.formrecognizer.DocumentAnalysisClient.*;
 
-    import com.azure.core.credential.AzureKeyCredential;
-    ```
+import com.azure.core.credential.AzureKeyCredential;
+```
 
-    ### [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
-    ```javascript
-    const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
-    ```
+```javascript
+const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+```
 
-    ### [Python](#tab/python)
+### [Python](#tab/python)
 
-    ```python
-    from azure.ai.formrecognizer import DocumentAnalysisClient
-    from azure.core.credentials import AzureKeyCredential
-    ```
+```python
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+```
 
-    ---
+---
 
 ### 3. Set up authentication for your application
 
