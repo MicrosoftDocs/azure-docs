@@ -46,9 +46,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.4 | 07/2022 | 4/2023 |
-| 22.2.3 | 07/2022 | 4/2023 |
-| 22.1.7 | 07/2022 | 4/2023 |
+| 22.2.4 | 07/2022 | 04/2023 |
+| 22.2.3 | 07/2022 | 04/2023 |
+| 22.1.7 | 07/2022 | 04/2023 |
 | 22.1.6 | 06/2022 | 10/2023 |
 | 22.1.5 | 06/2022 | 10/2023 |
 | 22.1.4 | 04/2022 | 10/2022 |
@@ -61,7 +61,32 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## August 2022
 
+- [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
 - [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
+
+### New alert columns with timestamp data
+
+Starting with OT sensor version 22.2.4, Defender for IoT alerts in the Azure portal and the sensor console now show the following columns and data:
+
+- **Last detection**. Defines the last time the alert was detected in the network, and replaces the **Detection time** column.
+
+- **First detection**. Defines the first time the alert was detected in the network.
+
+- **Last activity**. Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication.
+
+The **First detection** and **Last activity** columns aren't displayed by default. Add them to your **Alerts** page as needed.
+
+> [!TIP]
+> If you're also a Microsoft Sentinel user, you'll be familiar with similar data from your Log Analytics queries. The new alert columns in Defender for IoT are mapped as follows:
+>
+> - The Defender for IoT **Last detection** time is similar to the Log Analytics **EndTime**
+> - The Defender for IoT **First detection** time is similar to the Log Analytics **StartTime**
+> - The Defender for IoT **Last activity** time is similar to the Log Analytics **TimeGenerated**
+For more information, see:
+
+- [View alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
 
 ### Sensor health from the Azure portal (Public preview)
 
@@ -605,7 +630,7 @@ Disabling these alerts also disables monitoring of related traffic. Specifically
 
 **Unauthorized Database Operation alert**
 Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
-- DDL traffic: alerting and monitoring are supported. 
+- DDL traffic: alerting and monitoring are supported.
 - DML traffic: Monitoring is supported.  Alerting isn't supported.
 
 **New Asset Detected alert**
