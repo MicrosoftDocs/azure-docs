@@ -18,7 +18,9 @@ Learn how to use a [Service Endpoint policy] to prevent data exfiltration from s
 
 An Azure Machine Learning workspace requires outbound access to `storage.<region>/*.blob.core.windows.net` on the public internet, where `<region>` is the Azure region of the workspace. This outbound access is required by Azure Machine Learning compute cluster and compute instance. Both are based on Azure Batch, and need to access a storage account provided by Azure Batch on the public network.
 
-By using a Service 
+By using a Service Endpoint Policy, you can mitigate this vulnerability. 
+
+![example architecture](./images/dlpsamplearchitecture.png)
 
 ## Prerequisites
 
@@ -29,28 +31,46 @@ By using a Service
 
 ## Limitations
 
-* Data loss prevention is not supported when using an Azure Machine Learning compute cluster or compute instance configured for __no public IP__. 
+* Data loss prevention is not supported with an Azure Machine Learning compute cluster or compute instance configured for __no public IP__.
 
+## 1. Opt-in to the preview
+
+> [!IMPORTANT]
+> Before opting in to this preview, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
+
+Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt-in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview.
+
+## 2. Allow inbound & outbound network traffic
+
+> [!IMPORTANT]
+> The information in this section modifies the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md).
+
+| Direction | Azure service | Port(s) | Notes |
+| ----- | ----- | ----- | ----- |
+
+
+## 3. Create the service endpoint policy
+
+1. From the [Azure portal][portal], add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
+1. On the __Policy definitions__ tab, perform the following actions:
+    1. Select __+ Add a resource__, and then provide the following information:
+        * __Service__: Microsoft.Storage
+        * __Scope__: Single account
+        * __Subscription__: The Azure subscription that contains the storage account.
+        * __Resource group__: The resource group that contains the storage account.
+        * __Resource__: The storage account.
+    
+        Select __Add__ to add the resource information.
+    1. Select __+ Add an alias__, and then enter `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add thee alias.
+1. Select __Review + Create__, and then select __Create__.
+    
 <!-- -----------------------------------------------------
 Original stuff from Jumpei
 ----------------------------------------------------- -->
-## What is Data Loss Prevention (DLP)?
-
-AzureML has an outbound dependency to storage.reigon/*.blob.core.windows.net. This configuration increases the risk of allowing malicious users to move the data from your virtual network to other storage accounts in the same region. Current preview is for removing its dependency.
-
-**No Public IP Compute Instance and Compute Cluster does not support DLP.**
-
-## Steps to use DLP
-
-## Example Architecture
-![](./images/dlpsamplearchitecture.png)
-
-## 1. Enable Your Subscription for Opt-in Preview
-Submit [this form](https://forms.office.com/r/1TraBek7LV) to allowlist your subscription(s). Microsoft will contact with you when its allowlisting is finished.
-
-**We need your batch account for this preview. Create a workspace and an compute instance before submitting a form if you have never done that with your subscription. You can delete resources immediately.**
 
 ## 2. Change You Inbound and Outbound Configurations
+
+
 
 ### Inbound Configurations
 * Allow the inbound from service tag "Azure Machine Learning" (No Change)
@@ -91,3 +111,6 @@ If you use curated enviornments, please make sure using the latest one and it is
 
 ## Frequently Asked Questions
 To be updated.
+
+
+[portal]: https://portal.azure.com
