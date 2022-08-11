@@ -148,7 +148,7 @@ For eg., when you have a backup policy of weekly fulls, daily differentials and 
 
 #### Excluding backup file types
 
-The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file, that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ` RecoveryPointsToBeExcludedForRestoreAsFiles ` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
 
 1. In the target machine where files are to be downloaded, go to "C:\Program Files\Azure Workload Backup\bin" folder
 2. Create a new JSON file named "ExtensionSettingOverrides.JSON", if it doesn't already exist.
