@@ -156,7 +156,7 @@
     href: video-indexer-disaster-recovery.md
 - name: Troubleshooting  
   items:
-  - name: Repair connections, examine errors/warnings
+  - name: Repair the connection to Azure
     href: manage-account-connected-to-azure.md
 - name: Reference
   items:
