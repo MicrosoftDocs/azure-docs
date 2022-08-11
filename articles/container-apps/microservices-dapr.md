@@ -55,10 +55,17 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.  
+
+Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` will result in a warning, but the command will still succeed.
 
 ```powershell
-New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
+New-AzOperationalInsightsWorkspace `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -Name MyWorkspace -Location $Location 
+  -PublicNetworkAccessForIngestion "Enabled" 
+  -PublicNetworkAccessForQuery "Enabled"
+
 $WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
 $WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
 ```
@@ -258,12 +265,20 @@ az containerapp create \
   --env-vars 'APP_PORT=3000'
 ```
 
+This command deploys:
+
+* the service (Node) app server on `--target-port 3000` (the app port) 
+* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
+
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
 $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
-$ENV_VARS = New-AzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
+$ENV_VARS = New-AzContainerAppEnvironmentVarObject `
+  -Name APP_PORT `
+  -Value 3000
 
 $TEMPLATE_OBJ = New-AzContainerAppTemplateObject `
   -Name nodeapp `
@@ -283,15 +298,15 @@ New-AzContainerApp `
   -ScaleMinReplica 1 `
   -IngressTargetPort 3000
 ```
+This command deploys:
+
+* the service (Node) app server on `APP_PORT 3000` (the app port) 
+* its accompanying Dapr sidecar configured with `-DaprAppId nodeapp` and `-DaprAppPort 3000'` for service discovery and invocation
 
 ---
 
 By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-node).
 
-This command deploys:
-
-* the service (Node) app server on `--target-port 3000` (the app port) 
-* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
 
 ## Deploy the client application (headless client)
 
@@ -350,7 +365,7 @@ You can confirm that the services are working correctly by viewing data in your 
 
 1. Verify that you can see the file named `order` in the container.
 
-1. Select on the file.
+1. Select the file.
 
 1. Select the **Edit** tab.
 
