@@ -82,9 +82,8 @@ Create a forwarding rule from your on-premises management console to forward ale
 
    :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of the Create a Forwarding Rule window.":::
 
-<<<<<<< HEAD
 1. Define the QRadar IP address and timezone, and then select **Save**.
-=======
+
 The following is an example of a payload sent to QRadar:
 
 ```sample payload
@@ -92,7 +91,6 @@ The following is an example of a payload sent to QRadar:
 ```
 
 ## Map notifications to QRadar
->>>>>>> fead19ad4dc8fcacf91f87c88b9b468b0fce1373
 
 1. Sign into your QRadar console, select **QRadar**> **Log Activity** .
 

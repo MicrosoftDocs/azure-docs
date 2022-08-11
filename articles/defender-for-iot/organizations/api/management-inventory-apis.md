@@ -7,159 +7,9 @@ ms.topic: reference
 
 # Inventory management API reference for on-premises management consoles
 
-This article lists the inventory management REST APIs supported for Microsoft Defender for IoT on-premises management consoles.
-
-## devices (Retrieve device information per sensor)
-
-Use this API to request a list of all devices that a Defender for IoT sensor has detected.
-
-**URI**: `/api/v1/devices`
-
-### GET
-
-# [Request](#tab/devices-request)
-
-**Query parameters**:
-
-
-|Name  |Description  |Examples  |
-|---------|---------|---------|
-|**authorized**     | To filter only authorized and unauthorized devices.        |    `/api/v1/devices?authorized=true`<br>  `/api/v1/devices?authorized=false`
-       |
-
-# [Response](#tab/devices-response)
-
-**Type**: JSON
-
-Array of JSON objects that represent devices.
-
-**Device fields**
-
-| Name | Type | Required / Optional | List of values |
-|--|--|--|--|
-| **id** | Numeric | Required | - |
-| **ipAddresses** | JSON array | Optional | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
-| **name** | String | Required | - |
-| **type** | String | Required | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
-| **macAddresses** | JSON array | Optional | MAC addresses (can be more than one address in case of a device with dual NICs) |
-| **operatingSystem** | String | Optional | - |
-| **engineeringStation** | Boolean | Required | True or false |
-| **scanner** | Boolean | Required | True or false |
-| **authorized** | Boolean | Required | True or false |
-| **vendor** | String | Optional | - |
-| **protocols** | JSON array | Optional | Protocol object |
-| **firmware** | JSON array | Optional | Firmware object |
-
-**Protocol fields**
-
-| Name | Type | Required / Optional | List of values |
-|--|--|--|--|
-| **Name** | String | Required |  |
-| **Addresses** | JSON array | Optional | `Master`, or numeric values |
-
-**Firmware fields**
-
-| Name | Type | Required / Optional | List of values |
-|--|--|--|--|
-| **serial** | String | Required | N/A, or the actual value |
-| **model** | String | Required | N/A, or the actual value |
-| **firmwareVersion** | Double | Required | N/A, or the actual value |
-| **additionalData** | String | Required | N/A, or the actual value |
-| **moduleAddress** | String | Required | N/A, or the actual value |
-| **rack** | String | Required | N/A, or the actual value |
-| **slot** | String | Required | N/A, or the actual value |
-| **address** | String | Required | N/A, or the actual value |
-
-**Response example**
-
-```rest
-[
-    {
-    "vendor": null,
-    "name": "10.4.14.102",
-    "firmware": [
-        {
-            "slot": "N/A",
-            "additionalData": "N/A",
-            "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
-            "rack": "N/A",
-            "address": "10.4.14.102",
-            "model": "AAAAAAAAAA",
-            "serial": "N/A",
-            "firmwareVersion": "20.55"
-        },
-        {
-            "slot": "N/A",
-            "additionalData": "N/A",
-            "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
-            "rack": "N/A",
-            "address": "10.4.14.102",
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            "serial": "N/A",
-            "firmwareVersion": "20.55"
-        },
-        {
-            "slot": "N/A",
-            "additionalData": "N/A",
-            "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
-            "rack": "N/A",
-            "address": "10.4.14.102",
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            "serial": "N/A",
-            "firmwareVersion": "20.55"
-        },
-        {
-            "slot": "N/A",
-            "additionalData": "N/A",
-            "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
-            "rack": "N/A",
-            "address": "10.4.14.102",
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            "serial": "N/A",
-            "firmwareVersion": "20.55"
-        }
-    ],
-    "id": 79,
-    "macAddresses": null,
-    "authorized": true,
-    "ipAddresses": [
-        "10.4.14.102"
-    ],
-    "engineeringStation": false,
-    "type": "PLC",
-    "operatingSystem": null,
-    "protocols": [
-        {
-            "addresses": [],
-            "id": 62,
-            "name": "Omron FINS"
-        }
-    ],
-    "scanner": false
-}
-]
-```
-
-# [Curl command](#tab/devices-curl)
-
-**Type**: GET
-
-**APIs**:
-
-
-```rest
-curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices
-```
-
-**Example**:
-
-```rest
-curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true
-```
----
+This article lists the inventory management REST APIs supported for Microsoft Defender for IoT on-premises management consoles
 
 ## devices (Retrieve all device information)
-
 
 This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
 
@@ -167,62 +17,67 @@ This API requests a list of all devices detected by Defender for IoT sensors tha
 
 ### GET
 
+# [Request](#tab/appliances-get-request)
+
+**Query parameters**:
+
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**authorized**     |  Boolean. Filters by whether the device is authorized or not.   | `/external/v1/devices?authorized=true` <br><br>`/external/v1/devices?authorized=false`| Optional |
+|**siteId**     | Comma separated list of long integers. Filter devices for specified sites by site ID.       | `/external/v1/devices?siteId=1,2`| Optional |
+|**zoneId**     |Comma separated list of long integers. Filter devices for specified zones by zone ID.        | `/external/v1/devices?zoneId=5,6` | Optional |
+|**sensorId**     | Comma separated list of long integers. Filter devices for specified sensors by sensor ID.        | `/external/v1/devices?sensorId=8`| Optional |
+
+> [!TIP]
+> If you don't have a site, zone, or sensor ID, query all devices first to retrieve these values.
+>
+
 # [Response](#tab/devices-get-response)
 
 **Type**: JSON
 
 Array of JSON objects that represent devices.
 
-
-|Name  |Description  | Example |
-|---------|---------|---------|
-|**authorized**     |  To filter only authorized and unauthorized devices.       | `/external/v1/devices?authorized=true` <br><br>`/external/v1/devices?authorized=false`|
-|**siteId**     |  To filter only devices related to specific sites.       | `/external/v1/devices?siteId=1,2`|
-|**zoneId**     |To filter only devices related to specific zones. <sup>[1](#1)</sup>         | `/external/v1/devices?zoneId=5,6` |
-|**sensorId**     | To filter only devices detected by specific sensors. <sup>[1](#1)</sup>        | `/external/v1/devices?sensorId=8`|
-
-> [!NOTE]
-> <a id="1">1</a> You might not have the site and zone ID. If this is the case, query all devices to retrieve the site and zone ID.*
->
-
 **Device fields**
 
-| Name | Type | Required / Optional | List of values |
+| Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
-| **sensorId** | Numeric | Required | - |
-| **zoneId** | Numeric | Optional | - |
-| **siteId** | Numeric | Optional | - |
-| **ipAddresses** | JSON array | Optional | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
-| **name** | String | Required | - |
-| **type** | String | Required | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
-| **macAddresses** | JSON array | Optional | MAC addresses (can be more than one address in case of a device with dual NICs) |
-| **operatingSystem** | String | Optional | - |
-| **engineeringStation** | Boolean | Required | True or false |
-| **scanner** | Boolean | Required | True or false |
-| **authorized** | Boolean | Required | True or false |
-| **vendor** | String | Optional | - |
-| **Protocols** | JSON array | Optional | Protocol object |
-| **firmware** | JSON array | Optional | Firmware object |
+| **id** | Long integer | Not nullable | Device ID on the on-premises management console |
+| **sensorId** | Long integer | Not nullable | Device ID on the sensor |
+| **zoneId** | Long integer | Not nullable | The device's zone ID |
+| **siteId** | Long integer | Not nullable | The device's site ID |
+| **ipAddresses** | JSON array of strings | Nullable | JSON array of IP addresses. Each device can have multiple addresses in case of internet addresses or a device with multiple NICs. |
+| **name** | String | Not nullable  | The device name. |
+| **type** | String | Not nullable  | The device type. For more information see [Supported `type` values](sensor-inventory-apis.md#supported-type-values).|
+| **macAddresses** | JSON array of strings | Nullable | JSON array of MAC addresses. Devices with multiple NICs can have multiple addresses. |
+| **operatingSystem** | String | Nullable | The device operating system.|
+| **engineeringStation** | Boolean | Not nullable | `True` or `false` |
+| **scanner** | Boolean | Not nullable | `True` or `false` |
+| **authorized** | Boolean | Not nullable | `True` or `false` |
+| **vendor** | String | Nullable | The device vendor.|
+| **Protocols** | JSON array | Nullable | JSON array of protocol objects |
+| **firmware** | JSON array | Nullable | JSON array of firmware objects |
+<!--we left off here-->
 
 **Protocol fields**
 
-| Name | Type | Required / Optional | List of values |
+| Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
-| **Name** | String | Required | - |
-| **Addresses** | JSON array | Optional | `Master`, or numeric values |
+| **Name** | String | Not nullable | The protocol name|
+| **Addresses** | JSON array of IP addresses | Optional | `Master`, or IP addresses <!--hadar to verify-->|
 
 **Firmware fields**
 
-| Name | Type | Required / Optional | List of values |
+| Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
-| **serial** | String | Required | N/A, or the actual value |
-| **model** | String | Required | N/A, or the actual value |
-| **firmwareVersion** | Double | Required | N/A, or the actual value |
-| **additionalData** | String | Required | N/A, or the actual value |
-| **moduleAddress** | String | Required | N/A, or the actual value |
-| **rack** | String | Required | N/A, or the actual value |
-| **slot** | String | Required | N/A, or the actual value |
-| **address** | String | Required | N/A, or the actual value |
+| **serial** | String | Not nullable | `N/A`, or the firmware serial number |
+| **model** | String | Not nullable | `N/A`, or the firmware model |
+| **firmwareVersion** | Double | Not nullable | `N/A`, or the firmware version |
+| **additionalData** | String | Not nullable | `N/A` or additional, vendor-specific firmware data |
+| **moduleAddress** | String | Not nullable | `N/A`, or the firmware module address |
+| **rack** | String | Not nullable | `N/A`, or the firmware rack |
+| **slot** | String | Not nullable | `N/A`, or the firmware slot |
+| **address** | String | Not nullable | `N/A`, or the firmware address |
 
 **Response example**:
 
