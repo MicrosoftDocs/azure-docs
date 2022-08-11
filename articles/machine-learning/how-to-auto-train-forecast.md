@@ -50,6 +50,8 @@ You can specify separate [training data and validation data](concept-automated-m
 
 For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is used for validation by default. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage.
 
+:::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separates the training and validation sets based on the cross validation step size.":::
+
 Pass your training and validation data as one dataset to the parameter, training_data.  You can also set the number of cross validation folds with the parameter `n_cross_validations` and set the number of periods between two consecutive cross-validation folds with `cv_step_size`.  you can also leave either or both parameters empty and AutoML will set them automatically. 
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -63,7 +65,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
-:::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separates the training and validation sets based on the cross validation step size.":::
 
 You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
