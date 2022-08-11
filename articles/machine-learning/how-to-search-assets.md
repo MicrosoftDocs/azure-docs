@@ -20,7 +20,7 @@ Use the search bar to find machine learning assets across all workspaces, resour
 * Models
 * Components
 * Environments
-* Data 
+* Data
 
 > [!IMPORTANT]
 > The search  functionality is currently in public preview.
@@ -56,7 +56,7 @@ The following filters are supported:
 * Environment
 * Data (workspace scope only)
 
-If an asset filter (job, model, component, environment, dataset) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
+If an asset filter (job, model, component, environment, data) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
 
 > [!TIP]
 > * Filters search for exact matches of text. Use free text queries for a contains search.
