@@ -76,6 +76,9 @@ items:
       href: /rest/api/loadtesting/
     - name: Test configuration YAML
       href: reference-test-config-yaml.md
+    - name: Resource Manager template
+      displayName: ARM
+      href: /azure/templates/microsoft.loadtestservice/allversions
     - name: Monitor data reference
       href: monitor-load-testing-reference.md
 
