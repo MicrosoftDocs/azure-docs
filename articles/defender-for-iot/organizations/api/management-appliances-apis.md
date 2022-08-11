@@ -151,7 +151,7 @@ A list of alerts with the following fields:
 ```
 
 
-# [Curl command](#tab/appliances-put-curl)
+# [Curl command](#tab/appliances-delete-curl)
 
 **Type**: GET
 

@@ -278,7 +278,7 @@
       - name: Authentication and password management
         href: api/management-auth-apis.md
       - name: Appliance management
-        href: api/management-appliance-apis.md
+        href: api/management-appliances-apis.md
       - name: Alert management
         href: api/management-alert-apis.md
       - name: Inventory management
