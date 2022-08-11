@@ -83,7 +83,7 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Microsoft Learn learning path
+          - text: Learning path
             url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc         
 
  # Card
