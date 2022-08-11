@@ -2,15 +2,14 @@
 title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 08/20/2021
 ---
 # Back up SQL Server always on availability groups
 
 Azure Backup offers an end-to-end support for backing up SQL Server always on availability groups (AG) if all nodes are in the same region and subscription as the Recovery Services vault. However, if the AG nodes are spread across regions/subscriptions/on-premises and Azure, there are a few considerations to keep in mind.
 
 >[!Note]
->- Backup of Basic Availability Group databases is not supported by Azure Backup.
->- See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+>Backup of Basic Availability Group databases is not supported by Azure Backup.
 
 The backup preference used by Azure Backup SQL AG supports full and differential backups only from the primary replica. So, these backup jobs always run on the Primary node irrespective of the backup preference. For copy-only full and transaction log backups, the AG backup preference is considered while deciding the node where backup will run.
 
