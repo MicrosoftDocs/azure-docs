@@ -153,21 +153,21 @@ To speed up your tests, you can increase the number of workers for your test run
 
 You can increase the number of workers in either of two ways:
 
-    - Specify the number of workers on the Playwright command-line with the `workers` parameter:
+- Specify the number of workers on the Playwright command-line with the `workers` parameter:
 
-        ```bash
-        npx playwright test --workers=20
-        ```
+    ```bash
+    npx playwright test --workers=20
+    ```
 
-    - Specify the `workers` property in the `playwright.config.ts`:
+- Specify the `workers` property in the `playwright.config.ts`:
 
-        ```typescript
-        // playwright.config.ts
-        const config: PlaywrightTestConfig = {
-          workers: process.env.WORKERS ? +process.env.WORKERS : 10,
-          ...
-        };
-        ```
+    ```typescript
+    // playwright.config.ts
+    const config: PlaywrightTestConfig = {
+        workers: process.env.WORKERS ? +process.env.WORKERS : 10,
+        ...
+    };
+    ```
 
 ## Next steps
 
