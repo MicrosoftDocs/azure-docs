@@ -212,7 +212,7 @@ For information about assessing the deployment order and resolving dependency er
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: Create ARM templates with dependent resources](template-tutorial-create-templates-with-dependent-resources.md).
-* For a Microsoft Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+* For a Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * For recommendations when setting dependencies, see [ARM template best practices](./best-practices.md).
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).

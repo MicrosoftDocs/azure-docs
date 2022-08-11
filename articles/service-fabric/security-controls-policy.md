@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/26/2022
+ms.date: 08/04/2022
 ---
 # Azure Policy Regulatory Compliance controls for Azure Service Fabric
 

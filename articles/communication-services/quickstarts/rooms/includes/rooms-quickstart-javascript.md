@@ -20,6 +20,10 @@ ms.author: radubulboaca
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/rooms-quickstart).
+
 ## Setting up
 
 ### Create a new web application

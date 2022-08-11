@@ -248,7 +248,7 @@ This component has a single output port, which can be connected to one of the `i
     component: azureml:rai_insights_causal:1 
     inputs: 
       rai_insights_dashboard: ${{parent.jobs.create_rai_job.outputs.rai_insights_dashboard}} 
-      treatment_features: `["Number of github repos contributed to", "YOE"]' 
+      treatment_features: `["Number of GitHub repos contributed to", "YOE"]' 
 ```
 
 # [Python](#tab/python)
@@ -261,7 +261,7 @@ This component has a single output port, which can be connected to one of the `i
 #Use it inside a pipeline definition: 
             causal_job = rai_causal_component( 
                 rai_insights_dashboard=construct_job.outputs.rai_insights_dashboard, 
-                treatment_features='`["Number of github repos contributed to", "YOE"]', 
+                treatment_features='`["Number of GitHub repos contributed to", "YOE"]', 
             ) 
 ```
 

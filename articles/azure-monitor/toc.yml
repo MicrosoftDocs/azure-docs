@@ -215,7 +215,7 @@ items:
   - name: Azure Monitor Metrics
     items:
     - name: Overview
-      displayname: Metrics, Azure Monitor Metrics
+      displayName: Metrics, Azure Monitor Metrics
       href: essentials/data-platform-metrics.md
     - name: Metrics explorer
       items:
@@ -423,14 +423,14 @@ items:
   - name: Data collection
     items:
     - name: Overview
-      displayname: data collection, data collection rules
+      displayName: data collection, data collection rules
       href: essentials/data-collection.md
     - name: Data sources
       href: data-sources.md
     - name: Data collection rules
       items:
       - name: Overview
-        displayname: Data collection rules
+        displayName: Data collection rules
         href: essentials/data-collection-rule-overview.md
       - name: Edit
         displayName: Data collection rules
@@ -443,10 +443,10 @@ items:
     - name: Transformations
       items:
       - name: Overview
-        displayname: Transformations
+        displayName: Transformations
         href: essentials/data-collection-transformations.md
       - name: Structure
-        displayname: Transformations
+        displayName: Transformations
         href: essentials/data-collection-transformations-structure.md
       - name: Tutorial (portal)
         href: logs/tutorial-workspace-transformations-portal.md
@@ -462,131 +462,124 @@ items:
         href: logs/private-link-configure.md
     - name: Troubleshoot
       href: logs/data-collection-troubleshoot.md
-  - name: Agents
+  - name: Azure Monitor Agent
     items:
     - name: Overview
       href: agents/agents-overview.md
+    - name: Install Azure Monitor Agent
+      displayName: Azure Monitor agent
+      items:
+      - name: Using the agent extension
+        href: agents/azure-monitor-agent-manage.md
+      - name: Using Windows client installer (preview)
+        href: agents/azure-monitor-agent-windows-client.md
+    - name: Configure data collection
+      items:
+      - name: Collect events and performance
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Collect text and IIS Logs
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-text-log.md
+    - name: Enable network isolation
+      href: agents/azure-monitor-agent-data-collection-endpoint.md
+    - name: Migrate from Log Analytics Agent
+      items:
+      - name: Migration guidance
+        href: agents/azure-monitor-agent-migration.md
+      - name: Migration tools
+        href: agents/azure-monitor-agent-migration-tools.md
     - name: FAQ
-      href: /azure/azure-monitor/faq#agents
-    - name: Azure Monitor Agent
+      displayName: Azure Monitor agent FAQ
+      href: /azure/azure-monitor/faq#azure-monitor-agent
+    - name: Legacy agents
       items:
-      - name: Overview
-        displayName: Azure Monitor agent
-        href: agents/azure-monitor-agent-overview.md
-      - name: Installation options
-        displayName: Azure Monitor agent
-        items:
-        - name: Using extension
-          href: agents/azure-monitor-agent-manage.md
-        - name: Extension versions
-          href: agents/azure-monitor-agent-extension-versions.md
-        - name: Using Windows client installer (preview)
-          href: agents/azure-monitor-agent-windows-client.md
-      - name: Data collection
-        items:
-        - name: Collect events and performance
-          displayName: data collection rule,Azure Monitor agent
-          href: agents/data-collection-rule-azure-monitor-agent.md
-        - name: Collect text and IIS Logs
-          displayName: data collection rule,Azure Monitor agent
-          href: agents/data-collection-text-log.md
-      - name: Enable network isolation
-        href: agents/azure-monitor-agent-data-collection-endpoint.md
-      - name: Migrate from Log Analytics agent
-        items:
-        - name: Migration guidance
-          href: agents/azure-monitor-agent-migration.md
-        - name: Migration tools
-          href: agents/azure-monitor-agent-migration-tools.md
-      - name: FAQ
-        displayName: Azure Monitor agent FAQ
-        href: /azure/azure-monitor/faq#azure-monitor-agent
-    - name: Log Analytics agent
-      items:
-      - name: Overview
-        href: agents/log-analytics-agent.md
-      - name: Windows agents
-        href: agents/agent-windows.md
-      - name: Linux agents
-        href: agents/agent-linux.md
-      - name: VM Extension for Windows
-        href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-      - name: VM Extension for Linux
-        href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-      - name: Log Analytics gateway
-        href: agents/gateway.md
-      - name: Agent management
-        href: agents/agent-manage.md
-      - name: Agent Health
-        href: insights/solution-agenthealth.md
-      - name: Agent data sources
+      - name: Log Analytics agent
         items:
         - name: Overview
-          href: agents/agent-data-sources.md
-        - name: Windows events
-          href: agents/data-sources-windows-events.md
-        - name: Custom JSON data
-          href: agents/data-sources-json.md
-        - name: CollectD performance data
-          href: agents/data-sources-collectd.md
-        - name: Syslog
-          href: agents/data-sources-syslog.md
-        - name: Performance counters
-          href: agents/data-sources-performance-counters.md
-        - name: Linux application performance
-          href: agents/data-sources-linux-applications.md
-        - name: IIS logs
-          href: agents/data-sources-iis-logs.md
-        - name: Event Tracing for Windows data
-          href: agents/data-sources-event-tracing-windows.md
-        - name: Text logs
-          href: agents/data-sources-custom-logs.md
-        - name: Custom fields
-          href: logs/custom-fields.md
-    - name: Azure Diagnostics extension
-      items:
-      - name: Overview
-        href: agents/diagnostics-extension-overview.md
-      - name: Windows
-        displayName: diagnostics extension
-        items:
-        - name: Install and configure
+          href: agents/log-analytics-agent.md
+        - name: Windows agents
+          href: agents/agent-windows.md
+        - name: Linux agents
+          href: agents/agent-linux.md
+        - name: VM Extension for Windows
+          href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+        - name: VM Extension for Linux
+          href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+        - name: Log Analytics gateway
+          href: agents/gateway.md
+        - name: Agent management
+          href: agents/agent-manage.md
+        - name: Agent Health
+          href: insights/solution-agenthealth.md
+        - name: Agent data sources
           items:
-          - name: Installation options
-            href: agents/diagnostics-extension-windows-install.md
-          - name: PowerShell
-            href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
-          - name: Resource Manager template
-            href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
-        - name: Send to Azure Monitor Metrics
-          items:
-          - name: Virtual Machine
-            href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
-          - name: Virtual machine scale set
-            href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
-          - name: VM classic
-            href: essentials/collect-custom-metrics-guestos-vm-classic.md
-          - name: Cloud service
-            href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-        - name: Send to Event Hubs
-          href: agents/diagnostics-extension-stream-event-hubs.md
-        - name: Send to Logs
-          href: agents/diagnostics-extension-logs.md
-        - name: Send to Application Insights
-          href: agents/diagnostics-extension-to-application-insights.md
-        - name: Version history
-          href: agents/diagnostics-extension-versions.md
-        - name: Troubleshooting
-          href: agents/diagnostics-extension-troubleshooting.md
-      - name: Linux
-        displayName: diagnostics extension
+          - name: Overview
+            href: agents/agent-data-sources.md
+          - name: Windows events
+            href: agents/data-sources-windows-events.md
+          - name: Custom JSON data
+            href: agents/data-sources-json.md
+          - name: CollectD performance data
+            href: agents/data-sources-collectd.md
+          - name: Syslog
+            href: agents/data-sources-syslog.md
+          - name: Performance counters
+            href: agents/data-sources-performance-counters.md
+          - name: Linux application performance
+            href: agents/data-sources-linux-applications.md
+          - name: IIS logs
+            href: agents/data-sources-iis-logs.md
+          - name: Event Tracing for Windows data
+            href: agents/data-sources-event-tracing-windows.md
+          - name: Text logs
+            href: agents/data-sources-custom-logs.md
+          - name: Custom fields
+            href: logs/custom-fields.md
+      - name: Azure Diagnostics extension
         items:
-        - name: Version 4.0
-          href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-        - name: Version 3.0
-          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
-        - name: Collect metrics with Telegraf
-          href: essentials/collect-custom-metrics-linux-telegraf.md
+        - name: Overview
+          href: agents/diagnostics-extension-overview.md
+        - name: Windows
+          displayName: diagnostics extension
+          items:
+          - name: Install and configure
+            items:
+            - name: Installation options
+              href: agents/diagnostics-extension-windows-install.md
+            - name: PowerShell
+              href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Resource Manager template
+              href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+          - name: Send to Azure Monitor Metrics
+            items:
+            - name: Virtual Machine
+              href: essentials/collect-custom-metrics-guestos-resource-manager-vm.md
+            - name: Virtual machine scale set
+              href: essentials/collect-custom-metrics-guestos-resource-manager-vmss.md
+            - name: VM classic
+              href: essentials/collect-custom-metrics-guestos-vm-classic.md
+            - name: Cloud service
+              href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+          - name: Send to Event Hubs
+            href: agents/diagnostics-extension-stream-event-hubs.md
+          - name: Send to Logs
+            href: agents/diagnostics-extension-logs.md
+          - name: Send to Application Insights
+            href: agents/diagnostics-extension-to-application-insights.md
+          - name: Version history
+            href: agents/diagnostics-extension-versions.md
+          - name: Troubleshooting
+            href: agents/diagnostics-extension-troubleshooting.md
+        - name: Linux
+          displayName: diagnostics extension
+          items:
+          - name: Version 4.0
+            href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+          - name: Version 3.0
+            href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
+          - name: Collect metrics with Telegraf
+            href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Troubleshoot
       items:
       - name: Azure Monitor Agent
@@ -639,10 +632,14 @@ items:
       href: autoscale/autoscale-resource-log-schema.md
   - name: Alerts
     items:
+    - name: Create a new alert rule
+      href: alerts/alerts-create-new-alert-rule.md
+    - name: Manage alert rules
+      href: alerts/alerts-manage-alert-rules.md
+    - name: Manage alert instances
+      href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
-      - name: Manage metric alerts
-        href: alerts/alerts-metric.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -655,8 +652,6 @@ items:
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
-      - name: Manage log alerts
-        href: alerts/alerts-log.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
@@ -671,8 +666,6 @@ items:
         href: alerts/api-alerts.md
     - name:  Activity log alert rules
       items:
-      - name: Alert on an activity log event
-        href: alerts/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
         href: ./alerts/activity-log-alerts.md
       - name: Webhook schema
@@ -686,7 +679,7 @@ items:
     - name: Notifications and actions
       items:
       - name: Alert processing rules
-        href: alerts/alerts-action-rules.md
+        href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: alerts/action-groups.md
@@ -708,10 +701,6 @@ items:
         href: alerts/alerts-common-schema-integrations.md
       - name: Implement a Logic App action
         href: alerts/action-groups-logic-app.md
-    - name: Alert user interface
-      items:
-      - name: View and manage alert instances
-        href: alerts/alerts-page.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -989,26 +978,26 @@ items:
     - name: Transaction search
       href: app/diagnostic-search.md
     - name: Smart Detection
-      href: app/proactive-diagnostics.md
+      href: alerts/proactive-diagnostics.md
       items:
       - name: Upgrade to alerts
         href: alerts/alerts-smart-detections-migration.md
       - name: Failure anomalies
-        href: app/proactive-failure-diagnostics.md
+        href: alerts/proactive-failure-diagnostics.md
       - name: Performance anomalies
-        href: app/proactive-performance-diagnostics.md
+        href: alerts/proactive-performance-diagnostics.md
       - name: Trace degradation
-        href: app/proactive-trace-severity.md
+        href: alerts/proactive-trace-severity.md
       - name: Exception volume
-        href: app/proactive-exception-volume.md
+        href: alerts/proactive-exception-volume.md
       - name: Memory leak
-        href: app/proactive-potential-memory-leak.md
+        href: alerts/proactive-potential-memory-leak.md
       - name: Security detection
-        href: app/proactive-application-security-detection-pack.md
+        href: alerts/proactive-application-security-detection-pack.md
       - name: Manage smart detection rules
-        href: app/proactive-arm-config.md
+        href: alerts/proactive-arm-config.md
       - name: E-mail notification
-        href: app/proactive-email-notification.md
+        href: alerts/proactive-email-notification.md
     - name: Usage (user behavior analytics)
       items:
       - name: Overview
@@ -1330,8 +1319,6 @@ items:
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
-    - name: Troubleshoot insights
-      href: insights/troubleshoot-workbooks.md
   - name: Logs ingestion API
     items:
     - name: Overview
@@ -1548,6 +1535,8 @@ items:
       href: essentials/activity-log-schema.md
   - name: Windows diagnostics extension schema
     href: agents/diagnostics-extension-schema-windows.md
+  - name: Azure Monitor Agent extension versions
+    href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
@@ -1622,6 +1611,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+  - name: Azure alerts management SDK for Python
+    href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates
     items:
     - name: Azure Monitor

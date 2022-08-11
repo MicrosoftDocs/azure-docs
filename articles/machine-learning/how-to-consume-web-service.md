@@ -107,7 +107,7 @@ If you secured the deployed web service using a TLS/SSL certificate, you can use
 > [!IMPORTANT]
 > Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.
 
-For more information, see [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
 
 ### Authentication for services
 
