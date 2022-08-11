@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/10/2022
+ms.date: 08/11/2022
 ms.author: alkohli
 ---
 # Configure Azure Stack Edge devices using the Zero Touch Provisioning module
@@ -15,18 +15,18 @@ ms.author: alkohli
 
 This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. Zero Touch Provisioning enables automated, standardized device configuration of one or more devices before they are activated.
 
-Use Zero Touch Provisioning as an alternative to the local web user interface setup sequence. You can run as many rounds of configuration changes and updates as necessary, until the device is activated. After device activation, use the Azure portal UI or the local web UI to modify device configuration.
+Use Zero Touch Provisioning as an alternative to the local web user interface setup sequence. You can run as many rounds of configuration changes and updates as necessary, until the device is activated. After device activation, use the Azure portal user interface or the device local web user interface to modify device configuration.
 
 Usage considerations:
 
 - You can apply updates to a device until it is activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 - You cannot update device authentication using Zero Touch Provisioning. To update device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
 - You can only provision single-node devices using Zero Touch Provisioning. Two-node cluster configuration is not supported.
-- You can apply configuration updates to a device using individual PowerShell cmdlets, or you can apply bulk configuration updates using a JSON file.
+- You can apply individual configuration updates to a device using PowerShell cmdlets, or you can apply bulk configuration updates using a JSON file.
 
 ## About device setup and configuration
 
-Device setup and configuration includes a root-level “Device” element and declarations that define the configuration for that device. Declarations supported for Azure Stack Edge devices include:
+Device setup and configuration includes declarations that define the configuration for that device using a root-level "Device" identifier. Declarations supported for Azure Stack Edge devices include:
 - Device endpoint
 - Password
 - Certificates
@@ -37,18 +37,18 @@ Device setup and configuration includes a root-level “Device” element and de
 - Update
 - Activation
 
-A device update operation does not have to include every declaration; you can include only the declarations that create a desired configuration.
+A device update operation does not have to include every declaration; you can include only the declarations that create a desired configuration for your device.
 
-The following cmdlets are supported to configure Azure Stack Edge devices:
+The following PowerShell cmdlets are supported to configure Azure Stack Edge devices:
 
 |Cmdlet|Description|
 |---------|---------|
-|Set-login|First-time login, set or update login credentials to access the device.|
+|Set-login|First-time sign in, set or update sign in credentials to access the device.|
 |Get-DeviceConfiguration|Fetch the current device configuration.|
 |Set-DeviceConfiguration|Update the device configuration.|
 |New-Package|Prepare a device setup configuration package to apply to one or more devices.|
-|Get-DeviceConfigurationStatus|Fetch the status of in-flight configuration changes being applied to the device to determine whether the update succeeded or failed or is still in progress.|
-|Get-DeviceDiagnostic|Get diagnostic status of the device.|
+|Get-DeviceConfigurationStatus|Fetch the status of in-flight configuration changes being applied to the device to determine whether the update succeeded, failed, or is still in progress.|
+|Get-DeviceDiagnostic|Fetch diagnostic status of the device.|
 |Start-DeviceDiagnostic|Start a new diagnostic run to verify updated status after a device setup configuration package is applied.|
 |To-json|Fetch the entire device configuration.|
 
@@ -56,7 +56,7 @@ The following cmdlets are supported to configure Azure Stack Edge devices:
 
 Before you begin, make sure that you:
 
-1. Have a client running Windows 10 or Windows Server 2016 or later.
+1. Have a client running Windows 10 or later, or Windows Server 2016 or later.
 1. Are running PowerShell version 5.1 or later.
 1. Are connected to the local web UI of an Azure Stack Edge device. For more information, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 1. Download the [PowerShell module](https://aka.ms/aseztp-ps).
@@ -77,7 +77,7 @@ Use the following steps to import the PowerShell module, sign into the device, a
    ```azurepowershell
    Set-Login "https://<IP address>" "<Password1>" “<NewPassword>”
    OR
-   Set-Login “https://hwjf1t77.local” “<Password1>” “<NewPassword>”
+   Set-Login “https://<SerialNumber>.local” “<Password1>” “<NewPassword>”
    ```
 
 ## Sign into a device, change the password, and fetch the device configuration
@@ -87,7 +87,7 @@ Use the following steps to sign into a device, change the password, and fetch th
 1. Sign into the device and update the device password.
 
    ```azurepowershell
-   Set-Login “https://hwjf1t772.local” “<Password1>”
+   Set-Login “https://<IP address>” “<Password1>”
    ```
    For any subsequent sign-in, use:
 
@@ -248,7 +248,7 @@ Note that a device activation key cannot be undone, reused, or applied to a diff
 1. Create a package with the activation object and activation key.
 
    ```azurepowershell
-   		$p. = New-Package -activation $activation
+   $p. = New-Package -activation $activation
    ```
 
 1. Run the package.
