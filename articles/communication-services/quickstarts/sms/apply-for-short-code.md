@@ -38,7 +38,7 @@ Navigate to the Short Codes blade in the resource menu and click on "Get" button
 ## Pre-requisites
 The wizard on the short codes blade will walk you through a series of questions about the program as well as a description of content which will be shared with the carriers for them to review and approve your short code program brief. Please review the pre-requisites tab for a list of the program content deliverables you will need to attach with your application.
 
-:::image type="content" source="./media/apply-for-short-code/prerequisites.png" alt-text="Screenshot showing program details section.":::
+:::image type="content" source="./media/apply-for-short-code/prerequisites.png" alt-text="Screenshot showing pre-requisites section.":::
 
 The Short Code Program Brief registration requires details about your messaging program, including the user experience (e.g., call to action, opt-in, opt-out, and message flows) and information about your company. This information helps mobile carriers ensure that your program meets the CTIA (Cellular Telecommunications Industry Association) guidelines as well as regulatory requirements.
 
@@ -79,11 +79,11 @@ This section captures sample messages related to opt-in, opt-out, and other mess
 
 Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
 
-:::image type="content" source="./media/apply-for-short-code/templates-01.png" alt-text="Screenshot showing template details section":::
+:::image type="content" source="./media/apply-for-short-code/templates-01.png" alt-text="Screenshot showing template 1 details section":::
 
-:::image type="content" source="./media/apply-for-short-code/templates-02.png" alt-text="Screenshot showing template details section.":::
+:::image type="content" source="./media/apply-for-short-code/templates-02.png" alt-text="Screenshot showing template 2 details section.":::
 
-:::image type="content" source="./media/apply-for-short-code/templates-03.png" alt-text="Screenshot showing template details section.":::
+:::image type="content" source="./media/apply-for-short-code/templates-03.png" alt-text="Screenshot showing template 3 details section.":::
 
 ### Review 
 Once completed, review the short code request details, fees, SMS laws and industry standards and submit the completed application through the Azure Portal. 
@@ -99,9 +99,9 @@ This program brief will now be automatically sent to the Azure Communication Ser
   - Your Communication Services resource is provisioned in the United States data location. You cannot move a resource to another data location at this time. 
 - **Updating short codes application**
     - Once submitted, you cannot edit, view or cancel the short codes application. If the Service desk team requires any updates to be made, you will be notified via email and you will be re-edit the application with the updates.
-    - If you'd like a copy of your application or for any issues, please [contact us](phone@microsoft.com). 
+    - If you'd like a copy of your application or for any issues, please [contact us](https://emails-ppe.azure.microsoft.com/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23blade%2FMicrosoft_Azure_Support%2FHelpAndSupportBlade%2Foverview&p=bT0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8tcHJldmlldyZsPXBvcnRhbC5henVyZS5jb20%3D). 
 - **Cancelling short code application**
-    - Cancelling short code applications in the Azure portal is not supported. If you'd like to cancel your application after submitting the program brief, please [contact us](phone@microsoft.com)
+    - Cancelling short code applications in the Azure portal is not supported. If you'd like to cancel your application after submitting the program brief, please [contact us](https://emails-ppe.azure.microsoft.com/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23blade%2FMicrosoft_Azure_Support%2FHelpAndSupportBlade%2Foverview&p=bT0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8tcHJldmlldyZsPXBvcnRhbC5henVyZS5jb20%3D)
 
 ## Next steps
 
