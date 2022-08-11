@@ -159,7 +159,10 @@ You can generate the following alert reports:
 1. Select **View full details**.
 1. Select **Download Full PCAP** or **Download Filtered PCAP**.
 
-PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event. 
+PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 
 ## View alerts in the Defender for IoT portal
 

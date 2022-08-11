@@ -198,6 +198,9 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 > Accessing PCAP files directly from the Azure portal supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
 >
 
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+
 ## Next steps
 
 For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats).

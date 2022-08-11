@@ -67,6 +67,8 @@ You can manually upload this file in the Azure portal and automatically update i
 
 1. Download and save the file.
 
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 1. Sign in to the management console. 
 
 1. On the side menu, select **System Settings**. 
