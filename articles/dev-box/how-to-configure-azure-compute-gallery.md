@@ -25,7 +25,7 @@ You can learn more about Azure Compute Galleries and how to create them here:
 - [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery.md#create-a-gallery-for-storing-and-sharing-resources) 
 
 ## Pre-requisites
-- A [dev center](/quickstart-create-dev-box-pool.md/#create-a-devcenter) 
+- A [dev center](/quickstart-create-dev-box-pool.md/#create-a-devcenter). 
 - An Azure Compute Gallery. In order to use this gallery to configure Dev Box definitions, it must have at least [one image definition and one image version](../virtual-machines/image-version.md). 
     - The image definition must have [Trusted Launch enabled as the Security Type](../virtual-machines/trusted-launch.md). You configure the security type when creating the image definition. 
     - The image version must meet the [Windows 365 image requirements](/windows-365/enterprise/device-images#image-requirements).
