@@ -337,9 +337,9 @@ The ID element identifies which property on the source provides the value for th
 | User | mobilephone | Mobile Phone |
 | User | officelocation | Office Location |
 | User | onpremisesdomainname | On-Premises Domain Name |
-| User | onpremisesimmutableid | On-Premises Imutable ID |
+| User | onpremisesimmutableid | On-Premises Immutable ID |
 | User | onpremisessyncenabled | On-Premises Sync Enabled |
-| User | preferreddatalocation | Preffered Data Location |
+| User | preferreddatalocation | Preferred Data Location |
 | User | proxyaddresses | Proxy Addresses |
 | User | usertype | User Type |
 | User | telephonenumber| Business Phones / Office Phones |
