@@ -2,7 +2,7 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 08/11/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -23,11 +23,15 @@ When you apply a lock at a parent scope, all resources within that scope inherit
 
 [Extension resources](extension-resource-types.md) inherit locks from the resource they're applied to. For example, Microsoft.Insights/diagnosticSettings is an extension resource type. If you apply a diagnostic setting to a storage blob, and lock the storage account, you're unable to delete the diagnostic setting. This inheritance makes sense because the full resource ID of the diagnostic setting is:
 
-`/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-name}/blobServices/default/providers/microsoft.insights/diagnosticSettings/{setting-name}"`
+```json
+/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-name}/blobServices/default/providers/microsoft.insights/diagnosticSettings/{setting-name}"
+```
 
 Which matches the scope of the resource ID of the resource that is locked:
 
-`/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-name}`
+```json
+/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-name}
+```
 
 If you have a **Delete** lock on a resource and attempt to delete its resource group, the feature blocks the whole delete operation. Even if the resource group or other resources in the resource group are unlocked, the deletion doesn't happen. You never have a partial deletion.
 
