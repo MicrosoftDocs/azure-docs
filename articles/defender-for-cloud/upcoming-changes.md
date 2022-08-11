@@ -18,34 +18,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
 | [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
 | [Removing security alerts for machines reporting to cross tenant Log Analytics workspaces](#removing-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces) | September 2022 |
 | [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation) | September 2022 |
-
-### Changes to recommendations for managing endpoint protection solutions
-
-**Estimated date for change:** August 2022
-
-In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
-
-When the recommendations are released to general availability, they will replace the following existing recommendations:
-
-- **Endpoint protection should be installed on your machines** will replace:
-  - [Install endpoint protection solution on virtual machines (key: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
-  - [Install endpoint protection solution on your machines (key: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
-
-- **Endpoint protection health issues should be resolved on your machines** will replace the existing recommendation that has the same name. The two recommendations have different assessment keys:
-  - Assessment key for the **preview** recommendation: 37a3689a-818e-4a0e-82ac-b1392b9bb000
-  - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
-
-Learn more:
-
-- [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
-- [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
 ### Deprecating three VM alerts
 
