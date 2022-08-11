@@ -16,7 +16,7 @@ There are three types of resources that are needed to create and manage custom a
     - assessment logic in KQL
     - the standard it belongs to
 - Standard: defines a set of assessments
-- Standard assignment: defines the scope, which the standard will evaluate. For example, specific AWS account/s.
+- Standard assignment: defines the scope, which the standard will evaluate. For example, specific AWS account(s).
 
 You can either use the built-in regulatory compliance standards or create your own custom standards and assessments.
 
@@ -32,7 +32,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Standards** > **Add** > **Standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/aws-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add a AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-standard.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add a AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard.png":::
 
 1. Select a built-in standard from the drop-down menu.
 
@@ -52,7 +52,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **New standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-gcp-standard.png" alt-text="Screenshot that shows you where to select a new AWS standard." lightbox="media/how-to-manage-assessments-standards/new-gcp-standard.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/new-aws-standard.png" alt-text="Screenshot that shows you where to select a new AWS standard." lightbox="media/how-to-manage-assessments-standards/new-aws-standard.png":::
 
 1. Enter a name, description and select which assessments you want to add.
 
@@ -70,7 +70,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Standards** > **Add** > **Assessment**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-assessment.png" alt-text="Screenshot that shows where to navigate to, to select an AWS assessment." lightbox="media/how-to-manage-assessments-standards/gcp-assessment.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/aws-assessment.png" alt-text="Screenshot that shows where to navigate to, to select an AWS assessment." lightbox="media/how-to-manage-assessments-standards/aws-assessment.png":::
 
 1. Select **Existing assessment**.
 

@@ -16,7 +16,7 @@ There are three types of resources that are needed to create and manage custom a
     - assessment logic in KQL
     - the standard it belongs to
 - Standard: defines a set of assessments
-- Standard assignment: defines the scope, which the standard will evaluate. For example, specific AWS account/s.
+- Standard assignment: defines the scope, which the standard will evaluate. For example, specific GCP project(s).
 
 You can either use the built-in regulatory compliance standards or create your own custom standards and assessments.
 
