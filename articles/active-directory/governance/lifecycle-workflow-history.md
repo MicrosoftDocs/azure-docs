@@ -15,21 +15,26 @@ ms.custom: template-concept
 
 
 
-Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. Making sure workflows are processed correctly is an important part of managing your organization's governance policy. Workflows that are not processed correctly for users can lead to many issues in terms of security and compliance. To make sure you always know who was processed in workflows you run, Lifecycle Workflows introduces the reporting features of runs and user summary. In this article you will learn the difference between the two, and when you would use each when getting more information about how your workflows were utilized for users in your organization.
+Workflows created using Lifecycle Workflows allow for the automation of lifecycle task for users no matter where they fall in the Joiner-Mover-Leaver (JML) model of their identity lifecycle in your organization. Making sure workflows are processed correctly is an important part of an organization's lifecycle management process. Workflows that are not processed correctly for users can lead to many issues in terms of security and compliance. Workflows, by managing across the JML model, can keep a recorded log of users from the day they join, to the moment they leave. To make note of users processed, Lifecycle Workflows introduces the reporting features of runs and user summary. This reporting feature allows you to quickly see what ran for who, and rather or not it was successful. In this article you will learn the difference between the two types of reporting, and when you would use each when getting more information about how your workflows were utilized for users in your organization.
 
 
 
 ## Lifecycle Workflows history types
 
-When looking at the history of your workflow, Lifecycle Workflows allow you to view History in two separate ways, through user processed summaries or through runs summaries. User processed summaries allow you to view specific users, and which tasks ran for them. If you want a more workflow-centric version of the history of the workflow, you can view the runs information. This gives you history from the view of the workflow instance being run at that point in time. In this way you are still able to see failed, and total, task information, but as the information is centered around the run instance itself, on the front is information dedicated to the workflow such as start and complete time.
+When looking at the history of your workflow, Lifecycle Workflows allow you to view history summaries in two separate ways:
+
+- **user processed**: Shows a summary of users processed by a workflow, and which tasks failed, successfully, and totally ran for them. 
+- **runs**: Shows a summary of workflow runs in terms of the workflow. Successful, failed and total task information when a workflow runs is noted.
+
+Summaries allow you to quickly gain details about how a workflow ran for itself, or users, without going into further details in logs. 
 
 ## Basic Summary information
 
-On the user summary page you are able to see a general summary of users processed.
+The summary information for users processed in the Azure portal are as follows:
+
 :::image type="content" source="media/lifecycle-workflow-history/lcw-user-summary-concept.png" alt-text="user summary page":::
 
 The cards at the top of the user history page give you a summary in count form. These are:
-
 
 |Summary  |Description  |
 |---------|---------|
@@ -40,10 +45,12 @@ The cards at the top of the user history page give you a summary in count form. 
 |Failed tasks     | The total number of failed tasks for users.        |
 
 
+For a complete guide on getting this information, see: [User workflow history using the Azure Portal](check-status-workflow.md#user-workflow-history-using-the-azure-portal).
+
 Like with the User summary page, you are also able to see a summary of workflow runs at the top of the runs page:
 :::image type="content" source="media/lifecycle-workflow-history/lcw-runs-summary-concept.png" alt-text="lcw runs summary":::
 
-The cards for runs are the same as user summary except the total tasks card is not present.
+The cards for runs are the same as user summary except the total tasks card is not present. For a complete guide on getting runs information, see: [Run workflow history using the Azure Portal](check-status-workflow.md#run-workflow-history-using-the-azure-portal)
 
 
 Separating processing of the workflow from the tasks is important because, in a workflow, processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters-preview).
@@ -95,6 +102,11 @@ When filtering workflow history based on either start or completed date, you can
 
 > [!NOTE]
 > By default workflow history is stored for up to 30 days. To get workflow information older than 30 days, such as information about tasks it had at a given date, see [Workflow versioning](lifecycle-workflow-versioning.md).
+
+For a guide on filtering based on dates, see:
+
+- [Get a summary of runs using Microsoft Graph](check-status-workflow.md#get-a-summary-of-runs-using-microsoft-graph)
+
 
 
 #### Filtering based on status 

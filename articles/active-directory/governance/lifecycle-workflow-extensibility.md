@@ -14,7 +14,7 @@ ms.custom: template-concept
 # Lifecycle Workflows Custom Task Extension (Preview)
 
 
-Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a Lifecycle workflow. By calling out to the external systems, you're able to accomplish things which can extend the purpose of your workflows. When a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
+Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a workflow. By calling out to the external systems, you're able to accomplish things which can extend the purpose of your workflows. When a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle Workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
 
 
 ## Custom task extension deployment scenarios
@@ -62,8 +62,6 @@ When creating the custom task extension, there are certain parameters that must 
 
 The basic parameters of the custom task extension are:
 
-
-
 |Parameter  |Description  |
 |---------|---------|
 |displayName     |  A unique string that identifies the custom task extension.       |
@@ -109,8 +107,6 @@ the parameters for the **clientConfiguration** argument are:
 |timeoutInMilliseconds     | How long it would take for the custom task to timeout while waiting for a response from the Logic App.       |
 |maximumRetries     | An int that tells how many times a custom task extension will attempt to retry running.      |
 
-
-
 For a complete example of the custom task extension API, see [Linking Lifecycle Workflows with Logic Apps using Microsoft Graph](trigger-custom-task.md#linking-lifecycle-workflows-with-logic-apps-using-microsoft-graph).
 
 ## Information sent to the Logic App from the custom task extension
@@ -138,20 +134,20 @@ This **taskProcessingResults** information is given with an operation status tha
 
 |operationStatus  |Description  |
 |---------|---------|
-|Canceled     |  The task or workflow was canceled       |
-|Failed     |    The task or workflow failed     |
-|InProgress     | The task or workflow is in progress        |
-|Queued     | The task or workflow hasn't started        |
-|Completed     |  The task or workflow succeeded       |
+|Canceled     |  The task or workflow was canceled.       |
+|Failed     |    The task or workflow failed.     |
+|InProgress     | The task or workflow is in progress.        |
+|Queued     | The task or workflow hasn't started.        |
+|Completed     |  The task or workflow succeeded.       |
 
 
 While Canceled and Queued status results have the same meaning no matter how you designed your task, the other statuses can have special meaning.
 
 
-The following tables below describe how different custom task extensions define the different status that could appear.
+The following tables below describe how different designed custom task extensions define the different status that appear.
 
 
-If taskProcessingResult shows as completed, then the following scenario has happened for the custom task extension:
+If taskProcessingResult shows as **Completed**, then the following scenario has happened for the custom task extension:
 
 |custom task extension  |Completed status  |
 |---------|---------|
@@ -161,7 +157,7 @@ If taskProcessingResult shows as completed, then the following scenario has happ
 
 
 
-If taskProcessingResult shows as InProgress, then the following scenario has happened for the custom task extension
+If taskProcessingResult shows as **InProgress**, then the following scenario has happened for the custom task extension:
 
 |custom task extension  |InProgress status  |
 |---------|---------|
@@ -170,7 +166,7 @@ If taskProcessingResult shows as InProgress, then the following scenario has hap
 |Sequential response from 3rd party system      | The Logic App is waiting for a response from the 3rd party system. If it does not get a response in the time duration outlined during the custom task extension creation, it will be noted as a failure.        |
 
 
-If taskProcessingResult shows as failed, then the following scenario has happened for the custom task extension:
+If taskProcessingResult shows as **Failed**, then the following scenario has happened for the custom task extension:
 
 |custom task extension  |Completed status  |
 |---------|---------|
@@ -179,13 +175,7 @@ If taskProcessingResult shows as failed, then the following scenario has happene
 |Sequential response from 3rd party system      | The 3rd party system failed doing what it was designed to do, or did not return a response to the Logic App in the time duration outlined.        |
 
 
-
-
- 
-
 ## Next steps
 
 - [Trigger Logic Apps based on custom task extensions (Preview)](trigger-custom-task.md)
 - [Manage Workflow Versions (Preview)](manage-workflow-tasks.md)
-
-

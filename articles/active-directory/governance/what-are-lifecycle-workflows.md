@@ -23,7 +23,7 @@ Azure AD Lifecycle Workflows is a new Azure AD Identity Governance service that 
 
 User accounts, that a provisioned to Azure AD, from various sources, can extend their experience using Lifecycle Workflows.
 
-Workflows, contain specific processes, which run automatically against users, as they move through their life cycle, within the organization. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](lifecycle-workflows-concept-parts.md#execution-conditions). 
+Workflows, contain specific processes, which run automatically against users, as they move through their life cycle, within the organization. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](lifecycle-workflows-concept-parts.md#parts-of-a-workflow). 
 
 Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of "“who” and the 'Trigger' of “when” a workflow will be performed. 
 

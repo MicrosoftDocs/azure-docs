@@ -152,6 +152,5 @@ This document covers the parts of a lifecycle workflow
 For additional information see the [Workflow API Reference](lifecycle-workflows-dev-reference.md)
 
 ## Next steps
-- [Create a custom workflow using the Azure Portal](tutorial-create-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure Portal](tutorial-onboard-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
-```
