@@ -100,12 +100,14 @@ az network vnet subnet create \
 
 # [PowerShell](#tab/powershell)
 
+The `New-AzVirtualNetworkSubnetConfig` command will result in a warning, but the command will still be successful.
+
 ```powershell
 $subnet = New-AzVirtualNetworkSubnetConfig `
   -Name infrastructure-subnet `
   -AddressPrefix 10.0.0.0/23
 
-New-AzVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -Name $VNET_NAME `
   -ResourceGroup $RESOURCE_GROUP `
   -Location $LOCATION `
@@ -157,8 +159,16 @@ The following table describes the parameters used in `containerapp env create`.
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
+Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
+
 ```powershell
-New-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace -Location $Location -PublicNetworkAccessForIngestion "Enabled" -PublicNetworkAccessForQuery "Enabled"
+New-AzOperationalInsightsWorkspace `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -Name MyWorkspace 
+  -Location $Location `
+  -PublicNetworkAccessForIngestion "Enabled" `
+  -PublicNetworkAccessForQuery "Enabled"
+
 $WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
 $WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
 ```
@@ -219,11 +229,11 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$ENVIRONMENT_DEFAULT_DOMAIN=(Get-AzContainerAppManagedEnv -Name $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).DefaultDomain
+$ENVIRONMENT_DEFAULT_DOMAIN=(Get-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).DefaultDomain
 ```
 
 ```powershell
-$VNET_ID=(Get-AzVirtualNetwork -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME --query id -o tsv).Id
+$VNET_ID=(Get-AzVirtualNetwork -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME).Id
 ```
 
 ---
@@ -261,11 +271,11 @@ New-AzPrivateDnsZone -ResourceGroupName $RESOURCE_GROUP -Name $ENVIRONMENT_DEFAU
 ```
 
 ```powershell
-New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME -VirtualNetwork $VNET_ID -ZoneName $ENVIRONMENT_DEFAULT_DOMAIN -EnableRegistration
+New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $RESOURCE_GROUP -Name $VNET_NAME -VirtualNetwork $vnet -ZoneName $ENVIRONMENT_DEFAULT_DOMAIN -EnableRegistration
 ```
 
 ```powershell
-New-AzPrivateDnsARecordSet `
+New-AzPrivateDnsRecordSet `
   -ResourceGroupName $RESOURCE_GROUP `
   -Name "*" `
   -ZoneName $ENVIRONMENT_DEFAULT_DOMAIN `

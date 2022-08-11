@@ -44,6 +44,8 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
+Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` will result in a warning, but the command will still succeed.
+
 ```powershell
 New-AzOperationalInsightsWorkspace `
   -ResourceGroupName $RESOURCE_GROUP `
@@ -169,9 +171,7 @@ If you have enabled ingress on your container app, you can add `--query properti
 $IMAGE_OBJ = New-AzContainerAppTemplateObject `
   -Name my-container-app `
   -Image <REGISTRY_CONTAINER_NAME> 
-```
 
-```powershell
 $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
 New-AzContainerApp `
