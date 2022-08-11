@@ -199,8 +199,7 @@ As an alternative, you could create multiple wildcard indexes.
 
 The following operations are common for accounts serving wire protocol version 4.0 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](feature-support-40.md#indexes-and-index-properties).
 
-### 
-indexes
+### Unique indexes
 
 [Unique indexes](../unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for indexed fields.
 
