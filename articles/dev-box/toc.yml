@@ -44,4 +44,8 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Report a problem
+      href: https:/aka.ms/devbox/report
+    - name: Suggest a feature
+      href: https:/aka.ms/devbox/suggest
 
