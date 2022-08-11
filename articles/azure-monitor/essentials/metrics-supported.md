@@ -2702,12 +2702,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ByteCount|Yes|Bytes|Bytes|Total|Total number of Bytes transmitted within time period|Protocol, Direction|
-|DatapathAvailability|Yes|Datapath Availability (Preview)|Count|PortalAverage|NAT Gateway Datapath Availability|No Dimensions|
-|PacketCount|Yes|Packets|Count|Total|Total number of Packets transmitted within time period|Protocol, Direction|
-|PacketDropCount|Yes|Dropped Packets|Count|Total|Count of dropped packets|No Dimensions|
-|SNATConnectionCount|Yes|SNAT Connection Count|Count|Total|Total concurrent active connections|Protocol, ConnectionState|
-|TotalConnectionCount|Yes|Total SNAT Connection Count|Count|Total|Total number of active SNAT connections|Protocol|
+|ByteCount|No|Bytes|Bytes|Total|Total number of Bytes transmitted within time period|Protocol, Direction|
+|DatapathAvailability|No|Datapath Availability (Preview)|Count|PortalAverage|NAT Gateway Datapath Availability|No Dimensions|
+|PacketCount|No|Packets|Count|Total|Total number of Packets transmitted within time period|Protocol, Direction|
+|PacketDropCount|No|Dropped Packets|Count|Total|Count of dropped packets|No Dimensions|
+|SNATConnectionCount|No|SNAT Connection Count|Count|Total|Total concurrent active connections|Protocol, ConnectionState|
+|TotalConnectionCount|No|Total SNAT Connection Count|Count|Total|Total number of active SNAT connections|Protocol|
 
 
 ## Microsoft.Network/networkInterfaces

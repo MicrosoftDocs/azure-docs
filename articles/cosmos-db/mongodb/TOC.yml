@@ -377,6 +377,8 @@
       href: powershell-samples.md
     - name: Manage using Azure CLI
       href: cli-samples.md
+    - name: Integrate with Azure services
+      href: integrations-overview.md
 - name: Reference
   items:
     - name: REST resource provider

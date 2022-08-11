@@ -50,7 +50,7 @@ Some services in Azure have a special focused pre-built monitoring dashboard in 
 
 <!-- Give a quick outline of what your "insight page" provides and refer to another article that gives details -->
 
-Azure Monitor Network Insights provides a comprehensive view of health and metrics for all deployed network resources (including Application Gateway), without requiring any configuration. For more information, see [Azure Monitor Network Insights](../azure-monitor/insights/network-insights-overview.md).
+Azure Monitor Network Insights provides a comprehensive view of health and metrics for all deployed network resources (including Application Gateway), without requiring any configuration. For more information, see [Azure Monitor Network Insights](../network-watcher/network-insights-overview.md).
 
 ## Monitoring data 
 
@@ -174,7 +174,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you are creating or running an application which use Application Gateway [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
 <!-- end -->
 
-The following tables lists common and recommended alert rules for Application Gateway.
+The following tables list common and recommended alert rules for Application Gateway.
 
 <!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 

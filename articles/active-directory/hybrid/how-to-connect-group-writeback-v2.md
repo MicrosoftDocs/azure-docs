@@ -119,7 +119,7 @@ To enable group writeback via PowerShell:
     Set-ADSyncScheduler -SyncCycleEnabled $true 
     ```
 
-You've now enabled the group writeback feature. 
+You've now enabled the group writeback feature, and can [select the groups for writeback](../enterprise-users/groups-write-back-portal.md).
 
 ### Optional Configuration 
 
@@ -194,4 +194,5 @@ Limitations and known issues specific to Group Writeback:
 
 ## Next steps
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+- Configure [group writeback in the Azure Active Directory Admin Center](../enterprise-users/groups-write-back-portal.md)
+- Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

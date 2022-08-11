@@ -14,6 +14,16 @@
   items:
   - name: Migration
     items:
+      - name: Single Server to Flexible Server migration (preview)
+        items:
+          - name: Single to Flexible server migration (Preview) - Concepts
+            href: migrate/concepts-single-to-flexible.md
+          - name: Single to Flexible server migration (Preview) - Migrate using portal
+            href: migrate/how-to-migrate-single-to-flexible-portal.md
+          - name: Single to Flexible server migration (Preview)- Migrate using CLI
+            href: migrate/how-to-migrate-single-to-flexible-cli.md
+          - name: Single to Flexible server migration (Preview) - Set up Azure AD app using portal
+            href: migrate/how-to-set-up-azure-ad-app-portal.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
@@ -519,9 +529,22 @@
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
-    items:
-    - name: Troubleshoot CLI errors
-      href: flexible-server/how-to-troubleshoot-cli-errors.md
+    items:  
+    - name: Functional troubleshooting
+      items:
+      - name: Troubleshoot CLI errors
+        href: flexible-server/how-to-troubleshoot-cli-errors.md 
+    - name: Performance troubleshooting
+      items:
+      - name: Troubleshoot high CPU utilization
+        href: flexible-server/how-to-high-cpu-utilization.md 
+        displayName: High CPU Utilization
+      - name: Troubleshoot high memory utilization
+        href: flexible-server/how-to-high-memory-utilization.md 
+        displayName: High Memory Utilization
+      - name: Troubleshoot autovacuum 
+        href: flexible-server/how-to-autovacuum-tuning.md
+        displayName: Autovacuum troubleshooting, tuning
   - name: How-to guides
     items:
     - name: Manage a server
@@ -771,8 +794,12 @@
         displayName: row, level, security, rls, hyperscale
       - name: Security baseline
         href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/postgresql/TOC.json?toc=/azure/postgresql/TOC.json
-    - name: Scheduled maintenance
-      href: hyperscale/concepts-maintenance.md
+    - name: Administration
+      items:
+      - name: Scheduled maintenance
+        href: hyperscale/concepts-maintenance.md
+      - name: Upgrade
+        href: hyperscale/concepts-upgrade.md
     - name: Business continuity
       items:
       - name: Back up and restore
