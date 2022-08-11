@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Windows VMs with External NTP Source
-description: Configure Azure Windows VMs with External NTP Source.
+title: Active Directory Windows Virtual Machines in Azure with External NTP Source
+description: Active Directory Windows Virtual Machines in Azure with External NTP Source
 author: NDVALPHA
 ms.service: virtual-machines
 ms.collection: windows
@@ -10,15 +10,15 @@ ms.date: 08/05/2022
 ms.author: ndelvillar
 ---
 
-# Configure time sync for Windows VMs in Azure
+# Configure Active Directory Windows Virtual Machines in Azure with External NTP Source
 
-**Applies to:** :heavy_check_mark: Windows VMs
+**Applies to:** :heavy_check_mark: Windows Virtual Machines
 
-Use this guide to learn how to setup time synchronization for your Azure Windows VMs that belong to an Active Directory domain with an external time source.
+Use this guide to learn how to setup time synchronization for your Azure Windows Virtual Machines that belong to an Active Directory Domain with an external NTP source.
 
-## Time configuration for Azure VMs
+## Time Sync for Active Directory Windows Virtual Machines in Azure with External NTP Source
 
-Time synchronization in Active Directory should be managed by only allowing the PDC to access an external time source or NTP Server. All other Domain Controllers will then sync time against the PDC. If your PDC is an Azure VM follow these steps:
+Time synchronization in Active Directory should be managed by only allowing the PDC to access an external time source or NTP Server. All other Domain Controllers would then sync time against the PDC. If your PDC is an Azure Virtual Machine follow these steps:
 
 >[!NOTE]
 >Due to Azure Security configurations, the following settings must be applied on the PDC using the **Local Group Policy Editor**.
