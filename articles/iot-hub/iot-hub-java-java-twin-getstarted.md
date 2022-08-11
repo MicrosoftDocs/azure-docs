@@ -18,11 +18,11 @@ ms.custom: mqtt, devx-track-java
 
 In this article, you create two Java console apps:
 
-* **add-tags-query**, a Java back-end app that adds tags and queries device twins.
-* **simulated-device**, a Java device app that connects to your IoT hub and reports its connectivity condition using a reported property.
+* **add-tags-query**: a back-end app that adds tags and queries device twins.
+* **simulated-device**: a simulated device app that connects to your IoT hub and reports its connectivity condition.
 
 > [!NOTE]
-> The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
@@ -34,8 +34,6 @@ In this article, you create two Java console apps:
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Get the IoT hub connection string
@@ -46,7 +44,7 @@ In this article, you create two Java console apps:
 
 ## Create the service app
 
-In this section, you create a Java app that adds location metadata as a tag to the device twin in IoT Hub associated with **myDeviceId**. The app first queries IoT hub for devices located in the US, and then for devices that report a cellular network connection.
+In this section, you create a Java app that adds location metadata as a tag to the device twin in IoT Hub associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
 
 1. On your development machine, create an empty folder named **iot-java-twin-getstarted**.
 
@@ -207,9 +205,11 @@ In this section, you create a Java app that adds location metadata as a tag to t
     mvn clean package -DskipTests
     ```
 
-## Create a device app
+In the next section, you create a device app that reports connectivity information and changes the result of the query in the previous section.
 
-In this section, you create a Java console app that sets a reported property value that is sent to IoT Hub.
+## Create the device app
+
+In this section, you create a Java console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to confirm that it's connected using a cellular network.
 
 1. In the **iot-java-twin-getstarted** folder, create a Maven project named **simulated-device** using the following command at your command prompt:
 
@@ -393,12 +393,20 @@ You are now ready to run the console apps.
 
     Now that your device has sent the **connectivityType** property to IoT Hub, the second query returns your device.
 
+In this article, you:
+
+* Configured a new IoT hub in the Azure portal
+* Created a device identity in the IoT hub's identity registry
+* Added device metadata as tags from a back-end app
+* Reported device connectivity information in the device twin
+* Queried the device twin information, using SQL-like IoT Hub query language
+
 ## Next steps
 
-In this article, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a device app to report device connectivity information in the device twin. You also learned how to query the device twin information using the SQL-like IoT Hub query language.
+To learn how to:
 
-Use the following resources to learn how to:
+* Send telemetry from devices, see [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java)
 
-* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) article.
+* Configure devices using device twin's desired properties, see [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md)
 
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.
+* Control devices interactively, such as turning on a fan from a user-controlled app, see [Quickstart: Control a device connected to an IoT hub](./quickstart-control-device.md?pivots=programming-language-java)

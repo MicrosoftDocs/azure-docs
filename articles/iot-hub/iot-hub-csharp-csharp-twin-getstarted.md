@@ -16,15 +16,14 @@ ms.custom: "mqtt, devx-track-csharp"
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-In this article, you create these .NET console apps:
+In this article, you create two .NET console apps:
 
-* **AddTagsAndQuery**. This back-end app adds tags and queries device twins.
+* **AddTagsAndQuery**: a back-end app that adds tags and queries device twins.
 
-* **ReportConnectivity**. This device app simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
+* **ReportConnectivity**: a simulated device app that connects to your IoT hub and reports its connectivity condition.
 
 > [!NOTE]
-> The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
->
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
@@ -33,8 +32,6 @@ In this article, you create these .NET console apps:
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
-
-* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -46,7 +43,7 @@ In this article, you create these .NET console apps:
 
 ## Create the service app
 
-In this section, you create a .NET console app, using C#, that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reported a cellular connection.
+In this section, you create a .NET console app, using C#, that adds location metadata to the device twin associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
 
 1. In Visual Studio, select **File > New > Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
 
@@ -126,11 +123,11 @@ In this section, you create a .NET console app, using C#, that adds location met
 
     ![Query results in window](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
 
-In the next section, you create a device app that reports the connectivity information and changes the result of the query in the previous section.
+In the next section, you create a device app that reports connectivity information and changes the result of the query in the previous section.
 
 ## Create the device app
 
-In this section, you create a .NET console app that connects to your hub as **myDeviceId**, and then updates its reported properties to contain the information that it is connected using a cellular network.
+In this section, you create a .NET console app that connects to your hub as **myDeviceId**, and then updates its reported properties to confirm that it's connected using a cellular network.
 
 1. In Visual Studio, select **File** > **New** > **Project**. In **Create new project**, choose **Console App (.NET Framework)**, and then select **Next**.
 
@@ -237,14 +234,20 @@ In this section, you create a .NET console app that connects to your hub as **my
 
     ![Device connectivity reported successfully](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
+In this article, you:
+
+* Configured a new IoT hub in the Azure portal
+* Created a device identity in the IoT hub's identity registry
+* Added device metadata as tags from a back-end app
+* Reported device connectivity information in the device twin
+* Queried the device twin information, using SQL-like IoT Hub query language
+
 ## Next steps
 
-In this article, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the SQL-like IoT Hub query language.
+To learn how to:
 
-You can learn more from the following resources:
+* Send telemetry from devices, see [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp).
 
-* To learn how to send telemetry from devices, see the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) article.
+* Configure devices using device twin's desired properties, see [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md).
 
-* To learn how to configure devices using device twin's desired properties, see the [Use desired properties to configure devices](tutorial-device-twins.md) article.
-
-* To learn how to control devices interactively, such as turning on a fan from a user-controlled app, see the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-csharp) quickstart.
+* Control devices interactively, such as turning on a fan from a user-controlled app, see [Quickstart: Control a device connected to an IoT hub](./quickstart-control-device.md?pivots=programming-language-csharp).
