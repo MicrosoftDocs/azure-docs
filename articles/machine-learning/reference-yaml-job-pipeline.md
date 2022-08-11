@@ -97,4 +97,4 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
-- [Create ML pipelines using component](how-to-create-component-pipelines-cli.md)
+- [Create ML pipelines using components](how-to-create-component-pipelines-cli.md)
