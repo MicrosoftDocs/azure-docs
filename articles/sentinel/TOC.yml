@@ -552,9 +552,9 @@
     items: 
     - name: Microsoft Sentinel skill-up training  
       href: skill-up-resources.md
-    - name: Microsoft Learn modules for Microsoft Sentinel
+    - name: Learn modules for Microsoft Sentinel
       href: /learn/browse/?expanded=azure&products=azure-sentinel
-    - name: Microsoft Learn modules for Kusto Query Language (KQL)
+    - name: Learn modules for Kusto Query Language (KQL)
       href: /learn/browse/?expanded=azure&terms=kusto%20query%20language
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md
