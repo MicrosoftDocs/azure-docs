@@ -251,6 +251,10 @@ Use the following steps to activate an Azure Stack Edge device. Note that a devi
    Get-DeviceConfiguration | to-json
    ```
 
+   Here is an example of output showing device activation status:
+
+   ![PowerShell output showing Azure Stack Edge device activation status](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-device-activation.png)
+
 ## Quickly fetch or modify device configuration settings
 
 Use the following steps to sign into the device, fetch the status of the webProxy property, set the webProxy property to “isEnabled = true,” and then fetch the status of the updated webProxy property.
