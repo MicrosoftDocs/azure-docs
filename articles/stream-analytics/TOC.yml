@@ -11,6 +11,8 @@
     items:
     - name: Azure portal
       href: stream-analytics-quick-create-portal.md
+    - name: Visual Studio Code
+      href: quick-create-visual-studio-code.md
     - name: Azure CLI
       href: quick-create-azure-cli.md
     - name: Bicep
@@ -21,10 +23,6 @@
       href: quick-create-azure-resource-manager.md
     - name: PowerShell
       href: stream-analytics-quick-create-powershell.md
-    - name: Visual Studio
-      href: stream-analytics-quick-create-vs.md
-    - name: Visual Studio Code
-      href: quick-create-visual-studio-code.md
   - name: Create a cluster
     items:
     - name: Azure portal
@@ -199,6 +197,8 @@
       href: stream-analytics-clean-up-your-job.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
+    - name: Add SQL Database as output
+      href: sql-db-table.md
     - name: Use SQL reference data
       href: sql-reference-data.md
     - name: Update credentials
@@ -299,8 +299,6 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
-    - name: Monitor jobs - Visual Studio
-      href: stream-analytics-monitor-jobs-use-vs.md
   - name: Automate
     items:
     - name: Using PowerShell for auto-pausing
@@ -323,12 +321,16 @@
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
+    - name: Quickstart
+      href: stream-analytics-quick-create-vs.md
     - name: Test locally with sample data
       href: stream-analytics-vs-tools-local-run.md
     - name: Test locally with live data
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
+    - name: Monitor jobs in Visual Studio
+      href: stream-analytics-monitor-jobs-use-vs.md
     - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram.md
     - name: Create a custom .NET deserializer

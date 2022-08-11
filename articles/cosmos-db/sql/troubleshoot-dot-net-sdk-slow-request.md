@@ -100,7 +100,7 @@ The timeouts include diagnostics, which contain the following, for example:
 
 },
 {
-"dateUtc": "2021-11-17T23:38:28.3115496Z",
+"dateUtc": "2021-11-17T23:38:38.3115496Z",
 "cpu": 16.731,
 "memory": 9024120.000,
 "threadInfo": {

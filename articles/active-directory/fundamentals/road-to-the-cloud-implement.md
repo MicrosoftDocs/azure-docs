@@ -70,7 +70,7 @@ Client workstations are traditionally joined to AD and managed via group policy 
 
 [Windows Autopilot](/mem/autopilot/windows-autopilot) is highly recommended to establish a streamlined onboarding and device provisioning, which can enforce these directives.
 
-For more information, see [Get started with cloud native Windows endpoints - Microsoft Endpoint Manager](/mem/cloud-native-windows-endpoints)
+For more information, see [Learn more about cloud-native endpoints](/mem/cloud-native-endpoints-overview)
 
 ## Applications
 

@@ -1,8 +1,7 @@
 ---
 title: Manage update configuration settings in Update management center (preview)
 description: The article describes how to manage the update settings for your Windows and Linux machines managed by Update management center (preview).
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022

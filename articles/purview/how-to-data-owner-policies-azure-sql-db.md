@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 07/20/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for Azure SQL DB (preview)
@@ -22,13 +22,15 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 - Create a new Azure SQL DB or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart).
 
 **Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL DB**
-- East US
 - East US2
-- West US
 - West US3
+- South Central US
 - West Central US
 - Canada Central
+- Brazil South
+- North Europe
 - West Europe
+- France Central
 - UK South
 - Central India
 - Australia East

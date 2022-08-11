@@ -3,14 +3,14 @@ title: Review access to groups & applications in access reviews - Azure AD
 description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 author: ajburnle
-manager: karenhoran
+manager: rkarlin
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 2/18/2022
+ms.date: 7/18/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -87,7 +87,9 @@ There are two ways that you can approve or deny access:
 
 ### Review access based on recommendations
 
-To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
+To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. There are two ways recommendations are generated for the reviewer. One method the system uses to create recommendations is by the user's sign-in activity. If a user has been inactive for 30 days or more, the reviewer will be recommended to deny access. The other method is based on the access the user's peers have. If the user doesn't have the same access as their peers, the reviewer will be recommended to deny that user access. 
+
+If you have **No sign-in within 30 days** or **Peer outlier** enabled, follow the steps below to accept recommendations:
 
 1. Select one or more users and then Click **Accept recommendations**.
 

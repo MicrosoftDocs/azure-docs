@@ -101,9 +101,9 @@ Now you're ready to deploy the inference pipeline. This will deploy the pipeline
 
 Now, you have a published pipeline with a dataset parameter. The pipeline will use the trained model created in the training pipeline to score the dataset you provide as a parameter.
 
-### Submit a pipeline run
+### Submit a pipeline job
 
-In this section, you'll set up a manual pipeline run and alter the pipeline parameter to score new data.
+In this section, you'll set up a manual pipeline job and alter the pipeline parameter to score new data.
 
 1. After the deployment is complete, go to the **Endpoints** section.
 
@@ -119,7 +119,7 @@ In this section, you'll set up a manual pipeline run and alter the pipeline para
 
 1. Select the pipeline you published.
 
-    The pipeline details page shows you a detailed run history and connection string information for your pipeline.
+    The pipeline details page shows you a detailed job history and connection string information for your pipeline.
     
 1. Select **Submit** to create a manual run of the pipeline.
 
@@ -133,7 +133,7 @@ In this section, you'll set up a manual pipeline run and alter the pipeline para
 
 You can find information on how to consume pipeline endpoints and published pipeline in the **Endpoints** section.
 
-You can find the REST endpoint of a pipeline endpoint in the run overview panel. By calling the endpoint, you're consuming its default published pipeline.
+You can find the REST endpoint of a pipeline endpoint in the job overview panel. By calling the endpoint, you're consuming its default published pipeline.
 
 You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and you can find the REST endpoint of it in the **Published pipeline overview** panel to the right of the graph. 
 

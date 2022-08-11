@@ -34,7 +34,7 @@ Before you can use **Microsoft.Network** services with your Azure subscription, 
 
 First, create or choose an existing resource group to host the resources for your DNS resolver. The resource group must be in a [supported region](dns-private-resolver-overview.md#regional-availability). In this example, the location is **West Central US**. To create a new resource group:
 
-1. Select [Create a resource group](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup).
+1. Select [Create a resource group](https://portal.azure.com/#create/Microsoft.ResourceGroup).
 2. Select your subscription name, enter a name for the resource group, and choose a supported region.
 3. Select **Review + create**, and then select **Create**.
 

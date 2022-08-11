@@ -66,7 +66,7 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
             {
                 "id":"1",
                 "language":"en",
-                "text": "The customer service here is really good."
+                "text": "The food and service were unacceptable. The concierge was nice, however."
             }
         ]
     }
@@ -82,34 +82,82 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
 	"results": {
 		"documents": [{
 			"id": "1",
-			"sentiment": "positive",
+			"sentiment": "mixed",
 			"confidenceScores": {
-				"positive": 1.0,
+				"positive": 0.47,
 				"neutral": 0.0,
-				"negative": 0.0
+				"negative": 0.52
 			},
 			"sentences": [{
-				"sentiment": "positive",
+				"sentiment": "negative",
 				"confidenceScores": {
-					"positive": 1.0,
+					"positive": 0.0,
 					"neutral": 0.0,
-					"negative": 0.0
+					"negative": 0.99
 				},
 				"offset": 0,
-				"length": 41,
-				"text": "The customer service here is really good.",
+				"length": 40,
+				"text": "The food and service were unacceptable. ",
+				"targets": [{
+					"sentiment": "negative",
+					"confidenceScores": {
+						"positive": 0.0,
+						"negative": 1.0
+					},
+					"offset": 4,
+					"length": 4,
+					"text": "food",
+					"relations": [{
+						"relationType": "assessment",
+						"ref": "#/documents/0/sentences/0/assessments/0"
+					}]
+				}, {
+					"sentiment": "negative",
+					"confidenceScores": {
+						"positive": 0.0,
+						"negative": 1.0
+					},
+					"offset": 13,
+					"length": 7,
+					"text": "service",
+					"relations": [{
+						"relationType": "assessment",
+						"ref": "#/documents/0/sentences/0/assessments/0"
+					}]
+				}],
+				"assessments": [{
+					"sentiment": "negative",
+					"confidenceScores": {
+						"positive": 0.0,
+						"negative": 1.0
+					},
+					"offset": 26,
+					"length": 12,
+					"text": "unacceptable",
+					"isNegated": false
+				}]
+			}, {
+				"sentiment": "positive",
+				"confidenceScores": {
+					"positive": 0.94,
+					"neutral": 0.01,
+					"negative": 0.05
+				},
+				"offset": 40,
+				"length": 32,
+				"text": "The concierge was nice, however.",
 				"targets": [{
 					"sentiment": "positive",
 					"confidenceScores": {
 						"positive": 1.0,
 						"negative": 0.0
 					},
-					"offset": 4,
-					"length": 16,
-					"text": "customer service",
+					"offset": 44,
+					"length": 9,
+					"text": "concierge",
 					"relations": [{
 						"relationType": "assessment",
-						"ref": "#/documents/0/sentences/0/assessments/0"
+						"ref": "#/documents/0/sentences/1/assessments/0"
 					}]
 				}],
 				"assessments": [{
@@ -118,16 +166,16 @@ curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-ver
 						"positive": 1.0,
 						"negative": 0.0
 					},
-					"offset": 36,
+					"offset": 58,
 					"length": 4,
-					"text": "good",
+					"text": "nice",
 					"isNegated": false
 				}]
 			}],
 			"warnings": []
 		}],
 		"errors": [],
-		"modelVersion": "2021-10-01"
+		"modelVersion": "2022-06-01"
 	}
 }
 ```

@@ -130,7 +130,7 @@ There are different automation and deployment options available depending on whi
 
 There are several network requirements you'll need to meet to successfully deploy Azure Virtual Desktop. This lets users connect to their virtual desktops and remote apps while also giving them the best possible user experience.
 
-Users connecting to Azure Virtual Desktop use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) on port 443, which securely establishes a reverse connection to the service. This means you don't need to open any inbound ports.
+Users connecting to Azure Virtual Desktop securely establish a reverse connection to the service, which means you don't need to open any inbound ports. Transmission Control Protocol (TCP) on port 443 is used by default, however RDP Shortpath can be used for [managed networks](shortpath.md) and [public networks](shortpath-public.md) that establishes a direct User Datagram Protocol (UDP)-based transport.
 
 To successfully deploy Azure Virtual Desktop, you'll need to meet the following network requirements:
 
@@ -138,7 +138,7 @@ To successfully deploy Azure Virtual Desktop, you'll need to meet the following 
 
 - Make sure this virtual network can connect to your domain controllers and relevant DNS servers if you're using AD DS or Azure AD DS, since you'll need to join session hosts to the domain.
 
-- Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. This connection also uses TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported. If your users need to access Microsoft 365, make sure your session hosts can connect to [Microsoft 365 endpoints](/microsoft-365/enterprise/microsoft-365-endpoints).
+- Your session hosts and users need to be able to connect to the Azure Virtual Desktop service. These connections also use TCP on port 443 to a specific list of URLs. For more information, see [Required URL list](safe-url-list.md). You must make sure these URLs aren't blocked by network filtering or a firewall in order for your deployment to work properly and be supported. If your users need to access Microsoft 365, make sure your session hosts can connect to [Microsoft 365 endpoints](/microsoft-365/enterprise/microsoft-365-endpoints).
 
 Also consider the following:
 

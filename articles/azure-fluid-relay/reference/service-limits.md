@@ -15,7 +15,7 @@ This article outlines known limitations of Azure Fluid Relay.
 
 ## Distributed Data Structures
 
-The Azure Fluid Relay doesn't support [experimental distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/experimental/). These include but are not limited to DDS packages with the `@fluid-experimental` package namespace.
+The Azure Fluid Relay doesn't support [experimental distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/overview). These include but are not limited to DDS packages with the `@fluid-experimental` package namespace.
 
 ## Fluid sessions
 
