@@ -28,13 +28,13 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 - You must have an Azure subscription to use Azure Machine Learning. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 - Install the Azure CLI and the `ml` extension. Follow the installation steps in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
 - Create an Azure Machine Learning workspace if you don't have one. For workspace creation, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 - Create an Azure Machine Learning workspace if you don't have one.
 - The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
@@ -51,7 +51,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 ### Create a time-based schedule with recurrence pattern
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-schedule.yml":::
 
@@ -59,7 +59,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 - **(Required)**  `type` specifies the schedule type is `recurrence`. It can also be `recurrence`, see details in the next section.
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
 
@@ -89,7 +89,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 ### Create a time-based schedule with cron expression
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="yaml" source="~/azureml-examples-main/CLI/schedules/recurrence-schedule.yml":::
 
@@ -97,8 +97,7 @@ The `trigger` section defines the schedule details and contains following proper
 
 - **(Required)** `type` specifies the schedule type is `cron`.
 
-
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
 
@@ -164,13 +163,13 @@ When define schedule, we support following expression that will be resolved to r
 
 ### Create schedule
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 After you create the schedule yaml, you can use the following command to create a schedule via CLI.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="create_schedule":::
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
 
@@ -178,11 +177,11 @@ After you create the schedule yaml, you can use the following command to create 
 
 ### Check schedule detail
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="show_schedule":::
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=show_schedule)]
 
@@ -190,11 +189,11 @@ After you create the schedule yaml, you can use the following command to create 
 
 ### List schedules in a workspace
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="list_schedule":::
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=list_schedule)]
 
@@ -202,11 +201,11 @@ After you create the schedule yaml, you can use the following command to create 
 
 ### Update a schedule
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule":::
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
 
@@ -214,11 +213,11 @@ After you create the schedule yaml, you can use the following command to create 
 
 ### Disable a schedule
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="disable_schedule":::
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=disable_schedule)]
 
@@ -226,11 +225,11 @@ After you create the schedule yaml, you can use the following command to create 
 
 ### Enable a schedule
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="enable_schedule":::
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=enable_schedule)]
 
@@ -247,13 +246,13 @@ All the display name of jobs triggered by schedule will have the display name as
 
 :::image type="content" source="/media/how-to-schedule-pipeline-job/schedule-triggered-pipeline-jobs.png" alt-text="Screenshot of the jobs tab in the Azure Machine Learning studio filtering by job display name.":::
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
 
 :::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::  
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 N/A
 ---
@@ -263,11 +262,11 @@ N/A
     > [!IMPORTANT]
     > A schedule must be disabled to be deleted.
 
-#[CLI v2](#tab/cliv2)
+# [CLI v2](#tab/cliv2)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="delete_schedule":::  
 
-#[SDK v2](#tab/sdkv2)
+# [SDK v2](#tab/sdkv2)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=delete_schedule)]
 
@@ -275,13 +274,9 @@ N/A
 
 ## Next steps
 
-In this article, you used the Azure Machine Learning CLI and SDK to schedule a pipeline. The schedule supports use cron expression and recurrence pattern to define trigger frequency. You saw how to manage the schedule. You learned how to query jobs triggered by schedule.
-
-For more information, see:
-
-* [CLI (v2) schedule YAML schema](./reference-yaml-schedule.md)
-* [Create pipeline job in CLI v2](how-to-create-component-pipelines-cli.md)
-* [Create pipeline job in SDK v2](how-to-create-component-pipeline-python.md)
-* [CLI (v2) core YAML syntax](reference-yaml-core-syntax.md)
-* [Pipelines](concept-ml-pipelines.md)
-* [Component](concept-component.md)
+* Learn more about the [CLI (v2) schedule YAML schema](./reference-yaml-schedule.md).
+* Learn how to [create pipeline job in CLI v2](how-to-create-component-pipelines-cli.md).
+* Learn how to [create pipeline job in SDK v2](how-to-create-component-pipeline-python.md).
+* Learn more about [CLI (v2) core YAML syntax](reference-yaml-core-syntax.md).
+* Learn more about [Pipelines](concept-ml-pipelines.md).
+* Learn more about [Component](concept-component.md).
