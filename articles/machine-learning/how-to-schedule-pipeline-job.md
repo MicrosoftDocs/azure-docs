@@ -259,8 +259,8 @@ N/A
 
 ## Delete a schedule
 
-    > [!IMPORTANT]
-    > A schedule must be disabled to be deleted.
+> [!IMPORTANT]
+> A schedule must be disabled to be deleted.
 
 # [CLI v2](#tab/cliv2)
 
