@@ -124,6 +124,7 @@ The following list contains operations you'll see in the activity log:
 | Commit | Deployment of a configuration has been committed to a region(s). |
 | Delete ConnectivityConfiguration | Deleting a connectivity configuration from Network Manager. |
 | Delete NetworkGroups | Deleting a network group from Network Manager.|
+| Delete StaticMembers | Deleting a member from a network group.|
 | Delete Rules | Deleting a rule from a rule collection. |
 | Delete RuleCollections | Deleting a rule collection from a security admin configuration. |
 | Delete SecurityAdminConfigurations | Deleting a security admin configuration from Network Manager. |
@@ -132,6 +133,7 @@ The following list contains operations you'll see in the activity log:
 | ListActiveSecurityAdminRules | Viewing the list of security admin configurations applied to the virtual network. |
 | Write ConnectivityConfiguration. | Creating a new connectivity configuration. |
 | Write NetworkGroups | Creating a new network group. |
+| Delete StaticMembers | Adding a member from a network group.|
 | Write NetworkManager | Creating a new Azure Virtual Network Manager instance. |
 | Write Rules | Creating a new security rule to add to a rule collection. |
 | Write RuleCollections | Creating a new rule collection to add to a security admin configuration. |
