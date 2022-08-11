@@ -106,7 +106,7 @@ For different authentication types, refer to the following sections on specific 
 
 ### SQL authentication
 
-When you use SQL authentication authentication type, specify the generic properties that are described in the preceding section.
+To use SQL authentication authentication type, specify the generic properties that are described in the preceding section.
 
 **Example: using SQL authentication**
 
@@ -180,7 +180,7 @@ When you use SQL authentication authentication type, specify the generic propert
 
 ### Service principal authentication
 
-When you use service principal authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+To use service principal authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -240,7 +240,7 @@ You also need to follow the steps below:
 
 A data factory or Synapse workspace can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure SQL Database authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
-To use system-assigned managed identity authentication, follow these steps.
+To use system-assigned managed identity authentication, specify the generic properties that are described in the preceding section, and follow these steps.
 
 1. [Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or an Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator has full access to the database.
 
@@ -280,7 +280,7 @@ To use system-assigned managed identity authentication, follow these steps.
 
 A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure SQL Database authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
-When you use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
