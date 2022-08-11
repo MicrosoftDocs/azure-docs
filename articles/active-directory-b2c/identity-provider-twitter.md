@@ -202,4 +202,4 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 > [!TIP]
->  If you're facing `unauthorized` error while testing this identity provider, make sure you use the correct Twitter API Key and API Key Secret, or try to apply for [elevated](https://developer.twitter.com/en/portal/products/elevated) access. Also, we recommend you've a look at [Twitter's projects structure](https://developer.twitter.com/en/docs/projects/overview), if you registered your app before the feature was available. 
+>  If you're facing `unauthorized` error while testing this identity provider, make sure you use the correct Twitter API Key and API Key Secret, or try to apply for [elevated](https://developer.twitter.com/en/portal/products/elevated) access. Also, we recommend you've a look at [Twitter's projects structure](https://developer.twitter.com/en/docs/projects/overview), if you registered your app before the feature was available.
