@@ -25,7 +25,7 @@ Speech-to-text, also known as speech recognition, enables real-time or offline t
 
 ## Get started
 
-To get started with speech-to-text, see the [quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md), and the [Speech CLI](spx-overview.md).
+To get started, try the [speech-to-text quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md), and the [Speech CLI](spx-overview.md).
 
 > [!VIDEO c20d3b0c-e96a-4154-9299-155e27db7117]
 
