@@ -119,11 +119,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Configure Splunk to use SAML** link below the SAML radio button.
 
-    ![Screenshot that shows Configure Splunk to use SAML.](./media/splunkenterpriseandsplunkcloud-tutorial/configure-splunk.png)
+    ![Screenshot that shows Configure Splunk to use SAML.](./media/splunk-enterprise-and-splunk-cloud-tutorial/configure-splunk.png)
 
 1. Perform the following steps in the **SAML Configuration** section:
 
-    ![Screenshot that shows Configure Splunk to SAML configuration.](./media/splunkenterpriseandsplunkcloud-tutorial/sso-configuration.png)
+    ![Screenshot that shows Configure Splunk to SAML configuration.](./media/splunk-enterprise-and-splunk-cloud-tutorial/sso-configuration.png)
 
     a. Click on the **Select File** button to upload the **Federation Metadata XML** file, which you have downloaded from Azure portal.
 
@@ -139,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. **Mail alias**: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    ![Screenshot that shows role mapping.](./media/splunkenterpriseandsplunkcloud-tutorial/role-alias.png)
+    ![Screenshot that shows role mapping.](./media/splunk-enterprise-and-splunk-cloud-tutorial/role-alias.png)
 
 1. Scroll down to the **Advanced Settings** section and perform the following steps:
 
-    ![Screenshot that shows Advanced Settings.](./media/splunkenterpriseandsplunkcloud-tutorial/advanced-settings.png)
+    ![Screenshot that shows Advanced Settings.](./media/splunk-enterprise-and-splunk-cloud-tutorial/advanced-settings.png)
 
     a. Click the **Name Id Format** and select **Email Address** from the dropdown.
 
