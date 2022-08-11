@@ -634,7 +634,7 @@
       href: https://azjobsdemo.azurewebsites.net/
   - name: Training
     items:
-    - name: Introduction (Microsoft Learn)
+    - name: Introduction (Learn module)
       href: /learn/modules/intro-to-azure-search/
     - name: Add search to apps (Pluralsight)
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
