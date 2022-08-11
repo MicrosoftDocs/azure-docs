@@ -38,7 +38,7 @@ Azure AD Premium editions are available for customers in China using the worldwi
 
 You can customize the sign-in experience when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/woodgrove.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=woodgrove.com`.
 
-Custom branding appears after users sign in. If users start the sign-in process at a site like www\.office.com they will not see the branding. After users sign in, the branding may take at least 15 minutes to appear.
+Custom branding appears after users sign in. Users that start the sign-in process at a site like www\.office.com  won't see the branding. After users sign in, the branding may take at least 15 minutes to appear.
 
 **All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
@@ -56,7 +56,7 @@ Custom branding appears after users sign in. If users start the sign-in process 
         
     - **Sign-in page background image** Select a PNG or JPG image file to appear as the background for your sign-in pages. The image will be anchored to the center of the browser, and will scale to the size of the viewable space.
         
-        We recommended using images without a strong subject focus because an opaque white box appears in the center of the screen, and could cover any part of the image depending on the dimensions of the viewable space.
+        We recommended using images without a strong subject focus. An opaque white box appears in the center of the screen, which could cover any part of the image depending on the dimensions of the viewable space.
 
     - **Banner logo** Select a PNG or JPG version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
@@ -85,7 +85,7 @@ Custom branding appears after users sign in. If users start the sign-in process 
 
     - **Sign-in page background color** Specify the hexadecimal color (#FFFFFF) that will appear in place of your background image in low-bandwidth connection situations. We recommend using the primary color of your banner logo or your organization color.
 
-    - **Square logo image** Select a PNG (preferred) or JPG image of your organization's logo to appear during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases it may also appear in the consent dialog.
+    - **Square logo image** Select a PNG (preferred) or JPG image of your organization's logo to appear during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication, appears only on tenants that are using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases, it may also appear in the consent dialog.
         
         We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
     
@@ -138,7 +138,7 @@ If custom branding has been added to your tenant, you can edit the details alrea
 
     ![Contoso - Company branding page, with default configuration shown](media/customize-branding/company-branding-default-configPNG)
 
-3. On the **Configure company branding** page edit any necessary details.
+3. On the **Configure company branding** page, edit any necessary details.
 
 4. Select **Save**.
 
@@ -150,7 +150,7 @@ The **Stay signed in?** prompt appears after a user successfully signs in. This 
 
 The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
 
-KMSI is only available on the default custom branding. It cannot be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see additional and unexpected prompts to sign in.
+KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
 ![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/keep-me-signed-in/kmsi-workflowPNG)
 
@@ -169,7 +169,7 @@ Details about the sign-in error are as follows and highlighted in the example.
 
 ![Example sign-in log entry with the KMSI interrupt](./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png)
 
-You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings. This disables the KMSI prompt for all users in your Azure AD directory.
+You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings. This setting disables the KMSI prompt for all users in your Azure AD directory.
 
 You also can use the [persistent browser session controls in Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to prevent users from seeing the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for everyone else in the directory.
 
