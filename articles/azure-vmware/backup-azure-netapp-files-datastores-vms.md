@@ -77,7 +77,7 @@ You can add or remove resources from a resource group at any time.
 
 1.  In the left navigation of the vCenter web client page, select **Cloud Backup** for **Virtual Machines** > **Resource Groups**. Then select **+ Create** to start the wizard
 
-    :::image type="content" source="./media/cloud-backup/vSphere-create-resource-group.png" alt-text="Screenshot of the vSphere Client Resource Group interface shows a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vSphere-create-resource-group.png":::
+    :::image type="content" source="./media/cloud-backup/vsphere-create-resource-group.png" alt-text="Screenshot of the vSphere Client Resource Group interface shows a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vsphere-create-resource-group.png":::
     
 1. On the **General Info & Notification** page in the wizard, enter the required values.
 1. On the **Resource** page, do the following:
