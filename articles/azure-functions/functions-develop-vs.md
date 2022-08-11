@@ -21,7 +21,7 @@ Visual Studio provides the following benefits when you develop your functions:
 
 This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. Before you read this article, consider completing the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. To know more about Visual Studio releases [here](.visualstudio\releases\2022\release-notes) and Visual Studio Preview releases [here](visualstudio\releases\2022\release-notes-preview)
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. For more information about Visual Studio 2022 releases, see [the release notes](/visualstudio/releases/2022/release-notes) or the [preview release notes](/visualstudio/releases/2022/release-notes-preview).
 
 ## Prerequisites
 
