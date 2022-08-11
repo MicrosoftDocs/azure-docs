@@ -5,8 +5,9 @@ ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: how-to
-ms.date: 04/28/2022
+ms.topic: quickstart
+recommendations: false
+ms.date: 08/11/2022
 ---
 
 # Fundamental concepts for scaling
@@ -106,4 +107,4 @@ without shuffling data between nodes.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Classify application workload >](howto-build-scalable-apps-classify.md)
+> [Classify application workload >](quickstart-build-scalable-apps-classify.md)
