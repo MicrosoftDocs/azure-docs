@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/10/2022
+ms.date: 08/11/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)

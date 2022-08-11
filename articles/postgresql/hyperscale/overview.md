@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 recommendations: false
-ms.date: 08/10/2022
+ms.date: 08/11/2022
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD026 -->

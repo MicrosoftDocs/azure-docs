@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 08/11/2022
 ---
 
 # How to ingest data using Azure Stream Analytics

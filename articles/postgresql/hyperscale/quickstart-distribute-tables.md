@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 05/05/2022
+ms.date: 08/11/2022
 ---
 
 # Create and distribute tables
