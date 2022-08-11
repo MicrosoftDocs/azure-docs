@@ -288,7 +288,7 @@ After you've updated the engine version for your voice model, you need to [redep
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 > [!NOTE]
-> Custom Neural Voice training is only available in some regions. But you can easily copy a neural voice model from these regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
+> Custom Neural Voice training is only available in some regions. But you can easily copy a neural voice model from these regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
 
 ## Next steps
 

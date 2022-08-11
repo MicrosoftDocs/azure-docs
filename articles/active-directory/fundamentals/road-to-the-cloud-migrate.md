@@ -221,8 +221,7 @@ Use the following table to determine what Azure-based tools you use to replace t
 
 More tools and notes:
 
-* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables above Azure features to non-Azure VMs. For example, Windows Server when used on-premises
-*  or on AWS.
+* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables above Azure features to non-Azure VMs. For example, Windows Server when used on-premises or on AWS.
 
 * [Manage and secure your Azure VM environment](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/).
 

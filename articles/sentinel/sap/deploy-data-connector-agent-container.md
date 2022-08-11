@@ -1,24 +1,19 @@
 ---
-title: Deploy and configure the Microsoft Sentinel Threat Monitoring for SAP data connector agent container  | Microsoft Docs
-description: This article shows you how to deploy the SAP data connector agent container in order to ingest SAP data into Microsoft Sentinel, as part of Microsoft Sentinel's Threat Monitoring solution for SAP.
+title: Deploy and configure the container hosting the SAP data connector agent
+description: This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
 ms.date: 04/12/2022
 ---
 
-# Deploy and configure the Microsoft Sentinel Threat Monitoring for SAP data connector agent container
+# Deploy and configure the container hosting the SAP data connector agent
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-This article shows you how to deploy the SAP data connector agent container in order to ingest SAP data into Microsoft Sentinel, as part of Microsoft Sentinel's Threat Monitoring solution for SAP.
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 
 ## Deployment milestones
 
-Deployment of the Threat Monitoring for SAP solution is divided into the following sections
+Deployment of the Microsoft Sentinel Solution for SAP is divided into the following sections
 
 1. [Deployment overview](deployment-overview.md)
 
@@ -30,7 +25,7 @@ Deployment of the Threat Monitoring for SAP solution is divided into the followi
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
-1. [Configure Threat Monitoring for SAP solution](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md)
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
@@ -39,7 +34,7 @@ Deployment of the Threat Monitoring for SAP solution is divided into the followi
 
 ## Data connector agent deployment overview
 
-For the Threat Monitoring solution for SAP to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
+For the Microsoft Sentinel Solution for SAP to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
 
 The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. We recommend that you install and configure this container using a *kickstart* script; however, you can choose to [deploy the container manually](?tabs=deploy-manually#deploy-the-data-connector-agent-container).
 
@@ -308,6 +303,6 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 ## Next steps
 
-Once connector is deployed, proceed to deploy Threat Monitoring for SAP solution content
+Once the connector is deployed, proceed to deploy Microsoft Sentinel Solution for SAP content:
 > [!div class="nextstepaction"]
 > [Deploy SAP security content](deploy-sap-security-content.md)

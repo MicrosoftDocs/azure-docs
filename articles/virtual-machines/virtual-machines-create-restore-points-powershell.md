@@ -73,7 +73,7 @@ New-AzDisk -DiskName “ExampleDataDisk1” (New-AzDiskConfig  -Location eastus 
 New-AzDisk -DiskName “ExampleDataDisk2” (New-AzDiskConfig  -Location eastus -CreateOption Restore -SourceResourceId $dataDisk2RestorePoint) -ResourceGroupName ExampleRg
 
 ```
-After you create the disks, [create a new VM](/azure/virtual-machines/windows/create-vm-specialized-portal.md) and [attach these restored disks](/azure/virtual-machines/windows/attach-disk-ps.md#using-managed-disks) to the newly created VM.
+After you create the disks, [create a new VM](/azure/virtual-machines/windows/create-vm-specialized-portal) and [attach these restored disks](/azure/virtual-machines/windows/attach-disk-ps#using-managed-disks) to the newly created VM.
 
 ## Next steps
 [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.

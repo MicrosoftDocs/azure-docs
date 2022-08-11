@@ -9,11 +9,14 @@ ms.date: 05/02/2022
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
 
+>[!NOTE]
+>You can now move your existing replicated items to modernized VMware disaster recovery experience. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
+
 - [Learn more](vmware-azure-architecture.md) about VMware VM/physical server disaster recovery architecture.
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
 
 > [!NOTE]
-> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been set up for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## Deployment scenarios
 
@@ -149,10 +152,10 @@ Debian 10 | [9.45](https://support.microsoft.com/topic/update-rollup-58-for-azur
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br> 4.12.14-16.100-azure:5 |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br> 4.12.14-16.85-azure:5 </br> 4.12.14-16.88-azure:5 </br> 4.12.14-122.106-default:5 </br> 4.12.14-122.110-default:5 </br> 4.12.14-122.113-default:5 </br> 4.12.14-122.116-default:5 </br> 4.12.14-122.12-default:5 </br> 4.12.14-122.121-default:5 |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-16.80-azure </br> 4.12.14-122.103-default </br> 4.12.14-122.98-default5 |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.65-azure </br> 4.12.14-16.68-azure </br> 4.12.14-16.73-azure </br> 4.12.14-16.76-azure </br> 4.12.14-122.88-default </br> 4.12.14-122.91-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.45](https://support.microsoft.com/en-us/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.65-azure </br> 4.12.14-16.68-azure </br> 4.12.14-16.76-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br> 4.12.14-16.85-azure:5 </br> 4.12.14-16.88-azure:5 </br> 4.12.14-122.106-default:5 </br> 4.12.14-122.110-default:5 </br> 4.12.14-122.113-default:5 </br> 4.12.14-122.116-default:5 </br> 4.12.14-122.12-default:5 </br> 4.12.14-122.121-default:5 |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-16.80-azure </br> 4.12.14-122.103-default </br> 4.12.14-122.98-default5 |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.65-azure </br> 4.12.14-16.68-azure </br> 4.12.14-16.73-azure </br> 4.12.14-16.76-azure </br> 4.12.14-122.88-default </br> 4.12.14-122.91-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.45](https://support.microsoft.com/en-us/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | All [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.65-azure </br> 4.12.14-16.68-azure </br> 4.12.14-16.76-azure |
 
 ### SUSE Linux Enterprise Server 15 supported kernel versions
 
@@ -353,7 +356,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 V1 storage account    |    600 disks    |    300 disks
 V2 storage account    |    1500 disks    |    750 disks
 
-Please note that the above limits are applicable to VMWare and Hyper-V scenarios only.
+Please note that the above limits are applicable to VMware and Hyper-V scenarios only.
 
 ## Vault tasks
 

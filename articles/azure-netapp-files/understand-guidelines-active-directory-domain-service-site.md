@@ -95,7 +95,7 @@ You should use Active Directory Domain Services (AD DS) in the following scenari
 > [!NOTE]
 > Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC).
 
-If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files [network](#network-requirements) and [DNS requirements](#ad-ds-requirements) for AD DS.
+If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](/azure/architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files [network](#network-requirements) and [DNS requirements](#ad-ds-requirements) for AD DS.
 
 ### Azure Active Directory Domain Services considerations
 
