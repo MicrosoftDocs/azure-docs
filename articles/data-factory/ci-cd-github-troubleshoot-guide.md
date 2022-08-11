@@ -343,8 +343,18 @@ On publish, ADF fetches every file inside each folder in the collaboration branc
 #### Resolution
 Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
  
+###  Include global parameters in ARM template option does not work
+
+#### Issue
+If you are using old default parameterization template, new way to include global paramaters from **Manage Hub** will not work.
+
+#### Cause
+Default parameterization template should include all values from global parameter list.
+
+#### Resolution
+Use updated  [default parameterization template.](https://docs.microsoft.com/azure/data-factory/continuous-integration-delivery-resource-manager-custom-parameters#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list.
  
-#### Error code: InvalidTemplate
+### Error code: InvalidTemplate
 	
 #### Issue
 Message says *Unable to parse expression.* The expression passed in the dynamic content of an activity isn't being processed correctly because of a syntax error.
