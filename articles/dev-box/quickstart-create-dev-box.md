@@ -50,7 +50,8 @@ In this quickstart, you will:
 4. You can track the progress of creation in the developer portal home page. 
 
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Screenshot of the developer portal showing the Your dev box card with the status Creating.":::
-   
+
+[!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]   
 ## Connect to a dev box
 Once you've provisioned your dev box, you can access it in multiple ways. 
 

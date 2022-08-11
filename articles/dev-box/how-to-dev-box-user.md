@@ -54,6 +54,7 @@ A DevCenter Dev Box User can:
 
 The user will now be able to view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
+[!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 ## Next steps
 
 - [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md)
