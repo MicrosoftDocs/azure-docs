@@ -133,8 +133,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
     * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
 
-    This feature will hide directories and files created under a share from users who do not have access permissions to the share. Users will still be able to view the share.  
-
+        This feature will hide directories and files created under a share from users who do not have access permissions to the share. Users will still be able to view the share.  
 
     * If you want to enable SMB3 protocol encryption for the dual-protocol volume, select **Enable SMB3 Protocol Encryption**.   
 
