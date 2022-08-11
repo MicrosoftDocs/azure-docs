@@ -199,9 +199,9 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### [Java](#tab/java)
 
-Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential?view=azure-java-stable) in Java applications.
+Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential?view=azure-java-stable&preserve-view=true) in Java applications.
 
-To use the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential?view=azure-java-stable),
+To use the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential?view=azure-java-stable&preserve-view=true),
 
 1. Install the [Azure Identity library for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true):
 
@@ -233,7 +233,7 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### [JavaScript](#tab/javascript)
 
-Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest) in JavaScript applications.
+Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest&preserve-view=true) in JavaScript applications.
 
 1. Install the [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true):
 
@@ -260,7 +260,7 @@ For more information, *see* [Create and authenticate a client](https://github.co
 
 ### [Python](#tab/python)
 
-Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) in Python applications.
+Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true) in Python applications.
 
 1. Install the [Azure Identity library for Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true):
 
