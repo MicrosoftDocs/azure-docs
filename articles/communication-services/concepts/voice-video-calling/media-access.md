@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Media access overview
 
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 Azure Communication Services provides support for developers to get real-time access to media streams to capture, analyze and process audio or video content during active calls. 
 
 Consumption of live audio and video content is very prevalent in our world today in the forms of online meetings, conferences, live events, online classes and customer support. The modern communications world allows people around the globe to connect with anyone anywhere any moment on any matter virtually. With raw media access, developers can analyze audio or video streams for each participant in a call in real-time. In contact centers these streams can be used to run custom AI models for analysis such as your homegrown NLP for conversation analysis or provide real-time insights and suggestions to boost agent productivity. In virtual appointments media streams can be used to analyze sentiment when providing virtual care for patients or provide remote assistance during video calls leveraging Mixed Reality capabilities. This also opens a path for developers to leverage newer innovations with endless possibilities to enhance interaction experiences.   
