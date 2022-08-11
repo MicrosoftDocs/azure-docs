@@ -21,7 +21,7 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 
 * The full SKU names listed in the table can be used for Azure CLI or Azure Resource Manager templates (ARM templates) requests to create and update deployments.
 
-* For more information on configuration details such as CPU and RAM, see [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) and [VM sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes).
+* For more information on configuration details such as CPU and RAM, see [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) and [VM sizes](../virtual-machines/sizes.md).
 
 > [!IMPORTANT]
 > If you use a Windows-based image for your deployment, we recommend using a VM SKU that provides a minimum of 4 cores.
