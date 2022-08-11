@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 08/02/2022
+ms.date: 08/03/2022
 ---
 # NFS FAQs for Azure NetApp Files
 
@@ -52,7 +52,7 @@ A grace period defines a period of special processing in which clients can try t
 
 ## Oracle dNFS
 
-### Are there any Oracle patches with dNFS?
+### Are there any Oracle patches required with dNFS?
 
 Customers using Oracle 19c and higher must ensure they **are patched for Oracle bug 32931941**. Most of the patch bundles currently in use by Oracle customers do **\*not\*** include this patch. The patch has only been included in a subset of recent patch bundles.
 

@@ -10,7 +10,7 @@ ms.author: juliako
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
-[!INCLUDE [Gate notice](../cognitive-services/computer-vision/includes/identity-gate-notice.md)]
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
 
