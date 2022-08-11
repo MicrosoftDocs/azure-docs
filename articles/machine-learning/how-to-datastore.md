@@ -18,6 +18,10 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Create datastores
 
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
+> * [v1](v1/how-to-access-data.md)
+> * [v2 (current version)](how-to-datastore.md)
+
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores.
 
 ## Prerequisites
