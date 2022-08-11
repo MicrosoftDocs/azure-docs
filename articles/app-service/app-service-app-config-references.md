@@ -1,5 +1,5 @@
 ---
-title: Use App Configuration references (Preview)
+title: Reference settings from App Configuration (preview)
 description: Learn how to set up Azure App Service and Azure Functions to use Azure App Configuration references. Make App Configuration key-values available to your application code without changing it.
 author: muksvso
 
@@ -21,12 +21,12 @@ To get started with using App Configuration references in App Service, you'll fi
 
 1. Create a [managed identity](overview-managed-identity.md) for your application.
 
-    App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-App-Configuration-Store-with-a-user-assigned-identity).
+    App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-app-configuration-store-with-a-user-assigned-identity).
 
 1. Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update [Access Control for App Config](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity.
 
 > [!NOTE]
-> App Configuration references do not yet support network-restricted configuration stores. --->
+> App Configuration references do not yet support network-restricted configuration stores.
 
 ### Access App Configuration Store with a user-assigned identity
 
@@ -69,6 +69,8 @@ Alternatively without any `Label`:
 @Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey)​
 ```
 
+Any configuration changes to the app that results in a site restart causes an immediate refetch of all referenced key-values from the App Configuration store.
+
 ## Source Application Settings from App Config
 
 App Configuration references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep configuration data in App Configuration instead of the site config. Application Settings and App Configuration key-values both are securely encrypted at rest. If you need Centralized Configuration management capabilities, then Configuration data should go into App Config.
@@ -79,7 +81,7 @@ To use an App Configuration reference for an [app setting](configure-common.md#c
 > Most application settings using App Configuration references should be marked as slot settings, as you should have separate stores or labels for each environment.
 
 > [!NOTE]
-> An App Configuration reference pointing to Key vault reference type won't be resolved and the value will be used as-is. Support for same is planned for the future releases Azure App Configuration also supports its own format for storing [Key Vault references](../azure-app-configuration/use-key-vault-references-dotnet-core.md). If the value of an App Configuration reference is a Key Vault reference, the secret value will not be retrieved from Key Vault, as of yet. Your application will only see the Key Vault reference as it is stored in App Configuration, as of yet. For using the secrets from KeyVault here please refer to the [Key Vault references in App Service](app-service-key-vault-references.md).
+> Azure App Configuration also supports its own format for storing [Key Vault references](../azure-app-configuration/use-key-vault-references-dotnet-core.md). If the value of an App Configuration reference is a Key Vault reference in App Config store, the secret value will not be retrieved from Key Vault, as of yet. For using the secrets from KeyVault in App Service or Functions, please refer to the [Key Vault references in App Service](app-service-key-vault-references.md).
 
 ### Considerations for Azure Files mounting
 
@@ -102,6 +104,15 @@ Below is an example pseudo-template for a function app with App Configuration re
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
+            }
+        }
+    },
     "variables": {
         "functionAppName": "DemoMBFunc",
         "appConfigStoreName": "DemoMBAppConfig",
@@ -109,11 +120,11 @@ Below is an example pseudo-template for a function app with App Configuration re
         "appConfigSku": "standard",
         "FontNameKey": "FontName",
         "FontColorKey": "FontColor",
-        "myLabel": "Test"
-       
-      },
-     "resources": [
-                {
+        "myLabel": "Test",
+        "App Configuration Data Reader": "516239f1-63e1-4d78-a4de-a74fb236a071"
+    },
+    "resources": [
+        {
             "type": "Microsoft.Web/sites",
             "name": "[variables('functionAppName')]",
             "apiVersion": "2021-03-01",
@@ -131,7 +142,7 @@ Below is an example pseudo-template for a function app with App Configuration re
                     "dependsOn": [
                         "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
                         "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]"
-                        ],
+                    ],
                     "properties": {
                         "WEBSITE_FONTNAME": "[concat('@Microsoft.AppConfiguration(Endpoint=', reference(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))).endpoint,'; Key=',variables('FontNameKey'),'; Label=',variables('myLabel'), ')')]",
                         "WEBSITE_FONTCOLOR": "[concat('@Microsoft.AppConfiguration(Endpoint=', reference(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))).endpoint,'; Key=',variables('FontColorKey'),'; Label=',variables('myLabel'), ')')]",
@@ -159,21 +170,11 @@ Below is an example pseudo-template for a function app with App Configuration re
             "sku": {
                 "name": "[variables('appConfigSku')]"
             },
-             //...
+            //...
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
             ],
             "properties": {
-                //...
-                "accessPolicies": [
-                    {
-                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.tenantId]",
-                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
-                        "permissions": {
-                            "secrets": [ "get" ]
-                        }
-                    }
-                ]
             },
             "resources": [
                 {
@@ -183,7 +184,7 @@ Below is an example pseudo-template for a function app with App Configuration re
                     //...
                     "dependsOn": [
                         "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]"
-                        
+
                     ],
                     "properties": {
                         "value": "Calibri",
@@ -197,7 +198,7 @@ Below is an example pseudo-template for a function app with App Configuration re
                     //...
                     "dependsOn": [
                         "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]"
-                        
+
                     ],
                     "properties": {
                         "value": "Blue",
@@ -205,6 +206,17 @@ Below is an example pseudo-template for a function app with App Configuration re
                     }
                 }
             ]
+        },
+        {
+            "scope": "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2020-04-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "properties": {
+                "roleDefinitionId": "[variables('App Configuration Data Reader')]",
+                "principalId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
+                "principalType": "ServicePrincipal"
+            }
         }
     ]
 }
