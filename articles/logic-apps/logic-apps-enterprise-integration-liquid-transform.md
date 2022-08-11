@@ -156,8 +156,6 @@ After you create your Liquid template, you now have to upload the template based
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
----
-
 ## Step 3 - Add the Liquid transformation action
 
 The following steps show how to add a Liquid transformation action for Consumption and Standard logic app workflows.
