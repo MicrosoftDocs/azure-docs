@@ -114,94 +114,101 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
 ### Stages of a typical Microsoft Purview - Profisee deployment run
 
-- Profisee ARM Deployment Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
+1. Profisee ARM Deployment Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
 
     :::image type="content" alt-text="Image 1 - Screenshot of Profisee Managed Identity Azure Role Assignments." source="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
 
-- Profisee ARM Deployment Wizard - App Registration Configuration
+1. Profisee ARM Deployment Wizard - App Registration Configuration
 
     :::image type="content" alt-text="Image 2 - Screenshot of Profisee Azure ARM Wizard App Registration Configuration." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png":::
 
-- Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
+1. Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
 
     :::image type="content" alt-text="Image 3 - Screenshot of Profisee Azure ARM Wizard Step1 Profisee." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
 
-- Profisee ARM Deployment Wizard - Kubernetes Configuration - You may choose an older version of Kubernetes but leave the field BLANK to deploy the LATEST version.
+1. On the Kubernetes page, you may choose an older version of Kubernetes if needed, but leave the field **blank** to deploy the **latest** version.
 
-    :::image type="content" alt-text="Image 4 - Screenshot of Profisee Azure ARM_Wizard Step2 Kubernetes." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png":::
+    :::image type="content" alt-text="Screenshot of the Kubernetes configuration page in the ARM deployment wizard, configured with the smallest standard size and default network settings." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-b-kubernetes.png":::
 
-- Profisee ARM Deployment Wizard - SQL Server
+    >[!TIP]
+    > In most cases, leaving the version field blank is sufficient, unless there is a reason you need to deploy using an older version of Kubernetes AKS specifically.
 
-    :::image type="content" alt-text="Image 5 - Screenshot of Profisee Azure ARM Wizard Step3 SQLServer." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png":::
+1. On the SQL configuration page you can choose to deploy a new Azure SQL server, or use an existing Azure SQL Server. You'll provide login details and a database name to use for this deployment.
 
-- Profisee ARM Deployment Wizard - Azure DNS 
-Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer automatically creates a Let's Encrypt certificate for HTTP/TLS. Of you choose "No" you'll need to supply various networking configuration parameters and your own HTTPS/TLS certificate.
+    :::image type="content" alt-text="Screenshot of SQL configuration page in the ARM deployment wizard, with Yes, create a new SQL Server selected and details provided." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-c-sqlserver.png":::
 
-    :::image type="content" alt-text="Image 6 - Screenshot of Profisee Azure ARM Wizard Step4 AzureDNS." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png":::
+1. On the storage configuration page you can choose to create a new storage account or use an existing one. You will need to provide an access key and the name of an existing file share if you choose an existing account.
 
-- Profisee ARM Deployment Wizard - Azure Storage
+    :::image type="content" alt-text="Screenshot of ARM deployment wizard storage account page, with details provided." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png":::
 
-    :::image type="content" alt-text="Image 7 - Screenshot of Profisee Azure ARM Wizard Step5 Storage." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-e-storage.png":::
+1. On the networking configuration page, you'll choose to either use the default Azure DNS or provide your own DNS host name.
 
-- Profisee ARM Deployment Wizard - Final Validation
+    >[!TIP] 
+    > **Yes, use default Azure DNS** is the recommended configuration. Choosing Yes, the deployer automatically creates a Let's Encrypt certificate for HTTP/TLS. If you choose **No** you'll need to supply various networking configuration parameters and your own HTTPS/TLS certificate.
 
-    :::image type="content" alt-text="Image 8 - Screenshot of Profisee Azure ARM Wizard_Step6 Final_Template Validation." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png":::
+    :::image type="content" alt-text="Screenshot of the ARM deployment Networking page, with Yes use default Azure DNS selected." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-d-azure-dns.png":::
 
-- Around 5-10 Minutes into the ARM deployment
+    >[!WARNING]
+    > The default Azure DNS URL (for example URL="https://purviewprofisee.southcentralus.cloudapp.azure.com/profisee") will be picked up by thr ARM template deployment wizard from the license file supplied to you by Profisee. If you intend to make changes and not use the default Azure DNS, make sure to communicate the full DNS and the fully qualified URL of the Profisee DNS to the Profisee support team so that they can re-generate and provide you the updated license file. Failure to do this will result in a malfunctioning installation of Profisee.
 
-    :::image type="content" alt-text="Image 9 - Screenshot of Profisee Azure ARM Wizard Deployment Progress Intermediate." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png":::
+1. On the review + create page, review your details to ensure they are correct while the wizard validates your configuration. Once validation passes, select **Create**.
 
-- Final Stages of Deployment. You need to wait around 45-50 minutes for the deployment to complete installing Profisee. Completion of "InstallProfiseePlatform" stage also indicates deployment is complete!
+    :::image type="content" alt-text="Screenshot of the review + create page of the ARM deployment wizard, showing all details with a validation passed flag at the top of the page." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-f-final-template-validation.png":::
 
-    :::image type="content" alt-text="Image 10 - Screenshot of Profisee Azure ARM Wizard Deployment Complete." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-final.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-final.png":::
+1. It will take around 45-50 Minutes for deployment to complete installing Profisee. During the deployment you'll see the aspects that are in progress, and can refresh the page to review progress. The deployment will show as complete when all is finished. Completion of "InstallProfiseePlatform" stage also indicates deployment is complete!
 
-- Open the resource group once deployment completes.
+    :::image type="content" alt-text="Screenshot of Profisee Azure ARM Wizard Deployment Progress, showing intermediate progress." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-mid.png":::
 
-    :::image type="content" alt-text="Image 11 - Screenshot of Profisee Azure ARM Wizard_Post Deploy_Click Open Resource Group." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png":::
+    :::image type="content" alt-text="Screenshot of Profisee Azure ARM Wizard Deployment Progress, showing completed progress." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-final.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-deployment-progress-final.png":::
 
-- Fetch the final deployment URL. The final WEBURL is what you need to paste on your browser address bar and start enjoying Profisee-Purview integration! This URL will be the same that you'd have supplied to Profisee support while obtaining the license file. Unless you chose to change the URL format, it will look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/
+1. Once deployment is completed, open the resource group where you deployed your integration.
 
-    :::image type="content" alt-text="Image 12 - Screenshot of Profisee Azure ARM Wizard Select Outputs Get FinalDeployment URL." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
+    :::image type="content" alt-text="Screenshot of the resource group where the profisee resources were deployed, withe the deployment script highlighted." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-post-deploy-click-open-resource-group.png":::
+
+1. Under outputs, fetch the final deployment URL. The final WEBURL is what you need to paste on your browser address bar and start enjoying Profisee-Purview integration! This URL will be the same that you'd have supplied to Profisee support while obtaining the license file. Unless you chose to change the URL format, it will look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/
+
+    :::image type="content" alt-text="Screenshot of the outputs of the deployment script, showing the deployment WEB U R L highlighted in the output." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-click-outputs-get-final-deployment-url.png":::
     
-- Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client". Select the Downloads for "Profisee FastApp Studio" utility and the "Profisee Platform Tools". Install both these tools on your local client machine.
+1. Populate and hydrate data to the newly installed Profisee environment by installing FastApp. Go to your Profisee deployment URL and select **/Profisee/api/client**. It should look something like - "https://[profisee_name].[region].cloudapp.azure.com/profisee/api/client". Select the Downloads for "Profisee FastApp Studio" utility and the "Profisee Platform Tools". Install both these tools on your local client machine.
 
-    :::image type="content" alt-text="Image 13 - Screenshot of Profisee Client Tools Download." source="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png":::
+    :::image type="content" alt-text="Screenshot of the Profisee Client Tools download, with the download links highlighted." source="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-download-fastapp-tools.png":::
     
-- Log in to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you log in with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
+1. Log in to FastApp Studio and perform the rest of the MDM Administration and configuration management for Profisee. Once you log in with the administrator email address supplied during the setup; you should be able to see the administration menu on the left pane of the Profisee FastApp Studio. Navigate to these menus and perform the rest of your MDM journey using FastApp tool. Being able to see the administration menu as seen in the image below confirms successful installation of Profisee on Azure Platform.
 
-    :::image type="content" alt-text="Image 14 - Screenshot of Profisee FastApp Studio once you sign in." source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
+    :::image type="content" alt-text="Screenshot of the Profisee FastApp Studio once you sign in, showing the Accounts and Teams menu selected, and the FastApps link highlighted." source="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-fastapp-studio-home-screen.png":::
 
-- As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
+1. As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
 
-```{
-  "OverallStatus": "Healthy",
-  "TotalCheckDuration": "0:XXXXXXX",
-  "DependencyHealthChecks": {
-    "purview_service_health_check": {
-      "Status": "Healthy",
-      "Duration": "00:00:NNNN",
-      "Description": "Successfully connected to Purview."
-    },
-    "governance_service_health_check": {
-      "Status": "Healthy",
-      "Duration": "00:00:NNNN",
-      "Description": "Purview cache loaded successfully. 
-      Total assets: NNN; Instances: 1; Entities: NNN; Attributes: NNN; Relationships: NNN; Hierarchies: NNN"
-    },
-    "messaging_db_health_check": {
-      "Status": "Healthy",
-      "Duration": "00:00:NNNN",
-      "Description": null
-    },
-    "logging_db_health_check": {
-      "Status": "Healthy",
-      "Duration": "00:00:NNNN",
-      "Description": null
+    ```
+    {
+      "OverallStatus": "Healthy",
+      "TotalCheckDuration": "0:XXXXXXX",
+      "DependencyHealthChecks": {
+        "purview_service_health_check": {
+          "Status": "Healthy",
+          "Duration": "00:00:NNNN",
+          "Description": "Successfully connected to Purview."
+        },
+        "governance_service_health_check": {
+          "Status": "Healthy",
+          "Duration": "00:00:NNNN",
+          "Description": "Purview cache loaded successfully. 
+          Total assets: NNN; Instances: 1; Entities: NNN; Attributes: NNN; Relationships: NNN; Hierarchies: NNN"
+        },
+        "messaging_db_health_check": {
+          "Status": "Healthy",
+          "Duration": "00:00:NNNN",
+          "Description": null
+        },
+        "logging_db_health_check": {
+          "Status": "Healthy",
+          "Duration": "00:00:NNNN",
+          "Description": null
+        }
+      }
     }
-  }
-}
-```
-An output response that looks similar as the above confirms successful installation, completes all the deployment steps; and validates whether Profisee has been successfully connected to your Microsoft Purview and indicates that the two systems are able to communicate properly.
+    ```
+    An output response that looks similar as the above confirms successful installation, completes all the deployment steps; and validates whether Profisee has been successfully connected to your Microsoft Purview and indicates that the two systems are able to communicate properly.
 
 ## Next steps
 Through this guide, we learned of the importance of MDM in driving and supporting Data Governance in the context of the Azure data estate, and how to set up and deploy a Microsoft Purview-Profisee integration.
