@@ -92,7 +92,7 @@ The managed developer portal includes a **Custom HTML code** widget that enables
     * **`app`** - Code for the widget component that visitors to the published developer portal see and interact with 
     * **`editor`** - Code for the widget component that you use in the administrative interface of the developer portal to edit widget settings 
 
-    The `values.ts` file contains the default values and types of the widget's custom properties.
+    The `values.ts` file contains the default values and types of the widget's custom properties you can enable for editing.
     
     :::image type="content" source="media/developer-portal-extend-custom-functionality/widget-custom-properties.png" alt-text="Screenshot of custom properties page in developer portal.":::
     
@@ -121,10 +121,10 @@ The custom widget is now deployed to your developer portal. Using the portal's a
 
 ### Publish the developer portal
 
-After you configure the widget and verify its functionality, [republish the portal](api-management-howto-developer-portal-customize.md#publish) to make the widget available in production.
+After you configure the widget in the administrative interface, [republish the portal](api-management-howto-developer-portal-customize.md#publish) to make the widget available in production.
 
 > [!NOTE]
-> *  Widget code updates you deploy aren't used in production until you republish the developer portal.
+> *  If you deploy updated widget code at a later date, the widget used in production doesn't update until you republish the developer portal.
 > * The widget's compiled code is associated with a specific portal *revision*. If you make a previous portal revision current, the custom widget associated with that revision is used.
 
 ### Widget templates 
@@ -137,9 +137,9 @@ We provide templates for the following technologies you can use for the widget:
 
 All templates are based on the TypeScript programming language. 
 
-The React template contains prepared custom hooks in `hooks.ts` file and established providers for sharing context through the component tree with dedicated `useSecrets`, `useValues`, and `useEditorValues` hooks. 
+The React template contains prepared custom hooks in the `hooks.ts` file and established providers for sharing context through the component tree with dedicated `useSecrets`, `useValues`, and `useEditorValues` hooks. 
 
-### Implement a custom widget with another framework 
+### Using another framework 
 
 To implement your widget using another JavaScript UI framework and libraries, you need to set up the project yourself with the following guidelines:
 
@@ -156,7 +156,7 @@ This package contains a set of tools to help you develop your custom widget and 
 
 #### `@azure/api-management-custom-widgets-tools/getValues` 
 
-Function that returns JSON object containing the values you've set in the widget editor combined with default values, passed as an argument. 
+Function that returns a JSON object containing the values you've set in the widget editor combined with default values, passed as an argument. 
 
 ```JavaScript
 Import {getValues} from "@azure/api-management-custom-widgets-tools/getValues" 
@@ -209,7 +209,7 @@ It accepts three arguments by default:
 
 This function is used internally in templates. In most implementations you shouldn't need it otherwise. 
 
-This function returns all data passed to your custom widget from the developer portal. It contains other pieces of data that might be useful in debugging or in more advanced scenarios. This API is expected to change with potential breaking changes. It returns a JSON object that contains the following keys: 
+This function returns all data passed to your custom widget from the developer portal. It contains other data that might be useful in debugging or in more advanced scenarios. This API is expected to change with potential breaking changes. It returns a JSON object that contains the following keys: 
 
 * `values` - All the values you've set in the editor, the same object that is returned by  `getEditorData` 
 
