@@ -27,7 +27,7 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
         1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
 
-        [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+           [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
         1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
