@@ -15,7 +15,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Deploy an AKS cluster using a Bicep file.
 * Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
+:::image type="content" source="media/quick-kubernetes-deploy-rm-bicep/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -309,7 +309,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
+:::image type="content" source="media/quick-kubernetes-deploy-rm-bicep/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
 
 ## Clean up resources
 
