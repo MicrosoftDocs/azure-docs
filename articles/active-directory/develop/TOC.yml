@@ -418,7 +418,7 @@
         - name: Scopes for web API accepting v1.0 tokens
           href: msal-v1-app-scopes.md
         - name: Spring Cloud Azure
-          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-security-support
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-security-support?toc=/azure/active-directory/develop/toc.json
 - name: Desktop
   items:
     - name: Desktop app authentication documentation
