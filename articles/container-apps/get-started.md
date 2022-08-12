@@ -43,12 +43,14 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 ```powershell
 $CmdArgs = @{
   Name = "myworkspace"
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
   PublicNetworkAccessForIngestion = "Enabled"
   PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CommonParameters @CmdArgs
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace @CommonParameters -Name MyWorkspace).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey @CommonParameters -Name MyWorkspace).PrimarySharedKey
+New-AzOperationalInsightsWorkspace @CmdArgs
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -Name $CmdArgs.Name  -ResourceGroupName $RESOURCE_GROUP).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -Name $CmdArgs.Name  -ResourceGroupName $RESOURCE_GROUP).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
@@ -60,7 +62,7 @@ $CmdArgs = @{
   AppLogConfigurationDestination = "log-analytics"
   LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
 }
-New-AzContainerAppManagedEnv @CommonParameters @CmdArgs 
+New-AzContainerAppManagedEnv @CmdArgs 
 ```
 
 ---
@@ -94,17 +96,19 @@ $ImageParams = @{
   Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
 }
 $IMAGE_OBJ = New-AzContainerAppTemplateObject @ImageParams
-$ENV_ID = (Get-AzContainerAppManagedEnv @CommonParameters -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+$ENV_ID = (Get-AzContainerAppManagedEnv -EnvName $CONTAINERAPPS_ENVIRONMENT -ResourceGroupName $RESOURCE_GROUP).Id
 
 $CmdArgs = @{
   Name = "my-container-app"
+  Location = $LOCATION
+  ResourceGroupName = $RESOURCE_GROUP
   ManagedEnvironmentId = $ENV_ID
   TemplateContainer = $IMAGE_OBJ
   IngressTargetPort = 80
   IngressExternal = $true
 }
 
-New-AzContainerApp @CommonParameters @CmdArgs
+New-AzContainerApp @CmdArgs
 ```
 
 > [!NOTE]
@@ -127,7 +131,7 @@ The `create` command returned the fully qualified domain name for the container 
 Get the fully qualified domain name for the container app.
 
 ```powershell
-(Get-AzContainerApp @CommonParameters -Name my-container-app).IngressFqdn
+(Get-AzContainerApp -Name $CmdArgs.Name).IngressFqdn
 ```
 
 Copy this location to a web browser.

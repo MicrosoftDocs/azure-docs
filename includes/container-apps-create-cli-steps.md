@@ -102,12 +102,6 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 $RESOURCE_GROUP="my-container-apps"
 $LOCATION="canadacentral"
 $CONTAINERAPPS_ENVIRONMENT="my-environment"
-
-$CommonParameters = @{
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
-} 
-
 ```
 
 ---
@@ -125,7 +119,7 @@ az group create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzResourceGroup @CommomParameters -Name $RESOURCE_GROUP
+New-AzResourceGroup -Location $LOCATION -Name $RESOURCE_GROUP
 ```
 
 ---
