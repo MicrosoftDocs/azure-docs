@@ -20,7 +20,7 @@ An Azure Machine Learning workspace requires outbound access to `storage.<region
 
 By using a Service Endpoint Policy, you can mitigate this vulnerability. 
 
-![example architecture](./images/dlpsamplearchitecture.png)
+
 
 ## Prerequisites
 
