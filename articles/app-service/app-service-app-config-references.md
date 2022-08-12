@@ -229,4 +229,4 @@ Below is an example pseudo-template for a function app with App Configuration re
 
 If a reference isn't resolved properly, the reference value will be used instead. For the application settings, an environment variable would be created whose value has the `@Microsoft.AppConfiguration(...)` syntax. It may cause an error, as the application was expecting a configuration value instead.
 
-Most commonly, this error could be due to a misconfiguration of the [App Configuration access policy](#granting-your-app-access-to-app-config). However, it could also be due to a syntax error in the reference or the Configuration key-value not existing in the store.
+Most commonly, this error could be due to a misconfiguration of the [App Configuration access policy](#granting-your-app-access-to-app-configuration). However, it could also be due to a syntax error in the reference or the Configuration key-value not existing in the store.
