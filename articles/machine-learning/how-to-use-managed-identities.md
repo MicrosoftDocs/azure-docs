@@ -73,7 +73,7 @@ az ml workspace create -w <workspace name> \
 
 ### Let Azure Machine Learning service create workspace ACR
 
-If you don't bring your own ACR, Azure Machine Learning service will create one for you when you perform an operation that needs one. For example, submit a training run to Machine Learning Compute, build an environment, or deploy a web service endpoint. The ACR created by the workspace will have admin user enabled, and you need to disable the admin user manually.
+If you don't bring your own ACR, Azure Machine Learning service will create one for you when you perform an operation that needs one. For example, submit a training job to Machine Learning Compute, build an environment, or deploy a web service endpoint. The ACR created by the workspace will have admin user enabled, and you need to disable the admin user manually.
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -171,7 +171,7 @@ az role assignment create --assignee <principal ID> \
 --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
 ```
 
-Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
+Finally, when submitting a training job, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

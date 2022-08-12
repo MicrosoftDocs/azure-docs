@@ -230,5 +230,7 @@ AzureActivity
 ![Activity logs using the Advanced Analytics portal - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## Next steps
+
+* [Alert on privileged Azure role assignments](role-assignments-alert.md)
 * [View activity logs to monitor actions on resources](../azure-monitor/essentials/activity-log.md)
 * [Monitor subscription activity with the Azure Activity log](../azure-monitor/essentials/platform-logs-overview.md)

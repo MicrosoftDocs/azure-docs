@@ -1084,8 +1084,8 @@
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
   - name: Azure Spring Apps
-    tocHref: /azure/spring-cloud/
-    topicHref: /azure/spring-cloud/index
+    tocHref: /azure/spring-apps/
+    topicHref: /azure/spring-apps/index
   - name: Dev Box
     tocHref: /azure/dev-box/
-    topicHref: /azure/dev-box/overview-what-is-microsoft-dev-box
+    topicHref: /shows/ask-the-expert/ask-the-expert-windows-as-a-dev-box

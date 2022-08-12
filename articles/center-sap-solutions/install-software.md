@@ -44,7 +44,7 @@ ACSS supports the following operating system (OS) software versions:
 
 ## Required components
 
-The following components are necessary for the SAP installation:
+The following components are necessary for the SAP installation . If you are following the "Upload components with script" step, these will be installed automatically. However you can also follow "Upload components manually" steps listed below to do this yourself.
 
 - SAP software installation media (part of the `sapbits` container described later in this article)
     - All essential SAP packages (*SWPM*, *SAPCAR*, etc.)
@@ -69,37 +69,11 @@ You can use the following method to upload the SAP components to your Azure acco
 
 You also can [upload the components manually](#upload-components-manually) instead.
 
-### Set up storage account
+### Create storage account and container
 
 Before you can download the software, set up an Azure Storage account for the downloads.
 
-1. [Create an Ubuntu 20.04 VM in Azure](/cli/azure/install-azure-cli-linux?pivots=apt).
-
-1. Sign in to the VM.
-
-1. Install the Azure CLI on the VM.
-
-    ```bash
-    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-    ```
-
-1. [Update the Azure CLI](/cli/azure/update-azure-cli) to version 2.30.0 or higher.
-
-1. Install the following packages:
-
-    - `pip3` version `pip-21.3.1.tar.gz`
-    - `wheel` version 0.37.1
-    - `jq` version 1.6
-    - `ansible` version 2.9.27
-    - `zip`
-
-1. Sign in to Azure:
-
-    ```azurecli
-    az login
-    ```
-
-1. [Create an Azure Storage account through the Azure portal](../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure.
+1. [Create an Azure Storage account through the Azure portal](../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure. This is the storage account where SAP bits/media will reside.
 
 1. Create a container within the Azure Storage account named `sapbits`.
 
@@ -111,10 +85,32 @@ Before you can download the software, set up an Azure Storage account for the do
 
     1. Select **Create**.
 
+### Set up storage account
+
+1. [Create an Ubuntu 20.04 VM in Azure](/cli/azure/install-azure-cli-linux?pivots=apt).
+
+1. Sign in to the VM.
+
+1. Install the Azure CLI on the VM.
+
+    ```bash
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    ```
+
+1. [Update the Azure CLI](/cli/azure/update-azure-cli) to latest version.
+
+
+1. Sign in to Azure:
+
+    ```azurecli
+    az login
+    ```
+
+
 1. Download the following shell script for the deployer VM packages.
 
     ```azurecli
-    wget "https://raw.githubusercontent.com/Azure/ACSS-preview/main/Installation%20Script/DownloadDeployerVMPackages.sh" -O "DownloadDeployerVMPackages.sh"
+    wget "https://raw.githubusercontent.com/Azure/Azure-Center-for-SAP-solutions-preview/main/DownloadDeployerVMPackages.sh" -O "DownloadDeployerVMPackages.sh"
     ```
 
 1. Update the shell script's file permissions.
@@ -143,7 +139,7 @@ Before you can download the software, set up an Azure Storage account for the do
 
 1. In the Azure CLI, when asked for the access key, enter your storage account's key. To find the storage account's key:
 
-    1. Find the storage account in the Azure portal.
+    1. Find the storage account in the Azure portal you created.
 
     1. On the storage account's sidebar menu, select **Access keys** under **Security + networking**.
 
@@ -151,9 +147,18 @@ Before you can download the software, set up an Azure Storage account for the do
 
     1. Copy the **Key** value.
 
-1. In the Azure portal, find the container named `sapbits` in the storage account that you created.
+1. The following packages will be installed automatically under a new folder **deployervmpackages** in the storage account:
 
-1. Make sure the deployer VM packages are now visible in `sapbits`.
+    - `pip3` version `pip-21.3.1.tar.gz`
+    - `wheel` version 0.37.1
+    - `jq` version 1.6
+    - `ansible` version 2.9.27
+    - `netaddr` version 0.8.0
+    - `zip`
+    - `netaddr` version 0.8.0
+    
+
+1. Make sure the deployer VM packages folder is now visible in `sapbits` container.
 
     1. Find the storage account that you created in the Azure portal.
 
@@ -161,33 +166,25 @@ Before you can download the software, set up an Azure Storage account for the do
 
     1. On the **Overview** page for `sapbits`, look for a folder named **deployervmpackages**.
 
+1. Move to next step to download SAP media
+    
 ### Download SAP media
 
 After setting up your Azure Storage account, you can download the SAP installation media required to install the SAP software.
 
 1. Sign in to the Ubuntu VM that you created in the [previous section](#set-up-storage-account).
 
+1. Install ansible on the ubuntu VM
+
+    ```bash
+    sudo pip3 install ansible==2.9.27
+    ```
+
 1. Clone the SAP automation repository from GitHub.
 
     ```azurecli
     git clone https://github.com/Azure/sap-automation.git
     ```
-
-1. Generate a shared access signature (SAS) token for the `sapbits` container.
-
-    1. In the Azure portal, open the Azure Storage account.
-    
-    1. Open the `sapbits` container.
-
-    1. On the container's sidebar menu, select **Shared access signature** under **Security + networking**.
-
-    1. On the SAS page, under **Allowed resource types**, select **Container**.
-
-    1. Configure other settings as necessary.
-
-    1. Select **Generate SAS and connection string**.
-
-    1. Copy the **SAS token** value. Make sure to copy the `?` prefix with the token.
 
 1. Run the Ansible script **playbook_bom_download** with your own information.
 

@@ -28,7 +28,7 @@ This section contains a declaration of all the destinations where the data will 
 This section ties the other sections together. Defines the following for each stream declared in the `streamDeclarations` section:
 
 - `destination` from the `destinations` section where the data will be sent. 
-- `transformKql` which is the [transformation](/data-collection-transformations.md) applied to the data that was sent in the input shape described in the `streamDeclarations` section to the shape of the target table.
+- `transformKql` which is the [transformation](data-collection-transformations.md) applied to the data that was sent in the input shape described in the `streamDeclarations` section to the shape of the target table.
 - `outputStream` section, which describes which table in the workspace specified under the `destination` property the data will be ingested into. The value of the outputStream will have the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table. Only one destination is allowed per stream.
 
 ## Azure Monitor agent
