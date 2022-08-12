@@ -530,13 +530,23 @@ items:
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Troubleshoot AzCopy issues
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: BlobFuse
+        items:
+        - name: What is BlobFuse2?
+          href: blobfuse2-what-is.md
+        - name: Deploy BlobFuse2 on Linux
+          href: blobfuse2-how-to-deploy.md
+        - name: Deploy BlobFuse v1 on Linux
+          href: storage-how-to-mount-container-linux.md
+        - name: Troubleshooting
+          href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transfer data by using SFTP
         href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Mount storage from Linux using blobfuse
+      - name: Mount storage from Linux using BlobFuse
         href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -704,6 +714,8 @@ items:
         href: ../common/storage-ref-azcopy-set-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: BlobFuse2
       items:
+      - name: Configuration settings
+        href: blobfuse2-configuration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Commands
         items:
         - name: The BlobFuse2 command set

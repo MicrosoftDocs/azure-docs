@@ -27,10 +27,11 @@ This article provides you with steps for simulating the following risk detection
 - Anonymous IP address (easy)
 - Unfamiliar sign-in properties (moderate)
 - Atypical travel (difficult)
+- Leaked credentials in GitHub for workload identities (moderate)
 
 Other risk detections cannot be simulated in a secure manner.
 
-More information about each risk detection can be found in the article, [What is risk](concept-identity-protection-risks.md).
+More information about each risk detection can be found in the article, What is risk for [user](concept-identity-protection-risks.md) and [workload identity](concept-workload-identity-risk.md).
 
 ## Anonymous IP address
 
@@ -81,6 +82,30 @@ Simulating the atypical travel condition is difficult because the algorithm uses
 
 The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
+## Leaked Credentials for Workload Identities
+
+This risk detection indicates that the application's valid credentials have been leaked. This leak can occur when someone checks in the credentials in a public code artifact on GitHub. Therefore, to simulate this detection, you need a GitHub account and can [sign up a GitHub account](https://docs.github.com/get-started/signing-up-for-github) if you don't have one already.
+
+**To simulate Leaked Credentials in GitHub for Workload Identities, perform the following steps**:
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Browse to **Azure Active Directory** > **App registrations**.
+3. Select **New registration** to register a new application or reuse an exsiting stale application.
+4. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and click **Add**. Record the secret's value for later use for your GitHub Commit.
+
+   > [!Note]
+   > **You can not retrieve the secret again after you leave this page**.
+   
+5. Get the TenantID and Application(Client)ID in the **Overview** page.
+6. Ensure you disable the application via **Azure Active Directory** > **Enterprise Application** > **Properties** > Set **Enabled for users to sign-in** to **No**.
+7. Create a **public** GitHub Repository, add the following config and commit the change.
+   ```GitHub file
+     "AadClientId": "XXXX-2dd4-4645-98c2-960cf76a4357",
+     "AadSecret": "p3n7Q~XXXX",
+     "AadTenantDomain": "XXXX.onmicrosoft.com",
+     "AadTenantId": "99d4947b-XXX-XXXX-9ace-abceab54bcd4",
+   ```
+7. In about 8 hours, you will be able to view a leaked credentail detection under **Azure Active Directory** > **Security** > **Risk Detection** > **Workload identity detections** where the additional info will contain your the URL of your GitHub commit.
+
 ## Testing risk policies
 
 This section provides you with steps for testing the user and the sign-in risk policies created in the article, [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md).
@@ -125,6 +150,8 @@ To test a sign in risk policy, perform the following steps:
 ## Next steps
 
 - [What is risk?](concept-identity-protection-risks.md)
+
+- [Securing workload identities with Identity](concept-workload-identity-risk.md)
 
 - [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md)
 

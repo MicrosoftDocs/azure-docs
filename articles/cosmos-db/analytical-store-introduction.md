@@ -407,15 +407,15 @@ Analytical store relies on Azure Storage and offers the following protection aga
 Although analytical store has built-in protection against physical failures, backup can be necessary for accidental deletes or updates in transactional store. In those cases, you can restore a container and use the restored container to backfill the data in the original container, or fully rebuild analytical store if necessary. 
 
 > [!NOTE]
-> Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that. 
+> Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that.
 
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
-* Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account without any restriction. 
+* Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
 * Continuous backup mode isn't fully supported yet:
- * Currently continuous backup mode can't be used in database accounts with Synapse Link enabled.
- * Currently database accounts with continuous backup mode enabled can enable Synapse Link through a support case.
- * Currently new database accounts can be created with continous backup mode and Synapse Link enabled, using Azure CLI or PowerShell. Those two features must be turned on at the same time, in the exact same command that creates the database account.
+  * Database accounts with Synapse Link enabled currently can't use continuous backup mode. 
+  * Database accounts with continuous backup mode enabled can enable Synapse Link through a support case. This capability is in preview now.
+  * Database accounts that have neither continuous backup nor Synapse Link enabled can use these two features together through a support case. This capability is in preview now.
 
 ### Backup Polices
 
@@ -466,6 +466,8 @@ Analytical store partitioning is completely independent of partitioning in�
 * **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary, secondary, or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to these Linked Services or to these SQL credentials are available to anyone who has access to the workspace. Please note that the Cosmos DB read only key can also be used.
 
 * **Network isolation using private endpoints** - You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
+
+* **Data encryption at rest** - Your analytical store encryption is enabled by default.
 
 * **Data encryption with customer-managed keys** - You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must configure your account's managed identity in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
 
