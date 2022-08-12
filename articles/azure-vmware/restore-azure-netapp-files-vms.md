@@ -24,14 +24,11 @@ You can restore VMs to the original datastore mounted on the original ESXi host 
 
 ## Prerequisites to restore VMs
 
-* A backup must exist. <br>
-You must have created a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
+* A backup must exist: you must have created a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
 >[!NOTE]
 >Restore operations cannot finish successfully if there are snapshots of the VM that were performed by software other than the Cloud Backup for Virtual Machines.
-* The VM must not be in transit. <br>
-    The VM that you want to restore must not be in a state of vMotion or Storage vMotion.
-* High Availability (HA) configuration errors <br>
-    Ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
+* The VM must not be in transit: the VM that you want to restore must not be in a state of vMotion or Storage vMotion.
+* High Availability (HA) configuration errors: ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
 
 ### Considerations for restoring VMs from backups
 

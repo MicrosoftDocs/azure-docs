@@ -59,16 +59,11 @@ Do not add VMs in an inaccessible state to a resource group. Although a resource
 ### Considerations for resource groups
 
 You can add or remove resources from a resource group at any time.
-* Back up a single resource: <br>
-    To back up a single resource (for example, a single VM), you must create a resource group that contains that single resource.
-* Back up multiple resources: <br>
-    To back up multiple resources, you must create a resource group that contains multiple resources.
-* Optimize snapshot copies: <br>
-    To optimize snapshot copies, group the VMs and datastores that are associated with the same volume into one resource group.
-* Backup policies: <br>
-    Although it's possible to create a resource group without a backup policy, you can only perform scheduled data protection operations when at least one policy is attached to the resource group. You can use an existing policy, or you can create a new policy while creating a resource group.
-* Compatibility checks: <br>
-    Cloud Backup for VMs performs compatibility checks when you create a resource group. Reasons for incompatibility might be:
+* **Back up a single resource:** To back up a single resource (for example, a single VM), you must create a resource group that contains that single resource.
+* **Back up multiple resources:** To back up multiple resources, you must create a resource group that contains multiple resources.
+* **Optimize snapshot copies:** To optimize snapshot copies, group the VMs and datastores that are associated with the same volume into one resource group.
+* **Backup policies:** Although it's possible to create a resource group without a backup policy, you can only perform scheduled data protection operations when at least one policy is attached to the resource group. You can use an existing policy, or you can create a new policy while creating a resource group.
+* **Compatibility checks:** Cloud Backup for VMs performs compatibility checks when you create a resource group. Reasons for incompatibility might be:
     * Virtual machine disks (VMDKs) are on unsupported storage.
     * A shared PCI device is attached to a VM.
     * You have not added the Azure subscription account.
