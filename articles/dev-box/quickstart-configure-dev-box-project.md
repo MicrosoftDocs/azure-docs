@@ -30,18 +30,19 @@ If you don't have an available dev center with an existing dev box definition an
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, type *Projects* and then select **Projects** from the list.
-   :::image type="content" source="./media/quickstart-configure-dev-box-projects/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
+2. In the search box, type *Projects* and then select **Projects** from the list.
 
-2. Open the project in which you want to create the dev box pool.
+    <!--    :::image type="content" source="./media/quickstart-configure-dev-box-projects/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted."::: -->
+
+3. Open the project in which you want to create the dev box pool.
   
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/projects-grid.png" alt-text="Screenshot of the list of existing projects.":::
 
-3. Select **Dev box pools** and then select **+ Add**.
+4. Select **Dev box pools** and then select **+ Add**.
  
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-pool-grid-empty.png" alt-text="Screenshot of the list of dev box pools within a project. The list is empty.":::
 
-4. On the **Create a dev box pool** page, enter the following values:
+5. On the **Create a dev box pool** page, enter the following values:
 
    |Name|Value|
    |----|----|
@@ -53,9 +54,9 @@ If you don't have an available dev center with an existing dev box definition an
 
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
 
-5. Select **Add**.
+6. Select **Add**.
  
-6. Verify that the new dev box pool appears in the list. You may need to refresh the screen.
+7. Verify that the new dev box pool appears in the list. You may need to refresh the screen.
 
 The dev box pool will be deployed and health checks will be run to ensure the image and network pass the validation criteria to be used for dev boxes. The screenshot below shows four dev box pools, each with a different status. 
 
