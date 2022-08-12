@@ -250,7 +250,7 @@
   - name: Monitoring Azure Queue storage reference
     href: monitor-queue-storage-reference.md
   - name: Spring Integration with Azure Storage Queue
-    href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-storage-queue?toc=/azure/storage/queues/TOC.json
+    href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/queues/TOC.json#spring-integration-with-azure-storage-queue
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.storage/allversions
