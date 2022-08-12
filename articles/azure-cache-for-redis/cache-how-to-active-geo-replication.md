@@ -64,13 +64,12 @@ You should remove the unavailable cache because the remaining caches in the repl
 
 ### Azure CLI
 
-Use the Azure CLI for creating a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [https://docs.microsoft.com/cli/azure/redisenterprise?view=azure-cli-latest#az-redisenterprise-create](/cli/azure/redisenterprise?view=azure-cli-latest).
-<!-- Nice conventional see also link. -->
+Use the Azure CLI for creating a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [az redisenterprise create](/cli/azure/redisenterprise?view=azure-cli-latest).
 
 #### Create new Enterprise instance in a new geo-replication group using Azure CLI
 
 This example creates a new Azure Cache for Redis Enterprise E10 cache instance called `Cache1` in the East US region. Then, the cache is added to a new active geo-replication group called `replicationGroup`:
-<!-- I am pretty sure we want to distinguish here from open-source Redis, right? We want the actual product name in the text. -->
+
 
 ```azurecli-interactive
 az redisenterprise create --location "East US" --cluster-name "Cache1" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"
@@ -93,7 +92,7 @@ As before, you need to list both `Cache1` and `Cache2` using the `--linked-datab
 
 ### Azure PowerShell
 
-Use Azure PowerShell to create a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-azredisenterprisecache).
+Use Azure PowerShell to create a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-azredisenterprisecache?view=azps-8.2.0).
 
 #### Create new Enterprise instance in a new geo-replication group using PowerShell
 
