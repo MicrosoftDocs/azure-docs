@@ -40,7 +40,7 @@ The following steps show you how to create and configure a dev center.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Use the search box to locate dev box resources, and select dev centers.
+1. In the search box, type *Dev box* and select **Dev centers** from the list.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
 
 1. On the dev centers page, select **+Create**. 
@@ -79,7 +79,7 @@ To perform the steps in this section, you must have an existing virtual network 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Use the search box to locate dev box resources, and select network connections.
+1. In the search box, type *Dev box* and select **Network connections** from the list.
 
 1. On the **Network Connections** page, select **+Create**.
      :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Create highlighted.":::
@@ -130,7 +130,7 @@ To perform the steps in this section, you must have an existing virtual network 
 ## Attach network connection to dev center
 You need to attach a network connection to a dev center before it can be used in projects to create dev box pools.
 
-1. In the [Azure portal](https://portal.azure.com), use the search box to locate dev box resources, and select dev centers.
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev box* and select **Dev centers** from the list.
 
 1. Select the dev center you created and select **Networking**. 
  
@@ -177,7 +177,7 @@ The following steps show you how to create and configure a dev box definition. Y
 
 The following steps show you how to create and configure a project in dev box.
 
-1. In the [Azure portal](https://portal.azure.com), use the search box to locate dev box resources, and select projects. 
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev box* and select **Projects**. 
 
 1. On the Projects page,  select **+Create**.
  
@@ -187,10 +187,9 @@ The following steps show you how to create and configure a project in dev box.
    |----|----|
    |**Subscription**|Select the subscription in which you want to create the project.|
    |**Resource group**|Select an existing resource group or select **Create new**, and enter a name for the resource group.|
-   |**dev center**|Select the dev center to which you want to associate this project. All the dev center level settings will be applied to the project.|
+   |**Dev center**|Select the dev center to which you want to associate this project. All the dev center level settings will be applied to the project.|
    |**Name**|Enter a name for your project. |
    |**Description**|Enter a brief description of the project. |
-   |**Region**| Select the region you want the project to be created in.|
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot of the Create a dev box project basics tab.":::
 

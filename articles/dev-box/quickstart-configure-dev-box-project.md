@@ -22,13 +22,15 @@ In this quickstart, you'll perform the following tasks:
 * [Provide access to a dev box project](#provide-access-to-a-dev-box-project)
 
 ## Create a dev box pool
+A dev box pool is a collection of dev boxes that you manage together. You must have a pool before users can create a dev box, and all dev boxes created in the pool will be in the same region. 
+
 The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure a dev box pool. 
 
 If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Use the search box to locate Dev Box resources, and select **Projects**.
+1. In the search box, type *Dev box* and select **Projects** from the list.
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
 
 2. Open the project in which you want to create the dev box pool.
@@ -46,6 +48,8 @@ If you don't have an available dev center with an existing dev box definition an
    |**Name**|Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes, and must be unique within a project.|
    |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes created within this pool.|
    |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes created within this pool.|
+   |**Dev Box Creator Privileges**|Select Local Administrator or Standard User.|
+   |**Licensing**| Select this check box if your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
 
@@ -62,7 +66,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
-1. Use the search box to locate Dev Box resources, and select **Projects**.
+1. In the search box, type *Dev box* and select **Projects** from the list.
 
 1. Select the project you want to provide your team members access to.
  
