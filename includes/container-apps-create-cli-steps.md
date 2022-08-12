@@ -24,9 +24,11 @@ Connect-AzAccount
 
 ---
 
-Next, install the Azure Container Apps extension for the CLI.
+
 
 # [Bash](#tab/bash)
+
+Next, install the Azure Container Apps extension for the CLI.
 
 ```azurecli
 az extension add --name containerapp --upgrade
@@ -34,6 +36,13 @@ az extension add --name containerapp --upgrade
 
 # [PowerShell](#tab/powershell)
 
+You must have the latest Az module installed.
+
+```powershell
+Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+```
+
+Install the Az.App module.
 
 ```powershell
 Install-Module -Name Az.App
@@ -41,7 +50,7 @@ Install-Module -Name Az.App
 
 ---
 
-Now that the extension is installed, register the `Microsoft.App` namespace.
+Now that the current extension or module is installed, register the `Microsoft.App` namespace.
 
 > [!NOTE]
 > Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
@@ -89,9 +98,16 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 # [PowerShell](#tab/powershell)
 
 ```powershell
+
 $RESOURCE_GROUP="my-container-apps"
 $LOCATION="canadacentral"
 $CONTAINERAPPS_ENVIRONMENT="my-environment"
+
+$CommonParameters = @{
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
+} 
+
 ```
 
 ---
@@ -109,7 +125,7 @@ az group create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
+New-AzResourceGroup @CommomParameters -Name $RESOURCE_GROUP
 ```
 
 ---
