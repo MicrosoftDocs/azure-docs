@@ -412,19 +412,19 @@ AKS Clusters with service principal must first disable monitoring and then upgra
 az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
 ```
 
-1.	Disable monitoring with the following command:
+2.	Disable monitoring with the following command:
 
   ```cli
-  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> 
   ```
 
-2.	Upgrade cluster to system managed identity with the following command:
+3.	Upgrade cluster to system managed identity with the following command:
 
   ```cli
-  az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity --workspace-resource-id <workspace-resource-id>
+  az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity
   ```
 
-3.	Enable Monitoring addon with Managed Identity Auth Option using Log Analytics workspace resource ID obtained in the first step:
+4.	Enable Monitoring addon with managed identity authentication option using Log Analytics workspace resource ID obtained in the first step:
 
   ```cli
   az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
@@ -439,13 +439,13 @@ AKS Clusters with system assigned identity must first disable monitoring and the
   az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
   ```
 
-1.	Disable monitoring with the following command:
+2.	Disable monitoring with the following command:
 
   ```cli
-  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> 
+  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name>
   ```
 
-2.	Enable Monitoring addon with Managed Identity Auth Option using Log Analytics workspace resource ID obtained in the first step:
+3.	Enable Monitoring addon with managed identity authentication option using Log Analytics workspace resource ID obtained in the first step:
 
   ```cli
   az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
@@ -455,7 +455,7 @@ AKS Clusters with system assigned identity must first disable monitoring and the
 To enable network isolation by connecting your cluster to the Log Analytics workspace using [private link](../logs/private-link-security.md), your cluster must be using managed identity authentication with the Azure Monitor agent. 
 
 1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your AMPLS.
-2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call.
+2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call. The DCR association name must be **configurationAccessEndpoint**, `resourceUri` is the resource Id of the AKS cluster.
 
     ```rest
     PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
@@ -477,6 +477,8 @@ To enable network isolation by connecting your cluster to the Log Analytics work
         }
     }
     ```
+
+3. Enable monitoring with managed identity authentication option using the steps in [Migrate to managed identity authentication](#migrate-to-managed-identity-authentication).
 
 ## Limitations
 

@@ -82,6 +82,8 @@
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
+      - name: Ahrtemis
+        href: ahrtemis-tutorial.md
       - name: Air
         href: air-tutorial.md
       - name: Airstack
@@ -2237,6 +2239,8 @@
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
         href: tangoe-tutorial.md
+      - name: Tango Reserve by AgilQuest (EU Instance)
+        href: tango-reserve-tutorial.md
       - name: TAP App Security
         href: tap-app-security-tutorial.md  
       - name: TargetProcess
@@ -2401,6 +2405,8 @@
         href: uservoice-tutorial.md
       - name: UserZoom
         href: userzoom-tutorial.md
+      - name: valid8Me
+        href: valid8me-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
       - name: Vault Platform
@@ -2505,6 +2511,8 @@
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software
         href: wizergosproductivitysoftware-tutorial.md
+      - name: Wiz SSO
+        href: wiz-sso-tutorial.md
       - name: Wootric
         href: wootric-tutorial.md
       - name: Work.com
@@ -2829,7 +2837,9 @@
       - name: H5mag
         href: h5mag-provisioning-tutorial.md
       - name: Ideo
-        href: ideo-provisioning-tutorial.md        
+        href: ideo-provisioning-tutorial.md
+      - name: Ideagen Cloud
+        href: ideagen-cloud-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: iPass SmartConnect
@@ -2930,6 +2940,8 @@
         href: oracle-cloud-infrastructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
+        href: palo-alto-networks-cloud-identity-engine-provisioning-tutorial.md
       - name: Palo Alto Networks SCIM Connector
         href: palo-alto-networks-scim-connector-provisioning-tutorial.md
       - name: PaperCut Cloud Print Management

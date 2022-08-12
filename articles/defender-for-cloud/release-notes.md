@@ -24,6 +24,8 @@ Updates in July include:
 - [Defender for Container's VA adds support for the detection of language specific packages (Preview)](#defender-for-containers-va-adds-support-for-the-detection-of-language-specific-packages-preview)
 - [Protect against the Operations Management Suite vulnerability CVE-2022-29149](#protect-against-the-operations-management-suite-vulnerability-cve-2022-29149)
 - [Integration with Entra Permissions Management](#integration-with-entra-permissions-management)
+- [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit)
+- [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service)
 
 ### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
 
@@ -68,6 +70,33 @@ Defender for Cloud has integrated with [Microsoft Entra Permissions Management](
 Each Azure subscription, AWS account, and GCP project that you onboard, will now show you a view of your [Permission Creep Index (PCI)](../active-directory/cloud-infrastructure-entitlement-management/ui-dashboard.md).
 
 Learn more about [Entra Permission Management (formerly Cloudknox)](other-threat-protections.md#entra-permission-management-formerly-cloudknox)
+
+### Key Vault recommendations changed to "audit"
+
+The effect for the Key Vault recommendations listed here was changed to "audit":
+
+| Recommendation name | Recommendation ID |
+| ------- | ------ |
+| Validity period of certificates stored in Azure Key Vault should not exceed 12 months | fc84abc0-eee6-4758-8372-a7681965ca44 |
+| Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
+| Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
+
+
+### Deprecate API App policies for App Service
+
+We deprecated the following policies to corresponding policies that already exist to include API apps:
+
+| To be deprecated | Changing to |
+|--|--|
+|`Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'` | `App Service apps should have 'Client Certificates (Incoming client certificates)' enabled` | 
+| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest 'Python version` |
+| `CORS should not allow every resource to access your API App` | `App Service apps should not have CORS configured to allow every resource to access your apps` |
+| `Managed identity should be used in your API App` | `App Service apps should use managed identity` |
+| `Remote debugging should be turned off for API Apps` | `App Service apps should have remote debugging turned off` |
+| `Ensure that 'PHP version' is the latest, if used as a part of the API app` | `App Service apps that use PHP should use the latest 'PHP version'`|
+| `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
+| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
+| `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
 
 ## June 2022
 

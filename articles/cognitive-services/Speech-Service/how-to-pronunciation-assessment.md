@@ -30,7 +30,7 @@ You can get pronunciation assessment scores for:
 - Phonemes in SAPI or IPA format
 
 > [!NOTE]
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md#pronunciation-assessment) and [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md#pronunciation-assessment) and [available regions](regions.md#speech-service).
 >
 > The syllable groups, IPA phonemes, and spoken phoneme features of pronunciation assessment are currently only available for the en-US locale.
 
