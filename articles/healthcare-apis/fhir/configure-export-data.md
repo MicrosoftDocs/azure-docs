@@ -69,7 +69,7 @@ The final step is to specify the Azure storage account that the FHIR service wil
 
 [![Screen shot showing user interface of FHIR Export Storage.](media/export-data/fhir-export-storage.png)](media/export-data/fhir-export-storage.png#lightbox)
 
-After you've completed this final configuration step, you're ready to export data from the FHIR service. See the [How to export FHIR data](./export-data.md) instructions for details on using the FHIR service's `$export` endpoint.
+After you've completed this final configuration step, you're ready to export data from the FHIR service. See [How to export FHIR data](./export-data.md) for details on using the FHIR service's `$export` operation.
 
 > [!Note]
 > Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
