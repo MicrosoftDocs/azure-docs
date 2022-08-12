@@ -6,18 +6,23 @@ ms.date: 7/19/2022
 ---
 # Enable HCX access over the internet
 
-In this article you'll learn how to access the HCX over a Public IP address using Azure VMware Solution. You'll also learn how to pair HCX sites, and create service mesh from on-premises to Azure VMware Solutions private cloud using Public IP. The service mesh allows you to migrate a workload from an on-premises datacenter to Azure VMware Solutions private cloud over the public internet. This solution is useful where the customer isn't using Express Route or VPN connectivity with the Azure cloud.
+
+In this article, you'll learn how to perform HCX migration over a Public IP address using Azure VMware Solution.
+>[!IMPORTANT]
+>Before configuring a Public IP on your Azure VMware Solution private cloud, please consult your Network Administrator to understand the implications and the impact to your environment.
+
+You'll also learn how to pair HCX sites and create service mesh from on-premises to an Azure VMware Solution private cloud using a Public IP. The service mesh allows you to migrate a workload from an on-premises datacenter to an Azure VMware Solution private cloud over the public internet. This solution is useful when the customer is not using ExpressRoute or VPN connectivity with the Azure cloud.
+  
 
 > [!IMPORTANT] 
-> The on-premises HCX appliance should be reachable from the internet to establish HCX communication from on-premises to Azure VMware Solution private cloud. 
+> The on-premises HCX appliance should be reachable from the internet to establish HCX communication from on-premises to the Azure VMware Solution private cloud. 
 
 ## Configure Public IP block  
 
-Configure a Public IP block through portal by using the Public IP feature of the Azure VMware Solution private cloud. 
+To perform HCX Migration over the public internet, you'll need a minimum of six Public IP addresses. Five of these Public IP addresses will be used for the Public IP segment, and one will be used for configuring Network Address Translation (NAT). You can obtain the Public IP block by reserving a /29 from the Azure VMware Solution portal. Configure a Public IP block through portal by using the Public IP feature of the Azure VMware Solution private cloud. 
 
 1. Sign in to Azure VMware Solution portal. 
 1. Under **Workload Networking**, select **Public IP (preview)**.
-
 1. Select **+Public IP**. 
 1. Enter the **Public IP name** and select the address space from the **Address space** drop-down list according to the number of IPs required, then select **Configure**.
    >[!Note]
@@ -33,16 +38,20 @@ Before you create a Public IP segment, get your credentials for NSX-T Manager fr
 1. Sign in to NSX-T Manager using credentials provided by the Azure VMware Solution portal. 
 1. Under the **Manage** section, select **Identity**.
 1. Copy the NSX-T Manager admin user password.  
-1. Browse the NSX-T Manger, paste the admin password in the password field, and select **Login**. 
-1. Under the **Networking** section, select **Connectivity** and **Segments**, and then select **ADD SEGMENT**.
-1. Provide Segment name, select Tier-1 router as connected gateway, and provide the public segment under subnets. 
+
+1. Browse the NSX-T Manger and paste the admin password in the password field, and select **Login**. 
+1. Under the **Networking** section select **Connectivity** and **Segments**, then select **ADD SEGMENT**.
+1. Provide Segment name, select Tier-1 router as connected gateway, and provide the reserved Public IP under subnets. The Public IP block for this Public IP segment shouldn't include the first and last Public IPs from the overall Public IP block. For example, if you reserved 20.95.1.16/29, you would input 20.95.1.16/30. 
 1. Select **Save**.   
 
 ## Assign public IP to HCX manager
 HCX manager of destination Azure VMware Solution SDDC should be reachable from the internet to do site pairing with source site.  HCX Manager can be exposed by way of DNAT rule and a static null route.  Because HCX Manager is in the provider space, not within the NSX-T environment, the null route is necessary to allow HCX Manager to route back to the client by way of the DNAT rule. 
 
 ### Add static null route to the T1 router 
-1. Sign in to NSX-T manager and select **Networking**.
+
+The static null route is used to allow HCX private IP to route through the NSX T1 for public endpoints.
+
+1. Sign in to NSX-T manager, and select **Networking**.
 1. Under the **Connectivity** section, select **Tier-1 Gateways**.
 1. Edit the existing T1 gateway.
 1. Expand **STATIC ROUTES**.
@@ -61,8 +70,10 @@ HCX manager of destination Azure VMware Solution SDDC should be reachable from t
 1. Select **CLOSE EDITING**.
 
 ### Add NAT rule to T1 gateway
- 
-1. Sign in to NSX-T Manager and select **Networking**.
+
+>[!Note]
+>The NAT rules should use a different Public IP address than your Public IP segment.  
+1. Sign in to NSX-T Manager, and select **Networking**.
 1. Select **NAT**.
 1. Select the T1 Gateway.
 1. Select **ADD NAT RULE**.
@@ -70,7 +81,9 @@ HCX manager of destination Azure VMware Solution SDDC should be reachable from t
     1. The DNAT Rule Destination is the Public IP for HCX Manager. The Translated IP is the HCX Manager IP in the cloud.
     1. The SNAT Rule Source is the HCX Manager IP in the cloud.  The Translated IP is the non-overlapping /32 IP from the Static Route.
 1. Make sure to set the Firewall option on DNAT rule to **Match External Address**.
-1. Create T1 Gateway Firewall rules to allow only expected traffic to the Public IP for HCX Manager and drop everything else.  
+1. Create T1 Gateway Firewall rules to allow only expected traffic to the Public IP for HCX Manager and drop everything else. 
+     1. Create a Gateway Firewall rule on the T1 that allows your On-Premise as the **Source IP** and the Azure VMware Solution reserved Public as the **Destination IP**. This rule should be the highest priority.
+     1. Create a Gateway Firewall rule on the T1 that denies all other traffic where the **Source IP** is and “Any” and **Destination IP** is the Azure VMware Solution reserved Public IP. 
 
 >[!NOTE]
 > HCX manager can now be accessed over the internet using public IP.  

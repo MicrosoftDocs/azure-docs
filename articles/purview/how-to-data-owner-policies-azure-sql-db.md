@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 08/11/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for Azure SQL DB (preview)
@@ -39,19 +39,18 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Azure SQL Database configuration
-Each Azure SQL Database server needs a Managed Identity assigned to it.
-You can use the following PowerShell script:
+Each Azure SQL Database server needs a Managed Identity assigned to it. You can do this from Azure Portal by navigating to the Azure SQL Server that hosts the Azure SQL DB, navigating to Identity on the side menu, checking status to *On* and then saving. See screenshot:
+![Screenshot shows how to assign system managed identity to Azure SQL Server.](./media/how-to-data-owner-policies-sql//assign-identity-azure-sql-db.png)
+
+
+You will also need to enable external policy based authorization on the server. You can do this in Power Shell
+
 ```powershell
 Connect-AzAccount
 
 $context = Get-AzSubscription -SubscriptionId xxxx-xxxx-xxxx-xxxx
 Set-AzContext $context
 
-Set-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME" -AssignIdentity
-```
-You will also need to enable external policy based authorization on the server.
-
-```powershell
 $server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
 
 #Initiate the call to the REST API to set externalPolicyBasedAuthorization to true
@@ -162,6 +161,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check blog, demo and related how-to guides
 * [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
-* Blog: [Private preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
+* Blog: [Microsoft Purview Data Policy for SQL DevOps access provisioning now in public preview](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-data-policy-for-sql-devops-access-provisioning/ba-p/3403174)
+* Blog: [Controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
 * [Enable Microsoft Purview data owner policies on an Arc-enabled SQL Server](./how-to-data-owner-policies-arc-sql-server.md)

@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: v-pgaddala
-ms.date: 05/27/2021
+ms.date: 08/03/2022
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery
@@ -111,7 +111,7 @@ The expiry date appears under **Configuration Server health**. For configuration
 ### If certificates have already expired
 
 1. Post expiry, certificates **cannot be renewed from Azure portal**. Before proceeding, ensure all components scale-out process servers, master target servers and mobility agents on all protected machines are on latest versions and are in connected state.
-2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to C drive > Program Data > Site Recovery > home > svsystems > bin and execute "RenewCerts" executor tool as administrator.
+2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to *C:\ProgramData\ASR\home\svsystems\bin* and execute **RenewCerts** executor tool as administrator.
 3. A PowerShell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
 
 :::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::

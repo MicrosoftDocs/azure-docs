@@ -34,7 +34,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
 **Supported paragraph roles**:
-The paragraph roles are best used with unstructured documents.  PAragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
+The paragraph roles are best used with unstructured documents.  Paragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
 
 * title
 * sectionHeading
@@ -89,12 +89,7 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned).
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* The minimum height of the text to be extracted is 12 pixels for a 1024 X 768 image. This dimension corresponds to about eight font point text at 150 DPI.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Supported languages and locales
 
