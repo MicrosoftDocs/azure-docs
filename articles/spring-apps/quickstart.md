@@ -36,7 +36,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
 
 ### Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 ### Provision an instance of Azure Spring Apps
 
@@ -200,7 +200,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 ### Build and deploy an app
 
 > [!NOTE]
-> If you want to run the project locally, please add **spring.config.import=configserver:** to the **application.propertities** file.
+> If you want to run the project locally, please add **spring.config.import=optional:configserver:** to the **application.propertities** file.
 
 1. Right-click your project in IntelliJ project explorer, then select **Azure** -> **Deploy to Azure Spring Apps**.
 
@@ -253,23 +253,23 @@ az spring app logs -n hellospring -s <service instance name> -g <resource group 
 
 Logs appear in the results:
 
-:::image type="content" source="media/spring-cloud-quickstart-java/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="media/spring-cloud-quickstart-java/streaming-logs.png":::
+:::image type="content" source="media/spring-apps-quickstart-java/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="media/spring-apps-quickstart-java/streaming-logs.png":::
 
 >[!TIP]
 > Use `az spring app logs -h` to explore more parameters and log stream functionalities.
 
 #### [IntelliJ](#tab/IntelliJ)
 
-1. Select **Azure Explorer**, then **Spring Cloud**.
+1. Select **Azure Explorer**, then **Spring Apps**.
 1. Right-click the running app.
 1. Select **Streaming Logs** from the drop-down list.
 1. Select instance.
 
-    :::image type="content" source="media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png":::
+    :::image type="content" source="media/spring-apps-quickstart-java/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="media/spring-apps-quickstart-java/intellij-get-streaming-logs.png":::
 
 1. The streaming log will be visible in the output window.
 
-    :::image type="content" source="media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png":::
+    :::image type="content" source="media/spring-apps-quickstart-java/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="media/spring-apps-quickstart-java/intellij-streaming-logs-output.png":::
 
 #### [Visual Studio Code](#tab/VS-Code)
 
@@ -279,7 +279,7 @@ To get real-time application logs with Visual Studio Code, follow the steps in [
 
 For advanced logs analytics features, visit the **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 
-:::image type="content" source="media/spring-cloud-quickstart-java/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="media/spring-cloud-quickstart-java/logs-analytics.png":::
+:::image type="content" source="media/spring-apps-quickstart-java/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="media/spring-apps-quickstart-java/logs-analytics.png":::
 
 ## Clean up resources
 
@@ -299,7 +299,8 @@ In this quickstart, you learned how to:
 > [!div class="checklist"]
 > - Generate a basic Spring project
 > - Provision a service instance
-> - Build and deploy the app with a public endpoint
+> - Build and deploy an app with a public endpoint
+> - Clean up the resources
 
 To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Apps:
 
