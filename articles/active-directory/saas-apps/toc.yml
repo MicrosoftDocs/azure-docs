@@ -993,6 +993,8 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
+      - name: HackNotice
+        href: hacknotice-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
