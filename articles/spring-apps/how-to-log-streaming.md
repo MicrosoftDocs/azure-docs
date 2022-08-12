@@ -1,6 +1,6 @@
 ---
 title:  Stream Azure Spring Apps application console logs in real time
-description: This article describes how to use log streaming to view application logs in real time
+description: Describes how to use log streaming to view application logs in real time
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -27,7 +27,7 @@ This article describes how to enable log streaming in Azure CLI to get real-time
 
 ## Use Azure CLI to produce tail logs
 
-This section provides examples of using Azure CLI to produce tail logs. To avoid repeatedly specifying your resource group and service instance name, use the following commands set your default resource group name and cluster name:
+This section provides examples of using Azure CLI to produce tail logs. To avoid repeatedly specifying your resource group and service instance name, use the following commands to set your default resource group name and cluster name:
 
 ```azurecli
 az config set defaults.group=<service-group-name>
