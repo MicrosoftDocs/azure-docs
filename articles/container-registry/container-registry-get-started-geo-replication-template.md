@@ -2,8 +2,8 @@
 title: Quickstart - Create geo-replicated registry - Azure Resource Manager template
 description: Learn how to create a geo-replicated Azure container registry by using an Azure Resource Manager template.
 services: azure-resource-manager
-author: dlepow
-ms.author: danlep
+author: tejaswikolli-web
+ms.author: tejaswikolli
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: container-registry
