@@ -234,7 +234,7 @@ sections:
         answer: |
          Form Recognizer billing is  calculated monthly based on the model type and number of pages analyzed:
 
-          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
+          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When the service analyzes Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
 
           - When analyzing PDF and TIFF files, each page in the PDF file or each image in the TIFF file is counted as one page with no maximum character limits.
           
