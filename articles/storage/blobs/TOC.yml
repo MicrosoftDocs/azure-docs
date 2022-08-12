@@ -672,6 +672,8 @@ items:
     items:
     - name: Blob Storage API reference
       href: ../blobs/reference.md
+    - name: Spring Cloud Azure
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#resource-handing?toc=/azure/storage/blobs/toc.json
     - name: AzCopy v10
       items:
       - name: Configuration settings
