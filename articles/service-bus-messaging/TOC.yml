@@ -30,6 +30,8 @@
         href: service-bus-dotnet-get-started-with-queues.md
       - name: Java (azure-messaging-servicebus)
         href: service-bus-java-how-to-use-queues.md
+      - name: Spring
+        href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
       - name: Python (azure-servicebus)
         href: service-bus-python-how-to-use-queues.md
       - name: JavaScript (@azure/service-bus)
