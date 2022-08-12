@@ -101,7 +101,9 @@ Next, run the following PowerShell command to install the `Az.Storage` PowerShel
 Install-Module Az.Storage -Repository PsGallery -AllowClobber -Force 
 ``` 
 
-Now, you will set the FHIR service instance in the selected workspace for the storage account using the PowerShell command shown below. Make sure that all listed parameters are defined. 
+Now, use the PowerShell command below to set the FHIR service instance in the selected workspace for the storage account. Make sure that all listed parameters are defined. 
+
+Note that you'll need to run the `Add-AzStorageAccountNetworkRule` command using an administrator account. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 
 ```PowerShell
 $subscription="xxx"
@@ -115,27 +117,20 @@ $resourceId = "/subscriptions/$subscription/resourceGroups/$resourceGroupName/pr
 Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $storageaccountName -TenantId $tenantId -ResourceId $resourceId
 ```
 
-After running this command, the networking setting for the storage account will show **two selected** in the **Instance name** dropdown list. One is linked to the workspace instance and the second is linked to the FHIR service instance.
+After running this command, the networking setting for the storage account will show **two selected** in the **Instance name** dropdown list. One is linked to the workspace instance and the other is linked to the FHIR service instance.
 
   :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
 
-Note that you'll need to run the `Add-AzStorageAccountNetworkRule` command using an administrator account. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
-
-
-You're now ready to export FHIR data to the storage account securely. Note that the storage account is on selected networks and isn't publicly accessible. To access the files, you can either enable and use private endpoints for the storage account, or enable all networks for the storage account to access the data there if possible.
+You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable and use private endpoints for the storage account.
 
 > [!IMPORTANT]
 > The user interface will be updated later to allow you to select the Resource type for FHIR service and a specific service instance.
 
 ### Allowing specific IP addresses for the Azure storage account in a different region
 
-Select **Networking** of the Azure storage account from the
-portal. 
+In the Azure portal, go to the AHDS Gen2 account and select the **Networking** blade. 
    
-Select **Selected networks**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to
-allow access from the internet or your on-premises networks. You can
-find the IP address in the table below for the Azure region where the
-FHIR service is provisioned.
+Select **Enabled from selected virtual networks and IP addresses**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to allow access from the internet or your on-premises networks. You can find the IP address in the table below for the Azure region where the FHIR service is provisioned.
 
 |**Azure Region**         |**Public IP Address** |
 |:----------------------|:-------------------|
@@ -166,15 +161,14 @@ FHIR service is provisioned.
 
 ### Allowing specific IP addresses for the Azure storage account in the same region
 
-The configuration process is the same as above except a specific IP
-address range in Classless Inter-Domain Routing (CIDR) format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
+The configuration process for IP addresses in the same region is the same as above except a specific IP address range in Classless Inter-Domain Routing (CIDR) format is used instead (i.e., 100.64.0.0/10). The reason why the IP address range (100.64.0.0 – 100.127.255.255) must be specified is because although the actual IP address for the FHIR service varies, the address will be within the range for each `$export` request.
 
 > [!Note] 
-> It is possible that a private IP address within the range of 10.0.2.0/24 may be used instead. In that case, the $export operation will not succeed. You can retry the $export request, but there is no guarantee that an IP address within the range of 100.64.0.0/10 will be used next time. That's the known networking behavior by design. The alternative is to configure the storage account in a different region.
+> It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$export` operation will succeed in such a case. You can retry the `$export` request if the request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This networking behavior is by design. The alternative is to configure the storage account in a different region.
 
 ## Next steps
 
-In this article, you learned about the three steps in configuring export settings that allow you to export data out of FHIR service account to a storage account. For more information about the Bulk Export feature that allows data to be exported from the FHIR service, see 
+In this article, you learned about the three steps in configuring settings to allow export of data from your FHIR service into a storage account. For more information about the Bulk Export feature for the FHIR service, see 
 
 >[!div class="nextstepaction"]
 >[How to export FHIR data](export-data.md)
