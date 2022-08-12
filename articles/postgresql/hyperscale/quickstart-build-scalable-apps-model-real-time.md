@@ -5,8 +5,9 @@ ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: how-to
-ms.date: 04/28/2022
+ms.topic: quickstart
+recommendations: false
+ms.date: 08/11/2022
 ---
 
 # Model real-time analytics apps
@@ -76,8 +77,8 @@ SELECT create_reference_table('countries');
 
 ## Next steps
 
-We've completed the how-to for building scalable apps.
+Now we've finished exploring data modeling for scalable apps. The next step is
+connecting and querying the database with your programming language of choice.
 
-* Learn how to use specific [app stacks](howto-app-stacks-overview.md) with Hyperscale (Citus).
-* You may now want to know how to [scale a server group](howto-scale-grow.md)
-  to give your app more nodes and hardware capacity.
+> [!div class="nextstepaction"]
+> [App stacks >](quickstart-app-stacks-overview.md)
