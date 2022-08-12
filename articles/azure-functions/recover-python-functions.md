@@ -213,9 +213,7 @@ If your function app is using the popular ODBC database driver [pyodbc](https://
 
 ## Troubleshoot errors with Protocol Buffers
 
-Azure Python function apps pinning protobuf package to v4.x.x directly or indirectly (ex. use another library which requires protobuf v4) malfunction as protobuf v4.x.x introduces breaking changes.
-
-Azure Python function worker is currently using protobuf package of v3.x.x version, and since protobuf v4 is released, Python function apps which pin protobuf to v4.x.x in the requirement.txt may be affected.
+Version 4.x.x of the Protocol Buffers (protobuf) package introduces breaking changes. Because the Python worker process for Azure Functions relies on v3.x.x of this package, pinning your function app to use v4.x.x can break your app. At this time, you should also avoid using any libraries that themselves require protobuf v4.x.x. 
 
 Example error logs:
 ```bash
