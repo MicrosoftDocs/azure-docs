@@ -123,12 +123,12 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|
-| 🆕 DateOfIssue | Date | Issue date  | yyyy-mm-dd |
-| 🆕 Height | String | Height of the holder.  | |
-| 🆕 Weight | String | Weight of the holder.  | |
-| 🆕 EyeColor | String | Eye color of the holder.  | |
-| 🆕 HairColor | String | Hair color of the holder.  | |
-| 🆕 DocumentDiscriminator | String | Document discriminator is a security code that identifies where and when the license was issued.  | |
+|  DateOfIssue | Date | Issue date  | yyyy-mm-dd |
+|  Height | String | Height of the holder.  | |
+|  Weight | String | Weight of the holder.  | |
+|  EyeColor | String | Eye color of the holder.  | |
+|  HairColor | String | Hair color of the holder.  | |
+|  DocumentDiscriminator | String | Document discriminator is a security code that identifies where and when the license was issued.  | |
 | Endorsements | String | More driving privileges granted to a driver such as Motorcycle or School bus.  | |
 | Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
 | VehicleClassification | String | Types of vehicles that can be driven by a driver. ||

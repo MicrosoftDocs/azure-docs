@@ -23,11 +23,11 @@ ms.custom: ignite-fall-2021
 | **Model**   | **Description**   |
 | --- | --- |
 |**Document analysis**||
-| 🆕[Read](#read) | Extract typeface and handwritten text lines, words, locations, and detected languages.|
-| 🆕[General document](#general-document) | Extract text, tables, structure, key-value pairs, and named entities.|
+| [Read](#read) | Extract typeface and handwritten text lines, words, locations, and detected languages.|
+| [General document](#general-document) | Extract text, tables, structure, key-value pairs, and named entities.|
 | [Layout](#layout)  | Extract text and layout information from documents.|
 |**Prebuilt**||
-| 🆕[W-2](#w-2) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
+| [W-2](#w-2) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
@@ -181,9 +181,9 @@ A composed model is created by taking a collection of custom models and assignin
 
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Paragraph roles** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |  
-|🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-|🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
+| [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |  
+| [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  | 
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |  
 | [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ | 

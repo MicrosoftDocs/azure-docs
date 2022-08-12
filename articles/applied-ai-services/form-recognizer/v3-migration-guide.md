@@ -57,12 +57,12 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 * The request payload and call pattern remain unchanged.
 * The Analyze operation specifies the input document and content-specific configurations, it returns the analyze result URL via the Operation-Location header in the response.
 * Poll this Analyze Result URL, via a GET request to check the status of the analyze operation (minimum recommended interval between requests is 1 second).
-* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status will be set to failed and an error will be returned.
+* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status will be set to `failed`, and an error will be returned.
 
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
 | **Request URL prefix**| **https://{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https://{your-form-recognizer-endpoint}/formrecognizer** |
-|🆕 **General document**|N/A|`/documentModels/prebuilt-document:analyze` |
+| **General document**|N/A|`/documentModels/prebuilt-document:analyze` |
 | **Layout**| /layout/analyze |`/documentModels/prebuilt-layout:analyze`|
 |**Custom**| /custom/{modelId}/analyze    |`/documentModels/{modelId}:analyze` |
 | **Invoice** | /prebuilt/invoice/analyze    | `/documentModels/prebuilt-invoice:analyze` |
@@ -91,7 +91,7 @@ Base64 encoding is also supported in Form Recognizer v3.0:
 }
 ```
 
-### Additional parameters
+### Additional supported parameters
 
 Parameters that continue to be supported:
 
@@ -256,7 +256,7 @@ The model object has three updates in the new API
 * ```modelName``` has been renamed to ```description```
 * ```buildMode``` is a new property with values of  ```template``` for custom form models or ```neural``` for custom document models.
 
-The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL isn't the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed``` and the error is returned.
+The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL isn't the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed```, and the error is returned.
 
 The following code is a sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
 
