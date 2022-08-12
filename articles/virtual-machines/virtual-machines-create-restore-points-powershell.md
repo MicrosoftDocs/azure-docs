@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 - Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
 
 ## Step 1: Create a VM restore point collection
-Use the [New-AzRestorePointCollection](/powershell/module/az.compute/get-azrestorepoint) cmdlet to create a VM restore point collection.
+Use the [New-AzRestorePointCollection](/powershell/module/az.compute/new-azrestorepointcollection?view=azps-8.2.0) cmdlet to create a VM restore point collection.
 
 ```
 New-AzRestorePointCollection -ResourceGroupName ExampleRG -Name ExampleRPC -VmId “/subscriptions/{SubscriptionId}/resourcegroups/ ExampleRG/providers/microsoft.compute/virtualmachines/Example-vm-1” -Location “WestEurope”
