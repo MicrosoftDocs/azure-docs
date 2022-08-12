@@ -169,7 +169,7 @@ Updating the configuration can take a few minutes. You should get a notification
 
    - **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Edit Authentication** button, represented by a pencil icon. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Apps. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-   :::image type="content" source="media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Defalut repository section showing the Edit Authorization pane.":::
+   :::image type="content" source="media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for Basic authentication.":::
 
    > [!CAUTION]
    > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Apps because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. As a result, this approach isn't viable when you use those repository servers with Azure Spring Apps.
@@ -177,7 +177,7 @@ Updating the configuration can take a few minutes. You should get a notification
 
    - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Edit Authentication** button, represented by a pencil icon. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-   ![The Edit Authentication pane ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+   :::image type="content" source="media/how-to-config-server/ssh-auth.png" lightbox="media/how-to-config-server/ssh-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for SSH authentication.":::
 
 #### Additional repositories
 
@@ -201,7 +201,7 @@ spring:
 
 Select the **Import settings** button, and then select the YAML file from your project directory. Select **Import**, and then an `async` operation from your **Notifications** will pop up. After 1-2 minutes, Config Server should report success.
 
-![The Config Server Notifications pane](media/spring-cloud-tutorial-config-server/local-yml-success.png)
+:::image type="content" source="media/how-to-config-server/local-yml-success.png" lightbox="media/how-to-config-server/local-yml-success.png" alt-text="Screenshot of the Config Server Notifications pane.":::
 
 The information from your YAML file should be displayed in the Azure portal. Select **Apply** to finish.
 
@@ -213,7 +213,7 @@ Azure Spring Apps can access Git repositories that are public, secured by SSH, o
 
 1. In the Azure Repos portal for your project, select the **Clone** button:
 
-   ![Picture of Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
+   :::image type="content" source="media/how-to-config-server/clone-button.png" lightbox="media/how-to-config-server/clone-button.png" alt-text="Screenshot of the Clone button on the Azure Repos portal for your project.":::
 
 1. Copy the clone URL from the textbox. This URL will typically be in the following form:
 
@@ -247,7 +247,7 @@ Azure Spring Apps can access Git repositories that are public, secured by SSH, o
    - Specify a **password** -- the password that you saved in the previous section.
    - Select **Apply**, and then wait for the operation to complete.
 
-   ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
+   :::image type="content" source="media/how-to-config-server/config-server-azure-repos.png" lightbox="media/how-to-config-server/config-server-azure-repos.png" alt-text="Screenshot of repository configuration settings.":::
 
 ## Delete your configuration
 
