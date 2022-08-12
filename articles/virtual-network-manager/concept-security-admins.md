@@ -20,15 +20,23 @@ Azure Virtual Network Manager provides two different types of configurations you
 
 ## Security admin rules
 
-A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than network security group (NSG) rules and will get evaluated before NSG rules. Also note that security admin rules don't change your NSG rules. See the below illustration.
+A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than network security group (NSG) rules and will get evaluated before NSG rules. Also note that security admin rules don't change your NSG rules. 
 
-:::image type="content" source="./media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram of how traffic is evaluated with security admin rules and NSG.":::
+### The order of evaluation
+
+Security admin rules are evaluated before NSG rules. Depending on the type of security admin rule you create, they can interact differently with NSG rules.  When this happens, organizations can set enforced security policies alongside the teams' NSGs that address their own use cases. The diagram below illustrates the order of evaluation of traffic.
+
+:::image type="content" source="media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram showing order of evaluation for network traffic with security admin rules and network security rules.":::
+
+There are three kinds of actions – Allow, Always Allow, and Deny. If you create a security admin rule to *Allow* a certain type of traffic, then this rule will be evaluated first. When the traffic is allowed by a security admin rule, it will be further evaluated by NSG rules. This means it leaves room for NSG rules down the line to handle this type of traffic differently as needed. If you create a security admin rule to *Always Allow* or *Deny* a certain type of traffic, then this rule will be evaluated first, and it will terminate the NSG evaluation of this traffic – meaning the evaluation is stopped. If the security admin rule is *Always Allow*, the traffic won't hit NSGs, and instead deliver directly to VMs or other resource. This can be useful when administrators want to enforce some traffic to be not denied by NSG rules. For example, administrators may want to force the organization to consume software updates from certain ports. When *Deny* is used, evaluation and therefore traffic is stopped without being delivered to the destination. This means that you can use security admin rules to set definitive security rules that can't be overridden by others.
+Security admin rules don't depend on NSGs in order to exist. This means that administrators can use security admin rules to create default security rules. Even if application owners misconfigured or forgot to establish NSGs, your organization is protected by default!
 
 ### Management at scale
 
 When you apply a security admin configuration to a network group – a collection of VNets that were selected either manually or conditionally – then all of the resources in the selected network groups’ VNets have those security admin rules applied to them, regardless a network group contains dozens or hundreds of VNets matters not, since a security admin configuration would apply its rules to all the VNets in the selected network groups.
 This protection encapsulates not only existing resources, but extends even to new resources. If you add new VMs to a VNet that belongs to a network group that has a security admin configuration applied on it, then those VMs will automatically be secured as well. In effect, security admin rules protect your resources from day zero. As soon as your resources are provisioned, they'll fall under the protection of security admin rules.
 Then, if new security risks are identified, new security admin rules can still protect your resources at scale. You can create security admin rules to protect against the new risk, then apply them to network groups – essentially, hundreds of VNets at once.
+
 ### Protect high-risk ports
 
 Based on the industry study and suggestions from Microsoft, below is what we recommend customers restrict the traffic from outside using security admin rules. These ports are often used for the management of resources or unsecure/unencrypted data transmission and shouldn't be exposed to the internet. However, there are times when certain virtual networks and their resources will need to allow traffic for management or other processes. You can create exceptions where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
@@ -65,15 +73,6 @@ Security admin rules are similar to NSG rules in structure and the parameters th
 | --- | ---- | ---- | ---- | ---- | ---- | 
 | **Security Admin Rules** | Network admins, central governance team | 	Virtual networks | 	Higher priority | 	Allow, Deny, Always Allow | 	Priority, protocol, action, source, destination |
 | **NSG Rules** | 	Individual teams | 	Subnets, NICs | Lower priority, after security admin rules | Allow, Deny | Priority, protocol, action, source, destination |
-
-### The order of evaluation
-
-Security admin rules are evaluated before NSG rules. Depending on the type of security admin rule you create, they can interact differently with NSG rules.  When this happens, organizations can set enforced security policies alongside the teams' NSGs that address their own use cases. The diagram below illustrates the order of evaluation of traffic.
-
-:::image type="content" source="media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram showing order of evaluation for network traffic with security admin rules and network security rules.":::
-
-There are three kinds of actions – Allow, Always Allow, and Deny. If you create a security admin rule to *Allow* a certain type of traffic, then this rule will be evaluated first. When the traffic is allowed by a security admin rule, it will be further evaluated by NSG rules. This means it leaves room for NSG rules down the line to handle this type of traffic differently as needed. If you create a security admin rule to *Always Allow* or *Deny* a certain type of traffic, then this rule will be evaluated first, and it will terminate the NSG evaluation of this traffic – meaning the evaluation is stopped. If the security admin rule is *Always Allow*, the traffic won't hit NSGs, and instead deliver directly to VMs or other resource. This can be useful when administrators want to enforce some traffic to be not denied by NSG rules. For example, administrators may want to force the organization to consume software updates from certain ports. When *Deny* is used, evaluation and therefore traffic is stopped without being delivered to the destination. This means that you can use security admin rules to set definitive security rules that can't be overridden by others.
-Security admin rules don't depend on NSGs in order to exist. This means that administrators can use security admin rules to create default security rules. Even if application owners misconfigured or forgot to establish NSGs, your organization is protected by default!
 
 ## Network intent policies and security admin rules
 
