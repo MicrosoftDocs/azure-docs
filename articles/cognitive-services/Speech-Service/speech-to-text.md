@@ -27,10 +27,6 @@ Speech-to-text, also known as speech recognition, enables real-time or offline t
 
 To get started, try the [speech-to-text quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md), and the [Speech CLI](spx-overview.md).
 
-The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech-to-text.
-
-> [!VIDEO c20d3b0c-e96a-4154-9299-155e27db7117]
-
 In depth samples are available in the [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/csspeech/samples) repository on GitHub. There are samples for C# (including UWP, Unity, and Xamarin), C++, Java, JavaScript (including Browser and Node.js), Objective-C, Python, and Swift. Code samples for Go are available in the [Microsoft/cognitive-services-speech-sdk-go](https://github.com/Microsoft/cognitive-services-speech-sdk-go) repository on GitHub.
 
 

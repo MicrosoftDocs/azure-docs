@@ -3,7 +3,7 @@ title: Restore VMs using Cloud Backup for Virtual Machines
 description: Learn how to restore virtual machines from a cloud backup to the vCenter. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/10/2022
+ms.date: 08/12/2022
 ---
 
 # Restore VMs using Cloud Backup for Virtual Machines
@@ -24,23 +24,17 @@ You can restore VMs to the original datastore mounted on the original ESXi host 
 
 ## Prerequisites to restore VMs
 
-* A backup must exist. <br>
-You must have created a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
+* A backup must exist: you must have created a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
 >[!NOTE]
 >Restore operations cannot finish successfully if there are snapshots of the VM that were performed by software other than the Cloud Backup for Virtual Machines.
-* The VM must not be in transit. <br>
-    The VM that you want to restore must not be in a state of vMotion or Storage vMotion.
-* High Availability (HA) configuration errors <br>
-    Ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
+* The VM must not be in transit: the VM that you want to restore must not be in a state of vMotion or Storage vMotion.
+* High Availability (HA) configuration errors: ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
 
 ### Considerations for restoring VMs from backups
 
-* VM is unregistered and registered again
-    The restore operation for VMs unregisters the original VM, restores the VM from a backup snapshot, and registers the restored VM with the same name and configuration on the same ESXi server. You must manually add the VMs to resource groups after the restore.
-* Restoring datastores
-    You cannot restore a datastore, but you can restore any VM in the datastore.
-* VMware consistency snapshot failures for a VM
-    Even if a VMware consistency snapshot for a VM fails, the VM is nevertheless backed up. You can view the entities contained in the backup copy in the Restore wizard and use it for restore operations.
+* VM is unregistered and registered again: The restore operation for VMs unregisters the original VM, restores the VM from a backup snapshot, and registers the restored VM with the same name and configuration on the same ESXi server. You must manually add the VMs to resource groups after the restore.
+* Restoring datastores: You cannot restore a datastore, but you can restore any VM in the datastore.
+* VMware consistency snapshot failures for a VM: Even if a VMware consistency snapshot for a VM fails, the VM is nevertheless backed up. You can view the entities contained in the backup copy in the Restore wizard and use it for restore operations.
 
 ### Restore a VM from a backup
 
