@@ -5,7 +5,7 @@ author: stevenmatthew
 
 ms.service: storage-mover
 ms.topic: overview
-ms.date: 06/21/2022
+ms.date: 08/11/2022
 ms.author: shaas
 
 ms.custom: template-overview
@@ -62,89 +62,178 @@ You can verify that you have the latest version by opening PowerShell with eleva
 ```
 
 > [!IMPORTANT]
-> Although the manifest has rolled out globally in ARM, the feature itself is enabled only in the Canary regions. As a result, all Storage mover resources must be created in the Canary regions.
+> Although the manifest has rolled out globally in ARM, the feature itself is enabled only in the Canary regions. As a result, all Storage mover resources must be created in the Canary regions. Run the following using PowerShell with elevated permissions.
 
-1. Set your environment
-1. 
-1. 
-		a. Clear-AzContext 
-		b. Login-AzAccount 
-		c. Set your subscription:
-			i. Set-AzContext -Subscription XDataMove-Dev (for those of us using the Dev subscription) 
-	
-	6. Confirm the context was configured correctly - Try issuing a Get-AzStorageMover to retrieve the list of storage movers that have already been created by others against that subscription: 
-		
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	7. Create a resource group in a canary region (eastus2euap):
-		a. Run PowerShell as an Administrator
-		b. Run: $rg = New-AzResourceGroup -Name [resourceGroupName] -Location eastus2euap
-	
-	8. Hop onto to Agent setup here - Agent setup
+1. Set your environment.
 
-	9. Set the following variables with values that will work for you: 
-$arcId = "/subscriptions/f686d426-8d16-42db-81b7-ab578e110ccd/resourceGroups/rg/providers/Microsoft.HybridCompute/machines/agentname" 
-	$subscriptionId = "3c480e71-a914-4bcd-8780-9faf6fefbf08"  
-$arcId = "/subscriptions/f686d426-8d16-42db-81b7-ab578e110ccd/resourceGroups/rg/providers/Microsoft.HybridCompute/machines/agentname" 
-	$guid = "f686d426-8d16-42db-81b7-ab578e110ccd" 
-	$accountId = "/subscriptions/3c480e71-a914-4bcd-8780-9faf6fefbf08/resourceGroups/ahhuss/providers/Microsoft.Storage/storageAccounts/ahhuss1234" 
-	$agentName = "testAgentName" 
-	$projectName = "testProjectName" 
-	$containerName = "containername" 
-	$sourceEndpointName = "testSourceEndpoint" 
-	$targetEndpointName = "testTargetEndpoint" 
-	$jobDefinitionName = "testJobDefinitionName" 
-	$sourcePath = "/" 
-	$targetPath = "/" 
-	$location = "eastus2euap" 
-	$ResourceGroupName  = "testResourceGroup"
+  ```powershell
+  Clear-AzContext
+  Login-AzAccount
+  ```
 
-	10. Create a storage mover 
-	New-AzStorageMover -Name $StorageMoverName -ResourceGroupName $ResourceGroupName -Location $location -Tag @{"tag1" = "value1"; "tag2" = "value2"} -Description "storagemover description" #-Debug 
-	Get-AzStorageMover -ResourceGroupName $ResourceGroupName -Name $StorageMoverName
+1. Set your subscription.
 
-	11. Perform the Agent registration by following Agent setup 
-	Or follow these steps just for testing creation of the resource. 
-	@Ahmed/@akash can we put in the direct REST API calls here instead of the PS cmdlets since those are going to be suppressed 
-Create an Agent 
-	New-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $agentName -ArcResourceId $arcId -Description "Agent description" -ArcVMUuid $guid #-Debug 
-	
-    Get-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $agentName 
+  ```powershell
+  Set-AzContext -Subscription XDataMove-Dev #for those of us using the Dev subscription
+  ```
 
-	12. Create a project 
-	New-AzStorageMoverProject -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $projectName -Description "project description" 
-	Get-AzStorageMoverProject -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $projectName 
-	
-13.  Create target endpoint
-	$containerProperties = New-AzStorageMoverAzureStorageBlobContainerEndpointPropertiesObject -BlobContainerName $containerName  -StorageAccountResourceId $accountid -EndpointType AzureStorageBlobContainer
-	New-AzStorageMoverEndpoint -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $targetEndpointName -Property $containerProperties #-debug
+1. Confirm the context was configured correctly using `Get-AzStorageMover` to retrieve the list of storage movers already created against that subscription.
 
-	14. Create source endpoint
-	$NFSProperties = New-AzStorageMoverNfsMountEndpointPropertiesObject -Host "10.0.0.1" -NfsVersion NFSv3 -RemoteExport "/" -EndpointType NfsMount
-	New-AzStorageMoverEndpoint -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -Name $sourceEndpointName -Property $NFSProperties
+  ```powershell
+  Get-AzStorageMove -Name XDataMove-Dev #for those of us using the Dev subscription
+  ```
 
-	15. Get the endpoints to check they were created correctly
-Get-AzStorageMoverEndpoint -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName
+1. Create a resource group in a canary region (eastus2euap).
 
-	16. Create a job definition
-New-AzStorageMoverJobDefinition -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -ProjectName $projectName -Name $jobDefinitionName -Description "JobDefinition description" -SourceName $sourceEndpointName -SourceSubPath $sourcePath -TargetName $targetEndpointName -TargetSubPath $targetPath -CopyMode Mirror -AgentName $agentName
-	Get-AzStorageMoverJobDefinition -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -ProjectName $projectName -Name $jobDefinitionName 
+  ```powershell
+  $rg = New-AzResourceGroup -Name [resourceGroupName] -Location eastus2euap
+  ```
 
-	17. Start a new job
-	Start-AzStorageMoverJob -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -ProjectName $projectName -JobDefinitionName $jobDefinitionName
-	Get-AzStorageMoverJobRun -ResourceGroupName $ResourceGroupName -StorageMoverName $StorageMoverName -ProjectName $projectName -JobDefinitionName $jobDefinitionName 
-	
+1. Perform agent setup steps
+1. Set the following variables with values that will work for you.
 
+  ```azurepowershell
+  $arcId              = "/subscriptions/f686d426-8d16-42db-81b7-ab578e110ccd/resourceGroups/rg/providers/Microsoft.HybridCompute/machines/agentname"
+  $subscriptionId     = "3c480e71-a914-4bcd-8780-9faf6fefbf08"  
+  $arcId              = "/subscriptions/f686d426-8d16-42db-81b7-ab578e110ccd/resourceGroups/rg/providers/Microsoft.HybridCompute/machines/agentname"
+  $guid               = "f686d426-8d16-42db-81b7-ab578e110ccd"
+  $accountId          = "/subscriptions/3c480e71-a914-4bcd-8780-9faf6fefbf08/resourceGroups/ahhuss/providers/Microsoft.Storage/storageAccounts/ahhuss1234"
+  $agentName          = "testAgentName"
+  $projectName        = "testProjectName"
+  $containerName      = "containername"
+  $sourceEndpointName = "testSourceEndpoint"
+  $targetEndpointName = "testTargetEndpoint"
+  $jobDefinitionName  = "testJobDefinitionName"
+  $sourcePath         = "/"
+  $targetPath         = "/"
+  $location           = "eastus2euap"
+  $ResourceGroupName  = "testResourceGroup"
+  ```
 
+1. Create a storage mover and verify that it exists in your resource group.
 
+  ```powershell
+  New-AzStorageMover -Name $StorageMoverName `
+    -ResourceGroupName $ResourceGroupName `
+    -Location $location `
+    -Tag @{"tag1" = "value1"; "tag2" = "value2"} `
+    -Description "storagemover description" #-Debug
+
+  Get-AzStorageMover -ResourceGroupName $ResourceGroupName -Name $StorageMoverName
+  ```
+
+1. Perform Agent registration steps or follow these steps just for testing creation of the resource.
+
+  @Ahmed/@akash can we put in the direct REST API calls here instead of the PS cmdlets since those are going to be suppressed
+
+  ```powershell
+  # Create an agent
+  New-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -Name $agentName `
+    -ArcResourceId $arcId `
+    -Description "Agent description" `
+    -ArcVMUuid $guid #-Debug
+
+  # Verify that the agent exists
+  Get-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -Name $agentName
+  ```
+
+1. Create a project and verify that it exists.
+
+  ```powershell
+  New-AzStorageMoverProject `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -Name $projectName `
+    -Description "project description" 
+
+  
+  Get-AzStorageMoverProject `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -Name $projectName 
+  ```
+
+1. Create the target endpoint and verify that it exists.
+
+  ```powershell
+  $containerProperties = New-AzStorageMoverAzureStorageBlobContainerEndpointPropertiesObject `
+    -BlobContainerName $containerName  `
+    -StorageAccountResourceId $accountid `
+    -EndpointType AzureStorageBlobContainer
+
+  New-AzStorageMoverEndpoint `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -Name $targetEndpointName `
+    -Property $containerProperties #-debug
+  ```
+
+1. Create the source endpoint and verify that it exists.
+
+  ```powershell
+  $NFSProperties = New-AzStorageMoverNfsMountEndpointPropertiesObject `
+    -Host "10.0.0.1" `
+    -NfsVersion NFSv3 `
+    -RemoteExport "/" `
+    -EndpointType NfsMount
+
+  New-AzStorageMoverEndpoint `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -Name $sourceEndpointName `
+    -Property $NFSProperties
+  ```
+
+1. Get the endpoints to verify they were created correctly.
+
+  ```powershell
+  Get-AzStorageMoverEndpoint `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName
+  ```
+
+1. Create a job definition and verify that it exists
+
+  ```powershell
+  New-AzStorageMoverJobDefinition 
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -ProjectName $projectName `
+    -Name $jobDefinitionName `
+    -Description "JobDefinition description" `
+    -SourceName $sourceEndpointName `
+    -SourceSubPath $sourcePath `
+    -TargetName $targetEndpointName `
+    -TargetSubPath $targetPath `
+    -CopyMode Mirror `
+    -AgentName $agentName
+
+  Get-AzStorageMoverJobDefinition `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -ProjectName $projectName `
+    -Name $jobDefinitionName 
+  ```
+
+1. Start a new job and see if it exists.
+
+  ```powershell
+  Start-AzStorageMoverJob `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -ProjectName $projectName `
+    -JobDefinitionName $jobDefinitionName
+
+  Get-AzStorageMoverJobRun `
+    -ResourceGroupName $ResourceGroupName `
+    -StorageMoverName $StorageMoverName `
+    -ProjectName $projectName `
+    -JobDefinitionName $jobDefinitionName 
+  ```
 
 ## Section 2 H2
 
@@ -159,11 +248,9 @@ Add some content here.
 
 We must provide at least one next step, but should provide no more than three. This should be relevant to the learning path and provide context so the customer can determine why they would click the link.-->
 
-
 ## Supported sources and targets
-
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Step 1](service-overview.md)
-- [Step 2](service-overview.md)
+- [Step 1](overview.md)
+- [Step 2](overview.md)
