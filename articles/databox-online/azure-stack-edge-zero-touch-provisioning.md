@@ -1,12 +1,12 @@
 ---
-title: Zero Touch Provisioning of Azure Stack Edge devices with PowerShell | Microsoft Docs
+title: Use Zero Touch Provisioning to configure Azure Stack Edge | Microsoft Docs
 description: Describes how to use PowerShell to provision and activate Azure Stack Edge devices.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/11/2022
+ms.date: 08/12/2022
 ms.author: alkohli
 ---
 # Configure Azure Stack Edge devices using the Zero Touch Provisioning module
@@ -17,7 +17,7 @@ This article describes how to automate initial device configuration and activati
 
 Use Zero Touch Provisioning as an alternative to the local web user interface setup sequence. You can run as many rounds of configuration changes and updates as necessary, until the device is activated. After device activation, use the Azure portal user interface or the device local web user interface to modify device configuration.
 
-Usage considerations:
+## Zero Touch Provisioning considerations
 
 - You can apply updates to a device until it's activated. To update devices after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 - You can't update device authentication using Zero Touch Provisioning. To update device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
@@ -57,22 +57,22 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 Before you begin, make sure that you:
 
 1. Have a client running Windows 10 or later, or Windows Server 2016 or later.
-1. Are running PowerShell version 5.1 or later.
+1. Your client is running PowerShell version 5.1 or later.
 1. Are connected to the local web UI of an Azure Stack Edge device. For more information, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 1. Download the [PowerShell module](https://aka.ms/aseztp-ps).
 
 ## Import the module and sign into the device
 
-Use the following steps to import the PowerShell module, sign into the device, and update the device password.
+Use the following steps to import the PowerShell module and sign into the device.
 
-1. Launch PowerShell as an administrator.
+1. Run PowerShell as an administrator.
 1. Import the PowerShell module.
 
    ```azurepowershell
    Import-Module Drive:\<Local path>\ZtpRestHelpers.ps1
    ```
 
-1. Sign into the device using the Set-Login cmdlet. First time sign into the device requires password reset.
+1. Sign into the device using the ```Set-Login``` cmdlet. First time sign into the device requires password reset.
 
    ```azurepowershell
    Set-Login "https://<IP address>" "<Password1>" “<NewPassword>”
@@ -80,7 +80,7 @@ Use the following steps to import the PowerShell module, sign into the device, a
    Set-Login “https://<SerialNumber>.local” “<Password1>” “<NewPassword>”
    ```
 
-## Sign into a device, change the password, and fetch the device configuration
+## Update password and fetch the device configuration
 
 Use the following steps to sign into a device, change the password, and fetch the device configuration:
 
@@ -89,6 +89,7 @@ Use the following steps to sign into a device, change the password, and fetch th
    ```azurepowershell
    Set-Login “https://<IP address>” “<Password1>” “<NewPassword>”
    ```
+
    For any subsequent sign into the device, use:
 
    ```azurepowershell
@@ -103,7 +104,7 @@ Use the following steps to sign into a device, change the password, and fetch th
 
 ## Apply a partial configuration to a device
 
-Use the following steps to prepare a JSON package with the configuration to apply to devices. This sequence of cmdlets signs into the device, sets the time zone, updates the ServerType property, creates a JSON package for those properties, and then applies the package to the device.
+Use the following steps to prepare a JSON package with the configuration to apply to devices. This sequence of cmdlets signs into the device, sets the time zone, modifies the ServerType property, creates a JSON package for those properties, and then applies the package to the device.
 
 After applying the JSON package to the device, the sequence continues by running a status command to verify successful device update. Then it fetches the device configuration and saves the JSON configuration file to the local drive for reuse on one or more additional devices.
 
