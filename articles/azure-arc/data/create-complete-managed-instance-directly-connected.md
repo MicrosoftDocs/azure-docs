@@ -5,7 +5,7 @@ author: MikeRayMSFT
 ms.author: mikeray
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-sqlmi
+ms.subservice: azure-arc-data-sqlmi
 ms.topic: quickstart 
 ms.date: 12/09/2021
 ms.custom: template-quickstart 
