@@ -24,9 +24,9 @@ Advisor uses machine-learning algorithms to identify low utilization and to iden
 
 ### Shutdown recommendations
 
-Advisor identifies resources that have not been used at all over the last 7 days and makes a recommendation to shut them down. 
+Advisor identifies resources that haven't been used at all over the last 7 days and makes a recommendation to shut them down. 
 
--	Recommendation criteria include **CPU** and **Outbound Network utilization** metrics. **Memory** is not considered since we’ve found that **CPU** and **Outbound Network utilization** are sufficient.
+-	Recommendation criteria include **CPU** and **Outbound Network utilization** metrics. **Memory** isn't considered since we've found that **CPU** and **Outbound Network utilization** are sufficient.
 - The last 7 days of utilization data are analyzed
 - Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics across instances.
 - A shutdown recommendation is created if: 
@@ -42,7 +42,7 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
 - The last 7 days of utilization data are analyzed
 - Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations. 
 - An appropriate SKU (for virtual machines) or instance count (for virtual machine scale set resources) is determined based on the following criteria:
-  - Performance of the workloads on the new SKU should not be impacted. 
+  - Performance of the workloads on the new SKU shouldn't be impacted. 
     - Target for user-facing workloads: 
       - P95 of CPU and Outbound Network utilization at 40% or lower on the recommended SKU 
       - P100 of Memory utilization at 60% or lower on the recommended SKU
@@ -52,7 +52,7 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
   - The new SKU, if applicable, has the same Accelerated Networking and Premium Storage capabilities 
   - The new SKU, if applicable, is supported in the current region of the Virtual Machine with the recommendation
   - The new SKU, if applicable, is less expensive 
-  - Instance count recommendations also take into account if the VMSS is being managed by Service Fabric or AKS. In the case of service fabric managed resources, recommendations take into account reliability and durability tiers. 
+  - Instance count recommendations also take into account if the VMSS is being managed by Service Fabric or AKS. For service fabric managed resources, recommendations take into account reliability and durability tiers. 
 - Advisor determines if a workload is user-facing by analyzing its CPU utilization characteristics. The approach is based on findings by Microsoft Research. You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
 - Based on the best fit and the cheapest costs with no performance impacts, Advisor not only recommends smaller SKUs in the same family (for example D3v2 to D2v2), but also SKUs in a newer version (for example D3v2 to D2v3), or a different family (for example D3v2 to E3v2). 
 - For virtual machine scale set resources, Advisor prioritizes instance count recommendations over SKU change recommendations because instance count changes are easily actionable, resulting in faster savings. 
@@ -73,7 +73,7 @@ The result is a recommendation that suggests that the user resizes their current
 Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU/instance count information.
 To be more selective about the actioning on underutilized virtual machines or virtual machine scale sets, you can adjust the CPU utilization rule on a per-subscription basis.
 
-There are cases where the recommendations cannot be adopted or might not be applicable, such as some of these common scenarios (there may be other cases):
+In some cases recommendations can't be adopted or might not be applicable, such as some of these common scenarios (there may be other cases):
 - Virtual machine or virtual machine scale set has been provisioned to accommodate upcoming traffic
 - Virtual machine or virtual machine scale set uses other resources not considered by the resize algo, i.e. metrics other than CPU, Memory and Network
 - Specific testing being done on the current SKU, even if not utilized efficiently
@@ -82,7 +82,7 @@ There are cases where the recommendations cannot be adopted or might not be appl
 
 In such cases simply use the Dismiss/Postpone options associated with the recommendation. 
 
-We are constantly working on improving these recommendations. Feel free to share feedback on [Advisor Forum](https://aka.ms/advisorfeedback).
+We're constantly working on improving these recommendations. Feel free to share feedback on [Advisor Forum](https://aka.ms/advisorfeedback).
 
 ## Next steps
 
