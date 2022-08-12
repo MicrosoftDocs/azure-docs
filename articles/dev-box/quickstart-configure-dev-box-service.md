@@ -187,10 +187,9 @@ The following steps show you how to create and configure a project in dev box.
    |----|----|
    |**Subscription**|Select the subscription in which you want to create the project.|
    |**Resource group**|Select an existing resource group or select **Create new**, and enter a name for the resource group.|
-   |**dev center**|Select the dev center to which you want to associate this project. All the dev center level settings will be applied to the project.|
+   |**Dev center**|Select the dev center to which you want to associate this project. All the dev center level settings will be applied to the project.|
    |**Name**|Enter a name for your project. |
    |**Description**|Enter a brief description of the project. |
-   |**Region**| Select the region you want the project to be created in.|
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot of the Create a dev box project basics tab.":::
 
