@@ -18,7 +18,7 @@ What-if counterfactuals address the question of “what would the model predict 
 
 The Counterfactual Analysis and what-if component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) consists of two functionalities:
 
-- Generating a set of examples with minimal changes to a given point such that they change the model's prediction (showing the closest data points with opposite model precisions)
+- Generating a set of examples with minimal changes to a given point such that they change the model's prediction (showing the closest data points with opposite model predictions)
 - Enabling users to generate their own what-if perturbations to understand how the model reacts to features’ changes.
 
 One of the top differentiators of the Responsible AI dashboard's counterfactual analysis component is the fact that you can identify which features to vary and their permissible ranges for valid and logical counterfactual examples.

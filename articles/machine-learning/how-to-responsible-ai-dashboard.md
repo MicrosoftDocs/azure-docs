@@ -14,11 +14,11 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 # How to use the Responsible AI dashboard in studio (preview)
 
-Responsible AI dashboards are linked to your registered models. To view your Responsible AI dashboard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select into your model, select the **Responsible AI (preview)** tab to view a list of generated dashboards.
+Responsible AI dashboards are linked to your registered models. To view your Responsible AI dashboard, go into your model registry and select the registered model you've generated a Responsible AI dashboard for. Once you select your model, select the **Responsible AI (preview)** tab to view a list of generated dashboards.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png" alt-text="Screenshot of model details tab in studio with Responsible A I tab highlighted." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png":::
 
-Multiple dashboards can be configured and attached to your registered model. Different combinations of components (explainers, causal analysis, etc.) can be attached to each Responsible AI dashboard. The list below only shows whether a component was generated for your dashboard, but different components can be viewed or hidden within the dashboard itself.
+Multiple dashboards can be configured and attached to your registered model. Different combinations of components (interpretability, error analysis, causal analysis, etc.) can be attached to each Responsible AI dashboard. The list below reminds you of your dashboard(s)' customization and what components were generated within the Responsible AI dashboard. However, once opening each dashboard, different components can be viewed or hidden within the dashboard UI itself.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-page.png" alt-text="Screenshot of Responsible A I tab with a dashboard name highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-page.png":::
 
@@ -28,7 +28,7 @@ Selecting the name of the dashboard will open up your dashboard into a full view
 
 ## Full functionality with integrated compute resource
 
-Some features of the Responsible AI dashboard require dynamic, real-time computation. Without connecting a compute resource to the dashboard, you may find some functionality missing. Connecting to a compute resource will enable full functionality of your Responsible AI dashboard for the following components:
+Some features of the Responsible AI dashboard require dynamic, on-the-fly, and real-time computation (e.g., what if analysis). Without connecting a compute resource to the dashboard, you may find some functionality missing. Connecting to a compute resource will enable full functionality of your Responsible AI dashboard for the following components:
 
 - **Error analysis**
     - Setting your global data cohort to any cohort of interest will update the error tree instead of disabling it.
@@ -38,7 +38,7 @@ Some features of the Responsible AI dashboard require dynamic, real-time computa
     - Dynamically updating the heatmap for up to two features is supported.
 - **Feature importance**
     - An individual conditional expectation (ICE) plot in the individual feature importance tab is supported.
-- Counterfactual what-if
+- **Counterfactual what-if**
     - Generating a new what-if counterfactual datapoint to understand the minimum change required for a desired outcome is supported.
 - **Causal analysis**
     - Selecting any individual datapoint, perturbing its treatment features, and seeing the expected causal outcome of causal what-if is supported (only for regression ML scenarios).
@@ -165,16 +165,60 @@ Selecting the **Heat map** tab switches to a different view of the error in the 
 
 ### Model overview
 
-The model overview component provides a set of commonly used model performance metrics and a box plot visualization to explore the distribution of your prediction values and errors.  
+The Model overview component provides a comprehensive set of performance and fairness metrics to evaluate your model, along with key performance disparity metrics along specified features and dataset cohorts.  
+
+#### Dataset cohorts
+The **Dataset cohorts** tab allows you to investigate your model by comparing the model performance of different user-specified dataset cohorts (accessible via the Cohort settings icon on the top right corner of the dashboard). Please note that you can create new dataset cohorts from the UI experience or pass your pre-built cohorts to the dashboard via the SDK experience. 
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-dataset-cohorts.png" alt-text="Screenshot of the dashboard's model overview tab showing the dataset cohorts tab." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-dataset-cohorts.png":::
+
+1. **Help me choose metrics**: Clicking this icon will open a panel with more information about what model performance metrics are available to be shown in the table below. Easily adjust which metrics you can view by using the multi-select drop down to select and deselect performance metrics. (see more below) 
+2. **Show heatmap**: toggle on and off to see heatmap visualization in the table below. The gradient of the heatmap corresponds to the range normalized between the lowest value and the highest value in each column.  
+3. **Table of metrics for each dataset cohort**: Table with columns for dataset cohorts, sample size of each cohort, and the selected model performance metrics for each cohort. 
+4. **Bar chart visualizing individual metric **(I.e., mean absolute error) across the cohorts for easy comparison. 
+5. **Choose metric (x-axis)**: Clicking this will allow you to select which metric to view in the bar chart. 
+6. **Choose cohorts (y-axis)**: Clicking this will allow you to select which cohorts you want to view in the bar chart. Note that you may see “Feature cohort” selection disabled unless you specify your desired features in the “Feature cohort tab” of the component first. 
+
+
+Clicking on “Help me choose metrics” will open a panel with the list of model performance metrics and the corresponding metrics definition to aid users in selecting the right metric to view. 
 
 | ML scenario    | Metrics                                                                                         |
 |----------------|-------------------------------------------------------------------------------------------------|
 | Regression     | Mean absolute error, Mean squared error, R,<sup>2</sup>, Mean prediction.                        |
 | Classification | Accuracy, Precision, Recall, F1 score, False positive rate, False negative rate, Selection rate |
 
-You can further investigate your model by looking at a comparative analysis of its performance across different cohorts or subgroups of your dataset, including automatically created “temporary cohorts” based on selected nodes from the Error analysis component. Select filters along y-value and x-value to cut across different dimensions.
+Classification scenarios will support accuracy, F1 score, precision score, recall score, false positive rate, false negative rate and selection rate (the percentage of predictions with label 1): 
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-v1.png" alt-text="Screenshot of model overview showing a box plot of cohort on y and error on x. " lightbox="./media/how-to-responsible-ai-dashboard/model-overview-v1.png":::
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-classification.png" alt-text="Screenshot of the dashboard's model overview tab showing supported performance metrics for classification models." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-classification.png":::
+
+
+Regression scenarios will support mean absolute error, mean squared error, and mean prediction: 
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-regression.png" alt-text="Screenshot of the dashboard's model overview tab showing supported performance metrics for regression models." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-regression.png":::
+
+
+#### Feature cohorts
+The **Feature cohorts** tab allows you to investigate your model by comparing model performance across user-specified sensitive/non-sensitive features (e.g., performance across different gender, race, income level cohorts). 
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-feature-cohorts.png" alt-text="Screenshot of the dashboard's model overview tab showing the feature cohorts tab." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-feature-cohorts.png":::
+
+1. **Help me choose metrics**: Clicking this icon will open a panel with more information about what metrics are available to be shown in the table below. Easily adjust which metrics you can view by using the multi-select drop down to select and deselect performance metrics. 
+2. **Help me choose features**: Clicking this icon will open a panel with more information about what features are available to be shown in the table below with descriptors of each feature and binning capability (see below). Easily adjust which features you can view by using the multi-select drop down to select and deselect features. 
+3. **Show heatmap**: toggle on and off to see heatmap visualization in the table below. The gradient of the heatmap corresponds to the range normalized between the lowest value and the highest value in each column. 
+4. **Table of metrics for each feature cohort**: Table with columns for feature cohorts (i.e., sub-cohort of your selected feature), sample size of each cohort, and the selected model performance metrics for each feature cohort. 
+5. **Fairness metrics/disparity metrics**: Table that corresponds to the above metrics table and shows the maximum difference or maximum ratio in performance scores between any two feature cohorts. 
+6. **Bar chart visualizing individual metric** (e.g., mean absolute error) across the cohort for easy comparison. 
+7. **Choose cohorts (y-axis)**: Clicking this will allow you to select which cohorts you want to view in the bar chart (see below) 
+8. **Choose metric (x-axis)**: Clicking this will allow you to select which metric to view in the bar chart. 
+
+2 (continued): Clicking on “Help me choose features” will open a panel with the list of features and their properties: 
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-features.png" alt-text="Screenshot of the dashboard's model overview tab showing how to choose features." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-choose-features.png":::
+
+7 (continued): Clicking “Choose cohorts” will open a panel with an option to either show a comparison of selected dataset cohorts or feature cohorts based on what is selected in the multi-select drop down below it. Click “Confirm” to save the changes to the bar chart view.  
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-cohorts.png" alt-text="Screenshot of the dashboard's model overview tab showing how to choose cohorts." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-choose-cohorts.png":::
 
 ### Data explorer
 
@@ -319,5 +363,5 @@ Selecting the Treatment policy tab switches to a view to help determine real-wor
 - Learn more about the  [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View [sample YAML and Python notebooks](https://aka.ms/RAIsamples) to generate a Responsible AI dashboard with YAML or Python.
 - Explore the features of the Responsible AI Dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
-- Learn more about how the Responsible AI Dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
-- Learn about how the Responsible AI Dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
+- Learn more about how the Responsible AI dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn about how the Responsible AI dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
