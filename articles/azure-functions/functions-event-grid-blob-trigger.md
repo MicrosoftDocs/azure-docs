@@ -40,7 +40,7 @@ Earlier versions of the Blob Storage trigger for Azure Functions polled the cont
 ::: zone-end  
 + The [ngrok](https://ngrok.com/) utility, which provides a way for Azure to call into your locally running function.
 
-+ The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code.
++ The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. 
 
 > [!NOTE]
 > The Storage Extension for Visual Studio Code is currently in preview.
