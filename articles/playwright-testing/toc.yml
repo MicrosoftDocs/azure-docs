@@ -28,3 +28,5 @@ items:
       href: how-to-cross-platform-tests.md
     - name: Test private endpoints
       href: how-to-test-private-endpoints.md
+    - name: Manage access keys
+      href: how-to-manage-access-keys.md
