@@ -271,7 +271,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 <a name="other-transformations"></a>
 
-### Other Liquid transformations
+## Other Liquid transformations
 
 You can use Liquid to perform other transformations, for example:
 
@@ -281,7 +281,7 @@ You can use Liquid to perform other transformations, for example:
 
 <a name="json-text"></a>
 
-#### Transform JSON to text
+### Transform JSON to text
 
 The following Liquid template shows an example transformation for JSON to text:
 
@@ -295,7 +295,7 @@ The following example shows the sample inputs and outputs:
 
 <a name="xml-json"></a>
 
-#### Transform XML to JSON
+### Transform XML to JSON
 
 The following Liquid template shows an example transformation for XML to JSON:
 
@@ -313,7 +313,7 @@ The following example shows the sample inputs and outputs:
 
 <a name="xml-text"></a>
 
-#### Transform XML to text
+### Transform XML to text
 
 The following Liquid template shows an example transformation for XML to text:
 
