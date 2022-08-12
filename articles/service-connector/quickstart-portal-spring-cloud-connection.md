@@ -55,5 +55,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 Follow the tutorials listed below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
-> - [Tutorial: Spring Cloud + MySQL](./tutorial-java-spring-mysql.md)
-> - [Tutorial: Spring Cloud + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)
+> [Tutorial: Spring Cloud + MySQL](./tutorial-java-spring-mysql.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Spring Cloud + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)

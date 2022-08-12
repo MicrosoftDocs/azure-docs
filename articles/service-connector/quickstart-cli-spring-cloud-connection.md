@@ -86,4 +86,6 @@ Follow the tutorials listed below to start building your own application with Se
 
 > [!div class="nextstepaction"]
 > [Tutorial: Spring Cloud + MySQL](./tutorial-java-spring-mysql.md)
+
+> [!div class="nextstepaction"]
 > [Tutorial: Spring Cloud + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)
