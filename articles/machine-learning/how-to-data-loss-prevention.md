@@ -14,7 +14,7 @@ ms.date: 08/05/2022
 
 # Azure Machine Learning data loss prevention (Preview)
 
-Learn how to use a [Service Endpoint policy] to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning.
+Learn how to use a [Service Endpoint policy](/azure/virtual-network/virtual-network-service-endpoint-policies-overview) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning.
 
 An Azure Machine Learning workspace requires outbound access to `storage.<region>/*.blob.core.windows.net` on the public internet, where `<region>` is the Azure region of the workspace. This outbound access is required by Azure Machine Learning compute cluster and compute instance. Both are based on Azure Batch, and need to access a storage account provided by Azure Batch on the public network.
 
@@ -31,86 +31,89 @@ By using a Service Endpoint Policy, you can mitigate this vulnerability.
 
 ## Limitations
 
-* Data loss prevention is not supported with an Azure Machine Learning compute cluster or compute instance configured for __no public IP__.
+* Data loss prevention isn't supported with an Azure Machine Learning compute cluster or compute instance configured for __no public IP__.
 
-## 1. Opt-in to the preview
+## 1. Opt in to the preview
 
 > [!IMPORTANT]
 > Before opting in to this preview, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
 
-Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt-in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview.
+Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview.
 
 ## 2. Allow inbound & outbound network traffic
 
+### Inbound
+
 > [!IMPORTANT]
-> The information in this section modifies the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md).
+> The following information __modifies__ the guidance provided in the [Inbound traffic](how-to-secure-training-vnet.md#inbound-traffic) section of the "Secure training environment with virtual networks" article.
 
-| Direction | Azure service | Port(s) | Notes |
-| ----- | ----- | ----- | ----- |
+__Inbound__ traffic from the service tag `BatchNodeManagement.<region>` or equivalent IP addresses is __not required__.
 
+### Outbound
 
-## 3. Create the service endpoint policy
+> [!IMPORTANT]
+> The following information is __in addition__ to the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md) article.
 
-1. From the [Azure portal][portal], add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
+Select the configuration that you're using:
+
+# [Network security group](#tab/nsg)
+
+__Allow__ outbound traffic over __TCP port 443__ to the following. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+
+* `BatchNodeManagement.<region>`
+* `Storage.<region>` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+
+# [Firewall](#tab/firewall)
+
+__Allow__ outbound traffic over __TCP port 443__ to the following hosts. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+
+* `<region>.batch.azure.com`
+* `<region>.service.batch.com`
+* `*.blob.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+* `*.queue.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+* `*.table.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+
+---
+
+## 3. Enable storage endpoint for the subnet
+
+1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure ML workspace.
+1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
+1. In the form that appears, expand the __Services__ dropdown and then __enable Microsoft.Storage__. Select __Save__ to save these changes.
+
+## 4. Create the service endpoint policy
+
+1. From the [Azure portal](https://portal.azure.com), add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
 1. On the __Policy definitions__ tab, perform the following actions:
     1. Select __+ Add a resource__, and then provide the following information:
+    
+        > [!TIP]
+        > * At least one storage account resource must be listed in the policy.
+        > * If you are adding multiple storage accounts, and the _default storage account_ for your workspace is configured with a private endpoint, you do not need to include it in the policy.
+
         * __Service__: Microsoft.Storage
-        * __Scope__: Single account
+        * __Scope__: Select the scope. For example, select __Single account__ if you want to limit the network traffic to one storage account.
         * __Subscription__: The Azure subscription that contains the storage account.
         * __Resource group__: The resource group that contains the storage account.
         * __Resource__: The storage account.
     
         Select __Add__ to add the resource information.
-    1. Select __+ Add an alias__, and then enter `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add thee alias.
+    1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add thee alias.
 1. Select __Review + Create__, and then select __Create__.
-    
-<!-- -----------------------------------------------------
-Original stuff from Jumpei
------------------------------------------------------ -->
 
-## 2. Change You Inbound and Outbound Configurations
+## Curated environments
 
+When using Azure ML curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
 
+1. From [Azure ML studio](https://ml.azure.com), select your workspace and then select __Environments__.
+1. Verify that the __Azure container registry__ begins with a value of `mcr.microsoft.com`.
 
-### Inbound Configurations
-* Allow the inbound from service tag "Azure Machine Learning" (No Change)
-* If you use a firewall, you need to configure UDR to make inbound communication skip your firewall. See [this doc](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#inbound-traffic).
+    > [!IMPORTANT]
+    > If the container registry is `viennaglobal.azurecr.io` you cannot use the curated environment with the data exfiltration preview. Try upgrading to the latest version of the curated environment.
 
-Note that the inbound from service tag "Batch node management" is not required anymore.
+## Next steps
 
-### Outbound Configurations
+For more information, see the following articles:
 
-#### NSG Case
-* Destination port 443 over TCP to BatchNodeManagement.region 
-* Destination port 443 over TCP to Storage.region (Service Endpoint Policy will narrow it down in the later step.) 
-
-#### FW Case
-* Destination port 443 to region.batch.azure.com, region.service.batch.com.
-* Destination port 443 over TCP to *.blob.core.windows.net, *.queue.core.windows.net, *.table.core.windows.net (SEP will narrow it down in the later step.)
-
-### Service Endpoint Policy Configuration
-
-We use [service endpoint policy](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview) to narrow down the target storage accounts of the outbound to storage.region/*.blob.core.windows.net.
-
-* Enable the storage service endpoint of your subnet has your compute
-* Create a service endpoint policy with **/services/Azure/MachineLearning** alias and one storage account. At least one stroage account registration is required for a service endpoint policy. If you have a private endpoint for your default storage account attached to AzureML workspace, you do not need to include the default storage account in SEP.
-* Attach your service endpoint policy to your subnet has your compute.
-
-If you do not have storage private endpoints for Azure Machine Learning Vnet, you need to do the following.
-* Add your storage accounts in your service endpoint policy that you want to allow access from your compute. At least, you need to add the default storage account attached to your AzureML workspace.
-
-## Curated Environments
-If you use curated enviornments, please make sure using the latest one and it is on Microsoft Container Registry. If the link under Azure contaier registry is mcr.microsoft.com/*, you are good to go. If the link is viennaglobal.azurecr.io/*, you cannot use it with DLP. That curated environment is on the deprecation path, or on the migration to MCR.
-
-![curated env example](./images/curatedenv.png)
-
-## References
-* [Configure inbound and outbound network traffic](https://docs.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall)
-* [Batch Simplified Node Communicaiton](https://docs.microsoft.com/azure/batch/simplified-compute-node-communication)
-
-
-## Frequently Asked Questions
-To be updated.
-
-
-[portal]: https://portal.azure.com
+* [How to configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md)
+* [Azure Batch simplified node communication](/azure/batch/simplified-compute-node-communication)
