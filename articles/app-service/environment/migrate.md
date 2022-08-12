@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 7/29/2022
+ms.date: 8/19/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -58,7 +58,7 @@ The following App Service Environment configurations can be migrated using the m
 |ELB App Service Environment v1                                                                     |ELB App Service Environment v3                             |
 |ILB App Service Environment v1 with a custom domain suffix                                         |ILB App Service Environment v3 with a custom domain suffix |
 
-If you want your new App Service Environment v3 to use a custom domain suffix and you are't using one currently, custom domain suffix can be configured at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). 
+If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). 
 
 You can find the version of your App Service Environment by navigating to your App Service Environment in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your App Service Environment.
 
@@ -139,7 +139,7 @@ If your migration includes a custom domain suffix, for App Service Environment v
 
 After completing the previous steps, you should continue with migration as soon as possible.
 
-During migration, which requires up to a three hour service window for App Service Environment v2 to v3 migrations and a 3-6 hour service window depending on environment size for v1 to v3 migrations, scaling and environment configurations are blocked and the following events will occur:
+During migration, which requires up to a three hour service window for App Service Environment v2 to v3 migrations and up to a six hour service window depending on environment size for v1 to v3 migrations, scaling and environment configurations are blocked and the following events will occur:
 
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.

@@ -3,7 +3,7 @@ title: Use the migration feature to migrate your App Service Environment to App 
 description: Learn how to migrate your App Service Environment to App Service Environment v3 using the migration feature
 author: seligj95
 ms.topic: tutorial
-ms.date: 8/1/2022
+ms.date: 8/19/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -43,7 +43,7 @@ The following command will check whether your App Service Environment is support
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
 ```
 
-If there are no errors, your migration is supported and you can continue to the next step.
+If there are no errors, your migration is supported, and you can continue to the next step.
 
 ## 3. Generate IP addresses for your new App Service Environment v3
 
@@ -84,9 +84,9 @@ You can make your new App Service Environment v3 zone redundant if your existing
 
 If your existing App Service Environment uses a custom domain suffix, you'll need to [configure one for your new App Service Environment v3 during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration will fail if you don't configure a custom domain suffix and are using one currently. Migration will also fail if you attempt to add a custom domain suffix during migration to an environment that doesn't have one configured currently. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md).
 
-If you migration doesn't include a custom domain suffix and you aren't enabling zone redundancy, you can move on to migration.
+If your migration doesn't include a custom domain suffix and you aren't enabling zone redundancy, you can move on to migration.
 
-In order to set these configurations, create a file called "parameters.json" with the following details based on your scenario. Don't include the custom domain suffix properties if this feature doesn't apply to your migration. Be sure to pay attention to the value of the `zoneRedundant` property as this is irreversible. Ensure the value of the `kind` property is set based on your existing App Service Environment version. Accepted values for the `kind` property are "ASEV1" and  "ASEV2".
+In order to set these configurations, create a file called "parameters.json" with the following details based on your scenario. Don't include the custom domain suffix properties if this feature doesn't apply to your migration. Be sure to pay attention to the value of the `zoneRedundant` property as this configuration is irreversible after migration. Ensure the value of the `kind` property is set based on your existing App Service Environment version. Accepted values for the `kind` property are "ASEV1" and  "ASEV2".
 
 If you're migrating without a custom domain suffix and are enabling zone redundancy:
 
@@ -143,7 +143,7 @@ If you're using a system assigned managed identity for your custom domain suffix
 
 Only start this step once you've completed all pre-migration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. This step takes up to three hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. During that time, there will be about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment will be blocked during this step. 
 
-Only need to include the the "body" parameter in the command if you're enabling zone redundancy and/or are configuring a custom domain suffix. If neither of those apply to your migration, you can remove that parameter from the command.
+Only include the "body" parameter in the command if you're enabling zone redundancy and/or are configuring a custom domain suffix. If neither of those configurations apply to your migration, you can remove the parameter from the command.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --body @parameters.json
@@ -209,7 +209,7 @@ If your existing App Service Environment uses a [custom domain suffix](./migrate
 
 :::image type="content" source="./media/migration/input-custom-domain-suffix.png" alt-text="Add custom domain suffix configuration.":::
 
-After adding your custom domain suffix details, the "Migrate" button will be enabled.
+After you add your custom domain suffix details, the "Migrate" button will be enabled.
 
 :::image type="content" source="./media/migration/custom-domain-suffix.png" alt-text="Configuration details have been added and environment is ready for migration.":::
 
