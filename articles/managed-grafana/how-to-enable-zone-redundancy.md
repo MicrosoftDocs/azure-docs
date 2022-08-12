@@ -67,9 +67,11 @@ Create an workspace and enable zone-redundancy with the Azure portal or the CLI.
     | Name                | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.                                                                                                   | *my-grafana*        |
     | Zone Redundancy     | Set **Enable Zone Redundancy** to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. | *Enabled*           |
 
-    :::image type="content" source="media/quickstart-portal/create-form-basics.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
+1. Make sure that **Zone redundancy** is set to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
 
-1. Select **Next : Advanced >** to access API key creation and statics IP address options. **Enable API key creation** and **Enable a static IP address** options are set to **Disable** by default. Optionally enable API key creation and enable a static IP address.
+    :::image type="content" source="media/quickstart-portal/create-form-basics-with-redundancy.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
+
+1. Select **Next : Advanced >** to access API key creation and statics IP address options. **Enable API key creation** and **Deterministic outbound IP** options are set to **Disable** by default. Optionally enable API key creation and enable a static IP address.
 
     :::image type="content" source="media/quickstart-portal/create-form-advanced.png" alt-text="Screenshot of the Azure portal. Create workspace form. Advanced.":::
 
@@ -78,17 +80,19 @@ Create an workspace and enable zone-redundancy with the Azure portal or the CLI.
 
    1. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked.
 
-   1. The box **Include myself** under **Grafana administrator role** is checked. This grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**.
+   1. The box **Include myself** under **Grafana administrator role** is checked. This grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If you this option grays out for you, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
 
-    If you uncheck this option, or if the option grays out for you, someone with the Owner role on the subscription can assign you the Grafana Admin role.
-
-    :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. permission.":::
+    :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
 
 1. Optionally select **Next : Tags** and add tags to categorize resources.
 
+    :::image type="content" source="media/quickstart-portal/create-form-tags.png" alt-text="Screenshot of the Azure portal. Create workspace form. Tags.":::
+
 1. Select **Next : Review + create >**. After validation runs, select **Create**. Your Azure Managed Grafana resource is deploying.
 
-### [Azure CLI](#tab/azure-cli)
+    :::image type="content" source="media/quickstart-portal/create-form-validation-with-redundancy.png" alt-text="Screenshot of the Azure portal. Create workspace form. Validation.":::
+
+ ### [Azure CLI](#tab/azure-cli)
 
 1. Run the code below to create a resource group to organize the Azure resources needed. Skip this step if you already have a resource group you want to use.
 
@@ -120,31 +124,11 @@ Once the deployment is complete, you'll see a note in the output of the command 
 
 ---
 
-## Access your new Managed Grafana instance
+## Check if zone redundancy is enabled
 
-### [Portal](#tab/azure-portal)
+To check if zone redundancy is enabled under **Settings**, go to **Configuration** in the portal and check if the if Zone redundancy is listed as enabled or disabled.
 
-Now let's check if you can access your new Managed Grafana instance.
-
-1. Take note of the **endpoint** URL ending by `eus.grafana.azure.com`, listed in the CLI output.  
-
-1. Open a browser and enter the endpoint URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
-
-   :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Once the deployment is complete, select **Go to resource** to open your resource.  
-
-    :::image type="content" source="media/quickstart-portal/deployment-complete.png" alt-text="Screenshot of the Azure portal. Message: Your deployment is complete.":::
-
-1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account.
-
-    :::image type="content" source="media/quickstart-portal/overview-essentials.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
-
-    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
-
----
+   :::image type="content" source="media/quickstart-portal/configuration.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
 
 ## Next steps
 

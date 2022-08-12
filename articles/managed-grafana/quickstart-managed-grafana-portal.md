@@ -36,11 +36,11 @@ An Azure account with an active subscription. [Create an account for free](https
     | Location            | *(US) East US*      | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you. |
     | Name                | *my-grafana*        | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.              |
 
-   **Enable Zone Redundancy** is set to **Disable**. Zone redundancy automatically provisions and manages  a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for using this option.
+   1. Choose if you want to enable or disable **Zone redundancy**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
 
     :::image type="content" source="media/quickstart-portal/create-form-basics.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
 
-1. Select **Next : Advanced >** to access API key creation and statics IP address options. **Enable API key creation** and **Enable a static IP address** options are set to **Disable** by default. Optionally enable API key creation and enable a static IP address.
+1. Select **Next : Advanced >** to access API key creation and statics IP address options. **Enable API key creation** and **Deterministic outbound IP** options are set to **Disable** by default. Optionally enable API key creation and enable a static IP address.
 
     :::image type="content" source="media/quickstart-portal/create-form-advanced.png" alt-text="Screenshot of the Azure portal. Create workspace form. Advanced.":::
 
@@ -49,25 +49,25 @@ An Azure account with an active subscription. [Create an account for free](https
 
    1. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked.
 
-   1. The box **Include myself** under **Grafana administrator role** is checked. This grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**.
+   1. The box **Include myself** under **Grafana administrator role** is checked. This grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If this option grays out for you, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
 
-    If you uncheck this option, or if the option grays out for you, someone with the Owner role on the subscription can assign you the Grafana Admin role.
-
-    :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. permission.":::
+    :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
 
 1. Optionally select **Next : Tags** and add tags to categorize resources.
 
+    :::image type="content" source="media/quickstart-portal/create-form-tags.png" alt-text="Screenshot of the Azure portal. Create workspace form. Tags.":::
+
 1. Select **Next : Review + create >**. After validation runs, select **Create**. Your Azure Managed Grafana resource is deploying.
+
+    :::image type="content" source="media/quickstart-portal/create-form-validation.png" alt-text="Screenshot of the Azure portal. Create workspace form. Validation.":::
 
 ## Access your Managed Grafana instance
 
-1. Once the deployment is complete, select **Go to resource** to open your resource.  
-
-    :::image type="content" source="media/quickstart-portal/deployment-complete.png" alt-text="Screenshot of the Azure portal. Message: Your deployment is complete.":::
+1. Once the deployment is complete, select **Go to resource** to open your resource.
 
 1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account.
 
-    :::image type="content" source="media/quickstart-portal/overview-essentials.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
+    :::image type="content" source="media/quickstart-portal/grafana-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
 
     :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
