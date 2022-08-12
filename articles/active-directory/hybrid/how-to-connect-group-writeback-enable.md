@@ -63,23 +63,22 @@ If the original version of group writeback was not previously enabled, continue 
 7. On the **Ready to configure page**, click **Configure**. 
 8. When the wizard is complete, click **Exit** on the Configuration complete page. Group Writeback will be automatically configured. 
 
->[!Note] 
-
->The following is performed automatically after the last step above. However, if you experience permission issues while exporting the object to AD then do the following: 
-> 
->Open the Windows PowerShell as an Administrator on the Azure Active Directory Connect server, and run the following commands. This step is optional 
-> 
->``` PowerShell 
->$AzureADConnectSWritebackAccountDN =  <MSOL_ account DN> 
->Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1" 
-> 
-># To grant the <MSOL_account> permission to all domains in the forest: 
->Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN 
-> 
-># To grant the <MSOL_account> permission to specific OU (eg. the OU chosen to writeback Office 365 Groups to): 
->$GroupWritebackOU = <DN of OU where groups are to be written back to> 
->Set-ADSyncUnifiedGroupWritebackPermissions –ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU 
->``` 
+ >[!Note] 
+ >The following is performed automatically after the last step above. However, if you experience permission issues while exporting the object to AD then do the following: 
+ >  
+ >Open the Windows PowerShell as an Administrator on the Azure Active Directory Connect server, and run the following commands. This step is optional 
+ > 
+ >``` PowerShell 
+ >$AzureADConnectSWritebackAccountDN =  <MSOL_ account DN> 
+ >Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1" 
+ > 
+ ># To grant the <MSOL_account> permission to all domains in the forest: 
+ >Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN 
+ > 
+ ># To grant the <MSOL_account> permission to specific OU (eg. the OU chosen to writeback Office 365 Groups to): 
+ >$GroupWritebackOU = <DN of OU where groups are to be written back to> 
+ >Set-ADSyncUnifiedGroupWritebackPermissions –ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU 
+ >``` 
 
  
 
@@ -95,11 +94,8 @@ CN=Administrators_e9305786a271, OU=WritebackContainer, DC=domain, DC=com 
 
 When configuring group writeback, there will be a checkbox at the bottom of the Group Writeback configuration window. Select the box to enable this feature. 
 
-Detailed password flow 
-
->[!Note] 
+>[!NOTE]
 >Groups being written back from Azure AD to AD will have a source of authority of the cloud. >This means any changes made on-premises to groups that are written back from Azure AD will be overwritten on the next sync cycle. 
-
 
 ## Next Steps: 
 

@@ -14,9 +14,9 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Disabling Group writeback 
+# Disabling group writeback 
 
-To disable Group writeback for your organization, use the following steps: 
+To disable group writeback for your organization, use the following steps: 
 
 1. Launch the Azure Active Directory Connect wizard and navigate to the Additional Tasks page. Select the Customize synchronization options task and click next. 
 2. On the Optional Features page, uncheck group writeback. You'll receive a warning letting you know that groups will be deleted. Click Yes. 
@@ -35,7 +35,7 @@ To disable Group writeback for your organization, use the following steps:
 
 ## Rolling back group writeback 
 
-To disable or roll back group writeback via powershell, do the following: 
+To disable or roll back group writeback via PowerShell, do the following: 
 
 1. Open a PowerShell prompt as administrator. 
 2. Disable the sync scheduler after verifying that no synchronization operations are running: 

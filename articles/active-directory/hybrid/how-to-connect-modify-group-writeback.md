@@ -28,12 +28,12 @@ The following document will walk you through deploying the options for modifying
 
 ## Considerations for Existing Deployments 
 
-If the original version of group writeback is already enabled and in use in your environment, then all your Microsoft 365 groups have already been written back to AD. Instead of disabling all Microsoft 365 groups, you'll want to review any use of the previously written back groups, and disable only those that are no longer needed in on-prem AD. 
+If the original version of group writeback is already enabled and in use in your environment, then all your Microsoft 365 groups have already been written back to AD. Instead of disabling all Microsoft 365 groups, you'll want to review any use of the previously written back groups, and disable only those that are no longer needed in on-premises AD. 
 
 ### Disable automatic writeback of all Microsoft 365 groups 
 
    1. To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups, update the `NewUnifiedGroupWritebackDefault` setting to false. 
-   2. To do this via Powershell, use the: [New-AzureADDirectorySetting](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-settings-cmdlets) cmdlet. 
+   2. To do this via PowerShell, use the: [New-AzureADDirectorySetting](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-settings-cmdlets) cmdlet. 
    Example:  
      ```PowerShell 
      $TemplateId = (Get-AzureADDirectorySettingTemplate | where {$_.DisplayName -eq "Group.Unified" }).Id 
