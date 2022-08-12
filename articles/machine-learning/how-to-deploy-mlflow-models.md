@@ -238,7 +238,8 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    __create-endpoint.yaml__
 
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
-    
+   
+   ---
 
 1. To create a new endpoint using the YAML configuration, use the following command:
 
