@@ -22,6 +22,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 ## August 2022
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
+
     Standard network features now includes Global VNet peering. You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
     [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
 
