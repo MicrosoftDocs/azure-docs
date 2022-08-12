@@ -127,9 +127,9 @@ You can now demonstrate that DNS resolution works when one of the connections is
 2. Run the nslookup query using the private resolver from the Vnet that is no longer connected and verify that it fails (see below).
 3. Run the nslookup query using your default DNS server (configured with forwarders) and verify it still works due to the redundancy you enabled.
 
-    ![Results of nslookup](./media/tutorial-dns-private-resolver-failover/nslookup-results-failover.png)
+    ![Results of nslookup - failover](./media/tutorial-dns-private-resolver-failover/nslookup-results-failover.png)
 
 ## Next steps
 
-Review components, benefits, and requirements for Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](private-resolver-overview.md).
+Review components, benefits, and requirements for Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](dns-private-resolver-overview.md).
 
