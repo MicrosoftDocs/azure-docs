@@ -145,7 +145,7 @@ You can now start your Playwright tests by using the command-line or the [Visual
     npx playwright test
     ```
 
-    Because you've configured your Playwright tests to use Microsoft Playwright Testing, your tests will run in the cloud. After the tests finish, you'll get a direct link to the test results in the Microsoft Playwright Testing portal.
+    The test output appears in the terminal window, however your tests are running in the cloud, with Microsoft Playwright Testing. After the tests finish, you'll get a direct link to view and analyze the test results in the Microsoft Playwright Testing portal. Learn more about [identifying app issues with Microsoft Playwright Testing](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 
 ## Scale out your tests
 

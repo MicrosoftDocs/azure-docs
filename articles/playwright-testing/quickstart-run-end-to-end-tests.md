@@ -171,9 +171,9 @@ You've now configured your Playwright tests to run in the cloud with Microsoft P
 
 ## Next steps
 
-You've now created a Microsoft Playwright Testing account and configured your Playwright tests to run in the cloud.
+You've now successfully created a Microsoft Playwright Testing workspace, and have run Playwright tests in the cloud.
 
-Advance to the next tutorial to learn how to identify application issues in the Microsoft Playwright Testing portal.
+Advance to the next tutorial to learn how to identify app issues by using the information in the Microsoft Playwright Testing portal.
 
 > [!div class="nextstepaction"]
 > [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)

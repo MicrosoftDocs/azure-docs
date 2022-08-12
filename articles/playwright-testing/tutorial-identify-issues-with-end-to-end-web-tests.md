@@ -30,9 +30,10 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* Access to Microsoft Playwright Testing preview.
-* Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
-* Git. If you don't have it, [download and install it](https://git-scm.com/download).
+- Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
+- Git. If you don't have it, [download and install it](https://git-scm.com/download).
+- [Node](https://nodejs.org/en/download)
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Download the sample repository
 
@@ -105,9 +106,9 @@ To run Playwright tests with Microsoft Playwright Testing, you need a workspace 
 
 ## Configure Playwright for Microsoft Playwright Testing
 
-The `playwright.config.ts` file contains the Playwright configuration settings. The `@microsoft/playwright-service` npm package contains the `PlaywrightService` class to connect Playwright to Microsoft Playwright Testing. The tests in the sample repository are already preconfigured to use Microsoft Playwright Testing.
+To run your existing Playwright tests with Microsoft Playwright Testing, you have to install the `@microsoft/playwright-service` npm package and update the `playwright.config.ts` Playwright configuration file. You don't have to make changes to your test specifications. The Playwright tests in the sample repository are already preconfigured to use Microsoft Playwright Testing.
 
-To authorize Playwright to run your tests in your Microsoft Playwright Testing workspace, provide the access key you created earlier.
+You'll now create an environment variable to store the workspace access key you created earlier. The Playwright configuration file uses this environment variable to authorize Playwright with your workspace.
 
 Optionally, you can also set a dashboard name to group your test runs in the Microsoft Playwright Testing portal. By default, all test runs are grouped in the `Default Group` dashboard.
 
@@ -127,7 +128,7 @@ If you run your tests from the command-line, create environment variables on you
     $env:DASHBOARD = '<my-dashboard-name>'
     ```
 
-Alternately, you can set the values of the `accessKey` and `dashboard` properties directly in `playwright.config.ts`:
+Alternately, you can set the value of the `accessKey` and `dashboard` properties directly in `playwright.config.ts`:
 
 ```typescript
 var playwrightServiceConfig = new PlaywrightService({
@@ -138,9 +139,11 @@ var playwrightServiceConfig = new PlaywrightService({
 
 ## Run tests across multiple browsers
 
-In the Playwright configuration file, you can specify the different [browser configurations](https://playwright.dev/docs/test-configuration#multiple-browsers) and operating systems to run your tests for. Microsoft Playwright Testing enables you to run your tests across multiple browsers, device configurations, and operating systems. 
+In the Playwright configuration file, you can specify the different [browser configurations](https://playwright.dev/docs/test-configuration#multiple-browsers) and operating systems to run your tests for. Microsoft Playwright Testing enables you to run your tests across multiple browsers, device configurations, and operating systems.
 
-Use the `projects` node in the Playwright configuration file to provide the list of browser configurations. The following code snippet shows the browser configurations in the sample tests.
+Optionally, add or remove browser configurations by updating the `projects` node in the Playwright configuration file.
+
+The following code snippet shows the browser configurations in the sample repository.
 
 ```typescript
 // playwright.config.ts
@@ -188,7 +191,11 @@ const config: PlaywrightTestConfig = {
 
 ## Run tests
 
-Now that you've configured your Playwright tests to connect to Microsoft Playwright Testing, you can run the tests. You can start the test in either of two ways:
+Now that you've configured your Playwright tests to connect to Microsoft Playwright Testing, you can run the tests. Microsoft Playwright Testing enables you to use your existing tools and commands for running and debugging tests. Learn more about [running Playwright tests](https://playwright.dev/docs/intro).
+
+When your start the Playwright tests, the output appears on your local machine, however they'll run in the cloud, with Microsoft Playwright Testing.
+
+You can start the tests in either of two ways:
 
 - Use Visual Studio Code and the Playwright Test extension.
 - Use the Playwright command-line interface (CLI).
