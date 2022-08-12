@@ -197,7 +197,7 @@ The `.cshtml` file names referenced earlier are from a default MVC application t
 If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md) by adding the JavaScript snippet to an equivalent file that controls the `<head>` of all pages within your app. Alternatively, you can add the snippet to multiple pages, but we don't recommend it.
 
 > [!NOTE]
-> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#adding-the-javascript-sdk).
+> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#add-the-javascript-sdk).
 
 ## Configure the Application Insights SDK
 
