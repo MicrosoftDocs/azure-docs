@@ -77,7 +77,7 @@ In this example, there are two virtual networks in two regions:
 
 ## Verify private zone links
 
-In order for resources within a virtual network to resolve DNS records in an Azure DNS private zone, the zone must be linked to the virtual network.  In this example, the zone `azure.contoso.com` is linked to **myeastvnet** and **mywestvnet**. Links to other vnets can also be present.
+To resolve DNS records in an Azure DNS private zone, the zone must be linked to the virtual network.  In this example, the zone `azure.contoso.com` is linked to **myeastvnet** and **mywestvnet**. Links to other vnets can also be present.
 
 1. Search for **Private DNS zones** and select your private zone.  For example: **azure.contoso.com**.
 2. Under **Settings**, select **Virtual network links** and verify that the vnets you used for inbound endpoints in the previous procedure are also listed under Virtual network. For example: **myeastvnet** and **mywestvnet**.
@@ -86,25 +86,77 @@ In order for resources within a virtual network to resolve DNS records in an Azu
 
 3. If one or more vnets are not yet linked, you can add it here by selecting **Add**, providing a **Link name**, choosing your **Subscription**, and then choosing the **Virtual network**.
 
+> [!TIP]
+> You can also use peering to resolve records in private DNS zones. For more information, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
+
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
 state that there are no resources to clean up in this section.
 -->
 
-## Verify vnet DNS settings
+## Verify Azure DNS resolution
 
-In order for resources within a virtual network to resolve DNS records in an Azure DNS private zone, the zone must be linked to the virtual network.  In this example, the zone `azure.contoso.com` is linked to **myeastvnet** and **mywestvnet**. Links to other vnets can also be present.
+Check that DNS settings for your virtual networks are set to Default (Azure-provided).
 
-1. Search for **Virtual networks** and select your private zone.  For example: **azure.contoso.com**.
-2. Under **Settings**, select **Virtual network links** and verify that the vnets you used for inbound endpoints in the previous procedure are also listed under Virtual network. For example: **myeastvnet** and **mywestvnet**.
+1. Search for **Virtual networks** and select the first Vnet.  For example: **myeastvnet**.
+2. Under **Settings**, select **DNS servers** and verify that **Default (Azure-provided)** is chosen.
+3. Select the next Vnet (ex: **mywestvnet**) and verify that **Default (Azure-provided)** is chosen.
 
+    > [!NOTE]
+    > Custom DNS settings can also be made to work, but this is not in scope for the current scenario.
 
+4. Search for **Private DNS zones** and select your private zone name. For example: **azure.contoso.com**.
+5. Create a test record in the zone by selecting **+ Record set** and adding a new A record. For example: **test**.
+
+    ![Create a test A record](./media/tutorial-dns-private-resolver-failover/test-record.png)
+
+5. Open a command promt using an on-premises client and use nslookup to look up your test record using the first private resolver IP address that you wrote down (ex: 10.10.0.4). See the following example:
+
+    ```cmd
+    nslookup test.azure.contoso.com 10.10.0.4
+    ```
+    The query should return the IP address that you assigned to your test record.
+    ![Results of nslookup - east](./media/tutorial-dns-private-resolver-failover/nslookup-results-e.png)
+
+6. Repeat this nslookup query using the IP address that you wrote down for the second private resolver (ex: 10.20.0.4).
+
+    ![Results of nslookup - west](./media/tutorial-dns-private-resolver-failover/nslookup-results-w.png)
+
+    > [!NOTE]
+    > If DNS resolution for the private zone is not working, check that your on-premises links to the Azure Vnets are connected.
+
+## Configure on-premises DNS forwarding
+
+Now that DNS resolution is working from on-premises to Azure using two different Azure DNS Private Resolvers, we can configure forwarding to use both of these addresses.  This will add redundancy in case one of the connections to Azure is interrupted. The procedures to configure forwarders will depend on the type of DNS server that you are using. The following steps are provided for a Windows Server that is running the DNS Server role service.
+
+   > [!NOTE]
+   > The DNS server that you use to configure forwarding should be a server that client devices on your network will use for DNS resolution. In this example, the DNS server being configured is at 10.100.0.2, the default DNS server issued by DHCP to clients on the network.
+
+1. Open a an elevated Windows PowerShell prompt and enter the following. Replace **azure.contoso.com** with the name of your private zone, and replace the IP addresses below with the IP addresses for your private resolvers.
+
+    ```Windows PowerShell
+    Add-DnsServerConditionalForwarderZone -Name "azure.contoso.com" -MasterServers 10.20.0.4,10.10.0.4
+    ```
+2. If preferred, you can also use the DNS console to enter conditioal forwarders. See the following example:
+
+    ![View DNS forwarders](./media/tutorial-dns-private-resolver-failover/forwarders.png)
+
+3. Now that forwarding is in place, issue the same DNS query that you used in the previous procedure. However, this time do not enter a destination IP address for the query. The query will use the client's default DNS server. 
+
+    ![Results of nslookup](./media/tutorial-dns-private-resolver-failover/nslookup-results.png)
+
+1. Interrupt connectivity 
+
+## Demonstrate resiliency (optional)
+
+1. Interrupt connectivity from on-prem to one of your Vnets.
+2. Run the nslookup query using the private resolver from the Vnet that is no longer connected and verify that it fails (see below).
+3. Run the nslookup query using your default DNS server (configured with forwarders) and verify it still works.
+
+    ![Results of nslookup](./media/tutorial-dns-private-resolver-failover/nslookup-results-failover.png)
 
 ## Next steps
-To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).
+Review components, benefits, and requirements for Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](private-resolver-overview.md).
 
-Learn how to [create a private DNS zone](./private-dns-getstarted-powershell.md) in Azure DNS.
+Learn how to [Create an Azure private DNS Resolver using the Azure portal](dns-private-resolver-get-started-portal.md).
 
-Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md).
-
-Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
