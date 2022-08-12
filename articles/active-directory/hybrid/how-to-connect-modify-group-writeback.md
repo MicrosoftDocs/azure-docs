@@ -21,14 +21,14 @@ ms.collection: M365-identity-device-management
 Group writeback is the feature that allows you to write cloud groups back to your on-premises Active Directory using Azure AD Connect Sync.  You can change the default behavior in the following ways: 
 
    - Only groups that are configured for write back will be written back, including newly created Microsoft 365 groups. 
-   - Groups that are written back will be deleted in AD when they are either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
+   - Groups that are written back will be deleted in AD when they're either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
    - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
 The following document will walk you through deploying the options for modifying the default behaviors of Azure AD Connect group writeback. 
 
 ## Considerations for Existing Deployments 
 
-If the original version of group writeback is already enabled and in use in your environment, then all your Microsoft 365 groups have already been written back to AD. Instead of disabling all Microsoft 365 groups, you will want to review any use of the previously written back groups, and disable only those that are no longer needed in on-prem AD. 
+If the original version of group writeback is already enabled and in use in your environment, then all your Microsoft 365 groups have already been written back to AD. Instead of disabling all Microsoft 365 groups, you'll want to review any use of the previously written back groups, and disable only those that are no longer needed in on-prem AD. 
 
 ### Disable automatic writeback of all Microsoft 365 groups 
 
@@ -56,14 +56,14 @@ If the original version of group writeback is already enabled and in use in your
 ## Delete groups when disabled for writeback or soft deleted 
 
 >[!Note]  
->After deletion in AD, written back groups are not automatically restored from the AD recycle bin, if they are re-enabled for writeback or restored from soft delete state. New groups will be created.  Deleted groups restored from the AD recycle bin, prior to being re-enabled for writeback or restored from soft delete state in Azure AD, will be joined to their respective Azure AD group. 
+>After deletion in AD, written back groups are not automatically restored from the AD recycle bin, if they're re-enabled for writeback or restored from soft delete state. New groups will be created.  Deleted groups restored from the AD recycle bin, prior to being re-enabled for writeback or restored from soft delete state in Azure AD, will be joined to their respective Azure AD group. 
 
  1. On your Azure AD Connect server, open a PowerShell prompt as administrator. 
  2. Disable [Azure AD Connect sync scheduler](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) 
  ``` PowerShell 
  Set-ADSyncScheduler -SyncCycleEnabled $false  
  ``` 
-3. Create a custom synchronization rule in Azure AD Connect to delete written back groups when they are disabled for writeback or soft deleted  
+3. Create a custom synchronization rule in Azure AD Connect to delete written back groups when they're disabled for writeback or soft deleted  
  ```PowerShell 
  import-module ADSync 
  $precedenceValue = Read-Host -Prompt "Enter a unique sync rule precedence value [0-99]" 
@@ -152,7 +152,7 @@ Since the default sync rule, that limits the group size, is created when group w
 
 ## Restoring from AD Recycle Bin 
 
-If you are updating the default behavior to delete groups when disabled for writeback or soft deleted, we recommend that you enable the [Active Directory Recycle Bin](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-recycle-bin) feature for your on-premises instances of Active Directory.  This feature will allow you to manually restore previously deleted AD groups, so that they can be rejoined to their respective Azure AD groups, if they were accidentally disabled for writeback or soft deleted. 
+If you're updating the default behavior to delete groups when disabled for writeback or soft deleted, we recommend that you enable the [Active Directory Recycle Bin](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-recycle-bin) feature for your on-premises instances of Active Directory.  This feature will allow you to manually restore previously deleted AD groups, so that they can be rejoined to their respective Azure AD groups, if they were accidentally disabled for writeback or soft deleted. 
 
 Prior to re-enabling for writeback, or restoring from soft delete in Azure AD, the group will first need to be restored in AD. 
 
