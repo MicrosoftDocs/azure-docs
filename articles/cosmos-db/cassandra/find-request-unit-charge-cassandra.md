@@ -1,8 +1,8 @@
 ---
 title: Find request unit (RU) charge for a Cassandra API query in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for Cassandra queries executed against an Azure Cosmos container. You can use the Azure portal, .NET and Java drivers to find the RU charge. 
-author: TheovanKraay
-ms.author: thvankra
+author: IriaOsara
+ms.author: iriaosara
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
