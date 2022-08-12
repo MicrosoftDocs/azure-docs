@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 06/24/2022
+ms.date: 08/12/2022
 ---
 
 # Azure Data Factory managed virtual network
