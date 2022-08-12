@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
-ms.date: 08/03/2022
+ms.date: 08/12/2022
 ms.author: mikaelw
 ---
 
@@ -161,14 +161,14 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 
 ### Allowing specific IP addresses for the Azure storage account in the same region
 
-The configuration process for IP addresses in the same region is the same as above except a specific IP address range in Classless Inter-Domain Routing (CIDR) format is used instead (i.e., 100.64.0.0/10). The reason why the IP address range (100.64.0.0 – 100.127.255.255) must be specified is because although the actual IP address for the FHIR service varies, the address will be within the range for each `$export` request.
+The configuration process for IP addresses in the same region is just like above except a specific IP address range in Classless Inter-Domain Routing (CIDR) format is used instead (i.e., 100.64.0.0/10). The reason why the IP address range (100.64.0.0 – 100.127.255.255) must be specified is because the IP address for the FHIR service will be within the range for each `$export` request.
 
 > [!Note] 
-> It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$export` operation will succeed in such a case. You can retry the `$export` request if the request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This networking behavior is by design. The alternative is to configure the storage account in a different region.
+> It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$export` operation will succeed in such a case. You can retry if the `$export` request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This behavior is by design. The alternative is to configure the storage account in a different region.
 
 ## Next steps
 
-In this article, you learned about the three steps in configuring settings to allow export of data from your FHIR service into an Azure storage account. For more information about the Bulk Export feature of the FHIR service, see 
+In this article, you learned about the three steps in configuring your environment to allow export of data from your FHIR service to an Azure storage account. For more information about the Bulk Export feature of the FHIR service, see 
 
 >[!div class="nextstepaction"]
 >[How to export FHIR data](export-data.md)
