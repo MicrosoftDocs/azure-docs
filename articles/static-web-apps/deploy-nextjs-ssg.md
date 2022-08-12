@@ -133,7 +133,7 @@ By default, the application will be treated as a hybrid rendered Next.js applica
 
 1. Open the repository in VS Code
 
-1. Navigate to the GitHub Actions file that Azure Static Web Apps added to your repository at `.github/workflows/azure-static-web-apps-<your side ID>.yml`
+1. Navigate to the GitHub Actions file that Azure Static Web Apps added to your repository at `.github/workflows/azure-static-web-apps-<your site ID>.yml`
 
 1. Update the _Build and Deploy_ job to have an environment variable of `IS_STATIC_EXPORT` set to `true`:
 
