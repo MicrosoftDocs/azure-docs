@@ -329,11 +329,11 @@ The following example shows the sample inputs and outputs:
 
 ## Liquid template considerations
 
-* Liquid templates follow the [file size limits for maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) in Azure Logic Apps.
+* Liquid templates follow the [file size limits for maps](logic-apps-limits-and-config.md#artifact-capacity-limits) in Azure Logic Apps.
 
 * The **Transform JSON to JSON** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid). This implementation is a port to the .NET Framework from the [Shopify implementation for Liquid](https://shopify.github.io/liquid/) and differs in [specific cases](https://github.com/dotliquid/dotliquid/issues).
 
-  Here are the known differences:
+  The following list describes the known differences:
 
   * The **Transform JSON to JSON** action natively outputs a string, which can include JSON, XML, HTML, and so on. The Liquid action only indicates that the expected text output from the Liquid template's is a JSON string. The action instructs your logic app to parse input as a JSON object and applies a wrapper so that Liquid can interpret the JSON structure. After the transformation, the action instructs your logic app to parse the text output from Liquid back to JSON.
 

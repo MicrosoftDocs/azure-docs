@@ -176,13 +176,13 @@ az logic integration-account import --name integration_account_01 \
 
 ## Link to logic app
 
-For you to successfully link and use your integration account with your logic app, make sure that both resources use the *same* Azure subscription and Azure region.
+For you to successfully link your integration account to your logic app resource, make sure that both resources use the *same* Azure subscription and Azure region.
 
 ### [Consumption](#tab/consumption)
 
-For your Consumption logic app workflow to access artifacts in your integration account, you must first link your logic app resource to your integration account. To complete this task, you can use the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
+This section describes how to complete this task using the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](manage-logic-apps-with-visual-studio.md#link-integration-account).
 
-1. In the [Azure portal](https://portal.azure.com), open an existing logic app resource, or create a new logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
 1. On your logic app's navigation menu, under **Settings**, select **Workflow settings**. Under **Integration account**, open the **Select an Integration account** list, and select the integration account you want.
 
@@ -199,8 +199,6 @@ For your Consumption logic app workflow to access artifacts in your integration 
 Now your logic app workflow can use the artifacts in your integration account plus the B2B connectors, such as XML validation and flat file encoding or decoding.  
 
 ### [Standard](#tab/standard)
-
-You can optionally link your Standard logic app resource to your integration account. By linking your integration account to multiple logic apps, you don't have to upload maps or schemas to each individual logic app. All workflows in the *same logic app resource* can use the artifacts in that integration account. Some actions support selecting maps and schemas *either* from your logic app resource or from your linked integration account.
 
 #### Find your integration account's callback URL
 
