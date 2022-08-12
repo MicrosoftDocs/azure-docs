@@ -53,5 +53,5 @@ You are now ready to start using Azure Percept for DeepStream to create, manage,
 
 - [Getting started checklist for Azure Percept for DeepStream](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EeWQwQ8T-LVDmTMqC62Gss0Bo_1Fbjj9I8mDSLYwlICd_Q?e=f9FajM)
 
-- [Tutorial: Deploy a simulated manufacturing defect detection model using Azure Percept and DeepStream](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EbQFPiaksEZFut0dZFxFla0BscJl-O7I-NtyIAhSjkebFA?e=6Gnblo) 
+- [Tutorial: Deploy a supported model to your Azure Percept for DeepStream solution ](https://microsoft.sharepoint-df.com/:w:/t/AzurePerceptHCIDocumentation/EQ9Wux4CkO5Iss8s82lcZj4B9XCwagaVoUEKyK0q2y-A1w?e=YfOaWn) 
 
