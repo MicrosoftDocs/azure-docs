@@ -14,7 +14,7 @@ ms.date: 07/06/2022
 Microsoft Playwright Testing Preview is a fully managed web UI testing service. The service enables you to validate that your web application runs correctly
 across operating systems, device and browser configurations, regardless of where the application is hosted. Developers and testers can use it to optimize application quality by testing end-to-end user scenarios.
 
-Quickly configure your existing [Playwright](https://playwright.dev) test suite to run your tests in the cloud. Microsoft Playwright Testing abstracts the complexity and infrastructure to run tests at scale, across multiple operating systems. Run tests for cloud-hosted applications, on-premise applications, and even *localhost* development servers.
+Quickly configure your existing [Playwright](https://playwright.dev) test suite to run your tests in the cloud, without any changes to your test specifications. Microsoft Playwright Testing abstracts the complexity and infrastructure to run tests at scale, across multiple operating systems. Run tests for cloud-hosted applications, on-premise applications, and even *localhost* development servers.
 
 Use the unified reporting dashboard to gain actionable insights and trends across multiple test runs. Apply the rich test results, such as logs, traces, and videos, to troubleshoot test failures quickly.
 
@@ -67,7 +67,9 @@ Playwright runs on the client machine and interacts with Microsoft Playwright Te
 
 After a test run completes, Playwright uploads the test results and test artifacts to the service for you to view in the dashboard. Microsoft Playwright Testing stores the history of your test runs.
 
-The Playwright configuration file contains the settings to connect with Microsoft Playwright Testing. To authorize with the service, you request an access token and add it to the Playwright configuration. 
+The Playwright configuration file contains the settings to connect with Microsoft Playwright Testing. To authorize with the service, you [generate an access key](./how-to-manage-access-keys.md) and add it to the Playwright configuration.
+
+Running existing tests with Microsoft Playwright Testing requires no changes to your test specifications. After you update the Playwright configuration file, you can continue to run your tests using the Playwright command-line interface, the Visual Studio Code extension, or integrate them in your CI/CD pipeline.
 
 To test applications that aren't publicly accessible, you can add a configuration setting to enable Microsoft Playwright Testing to communicate with the application over an outbound connection.
 

@@ -24,9 +24,11 @@ items:
   items:
     - name: Manage workspaces in Azure portal
       href: how-to-manage-workspace-in-azure-portal.md
-    - name: Run tests across multiple operating systems
-      href: how-to-cross-platform-tests.md
     - name: Run Playwright tests in the cloud
       href: how-to-run-with-playwright-testing.md
+    - name: Run tests across multiple operating systems
+      href: how-to-cross-platform-tests.md
     - name: Test private endpoints
       href: how-to-test-private-endpoints.md
+    - name: Manage access keys
+      href: how-to-manage-access-keys.md

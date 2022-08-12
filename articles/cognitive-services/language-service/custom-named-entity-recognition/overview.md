@@ -56,13 +56,11 @@ Using custom NER typically involves several different steps.
 
 3. **Train the model**: Your model starts learning from your labeled data.
 
-4. **View the model's performance**: After training is completed, view the model's evaluation details and its performance.
-
-5. **Improve the model**: After reviewing model's performance, you can then learn how you can improve the model.
+4. **View the model's performance**: After training is completed, view the model's evaluation details, its performance and guidance on how to improve it. 
 
 6. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
 
-8. **Extract entities**: Use your custom models for entity extraction tasks.
+7. **Extract entities**: Use your custom models for entity extraction tasks.
 
 ## Reference documentation and code samples
 

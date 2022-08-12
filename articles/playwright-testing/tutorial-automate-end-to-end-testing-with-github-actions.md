@@ -6,7 +6,7 @@ services: playwright-testing
 ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 06/27/2022
+ms.date: 08/09/2022
 ms.topic: tutorial
 ---
 
@@ -71,35 +71,35 @@ To authenticate your GitHub user account with the private repository, follow the
 
 ## Authenticate with Microsoft Playwright Testing
 
-Set up an access key to authenticate with Microsoft Playwright Testing.
+To run Playwright tests with Microsoft Playwright Testing, you need a workspace access key.
 
-1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your GitHub username and password.
+1. In the Microsoft Playwright Testing portal, create an access key for your workspace. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key).
 
-1. Access the **Settings > Access Token** menu in the top-right of the screen.
+1. After you've created the access key, select **Copy** to copy the generated access key value.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Playwright portal.":::
 
-1. Select **Generate a new token**.
-
-1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
-
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
-
-1. In the list of access tokens, select **Copy** to copy the generated token value.
-
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/copy-access-token-value.png" alt-text="Screenshot that shows how to copy the access token functionality in the Playwright portal.":::
+1. Create a GitHub secret *ACCESS_KEY* in the sample repository, and set its value to the Microsoft Playwright Testing access key you copied previously.
     
-    > [!IMPORTANT]
-    > After generating the token, make sure to copy the token value, as you won't see it again.
-
-1. Create a GitHub secret *ACCESS_KEY* in the sample repository, and set its value to the Microsoft Playwright Testing access token you copied previously.
-    
-    The CI/CD workflow uses the secret to authenticate with the Microsoft Playwright Testing for running the tests.
-
     1. In your forked repository, select **Settings > Secrets > Actions > New repository secret**.
-    1. Enter *ACCESS_KEY* for the **Name**, and paste the access token value that you copied previously, for the **Value**. Then, select **Add secret**.
+    1. Enter *ACCESS_KEY* for the **Name**, and paste the access key value that you copied previously, for the **Value**. Then, select **Add secret**.
 
-        :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-secret-playwright-testing.png" alt-text="Screenshot that shows the page to add a GitHub secret for Microsoft Playwright Testing access token.":::
+        :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-secret-playwright-testing.png" alt-text="Screenshot that shows the page to add a GitHub secret for Microsoft Playwright Testing access key.":::
+
+    The CI/CD workflow definition uses the secret to authenticate with Microsoft Playwright Testing and run the tests:
+
+    ```yml
+    - name: Run Playwright Tests
+      run: |
+        npm run test
+      env:
+        # Access Key for Microsoft Playwright Testing
+        ACCESS_KEY: ${{secrets.ACCESS_KEY}}
+        # Dashboard name
+        DASHBOARD: '<my-dashboard-name>'
+        # Number of parallel workers
+        WORKERS: 10
+    ```
 
 ## Create a GitHub Actions workflow
 
@@ -156,11 +156,12 @@ Perform to following steps to create the GitHub Actions workflow:
             run: |
              npm run test
             env:
-                # Access Key for Playwright Service
-                 ACCESS_KEY: ${{secrets.ACCESS_KEY}}
-                 # Group Id for Playwright Test. Please change it to reflect the dashboard name
-                 DASHBOARD: '<my-dashboard-name>'
-                 WORKERS: 10
+                # Access Key for Microsoft Playwright Testing
+                ACCESS_KEY: ${{secrets.ACCESS_KEY}}
+                # Dashboard name
+                DASHBOARD: '<my-dashboard-name>'
+                # Number of parallel workers
+                WORKERS: 10
     ```
 
 1. Replace the text placeholder `<my-dashboard-name>` with your dashboard name. 
@@ -177,38 +178,33 @@ Perform to following steps to create the GitHub Actions workflow:
     
     :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/new-workflow-commit.png" alt-text="Screenshot that shows how to commit the new GitHub Actions workflow file on the GitHub page.":::
 
-## Analyze results
+## Analyze the test results
 
-After the tests finish, the GitHub Actions log enables you to analyze the test run. The log provides the following information:
+Microsoft Playwright Testing provides rich error information to enable you to diagnose failing tests straight from your CI/CD pipeline. After the tests finish, you notice that the GitHub Actions workflow failed because multiple tests didn't pass. You can use the information in the GitHub Actions summary and the log to analyze the test run.
 
-- The number of tests that passed or failed.
-- The list of tests that failed.
-- Detailed error information to diagnose failing tests.
-- The list of tests that ran slowly, that you might optimize.
-- A direct link to the test run results in the Microsoft Playwright Testing portal.
+1. Select **Actions** in your GitHub repository, and then select the Microsoft Playwright Testing workflow run.
 
-:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-playwright-log.png" alt-text="Screenshot that shows the GitHub Actions log output for running tests with Microsoft Playwright Testing.":::
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-workflow.png" alt-text="Screenshot that shows the GitHub Actions tab in GitHub.":::
 
-### Diagnose failing tests
+1. Use the GitHub Actions summary for an overview of all failing tests and error details.
 
-You notice that some tests failed. Microsoft Playwright Testing provides rich error information in the CI/CD output log to help diagnose failing tests:
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary.png" alt-text="Screenshot that shows the Playwright test results in the GitHub Actions summary view.":::
 
-- Browser configuration and line number in the test specification file.
-- Error message with the received and expected values.
-- Playwright call log.
-- Extract of the test source code.
+    Alternatively, you can open the GitHub Actions log to view the detailed test results.
 
-:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-playwright-log-error-details.png" alt-text="Screenshot that shows Playwright test error details in the GitHub Actions log output.":::
+1. Optionally, access the Microsoft Playwright Testing portal directly by using the links in the summary view.
 
-Optionally, you can select the link to go the Microsoft Playwright Testing portal for further analysis of the test run. For more information, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
+    You can view the entire test run or access an individual test result.
 
-:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/playwright-testing-dashboard-failed-tests.png" alt-text="Screenshot that shows the list of failing tests in the Microsoft Playwright Testing portal.":::
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary-portal-links.png" alt-text="Screenshot that shows Playwright portal links in the GitHub Actions summary.":::
 
-In log output, you can see that the `Should persist its data` test expected a value of *Something* as the second item in the todo list after the page reload. However, the application contains *feed the cat*.
+    For more information about using the Microsoft Playwright Testing portal, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 
-## Update failing test and rerun tests
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/playwright-testing-dashboard-failed-tests.png" alt-text="Screenshot that shows the list of failing tests in the Microsoft Playwright Testing portal.":::
 
-Now that you've identified the root cause of the failed tests, you'll update the test specification file.
+## Update and rerun failing tests
+
+From the error details, you can see that the `should persist its data` test failed because of an unexpected string after a page reload. You'll now update the test specification file to resolve this error.
 
 1. Go to your forked repository.
 1. Open the `todo-persistence.spec.ts` file in the `samples/PlaywrightTestRunner/tests` folder.
