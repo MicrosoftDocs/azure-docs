@@ -201,8 +201,12 @@ landingContent:
             url: single-server/how-to-troubleshoot-replication-latency.md
           - text: Troubleshoot database corruption
             url: single-server/how-to-fix-corrupt-database.md
+          - text: Troubleshoot connectivity issues
+            url: single-server/how-to-troubleshoot-connectivity-issues.md
           - text: Tune performance using the sys_schema
             url: single-server/how-to-troubleshoot-sys-schema.md
+          - text: Troubleshooting best practices
+            url: single-server/concepts-troubleshooting-best-practices.md
 
 # Card 8
   - title: Reference

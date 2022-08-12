@@ -1,7 +1,7 @@
 ---
 title: Restrictions and details of API formats support
 titleSuffix: Azure API Management
-description: Details of known issues and restrictions on Open API, WSDL, and WADL formats support in Azure API Management.
+description: Details of known issues and restrictions on OpenAPI, WSDL, and WADL formats support in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -31,6 +31,8 @@ If you prefer a different behavior, you can either:
 
 * Manually change via form-based editor, or 
 * Remove the "required" attribute from the OpenAPI definition, thus not converting them to template parameters.
+
+For GET, HEAD, and OPTIONS operations, API Management discards a request body parameter if defined in the OpenAPI specification. 
 
 ## <a name="open-api"> </a>OpenAPI/Swagger import limitations
 

@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/16/2022
+ms.date: 07/21/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -91,7 +91,7 @@ else
 
 ### Suboperations
 
-Some actions have suboperations. For example, the "Read a blob" data action has the suboperation "Read content from a blob with tag conditions". Conditions with suboperations have the following format.
+Some actions have suboperations. For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` data action has the suboperation "List blobs". Conditions with suboperations have the following format.
 
 ![Format for an action with a suboperation.](./media/conditions-format/format-suboperation.png)
 
@@ -272,7 +272,7 @@ To use principal attributes, you must have **all** of the following:
 For more information about custom security attributes, see:
 
 - [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
-- [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
 - [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## Function operators
@@ -318,7 +318,7 @@ This section lists the logical operators that are available to construct conditi
 > | --- | --- |
 > | **Operators** | `AND`<br/>`&&` |
 > | **Description** | And operator. |
-> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})` |
+> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})` |
 
 ### Or
 

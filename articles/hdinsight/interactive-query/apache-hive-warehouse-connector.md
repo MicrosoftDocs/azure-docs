@@ -51,6 +51,13 @@ It is important to note that you can view the WLM resource plans from both the c
 
 Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. Follow these steps to set up these clusters in Azure HDInsight.
 
+### Supported Cluster types & versions
+
+| HWC Version | Spark Version | InteractiveQuery Version |
+|:---:|:---:|---|
+| v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
+| v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
+
 ### Create clusters
 
 1. Create an HDInsight Spark **4.0** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
@@ -248,3 +255,5 @@ kinit USERNAME
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
 * [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)
+* [HWC 1.0 supported APIs](./hive-warehouse-connector-apis.md)
+* [HWC 2.0 supported APIs](./hive-warehouse-connector-v2-apis.md)

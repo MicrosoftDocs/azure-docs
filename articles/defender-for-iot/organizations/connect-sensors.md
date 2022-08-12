@@ -49,7 +49,7 @@ Before you start, make sure that you have:
 - Outbound HTTPS traffic on port 443 to the following hostnames:
 
     - **IoT Hub**: `*.azure-devices.net`
-    - **Threat Intelligence**: `*.blob.core.windows.net`
+    - **Blob storage**: `*.blob.core.windows.net`
     - **EventHub**: `*.servicebus.windows.net`
     - **Microsoft Download Center**: `download.microsoft.com`
 
@@ -312,7 +312,7 @@ This procedure describes how to install and configure a connection between your 
 
         ```bash
         sudo apt-get update
-        sudu apt-get install squid
+        sudo apt-get install squid
         ```
 
     1. Locate the Squid configuration file. For example, at `/etc/squid/squid.conf` or `/etc/squid/conf.d/`, and open the file in a text editor.

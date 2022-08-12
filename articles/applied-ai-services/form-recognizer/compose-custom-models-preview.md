@@ -74,7 +74,7 @@ If you want to use manually labeled data, you'll also have to upload the *.label
 
 When you [train your model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-Form Recognizer uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Form Recognizer enables training a model to extract key-value pairs and tables using supervised learning capabilities.
+Form Recognizer uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Form Recognizer enables training a model to extract key-value pairs and tables using supervised learning capabilities.
 
 ### [Form Recognizer Studio](#tab/studio)
 
@@ -192,7 +192,7 @@ The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services
 
 #### Analyze documents
 
-To make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) request, use a unique model name in the request parameters.
+To make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) request, use a unique model name in the request parameters.
 
 :::image type="content" source="media/custom-model-analyze-request.png" alt-text="Screenshot of a custom model request URL.":::
 

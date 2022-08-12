@@ -19,7 +19,6 @@ ms.custom: responsible-ai, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-
 Responsible Artificial Intelligence (Responsible AI) is an approach to developing, assessing, and deploying AI systems in a safe, trustworthy and ethical manner. AI systems are the product of many different decisions made by those who develop and deploy them. From system purpose to how people interact with AI systems, we need to proactively guide these decisions toward more beneficial and equitable outcomes. That means keeping people and their goals at the center of system design decisions and respecting enduring values like fairness, reliability, and transparency.
 
 At Microsoft, we have developed a [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf), a framework to guide how we build AI systems, according to our six principles of fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For us, these principles are the cornerstone of a responsible and trustworthy approach to AI, especially as intelligent technology becomes more prevalent in the products and services we use every day. 

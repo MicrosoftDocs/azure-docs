@@ -223,4 +223,5 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
 > [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)

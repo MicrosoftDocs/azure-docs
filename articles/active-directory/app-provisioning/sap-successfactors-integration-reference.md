@@ -79,12 +79,12 @@ Based on the attribute-mapping, during full sync Azure AD provisioning service s
 >| OData API Host | Appends https to the *Tenant URL*. Example: `https://api4.successfactors.com` |
 >| OData API Endpoint | `/odata/v2/PerPerson` |
 >| OData $format query parameter | `json` |
->| OData $filter query parameter | `(personEmpTerminationInfoNav/activeEmploymentsCount ge 1) and (lastModifiedDateTime le <CurrentExecutionTime>)` |
+>| OData $filter query parameter | `(personEmpTerminationInfoNav/activeEmploymentsCount ne null) and (lastModifiedDateTime le <CurrentExecutionTime>)` |
 >| OData $expand query parameter | This parameter value depends on the attributes mapped. Example: `employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/jobInfoNav/companyNav/countryOfRegistrationNav,employmentNav/jobInfoNav/divisionNav,employmentNav/jobInfoNav/departmentNav` |
 >| OData customPageSize query parameter | `100` |
 
 > [!NOTE]
-> During the first initial full sync, Azure AD provisioning service does not pull inactive/terminated worker data.
+> During the full initial sync, both active and terminated workers from SAP SuccessFactors will be fetched.
 
 For each SuccessFactors user, the provisioning service looks for an account in the target (Azure AD/on-premises Active Directory) using the matching attribute defined in the mapping. For example: if *personIdExternal* maps to *employeeId* and is set as the matching attribute, then the provisioning service uses the *personIdExternal* value to search for the user with *employeeId* filter. If a user match is found, then it updates the target attributes. If no match is found, then it creates a new entry in the target. 
 

@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 08/03/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -48,8 +48,9 @@ The table below shows the supported capabilities for each data source. Select th
 || [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
 ||    SQL Server on Azure-Arc| No |No | No |[Yes (Preview)](how-to-data-owner-policies-arc-sql-server.md) | No |
-||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)|  No | [Yes*](register-scan-teradata-source.md#lineage) | No| No |
+||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
 |File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | No| No |
+||[HDFS](register-scan-hdfs.md)|[Yes](register-scan-hdfs.md)| [Yes](register-scan-hdfs.md)| No | No| No |
 |Services and apps|    [Erwin](register-scan-erwin-source.md)| [Yes](register-scan-erwin-source.md#register)| No | [Yes](register-scan-erwin-source.md#lineage)| No| No |
 ||    [Looker](register-scan-looker-source.md)| [Yes](register-scan-looker-source.md#register)| No | [Yes](register-scan-looker-source.md#lineage)| No| No |
 ||    [Power BI](register-scan-power-bi-tenant.md)| [Yes](register-scan-power-bi-tenant.md)| No | [Yes](how-to-lineage-powerbi.md)| No| No |
@@ -120,7 +121,7 @@ For all [system supported file types](#file-types-supported-for-scanning), if th
 
 Nested data, or nested schema parsing, isn't supported in SQL. A column with nested data will be reported and classified as is, and subdata won't be parsed.
 
-## Sampling within a file
+## Sampling data for classification
 
 In Microsoft Purview Data Map terminology,
 - L1 scan: Extracts basic information and meta data like file name, size and fully qualified name
