@@ -28,7 +28,7 @@ Advisor identifies resources that have not been used at all over the last 7 days
 
 -	Recommendation criteria include **CPU** and **Outbound Network utilization** metrics. **Memory** is not considered since we’ve found that **CPU** and **Outbound Network utilization** are sufficient.
 - The last 7 days of utilization data are analyzed
-- Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins). For virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics across instances.
+- Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics across instances.
 - A shutdown recommendation is created if: 
   - P95th of the maximum value of CPU utilization summed across all cores is less than 3%.
   - P100 of average CPU in last 3 days (sum over all cores) <= 2%   
@@ -36,11 +36,11 @@ Advisor identifies resources that have not been used at all over the last 7 days
 
 ### Resize SKU recommendations
 
-Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which is less expensive (based on retail rates). FOr virtual machine scale sets, Advisor recomments resizing when it's possible to fit the current load on a more appropriate cheaper SKU, or a lower number of instances of the same SKU.
+Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which is less expensive (based on retail rates). On virtual machine scale sets, Advisor recommends resizing when it's possible to fit the current load on a more appropriate cheaper SKU, or a lower number of instances of the same SKU.
 
 -	Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**. 
 - The last 7 days of utilization data are analyzed
-- Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins). For virtual machine scale sets the metrics from individual VMs are aggregated using the avg of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations. 
+- Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations. 
 - An appropriate SKU (for virtual machines) or instance count (for virtual machine scale set resources) is determined based on the following criteria:
   - Performance of the workloads on the new SKU should not be impacted. 
     - Target for user-facing workloads: 
@@ -54,19 +54,21 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
   - The new SKU, if applicable, is less expensive 
   - Instance count recommendations also take into account if the VMSS is being managed by Service Fabric or AKS. In the case of service fabric managed resources, recommendations take into account reliability and durability tiers. 
 - Advisor determines if a workload is user-facing by analyzing its CPU utilization characteristics. The approach is based on findings by Microsoft Research. You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
-- Advisor recommends not just smaller SKUs in the same family (for example D3v2 to D2v2) but also SKUs in a newer version (for example D3v2 to D2v3) or a different family (for example D3v2 to E3v2) based on the best fit and the cheapest costs with no performance impacts. 
-- For VMSS resources, Advisor prioritizes instance count recommendations over SKU change recommendations due to the easy actionability of instance count changes, resulting in faster savings. 
+- Based on the best fit and the cheapest costs with no performance impacts, Advisor not only recommends smaller SKUs in the same family (for example D3v2 to D2v2), but also SKUs in a newer version (for example D3v2 to D2v3), or a different family (for example D3v2 to E3v2). 
+- For virtual machine scale set resources, Advisor prioritizes instance count recommendations over SKU change recommendations because instance count changes are easily actionable, resulting in faster savings. 
 
 ### Burstable recommendations
 
 We evaluate is workloads are eligible to run on specialized SKUs called **Burstable SKUs** that support variable workload performance requirements and are less expensive than general purpose SKUs. Learn more about burstable SKUs here: [B-series burstable - Azure Virtual Machines](../virtual-machines/sizes-b-series-burstable.md).
 
-- A burstable SKU recommendation is made if:
+A burstable SKU recommendation is made if:
+
 - The average **CPU utilization** is less than a burstable SKUs' baseline performance
   - If the P95 of CPU is less than two times the burstable SKUs' baseline performance
-  - If the current SKU does not have accelerated networking enabled (burstable SKUs don’t support accelerated networking yet)
+  - If the current SKU doesn't have accelerated networking enabled, since burstable SKUs don't support accelerated networking yet
   - If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days
-- The result is a recommendation suggesting that the user resize their current virtual machine or virtual machine scale sets to a burstable SKU (with the same number of cores) to take advantage of the low costs and the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU. 
+
+The result is a recommendation that suggests that the user resizes their current virtual machine or virtual machine scale sets to a burstable SKU with the same number of cores. This helps to take advantage of the low costs and the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU. 
  
 Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU/instance count information.
 To be more selective about the actioning on underutilized virtual machines or virtual machine scale sets, you can adjust the CPU utilization rule on a per-subscription basis.
