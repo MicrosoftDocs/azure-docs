@@ -258,10 +258,10 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    ```json
    {
-      "devices": "Surface, Windows Phone, Desktop computer, Monitors",
+      "devices": "Surface, Mobile, Desktop computer, Monitors",
       "firstName": "Dean",
       "lastName": "Ledet",
-      "phone": "(111)5551111"
+      "phone": "(111)0001111"
    }
    ```
 
