@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a Python Django or Flask web app with PostgreSQL'
 description: Create a Python Django or Flask web app with a PostgreSQL database and deploy it to Azure. The tutorial uses either the Django or Flask framework and the app is hosted on Azure App Service on Linux.
-author: jessmjohnson 
+author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
@@ -223,7 +223,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 ## 4 - Allow web app to access the database
 
-After the Azure Database for PostgreSQL server is created, configure access to the server from the web app by adding a firewall rule. This can be done through the Azure portal or the Azure CLI. 
+After the Azure Database for PostgreSQL server is created, configure access to the server from the web app by adding a firewall rule. This can be done through the Azure portal or the Azure CLI.
 
 If you're working in VS Code, right-click the database server and select **Open in Portal** to go to the Azure portal. Or, go to the [Azure Cloud Shell](https://shell.azure.com) and run the Azure CLI commands.
 ### [Azure portal](#tab/azure-portal-access)
@@ -429,7 +429,6 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 2](<./includes/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2-240px.png" lightbox="./media/tutorial-python-postgresql-app/remove-resource-group-azure-portal-2.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/tutorial-python-postgresql-app/remove-resource-group-azure-portal-3.md>)] | |
 
-
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
@@ -441,7 +440,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 [!INCLUDE [Stream logs CLI](<./includes/tutorial-python-postgresql-app/clean-up-resources-cli.md>)]
 
-----
+---
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 

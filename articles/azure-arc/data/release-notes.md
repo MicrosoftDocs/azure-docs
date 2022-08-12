@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 06/14/2022
+ms.date: 08/02/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -15,6 +15,24 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## August 9, 2022
+
+This release is published August 9, 2022.
+
+### Image tag
+
+`v1.10.0_2022-08-09`
+
+For complete release version information, see [Version log](version-log.md#august-9-2022).
+
+### Arc-enabled SQL Managed Instance
+
+- AES encryption can now be enabled for AD authentication.
+
+### `arcdata` Azure CLI extension
+
+- The Azure CLI help text for the Arc data controller, Arc-enabled SQL Managed Instance, and Active Directory connector command groups has been updated to reflect new naming conventions. Indirect mode arguments are now referred to as _Kubernetes API - targeted_ arguments, and direct mode arguments are now referred to as _Azure Resource Manager - targeted_ arguments.
 
 ## July 12, 2022
 
