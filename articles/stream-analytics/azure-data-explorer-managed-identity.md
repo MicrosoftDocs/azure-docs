@@ -42,10 +42,10 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
 For the Stream Analytics job to access your Azure Data Explorer cluster using managed identity, the service principal you created must have special permissions to your Azure Data Explorer resource. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure provides the below Azure built-in roles for authorizing access to an Azure Data Explorer namespace. For Azure Stream Analytics you would need these roles:
 
-    | Role | Permissions |
-    | --- | --- |
-    | Data ingestor | Can ingest data into all existing tables in the database, but can't query the data. |
-    | Data monitor | Can execute .show commands in the context of the database and its child entities. |
+| Role          | Permissions                                                                         |
+|---------------|-------------------------------------------------------------------------------------|
+| Data ingestor | Can ingest data into all existing tables in the database, but can't query the data. |
+| Data monitor  | Can execute .show commands in the context of the database and its child entities.   |
 
 1. Select **Access control (IAM)**.
 
