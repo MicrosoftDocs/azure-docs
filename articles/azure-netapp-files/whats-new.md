@@ -12,12 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 08/11/2022
+ms.date: 08/12/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+* [Standard storage with cool access](manage-cool-access.md) (Preview)
+[Learn more about standard storage with cool access](cool-access-about.md)
 
 ## August 2022
 
