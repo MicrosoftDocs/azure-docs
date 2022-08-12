@@ -34,7 +34,7 @@ Organization VDCs can be part of a single organization but it still provides iso
 
 ### Prerequisites  
 - Organization VDC is configured with an Edge gateway and has Public IPs assigned to it to establish IPSEC VPN by provider.
-- 	Tenants have created a routed Organization VDC network in tenant’s Virtual datacenter.
+- Tenants have created a routed Organization VDC network in tenant’s Virtual datacenter.
 - Test VM1 and VM2 are created in the Organization VDC1 and VDC2 respectively. Both VMs are connected to the routed orgVDC network in their respective VDCs.
 - Have a dedicated [Azure vNET](tutorial-configure-networking.md#create-a-vnet-manually) configured for each tenant. For this example, we created Tenant1-vNet and Tenant2-vNet for tenant1 and tenant2 respectively.
 - Create an [Azure Virtual network gateway](tutorial-configure-networking.md#create-a-virtual-network-gateway) for vNETs created earlier.
@@ -65,7 +65,7 @@ To create an Azure virtual network gateway, see the [create-a-virtual-network-ga
 1. Select tenant1 VPN Gateway (created earlier) and then select **Connection** (in left pane) to add new IPSEC connection with tenant1 orgVDC Edge gateway.  
 1. Enter the following details.
 
-     | **Name** | **Connection name** |
+     | **Name** | **Connection** |
      |:---------- | :--------------| 
      | Connection Type | Site to Site |
      | VPN Gateway | Tenant’s VPN Gateway |
