@@ -52,7 +52,7 @@ To discover if Azure AD Connect group writeback is already enabled in your envir
 
 The cmdlet is part of the [ADSync PowerShell](reference-connect-adsync.md) module that is installed with Azure AD Connect. 
 
- [![Screenshot of Get-ADSyncAADCompanyFeature cmdlet](media/how-to-connect-group-writeback/pshell-1.png)](media/how-to-connect-group-writeback/pshell-1.png#lightbox)
+ [![Screenshot of Get-ADSyncAADCompanyFeature cmdlet.](media/how-to-connect-group-writeback/pshell-1.png)](media/how-to-connect-group-writeback/pshell-1.png#lightbox)
 
 The `UnifiedGroupWriteback` refers to the original version, while `GroupWritebackV2` refers to the new version. 
 
@@ -62,7 +62,7 @@ A value of **False** indicates that the feature is not enabled.
 
 You can view the existing writeback settings on M365 groups in the portal.  Navigate to the group and select it's properties.  You can see the Groupwrite back state on the group.
 
- [![Screenshot of M365 group properties](media/how-to-connect-group-writeback/group-2.png)](media/how-to-connect-group-writeback/group-2.png#lightbox)
+ [![Screenshot of M365 group properties.](media/how-to-connect-group-writeback/group-2.png)](media/how-to-connect-group-writeback/group-2.png#lightbox)
 
 You can also view the writeback state via MS Graph: [Get group](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta&tabs=http)  
 
