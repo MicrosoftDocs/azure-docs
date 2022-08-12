@@ -28,12 +28,12 @@ The following document will walk you through deploying the options for modifying
 
 ## Considerations for Existing Deployments 
 
-If the original version of group writeback is already enabled and in use in your environment, then all your Microsoft 365 groups have already been written back to AD. Instead of disabling all Microsoft 365 groups, as described in [disabling automatic writeback](how-to-connect-group-writeback-disable.md), you will want to review any use of the previously written back groups and disable only those that are no longer needed in on-prem AD. 
+If the original version of group writeback is already enabled and in use in your environment, then all your Microsoft 365 groups have already been written back to AD. Instead of disabling all Microsoft 365 groups, you will want to review any use of the previously written back groups, and disable only those that are no longer needed in on-prem AD. 
 
 ### Disable automatic writeback of all Microsoft 365 groups 
 
    1. To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups,update the `NewUnifiedGroupWritebackDefault` setting to false. 
-   2. To do this via Powershell use the: [New-AzureADDirectorySetting](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-settings-cmdlets) cmdlet. 
+   2. To do this via Powershell, use the: [New-AzureADDirectorySetting](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-settings-cmdlets) cmdlet. 
    Example:  
      ```PowerShell 
      $TemplateId = (Get-AzureADDirectorySettingTemplate | where {$_.DisplayName -eq "Group.Unified" }).Id 
@@ -130,7 +130,7 @@ If the original version of group writeback is already enabled and in use in your
 
 ## Writeback Microsoft 365 groups with up to 250,000 members 
 
-Since the default sync rule that limits the group size is created when group writeback is enabled, the following steps must be completed after group writeback is enabled. 
+Since the default sync rule, that limits the group size, is created when group writeback is enabled, the following steps must be completed after group writeback is enabled. 
 
 1. On your Azure AD Connect server, open a PowerShell prompt as administrator. 
 2. Disable [Azure AD Connect sync scheduler](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) 
@@ -152,9 +152,9 @@ Since the default sync rule that limits the group size is created when group wri
 
 ## Restoring from AD Recycle Bin 
 
-If you are updating the default behavior to delete groups when disabled for writeback or soft deleted, we recommend that you enable the [Active Directory Recycle Bin](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-recycle-bin) feature for your on-premises instances of Active Directory.  This will allow you to manually restore previously deleted AD groups, so that they can be rejoined to their respective Azure AD groups, if they were accidentally disabled for writeback or soft deleted. 
+If you are updating the default behavior to delete groups when disabled for writeback or soft deleted, we recommend that you enable the [Active Directory Recycle Bin](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-recycle-bin) feature for your on-premises instances of Active Directory.  This feature will allow you to manually restore previously deleted AD groups, so that they can be rejoined to their respective Azure AD groups, if they were accidentally disabled for writeback or soft deleted. 
 
-Prior to re-enabling for writeback or restoring from soft delete in Azure AD, the group will first need to be restored in AD. 
+Prior to re-enabling for writeback, or restoring from soft delete in Azure AD, the group will first need to be restored in AD. 
 
  
 

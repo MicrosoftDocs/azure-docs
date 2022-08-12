@@ -92,12 +92,12 @@ You can also use the PowerShell cmdlet [AzureADDirectorySetting](https://docs.mi
 
  Example: `(Get-AzureADDirectorySetting | ? { $_.DisplayName -eq "Group.Unified"} | FL *).values` 
 
- If nothing is returned, you are using the default directory settings and newly created Microsoft 365 groups **will automatically** be written back. 
+ If nothing is returned, you are using the default directory settings, and newly created Microsoft 365 groups **will automatically** be written back. 
 
  If a `directorySetting` is returned with a `NewUnifiedGroupWritebackDefault` value of **false**, Microsoft 365 groups **will not automatically** be enabled for write back when they are created.  If the value is not specified or it is set to **true**, newly created Microsoft 365 groups **will automatically** be written back. 
 
 ### Discover if AD has been prepared for Exchange 
-To see Active Directory has been prepared for Exchange see [Prepare Active Directory and domains for Exchange Server, Active Directory Exchange Server, Exchange Server Active Directory, Exchange 2019 Active Directory](https://docs.microsoft.com/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019#how-do-you-know-this-worked)
+To verify if Active Directory has been prepared for Exchange, see [Prepare Active Directory and domains for Exchange Server, Active Directory Exchange Server, Exchange Server Active Directory, Exchange 2019 Active Directory](https://docs.microsoft.com/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019#how-do-you-know-this-worked)
 
 ## Public Preview Pre-requisites 
 The following are pre-requistes for group writeback.
@@ -115,7 +115,7 @@ Choosing the right deployment approach for your organization will depend on the 
 When enabling group writeback, the following default behavior will be experienced: 
 
  - All existing Microsoft 365 groups will automatically be written back to Active Directory, including all future Microsoft 365 groups created. Azure AD Security groups are not automatically written back, they must each be enabled for writeback. 
- - Groups that have been written back will not be deleted in AD, if they are subsequently disabled for writeback or soft deleted. They will remain in AD until they are hard deleted in Azure AD. Changes made to these groups in Azure AD will not be written back, until the groups are re-enabled for writeback or restored from soft delete state. This protects the AD groups from accidental deletion, should they be unintentionally disabled for writeback or soft deleted in Azure AD. 
+ - Groups that have been written back will not be deleted in AD, if they are disabled for writeback or soft deleted. They will remain in AD until they are hard deleted in Azure AD. Changes made to these groups in Azure AD will not be written back, until the groups are re-enabled for writeback or restored from soft delete state. This requirement protects the AD groups from accidental deletion, should they be unintentionally disabled for writeback or soft deleted in Azure AD. 
  - Microsoft 365 groups with over 50,000 members and Azure AD security groups with over 250,000 cannot be written back to on-premises. 
 To keep the default behavior, continue to the [enable group writeback](how-to-connect-group-writeback-enable.md) article.  
 
@@ -125,7 +125,7 @@ The default behavior can be modified as follows:
  - Groups that are written to on prem will be deleted in AD when they are either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
  - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
-If you plan to make changes to the default behavior, we recommend that you do so prior to enabling group writeback, however, you can still modify the default behavior, if group writeback is already enabled. To modify the default behavior, see [Modifying group writeback](how-to-connect-modify-group-writeback.md). 
+If you plan to make changes to the default behavior, we recommend that you do so prior to enabling group writeback. However, you can still modify the default behavior, if group writeback is already enabled. To modify the default behavior, see [Modifying group writeback](how-to-connect-modify-group-writeback.md). 
 
  
  ## Public preview limitations  
