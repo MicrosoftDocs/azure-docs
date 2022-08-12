@@ -58,6 +58,8 @@ To create the environment, run the following command:
 ```powershell
 $CmdArgs = @{
   EnvName = $CONTAINERAPPS_ENVIRONMENT
+  ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
   LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
   AppLogConfigurationDestination = "log-analytics"
   LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
@@ -83,6 +85,7 @@ az containerapp create \
   --ingress 'external' \
   --query properties.configuration.ingress.fqdn
 ```
+
 > [!NOTE]
 > Make sure the value for the `--image` parameter is in lower case.
 
@@ -117,8 +120,6 @@ New-AzContainerApp @CmdArgs
 By setting `IngressExternal` to `$true`, you make the container app available to public requests.
 
 ---
-
-
 
 ## Verify deployment
 

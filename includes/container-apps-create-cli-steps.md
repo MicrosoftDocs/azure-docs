@@ -98,7 +98,6 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-
 $RESOURCE_GROUP="my-container-apps"
 $LOCATION="canadacentral"
 $CONTAINERAPPS_ENVIRONMENT="my-environment"
