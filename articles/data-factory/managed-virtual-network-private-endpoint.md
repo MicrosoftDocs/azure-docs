@@ -113,7 +113,7 @@ Unlike copy activity, pipeline and external activity have a default time to live
 ### Comparison of different TTL
 The following table lists the differences between different types of TTL：
 
-| | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
+| Feature | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
 | ----------------- | ---------- | -------- | --------------- |
 | When to take effect |	Immediately after enablement | First activity execution | First activity execution |
 | Can be disabled | Y | Y | N |
