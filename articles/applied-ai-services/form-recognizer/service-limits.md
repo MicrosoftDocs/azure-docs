@@ -139,4 +139,4 @@ Generally, it's highly recommended to test the workload and the workload pattern
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about error codes and troubleshooting](preview-error-guide.md)
+> [Learn about error codes and troubleshooting](v3-error-guide.md)

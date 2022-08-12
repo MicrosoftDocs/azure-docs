@@ -71,7 +71,7 @@ landingContent:
         - text: C# SDK
           url: quickstarts/get-started-v3-sdk-rest-api.md
         - text: Java SDK
-          url: quickstarts/try-v3-java-sdk.md
+          url: quickstarts/get-started-v3-sdk-rest-api.md
         - text: JavaScript SDK
           url: quickstarts/get-started-v3-sdk-rest-api.md
         - text: Python SDK

@@ -75,5 +75,5 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
   * [C#](quickstarts/get-started-v3-sdk-rest-api.md)
   * [Python](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [Java](quickstarts/try-v3-java-sdk.md)
+  * [Java](quickstarts/get-started-v3-sdk-rest-api.md)
   * [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
