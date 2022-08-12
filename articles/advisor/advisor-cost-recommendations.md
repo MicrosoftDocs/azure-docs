@@ -52,7 +52,7 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
   - The new SKU, if applicable, has the same Accelerated Networking and Premium Storage capabilities 
   - The new SKU, if applicable, is supported in the current region of the Virtual Machine with the recommendation
   - The new SKU, if applicable, is less expensive 
-  - Instance count recommendations also take into account if the VMSS is being managed by Service Fabric or AKS. For service fabric managed resources, recommendations take into account reliability and durability tiers. 
+  - Instance count recommendations also take into account if the virtual machine scale set is being managed by Service Fabric or AKS. For service fabric managed resources, recommendations take into account reliability and durability tiers. 
 - Advisor determines if a workload is user-facing by analyzing its CPU utilization characteristics. The approach is based on findings by Microsoft Research. You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
 - Based on the best fit and the cheapest costs with no performance impacts, Advisor not only recommends smaller SKUs in the same family (for example D3v2 to D2v2), but also SKUs in a newer version (for example D3v2 to D2v3), or a different family (for example D3v2 to E3v2). 
 - For virtual machine scale set resources, Advisor prioritizes instance count recommendations over SKU change recommendations because instance count changes are easily actionable, resulting in faster savings. 
@@ -68,7 +68,7 @@ A burstable SKU recommendation is made if:
   - If the current SKU doesn't have accelerated networking enabled, since burstable SKUs don't support accelerated networking yet
   - If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days
 
-The result is a recommendation that suggests that the user resizes their current virtual machine or virtual machine scale sets to a burstable SKU with the same number of cores. This helps to take advantage of the low costs and the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU. 
+The resulting recommendation suggests that a user should resize their current virtual machine or virtual machine scale set to a burstable SKU with the same number of cores. This suggestion is made so a user can take advantage of lower cost and also the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU.
  
 Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU/instance count information.
 To be more selective about the actioning on underutilized virtual machines or virtual machine scale sets, you can adjust the CPU utilization rule on a per-subscription basis.
