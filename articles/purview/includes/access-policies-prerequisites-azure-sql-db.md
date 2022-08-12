@@ -25,10 +25,10 @@ ms.custom:
 - Australia East
 
 ### Azure SQL Database configuration
-Each Azure SQL Database server needs a Managed Identity assigned to it. You can do this from Azure Portal by navigating to the Azure SQL Server that hosts the Azure SQL DB, navigating to Identity on the side menu, checking status to *On* and then saving. See screenshot:
+Each Azure SQL Database server needs a Managed Identity assigned to it. In Azure portal navigate to the Azure SQL Server that hosts the Azure SQL DB and then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and save. See screenshot:
 ![Screenshot shows how to assign system managed identity to Azure SQL Server.](../media/how-to-data-owner-policies-sql/assign-identity-azure-sql-db.png)
 
-You will also need to enable external policy based authorization on the server. You can do this in Power Shell:
+You'll also need to enable external policy based authorization on the server. You can do this in PowerShell:
 
 ```powershell
 Connect-AzAccount
