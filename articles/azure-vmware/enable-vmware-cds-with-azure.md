@@ -7,7 +7,7 @@ ms.date: 08/09/2022
 
 # Enable VMware Cloud Director service with Azure VMware Solution (Preview)
 
-[VMware Cloud Director Service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html) with Azure VMware Solution enables enterprise customers, to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
+[VMware Cloud Director Service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.htmlor) with Azure VMware Solution enables enterprise customers, to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
 
 In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware Solution for enterprise customers to use Azure VMware Solution resources and Azure VMware Solution private clouds with underlying resources for virtual datacenters.
 
@@ -169,4 +169,4 @@ For more information about VMware Cloud Director Availability, see [VMware Cloud
 **Answer**: This offering is supported in all Azure regions where Azure VMware Solution is available except for Brazil South and South Africa. Ensure that the region you wish to connect to Cloud Director service is within a 150-milliseconds round trip time for latency with Cloud Director service.
 
 ## Next steps
-[What Is VMware Cloud Director service and How Does It Work](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html)  
+[VMware Cloud Director Service Documentation](https://docs.vmware.com/en/VMware-Cloud-Director-service/index.html)  
