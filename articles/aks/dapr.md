@@ -61,34 +61,34 @@ Global Azure cloud is supported with Arc support on the following regions:
 
 | Region | AKS support | Arc for Kubernetes support |
 | ------ | ----------- | -------------------------- |
-| "australiaeast" | :heavy_check_mark: | :heavy_check_mark: |
-| "australiasoutheast" | :heavy_check_mark: | :x: |
-| "canadacentral" | :heavy_check_mark: | :heavy_check_mark: |
-| "canadaeast" | :heavy_check_mark: | :heavy_check_mark: |
-| "centralindia" | :heavy_check_mark: | :heavy_check_mark: |
-| "centralus" | :heavy_check_mark: | :heavy_check_mark: |
-| "eastasia" | :heavy_check_mark: | :heavy_check_mark: |
-| "eastus" | :heavy_check_mark: | :heavy_check_mark: |
-| "eastus2" | :heavy_check_mark: | :heavy_check_mark: |
-| "eastus2euap" | :x: | :heavy_check_mark: |
-| "francecentral" | :heavy_check_mark: | :heavy_check_mark: |
-| "germanywestcentral" | :heavy_check_mark: | :heavy_check_mark: |
-| "japaneast" | :heavy_check_mark: | :heavy_check_mark: |
-| "koreacentral" | :heavy_check_mark: | :heavy_check_mark: |
-| "northcentralus" | :heavy_check_mark: | :heavy_check_mark: |
-| "northeurope" | :heavy_check_mark: | :heavy_check_mark: |
-| "norwayeast" | :heavy_check_mark: | :x: |
-| "southafricanorth" | :heavy_check_mark: | :x: |
-| "southcentralus" | :heavy_check_mark: | :heavy_check_mark: |
-| "southeastasia" | :heavy_check_mark: | :heavy_check_mark: |
-| "swedencentral" | :heavy_check_mark: | :heavy_check_mark: |
-| "switzerlandnorth" | :heavy_check_mark: | :heavy_check_mark: |
-| "uksouth" | :heavy_check_mark: | :heavy_check_mark: |
-| "westcentralus" | :heavy_check_mark: | :heavy_check_mark: |
-| "westeurope" | :heavy_check_mark: | :heavy_check_mark: |
-| "westus" | :heavy_check_mark: | :heavy_check_mark: |
-| "westus2" | :heavy_check_mark: | :heavy_check_mark: |
-| "westus3 | :heavy_check_mark: | :heavy_check_mark: |
+| `australiaeast` | :heavy_check_mark: | :heavy_check_mark: |
+| `australiasoutheast` | :heavy_check_mark: | :x: |
+| `canadacentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `canadaeast` | :heavy_check_mark: | :heavy_check_mark: |
+| `centralindia` | :heavy_check_mark: | :heavy_check_mark: |
+| `centralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastasia` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastus` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastus2` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastus2euap` | :x: | :heavy_check_mark: |
+| `francecentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `germanywestcentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `japaneast` | :heavy_check_mark: | :heavy_check_mark: |
+| `koreacentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `northcentralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `northeurope` | :heavy_check_mark: | :heavy_check_mark: |
+| `norwayeast` | :heavy_check_mark: | :x: |
+| `southafricanorth` | :heavy_check_mark: | :x: |
+| `southcentralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `southeastasia` | :heavy_check_mark: | :heavy_check_mark: |
+| `swedencentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `switzerlandnorth` | :heavy_check_mark: | :heavy_check_mark: |
+| `uksouth` | :heavy_check_mark: | :heavy_check_mark: |
+| `westcentralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `westeurope` | :heavy_check_mark: | :heavy_check_mark: |
+| `westus` | :heavy_check_mark: | :heavy_check_mark: |
+| `westus2` | :heavy_check_mark: | :heavy_check_mark: |
+| `westus3` | :heavy_check_mark: | :heavy_check_mark: |
 
 
 ## Prerequisites 
