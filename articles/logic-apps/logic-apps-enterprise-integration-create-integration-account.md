@@ -49,11 +49,19 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
 
-* If you're working on a Consumption logic app workflow, your logic app resource must already exist before you can [link your integration account](#link-account). After you create this link, you can use the B2B artifacts in your integration account with your workflow. Although you can create your artifacts without this link, the link is required when you're ready to use these artifacts in your workflow.
+* Whether you're working on a Consumption or Standard logic app workflow, your logic app resource must already exist before you can link your integration account.
 
-* If you're working on a Standard logic app workflow, you can optionally link your integration account to your Standard logic app resource. For example, if you have an existing integration account with B2B artifacts, you can link your integration account to your Standard logic app resource.
+  * For Consumption logic app resources, this link is required before you can use the artifacts from your integration account with your workflow. Although you can create your artifacts without this link, the link is required when you're ready to use these artifacts.
 
-  The link is optional because some actions allow you to create a connection to your integration account. Other actions, such as **Liquid** and **Flat File**, allow you to select specific artifacts such as maps and schemas that you uploaded directly to your logic app resource or from a linked integration account. Either way, you can use these artifacts across all child workflows within the *same logic app resource*.
+  * For Standard logic app resources, this link is optional, based on your scenario:
+
+    * If you have an integration account with the artifacts that you need or want to use, you can link the integration account to each Standard logic app resource where you want to use the artifacts.
+
+    * Some Azure-hosted integration account connectors, such as **AS2**, **EDIFACT**, and **X12**, let you create a connection to your integration account. If you're just using these connectors, you don't need the link.
+
+    * The built-in connectors named **Liquid** and **Flat File** let you select maps and schemas that you previously uploaded to your logic app resource or to a linked integration account.
+
+      If you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option, which also means you don't have to upload maps and schemas to each logic app resource. Either way, you can use these artifacts across all child workflows within the *same logic app resource*.
 
 * Basic knowledge about how to create logic app workflows. For more information, review the following documentation:
 
