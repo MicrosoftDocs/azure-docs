@@ -42,11 +42,11 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 ```powershell
 $CmdArgs = @{
-  Name = myworkspace
+  Name = "myworkspace"
   ResourceGroupName = $RESOURCE_GROUP
   Location = $LOCATION
-  PublicNetworkAccessForIngestion "Enabled"
-  PublicNetworkAccessForQuery "Enabled"
+  PublicNetworkAccessForIngestion = "Enabled"
+  PublicNetworkAccessForQuery = "Enabled"
 }
 New-AzOperationalInsightsWorkspace @CmdArgs
 $WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
@@ -60,8 +60,7 @@ $CmdArgs = @{
   EnvName = $CONTAINERAPPS_ENVIRONMENT
   ResourceGroupName = $RESOURCE_GROUP
   Location = $LOCATION
-  WorkspaceId = $WORKSPACE_ID
-  WorkspaceSharedKey = $WORKSPACE_SHARED_KEY
+  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
   AppLogConfigurationDestination = "log-analytics"
   LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
 }
@@ -91,20 +90,20 @@ az containerapp create \
 
 ```powershell
 $ImageParams = @{
-  Name = my-container-app
-  Image = mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+  Name = "my-container-app"
+  Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
 }
 $IMAGE_OBJ = New-AzContainerAppTemplateObject @ImageParams
 $ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
 $CmdArgs = @{
-  Name = my-container-app
+  Name = "my-container-app"
   Location = $LOCATION
   ResourceGroupName = $RESOURCE_GROUP
   ManagedEnvironmentId = $ENV_ID
   TemplateContainer = $IMAGE_OBJ
   IngressTargetPort = 80
-  IngressExternal = 'true'
+  IngressExternal = $true
 }
 
 New-AzContainerApp @CmdArgs
