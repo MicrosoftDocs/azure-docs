@@ -39,11 +39,11 @@ Using the **Continuous-delivery** feature, you can use the canary strategy to de
 
 1. Select **Deployment strategy**, and then select **Canary**.
 
-    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png" alt-text="A screenshot showing how to configure the canary deployment strategy":::
+    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png" alt-text="A screenshot showing how to configure the canary deployment strategy.":::
 
 1. Add a "canary" tag to the VMs that will be used in the canary deployment.
 
-    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png" alt-text="A screenshot showing how to add canary tag":::
+    :::image type="content" source="media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png" alt-text="A screenshot showing how to add canary tag.":::
 
 1. Select **OK** to configure the classic release pipeline to deploy to your virtual machine.
 
