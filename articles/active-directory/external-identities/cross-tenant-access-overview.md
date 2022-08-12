@@ -59,12 +59,12 @@ You can configure organization-specific settings by adding an organization and m
 
 ## Tenant restrictions
 
-With **Tenant Restrictions** settings, you can control the types of external accounts your users can use on the devices you manage. There are two types of external accounts you can restrict:
+With **Tenant Restrictions** settings, you can control the types of external accounts your users can use on the devices you manage, including:
 
 - Accounts your users have created in unknown tenants.
 - Accounts that external organizations have given to your users so they can access that organization's resources.  
 
-We recommend configuring your tenant restrictions to disallow both of these types of external accounts and use B2B collaboration instead. B2B collaboration gives you the ability to:
+We recommend configuring your tenant restrictions to disallow these types of external accounts and use B2B collaboration instead. B2B collaboration gives you the ability to:
 
 - Use Conditional Access and force multi-factor authentication for B2B collaboration users.
 - Manage inbound and outbound access.

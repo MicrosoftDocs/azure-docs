@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 08/15/2022
 
 ms.author: mimart
 author: msmimart
@@ -28,10 +28,10 @@ For example, let's say a user in your organization has created a separate accoun
 
 |  |  |
 |---------|---------|
-|**1**     | A user signs into a Contoso managed Windows device using an external account. The user attempts to access an app in Fabrikam.        |
-|**2**     | On the Windows device, Group Policy applies an HTTP header to all Microsoft traffic. The header contains the tenant restrictions policy ID and Fabrikam's tenant ID.        |
-|**3**     | Azure AD applies the tenant restrictions policy at the authentication level. Because Contoso has blocked access to Fabrikam, the authentication request is blocked.        |
-|**4**     | Microsoft 365 applies the tenant restrictions policy at the data level and blocks the session.        |
+|**1**     | Contoso configures tenant restrictions to block all users from using their Windows devices to sign in to external applications with external accounts. Contoso enforces the policy on each Windows device by updating the local computer configuration with Contoso's tenant ID and the tenant restrictions policy ID.       |
+|**2**     |  A user has a Windows device that is managed by Contoso. The user attempts to sign in to an external app using an account from an unknown tenant. In the authentication request, the Windows device adds an HTTP header that contains Contoso's tenant ID and the tenant restrictions policy ID.        |
+|**3**     | *Authentication plane protection:* Azure AD uses the header to find the tenant restrictions policy and applies the policy. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
+|**4**     | *Data plane protection:* The user could try to access the external application by obtaining an authentication token outside of Contoso's network, and then copying and pasting it into the Windows device. However, Azure AD checks the claim in the authentication response token against the HTTP header added by the Windows device. If they don't match, Azure AD blocks the session and the user is unable to access the application.        |
 |||
 
 Tenant restrictions can be scoped to specific users, groups, organizations, or external apps. Apps built on the Windows operating system networking stack are protected, including the following:
@@ -51,7 +51,7 @@ Azure AD offers two versions of tenant restrictions policies:
 - Tenant restrictions V1, described in [Set up tenant restrictions V1 for B2B collaboration](../manage-apps/tenant-restrictions.md), lets you restrict access to external tenants by configuring a tenant allow list on your corporate proxy.
 - Tenant restrictions V2, described in this article, lets you apply policies directly to your users' Windows devices instead of through your corporate proxy, reducing overhead and providing more flexible, granular control.
 
-We recommend replacing your V1 tenant restrictions with V2 tenant restrictions for your Windows devices so you can take advantage of . Both versions can be used simultaneously. For example, you can use tenant restrictions V2 to manage access for your Windows device users, and use tenant restrictions V1 to manage access for all other clients and apps that aren't supported by V2. The following table compares the features in each version.
+We recommend replacing your V1 tenant restrictions with V2 tenant restrictions for greater control over the use of your Windows devices. Both versions can be used simultaneously. For example, you can use tenant restrictions V2 to manage access for your Windows device users, and use tenant restrictions V1 to manage access for all other clients and apps that aren't supported by V2. The following table compares the features in each version.
 
 |  |Tenant restrictions V1  |Tenant restrictions V2  |
 |----------------------|---------|---------|
@@ -59,7 +59,7 @@ We recommend replacing your V1 tenant restrictions with V2 tenant restrictions f
 |**Malicious tenant requests** | Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.         |    Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.     |
 |**Granularity**           | Limited.        |   Tenant, user, group, and application granularity.      |
 |**Anonymous access**      | Anonymous access to Teams meetings and file sharing is allowed.         |   Anonymous access to Teams meetings is blocked. Access to anonymously shared resources (“Anyone with the link”) is blocked.      |
-|**MSA accounts**          |Uses a Restrict-MSA header to block access to consumer accounts.         |  Allows control of Microsoft account (MSA/Live ID) authentication on both the identity and data planes. Uses app-level control to allow apps such as Microsoft Learning.       |
+|**Microsoft accounts (MSA)**          |Uses a Restrict-MSA header to block access to consumer accounts.         |  Allows control of Microsoft account (MSA and Live ID) authentication on both the identity and data planes. For example, if you enforce tenant restrictions by default, you can create a Microsoft Accounts-specific policy that allows users to access Microsoft Learning with their Microsoft Accounts (app ID 18fbca16-2224-45f6-85b0-f7bf2b39b3f3).       |
 |**Proxy management**      | Manage corporate proxies by adding tenants to the Azure AD traffic allow list.         |   N/A      |
 |**Platform support**      |Supported on all platforms         |     Supported only on Windows operating systems and Edge.     |
 |**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
