@@ -78,68 +78,56 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 ```
 :::image type="content" source="./media/migration/subnet-delegation.png" alt-text="Subnet delegation sample.":::
 
-## 6. (Optional) Configure zone redundancy
+## 6. Prepare your configurations
 
-You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). If you don't want to configure zone redundancy, you can skip this step.
-
-To avoid issues with escape characters, create a json file called "parameters.json" with the `zoneRedundant` property set to true. For more information on using escape characters with the Azure CLI, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively#use-quotation-marks-in-parameters).
-
-```json
-{
-    "zoneRedundant": true
-}
-```
-
-Add the path to your json file to the "body" parameter of the following command.
-
-```azurecli
-az rest --method put --uri "${ASE_ID}?api-version=2021-02-01" --body @parameters.json
-```
-
-## 7. Configure custom domain suffix
+You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). This can be done by setting the `zoneRedundant` property to "true". Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). If you don't want to configure zone redundancy, don't include the `zoneRedundant` parameter or set it to "false".
 
 If your existing App Service Environment uses a custom domain suffix, you'll need to [configure one for your new App Service Environment v3 during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration will fail if you don't configure a custom domain suffix and are using one currently. Migration will also fail if you attempt to add a custom domain suffix during migration to an environment that doesn't have one configured currently. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md).
 
-Create a json file called "dnsparameters.json" with your values for the required information.
-
-Using a user assigned managed identity:
+In order to set these configurations, create a file called "parameters.json" with the following details. Remove the custom domain suffix properties if this feature doesn't apply to your migration and be sure to pay attention to the value of the `zoneRedundant` property. Also be sure the value of the `kind` property is set based on your existing App Service Environment version. 
 
 ```json
 {
+    "type": "Microsoft.Web/hostingEnvironments",
+    "name": "sample-ase-migration",
+    "kind": "ASEV2",
+    "location": "westcentralus",
     "properties": {
-        "dnsSuffix": "internal-contoso.com",
-        "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
-        "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
+        "zoneRedundant": true,
+        "customDnsSuffixConfiguration": {
+            "dnsSuffix": "internal-contoso.com",
+            "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
+            "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
+        }
     }
 }
 ```
 
-Using a system assigned managed identity:
+If you're using a system assigned managed identity:
 
 ```json
 {
+    "type": "Microsoft.Web/hostingEnvironments",
+    "name": "sample-ase-migration",
+    "kind": "ASEV2",
+    "location": "westcentralus",
     "properties": {
-        "dnsSuffix": "internal-contoso.com",
-        "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
-        "keyVaultReferenceIdentity": "SystemAssigned"
+        "zoneRedundant": true,
+        "customDnsSuffixConfiguration": {
+            "dnsSuffix": "internal-contoso.com",
+            "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
+            "keyVaultReferenceIdentity": "SystemAssigned"
+        }
     }
 }
 ```
-
-Add the path to your json file to the "body" parameter of the following command.
-
-```azurecli
-az rest --method put --uri "${ASE_ID}/configurations/customdnssuffix?api-version=2021-02-01" --body @dnsparameters.json
-```
-
-You should get a 200 response if everything was set properly.
 
 ## 8. Migrate to App Service Environment v3
 
-Only start this step once you've completed all pre-migration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. This step takes up to three hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. During that time, there will be about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment will be blocked during this step.
+Only start this step once you've completed all pre-migration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. This step takes up to three hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. During that time, there will be about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment will be blocked during this step. You only need to include the the "body" parameter in the command if you are enabling zone redundancy or are configuring a custom domain suffix. If neither of those apply to your migration, you can remove that parameter from the command.
 
 ```azurecli
-az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration"
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --body @parameters.json
 ```
 
 Run the following command to check the status of your migration. The status will show as "Migrating" while in progress.
