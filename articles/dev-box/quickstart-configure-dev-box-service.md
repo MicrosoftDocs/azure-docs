@@ -41,7 +41,8 @@ The following steps show you how to create and configure a dev center.
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, type *Dev centers* and then select **Dev centers** from the list.
-<!--   :::image type="content" source="./media/quickstart-configure-dev-box-service/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted."::: -->
+
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
 
 1. On the dev centers page, select **+Create**. 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center.png" alt-text="Screenshot showing the Azure portal Dev center with create highlighted.":::
