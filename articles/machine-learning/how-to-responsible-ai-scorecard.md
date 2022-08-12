@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 05/10/2022
+ms.date: 08/12/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -247,7 +247,7 @@ Select which scorecard you’d like to download from the list and select Downloa
 
 :::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible A I scorecard to download." lightbox= "./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png":::
 
-## How to read your Responsible AI scorecard
+## How to read your Responsible AI scorecard?
 
 The Responsible AI scorecard is a PDF summary of your key insights from the Responsible AI dashboard. The first summary segment of the scorecard gives you an overview of the machine learning model and the key target values you have set to help all stakeholders determine if your model is ready to be deployed.
 
