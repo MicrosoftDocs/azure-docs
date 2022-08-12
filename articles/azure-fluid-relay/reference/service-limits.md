@@ -27,7 +27,7 @@ Incremental summaries uploaded to Azure Fluid Relay can't exceed 28 MB in size. 
 
 ## Signals
 
-Azure Fluid Relay doesn't currently have support for Signals. Learn about Signals [here](https://fluidframework.com/docs/concepts/signals/).
+Azure Fluid Relay doesn't currently have support for Signals.
 
 ## Need help?
 
