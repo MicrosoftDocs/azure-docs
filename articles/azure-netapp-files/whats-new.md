@@ -23,7 +23,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
     Standard network features now includes Global VNet peering. You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
-    [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)] You can use standard network features, with global peering, without charge for free.
+    [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md)
     You can now create VM consistent snapshot backups of VMs on Azure NetApp Files datastores using [Cloud Backup for Virtual Machines](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). The associated virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated and consistent backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores.
