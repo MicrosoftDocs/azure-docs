@@ -305,6 +305,14 @@
       href: /java/api/com.azure.messaging.servicebus
     - name: azure-servicebus  
       href: /java/api/com.microsoft.azure.servicebus
+  - name: Spring
+    items:
+    - name: Spring JMS support
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-jms-support?toc=/azure/service-bus-messaging/toc.json
+    - name: Spring Integration with Azure Service Bus
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
+    - name: Spring Cloud Stream Binder for Azure Service Bus
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
   - name: Python
     items: 
     - name: azure-servicebus version 7
