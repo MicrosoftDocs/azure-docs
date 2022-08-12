@@ -1,5 +1,5 @@
 ---
-title: Reference settings from App Configuration (preview)
+title: Use App Configuration references (Preview)
 description: Learn how to set up Azure App Service and Azure Functions to use Azure App Configuration references. Make App Configuration key-values available to your application code without changing it.
 author: muksvso
 
@@ -13,7 +13,7 @@ ms.author: mubatra
 
 This topic shows you how to work with configuration data in your App Service or Azure Functions application without requiring any code changes. [Azure App Configuration](../azure-app-configuration/overview.md) is a service to centrally manage application configuration. Additionally, it's an effective audit tool for your configuration values over time or releases.
 
-## Granting your app access to App Config
+## Granting your app access to App Configuration
 
 To get started with using App Configuration references in App Service, you'll first need  an App Configuration store, and provide your app permission to access the configuration key-values in the store.
 
@@ -36,7 +36,7 @@ Once you have granted permissions to the user-assigned identity, follow these st
 
 1. [Assign the identity](./overview-managed-identity.md#add-a-user-assigned-identity) to your application if you haven't already.
 
-1. Configure the app to use this identity for App Configuration reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity. Though the property has keyVault in the name, the identity will apply to App Config references as well.
+1. Configure the app to use this identity for App Configuration reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity. Though the property has keyVault in the name, the identity will apply to App Configuration references as well.
 
     ```azurecli-interactive
     userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
@@ -81,7 +81,7 @@ To use an App Configuration reference for an [app setting](configure-common.md#c
 > Most application settings using App Configuration references should be marked as slot settings, as you should have separate stores or labels for each environment.
 
 > [!NOTE]
-> Azure App Configuration also supports its own format for storing [Key Vault references](../azure-app-configuration/use-key-vault-references-dotnet-core.md). If the value of an App Configuration reference is a Key Vault reference in App Config store, the secret value will not be retrieved from Key Vault, as of yet. For using the secrets from KeyVault in App Service or Functions, please refer to the [Key Vault references in App Service](app-service-key-vault-references.md).
+> Azure App Configuration also supports its own format for storing [Key Vault references](../azure-app-configuration/use-key-vault-references-dotnet-core.md). If the value of an App Configuration reference is a Key Vault reference in App Configuration store, the secret value will not be retrieved from Key Vault, as of yet. For using the secrets from KeyVault in App Service or Functions, please refer to the [Key Vault references in App Service](app-service-key-vault-references.md).
 
 ### Considerations for Azure Files mounting
 
