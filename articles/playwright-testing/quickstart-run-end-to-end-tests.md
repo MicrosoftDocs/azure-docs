@@ -84,45 +84,47 @@ To authenticate your GitHub user account with the private repository, follow the
     > If you get an **E403 Forbidden** error, this means that the token is not authorized or has expired.
     > Verify that your [personal access token](https://github.com/settings/tokens) has not expired. Validate also that you have authorized SSO, as described earlier.
     
-## Create a Microsoft Playwright Testing access token
+## Authenticate with Microsoft Playwright Testing
 
-Set up an access token to authenticate with Microsoft Playwright Testing.
+To run Playwright tests with Microsoft Playwright Testing, you need a workspace access key.
 
-1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your GitHub username and password.
+To generate a new workspace access key: 
 
-    1. Access the **Settings > Access Token** menu in the top-right of the screen.
+1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your Azure credentials.
 
-        :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
-        
-    1. Select **Generate a new token**.
+1. Access the **Settings > Access key** menu in the top-right of the screen.
 
-    1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-key-menu.png" alt-text="Screenshot that shows the Access Key menu in the Playwright portal.":::
 
-        :::image type="content" source="./media/quickstart-run-end-to-end-tests/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
+1. Select **Generate a new key**.
 
-1. In the list of access tokens, select **Copy** to copy the generated token value.
+1. Enter a **Key name**, select an **Expiration** duration, and then select **Generate key**.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/copy-access-token-value.png" alt-text="Screenshot that shows how to copy the access token functionality in the Playwright portal.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/create-access-key.png" alt-text="Screenshot that shows the New access key page in the Playwright portal.":::
+
+1. In the list of access keys, select **Copy** to copy the generated key value.
+
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Playwright portal.":::
     
     > [!NOTE]
-    > You can't retrieve the token value afterwards. If you didn't copy the value after the token was created, you'll have to create a new token.
+    > You can only access the key value immediately after you've created it. You can't access the key value anymore at a later time.
 
 ## Configure Playwright for Microsoft Playwright Testing
 
 The `playwright.config.ts` file contains the Playwright configuration settings and is already preconfigured to use Microsoft Playwright Testing.
 
-On your machine, create an environment variable `ACCESS_KEY`, and set its value to the access token you created earlier:
+On your machine, create an environment variable `ACCESS_KEY`, and set its value to the access key you created earlier:
 
 * Bash:
 
     ```bash
-    export ACCESS_KEY='<my-token-value>'
+    export ACCESS_KEY='<my-key-value>'
     ```
 
 * PowerShell:
 
     ```Powershell
-    $env:ACCESS_KEY = '<my-token-value>'
+    $env:ACCESS_KEY = '<my-key-value>'
     ```
 
 ## Run tests
@@ -169,9 +171,9 @@ You've now configured your Playwright tests to run in the cloud with Microsoft P
 
 ## Next steps
 
-You've now created a Microsoft Playwright Testing account and configured your Playwright tests to run in the cloud.
+You've now successfully created a Microsoft Playwright Testing workspace, and have run Playwright tests in the cloud.
 
-Advance to the next tutorial to learn how to identify application issues in the Microsoft Playwright Testing portal.
+Advance to the next tutorial to learn how to identify app issues by using the information in the Microsoft Playwright Testing portal.
 
 > [!div class="nextstepaction"]
 > [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)

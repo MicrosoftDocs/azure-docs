@@ -53,7 +53,7 @@ To run your Playwright tests with Microsoft Playwright Testing, update the `play
     
 1. Create a `PlaywrightService` object: 
 
-    Specify the `accessKey` property and paste your Microsoft Playwright Testing access token. For more information, see [create an access token](./tutorial-identify-issues-with-end-to-end-web-tests.md#create-an-access-token) . Set the property directly in the configuration or create an environment variable.
+    Specify the `accessKey` property and paste your Microsoft Playwright Testing access key. For more information, see [create an access key](./how-to-manage-access-keys.md#create-an-access-key) . Set the property directly in the configuration or create an environment variable.
 
     ```typescript
     // playwright.config.ts
@@ -145,7 +145,7 @@ You can now start your Playwright tests by using the command-line or the [Visual
     npx playwright test
     ```
 
-    Because you've configured your Playwright tests to use Microsoft Playwright Testing, your tests will run in the cloud. After the tests finish, you'll get a direct link to the test results in the Microsoft Playwright Testing portal.
+    The test output appears in the terminal window, however your tests are running in the cloud, with Microsoft Playwright Testing. After the tests finish, you'll get a direct link to view and analyze the test results in the Microsoft Playwright Testing portal. Learn more about [identifying app issues with Microsoft Playwright Testing](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 
 ## Scale out your tests
 
