@@ -37,6 +37,8 @@ items:
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
+  - name: Enable zone redundancy
+    href: how-to-enable-zone-redundancy.md
 - name: Reference
   items:
   - name: Azure CLI

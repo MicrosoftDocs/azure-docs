@@ -36,6 +36,8 @@ landingContent:
             url: how-to-data-source-plugins-managed-identity.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
+          - text: Enable zone redundancy
+            url: how-to-enable-zone-redundancy.md
 
   - title: Manage Azure Managed Grafana
     linkLists:
