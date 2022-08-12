@@ -77,14 +77,13 @@ App Service Environment v3 doesn't currently support the following features that
 - Monitoring your traffic with Network Watcher or NSG Flow.
 - Configuring an IP-based TLS/SSL binding with your apps.
 
-The following scenarios aren't supported in this version of the migration feature:
+The following scenarios aren't supported by the migration feature. See the [manual migration options](migration-alternatives.md) if your App Service Environment falls into one of these categories.
 
+- App Service Environment v1 in a Classic VNet
 - Internet facing App Service Environment v2 with IP SSL addresses
 - Internet facing App Service Environment v1 with IP SSL addresses
 - [Zone pinned](zone-redundancy.md) App Service Environment v2
 - App Service Environment in a region not listed in the supported regions
-
-The migration feature doesn't plan on supporting App Service Environment v1 within a Classic VNet. See the [manual migration options](migration-alternatives.md) if your App Service Environment falls into this category.
 
 The App Service platform will review your App Service Environment to confirm migration support. If your scenario doesn't pass all validation checks, you won't be able to migrate at this time using the migration feature. If your environment is in an unhealthy or suspended state, you won't be able to migrate until you make the needed updates.
 
@@ -132,7 +131,9 @@ Your App Service Environment v3 can be deployed across availability zones in the
 > Enabling zone redundancy can lead to additional charges. Review the [zone redundancy pricing model](../../availability-zones/migrate-app-service-environment.md#pricing) for more information.
 >
 
-If your existing App Service Environment uses a custom domain suffix, you'll be prompted to configure a custom domain suffix for your new App Service Environment v3. You'll need to provide the custom domain name, managed identity, and certificate. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). You must configure a custom domain suffix for your new environment even if you no longer want to use it. Once migration is complete, you can remove the custom domain suffix configuration by going to the **Custom domain suffix** page in the portal for your new App Service Environment v3.  
+If your existing App Service Environment uses a custom domain suffix, you'll be prompted to configure a custom domain suffix for your new App Service Environment v3. You'll need to provide the custom domain name, managed identity, and certificate. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). You must configure a custom domain suffix for your new environment even if you no longer want to use it. Once migration is complete, you can remove the custom domain suffix configuration by going to the **Custom domain suffix** page in the portal for your new App Service Environment v3. 
+
+If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain will no longer be shown in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly.  
 
 ### Migrate to App Service Environment v3
 
