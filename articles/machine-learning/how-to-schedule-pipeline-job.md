@@ -53,7 +53,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 # [CLI v2](#tab/cliv2)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-schedule.yml":::
+:::code language="yaml"source="~/azureml-examples-main/cli/schedules/recurrence-schedule.yml":::
 
 `trigger` contains the following properties:
 
@@ -61,7 +61,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
 
 `RecurrenceTrigger` contains following properties:
 
