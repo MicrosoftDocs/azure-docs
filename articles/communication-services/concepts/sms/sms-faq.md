@@ -129,7 +129,7 @@ September 30, 2022 onwards, all new TFNs must complete a toll-free verification 
 This decision has been made to ensure that the toll-free messaging channel is aligned with both short code and 10 DLC, whereby all services are reviewed. It also ensures that the sending brand and the type of traffic your messaging channels deliver is known, documented, and verified. 
 
 ### How do I submit a toll-free verification?
-For submitting the toll-free verification form, go to the Azure Communications Service Resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed in the infobox at the top of the phone numbers page. 
+For submitting the toll-free verification form, go to the Azure Communications Service Resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed in the infobox at the top of the phone numbers blade. 
 
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
