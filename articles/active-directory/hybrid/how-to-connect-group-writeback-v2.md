@@ -33,7 +33,7 @@ There are two versions of group writeback. The original version is in general av
 - The common name in an Active Directory group’s distinguished name can be configured to include the group’s display name when written back.  
 - The Azure AD Admin portal, Graph Explorer, and PowerShell can be used to configure which Azure AD groups are written back. 
 
-The new version is only available in the [Azure AD Connect version from 2021 December or later (2.0.89.0)](https://www.microsoft.com/download/details.aspx?id=47594). or later and must be enabled in addition to the original version. 
+The new version is only available in the [Azure AD Connect version 2.0.89.0 or later](https://www.microsoft.com/download/details.aspx?id=47594). or later and must be enabled in addition to the original version. 
 
 The following document will walk you through what you need to know before you enable group writeback for your tenant. 
 
@@ -125,7 +125,7 @@ The default behavior can be modified as follows:
  - Groups that are written to on prem will be deleted in AD when they are either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
  - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
-If you plan to make changes to the default behavior, we recommend that you do so prior to enabling group writeback, however, you can still modify the default behavior, if group writeback is already enabled. To modify the default behavior, continue to the [modify default behavior](link article 2) article. 
+If you plan to make changes to the default behavior, we recommend that you do so prior to enabling group writeback, however, you can still modify the default behavior, if group writeback is already enabled. To modify the default behavior, see [Modifying group writeback](how-to-connect-modify-group-writeback.md). 
 
  
  ## Public preview limitations  
