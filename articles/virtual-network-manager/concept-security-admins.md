@@ -74,23 +74,6 @@ Security admin rules are evaluated before NSG rules. Depending on the type of se
 
 There are three kinds of actions – Allow, Always Allow, and Deny. If you create a security admin rule to *Allow* a certain type of traffic, then this rule will be evaluated first. When the traffic is allowed by a security admin rule, it will be further evaluated by NSG rules. This means it leaves room for NSG rules down the line to handle this type of traffic differently as needed. If you create a security admin rule to *Always Allow* or *Deny* a certain type of traffic, then this rule will be evaluated first, and it will terminate the NSG evaluation of this traffic – meaning the evaluation is stopped. If the security admin rule is *Always Allow*, the traffic won't hit NSGs, and instead deliver directly to VMs or other resource. This can be useful when administrators want to enforce some traffic to be not denied by NSG rules. For example, administrators may want to force the organization to consume software updates from certain ports. When *Deny* is used, evaluation and therefore traffic is stopped without being delivered to the destination. This means that you can use security admin rules to set definitive security rules that can't be overridden by others.
 Security admin rules don't depend on NSGs in order to exist. This means that administrators can use security admin rules to create default security rules. Even if application owners misconfigured or forgot to establish NSGs, your organization is protected by default!
-### Virtual network enforcement
-
-With NSGs alone, widespread enforcement on VNets across several applications, teams, or even entire organizations can be tricky. Often there’s a balancing act between attempts at centralized enforcement across an organization and handing over granular, flexible control to teams. Let’s look at a few common models of security management without security admin rules, and their pros and cons:
-
-- Model 1: NSGs are managed by a central governance team.
-    - Pros – The central governance team can enforce important security rules.
-    - Cons – Operational overhead is high as admins need to manage each NSG, as the number of NSGs increases, the burden increases.
-
-- Model 2: NSGs are managed by individual teams.
-    - Pros – The individual team has flexible control in tailoring security rules based on their service requirements.
-    - Cons – The central governance team can't enforce critical security rules, such as blocking risky ports. Individual team might also misconfigure or forget to attach NSGs, leading vulnerability exposures.
-
-- Model 3: NSGs are managed by individual teams, but NSGs are created using Azure Policy to have standard rules. Modifying these rules would trigger audit notifications.
-    - Pros – The individual team has flexible control in tailoring security rules. The central governance team can create standard security rules and receive notifications if these are modified.
-    - Cons – The central governance team still can't enforce the standard security rules, since NSG owners in teams can still modify them. Notifications would also be overwhelming to manage.
-
-Security admin rules aim to eliminate this sliding scale between enforcement and flexibility altogether by consolidating the pros of each of these models while reducing the cons of each. Central governance teams establish guard rails through security admin rules, while still leaving room for individual teams to flexibly pinpoint security as needed through NSG rules. Security admin rules aren't meant to override NSG rules, but rather interact in different ways depending on the type of action specified in the security admin rule. We’ll explore these interactions after we discuss the immense scaling benefits of security admin rules.
 
 ## Network intent policies and security admin rules
 
