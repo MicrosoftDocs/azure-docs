@@ -48,12 +48,13 @@ In Azure Data Factory linked services define the connection information to exter
 1. Using the search bar at the top of the page, search for 'Data Factories'
 
     :::image type="content" source="media/lab-data-flow-data-share/portal1.png" alt-text="Portal 1":::
-1. Click on your data factory resource to open up its resource blade.
+1. Select your data factory resource to open up its resource blade.
 
     :::image type="content" source="media/lab-data-flow-data-share/portal2.png" alt-text="Portal 2":::
-1. Click on **Author and Monitor** to open up the ADF UX. The ADF UX can also be accessed at adf.azure.com.
+1. Select **Open Azure Data Factory Studio**. The Data Factory Studio can also be accessed directly at adf.azure.com.
 
-    :::image type="content" source="media/lab-data-flow-data-share/portal3.png" alt-text="Portal 3":::
+    :::image type="content" source="media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page in the Azure portal.":::
+
 1. You'll be redirected to the homepage of the ADF UX. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, click on the pencil icon in left side-bar.
 
     :::image type="content" source="./media/doc-common-process/get-started-page-author-button.png" alt-text="Portal configure":::
