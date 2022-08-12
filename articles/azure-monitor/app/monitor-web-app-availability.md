@@ -8,7 +8,7 @@ ms.reviewer: sdash
 
 # Monitor availability with URL ping tests
 
-The name *URL ping test* is a bit of a misnomer. These tests don't use Internet Control Message Protocol (ICMP) to check your site's availability. Instead, they use more advanced HTTP request functionality to validate whether an endpoint is responding. They measure the performance associated with that response. They also add the ability to set custom success criteria, coupled with more advanced features like parsing dependent requests and allowing for retries.
+The name *URL ping test* is a bit of a misnomer. These tests don't use the Internet Control Message Protocol (ICMP) to check your site's availability. Instead, they use more advanced HTTP request functionality to validate whether an endpoint is responding. They measure the performance associated with that response. They also add the ability to set custom success criteria, coupled with more advanced features like parsing dependent requests and allowing for retries.
 
 To create an availability test, you need to use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 
@@ -33,7 +33,7 @@ To create your first availability request:
    |Parse dependent requests| The test requests images, scripts, style files, and other files that are part of the webpage under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option isn't enabled, the test only requests the file at the URL that you specified. Enabling this option results in a stricter check. The test might fail for cases that aren't noticeable from manually browsing through the site.
    |Enable retries|When the test fails, it's retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. *We recommend this option*. On average, about 80 percent of failures disappear on retry.|
    |Test frequency| This setting determines how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested every minute on average.|
-   |Test locations| The values for this setting are the places from which servers send web requests to your URL. *We recommend a minimum of five test locations* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
+   |Test locations| The values for this setting are the places from which servers send web requests to your URL. *We recommend a minimum of 5 test locations* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 If your URL isn't visible from the public internet, you can choose to selectively open your firewall to allow only the test transactions through. To learn more about the firewall exceptions for availability test agents, consult the [IP address guide](./ip-addresses.md#availability-tests).
 

@@ -80,7 +80,7 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> For readability and to reduce possible JavaScript errors, all of the possible configuration options are listed on a new line in the preceding snippet code. If you don't want to change the value of a commented line, it can be removed.
+> For readability and to reduce possible JavaScript errors, all the possible configuration options are listed on a new line in the preceding snippet code. If you don't want to change the value of a commented line, it can be removed.
 
 #### Report script load failures
 
@@ -142,7 +142,7 @@ This telemetry includes:
     - Exception details and message accompanying the error.
     - Line and column number of the error.
     - URL where the error was raised.
-- **Network Dependency Requests** made by your app **XHR** and **Fetch** (fetch collection is disabled by default) requests, include information on the:
+- **Network Dependency Requests** made by your app **XHR** and **Fetch** (fetch collection is disabled by default) requests include information on the:
     - URL of dependency source.
     - Command and method used to request the dependency.
     - Duration of the request.
@@ -490,13 +490,13 @@ While the script is downloading from the CDN, all tracking of your page is queue
 --- | --- | --- | --- | --- |
 Chrome Latest ✔ |  Firefox Latest ✔ | IE 9+ & Microsoft Edge ✔<br>IE 8- Compatible | Opera Latest ✔ | Safari Latest ✔ |
 
-## ES3/Internet Explorer 8 Compatibility
+## ES3/Internet Explorer 8 compatibility
 
 We need to ensure that this SDK continues to "work" and doesn't break the JavaScript execution when it's loaded by an older browser. It would be ideal to not support older browsers, but numerous large customers can't control which browser their users choose to use.
 
 This statement does *not* mean that we'll only support the lowest common set of features. We need to maintain ES3 code compatibility. New features will need to be added in a manner that wouldn't break ES3 JavaScript parsing and added as an optional feature.
 
-[See GitHub for full details on Internet Explorer 8 support](https://github.com/Microsoft/ApplicationInsights-JS#es3ie8-compatibility)
+See GitHub for full details on [Internet Explorer 8 support](https://github.com/Microsoft/ApplicationInsights-JS#es3ie8-compatibility).
 
 ## Open-source SDK
 

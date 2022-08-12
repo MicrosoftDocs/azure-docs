@@ -55,7 +55,7 @@ The following pages consist of language-by-language guidance to enable and confi
 
 In addition to the Application Insights SDKs, Application Insights also supports distributed tracing through [OpenCensus](https://opencensus.io/). OpenCensus is an open-source, vendor-agnostic, single distribution of libraries to provide metrics collection and distributed tracing for services. It also enables the open-source community to enable distributed tracing with popular technologies like Redis, Memcached, or MongoDB. [Microsoft collaborates on OpenCensus with several other monitoring and cloud partners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-[Python](opencensus-python.md)
+For more information on OpenCensus for Python, see [Set up Azure Monitor for your Python application](opencensus-python.md).
 
 The OpenCensus website maintains API reference documentation for [Python](https://opencensus.io/api/python/trace/usage.html), [Go](https://godoc.org/go.opencensus.io), and various guides for using OpenCensus.
 
