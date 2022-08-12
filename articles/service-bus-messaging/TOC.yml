@@ -308,11 +308,11 @@
   - name: Spring
     items:
     - name: Spring JMS support
-      href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-jms-support?toc=/azure/service-bus-messaging/toc.json
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/service-bus-messaging/toc.json#spring-jms-support
     - name: Spring Integration with Azure Service Bus
-      href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-integration-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/service-bus-messaging/toc.json#spring-integration-with-azure-service-bus
     - name: Spring Cloud Stream Binder for Azure Service Bus
-      href: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-stream-binder-for-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
+      href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/service-bus-messaging/toc.json#spring-cloud-stream-binder-for-azure-service-bus
   - name: Python
     items: 
     - name: azure-servicebus version 7
