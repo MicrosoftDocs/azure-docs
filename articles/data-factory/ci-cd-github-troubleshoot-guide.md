@@ -156,15 +156,15 @@ Until recently, the it was only possible to publish a pipeline for deployments b
 
 CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
 
-###  Cannot publish because of 4 MB ARM template limit  
+###  Cannot publish because of 4-MB ARM template limit  
 
 #### Issue
 
-You can't  deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
+You can't  deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4 MB. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
@@ -178,7 +178,7 @@ While publishing ADF resources, the azure pipeline triggers twice or more instea
 
 #### Cause
  
-Azure DevOps has the 20-MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
+Azure DevOps has the 20 MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
 
 #### Resolution
 
