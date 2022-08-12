@@ -69,18 +69,18 @@ Your subscription has default [quota limits](../azure-resource-manager/managemen
 
 ## Managed Disks
 
-Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk. As you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI](quick-create-cli.md) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md).
+Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk. As you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI](linux/quick-create-cli.md) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](linux/convert-unmanaged-to-managed-disks.md).
 
 You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](managed-disks-overview.md).
 
 ## Distributions 
-Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You can find available distributions in the Azure Marketplace. Microsoft actively works with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md) list.
+Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You can find available distributions in the Azure Marketplace. Microsoft actively works with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](linux/endorsed-distros.md) list.
 
-If your preferred Linux distro of choice is not currently present in the gallery, you can "Bring your own Linux" VM by [creating and uploading a Linux VHD in Azure](create-upload-generic.md).
+If your preferred Linux distro of choice is not currently present in the gallery, you can "Bring your own Linux" VM by [creating and uploading a Linux VHD in Azure](linux/create-upload-generic.md).
 
 Microsoft works closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partner offers, see the following links:
 
-* Linux on Azure - [Endorsed Distributions](endorsed-distros.md)
+* Linux on Azure - [Endorsed Distributions](linux/endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=suse)
 * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Red%20Hat%20Enterprise%20Linux)
 * Canonical - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&filters=partners&search=canonical)
@@ -98,23 +98,23 @@ Microsoft works closely with partners to ensure the images available are updated
 
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
-* [Azure Templates](create-ssh-secured-vm-from-template.md)
-* [Azure `VMaccess`](extensions/vmaccess.md)
+* [Azure Templates](linux/create-ssh-secured-vm-from-template.md)
+* [Azure `VMaccess`](linux/extensions/vmaccess.md)
 
 Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 
-* [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
+* [Using cloud-init on Azure Linux VMs](linux/using-cloud-init.md)
 
 ## Storage
 * [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
-* [Add a disk to a Linux VM using the azure-cli](add-disk.md)
-* [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md)
+* [Add a disk to a Linux VM using the azure-cli](linux/add-disk.md)
+* [How to attach a data disk to a Linux VM in the Azure portal](linux/attach-disk-portal.md)
 
 ## Networking
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](create-fqdn.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](linux/create-fqdn.md)
 
 
 ## Data residency
@@ -126,6 +126,6 @@ In Azure, the feature to enable storing customer data in a single region is curr
 
 Create your first VM!
 
-- [Portal](quick-create-portal.md)
-- [Azure CLI](quick-create-cli.md)
-- [PowerShell](quick-create-powershell.md)
+- [Portal](linux/quick-create-portal.md)
+- [Azure CLI](linux/quick-create-cli.md)
+- [PowerShell](linux/quick-create-powershell.md)
