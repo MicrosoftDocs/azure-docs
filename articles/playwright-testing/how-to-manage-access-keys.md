@@ -16,7 +16,7 @@ In this article, you'll learn how to create and manage access keys using the Mic
 
 To run existing Playwright tests with Microsoft Playwright Testing, you specify the workspace access key in the Playwright configuration file. Learn how to [use your access key to grant access](#use-your-access-key-to-grant-access).
 
-Access keys have a fixed duration expiration period that ranges from 7 days to 1 year. When an access key expires, processes that use this key are no longer authorized to run tests. You'll create a new access key and replace the access key value in the client processes.
+Access keys have a fixed duration expiration period that ranges from seven days to one year. When an access key expires, processes that use this key are no longer authorized to run tests. You'll create a new access key and replace the access key value in the client processes.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
