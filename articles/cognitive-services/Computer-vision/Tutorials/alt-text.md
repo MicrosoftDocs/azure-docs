@@ -41,10 +41,10 @@ In this tutorial, you'll learn:
 
 ## Deploy the sample app 
 
-1. Clone the git repository for the [sample app](TBD).  
+1. Clone the git repository for the [sample app](TBD).
 1. To set up your development environment, TBD 
 1. Open your preferred text editor such as Visual Studio Code. 
-1. Retrieve your Vision API endpoint and key in the Azure portal under the **Overview** tab of your resource. Don't check in your Vision API key to your remote repository.  TBD
+1. Retrieve your Vision API endpoint and key in the Azure portal under the **Overview** tab of your resource. Don't check in your Vision API key in to your remote repository.
 1. Run the app using your browser. TBD
 
 ## Next steps 
