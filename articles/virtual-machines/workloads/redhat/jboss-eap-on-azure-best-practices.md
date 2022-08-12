@@ -209,7 +209,7 @@ For any support-related questions, issues or customization requirements, contact
 * Learn more about [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/getting_started_with_jboss_eap_for_openshift_online/index)
 * Red Hat Subscription Manager (RHSM) [Cloud Access](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index)
 * [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/)
-* Microsoft Docs for [Red Hat on Azure](./overview.md)
+* [Red Hat on Azure overview](./overview.md)
 * [RHEL BYOS Gold Images in Azure](./byos.md)
 * JBoss EAP on Azure [Quickstart video tutorial](https://www.youtube.com/watch?v=3DgpVwnQ3V4) 
 

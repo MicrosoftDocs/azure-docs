@@ -25,7 +25,7 @@ items:
      - name: Sample Labeling tool
        href: quickstarts/try-sample-label-tool.md
      - name: Form Recognizer SDKs and REST API v2.1
-       href: quickstarts/get-started-sdk-rest-api.md
+       href: quickstarts/get-started-v2-1-sdk-rest-api.md
    - name: "Form Recognizer v3.0"
      items:
        - name: Form Recognizer Studio | v3.0
