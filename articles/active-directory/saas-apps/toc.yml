@@ -184,6 +184,8 @@
         href: archie-tutorial.md  
       - name: Ardoq
         href: ardoq-tutorial.md
+      - name: Arena
+        href: arena-tutorial.md
       - name: ARES for Enterprise
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
@@ -590,6 +592,8 @@
         href: cs-stars-tutorial.md
       - name: Culture Shift
         href: culture-shift-tutorial.md  
+      - name: Curator
+        href: curator-tutorial.md
       - name: Curricula SAML
         href: curricula-saml-tutorial.md
       - name: Cyara CX Assurance Platform
@@ -766,6 +770,8 @@
         href: equinix-federation-app-tutorial.md
       - name: Equisolve
         href: equisolve-tutorial.md
+      - name: ERA_EHS_CORE
+        href: era-ehs-core-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -993,6 +999,8 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
+      - name: HackNotice
+        href: hacknotice-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -1309,6 +1317,8 @@
         href: korn-ferry-alp-tutorial.md
       - name: Kpifire
         href: kpifire-tutorial.md
+      - name: KPMG Leasing Tool
+        href: kpmg-tool-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kronos Workforce Dimensions
@@ -1541,6 +1551,8 @@
         href: neotalogicstudio-tutorial.md
       - name: NetDocuments
         href: netdocuments-tutorial.md
+      - name: NetMotion Mobility
+        href: netmotion-mobility-tutorial.md
       - name: Netop Portal
         href: netop-portal-tutorial.md
       - name: Netskope Cloud Security
@@ -1825,6 +1837,8 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
+      - name: QReserve
+        href: qreserve-tutorial.md
       - name: Qualaroo
         href: qualaroo-tutorial.md  
       - name: Quantum Workplace
