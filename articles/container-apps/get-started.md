@@ -132,7 +132,7 @@ The `create` command returned the fully qualified domain name for the container 
 Get the fully qualified domain name for the container app.
 
 ```powershell
-(Get-AzContainerApp -Name $CmdArgs.Name).IngressFqdn
+(Get-AzContainerApp -Name $CmdArgs.Name -ResourceGroupName $RESOURCE_GROUP).IngressFqdn
 ```
 
 Copy this location to a web browser.
