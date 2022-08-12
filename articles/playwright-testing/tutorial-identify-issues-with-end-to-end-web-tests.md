@@ -19,7 +19,7 @@ You'll run a series of Playwright end-to-end tests in the cloud to validate the 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create an access token.
+> * Create a workspace access key.
 > * Connect tests to Microsoft Playwright Testing.
 > * Run cross-browser & cross-device tests.
 > * Diagnose test failures in the portal.
@@ -93,50 +93,37 @@ You can now install all the package dependencies in your local directory:
 > If you get an **E403 Forbidden** error, this means that the token is not authorized or has expired.
 > Verify that your [personal access token](https://github.com/settings/tokens) has not expired. Validate also that you have authorized SSO, as described earlier.
 
-## Create an access token
+## Authenticate with Microsoft Playwright Testing
 
-Set up an access key to authenticate with Playwright Service.
+To run Playwright tests with Microsoft Playwright Testing, you need a workspace access key.
 
-1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your GitHub username and password.
+1. In the Microsoft Playwright Testing portal, create an access key for your workspace. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key).
 
-    1. Access the **Settings > Access Token** menu in the top-right of the screen.
+1. After you've created the access key, select **Copy** to copy the generated access key value.
 
-        :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
-        
-    1. Select **Generate a new token**.
-
-    1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
-
-        :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
-
-1. In the list of access tokens, select **Copy** to copy the generated token value.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/copy-access-token-value.png" alt-text="Screenshot that shows how to copy the access token functionality in the Playwright portal.":::
-    
-    > [!NOTE]
-    > You can't retrieve the token value afterwards. If you didn't copy the value after the token was created, you'll have to create a new token.
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Playwright portal.":::
 
 ## Configure Playwright for Microsoft Playwright Testing
 
 The `playwright.config.ts` file contains the Playwright configuration settings. The `@microsoft/playwright-service` npm package contains the `PlaywrightService` class to connect Playwright to Microsoft Playwright Testing. The tests in the sample repository are already preconfigured to use Microsoft Playwright Testing.
 
-Microsoft Playwright Testing uses an access token as an authorization mechanism. Specify the access token you created earlier to connect to your account.
+To authorize Playwright to run your tests in your Microsoft Playwright Testing workspace, provide the access key you created earlier.
 
 Optionally, you can also set a dashboard name to group your test runs in the Microsoft Playwright Testing portal. By default, all test runs are grouped in the `Default Group` dashboard.
 
-If you run your tests from the command-line, create environment variables on your machine to set the access token and dashboard name.
+If you run your tests from the command-line, create environment variables on your machine to set the access key and dashboard name.
 
 * Bash:
 
     ```bash
-    export ACCESS_KEY='<my-token-value>'
+    export ACCESS_KEY='<my-key-value>'
     export DASHBOARD='<my-dashboard-name>'
     ```
 
 * PowerShell:
 
     ```Powershell
-    $env:ACCESS_KEY = '<my-token-value>'
+    $env:ACCESS_KEY = '<my-key-value>'
     $env:DASHBOARD = '<my-dashboard-name>'
     ```
 
@@ -144,7 +131,7 @@ Alternately, you can set the values of the `accessKey` and `dashboard` propertie
 
 ```typescript
 var playwrightServiceConfig = new PlaywrightService({
-  accessKey: "<my-token-value>"
+  accessKey: "<my-key-value>"
   dashboard: "<my-dashboard-name>"
 });
 ```
