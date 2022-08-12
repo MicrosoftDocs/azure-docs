@@ -257,7 +257,7 @@ Try one of our Form Recognizer quickstarts:
 > [C#](quickstarts/get-started-v3-sdk-rest-api.md#prerequisites)
 
 > [!div class="nextstepaction"]
-> [Java](quickstarts/try-v3-java-sdk.md)
+> [Java](quickstarts/get-started-v3-sdk-rest-api.md)
 
 > [!div class="nextstepaction"]
 > [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
