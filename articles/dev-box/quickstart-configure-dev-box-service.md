@@ -40,7 +40,8 @@ The following steps show you how to create and configure a dev center.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, type *Dev box* and select **Dev centers** from the list.
+1. In the search box, type *Dev centers* and then select **Dev centers** from the list.
+
    :::image type="content" source="./media/quickstart-configure-dev-box-service/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted.":::
 
 1. On the dev centers page, select **+Create**. 
@@ -75,11 +76,11 @@ The following steps show you how to create and configure a dev center.
 ## Create a network connection
 Network connections determine the region into which dev boxes are deployed and allow them to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 
-To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network?branch=main) to create them. 
+To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, type *Dev box* and select **Network connections** from the list.
+1. In the search box, type *Network connections* and then select **Network connections** from the list.
 
 1. On the **Network Connections** page, select **+Create**.
      :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connections-empty.png" alt-text="Screenshot showing the Network Connections page with Create highlighted.":::
@@ -130,7 +131,7 @@ To perform the steps in this section, you must have an existing virtual network 
 ## Attach network connection to dev center
 You need to attach a network connection to a dev center before it can be used in projects to create dev box pools.
 
-1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev box* and select **Dev centers** from the list.
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev centers* and then select **Dev centers** from the list.
 
 1. Select the dev center you created and select **Networking**. 
  
@@ -160,12 +161,12 @@ The following steps show you how to create and configure a dev box definition. Y
    |Name|Value|Note|
    |----|----|----|
    |**Name**|Enter a descriptive name for your dev box definition.|
-   |**Image**|Select the base operating system for the dev box. You can select an image from the marketplace or from an Azure Compute Gallery.|To make custom images available for the dev box pool, you can attach an Azure Compute Gallery from an Azure Subscription that you manage. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
+   |**Image**|Select the base operating system for the dev box. You can select an image from the marketplace or from an Azure Compute Gallery.|To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Screenshot showing the create dev box definition page with suggested images highlighted.":::
 
-   For your image, consider using either of these Cloud PCs:
+   While selecting the gallery image, consider using either of the two images:
    - Windows 11 Enterprise + Microsoft 365 Apps 21H2
    - Windows 10 Enterprise + Microsoft 365 Apps 21H2
       
@@ -177,7 +178,7 @@ The following steps show you how to create and configure a dev box definition. Y
 
 The following steps show you how to create and configure a project in dev box.
 
-1. In the [Azure portal](https://portal.azure.com), in the search box, type *Dev box* and select **Projects**. 
+1. In the [Azure portal](https://portal.azure.com), in the search box, type *Projects* and then select **Projects** from the list. 
 
 1. On the Projects page,  select **+Create**.
  

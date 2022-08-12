@@ -18,8 +18,6 @@ Remote desktop apps let you use and control a dev box from almost any device. Fo
 
 You can view the dev boxes you're connected to in your Remote Desktop client's [Workspaces](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#workspaces).
 
-Learn more about the [key concepts for Microsoft Dev Box](./concept-dev-box-concepts.md).
-
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
