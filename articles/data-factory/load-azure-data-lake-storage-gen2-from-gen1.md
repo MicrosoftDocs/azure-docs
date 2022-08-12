@@ -36,7 +36,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
-5. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
 ## Load data into Azure Data Lake Storage Gen2
 
