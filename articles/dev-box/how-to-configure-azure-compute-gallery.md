@@ -44,7 +44,7 @@ When using an Azure Compute Gallery image to create a dev box definition, the Wi
 
 To allow the services to perform these actions, you must provide permissions to your gallery as follows:
 
-### Create a dev center Managed Identity
+### Add a user assigned identity to dev center
 1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, type *Dev box* and select **Dev centers** from the list.
