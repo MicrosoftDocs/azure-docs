@@ -32,12 +32,9 @@ You can restore VMs to the original datastore mounted on the original ESXi host 
 
 ### Considerations for restoring VMs from backups
 
-* VM is unregistered and registered again: <br>
-    The restore operation for VMs unregisters the original VM, restores the VM from a backup snapshot, and registers the restored VM with the same name and configuration on the same ESXi server. You must manually add the VMs to resource groups after the restore.
-* Restoring datastores: <br>
-    You cannot restore a datastore, but you can restore any VM in the datastore.
-* VMware consistency snapshot failures for a VM: <br>
-    Even if a VMware consistency snapshot for a VM fails, the VM is nevertheless backed up. You can view the entities contained in the backup copy in the Restore wizard and use it for restore operations.
+* VM is unregistered and registered again: The restore operation for VMs unregisters the original VM, restores the VM from a backup snapshot, and registers the restored VM with the same name and configuration on the same ESXi server. You must manually add the VMs to resource groups after the restore.
+* Restoring datastores: You cannot restore a datastore, but you can restore any VM in the datastore.
+* VMware consistency snapshot failures for a VM: Even if a VMware consistency snapshot for a VM fails, the VM is nevertheless backed up. You can view the entities contained in the backup copy in the Restore wizard and use it for restore operations.
 
 ### Restore a VM from a backup
 
