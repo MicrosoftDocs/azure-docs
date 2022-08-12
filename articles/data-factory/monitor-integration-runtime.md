@@ -4,7 +4,7 @@ description: Learn how to monitor different types of integration runtime in Azur
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 08/12/2022
 author: joshuha-msft
 ms.author: joowen 
 ms.custom: devx-track-azurepowershell
