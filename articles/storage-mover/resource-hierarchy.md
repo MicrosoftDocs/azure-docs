@@ -102,4 +102,3 @@ Endpoints are used in the creation of a job definition. Only certain types of en
 Endpoints are parented to the top-level storage mover resource and can be reused across different job definitions.
 
 ## Next steps
-
