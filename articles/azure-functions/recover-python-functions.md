@@ -211,7 +211,7 @@ If your function app is using the popular ODBC database driver [pyodbc](https://
 
 ---
 
-## Troubleshoot Errors with Protobuf
+## Troubleshoot errors with Protocol Buffers
 
 Azure Python function apps pinning protobuf package to v4.x.x directly or indirectly (ex. use another library which requires protobuf v4) malfunction as protobuf v4.x.x introduces breaking changes.
 
