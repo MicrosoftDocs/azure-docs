@@ -27,7 +27,7 @@ landingContent:
           - text: Java
             url: web-app-quickstart.md?pivots=devlang-java
           - text: Spring
-            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json
           - text: Node.js with MSAL
             url: web-app-quickstart.md?pivots=devlang-nodejs-msal
           - text: Node.js with Passport
