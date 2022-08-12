@@ -5,11 +5,10 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 08/10/2022
+ms.date: 08/12/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
 ---
-
 
 # Tutorial: Set up DNS failover using private resolvers
 
@@ -144,8 +143,6 @@ Now that DNS resolution is working from on-premises to Azure using two different
 3. Now that forwarding is in place, issue the same DNS query that you used in the previous procedure. However, this time do not enter a destination IP address for the query. The query will use the client's default DNS server. 
 
     ![Results of nslookup](./media/tutorial-dns-private-resolver-failover/nslookup-results.png)
-
-1. Interrupt connectivity 
 
 ## Demonstrate resiliency (optional)
 
