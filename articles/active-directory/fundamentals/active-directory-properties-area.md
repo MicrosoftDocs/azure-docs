@@ -2,14 +2,14 @@
 title: Add your organization's privacy info - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add your organization's privacy info to the Azure Active Directory Properties area.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/17/2018
-ms.author: ajburnle
+ms.author: barclayn
 ms.reviewer: bpham
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

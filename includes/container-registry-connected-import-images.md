@@ -19,7 +19,7 @@ REGISTRY_NAME=<container-registry-name>
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/acr/connected-registry:0.5.0
+  --source mcr.microsoft.com/acr/connected-registry:0.7.0
 ```
 
 ### IoT Edge and API proxy images

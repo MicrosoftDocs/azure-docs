@@ -39,6 +39,8 @@ Run this code on either of these environments:
      
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
+
 ## Set up the experiment
 
 This section sets up the training experiment by loading the required Python packages, initializing a workspace, creating the compute target, and defining the training environment.
@@ -88,6 +90,8 @@ shutil.copy('pytorch_train.py', project_folder)
 ### Create a compute target
 
 Create a compute target for your PyTorch job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+
+[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 
@@ -241,7 +245,7 @@ model = run.register_model(model_name='pytorch-birds', model_path='outputs/model
 
 > [!TIP]
 > The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model by using the Run object. In the training script `pytorch_train.py`, a PyTorch save object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
@@ -269,8 +273,7 @@ To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your tra
 
 In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
-- [How and where to deploy models](how-to-deploy-and-where.md)
+- [How and where to deploy models](./v1/how-to-deploy-and-where.md)
 - [Track run metrics during training](how-to-log-view-metrics.md)
 - [Tune hyperparameters](how-to-tune-hyperparameters.md)
-- [Deploy a trained model](how-to-deploy-and-where.md)
 - [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

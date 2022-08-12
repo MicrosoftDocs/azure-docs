@@ -13,8 +13,6 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 # Networking for Azure virtual machine scale sets
 
-**Applies to:** :heavy_check_mark: Uniform scale sets
-
 When you deploy an Azure virtual machine scale set through the portal, certain network properties are defaulted, for example an Azure Load Balancer with inbound NAT rules. This article describes how to use some of the more advanced networking features that you can configure with scale sets.
 
 You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI and PowerShell examples are also included for selected features.

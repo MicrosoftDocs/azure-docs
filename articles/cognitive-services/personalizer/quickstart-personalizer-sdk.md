@@ -16,12 +16,9 @@ zone_pivot_groups: programming-languages-set-six
 
 # Quickstart: Personalizer client library
 
-Display personalized content in this quickstart with the Personalizer service.
 
-Get started with the Personalizer client library. Follow these steps to install the package and try out the example code for basic tasks.
+In this quickstart, you will learn how to create, configure, and use the Personalizer service in a toy example to learn food preferences. You will also utilize the Personalizer client library to make calls to the [Rank and Reward APIs](what-is-personalizer.md#rank-and-reward-apis)
 
- * Rank API -  Selects the best item, from actions, based on real-time information you provide about content and context.
- * Reward API - You determine the reward score based on your business needs, then send it to Personalizer with this API. That score can be a single value such as 1 for good, and 0 for bad, or an algorithm you create based on your business needs.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
@@ -37,7 +34,7 @@ Get started with the Personalizer client library. Follow these steps to install 
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+To clean up your Cognitive Services subscription, you can delete the resource or the resource group, which also deletes any other associated resources.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)

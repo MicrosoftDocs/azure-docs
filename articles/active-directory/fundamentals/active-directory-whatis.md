@@ -2,14 +2,14 @@
 title: What is Azure Active Directory?
 description: Learn about Azure Active Directory, including terminology, available licenses, and a list of associated features.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 01/27/2022
-ms.author: ajburnle
+ms.author: barclayn
 ms.custom: "it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4"
 
 # Customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.

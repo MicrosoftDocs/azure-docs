@@ -36,7 +36,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
   "contentVersion": "1.0.0.0",
   "parameters": {
     "administratorLogin": {
-      "type": "string",
+      "type": "string"
     },
     "administratorLoginPassword": {
       "type": "secureString"

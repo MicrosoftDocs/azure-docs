@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 07/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -57,7 +57,7 @@ The below table lists some more service dependencies, where the client apps must
 |                     | SharePoint                                  | Late-bound  |
 | Outlook groups      | Exchange                                    | Early-bound |
 |                     | SharePoint                                  | Early-bound |
-| Power Apps           | Microsoft Azure Management (portal and API) | Early-bound |
+| Power Apps          | Microsoft Azure Management (portal and API) | Early-bound |
 |                     | Windows Azure Active Directory              | Early-bound |
 |                     | SharePoint                                  | Early-bound |
 |                     | Exchange                                    | Early-bound |
@@ -67,6 +67,10 @@ The below table lists some more service dependencies, where the client apps must
 | Microsoft Forms     | Exchange                                    | Early-bound |
 |                     | SharePoint                                  | Early-bound |
 | Microsoft To-Do     | Exchange                                    | Early-bound |
+
+## Troubleshooting service dependencies
+
+The Azure Active Directory sign-ins log is a valuable source of information when troubleshooting why and how a Conditional Access policy applied in your environment. For more information about troubleshooting unexpected sign-in outcomes related to Conditional Access, see the article [Troubleshooting sign-in problems with Conditional Access](troubleshoot-conditional-access.md#service-dependencies).
 
 ## Next steps
 

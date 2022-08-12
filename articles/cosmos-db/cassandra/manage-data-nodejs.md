@@ -30,7 +30,7 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](/azure/cosmos-db/try-free) without an Azure subscription, free of charge and commitments.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](../try-free.md) without an Azure subscription, free of charge and commitments.
 
 In addition, you need:
 

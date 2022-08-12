@@ -80,12 +80,18 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+> * The new output uses recent C# features that simplify the code you need to write.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+
 1. Open the **Program.cs** file.
 
 1. Include the following using directives:
 
 ```csharp
-using System;
 using Azure;
 using Azure.AI.FormRecognizer;
 using Azure.AI.FormRecognizer.Models;
@@ -100,7 +106,7 @@ private static readonly string key = "your-api-key";
 private static readonly AzureKeyCredential credential = new AzureKeyCredential(key);
 ```
 
-1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
+1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to **Program.cs** file:
 
     :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
@@ -111,8 +117,7 @@ private static readonly AzureKeyCredential credential = new AzureKeyCredential(k
     * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](.(/azure/cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: Layout model
 
@@ -124,7 +129,7 @@ Extract text, selection marks, text styles, and table structures, along with the
 > * We've added the file URI value to the `formUri` variable.
 > * To extract the layout from a given file at a URI, use the `StartRecognizeContentFromUriAsync` method.
 
-### Add the following code to your layout application **Main** method:
+### Add the following code to your layout application Program.cs file:
 
 ```csharp
 
@@ -132,11 +137,6 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
 
 Task recognizeContent = RecognizeContent(recognizerClient);
 Task.WaitAll(recognizeContent);
-```
-
-### Add the following code below the **Main** method:
-
-```csharp
 
 private static FormRecognizerClient AuthenticateClient()
             {
@@ -198,18 +198,14 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**ID document**](../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**Business-card**](../../concept-business-card.md): extracts text and key information from business cards.
 
-### Add the following code to your prebuilt invoice application **Main** method
+### Add the following code to your prebuilt invoice application Program.cs file method
 
 ```csharp
 FormRecognizerClient recognizerClient = AuthenticateClient();
 
-            Task analyzeinvoice = AnalyzeInvoice(recognizerClient, invoiceUrl);
-            Task.WaitAll(analyzeinvoice);
-```
+  Task analyzeinvoice = AnalyzeInvoice(recognizerClient, invoiceUrl);
+  Task.WaitAll(analyzeinvoice);
 
-### Add the following code below the **Main** method:
-
-```csharp
    private static FormRecognizerClient AuthenticateClient() {
      var credential = new AzureKeyCredential(key);
      var client = new FormRecognizerClient(new Uri(endpoint), credential);

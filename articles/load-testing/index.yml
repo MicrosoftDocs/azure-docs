@@ -96,6 +96,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Test a private endpoint with VNET injection
+            url: how-to-test-private-endpoint.md
           - text: Move between regions
             url: how-to-move-between-regions.md
           - text: Monitor Azure Load Testing

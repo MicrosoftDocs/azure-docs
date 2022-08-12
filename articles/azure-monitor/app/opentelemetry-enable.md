@@ -228,7 +228,7 @@ provider.register();
 
 // Create an exporter instance.
 const exporter = new AzureMonitorTraceExporter({
-  instrumentationKey: "<Your Connection String>"
+  connectionString: "<Your Connection String>"
 });
 
 // Add the exporter to the provider.

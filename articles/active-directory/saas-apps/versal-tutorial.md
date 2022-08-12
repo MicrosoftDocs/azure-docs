@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://versal.com/sso/saml/orgs/<organization_id>`
 
 	> [!NOTE]
-	> The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Versal Client support team](https://support.versal.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Reply URL value is not real. Update this value with the actual Reply URL. Contact Versal Client support team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Versal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Versal application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -122,22 +122,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Versal SSO
 
-To configure single sign-on on **Versal** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Versal support team](https://support.versal.com/hc/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Versal** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to Versal support team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Versal test user
 
-In this section, you create a user called B.Simon in Versal. Follow the [Creating a SAML test user](https://support.versal.com/hc/articles/115011672887-Creating-a-SAML-test-user)
-support guide to create the user B.Simon within your organization. Users must be created and activated in Versal before you use single sign-on. 
+In this section, you create a user called B.Simon in Versal. Follow the Creating a SAML test user support guide to create the user B.Simon within your organization. Users must be created and activated in Versal before you use single sign-on. 
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using a Versal course embedded within your website.
-Please see the [Embedding Organizational Courses](https://support.versal.com/hc/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On**
+Please see the Embedding Organizational Courses **SAML Single Sign-On**
 support guide for instructions on how to embed a Versal course with support for Azure AD single sign-on. 
 
 You will need to create a course, share it with your organization, and publish it in order to test course embedding. 
-Please see [Creating a course](https://support.versal.com/hc/articles/203722528-Create-a-course), [Publishing a course](https://support.versal.com/hc/articles/203753398-Publishing-a-course),
- and [Course and learner management](https://support.versal.com/hc/articles/206029467-Course-and-learner-management) for more information.
 
 ## Next steps
 

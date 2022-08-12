@@ -226,6 +226,12 @@ Specify the storage output location to any datastore and path. By default, batch
 - SSL: enabled by default for endpoint invocation
 - VNET support: Batch endpoints support ingress protection. A batch endpoint with ingress protection will accept scoring requests only from hosts inside a virtual network but not from the public internet. A batch endpoint that is created in a private-link enabled workspace will have ingress protection. To create a private-link enabled workspace, see [Create a secure workspace](tutorial-create-secure-workspace.md).
 
+> [!NOTE]
+Creating batch endpoints in a private-link enabled workspace is only supported in the following versions.
+> - CLI - version 2.15.1 or higher.
+> - REST API - version 2022-05-01 or higher.
+> - SDK V2 - version 0.1.0b3 or higher.
+
 ## Next steps
 
 - [How to deploy online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)

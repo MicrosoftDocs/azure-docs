@@ -4,6 +4,7 @@ description: Learn how to use continuous integration and continuous delivery (CI
 author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
+ms.search.form: home
 ms.topic: conceptual 
 ms.date: 10/08/2021
 ms.author: liud 
@@ -315,7 +316,7 @@ In your GitHub repository, go to **Actions**.
 
 If you use automated CI/CD and want to change some properties during deployment, but the properties aren't parameterized by default, you can override the default parameter template.
 
-To override the default parameter template, create a custom parameter template named *template-parameters-definition.json* in the root folder of your Git collaboration branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
+To override the default parameter template, create a custom parameter template named *template-parameters-definition.json* in the root folder of your Git branch. You must use this exact file name. When Azure Synapse workspace publishes from the collaboration branch or the deployment task validates the artifacts in other branches, it reads this file and uses its configuration to generate the parameters. If Azure Synapse workspace doesn't find that file, is uses the default parameter template.
 
 ### Custom parameter syntax
 
@@ -358,14 +359,19 @@ Here's an example of what a parameter template definition looks like:
     },
     "Microsoft.Synapse/workspaces/pipelines": {
         "properties": {
-            "activities": [
-                {
-                    "typeProperties": {
-                        "waitTimeInSeconds": "-::int",
-                        "headers": "=::object"
-                    }
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object",
+                    "activities": [
+                        {
+                            "typeProperties": {
+                                "url": "-:-webUrl:string"
+                            }
+                        }
+                    ]
                 }
-            ]
+            }]
         }
     },
     "Microsoft.Synapse/workspaces/integrationRuntimes": {
@@ -391,7 +397,10 @@ Here's an example of what a parameter template definition looks like:
         "*": {
             "properties": {
                 "typeProperties": {
-                    "*": "="
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
                 }
             }
         },
@@ -401,12 +410,32 @@ Here's an example of what a parameter template definition looks like:
                     "dataLakeStoreUri": "="
                 }
             }
+        },
+        "AzureKeyVault": {
+            "properties": {
+                "typeProperties": {
+                    "baseUrl": "|:baseUrl:secureString"
+                },
+                "parameters": {
+                    "KeyVaultURL": {
+                        "type": "=",
+                        "defaultValue": "|:defaultValue:secureString"
+                    }
+                }
+            }
         }
     },
     "Microsoft.Synapse/workspaces/datasets": {
         "properties": {
             "typeProperties": {
                 "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/credentials" : {
+        "properties": {
+            "typeProperties": {
+                "resourceId": "="
             }
         }
     }

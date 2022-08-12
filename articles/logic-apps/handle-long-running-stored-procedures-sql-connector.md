@@ -126,7 +126,7 @@ Here are the steps to add:
          DECLARE @timespan char(8)
          DECLARE @callparams NVARCHAR(MAX)
          SELECT @callparams = [parameters] FROM [dbo].[LongRunningState]
-            WHERE jobid = $(job_execution_id))
+            WHERE jobid = $(job_execution_id)
          SET @timespan = @callparams
          EXECUTE [dbo].[WaitForIt] @delay = @timespan', 
       @credential_name='JobRun',

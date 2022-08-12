@@ -36,7 +36,7 @@ In this article, you'll learn how to use managed identities to:
  
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
 - The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md)
 - The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 - To assign roles, the login for your Azure subscription must have the [Managed Identity Operator](../role-based-access-control/built-in-roles.md#managed-identity-operator) role, or other role that grants the required actions (such as __Owner__).
@@ -73,7 +73,7 @@ az ml workspace create -w <workspace name> \
 
 ### Let Azure Machine Learning service create workspace ACR
 
-If you don't bring your own ACR, Azure Machine Learning service will create one for you when you perform an operation that needs one. For example, submit a training run to Machine Learning Compute, build an environment, or deploy a web service endpoint. The ACR created by the workspace will have admin user enabled, and you need to disable the admin user manually.
+If you don't bring your own ACR, Azure Machine Learning service will create one for you when you perform an operation that needs one. For example, submit a training job to Machine Learning Compute, build an environment, or deploy a web service endpoint. The ACR created by the workspace will have admin user enabled, and you need to disable the admin user manually.
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -171,7 +171,7 @@ az role assignment create --assignee <principal ID> \
 --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
 ```
 
-Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
+Finally, when submitting a training job, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -217,7 +217,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
         name="privateAcr", 
         category="ACR", 
         target = "<acr url>", 
-        authType = "RegistryConnection", 
+        authType = "ManagedIdentity", 
         value={"ResourceId": "<user-assigned managed identity resource id>", "ClientId": "<user-assigned managed identity client ID>"})
     ```
 

@@ -65,6 +65,9 @@ Learn more:
  
 [Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
 
+>[!IMPORTANT]
+>Azure Communication Services direct routing supports only TLS 1.2 (or a later version), make sure that the cipher suites you're using on an SBC are supported by Azure Front Door. Microsoft 365 and Azure Front Door have slight differences in cipher suite support. For details, see [What are the current cipher suites supported by Azure Front Door?](/azure/frontdoor/concept-end-to-end-tls#supported-cipher-suites).
+
 SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
 
@@ -72,9 +75,9 @@ SBC pairing works on the Communication Services resource level. It means you can
 
 The connection points for Communication Services direct routing are the following three FQDNs:
 
-- **sip.pstnhub.microsoft.com — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
-- **sip2.pstnhub.microsoft.com — Secondary FQDN — geographically maps to the second priority region.
-- **sip3.pstnhub.microsoft.com — Tertiary FQDN — geographically maps to the third priority region.
+- **sip.pstnhub.microsoft.com** — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
+- **sip2.pstnhub.microsoft.com** — Secondary FQDN — geographically maps to the second priority region.
+- **sip3.pstnhub.microsoft.com** — Tertiary FQDN — geographically maps to the third priority region.
 
 These three FQDNs in order are required to:
 

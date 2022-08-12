@@ -6,13 +6,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 04/21/2022
+ms.date: 06/01/2022
 ms.custom: contperf-fy21q2
 ---
 
 # Update existing offers in the commercial marketplace
 
 This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers in the [Commercial Marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935.) in Partner Center.
+
+> [!TIP]
+> After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
 
 ## Request access to manage an offer
 

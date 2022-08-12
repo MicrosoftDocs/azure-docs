@@ -54,12 +54,6 @@ When throttling is detected, serverless SQL pool has built-in handling to resolv
 > [!TIP]
 > For optimal query execution, don't stress the storage account with other workloads during query execution.
 
-### Azure AD Pass-through Authentication performance
-
-Serverless SQL pool allows you to access files in storage by using Azure Active Directory (Azure AD) Pass-through Authentication or shared access signature credentials. You might experience slower performance with Azure AD Pass-through Authentication than you would with shared access signatures.
-
-If you need better performance, try using shared access signature credentials to access storage.
-
 ### Prepare files for querying
 
 If possible, you can prepare files for better performance:
@@ -147,9 +141,9 @@ FROM
 		FORMAT='PARQUET'
     ) 
 	WITH (
-		vendor_id varchar(4), -- we used length of 4 instead of the inferred 8000
-		pickup_datetime datetime2,
-		passenger_count int
+		vendorID varchar(4), -- we used length of 4 instead of the inferred 8000
+		tpepPickupDateTime datetime2,
+		passengerCount int
 	) AS nyc;
 ```
 

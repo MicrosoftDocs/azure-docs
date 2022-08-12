@@ -255,6 +255,8 @@ items:
       items:
       - name: Use Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+      - name: Use selective logging to monitor logs
+        href: ./selective-logging-analysis.md
       - name: Use queries with Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
@@ -417,7 +419,7 @@ items:
           href: ./spark/apache-spark-structured-streaming-overview.md
         - name: Create highly available Apache Spark streaming jobs in Apache Hadoop YARN
           href: ./spark/apache-spark-streaming-high-availability.md
-        - name: Create Apache Spark streaming jobs with exactly-once event processing
+        - name: Create Apache Spark streaming jobs with exactly once event processing
           href: ./spark/apache-spark-streaming-exactly-once.md
       - name: Apache Spark and Machine Learning
         items:
@@ -843,8 +845,10 @@ items:
         href: ./interactive-query/apache-hive-warehouse-connector-operations.md
       - name: HWC integration with Apache Zeppelin
         href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
-      - name: HWC Supported APIs
+      - name: HWC 1.0 Supported APIs
         href: ./interactive-query/hive-warehouse-connector-apis.md
+      - name: HWC 2.0 Supported APIs
+        href: ./interactive-query/hive-warehouse-connector-v2-apis.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md
       - name: Use the Apache Hive View
@@ -893,7 +897,7 @@ items:
         href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
       - name: Apache Hive gateway timeout
         href: ./interactive-query/troubleshoot-gateway-timeout.md
-      - name: Apache Hive View time out
+      - name: Apache Hive View time-out
         href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
       - name: Permission error creating table
         href: ./interactive-query/interactive-query-troubleshoot-permission-error-create-table.md
@@ -921,52 +925,6 @@ items:
     items:
     - name: Hive LLAP Workload Management commands
       href: ./interactive-query/workload-management-commands.md
-- name: Apache Storm
-  items:
-  - name: Overview
-    items:
-    - name: What is Apache Storm in HDInsight?
-      href: ./storm/apache-storm-overview.md
-  - name: Quickstarts
-    items:
-    - name: Create Apache Storm topology in HDInsight
-      href: ./storm/apache-storm-quickstart.md
-  - name: Tutorials
-    items:
-    - name: Use Apache Storm to write to storage
-      href: ./storm/apache-storm-write-data-lake-store.md
-    - name: Apache Kafka and Apache Storm (Java)
-      href: ./hdinsight-apache-storm-with-kafka.md
-  - name: How-to guides
-    items:
-    - name: Migrate Storm to Spark
-      href: ./storm/migrate-storm-to-spark.md
-    - name: Develop
-      items:
-      - name: Topologies
-        items:
-        - name: Develop topologies using Java
-          href: ./storm/apache-storm-develop-java-topology.md
-        - name: Develop topologies using Python
-          href: ./storm/apache-storm-develop-python-topology.md
-        - name: Develop topologies using C#
-          href: ./storm/apache-storm-develop-csharp-visual-studio-topology.md
-        - name: SCP.NET programming guide
-          href: ./storm/apache-storm-scp-programming-guide.md
-        - name: Apache Storm examples
-          href: ./storm/apache-storm-example-topology.md
-      - name: Streaming pipelines
-        items:
-        - name: Event Hub and Apache Storm (C# & Java)
-          href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
-    - name: Manage
-      items:
-      - name: Monitor topologies
-        href: ./storm/apache-storm-deploy-monitor-topology-linux.md
-    - name: Troubleshoot
-      items:
-      - name: Apache STORM troubleshooting
-        href: ./storm/apache-troubleshoot-storm.md
 - name: Enterprise readiness
   items:
   - name: Overview

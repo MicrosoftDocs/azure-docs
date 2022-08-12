@@ -2,20 +2,21 @@
 title: Identity data storage for European customers - Azure AD
 description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
-author: ajburnle
-manager: karenhoran
-ms.author: ajburnle
+author: barclayn
+manager: rkarlin
+ms.author: barclayn
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 07/20/2022
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
 # Identity data storage for European customers in Azure Active Directory
+
 Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when it subscribed for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your identity data is stored, you can use the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
@@ -31,10 +32,6 @@ For cloud-based Azure AD Multi-Factor Authentication, authentication is complete
 * Multi-factor authentication requests using OATH codes that originate from EU datacenters are validated in the EU.
 
 For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure AD MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
-
-## Password-based Single Sign-On for Enterprise Applications
- 
-If a customer creates a new enterprise application (whether through Azure AD Gallery or non-Gallery) and enables password-based SSO, the Application sign in URL, and custom capture sign in fields are stored in the United States. For more information, see [Configure password-based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 ## Microsoft Azure Active Directory B2B (Azure AD B2B) 
     

@@ -15,6 +15,8 @@ In this article, we will go through options on connecting your **existing** Azur
 
 ## Prerequisites
 
+Before creating a new account, review [Account types](accounts-overview.md).
+
 1. Unlimited paid Azure Video Indexer account (classic account).
 
    1. To perform the connect to the ARM (Azure Resource Manager) action, you should have owner's permissions on the Azure Video Indexer classic account.

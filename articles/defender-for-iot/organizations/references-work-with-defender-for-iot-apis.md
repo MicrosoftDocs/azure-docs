@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 01/31/2022
+ms.date: 06/08/2022
 ms.topic: reference
 ---
 
@@ -56,10 +56,6 @@ After generating the token, add an HTTP header titled **Authorization** to your 
 - [Retrieve security vulnerabilities - /api/v1/reports/vulnerabilities/security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)
 
 - [Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
-
-### Version 2
-
-- [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
 
 ### Validate user credentials - /api/external/authentication/validation
 
@@ -1527,47 +1523,6 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 |--|--|--|
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
-### Retrieve alert PCAP - /api/v2/alerts/pcap
-
-Use this API to retrieve a PCAP file related to an alert.
-
-This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
-
-#### Method
-
-- **GET**
-
-#### Query Parameters
-
-- id: Xsense Alert ID  
-Example:  
-`/api/v2/alerts/pcap/<id>`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-- **Success**: Binary file containing PCAP data
-- **Failure**: JSON object that contains error message
-
-#### Response example
-
-#### Error
-
-```json
-{
-  "error": "PCAP file is not available"
-}
-```
-
-#### Curl command
-
-|Type|APIs|Example|
-|-|-|-|
-|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
-
 ## Management console API
 
 This section describes on-premises management console APIs for:
@@ -1601,6 +1556,8 @@ This section describes on-premises management console APIs for:
 ### Version 3
 
 - [ServiceNow Integration API - “/external/v3/integration/ (Preview)](#servicenow-integration-api---externalv3integration-preview)
+
+All parameters in Version 3 APIs are optional.
 
 ### Alert Exclusions
 
@@ -2716,7 +2673,9 @@ Example:
 
 The below API's can be used with the ServiceNow integration via the ServiceNow's Service Graph Connector for Defender for IoT.
 
-### Create and update devices
+### devices
+
+This API returns data about all devices that were updated after the given timestamp.
 
 #### Request
 
@@ -2739,9 +2698,11 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Type: JSON
 - Structure:
     - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_devices**” - array of device objects (as defined in the specific device API).
+    - “**u_devices**” - array of device objects. Each object is defined with the parameters listed in the [device](#device) API.
 
 ### Connections
+
+This API returns data about all device connections that were updated after the given timestamp.
 
 #### Request
 
@@ -2766,7 +2727,9 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
             - “**Two Way**”
             - “**Multicast**”
 
-### Specific device
+### device
+
+This API returns data about a specific device per a given device ID.
 
 #### Request
 
@@ -2833,7 +2796,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
     - Array of
         - “**u_id**” - the ID of the deleted device.
 
-### Sensors
+### sensors
 
 #### Request
 
@@ -2878,8 +2841,9 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
             - "**STARTING_INSTALLATION**"
             - "**INSTALLING_OPERATING_SYSTEM**"
         - “**u_uid**” - globally unique identifier of the sensor
+        - "**u_is_in_learning_mode**" - Boolean indication as to whether the sensor is in Learn mode or not
 
-### Device CVEs
+### devicecves
 
 #### Request
 
@@ -2888,8 +2852,11 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Path parameters:
     - “**timestamp**” – the time from which updates are required, only later updates will be returned.
 - Query parameters:
-    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
-    - “**size**” - the page size (default value is 50)
+    - “**page**” - Defines the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - Defines the page size (default value is 50)
+    - “**sensorId**” - Shows results from a specific sensor, as defined by the given sensor ID.
+    - “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**. 
+    - “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
 #### Response
 
@@ -2914,6 +2881,5 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 
 ## Next steps
 
-- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-
-- [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

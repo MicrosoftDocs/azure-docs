@@ -33,7 +33,7 @@ Unlike classical time series methods, in automated ML, past time-series values a
 
 For this article you need, 
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
@@ -429,6 +429,6 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
 * Follow the [Tutorial: Train regression models](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.

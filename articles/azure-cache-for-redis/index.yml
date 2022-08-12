@@ -74,6 +74,8 @@ landingContent:
            url: cache-best-practices-memory-management.md
          - text: Development
            url: cache-best-practices-development.md
+         - text: Client libraries
+           url: cache-best-practices-client-libraries.md
          - text: Scaling
            url: cache-best-practices-scale.md
          - text: Kubernetes-hosted client applications

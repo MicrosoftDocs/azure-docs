@@ -380,17 +380,20 @@ To use RStudio open source, set up a custom application as follows:
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
-1. Select **Create** to set up RStudio as a custom application on your compute instance.
+1. Use **Bind mounts** to add access to the files in your default storage account: 
+   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
+   * Specify **/home/azureuser/cloudfiles** for the **Container path**.
+   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
+3. Select **Create** to set up RStudio as a custom application on your compute instance.
 
- 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
  
 ### Setup other custom applications
 
 Set up other custom applications on your compute instance by providing the application on a Docker image.
 
-1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **Custom Application** on the **Application** dropdown. 
+1. Follow the steps listed above to **Add application** when creating your compute instance.
+1. Select **Custom Application** on the **Application** dropdown. 
 1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
 1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
 1. Select **Create** to set up the custom application on your compute instance.
@@ -516,7 +519,7 @@ For each compute instance in a workspace that you created (or that was created f
 
 ---
 
-[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user sign-in and all actions will use that user’s identity for Azure RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
+[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access, and can terminal in through Jupyter/JupyterLab/RStudio. Compute instance will have single-user sign-in and all actions will use that user’s identity for Azure RBAC and attribution of experiment jobs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -536,4 +539,4 @@ To create a compute instance, you'll need permissions for the following actions:
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training run](how-to-set-up-training-targets.md)
+* [Submit a training job](how-to-set-up-training-targets.md)

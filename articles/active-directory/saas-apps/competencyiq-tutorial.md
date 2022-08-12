@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<customer>.competencyiq.com/`
 
     > [!NOTE]
-    > The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [CompetencyIQ Client support team](https://www.competencyiq.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact CompetencyIQ Client support team to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -117,11 +117,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CompetencyIQ SSO
 
-To configure single sign-on on **CompetencyIQ** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CompetencyIQ support team](https://www.competencyiq.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CompetencyIQ** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to CompetencyIQ support team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create CompetencyIQ test user
 
-In this section, you create a user called Britta Simon in CompetencyIQ. Work with [CompetencyIQ support team](https://www.competencyiq.com/) to add the users in the CompetencyIQ platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in CompetencyIQ. Work with CompetencyIQ support team to add the users in the CompetencyIQ platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

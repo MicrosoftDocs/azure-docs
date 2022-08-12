@@ -88,6 +88,8 @@ items:
       href: how-to-integrate-app-configuration.md
     - name: Azure SignalR Service
       href: how-to-integrate-signalr.md
+    - name: Azure Web PubSub
+      href: how-to-integrate-web-pubsub.md
     - name: Apache Kafka on Confluent Cloud
       href: how-to-integrate-confluent-kafka.md
   - name: Troubleshoot

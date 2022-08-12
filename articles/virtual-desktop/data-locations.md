@@ -4,7 +4,7 @@ description: A brief overview of which locations Azure Virtual Desktop's data an
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/07/2022
+ms.date: 06/22/2022
 ms.author: helohr
 manager: femila
 ---
@@ -44,7 +44,8 @@ Storing service-generated data is currently supported in the following geographi
 - Europe (EU)
 - United Kingdom (UK)
 - Canada (CA)
-- Japan (JP) \**in Public Preview*
+- Japan (JP)
+- Australia (AU)
 
 In addition, service-generated data is aggregated from all locations where the service infrastructure is, and sent to the US geography. The data sent to the US includes scrubbed data, but not customer data.
 
