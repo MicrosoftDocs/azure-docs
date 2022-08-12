@@ -219,6 +219,8 @@ items:
         href: concepts/detailed-call-flows.md
       - name: Known issues
         href: concepts/known-issues.md
+      - name: Media access
+        href: concepts/voice-video-calling/media-access.md
   - name: Rooms
     items:
       - name: Rooms overview
