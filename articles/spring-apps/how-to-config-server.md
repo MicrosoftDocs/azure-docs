@@ -139,7 +139,7 @@ The following table shows some examples for the **Additional repositories** sect
 
 ## Attach your Config Server repository to Azure Spring Apps
 
-Now that your configuration files are saved in a repository, take the following steps to connect Azure Spring Apps to the repository.
+Now that your configuration files are saved in a repository, use the following steps to connect Azure Spring Apps to the repository.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -251,7 +251,7 @@ Azure Spring Apps can access Git repositories that are public, secured by SSH, o
 
 ## Delete your configuration
 
-Select the **Reset** button displayed in the **Config Server** tab to erase your existing settings. Delete the config server settings if you want to connect your Config Server instance to another source, such as when you are moving from GitHub to Azure DevOps.
+Select **Reset** on the **Config Server** tab to erase your existing settings. Delete the config server settings if you want to connect your Config Server instance to another source, such as when you are moving from GitHub to Azure DevOps.
 
 ## Config Server refresh
 
@@ -284,7 +284,7 @@ When properties are changed, services consuming those properties must be notifie
    }
    ```
 
-1. Enable auto-refresh and set the appropriate refresh interval in your application.yml file. In this example, the client polls for config changes every 60 seconds. This is the minimum value you can set for a refresh interval.
+1. Enable auto-refresh and set the appropriate refresh interval in your *application.yml* file. In this example, the client polls for config changes every 60 seconds, which is the minimum value you can set for a refresh interval.
 
    By default, auto-refresh is set to *false* and the refresh-interval is set to *60 seconds*.
 
@@ -302,7 +302,7 @@ When properties are changed, services consuming those properties must be notifie
                  - refresh
    ```
 
-3. Add @RefreshScope in your code. In this example, the variable *connectTimeout* is automatically refreshed every 60 seconds.
+1. Add @RefreshScope in your code. In this example, the variable `connectTimeout` is automatically refreshed every 60 seconds.
 
    ```java
    @RestController
