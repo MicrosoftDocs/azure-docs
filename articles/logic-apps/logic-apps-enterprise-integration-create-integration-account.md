@@ -28,16 +28,16 @@ You also need an integration account to electronically exchange B2B messages wit
 This article shows how to complete the following tasks:
 
 * Create an integration account.
-* Link an integration account to a logic app resource.
+* Link your integration account to a logic app resource.
 * Change the pricing tier for your integration account.
-* Unlink an integration account from a logic app.
+* Unlink your integration account from a logic app resource.
 * Move an integration account to another Azure resource group or subscription.
 * Delete an integration account.
 
 > [!NOTE]
 >
 > If you use an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), 
-> and need to create an integration account to use with that ISE, review 
+> and you need to create an integration account to use with that ISE, review 
 > [Create integration accounts in an ISE](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
 
 If you're new to creating B2B enterprise integration workflows in Azure Logic Apps, review the following documentation:
@@ -47,15 +47,13 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You have to use the same Azure subscription for both your integration account and logic app resource.
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
 
-* If you're working on a Consumption logic app workflow, this logic app resource must already exist for you to [link your integration account](#link-account). This link is required before you can use your B2B artifacts in your workflow. You can create your artifacts without this link, but the link is required when you're ready to use these artifacts in your workflow.
+* If you're working on a Consumption logic app workflow, your logic app resource must already exist before you can [link your integration account](#link-account). After you create this link, you can use the B2B artifacts in your integration account with your workflow. Although you can create your artifacts without this link, the link is required when you're ready to use these artifacts in your workflow.
 
-* If you're working on a Standard logic app workflow, you have the following options:
+* If you're working on a Standard logic app workflow, you can optionally link your integration account to your Standard logic app resource. For example, if you have an existing integration account with B2B artifacts, you can link your integration account to your Standard logic app resource.
 
-  * To use B2B artifacts other than maps and schemas from your integration account in your workflow, you don't have to link your integration account to your Standard logic app resource.
-
-  * To use maps and schemas in your workflow, you can upload these artifacts directly to your logic app resource. Although not required, you can also link your integration account to your logic app resource. Some actions, such as **Liquid**, **Flat File**, and others, support selecting maps *either* from your linked integration account or from your logic app resource. You can use these artifacts across all child workflows within the *same logic app resource*.
+  The link is optional because some actions allow you to create a connection to your integration account. Other actions, such as **Liquid** and **Flat File**, allow you to select specific artifacts such as maps and schemas that you uploaded directly to your logic app resource or from a linked integration account. Either way, you can use these artifacts across all child workflows within the *same logic app resource*.
 
 * Basic knowledge about how to create logic app workflows. For more information, review the following documentation:
 
