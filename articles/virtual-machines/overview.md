@@ -11,11 +11,11 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Virtual machines in Azure
+# virtual machines in Azure
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-Azure Virtual Machines are one of several types of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Typically, you choose a virtual machine when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a virtual machine, how you create it, and how you manage it.
+Azure virtual machines are one of several types of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Typically, you choose a virtual machine when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a virtual machine, how you create it, and how you manage it.
 
 An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the virtual machine by performing tasks, such as configuring, patching, and installing the software that runs on it.
 
@@ -23,12 +23,12 @@ Azure virtual machines can be used in various ways. Some examples are:
 
 * **Development and test** – Azure virtual machines offer a quick and easy way to create a computer with specific configurations required to code and test an application.
 * **Applications in the cloud** – Because demand for your application can fluctuate, it might make economic sense to run it on a virtual machine in Azure. You pay for extra virtual machines when you need them and shut them down when you don’t.
-* **Extended datacenter** – Virtual machines in an Azure virtual network can easily be connected to your organization’s network.
+* **Extended datacenter** – virtual machines in an Azure virtual network can easily be connected to your organization’s network.
 
 The number of virtual machines that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a virtual machine?
-There are always a multitude of [design considerations](/azure/architecture/reference-architectures/n-tier/linux-vm) when you build out an application infrastructure in Azure. These aspects of a virtual machine are important to think about before you start:
+There is always a multitude of [design considerations](/azure/architecture/reference-architectures/n-tier/linux-vm) when you build out an application infrastructure in Azure. These aspects of a virtual machine are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -51,20 +51,20 @@ This table shows some of the ways you can get a list of available locations.
 | Azure CLI |Use the [az account list-locations](/cli/azure/account) operation. |
 
 ## Availability
-There are multiple options to manage the availability of your Virtual Machines in Azure. 
-- **Availability Zones**. Availability zones are physically separated zones within an Azure region. Availability zones guarantee you will have Virtual Machine Connectivity to at least one instance at least 99.99% of the time when you have two or more instances deployed across two or more Availability Zones in the same Azure region. 
-- **Virtual Machine scale sets**. Azure virtual machine scale sets let you create and manage a group of load balanced virtual machines. The number of virtual machine instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many virtual machines. 
-Virtual machines in a scale set can also be deployed into multiple availability zones, a single availability zone, or regionally. 
+There are multiple options to manage the availability of your virtual machines in Azure. 
+- **Availability Zones**. Availability zones are physically separated zones within an Azure region. Availability zones guarantee you will have virtual machine Connectivity to at least one instance at least 99.99% of the time when you have two or more instances deployed across two or more Availability Zones in the same Azure region. 
+- **virtual machine scale sets**. Azure virtual machine scale sets let you create and manage a group of load balanced virtual machines. The number of virtual machine instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many virtual machines. 
+virtual machines in a scale set can also be deployed into multiple availability zones, a single availability zone, or regionally. 
 - **Proximity Placement Groups**. A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
 Fore more information see [Availability options for Azure virtual machines](availability.md) and [SLA for Azure virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/). 
 
-## Virtual machine Size
+## virtual machine Size
 The [size](sizes.md) of the virtual machine that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, storage capacity, and network bandwidth. Azure offers a wide variety of sizes to support many types of uses.
 
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) based on the virtual machine’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
-## Virtual machine Limits
+## virtual machine Limits
 Your subscription has default [quota limits](../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many virtual machines for your project. The current limit on a per subscription basis is 20 virtual machines per region. Limits can be raised by [filing a support ticket requesting an increase](../azure-portal/supportability/regional-quota-requests.md)
 
 ## Managed Disks
@@ -74,7 +74,7 @@ Managed Disks handles Azure Storage account creation and management in the backg
 You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of virtual machines in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](managed-disks-overview.md).
 
 ## Distributions 
-Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You can find available distributions in the Azure Marketplace. Microsoft actively works with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](linux/endorsed-distros.md) list.
+Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You can find available distributions in the marketplace. Microsoft actively works with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](linux/endorsed-distros.md) list.
 
 If your preferred Linux distro of choice is not currently present in the gallery, you can "Bring your own Linux" virtual machine by [creating and uploading a Linux VHD in Azure](linux/create-upload-generic.md).
 
@@ -96,7 +96,7 @@ Microsoft works closely with partners to ensure the images available are updated
 
 ## Cloud-init 
 
-To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
+To achieve a proper DevOps culture, all infrastructures must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](linux/create-ssh-secured-vm-from-template.md)
 * [Azure `VMaccess`](extensions/vmaccess.md)
