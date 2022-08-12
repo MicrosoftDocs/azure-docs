@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 08/12/2022
 ms.author: alkohli
 ---
-# Configure Azure Stack Edge devices using the Zero Touch Provisioning module
+# Use Zero Touch Provisioning to configure Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
