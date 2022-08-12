@@ -30,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-update-packet-core-control-plane). To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-update-packet-core-control-plane/azuredeploy.json).
 
-The template modifies the version of an existing [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes) resource, which provides configuration for the control plane network functions of the packet core instance, including IP configuration for the N2 interface.
+The template modifies the version of an existing [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes) resource. This causes an uninstall and reinstall of the packet core with the new resource version - no other resources are modified during this process, unless you change the configuration of the new version. The resource provides configuration for the control plane network functions of the packet core instance, including IP configuration for the N2 interface.
 
 ## Deploy the template
 
