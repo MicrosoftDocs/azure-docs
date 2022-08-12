@@ -241,7 +241,7 @@ tags = run.data.tags
 > [!TIP]
 > MLflow can retrieve metrics and parameters from multiple runs at the same time, allowing for quick comparisons across multiple trials. Learn about this in [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 
-Any artifact logged by a run can be queried by MLflow. Artifacts can't be access using the run object itself and the MLflow client should be used instead:
+Any artifact logged by a run can be queried by MLflow. Artifacts can't be accessed using the run object itself and the MLflow client should be used instead:
 
 ```python
 client = mlflow.tracking.MlflowClient()
