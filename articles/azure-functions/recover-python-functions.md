@@ -228,10 +228,13 @@ Example error logs:
  [Information] 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
  [Information] More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
 ```
-There are two options to mitigate the issue.
+There are two ways to mitigate this issue.
 
-1. Set PYTHON_ISOLATE_WORKER_DEPENDENCIES in AppSetting to 1. (For reference, please check https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#python_isolate_worker_dependencies-preview)
-2. If the function application does not require protobuf v4.x.x versions, pin protobuf >= 3.19.3, == 3.*.
++ Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to a value of `1`. 
++ Pin protobuf to a non-4.x.x. version, as in the following example:
+    ```
+    protobuf >= 3.19.3, == 3.*
+    ```
 
 ---
 
