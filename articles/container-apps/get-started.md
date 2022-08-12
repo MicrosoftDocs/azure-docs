@@ -43,14 +43,12 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 ```powershell
 $CmdArgs = @{
   Name = "myworkspace"
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
   PublicNetworkAccessForIngestion = "Enabled"
   PublicNetworkAccessForQuery = "Enabled"
 }
-New-AzOperationalInsightsWorkspace @CmdArgs
-$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).CustomerId
-$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name MyWorkspace).PrimarySharedKey
+New-AzOperationalInsightsWorkspace @CommonParameters @CmdArgs
+$WORKSPACE_ID = (Get-AzOperationalInsightsWorkspace @CommonParameters -Name MyWorkspace).CustomerId
+$WORKSPACE_SHARED_KEY = (Get-AzOperationalInsightsWorkspaceSharedKey @CommonParameters -Name MyWorkspace).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
@@ -58,13 +56,11 @@ To create the environment, run the following command:
 ```powershell
 $CmdArgs = @{
   EnvName = $CONTAINERAPPS_ENVIRONMENT
-  ResourceGroupName = $RESOURCE_GROUP
-  Location = $LOCATION
   LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
   AppLogConfigurationDestination = "log-analytics"
   LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
 }
-New-AzContainerAppManagedEnv @CmdArgs
+New-AzContainerAppManagedEnv @CommonParameters @CmdArgs 
 ```
 
 ---
@@ -85,6 +81,10 @@ az containerapp create \
   --ingress 'external' \
   --query properties.configuration.ingress.fqdn
 ```
+> [!NOTE]
+> Make sure the value for the `--image` parameter is in lower case.
+
+By setting `--ingress` to `external`, you make the container app available to public requests.
 
 # [PowerShell](#tab/powershell)
 
@@ -94,27 +94,27 @@ $ImageParams = @{
   Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
 }
 $IMAGE_OBJ = New-AzContainerAppTemplateObject @ImageParams
-$ENV_ID = (Get-AzContainerAppManagedEnv -ResourceGroupName $RESOURCE_GROUP -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
+$ENV_ID = (Get-AzContainerAppManagedEnv @CommonParameters -EnvName $CONTAINERAPPS_ENVIRONMENT).Id
 
 $CmdArgs = @{
   Name = "my-container-app"
-  Location = $LOCATION
-  ResourceGroupName = $RESOURCE_GROUP
   ManagedEnvironmentId = $ENV_ID
   TemplateContainer = $IMAGE_OBJ
   IngressTargetPort = 80
   IngressExternal = $true
 }
 
-New-AzContainerApp @CmdArgs
+New-AzContainerApp @CommonParameters @CmdArgs
 ```
+
+> [!NOTE]
+> Make sure the value for the `Image` parameter is in lower case.
+
+By setting `IngressExternal` to `$true`, you make the container app available to public requests.
 
 ---
 
-> [!NOTE]
-> Make sure the value for the `--image` parameter is in lower case.
 
-By setting `--ingress` to `external`, you make the container app available to public requests.
 
 ## Verify deployment
 
@@ -127,7 +127,7 @@ The `create` command returned the fully qualified domain name for the container 
 Get the fully qualified domain name for the container app.
 
 ```powershell
-(Get-AzContainerApp -ResourceGroupName $RESOURCE_GROUP -Name my-container-app).IngressFqdn
+(Get-AzContainerApp @CommonParameters -Name my-container-app).IngressFqdn
 ```
 
 Copy this location to a web browser.
