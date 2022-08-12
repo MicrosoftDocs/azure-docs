@@ -87,18 +87,26 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 - [MDM on Azure Overview](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/govern-master-data)
 
 ## Microsoft Purview - Profisee integration deployment on Azure Kubernetes Service (AKS)
-Go to [https://github.com/Profisee/kubernetes](https://github.com/Profisee/kubernetes) and select Microsoft Purview [**Azure ARM**]. The deployment process detailed below is owned and hosted by you on your Azure subscription as an IaaS / CaaS (container-as-a-service) AKS Cluster.  
 
 1. [Create a user-assigned managed identity in Azure](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). You must have a managed identity created to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
     - Contributor role to the resource group where AKS will be deployed. It can either be assigned directly to the resource group **OR** at the subscription level and down.
     - DNS Zone Contributor role to the particular DNS zone where the entry will be created **OR** Contributor role to the DNS Zone resource group. This DNS role is needed only if updating DNS hosted in Azure.
     - Application Administrator role in Azure Active Directory so the required permissions that are needed for the application registration can be assigned.
     - Managed Identity Contributor and User Access Administrator at the subscription level. Required in order for the ARM template managed identity to be able to create a Key Vault specific managed identity that will be used by Profisee to pull the values stored in the Key Vault.
-    - Data Curator Role added for the Microsoft Purview account for the Microsoft Purview specific application registration.  
+
+    :::image type="content" alt-text="Screenshot of Profisee Managed Identity Azure Role Assignments." source="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
+
+1. [Create an application](/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal) that will act as the login identity once Profisee is installed. It needs to be a part of the Azure Active Directory that will be used to sign in to Profisee.
+    - Set permissions at least to the scope of the resource group where you will house your Profisee deployment.
+    - Set authentication to match the settings below:
+        - Support ID tokens (used for implicit and hybrid flows)
+        - Set the redirect URL to: https://purviewprofisee.westus.cloudapp.azure.com/profisee/auth/signin-microsoft
+
+    - - Data Curator Role added for the Microsoft Purview account for the Microsoft Purview specific application registration.  
 
 1. Go to [https://github.com/Profisee/kubernetes](https://github.com/Profisee/kubernetes) and select Microsoft Purview [**Azure ARM**](https://github.com/profisee/kubernetes/blob/master/Azure-ARM/README.md#deploy-profisee-platform-on-to-aks-using-arm-template).
     - The ARM template will deploy Profisee on a load balanced AKS (Azure Kubernetes Service) infrastructure using an ingress controller.
-    - The readme includes troubleshooting steps.l
+    - The readme includes troubleshooting steps.
     - Read all the steps and troubleshooting wiki page carefully.  
 
 1. Get the license file from Profisee by raising a support ticket on [https://support.profisee.com/](https://support.profisee.com/). Only pre-requisite for this step is your need to pre-determine the DNS resolved URL your Profisee setup on Azure. In other words, keep the DNS HOST NAME of the load balancer used in the deployment. It will be something like "[profisee_name].[region].cloudapp.azure.com".
@@ -114,15 +122,18 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 
 ### Stages of a typical Microsoft Purview - Profisee deployment run
 
-1. Profisee ARM Deployment Wizard - Managed Identity for installation; its role assignments and permissions should look like the image below.
-
-    :::image type="content" alt-text="Image 1 - Screenshot of Profisee Managed Identity Azure Role Assignments." source="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-managed-identity-azure-role-assignments.png":::
+1. On the basics page, select the [user-assigned managed identity you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks) to deploy the resources.
 
 1. Profisee ARM Deployment Wizard - App Registration Configuration
 
     :::image type="content" alt-text="Image 2 - Screenshot of Profisee Azure ARM Wizard App Registration Configuration." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-app-reg-config.png":::
 
-1. Profisee ARM Deployment Wizard - Profisee Configuration and supplying Admin account username
+1. For your Profisee configuration, you can have your information stored in Key Vault or supply the details during deployment. 
+    1. Choose your Profisee version, and provide your admin user account and license. 
+    1. Select to configure using Purview.
+    1. For the Application Registration Client ID, provide the [client ID](/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) for the [enterprise application you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
+    1. Select your Purview account.
+    1. Add the Purview service principal
 
     :::image type="content" alt-text="Image 3 - Screenshot of Profisee Azure ARM Wizard Step1 Profisee." source="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png" lightbox="./media/how-to-deploy-profisee-purview/profisee-azure-arm-wizard-step-a-profisee.png":::
 
