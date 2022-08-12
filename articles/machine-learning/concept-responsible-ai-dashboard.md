@@ -23,7 +23,7 @@ The Responsible AI dashboard provides a single pane of glass that brings togethe
 
 The dashboard could be customized to include the only subset of tools that are relevant to your use case.
 
-Responsible AI dashboard is also accompanied by a [PDF scorecard](how-to-responsible-ai-scorecard.md), which enables you to export Responsible AI metadata of your data and models for sharing offline with the product and compliance stakeholders.
+Responsible AI dashboard is also accompanied by a [PDF scorecard](how-to-responsible-ai-scorecard.md), which enables you to export Responsible AI metadata and insights of your data and models for sharing offline with the product and compliance stakeholders.
 
 ## Responsible AI dashboard components
 
@@ -65,7 +65,7 @@ Below are the components of the Responsible AI dashboard supporting model debugg
 | Identify | Model Overview | The Model Overview component aggregates various model assessment metrics, showing a high-level view of model prediction distribution for better investigation of its performance. It also enables group fairness assessment, highlighting the breakdown of model performance across different sensitive groups. |
 | Diagnose | Data Explorer | The Data Explorer component helps to visualize datasets based on predicted and actual outcomes, error groups, and specific features. This helps to identify issues of over- and underrepresentation and to see how data is clustered in the dataset.  |
 | Diagnose | Model Interpretability | The Interpretability component generates human-understandable explanations of the predictions of a machine learning model. It provides multiple views into a model’s behavior: global explanations (for example, which features affect the overall behavior of a loan allocation model) and local explanations (for example, why an applicant’s loan application was approved or rejected). <br><br> The capabilities of this component in the dashboard are founded by the [InterpretML](https://interpret.ml/) package. |
-| Diagnose | Counterfactual Analysis and What-If| The Counterfactual Analysis and what-if component consist of two functionalities for better error diagnosis: <br> - Generating a set of examples with minimal changes to a given point such that those changes alter the model's prediction (a.k.a. showing the closest data points with opposite model precisions). <br> - Enabling interactive and custom what-if perturbations for individual data points to understand how the model reacts to feature changes. <br> <br> The capabilities of this component in the dashboard are founded by the [DiCE](https://github.com/interpretml/DiCE) package.  |
+| Diagnose | Counterfactual Analysis and What-If| The Counterfactual Analysis and what-if component consist of two functionalities for better error diagnosis: <br> - Generating a set of examples with minimal changes to a given point such that those changes alter the model's prediction (a.k.a. showing the closest data points with opposite model predictions). <br> - Enabling interactive and custom what-if perturbations for individual data points to understand how the model reacts to feature changes. <br> <br> The capabilities of this component in the dashboard are founded by the [DiCE](https://github.com/interpretml/DiCE) package.  |
 
 Mitigation steps are available via standalone tools such as [Fairlearn](https://fairlearn.org/) (see [unfairness mitigation algorithms](https://fairlearn.org/v0.7.0/user_guide/mitigation.html)).
 

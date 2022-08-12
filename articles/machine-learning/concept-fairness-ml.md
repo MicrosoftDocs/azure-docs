@@ -53,7 +53,7 @@ During the assessment phase, fairness is quantified through disparity metrics. *
 - Disparity in selection rate: This metric contains the difference in selection rate (favorable prediction) among different subgroups. An example of this is disparity in loan approval rate. Selection rate means the fraction of data points in each class classified as 1 (in binary classification) or distribution of prediction values (in regression).
 
 
-The fairness assessment capabilities of this component are founded by the [Fairlearn](https://fairlearn.org/) package, providing a collection of model fairness assessment metrics.
+The fairness assessment capabilities of this component are founded by the [Fairlearn](https://fairlearn.org/) package, providing a collection of model fairness assessment metrics and unfairness mitigation algorithms.
 
 
 >[!NOTE]
@@ -62,7 +62,7 @@ The fairness assessment capabilities of this component are founded by the [Fairl
 
 ## Mitigate unfairness in machine learning models
 
-Upon understanding your model's fairness issues, you can use Fairlearn's mitigation algorithms to mitigate your observed fairness issues.
+Upon understanding your model's fairness issues, you can use [Fairlearn](https://fairlearn.org/)'s mitigation algorithms to mitigate your observed fairness issues.
 
 The Fairlearn open-source package includes a variety of unfairness mitigation algorithms. These algorithms support a set of constraints on the predictor's behavior called **parity constraints** or criteria. Parity constraints require some aspects of the predictor behavior to be comparable across the groups that sensitive features define (for example, different races). The mitigation algorithms in the Fairlearn open-source package use such parity constraints to mitigate the observed fairness issues.
 
@@ -95,6 +95,6 @@ The Fairlearn open-source package provides postprocessing and reduction unfairne
 ## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Explore the [supported model overview and fairness assessment visualizations](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard#model-overview).
+- Explore the [supported model overview and fairness assessment visualizations](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard#model-overview) of the Responsible AI dashboard.
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
 - Learn how to use the different components by checking out the Fairlearn's [GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/main/user_guide/index.html), [examples](https://fairlearn.github.io/main/auto_examples/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
