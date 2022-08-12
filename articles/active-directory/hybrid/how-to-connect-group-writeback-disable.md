@@ -35,7 +35,7 @@ To disable Group writeback for your organization, use the following steps:
 
 ## Rolling back group writeback 
 
-To disable or rollback group writeback via powershell, do the following: 
+To disable or roll back group writeback via powershell, do the following: 
 
 1. Open a PowerShell prompt as administrator. 
 2. Disable the sync scheduler after verifying that no synchronization operations are running: 

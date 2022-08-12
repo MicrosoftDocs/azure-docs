@@ -85,7 +85,7 @@ If the original version of group writeback was not previously enabled, continue 
 
 ## Optional Configuration 
 
-To make it easier to find groups being written back from Azure AD to Active Directory, there's an option to writeback the group distinguished name with the cloud display name. 
+To make it easier to find groups being written back from Azure AD to Active Directory, there's an option to write back the group distinguished name with the cloud display name. 
 
 - Default format: 
 CN=Group_3a5c3221-c465-48c0-95b8-e9305786a271, OU=WritebackContainer, DC=domain, DC=com  

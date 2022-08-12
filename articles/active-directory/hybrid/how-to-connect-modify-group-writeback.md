@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Group writeback is the feature that allows you to write cloud groups back to your on-premises Active Directory using Azure AD Connect Sync.  You can change the default behavior in the following ways: 
 
-   - Only groups that are configured for write back will be written back, including newly created Microsoft 365 groups. 
+   - Only groups that are configured for write-back will be written back, including newly created Microsoft 365 groups. 
    - Groups that are written back will be deleted in AD when they're either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
    - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
@@ -32,7 +32,7 @@ If the original version of group writeback is already enabled and in use in your
 
 ### Disable automatic writeback of all Microsoft 365 groups 
 
-   1. To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups,update the `NewUnifiedGroupWritebackDefault` setting to false. 
+   1. To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups, update the `NewUnifiedGroupWritebackDefault` setting to false. 
    2. To do this via Powershell, use the: [New-AzureADDirectorySetting](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-settings-cmdlets) cmdlet. 
    Example:  
      ```PowerShell 
