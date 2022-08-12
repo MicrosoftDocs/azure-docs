@@ -22,6 +22,8 @@ In this quickstart, you'll perform the following tasks:
 * [Provide access to a dev box project](#provide-access-to-a-dev-box-project)
 
 ## Create a dev box pool
+A dev box pool is a collection of dev boxes that you manage together. You must have a pool before users can create a dev box, and all dev boxes created in the pool will be in the same region. 
+
 The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure a dev box pool. 
 
 If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
