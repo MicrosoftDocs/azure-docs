@@ -60,18 +60,18 @@ Virtual machines in a scale set can also be deployed into multiple availability 
 Fore more information on availability, see [Availability options for Azure virtual machines](availability.md). More information on SLA can be found at [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/). 
 
 ## VM Size
-The [size](../sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, storage capacity, and network bandwidth. Azure offers a wide variety of sizes to support many types of uses.
+The [size](sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, storage capacity, and network bandwidth. Azure offers a wide variety of sizes to support many types of uses.
 
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
 ## VM Limits
-Your subscription has default [quota limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../../azure-portal/supportability/regional-quota-requests.md)
+Your subscription has default [quota limits](../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../azure-portal/supportability/regional-quota-requests.md)
 
 ## Managed Disks
 
 Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk. As you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI](quick-create-cli.md) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md).
 
-You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](../managed-disks-overview.md).
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](managed-disks-overview.md).
 
 ## Distributions 
 Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You can find available distributions in the Azure Marketplace. Microsoft actively works with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md) list.
@@ -99,22 +99,22 @@ Microsoft works closely with partners to ensure the images available are updated
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](create-ssh-secured-vm-from-template.md)
-* [Azure `VMaccess`](../extensions/vmaccess.md)
+* [Azure `VMaccess`](extensions/vmaccess.md)
 
 Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
 
 ## Storage
-* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md)
 * [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md)
 
 ## Networking
-* [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
-* [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md)
+* [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
+* [IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](../create-fqdn.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](create-fqdn.md)
 
 
 ## Data residency

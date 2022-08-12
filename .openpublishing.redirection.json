@@ -12851,7 +12851,7 @@
 {
     "source_path_from_root":  "/articles/virtual-machines/windows/overview.md",
     "redirect_url":  "/azure/virtual-machines/overview",
-    "redirect_document_id":  true
+    "redirect_document_id":  false
 },
 {
     "source_path_from_root":  "/articles/virtual-machines/linux/cloudfoundry-get-started.md",
