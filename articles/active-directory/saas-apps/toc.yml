@@ -82,6 +82,8 @@
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
+      - name: Ahrtemis
+        href: ahrtemis-tutorial.md
       - name: Air
         href: air-tutorial.md
       - name: Airstack
@@ -2237,6 +2239,8 @@
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
         href: tangoe-tutorial.md
+      - name: Tango Reserve by AgilQuest (EU Instance)
+        href: tango-reserve-tutorial.md
       - name: TAP App Security
         href: tap-app-security-tutorial.md  
       - name: TargetProcess
@@ -2401,6 +2405,8 @@
         href: uservoice-tutorial.md
       - name: UserZoom
         href: userzoom-tutorial.md
+      - name: valid8Me
+        href: valid8me-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
       - name: Vault Platform
@@ -2505,6 +2511,8 @@
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software
         href: wizergosproductivitysoftware-tutorial.md
+      - name: Wiz SSO
+        href: wiz-sso-tutorial.md
       - name: Wootric
         href: wootric-tutorial.md
       - name: Work.com
