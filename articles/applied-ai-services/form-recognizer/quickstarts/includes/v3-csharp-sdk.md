@@ -45,44 +45,6 @@ In this quickstart, you'll use the following features to analyze and extract dat
 
 ## Set up
 
-<!---
-### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
-
-```console
-dotnet new console -n formrecognizer-quickstart
-```
-
-Open a command line and switch to the directory that contains your project file. Build the application with:
-
-```console
-dotnet build
-```
-
-The build output should contain no warnings or errors.
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-### Install the client library with NuGet
-
-In the directory that contains your project, install the Form Recognizer client library for .NET with the following command:
-
-```console
-dotnet add package Azure.AI.FormRecognizer
-```
-
-This version of the client library defaults to the 2021-09-30-preview version of the service.
-
-### [Option 2: Visual Studio](#tab/vs)
---->
-
 1. Start Visual Studio.
 
 1. On the start page, choose Create a new project.

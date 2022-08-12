@@ -122,4 +122,4 @@ Complete a Form Recognizer quickstart:
 Explore our REST API:
 
 > [!div class="nextstepaction"]
-> [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+> [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

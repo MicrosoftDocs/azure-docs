@@ -178,7 +178,7 @@ items:
   - name: Azure Form Recognizer REST API v3.0
     items:
     - name: REST API v3.0 reference
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Client libraries and SDKs
       items:
       - name: .NET

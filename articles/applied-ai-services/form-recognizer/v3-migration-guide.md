@@ -32,7 +32,7 @@ In this article, you'll learn the differences between Form Recognizer v2.1 and v
 
 > [!CAUTION]
 >
-> * REST API **2022-06-30-preview** release includes a breaking change in the REST API analyze response JSON.
+> * REST API **2022-08-31** release includes a breaking change in the REST API analyze response JSON.
 > * The `boundingBox` property is renamed to `polygon` in each instance.
 
 ## Changes to the REST API endpoints
@@ -176,7 +176,7 @@ Analyze response has been refactored to the following top-level results to suppo
 "boundingRegions": [ // Polygons or Bounding boxes potentially across pages covered by table
 {
 "pageNumber": 1, // 1-indexed page number
-"polygon": [ ... ], // Previously Bounding box, renamed to polygon in the 2022-06-30-preview API
+"polygon": [ ... ], // Previously Bounding box, renamed to polygon in the 2022-08-31 API
 }
 ],
 "spans": [ ... ], // Parts of top-level content covered by table // List of cells in table
@@ -369,6 +369,6 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs.
 
-* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
 * [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
