@@ -99,7 +99,7 @@ Microsoft works closely with partners to ensure the images available are updated
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](linux/create-ssh-secured-vm-from-template.md)
-* [Azure `VMaccess`](linux/extensions/vmaccess.md)
+* [Azure `VMaccess`](extensions/vmaccess.md)
 
 Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 
@@ -113,8 +113,8 @@ Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distro
 ## Networking
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md)
-* [Opening ports to a Linux VM in Azure](nsg-quickstart.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](linux/create-fqdn.md)
+* [Opening ports to a Linux VM in Azure](linux/nsg-quickstart.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](create-fqdn.md)
 
 
 ## Data residency
