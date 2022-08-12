@@ -26,7 +26,7 @@ Group writeback is the feature that allows you to write cloud groups back to you
 
 The following document will walk you through deploying the options for modifying the default behaviors of Azure AD Connect group writeback. 
 
-## Considerations for Existing Deployments 
+## Considerations for existing deployments 
 
 If the original version of group writeback is already enabled and in use in your environment, then all your Microsoft 365 groups have already been written back to AD. Instead of disabling all Microsoft 365 groups, you'll want to review any use of the previously written back groups, and disable only those that are no longer needed in on-premises AD. 
 
@@ -47,7 +47,7 @@ If the original version of group writeback is already enabled and in use in your
 ### Disable writeback for each existing Microsoft 365 group. 
 
 - Portal: [Entra admin portal](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-write-back-portal) 
-- Powershell: [Microsoft Identity Tools PowerShell Module](https://www.powershellgallery.com/packages/MSIdentityTools/2.0.16) 
+- PowerShell: [Microsoft Identity Tools PowerShell Module](https://www.powershellgallery.com/packages/MSIdentityTools/2.0.16) 
      Example: `Get-mggroup -filter "groupTypes/any(c:c eq 'Unified')" | Update-MsIdGroupWritebackConfiguration -WriteBackEnabled $false` 
 - MS Graph: [Update group](https://docs.microsoft.com/graph/api/group-update?view=graph-rest-beta&tabs=http) 
 
@@ -158,7 +158,7 @@ Prior to re-enabling for writeback, or restoring from soft delete in Azure AD, t
 
  
 
-## Next Steps: 
+## Next steps: 
 
 - [Azure AD Connect group writeback](how-to-connect-group-writeback-v2.md) 
 - [Enable Azure AD Connect group writeback](how-to-connect-group-writeback-enable.md)  - 

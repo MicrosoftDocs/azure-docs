@@ -82,7 +82,7 @@ If the original version of group writeback was not previously enabled, continue 
 
  
 
-## Optional Configuration 
+## Optional configuration 
 
 To make it easier to find groups being written back from Azure AD to Active Directory, there's an option to write back the group distinguished name with the cloud display name. 
 
@@ -95,9 +95,9 @@ CN=Administrators_e9305786a271, OU=WritebackContainer, DC=domain, DC=com 
 When configuring group writeback, there will be a checkbox at the bottom of the Group Writeback configuration window. Select the box to enable this feature. 
 
 >[!NOTE]
->Groups being written back from Azure AD to AD will have a source of authority of the cloud. >This means any changes made on-premises to groups that are written back from Azure AD will be overwritten on the next sync cycle. 
+>Groups being written back from Azure AD to AD will have a source of authority of the cloud. This means any changes made on-premises to groups that are written back from Azure AD will be overwritten on the next sync cycle. 
 
-## Next Steps: 
+## Next steps: 
 
 - [Azure AD Connect group writeback](how-to-connect-group-writeback-v2.md) 
 - [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 

@@ -40,7 +40,7 @@ The following document will walk you through what you need to know before you en
 
  
 
-## Plan Your Implementation 
+## Plan your implementation 
 There are a few activities that you'll want to complete before enabling the latest public preview of group writeback. These activities include discovering your current configuration, verifying the prerequisites, and choosing the deployment approach. 
 
 ## Discovery 
@@ -99,7 +99,7 @@ You can also use the PowerShell cmdlet [AzureADDirectorySetting](https://docs.mi
 ### Discover if AD has been prepared for Exchange 
 To verify if Active Directory has been prepared for Exchange, see [Prepare Active Directory and domains for Exchange Server, Active Directory Exchange Server, Exchange Server Active Directory, Exchange 2019 Active Directory](https://docs.microsoft.com/Exchange/plan-and-deploy/prepare-ad-and-domains?view=exchserver-2019#how-do-you-know-this-worked)
 
-## Public Preview Prerequisites 
+## Public preview prerequisites 
 The following are prerequisites for group writeback.
 
    - An Azure AD Premium 1 license 
@@ -122,7 +122,7 @@ To keep the default behavior, continue to the [enable group writeback](how-to-co
 The default behavior can be modified as follows: 
 
  - Only groups that are configured for write-back will be written back, including newly created Microsoft 365 groups. 
- - Groups that are written to on prem will be deleted in AD when they're either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
+ - Groups that are written to on-premises will be deleted in AD when they're either disabled for group writeback, soft deleted, or hard deleted in Azure AD. 
  - Microsoft 365 groups with up to 250,000 members can be written back to on-premises. 
 
 If you plan to make changes to the default behavior, we recommend that you do so prior to enabling group writeback. However, you can still modify the default behavior, if group writeback is already enabled. To modify the default behavior, see [Modifying group writeback](how-to-connect-modify-group-writeback.md). 
@@ -143,7 +143,7 @@ While this release has undergone extensive testing, you may still encounter issu
  
  
 
-## Next Steps: 
+## Next steps: 
 
 - [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 
 - [Enable Azure AD Connect group writeback](how-to-connect-group-writeback-enable.md)
