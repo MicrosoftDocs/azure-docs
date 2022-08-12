@@ -5,7 +5,7 @@ description: Microsoft Connected Cache preview deployment scenario samples tutor
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 

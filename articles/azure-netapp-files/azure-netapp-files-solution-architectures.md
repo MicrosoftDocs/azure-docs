@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 08/11/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -181,7 +181,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
-* [Azure for the semiconductor industry](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
+* [Azure for the semiconductor industry](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure%20for%20the%20semiconductor%20industry.pdf)
 
 ### Analytics
 
