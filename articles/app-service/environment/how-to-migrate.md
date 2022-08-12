@@ -122,7 +122,7 @@ If you're using a system assigned managed identity:
 }
 ```
 
-## 8. Migrate to App Service Environment v3
+## 7. Migrate to App Service Environment v3
 
 Only start this step once you've completed all pre-migration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. This step takes up to three hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. During that time, there will be about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment will be blocked during this step. You only need to include the the "body" parameter in the command if you are enabling zone redundancy or are configuring a custom domain suffix. If neither of those apply to your migration, you can remove that parameter from the command.
 
