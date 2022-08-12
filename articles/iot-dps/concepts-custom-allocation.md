@@ -125,7 +125,7 @@ A successful request returns an **AllocationResponse** object.
 
 | Property | Description |
 |----------|-------------|
-| initialTwin | Optional. An object that contains the desired properties and tags for the initial twin. If an initial twin is returned, it sets the initial twin for the device, regardless of any settings in the enrollment entry. If the initial twin is not returned, the device twin is set to the initial twin settings in the enrollment entry on initial assignment or according to the migration settings in the enrollment entry on re-provisioning. |
+| initialTwin | Optional. An object that contains the desired properties and tags to set in the initial twin on the assigned IoT hub. DPS uses the initialTwin property to set the initial twin on the assigned IoT hub on initial assignment or when re-provisioning if the enrollment entry's migration policy is set to *Re-provision and reset to initial config*. In both of these cases, if the initialTwin is not returned or is set to null, DPS sets the twin on the assigned IoT hub to the initial twin settings in the enrollment entry. DPS ignores the initialTwin for all other re-provisioning settings in the enrollment entry. To learn more, see [Implementation](#implementation-details). |
 | iotHubHostName | Required. The hostname of the IoT hub to assign the device to. This must be one of the IoT hubs passed in the **linkedHubs** property in the request. |
 | payload | Optional. An object that contains data to be passed back to the device in the Registration response. The exact data will depend on the implicit contract defined by the developer between the device and the custom allocation function. |
 
@@ -235,32 +235,25 @@ The following JSON shows a successful registration response for a TPM device tha
 }
 ```
 
-## Initial device assignment with custom allocation
+## Implementation details
 
-If the custom webhook is being called on the initial assignment for a device, the **AllocationRequest.deviceRuntimeContext** won't contain a **currentIotHubHostName** property. In this case, for a successful registration, the **AllocationResponse.iotHubHostName** property must be set to one of the IoT hub hostnames present in the **AllocationRequest.linkedHubs** property.
+This section describes the requirements that your custom allocation webhook must observe and behavior that you should be aware of when designing your webhook. The custom allocation webhook can be called for a device that has not been previously registered through DPS (initial assignment) or for a device that has previously registered through DPS (reprovisioning). DPS supports the following reprovisioning policies: *Re-provision and migrate data*, *Re-provision and reset to initial config*, and *Never re-provision*. These policies are applied whenever a previously provisioned device is assigned to a new IoT hub. For more details, see [Reprovisioning](concepts-device-reprovision.md).
 
-## Re-provisioning policies with custom allocation
+* The device should be assigned to one of the IoT hubs in the **AllocationRequest.linkedHubs** property. This property contains a list of IoT hubs by hostname that the device can be assigned to. This is typically composed of the IoT hubs selected for the enrollment entry; however, if the device is reprovisioning and the *Never re-provision* policy is set on the enrollment entry, only the IoT hub that the device is currently assigned to will appear in the list.
 
-If a device has previously been provisioned to an IoT hub, the **AllocationRequest.deviceRuntimeContext** will contain a **currentIotHubHostName** property, which will be set to the hostname of the IoT hub where the device is currently assigned.
+* On initial assignment, if the **initialTwin** property is returned by the webhook, DPS will set the initial twin for the device on the assigned IoT hub accordingly. If the **initialTwin** property is omitted or is **null**, DPS sets the initial twin for the device to the initial twin setting specified in the enrollment entry.
 
-DPS has the following built-in re-provisioning polices: *Re-provision and migrate data*, *Re-provision and reset to initial config*, and *Never re-provision*. You can determine which of these policies is currently set on the enrollment entry, by examining the **reprovisionPolicy** property of either the **AllocationRequest.individualEnrollment** or the **AllocationRequest.enrollmentGroup** property. the following JSON shows the settings for the *Re-provision and migrate data* policy:
+* On reprovsioning, DPS follows the reprovisioning policy set in the enrollment entry. DPS only uses **initialTwin** property in the response if the current IoT hub is changed and the reprovisioning policy set on the enrollment entry is *Re-provision and reset to initial config*. In this case, it sets the initial twin for the device on the new IoT hub exactly as it would during initial assignment in the previous bullet. In all other cases, DPS ignores the **initialTwin** property.
 
-```json
-      "reprovisionPolicy":{
-         "updateHubAssignment":true,
-         "migrateDeviceData":true
-      }
-```
+* If the **payload** property is set in the response, DPS will always return it to the device regardless of whether the request is for initial assignment or reprovisioning.
 
-You can choose whether or not to adhere to the re-provisioning policy specified in the enrollment entry. You can set the **iotHubHostName** property in the response to either the **AllocationRequest.deviceRuntimeContext.currentIotHubHostname** to keep the device on the same IoT hub or one of the IoT Hub hostnames in the **AllocationRequest.linkedHubs** array to assign a new IoT hub.
+* If a device has previously been provisioned to an IoT hub, the **AllocationRequest.deviceRuntimeContext** will contain a **currentIotHubHostName** property, which will be set to the hostname of the IoT hub where the device is currently assigned.
 
-The initial twin of the device will be set as follows:
+* You can determine which of the reprovisioning policies is currently set on the enrollment entry, by examining the **reprovisionPolicy** property of either the **AllocationRequest.individualEnrollment** or the **AllocationRequest.enrollmentGroup** property in the request. the following JSON shows the settings for the *Re-provision and migrate data* policy:
 
-* If you set the **initialTwin** property in the response, the initial device twin on the new IoT hub will be set to this value.
-
-* If you don't set the **initialTwin** property and **reprovisioningPolicy.migrateDeviceData** is **true** in the request, the current device twin state will be migrated from the current IoT hub to the new IoT hub.
-
-* If you don't set the **initialTwin** property and **reprovisioningPolicy.migrateDeviceData** is **true** in the request, the device twin state will be set to the initial twin value in the enrollment entry.
-
-> [!NOTE]
-> To manually migrate your device data, you can call the [Get Twin](/rest/api/iothub/service/devices/get-twin) REST API or SDK equivalent on the current IoT hub to read the device twin and set the **initialTwin** property in the response.
+   ```json
+         "reprovisionPolicy":{
+            "updateHubAssignment":true,
+            "migrateDeviceData":true
+         }
+   ```
