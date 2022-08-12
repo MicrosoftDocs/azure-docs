@@ -142,7 +142,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
   PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
             --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-             --role acrpull \
+             --role acrpush \
             --query "password" --output tsv)
   USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
   ```
