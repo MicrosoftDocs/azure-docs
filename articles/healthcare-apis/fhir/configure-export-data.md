@@ -168,7 +168,7 @@ The configuration process for IP addresses in the same region is the same as abo
 
 ## Next steps
 
-In this article, you learned about the three steps in configuring settings to allow export of data from your FHIR service into a storage account. For more information about the Bulk Export feature for the FHIR service, see 
+In this article, you learned about the three steps in configuring settings to allow export of data from your FHIR service into an Azure storage account. For more information about the Bulk Export feature of the FHIR service, see 
 
 >[!div class="nextstepaction"]
 >[How to export FHIR data](export-data.md)
