@@ -41,11 +41,14 @@ are no prerequisites, state that no prerequisites are needed for this tutorial.
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Two Azure virtual networks in two regions
-- A VPN or ExpressRoute link from on-premises to each virtual network
-- An Azure DNS Private Resolver in each virtual network
-- An Azure private DNS zone that is linked to each virtual network
+- Two [Azure virtual networks](../virtual-network/quick-create-portal.md) in two regions
+- A [VPN](../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) link from on-premises to each virtual network
+- An [Azure DNS Private Resolver](dns-private-resolver-get-started-portal.md) in each virtual network
+- An Azure [private DNS zone](private-dns-getstarted-portal.md) that is linked to each virtual network
 - An on-premises DNS server
+
+> [!NOTE]
+> In this tutorial,`azure.contoso.com` is an Azure private DNS zone. Replace `azure.contoso.com` with your private DNS zone name.
 
 <!-- 5. H2s
 Required. Give each H2 a heading that sets expectations for the content that follows. 
@@ -56,36 +59,44 @@ Follow the H2 headings with a sentence about how the section contributes to the 
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Determine inbound endpoint IP addresses
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+Write down the IP addresses assigned to the inbound endpoints of your DNS private resolvers. The IP addresses will be used to configure on-premises DNS forwarders.
+
+In this example, there are two virtual networks in two regions:
+- **myeastvnet** is in the East US region, assigned the address space 10.10.0.0/16 
+- **mywestvnet** is in the West Central US region, assigned the address space 10.20.0.0/16
+
+1. Search for **DNS Private Resolvers** and select your private resolver from the first region.  For example: **myeastresolver**.
+2. Under **Settings**, select **Inbound endpoints** and write down the **IP address** setting. For example: **10.10.0.4**.
+
+    ![View inbound endpoint](./media/tutorial-dns-private-resolver-failover/east-inbound-endpoint.png)
+
+3. Return to the list of **DNS Private Resolvers** and select a resolver from a different region.  For example: **mywestresolver**.
+4. Under **Settings**, select **Inbound endpoints** and write down the **IP address** setting of this resolver. For example: **10.20.0.4**.
+
+## Verify private zone links
+
+In order for resources within a virtual network to resolve DNS records in an Azure DNS private zone, the zone must be linked to the virtual network.  In this example, the zone `azure.contoso.com` is linked to **myeastvnet** and **mywestvnet**. Links to other vnets can also be present.
+
+1. Search for **Private DNS zones** and select your private zone.  For example: **azure.contoso.com**.
+2. Under **Settings**, select **Virtual network links** and verify that the vnets you used for inbound endpoints in the previous procedure are also listed under Virtual network. For example: **myeastvnet** and **mywestvnet**.
+
+    ![View vnet links](./media/tutorial-dns-private-resolver-failover/vnet-links.png)
+
+3. If one or more vnets are not yet linked, you can add it here by selecting **Add**, providing a **Link name**, choosing your **Subscription**, and then choosing the **Virtual network**.
 
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
 state that there are no resources to clean up in this section.
 -->
 
-## Clean up resources
+## Verify vnet DNS settings
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+In order for resources within a virtual network to resolve DNS records in an Azure DNS private zone, the zone must be linked to the virtual network.  In this example, the zone `azure.contoso.com` is linked to **myeastvnet** and **mywestvnet**. Links to other vnets can also be present.
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
-
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+1. Search for **Virtual networks** and select your private zone.  For example: **azure.contoso.com**.
+2. Under **Settings**, select **Virtual network links** and verify that the vnets you used for inbound endpoints in the previous procedure are also listed under Virtual network. For example: **myeastvnet** and **mywestvnet**.
 
 
 

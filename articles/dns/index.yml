@@ -81,7 +81,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Set up DNS failover using private resolvers
-            url: dns-private-resolver-failover.md
+            url: tutorial-dns-private-resolver-failover.md
 
 # Card
   - title: Use alias records
