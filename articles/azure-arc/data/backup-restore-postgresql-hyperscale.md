@@ -3,7 +3,7 @@ title: Backup and Restore for Azure Database for PostgreSQL Hyperscale server gr
 description: Backup and Restore for Azure Database for PostgreSQL Hyperscale server groups
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

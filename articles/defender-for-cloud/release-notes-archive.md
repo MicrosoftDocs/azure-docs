@@ -160,7 +160,7 @@ The active alerts workbook allows users to view a unified dashboard of their agg
 
 ### 'System update' recommendation added to government cloud
 
-The 'System updates should be installed on your machines' recommendation is now available on all government clouds.  
+The 'System updates should be installed on your machines' recommendation is now available on all government clouds.
 
 It's likely that this change will impact your government cloud subscription's secure score. We expect the change to lead to a decreased score, but it's possible the recommendation's inclusion might result in an increased score in some cases.
 
@@ -697,7 +697,7 @@ As part of our ongoing efforts to support additional environments and use cases,
 
 ### Security Center can now auto provision the Azure Policy's Guest Configuration extension (in preview)
 
-Azure Policy can audit settings inside a machine, both for machines running in Azure and Arc connected machines. The validation is performed by the Guest Configuration extension and client. Learn more in [Understand Azure Policy's Guest Configuration](../governance/policy/concepts/guest-configuration.md).
+Azure Policy can audit settings inside a machine, both for machines running in Azure and Arc connected machines. The validation is performed by the Guest Configuration extension and client. Learn more in [Understand Azure Policy's Guest Configuration](../governance/machine-configuration/overview.md).
 
 With this update, you can now set Security Center to automatically provision this extension to all supported machines.
 
@@ -1208,7 +1208,7 @@ Learn more in:
 
 ### Four new recommendations related to guest configuration (in preview)
 
-Azure's [Guest Configuration extension](../governance/policy/concepts/guest-configuration.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc-enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
+Azure's [Guest Configuration extension](../governance/machine-configuration/overview.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc-enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
 
 We've added four new recommendations to Security Center to make the most of this extension.
 
@@ -1220,7 +1220,7 @@ We've added four new recommendations to Security Center to make the most of this
   - **Windows Defender Exploit Guard should be enabled on your machines**
   - **Authentication to Linux machines should require SSH keys**
 
-Learn more in [Understand Azure Policy's Guest Configuration](../governance/policy/concepts/guest-configuration.md).
+Learn more in [Understand Azure Policy's Guest Configuration](../governance/machine-configuration/overview.md).
 
 ### CMK recommendations moved to best practices security control
 
@@ -2427,7 +2427,7 @@ To ensure that Kubernetes workloads are secure by default, Security Center is ad
 
 The early phase of this project includes a private preview and the addition of new (disabled by default) policies to the ASC_default initiative.
 
-You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview via the [Microsoft Cloud Security 
+You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview via the [Microsoft Cloud Security
 Private Community](https://aka.ms/SecurityPrP) and select from the following options:
 
 1. **Single Preview** – To join only this private preview. Explicitly mention "ASC Continuous Scan" as the preview you would like to join.
@@ -2719,7 +2719,7 @@ The three recommendations that moved are:
 
 The two new recommendations added to the control are:
 
-- **Guest configuration extension should be installed on Windows virtual machines (Preview)** - Using [Azure Policy Guest Configuration](../governance/policy/concepts/guest-configuration.md) provides visibility inside virtual machines to server and application settings (Windows only).
+- **Guest configuration extension should be installed on Windows virtual machines (Preview)** - Using [Azure Policy Guest Configuration](../governance/machine-configuration/overview.md) provides visibility inside virtual machines to server and application settings (Windows only).
 
 - **Windows Defender Exploit Guard should be enabled on your machines (Preview)** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
 
@@ -2739,7 +2739,7 @@ Learn more about [enhancing your custom recommendations with detailed informatio
 
 ### Crash dump analysis capabilities migrating to fileless attack detection
 
-We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#fileless-attack-detection). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shell code discovered, and Suspicious code segment detected.
+We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#plan-features). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shell code discovered, and Suspicious code segment detected.
 
 Some of the benefits of this transition:
 

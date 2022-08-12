@@ -8,7 +8,7 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
 ms.devlang: java
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code

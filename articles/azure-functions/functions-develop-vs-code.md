@@ -3,7 +3,7 @@ title: Develop Azure Functions by using Visual Studio Code
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, vscode-azure-extension-update-complete
 ms.date: 06/19/2022
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---

@@ -36,3 +36,23 @@ All routing scenarios supported by Virtual WAN are supported with NVAs in the hu
 ### What regions are supported?
 
 For supported regions, see [NVA supported regions](../articles/virtual-wan/about-nva-hub.md#regions).
+
+### How do I delete my NVA in the hub?
+
+If the Network Virtual Appliance resource was deployed via a Managed Application, delete the Managed Application. This will automatically delete the Managed Resource Group and associated Network Virtual Appliance resource.
+
+Note that you cannot delete a NVA that is the next hop resource for a Routing Policy. To delete the NVA, first delete the Routing Policy. 
+
+If the Network Virtual Appliance resource was deployed via partner orchestration software, please reference partner documentation to delete the Network Virtual Appliance.
+
+Alternatively, you can run the following Powershell command to delete your Network Virtual Appliance. 
+
+   ```azurepowershell-interactive
+   Remove-AzNetworkVirtualAppliance -Name <NVA name> -ResourceGroupName <resource group name>
+   ```
+
+The same command can also be run from CLI. 
+
+   ```azurecli-interactive
+az network virtual-appliance delete --subscription <subscription name> --resource-group <resource group name> --name <Network Virtual Appliance name>
+   ```

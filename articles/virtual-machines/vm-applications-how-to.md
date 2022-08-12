@@ -50,6 +50,8 @@ You need to make sure the files are publicly available, or you'll need the SAS U
 
 If you're using PowerShell, you need to be using version 3.11.0 of the Az.Storage module.
 
+To learn more about the installation mechanism, see the [command interpreter.](vm-applications.md#command-interpreter)
+
 ## Create the VM application
 
 Choose an option below for creating your VM application definition and version:

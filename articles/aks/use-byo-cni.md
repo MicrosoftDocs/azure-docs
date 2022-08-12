@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 3/30/2022
 ---
 
-# Bring your own Container Network Interface (CNI) plugin with Azure Kubernetes Service (AKS) (PREVIEW)
+# Bring your own Container Network Interface (CNI) plugin with Azure Kubernetes Service (AKS) (preview)
 
 Kubernetes does not provide a network interface system by default; this functionality is provided by [network plugins][kubernetes-cni]. Azure Kubernetes Service provides several supported CNI plugins. Documentation for supported plugins can be found from the [networking concepts page][aks-network-concepts].
 

@@ -49,7 +49,7 @@ Understanding these high-level steps should help you understand where errors are
 
 ## Get deployment logs
 
-The first step in debugging errors is to get your deployment logs. First, follow the [instructions here to connect to your workspace](how-to-deploy-and-where.md#connect-to-your-workspace).
+The first step in debugging errors is to get your deployment logs. First, follow the [instructions here to connect to your workspace](./v1/how-to-deploy-and-where.md#connect-to-your-workspace).
 
 # [Azure CLI](#tab/azcli)
 
@@ -240,6 +240,6 @@ For more information, visit the [interactive debugging in VS Code guide](how-to-
 
 Learn more about deployment:
 
-* [How to deploy and where](how-to-deploy-and-where.md)
+* [How to deploy and where](./v1/how-to-deploy-and-where.md)
 * [Tutorial: Train & deploy models](tutorial-train-deploy-notebook.md)
 * [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)

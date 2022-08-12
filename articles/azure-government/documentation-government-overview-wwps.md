@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 07/25/2022
+ms.date: 07/29/2022
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -208,7 +208,7 @@ Based on customer feedback, Microsoft has started to invest in higher-level [sce
 
 #### *Homomorphic encryption*
 
-[Homomorphic encryption](https://www.microsoft.com/research/project/homomorphic-encryption/) refers to a special type of encryption technology that allows for computations to be performed on encrypted data, without requiring access to a key needed to decrypt the data. The results of the computation are encrypted and can be revealed only by the owner of the encryption key. In this manner, only the encrypted data are processed in the cloud and only you can reveal the results of the computation.
+[Homomorphic encryption](https://homomorphicencryption.org/introduction/) refers to a special type of encryption technology that allows for computations to be performed on encrypted data, without requiring access to a key needed to decrypt the data. The results of the computation are encrypted and can be revealed only by the owner of the encryption key. In this manner, only the encrypted data are processed in the cloud and only you can reveal the results of the computation.
 
 To help you adopt homomorphic encryption, [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/) provides a set of encryption libraries that allow computations to be performed directly on encrypted data. This approach enables you to build end-to-end encrypted data storage and compute services where you never need to share your encryption keys with the cloud service. Microsoft SEAL aims to make homomorphic encryption easy to use and available to everyone. It provides a simple and convenient API and comes with several detailed examples demonstrating how the library can be used correctly and securely.
 

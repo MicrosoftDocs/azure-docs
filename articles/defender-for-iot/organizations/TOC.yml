@@ -102,25 +102,31 @@
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
       href: how-to-analyze-programming-details-changes.md
-  - name: Integrate with OT security partners
+  - name: Integrate with security partners
     items:
-    - name: Overview
+    - name: Integration catalog
       href: integrate-overview.md
-    - name: Integrate ClearPass
+    - name: Aruba ClearPass
       href: tutorial-clearpass.md
-    - name: Integrate CyberArk
+    - name: CyberArk
       href: tutorial-cyberark.md
-    - name: Integrate Forescout
+    - name: Forescout
       href: tutorial-forescout.md
-    - name: Integrate Fortinet
+    - name: Fortinet
       href: tutorial-fortinet.md
-    - name: Integrate Palo Alto
-      href: tutorial-palo-alto.md
-    - name: Integrate Qradar
+    - name: IBM Qradar
       href: tutorial-qradar.md
-    - name: Integrate Splunk
+    - name: LogRhythm
+      href: integrations/logrhythm.md
+    - name: Micro Focus ArcSight
+      href: integrations/arcsight.md
+    - name: Palo Alto
+      href: tutorial-palo-alto.md
+    - name: RSA NetWitness
+      href: integrations/netwitness.md
+    - name: Splunk
       href: tutorial-splunk.md
-    - name: Integrate ServiceNow
+    - name: ServiceNow
       href: tutorial-servicenow.md
   - name: System deployment
     items:
@@ -148,6 +154,10 @@
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Add support for proprietary protocols
         href: resources-manage-proprietary-protocols.md
+    - name: Enterprise IoT system setup
+      items:
+      - name: Extra deployment steps and samples
+        href: extra-deploy-enterprise-iot.md
   - name: System maintenance
     items:
     - name: Manage sensors from the Azure portal
@@ -209,8 +219,6 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Alert reference
-    href: alert-engine-messages.md
   - name: OT monitoring appliances
     items:
     - name: Overview
@@ -249,6 +257,10 @@
         href: appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
+  - name: Alert reference
+    href: alert-engine-messages.md
+  - name: Sensor health message reference
+    href: sensor-health-messages.md
   - name: Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
   - name: Defender for IoT CLI commands

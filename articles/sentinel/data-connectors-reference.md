@@ -1277,7 +1277,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | NGINX_CL |
 | **DCR support** | Not currently supported |
 | **Kusto function alias:** | NGINXHTTPServer |
-| **Kusto function URL** | https://aka.ms/Sentinel-NGINXHTTP-parser |
+| **Kusto function URL** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/NGINX%20HTTP%20Server/Parsers/NGINXHTTPServer.txt |
 | **Vendor documentation/<br>installation instructions** | [Module ngx_http_log_module](https://nginx.org/en/docs/http/ngx_http_log_module.html) |
 | **Custom log sample file:** | access.log or error.log |
 | **Supported by** | Microsoft |
@@ -1646,7 +1646,7 @@ Follow the instructions to obtain the credentials.
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | SophosXGFirewall |
-| **Kusto function URL:** | https://aka.ms/sentinelgithubparserssophosfirewallxg |
+| **Kusto function URL:** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Sophos%20XG%20Firewall/Parsers/SophosXGFirewall.txt |
 | **Vendor documentation/<br>installation instructions** | [Add a syslog server](https://docs.sophos.com/nsg/sophos-firewall/18.5/Help/en-us/webhelp/onlinehelp/nsg/tasks/SyslogServerAdd.html) |
 | **Supported by** | Microsoft |
 

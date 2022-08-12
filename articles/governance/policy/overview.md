@@ -157,7 +157,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[guest configuration](./concepts/guest-configuration.md),
+[Machine configuration](../machine-configuration/overview.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see

@@ -3,7 +3,7 @@ title: Disaster recovery - Azure Arc-enabled SQL Managed Instance
 description: Describes disaster recovery for Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
