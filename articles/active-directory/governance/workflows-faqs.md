@@ -33,7 +33,7 @@ Some tasks do update existing attributes; however, we don’t currently share th
 
 ### Is it possible for me to create new tasks and how? For example, triggering other graph APIs/web hooks?
 
-We currently don’t support the ability to create new tasks outside of the set of tasks supported in the task templates. As an alternative, you may accomplish this by setting up a logic app and then creating a logic apps task in Lifecycle Workflows with the URL.
+We currently don’t support the ability to create new tasks outside of the set of tasks supported in the task templates. As an alternative, you may accomplish this by setting up a logic app and then creating a logic apps task in Lifecycle Workflows with the URL. For more information, see [Trigger Logic Apps based on custom task extensions (preview)](trigger-custom-task.md)
 
 ## Next steps
 

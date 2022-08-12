@@ -48,6 +48,20 @@ You need a valid Azure AD Premium (P2) license for each person, other than Globa
 
 You might also need other Identity Governance features, such as [entitlement management](entitlement-management-overview.md), [access reviews](access-reviews-overview.md) or PIM. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
+## Prerequisites
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+The following **Delegated permissions** and **Application permissions** are required for access to Lifecycle Workflows:
+
+> [!IMPORTANT]
+> The Microsoft Graph API permissions shown below are currently hidden from user interfaces such as Graph Explorer and Azure AD’s API permissions UI for app registrations. In such cases you can fall back to Entitlement Managements permissions which also work for Lifecycle Workflows (“EntitlementManagement.Read.All” and “EntitlementManagement.ReadWrite.All”). The Entitlement Management permissions will stop working with Lifecycle Workflows in future versions of the preview.
+
+|Column1  |Display String  |Description  |Admin Consent Required  |
+|---------|---------|---------|---------|
+|LifecycleWorkflows.Read.All     | Read all Lifecycle workflows, tasks, user states| Allows the app to list and read all workflows, tasks, user states related to lifecycle workflows on behalf of the signed-in user.| Yes
+|LifecycleWorkflows.ReadWrite.All     | Read and write all lifecycle workflows, tasks, user states.| Allows the app to create, update, list, read and delete all workflows, tasks, user states related to lifecycle workflows on behalf of the signed-in user.| Yes
+
 ## Plan the lifecycle workflow deployment project
 
 Consider your organizational needs to determine the strategy for deploying lifecycle workflows in your environment.

@@ -86,5 +86,5 @@ For additional information see [How to customize a synchronization rule](../hybr
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
-- [Create a custom workflow using the Azure Portal](tutorial-create-custom-workflow-portal.md)
+- [Create a custom workflow using the Azure Portal](tutorial-onboard-custom-workflow-portal.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)

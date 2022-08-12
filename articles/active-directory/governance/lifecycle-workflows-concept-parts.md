@@ -100,10 +100,10 @@ After reviewing the tasks, on the review and create screen:
  - verify all of the information is correct and create the workflow.
 
  Based on what was defined in the previous sections our workflow will now do the following:
-   -  it is named **on-board pre-hire employee**
-   -  based on the date in the **EmployeeHireDate** attribute, it will trigger **seven** (7) days prior to the date
-  - it will run against users who have **marketing** for the **department** attriute value
- - it will generate a **TAP (temporary access password)** and send an email to the user in the **manager** attribute of the pre-hire employee 
+- It is named **on-board pre-hire employee**
+- Based on the date in the **EmployeeHireDate** attribute, it will trigger **seven** (7) days prior to the date
+- It will run against users who have **marketing** for the **department** attriute value
+- It will generate a **TAP (temporary access password)** and send an email to the user in the **manager** attribute of the pre-hire employee 
 
  [![Diagram of a lifecycle workflow](media/lifecycle-workflows-concept-parts/workflow-7.png)](media/lifecycle-workflows-concept-parts/workflow-7.png#lightbox)
 

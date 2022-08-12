@@ -65,7 +65,7 @@ Now that the pre-hire workflow attributes have been updated and correctly popula
 The following POST API call will create a pre-hire workflow that will generate a TAP and send it via email to the user's manager.
 
  ```http
- POST https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows
+ POST https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows
 
 Content-type: application/json
 
@@ -141,19 +141,19 @@ To begin, you will just need the ID of the workflow and the date range for which
 This example will show you how to list the userProcessingResults for the last 7 days.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow id>/userProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflow id>/userProcessingResults
 ```
 
 Furthermore, it is possible to get a summary of the userProcessingResults to get a quicker overview of large amounts of data, but for this a time span must be specified.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflo ws/<workflow id>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflo ws/<workflow id>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
 ```
 
 You may also check the full details about the tasks of a given userProcessingResults. You will need to provide the workflow ID of the workflow, as well as the userProcessingResult ID. You may obtain the userProcessingResult ID from the response of the userProcessingResults GET call above.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow_id>/userProcessingResults/<userProcessingResult_id>/taskProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflow_id>/userProcessingResults/<userProcessingResult_id>/taskProcessingResults
 ```
 
 ## Next steps

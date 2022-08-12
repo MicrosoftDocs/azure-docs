@@ -97,7 +97,7 @@ For the purpose of this tutorial, there are three tasks that will be introduced 
 The following POST API call will create a scheduled leaver workflow to configure off-boarding tasks for employees after their last day of work.
 
 ```http
- POST https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows
+ POST https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows
  ```
 
 ```msgraph-interactive
@@ -168,17 +168,17 @@ To begin, you will just need the ID of the workflow and the date range for which
 This example will show you how to list the userProcessingResults for the last 7 days.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow id>/userProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflow id>/userProcessingResults
 ```
 Furthermore, it is possible to get a summary of the userProcessingResults to get a quicker overview of large amounts of data, but for this a time span must be specified.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow id>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflow id>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
 ```
 You may also check the full details about the tasks of a given userProcessingResults. You will need to provide the workflow ID of the workflow, as well as the userProcessingResult ID. You may obtain the userProcessingResult ID from the response of the userProcessingResults GET call above.
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow_id>/userProcessingResults/<userProcessingResult_id>/taskProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflow_id>/userProcessingResults/<userProcessingResult_id>/taskProcessingResults
 ```
 
 ## Next steps

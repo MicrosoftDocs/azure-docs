@@ -58,13 +58,13 @@ To edit the properties of a workflow using the Azure portal, you'll do the follo
 To view the list of current workflows you'll run the following API call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/
 ```
 
 Lifecycle workflows can have their basic information such as "displayName", "description", and "isEnabled" edited by running this patch call and body.
 
 ```http
-PATCH https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id> 
+PATCH https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id> 
 Content-type: application/json
 
 {

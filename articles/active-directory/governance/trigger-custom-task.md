@@ -310,17 +310,17 @@ For detailed information about the parameters required for the custom task exten
 After the task is created, you can run the following GET call to retrieve its details:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/customTaskExtensions
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/customTaskExtensions
 ```
 
 An example response is as follows:
  ```Example Custom Task Extension return
 {
-  "@odata.context": "https://graph.microsoft.com/beta/$metadata#identityGovernance/lifecycleManagement/customTaskExtensions",
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#identityGovernance/lifecycleWorkflows/customTaskExtensions",
   "@odata.count": 1,
   "value": [
     {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#identityGovernance/lifecycleManagement/customTaskExtensions",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#identityGovernance/lifecycleWorkflows/customTaskExtensions",
     "@odata.count": 1,
     "value": [
         {

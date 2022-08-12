@@ -99,7 +99,7 @@ The table below shows the parameters that must be defined during workflow creati
 
 To create a joiner workflow, in Microsoft Graph, use the following request and body:
 ```http
-POST https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows 
+POST https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows 
 Content-type: application/json
 ```
 
@@ -141,7 +141,7 @@ Content-type: application/json
 To change this workflow from joiner to leaver, replace the category parameters to "leaver". To get a list of the task definitions that can be added to your workflow run the following call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/taskDefinitions
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/taskDefinitions
 ```
 
 The response to the code will look like:

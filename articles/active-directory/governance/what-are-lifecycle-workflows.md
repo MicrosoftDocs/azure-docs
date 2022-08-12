@@ -48,8 +48,7 @@ The following are key reasons to use Lifecycle workflows.
 -  **extend** your HR-driven provisioning process with other workflows that simplify and automate tasks.  
 - **centralize** your workflow process so you can easily create and manage workflows all in one location.
 - easily **troubleshoot** workflow scenarios with the Workflow history and Audit logs
-- **manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles is minimalized.
-- integrate
+- **manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles are minimalized.
 - **reduce** or remove manual tasks that were done in the past with automated lifecycle workflows
 - **apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps
 

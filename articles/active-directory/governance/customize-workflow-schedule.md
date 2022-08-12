@@ -25,13 +25,13 @@ Workflows created using Lifecycle Workflows can be fully customized to match the
 First, to view the current schedule interval of your workflows, run the following get call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/settings
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/settings
 ```
 
 
 To customize a workflow in Microsoft Graph, use the following request and body:
 ```http
-PATCH https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/settings
+PATCH https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/settings
 Content-type: application/json
 
 {

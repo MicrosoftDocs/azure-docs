@@ -150,12 +150,12 @@ Content-type: application/json
 
 Once a new version of a workflow is created, you can always find other versions by running the following call:
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/versions
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id>/versions
 ```
 Or to get a specific version:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/versions/<version number> 
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id>/versions/<version number> 
 ```
 
 ### Reorder Tasks in a workflow using Microsoft Graph
@@ -163,7 +163,7 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/work
 If you want to reorder tasks in a workflow, so that certain tasks run before others, you'll follow these steps:
  1. Use a GET call to return the body of the workflow in which you want to reorder the tasks. 
      ```http
-      GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflow id>
+      GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflow id>
      ```
  1. Copy the body of the workflow and paste it in the body section for the new API call.
  

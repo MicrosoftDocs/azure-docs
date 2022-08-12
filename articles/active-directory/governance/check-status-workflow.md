@@ -69,25 +69,25 @@ To get further information than just the runs summary for a workflow, you are al
 To view a status list of users processed by a workflow, which are UserProcessingResults, you'd make the following API call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/userProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults
 ```
 
 By default **userProcessingResults** returns only information from the last 7 days. To get information as far back as 30 days, you would run the following API call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/userProcessingResults?$filter=<Date range for processing results>
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults?$filter=<Date range for processing results>
 ```
 
 by default **userProcessingResults** returns only information from the last 7 days. To filter information as far back as 30 days, you would run the following API call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/userProcessingResults?$filter=<Date range for processing results>
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id>/userProcessingResults?$filter=<Date range for processing results>
 ```
 
 An example of a call to get **userProcessingResults** for a month would be as follows:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/userProcessingResults?$filter=< startedDateTime ge 2022-05-23T00:00:00Z and startedDateTime le 2022-06-22T00:00:00Z
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults?$filter=< startedDateTime ge 2022-05-23T00:00:00Z and startedDateTime le 2022-06-22T00:00:00Z
 ```
 
 ### User processing results using Microsoft Graph
@@ -96,19 +96,19 @@ When multiple information is processed by a workflow, running the **userProcessi
 
 To view a summary in count form, you would run the following API call:
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/userProcessingResults/summary(<Date Range>)
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults/summary(<Date Range>)
 ```
 
 An example to get the summary between May 1, and May 30, you would run the following call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
 ```
 
 ### List task processing results of a given user processing result
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/userProcessingResults/<userProcessingResultId>/taskProcessingResults/
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults/<userProcessingResultId>/taskProcessingResults/
 ```
 
 ## Run workflow history via Microsoft Graph
@@ -120,7 +120,7 @@ With Microsoft Graph you're able to get full details of workflow and user proces
 To view a list of runs you'd make the following API call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/runs
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs
 ```
 
 ### Get a summary of runs using Microsoft Graph
@@ -128,12 +128,12 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/work
 To get a summary of runs for a workflow, which includes detailed information for counts of failed runs and tasks, along with successful runs and tasks for a time range, you'd make the following API call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/runs/summary(startDateTime=<time>,endDateTime=<time>)
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs/summary(startDateTime=<time>,endDateTime=<time>)
 ```
 An example to get a summary of runs of a workflow through the time interval of May 2022 would be as follows:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/runs/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=202205-31T00:00:00Z)
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=202205-31T00:00:00Z)
 ```
 
 ### List user and task processing results of a given run using Microsoft Graph
@@ -144,13 +144,13 @@ With Lifecycle Workflows, you're able to check the status of each user and task 
 You are also able to use **userProcessingResults** with the run call to get users processed for a run by making the following API call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<workflowId>/runs/<runId>/userProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs/<runId>/userProcessingResults
 ```
 
 This API call will also return a **userProcessingResults ID** value which can be used to retrieve task processing information in the following call:
 
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflo ws/<workflowId> /runs/<runId>/userProcessingResults/<userProcessingResultId>/taskProcessingResults
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId> /runs/<runId>/userProcessingResults/<userProcessingResultId>/taskProcessingResults
 ```
 
 > [!NOTE]

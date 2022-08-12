@@ -55,7 +55,7 @@ Running a workflow on-demand using Microsoft Graph requires users to manually be
 
 To run a workflow on-demand in Microsoft Graph, use the following request and body:
 ```http
-POST https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id>/activate
+POST https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id>/activate
 Content-type: application/json
 ```
 

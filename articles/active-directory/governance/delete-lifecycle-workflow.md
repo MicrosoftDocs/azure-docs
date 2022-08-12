@@ -62,25 +62,25 @@ After deleting workflows, you can view them on the **Deleted Workflows (Preview)
 
 Workflows can be deleted by running the following call:
 ```http
-DELETE https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/workflows/<id> 
+DELETE https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id> 
 ```
 ## View deleted workflows using Microsoft Graph
 You can view a list of deleted workflows by running the following call:
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/deletedItems/workflows 
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/deletedItems/workflows 
 ```
 
 ## Permanently delete a workflow using Microsoft Graph
 Deleted workflows can be permanently deleted by running the following call:
 ```http
-DELETE https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/deletedItems/workflows/<id>
+DELETE https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/deletedItems/workflows/<id>
 ```
 
 ## Restore deleted workflows using Microsoft Graph
 
 Deleted workflows are available to be restored for 30 days before they're permanently deleted. To restore a deleted workflow, run the following API call:
 ```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleManagement/deletedItems/workflows/<id>/restore
+GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/deletedItems/workflows/<id>/restore
 ```
 > [!NOTE]
 > Permanently deleted workflows are not able to be restored.
