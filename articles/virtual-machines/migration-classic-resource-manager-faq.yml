@@ -13,7 +13,7 @@ metadata:
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
   > [!IMPORTANT]
-  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
+  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
   
 
 sections:
@@ -145,9 +145,9 @@ sections:
           How do I migrate my classic storage accounts to Resource Manager?
         answer: |
           If you have a classic VM attached to your account, please migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
-          1. [Migrate using PowerShell](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-ps#step-52-migrate-a-storage-account)
-          2. [Migrate using Azure CLI](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account)
-          3. [Migrate using Azure Portal](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
+          1. [Migrate using PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps#step-52-migrate-a-storage-account)
+          2. [Migrate using Azure CLI](/azure/virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account)
+          3. [Migrate using Azure Portal](/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
         
       - question: |
           What is the official date classic storage accounts will be cut-off from creation?

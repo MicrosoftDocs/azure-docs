@@ -855,8 +855,6 @@ items:
         href: monitor-ssis.md
       - name: Schema of logs and events
         href: monitor-schema-logs-events.md
-      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
-        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Pipeline failure and error handling
@@ -1173,12 +1171,9 @@ items:
       displayName: orchestration
     - name: Data Flows
       items:
-      - name: Data flow troubleshooting overview
+      - name: Data flow troubleshooting guide
         href: data-flow-troubleshoot-guide.md
         displayName: timeout, troubleshooting
-      - name: Data flow errors and messages
-        href: data-flow-troubleshoot-errors.md
-        displayName: troubleshooting
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
         displayName: troubleshooting

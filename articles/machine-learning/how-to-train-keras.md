@@ -226,7 +226,7 @@ model = run.register_model(model_name='keras-mnist', model_path='outputs/model')
 
 > [!TIP]
 > The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-managed-online-endpoints.md) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `keras_mnist.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from the run history.
 
@@ -245,8 +245,7 @@ for f in run.get_file_names():
 
 In this article, you trained and registered a Keras model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
-* [How and where to deploy models](how-to-deploy-managed-online-endpoints.md)
+* [How and where to deploy models](./v1/how-to-deploy-and-where.md)
 * [Track run metrics during training](how-to-log-view-metrics.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
