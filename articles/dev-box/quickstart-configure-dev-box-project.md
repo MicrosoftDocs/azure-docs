@@ -46,6 +46,8 @@ If you don't have an available dev center with an existing dev box definition an
    |**Name**|Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes, and must be unique within a project.|
    |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes created within this pool.|
    |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes created within this pool.|
+   |**Dev Box Creator Privileges**|Select Local Administrator or Standard User.|
+   |**Licensing**| Select this check box if your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
 
