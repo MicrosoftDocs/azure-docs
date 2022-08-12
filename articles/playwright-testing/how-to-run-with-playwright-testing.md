@@ -53,7 +53,7 @@ To run your Playwright tests with Microsoft Playwright Testing, update the `play
     
 1. Create a `PlaywrightService` object: 
 
-    Specify the `accessKey` property and paste your Microsoft Playwright Testing access token. For more information, see [create an access token](./tutorial-identify-issues-with-end-to-end-web-tests.md#create-an-access-token) . Set the property directly in the configuration or create an environment variable.
+    Specify the `accessKey` property and paste your Microsoft Playwright Testing access key. For more information, see [create an access key](./how-to-manage-access-keys.md#create-an-access-key) . Set the property directly in the configuration or create an environment variable.
 
     ```typescript
     // playwright.config.ts
