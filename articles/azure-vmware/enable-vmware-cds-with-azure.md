@@ -5,9 +5,9 @@ ms.topic: how-to
 ms.date: 08/09/2022
 ---
 
-# Enable VMware Cloud director service with Azure VMware Solution (Preview)
+# Enable VMware Cloud Director service with Azure VMware Solution (Preview)
 
-VMware Cloud Director Service (CDs) (VMware Cloud Director service | Managed Service | Cloud Solutions & Services) with Azure VMware Solution enables enterprise customers, to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
+[VMware Cloud Director Service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html) with Azure VMware Solution enables enterprise customers, to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
 
 In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware Solution for enterprise customers to use Azure VMware Solution resources and Azure VMware Solution private clouds with underlying resources for virtual datacenters.
 
@@ -23,7 +23,6 @@ VMware Cloud Director supports multi-tenancy by using organizations. A single or
 
 ## Connect tenants and their organization virtual datacenters to Azure vNet based resources
 
-VMware Cloud Director supports multi-tenancy by using organizations. A single organization can have multiple organization virtual data centers (VDC). Each Organization’s VDC can have their own dedicated Tier-1 router (Edge Gateway) which is further connected with the provider’s managed shared Tier-0 router.
 To provide access to vNET based Azure resources, each tenant can have their own dedicated Azure vNET with Azure VPN gateway. A Site-to-site VPN between customer organization VDC and Azure vNET is established. To achieve this connectivity, the provider will provide public IP to the organization VDC. Organization VDC’s Administrator can configure IPSEC VPN connectivity from Cloud Director Service portal. 
 
 :::image type="content" source="media/vmware-cds/site-to-site-vpn-diagram.png" alt-text="Diagram showing site to site VPN connection and how CDS is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/site-to-site-vpn-diagram-expanded.png":::
@@ -52,7 +51,7 @@ Create the following components in tenant’s dedicated Azure vNet to establish 
 - Edit connection configuration to enable policy-based VPN. git status
 
 ### Create Azure virtual network gateway
-To create an Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](tutorial-configure-networking.md#create-a-virtual-network-gateway)
+To create an Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](tutorial-configure-networking.md#create-a-virtual-network-gateway).
 
 ### Create local network gateway
 1.	Log in to the Azure portal and select **Local network gateway** from marketplace and then select **Create**.
@@ -167,7 +166,7 @@ For more information about VMware Cloud Director Availability, see [VMware Cloud
 ## FAQs
 **Question**: What are the supported Azure regions for the VMware Cloud Director service?
 
-**Answer**: This offering is supported in all Azure regions where Azure VMware Solution is available except for Brazil and South Africa. Ensure that the region you wish to connect to Cloud Director service is within a 150-milliseconds round trip time for latency with Cloud Director service.
+**Answer**: This offering is supported in all Azure regions where Azure VMware Solution is available except for Brazil South and South Africa. Ensure that the region you wish to connect to Cloud Director service is within a 150-milliseconds round trip time for latency with Cloud Director service.
 
 ## Next steps
 [What Is VMware Cloud Director service and How Does It Work](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html)  
