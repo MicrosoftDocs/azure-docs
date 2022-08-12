@@ -61,6 +61,8 @@
   - name: Install and set up the CLI (v1)
     displayName: azurecli, mlops
     href: reference-azure-machine-learning-cli.md
+  - name: Manage workspace using CLI (v1)
+    href: how-to-manage-workspace-cli.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
   - name: Automated machine learning
@@ -220,7 +222,7 @@
       href: ../how-to-troubleshoot-deployment-local.md
     - name: Consume web service
       displayName: create client consume request response synchronous
-      href: ../how-to-consume-web-service.md
+      href: how-to-consume-web-service.md
     - name: Advanced entry script authoring
       displayName: swagger inference schema binary cors
       href: ../how-to-deploy-advanced-entry-script.md
