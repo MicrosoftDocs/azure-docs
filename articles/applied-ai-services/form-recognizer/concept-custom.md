@@ -140,7 +140,7 @@ The following table describes the features available with the associated tools a
 
 | Document type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom form 2.1 | [Form Recognizer 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Form Recognizer SDK](quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom form 2.1 | [Form Recognizer 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Form Recognizer SDK](quickstarts/get-started-v2-1-sdk-rest-api.md?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
 | Custom template 3.0 | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
 | Custom neural | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
@@ -206,4 +206,4 @@ Explore Form Recognizer quickstarts and REST APIs:
 | Quickstart | REST API|
 |--|--|
 |[v3.0 Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) |[Form Recognizer v3.0 API 2022-06-30](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)|
-| [v2.1 quickstart](quickstarts/get-started-sdk-rest-api.md) | [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/BuildDocumentModel) |
+| [v2.1 quickstart](quickstarts/get-started-v2-1-sdk-rest-api.md) | [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/BuildDocumentModel) |
