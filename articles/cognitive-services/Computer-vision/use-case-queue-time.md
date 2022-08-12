@@ -36,7 +36,7 @@ By managing queue wait time and making informed decisions, you can help your bus
 
 ## Next steps
 
-The following tutorial demonstrates the recommended practice to build a complete solution that monitors queue wait time using Spatial Analysis.  
+<!--The following tutorial demonstrates the recommended practice to build a complete solution that monitors queue wait time using Spatial Analysis. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Measure queue wait time](./Tutorials/queue-wait-time.md)
+> [Tutorial: Measure queue wait time](./Tutorials/queue-wait-time.md) -->
