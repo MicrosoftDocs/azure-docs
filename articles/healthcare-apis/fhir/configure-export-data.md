@@ -12,61 +12,67 @@ ms.author: mikaelw
 
 # Configure export settings and set up a storage account
 
-The FHIR service supports the `$export` operation [specified by HL7](https://hl7.org/fhir/uv/bulkdata/export/index.html). In the FHIR service implementation, calling the `$export` endpoint causes the FHIR service to export data into an Azure Data Lake Storage Gen2 (ADLS Gen2) account.
+The FHIR service supports the `$export` operation [specified by HL7](https://hl7.org/fhir/uv/bulkdata/export/index.html) for exporting FHIR data from a FHIR server. In the FHIR service implementation, calling the `$export` endpoint causes the FHIR service to export data into an Azure Data Lake Storage Gen2 (ADLS Gen2) account.
 
 There are three steps in configuring the `$export` operation for the FHIR service:
 
 - Enable managed identity for the FHIR service.
-- Set up a new or existing ADLS Gen2 account and grant the FHIR service permission to access the account.
+- Set up a new or existing ADLS Gen2 account and grant permission for the FHIR service to access the account.
 - Select the ADLS Gen2 account as the export destination for the FHIR service.
 
 ## Enable managed identity on the FHIR service
 
-The first step in configuring the FHIR service for export is to enable system wide managed identity on the service, which will be used to grant the service to access the storage account. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+The first step in configuring your environment for FHIR data export is to enable a system-wide managed identity for the FHIR service. This managed identity is used to authenticate the FHIR service when you send a request to export data into the storage account. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In this step, browse to your FHIR service in the Azure portal, and select the **Identity** blade. Select the **Status** option to **On** , and then select **Save**. **Yes** and **No** buttons will display. Select **Yes** to enable the managed identity for FHIR service. Once the system identity has been enabled, you'll see a system assigned GUID value. 
+In this step, browse to your FHIR service in the Azure portal and select the **Identity** blade. Set the **Status** option to **On**, and then click **Save**. When the **Yes** and **No** buttons display, select **Yes** to enable the managed identity for the FHIR service. Once the system identity has been enabled, you'll see a system-assigned **Object (principal) ID** value for your FHIR service. 
 
 [![Enable Managed Identity](media/export-data/fhir-mi-enabled.png)](media/export-data/fhir-mi-enabled.png#lightbox)
 
-## Assign permissions to the FHIR service to access the storage account
+## Assign permission to FHIR service to access the storage account
 
-1. Select **Access control (IAM)**.
+1. Go to your ADLS Gen2 storage account.
 
-1. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
+2. Select **Access control (IAM)**.
+
+3. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
 
    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Role** tab, select the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role.
+4. On the **Role** tab, select the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role.
 
    [![Screen shot showing user interface of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
 
-1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+5. On the **Members** tab, select **Managed identity**, and then click **Select members**.
 
-1. Select your Azure subscription.
+6. Select your Azure subscription.
 
-1. Select **System-assigned managed identity**, and then select the FHIR service.
+7. Select **System-assigned managed identity**, and then select the FHIR service managed identity that you created earlier.
 
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+8. On the **Review + assign** tab, click **Review + assign** to assign the role.
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
 Now you're ready to select the storage account in the FHIR service as a default storage account for export.
 
-## Specify the export storage account for FHIR service
+## Specify the storage account for export from the FHIR service
 
-The final step is to assign the Azure storage account that the FHIR service will use to export the data to.
+The final step is to specify the Azure storage account that the FHIR service will use when exporting data.
 
 > [!NOTE]
-> If you haven't assigned storage access permissions to the FHIR service, the export operations ($export) will fail.
+> In the storage account, if you haven't assigned the **Storage Blob Data Contributor** role to the FHIR service, the `$export` operation will fail.
 
-To do this, select the  **Export** blade in FHIR service and select the storage account. To search for the storage account, enter its name in the text field. You can also search for your storage account by using the available filters **Name**, **Resource group**, or **Region**. 
+1. Go to your FHIR service settings.
+
+2. Select the **Export** blade.
+
+3. Select the name of the storage account from the list, and the name will appear in the **Export storage account** field. If you need to search for your storage account, you can do so by using the **Name**, **Resource group**, or **Region** filters. 
 
 [![Screen shot showing user interface of FHIR Export Storage.](media/export-data/fhir-export-storage.png)](media/export-data/fhir-export-storage.png#lightbox)
 
-After you've completed this final step, you're ready to export the data using $export command.
+After you've completed this final step, you're ready to export data from the FHIR service using an `$export` API request.
 
 > [!Note]
-> Only storage accounts in the same subscription as that for FHIR service are allowed to be registered as the destination for $export operations.
+> Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
 
 ## Use Azure storage accounts behind firewalls
 
