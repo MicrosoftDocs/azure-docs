@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up HackNotice** section, copy the appropriate URL(s) based on your requirement.
 
-	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata")  
+	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")  
 
 ### Create an Azure AD test user
 
