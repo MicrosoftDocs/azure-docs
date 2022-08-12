@@ -5,8 +5,9 @@ ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: how-to
-ms.date: 06/20/2022
+ms.topic: quickstart
+recommendations: false
+ms.date: 08/11/2022
 ---
 
 # Ruby app to connect and query Hyperscale (Citus)
@@ -73,7 +74,7 @@ end
 
 ## Use the super power of distributed tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
@@ -232,5 +233,4 @@ end
 
 ## Next steps
 
-Learn to [build scalable applications](howto-build-scalable-apps-overview.md)
-with Hyperscale (Citus).
+[!INCLUDE[app-stack-next-steps](includes/app-stack-next-steps.md)]
