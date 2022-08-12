@@ -57,7 +57,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 `trigger` contains the following properties:
 
-- **(Required)**  `type` specifies the schedule type is `recurrence`. It can also be `recurrence`, see details in the next section.
+- **(Required)**  `type` specifies the schedule type is `recurrence`. It can also be `cron`, see details in the next section.
 
 # [SDK v2](#tab/sdkv2)
 
@@ -130,7 +130,7 @@ The `CronTrigger` section defines the schedule details and contains following pr
 
 - (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, the `start_time` will be equal to schedule creation time. If the start time is in the past, the first job will run at the next calculated run time.
 
-- (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until manual disable this schedule.  
+- (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until the schedule is manually disabled.  
 
 - (Optional) `time_zone`specifies the time zone of the expression. If omitted, by default is UTC. See [appendix for timezone values](reference-yaml-schedule.md#appendix).
 
@@ -138,7 +138,15 @@ The `CronTrigger` section defines the schedule details and contains following pr
 
 When defining a schedule using an existing job, you can change the runtime settings of the job. Using this approach, you can define multi-schedules using the same job with different inputs.
 
+# [CLI v2](#tab/cliv2)
+
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-with-settings-schedule.yml":::
+
+# [SDK v2](#tab/sdkv2)
+
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=change_run_settings)]
+
+---
 
 Following properties can be changed when defining schedule:
 
@@ -255,6 +263,7 @@ You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to que
 # [SDK v2](#tab/sdkv2)
 
 N/A
+
 ---
 
 ## Delete a schedule
@@ -280,3 +289,7 @@ N/A
 * Learn more about [CLI (v2) core YAML syntax](reference-yaml-core-syntax.md).
 * Learn more about [Pipelines](concept-ml-pipelines.md).
 * Learn more about [Component](concept-component.md).
+
+
+> [!NOTE]
+> Information the user should notice even if skimming
