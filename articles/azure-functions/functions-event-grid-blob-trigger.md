@@ -383,9 +383,9 @@ With the event subscription in place and your code project and ngrok still runni
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **Select a resource** | Storage account name | Choose the name of the storage account you created in a preview step. |
+    | **Select a resource** | Storage account name | Choose the name of the storage account you created in a previous step. |
     | **Select a resource type** | **Blob Containers** | You're uploading to a blob container. |
-    | **Select Blob Container** | **samples-workitems** | This value is the name of the container you created in a preview step. |
+    | **Select Blob Container** | **samples-workitems** | This value is the name of the container you created in a previous step. |
     | **Enter the destination directory of this upload** | default | Just accept the default value of `/`, which is the container root. |
 
 This command uploads a file from your computer to the storage container in Azure. At this point, your running ngrok instance should report that a request was forwarded. You'll also see in the func.exe output for your debugging session that your function has been started. Hopefully, at this point, your debug session is waiting for you where you set the breakpoint.    
