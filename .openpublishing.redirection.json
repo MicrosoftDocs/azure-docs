@@ -12844,6 +12844,16 @@
     "redirect_document_id":  true
 },
 {
+    "source_path_from_root":  "/articles/virtual-machines/linux/overview.md",
+    "redirect_url":  "/azure/virtual-machines/overview",
+    "redirect_document_id":  true
+},
+{
+    "source_path_from_root":  "/articles/virtual-machines/windows/overview.md",
+    "redirect_url":  "/azure/virtual-machines/overview",
+    "redirect_document_id":  true
+},
+{
     "source_path_from_root":  "/articles/virtual-machines/linux/cloudfoundry-get-started.md",
     "redirect_url":  "/azure/cloudfoundry/cloudfoundry-get-started",
     "redirect_document_id":  true
