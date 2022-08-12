@@ -4,7 +4,7 @@ description: Learn how to use continuous integration and continuous delivery (CI
 author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
-ms.search.form: synapse/cicd
+ms.search.form: home
 ms.topic: conceptual 
 ms.date: 10/08/2021
 ms.author: liud 
