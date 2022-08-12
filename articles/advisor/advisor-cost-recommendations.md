@@ -75,12 +75,12 @@ To be more selective about the actioning on underutilized virtual machines or vi
 
 In some cases recommendations can't be adopted or might not be applicable, such as some of these common scenarios (there may be other cases):
 - Virtual machine or virtual machine scale set has been provisioned to accommodate upcoming traffic
-- Virtual machine or virtual machine scale set uses other resources not considered by the resize algo, i.e. metrics other than CPU, Memory and Network
+- Virtual machine or virtual machine scale set uses other resources not considered by the resize algo, such as metrics other than CPU, Memory and Network
 - Specific testing being done on the current SKU, even if not utilized efficiently
 - Need to keep virtual machine or virtual machine scale set SKUs homogeneous 
 - Virtual machine or virtual machine scale set being utilized for disaster recovery purposes
 
-In such cases simply use the Dismiss/Postpone options associated with the recommendation. 
+In such cases, simply use the Dismiss/Postpone options associated with the recommendation. 
 
 We're constantly working on improving these recommendations. Feel free to share feedback on [Advisor Forum](https://aka.ms/advisorfeedback).
 
