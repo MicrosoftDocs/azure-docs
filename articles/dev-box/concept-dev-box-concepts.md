@@ -17,7 +17,7 @@ ms.custom: template-concept
  -->
 # Microsoft Dev Box key concepts
 
-This article describes the key concepts and components of Microsoft Dev Box preview. 
+This article describes the key concepts and components of Microsoft Dev Box. 
 
 ## Dev center
 
@@ -40,7 +40,7 @@ When creating a network connection, you must choose whether to use a native Azur
 The virtual network specified in a network connection also determines the region for the dev box. You can create multiple network connections based on the regions where you support developers and use them when creating different dev box pools to ensure dev box users create a dev box in a region close to them. Using a region close to the dev box user provides the best experience. 
 
 ## Dev box pool 
-A dev box pool is a collection of dev boxes that you manage together because they require similar settings. You can create multiple dev box pools to support the needs of hybrid teams working in different regions or on different workloads.
+A dev box pool is a collection of dev boxes that you manage together that you manage together and to which you apply similar settings. You can create multiple dev box pools to support the needs of hybrid teams working in different regions or on different workloads.
 
 ## Dev box 
 A dev box is a preconfigured ready-to-code workstation that you create through the self-service developer portal. The new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple work streams. As a dev box user you have control over your own dev boxes - you can create more as you need them, and delete them when you have finished using them.
