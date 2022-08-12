@@ -26,7 +26,6 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
 For no-code-deployment, Azure Machine Learning 
 
 * Dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
-    * The base container image/curated environment used for dynamic installation is `mcr.microsoft.com/azureml/mlflow-ubuntu18.04-py37-cpu-inference` or `AzureML-mlflow-ubuntu18.04-py37-cpu-inference`
 * Provides a MLflow base image/curated environment that contains the following items:
     * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
@@ -35,13 +34,8 @@ For no-code-deployment, Azure Machine Learning
 > [!IMPORTANT]
 > If you are used to deploying models using scoring scripts and custom environments and you are looking to know how to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](how-to-log-mlflow-models.md).
 
-> [!NOTE]
-> Consider the following limitations when deploying MLflow models to Azure Machine Learning:
-> - Spark flavor is not supported at the moment for deployment.
-> - Data type `mlflow.types.DataType.Binary` is not supported as column type in signatures. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
-> - Signatures with tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
-
-For more information about how to specify requests to online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference). For more information about the supported file types in batch endpoints, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
+> [!WARNING]
+> For information about inputs format and limitation in online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference). For more information about the supported file types in batch endpoints, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
 ## Deployment tools
 
@@ -237,13 +231,13 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
    
    __create-endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
    
    # [Batch endpoints](#tab/batch)
    
    __create-endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
     
 
 1. To create a new endpoint using the YAML configuration, use the following command:
@@ -365,37 +359,36 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy mode
 
 2. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ or __models__ page to create the endpoint deployment:
    
-   # [Online endpoints](#tab/batch)
+   # [Online endpoints](#tab/mir)
 
-    1. From the __Endpoints__ page, y the __Batch endpoints__ section, select **+Create**.
+   1. From the __Endpoints__ page, y the __Batch endpoints__ section, select **+Create**.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
+      :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
 
-    1. Provide a name for the endpoint, and then select __Next__.
-    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+   1. Provide a name for the endpoint, and then select __Next__.
+   1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
 
-    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
+   1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
+      :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
 
-    1. Complete the wizard to deploy the model to the endpoint.
+   1. Complete the wizard to deploy the model to the endpoint.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen.":::
+      :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen.":::
    
-    # [Batch endpoints](#tab/mir)
+   # [Batch endpoints](#tab/batch)
 
-    1. From the __Endpoints__ page, Select **+Create**.
+   1. From the __Endpoints__ page, Select **+Create**.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models/create-batch-endpoint.png" lightbox="media/how-to-deploy-mlflow-models/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
+      :::image type="content" source="media/how-to-deploy-mlflow-models/create-batch-endpoint.png" lightbox="media/how-to-deploy-mlflow-models/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
 
-    1. Provide a name and authentication type for the endpoint, and then select __Next__.
-    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+   1. Provide a name and authentication type for the endpoint, and then select __Next__.
+   1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+   1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
 
-    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
-
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
+      :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
         
-    1. Create your default deployment in your endpoint. For that provide the following values and then clic on __Next__:
+   1. Create your default deployment in your endpoint. For that provide the following values and then clic on __Next__:
     
       * __Deployment name:__ Name of the default deployment you want.
       * __Output action:__ Use __Append__ to output the predictions generated by the model in your output.
@@ -405,13 +398,13 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy mode
       * __Max retires:__ The number of times a worker will retry to score a given mini batch processing has failed.
       * __Max concurrency per instance:__ The number of workers each instance will have available. If you cluster has 2 nodes and you indicate __Max concurrency per instance__ = 2, then 4 workers will be available to you. Each of them will process __Mini batch size__ samples at a time.
 
-    1. For environment, you don't have to specify anything for MLflow models.
+   1. For environment, you don't have to specify anything for MLflow models.
 
-    1. Configure the cluster the jobs will run on and the number of instances it will be utilized from it. Azure Machine Learning Batch Endpoints runs on Compute Clusters. You will need to have a compute cluster created where the batch endpoints will get deployed. The cluster is only utilized when jobs are submitted, so you can utilize the same cluster for multiple deployments if needed. 
+   1. Configure the cluster the jobs will run on and the number of instances it will be utilized from it. Azure Machine Learning Batch Endpoints runs on Compute Clusters. You will need to have a compute cluster created where the batch endpoints will get deployed. The cluster is only utilized when jobs are submitted, so you can utilize the same cluster for multiple deployments if needed. 
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models/create-batch-endpoint-2.png" lightbox="media/how-to-deploy-mlflow-models/create-batch-endpoint-2.png" alt-text="Screenshot showing cluster configuration.":::
+      :::image type="content" source="media/how-to-deploy-mlflow-models/create-batch-endpoint-2.png" lightbox="media/how-to-deploy-mlflow-models/create-batch-endpoint-2.png" alt-text="Screenshot showing cluster configuration.":::
         
-    1. Complete the wizard to deploy the model to the endpoint.
+   1. Complete the wizard to deploy the model to the endpoint.
 
 
 ## Considerations when deploying to real time inference
@@ -479,6 +472,14 @@ Your inputs should be submitted inside a JSON payload containing a dictionary wi
     }
 }
 ```
+
+### Limitations
+
+> [!NOTE]
+> Consider the following limitations when deploying MLflow models to Azure Machine Learning:
+> - Spark flavor is not supported at the moment for deployment.
+> - Data type `mlflow.types.DataType.Binary` is not supported as column type in signatures. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
+> - Signatures with tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
 
 ## Considerations when deploying to batch inference
 
