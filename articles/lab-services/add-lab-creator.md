@@ -20,7 +20,7 @@ To provide educators the permission to create labs for their classes, add them t
 
 1. On the **Lab Plan** resource, select **Access control (IAM)**
 
-1. Select **Add** > **Add role assignment (Preview)**.
+1. Select **Add** > **Add role assignment**.
 
     ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
