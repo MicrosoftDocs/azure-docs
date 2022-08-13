@@ -187,6 +187,9 @@ In addition to load balancer health probes, the [following operations use this I
 
 * Don't enable [TCP timestamps](https://tools.ietf.org/html/rfc1323). TCP timestamps can cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack. The dropped packets can cause the  load balancer to mark the endpoint as down. TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
 
+* Using TCP probes to check SSH connectivity (port 22) might result in the following errors being displayed in the logs:
+error: kex_exchange_identification: read: Connection reset by peer
+
 ## Monitoring
 
 Public and internal [Standard Load Balancer](./load-balancer-overview.md) expose per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). These metrics can be consumed by other Azure services or partner applications. 
