@@ -17,6 +17,10 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## August 2022
+
+Form Recognizer REST API v3.) is now generally available and ready for use in production applications!
+
 ## June 2022
 
 ### [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June Update

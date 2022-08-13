@@ -13,11 +13,11 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
-[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta)
+[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
-* [ **General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
+* [**General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -64,7 +64,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
-    npm install @azure/ai-form-recognizer@4.0.0-beta.4 @azure/identity
+    npm i @azure/ai-form-recognizer@4.0.0-beta.6 @azure/identity
     ```
 
     * Your app's `package.json` file will be updated with the dependencies.

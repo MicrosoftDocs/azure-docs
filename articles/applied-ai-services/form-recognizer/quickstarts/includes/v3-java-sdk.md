@@ -13,11 +13,11 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
-[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
-* [ **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [**General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -91,7 +91,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.5")
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.6")
     }
     ```
 

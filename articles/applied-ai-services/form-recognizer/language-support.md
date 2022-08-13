@@ -186,11 +186,11 @@ Language| Locale code |
 |:-----|:----:|
 |English (United States) |en-US|
 |Spanish| es|
-|German (**2022-08-31**)| de|
-|French (**2022-08-31**)| fr|
-|Italian (**2022-08-31**)|it|
-|Portuguese (**2022-08-31**)|pt|
-|Dutch (**2022-08-31**)| nl|
+|German (**2022-06-30**, **2022-08-31**)| de|
+|French (**2022-06-30**, **2022-08-31**)| fr|
+|Italian (**2022-06-30**, **2022-08-31**)|it|
+|Portuguese (**2022-06-30**, **2022-08-31**)|pt|
+|Dutch (**2022-06-30**, **2022-08-31**)| nl|
 
 ## ID document model
 

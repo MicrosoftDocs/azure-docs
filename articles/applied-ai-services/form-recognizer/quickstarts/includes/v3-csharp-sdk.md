@@ -16,11 +16,11 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD029 -->
 
-[Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 In this quickstart, you'll use the following features to analyze and extract data and values from forms and documents:
 
-* [ **General document model**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [**General document model**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -73,7 +73,7 @@ In this quickstart, you'll use the following features to analyze and extract dat
 
      :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
- 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.4*** from the dropdown menu and install the package in your project.
+ 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.5*** from the dropdown menu and install the package in your project.
 <!-- --- -->
 
 ## Build your application
