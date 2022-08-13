@@ -115,8 +115,8 @@ Training with labels leads to better performance in some scenarios. To train wit
 |Language |Method|
 |--|--|
 |**C#**|[**StartBuildModel**](/dotnet/api/azure.ai.formrecognizer.documentanalysis.documentmodeladministrationclient.startbuildmodel?view=azure-dotnet#azure-ai-formrecognizer-documentanalysis-documentmodeladministrationclient-startbuildmodel&preserve-view=true)|
-|**Java**| [**beginBuildModel**](/java/api/com.azure.ai.formrecognizer.administration.documentmodeladministrationclient.beginbuildmodel?view=azure-java&preserve-view=true)|
-|**JavaScript** | [**beginBuildModel**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node#@azure-ai-form-recognizer-documentmodeladministrationclient-beginbuildmodel&preserve-view=true)|
+|**Java**| [**beginBuildModel**](/java/api/com.azure.ai.formrecognizer.administration.documentmodeladministrationclient.beginbuildmodel?view=azure-java-stable&preserve-view=true)|
+|**JavaScript** | [**beginBuildModel**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-beginbuildmodel&preserve-view=true)|
 | **Python** | [**begin_build_model**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.aio.documentmodeladministrationclient?view=azure-python#azure-ai-formrecognizer-aio-documentmodeladministrationclient-begin-build-model&preserve-view=true)
 
 ---
@@ -126,7 +126,7 @@ Training with labels leads to better performance in some scenarios. To train wit
 > [!NOTE]
 > **the `create compose model` operation is only available for custom models trained _with_ labels.** Attempting to compose unlabeled models will produce an error.
 
-With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-2/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Form Recognizer first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
+With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Form Recognizer first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 ### [Form Recognizer Studio](#tab/studio)
 
@@ -186,7 +186,7 @@ Once the training process has successfully completed, you can begin to build you
 
 #### Compose your custom models
 
-The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-2/operations/ComposeDocumentModel) accepts a list of model IDs to be composed.
+The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel) accepts a list of model IDs to be composed.
 
 :::image type="content" source="media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 
@@ -198,7 +198,7 @@ To make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/doc
 
 #### Manage your composed models
 
-You can manage custom models throughout your development needs including [**copying**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-2/operations/CopyDocumentModelTo), [**listing**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-2/operations/GetModels), and [**deleting**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-2/operations/DeleteModel) your models.
+You can manage custom models throughout your development needs including [**copying**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo), [**listing**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels), and [**deleting**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) your models.
 
 ### [Client-libraries](#tab/sdks)
 

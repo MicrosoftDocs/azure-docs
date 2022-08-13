@@ -110,7 +110,7 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 
 * **ID document (v3.0)** prebuilt model supports extraction of endorsement, restriction, and vehicle class codes from US driver's licenses.
 
-* The ID Document **2022-08-31** release supports the following data extraction from US driver's licenses:
+* The ID Document **2022-06-30** and **2022-08-31** releases support the following data extraction from US driver's licenses:
 
   * Date issued
   * Height
