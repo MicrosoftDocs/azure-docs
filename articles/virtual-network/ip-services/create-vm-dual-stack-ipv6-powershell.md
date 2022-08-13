@@ -60,7 +60,7 @@ $net = @{
     AddressPrefix = '10.0.0.0/16','2404:f800:8000:122::/63'
     Subnet = $subnetConfig
 }
-$vnet = New-AzVirtualNetwork @net
+New-AzVirtualNetwork @net
 
 ```
 
@@ -78,9 +78,9 @@ $ip4 = @{
     Sku = 'Standard'
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
-    Zone = '1 2 3'
+    Zone = 1,2,3
 }
-$publicIP-IPv4 = New-AzPublicIpAddress @ip4
+New-AzPublicIpAddress @ip4
 
 $ip6 = @{
     Name = 'myPublicIP-IPv6'
@@ -89,9 +89,9 @@ $ip6 = @{
     Sku = 'Standard'
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv6'
-    Zone = '1 2 3'
+    Zone = 1,2,3
 }
-$publicIP-IPv6 = New-AzPublicIpAddress @ip6
+New-AzPublicIpAddress @ip6
 ```
 ## Create a network security group
 
@@ -202,7 +202,7 @@ $nic = @{
     NetworkSecurityGroup = $nsg
     IpConfiguration = $IPv4Config,$IPv6Config   
 }
-$nicVM = New-AzNetworkInterface @nic
+New-AzNetworkInterface @nic
 ```
 
 ### Create virtual machine
@@ -220,7 +220,6 @@ Use the following commands to create the virtual machine:
 * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
 ```azurepowershell-interactive
-# Set the administrator and password for the VM. ##
 $cred = Get-Credential
 
 ## Place network interface into a variable. ##
@@ -232,17 +231,17 @@ $nicVM = Get-AzNetworkInterface @nic
 
 ## Create a virtual machine configuration for VMs ##
 $vmsz = @{
-    VMName = "myVM"
+    VMName = 'myVM'
     VMSize = 'Standard_DS1_v2'  
 }
 $vmos = @{
-    ComputerName = "myVM"
+    ComputerName = 'myVM'
     Credential = $cred
 }
 $vmimage = @{
-    PublisherName = 'Canonical'
-    Offer = 'UbuntuServer'
-    Skus = '18.04-LTS'
+    PublisherName = 'Debian'
+    Offer = 'debian-11'
+    Skus = '11'
     Version = 'latest'    
 }
 $vmConfig = New-AzVMConfig @vmsz `
@@ -273,7 +272,11 @@ Get-AzPublicIPAddress @ip4 | select IpAddress
 ```
 
 ```azurepowershell-interactive
+PS /home/user> Get-AzPublicIPAddress @ip4 | select IpAddress
 
+IpAddress
+---------
+20.72.115.187
 ```
 
 ```azurepowershell-interactive
@@ -285,13 +288,17 @@ Get-AzPublicIPAddress @ip6 | select IpAddress
 ```
 
 ```azurepowershell-interactive
+PS /home/user> Get-AzPublicIPAddress @ip6 | select IpAddress
 
+IpAddress
+---------
+2603:1030:403:3::1ca
 ```
 
 Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine.
 
 ```azurepowershell-interactive
-ssh azureuser@20.119.201.208
+ssh azureuser@20.72.115.187
 ```
 
 ## Clean up resources
