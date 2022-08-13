@@ -83,9 +83,20 @@ Providing sufficient resources like RAM and compute cores to your agent is impor
 1. Within the **Summary** pane, select **Finish** to create the agent VM.
   :::image type="content" source="media/agent-deploy/agent-configuration-details.png" alt-text="Image showing the user-assigned values in the Summary pane of the New Virtual Machine Wizard.":::
 1. After the new agent is successfully created, it will appear in the **Virtual Machines** pane within the **Hyper-V Manager**.
-     :::image type="content" source="media/agent-deploy/agent-created.png" alt-text="Image showing the user-assigned values in the Summary pane of the New Virtual Machine Wizard.":::
+     :::image type="content" source="media/agent-deploy/agent-created.png" alt-text="Image showing the agent VM deployed within the New Virtual Machine Wizard.":::
+
+## Register the agent
+
+Once your agent VM is running, you'll need to create trust to use it for migrations.
 
 # [Hyper-V](#tab/hyper-v)
+
+1. Open **Hyper-V Manager**. In the **Virtual Machines** pane and select your agent. Start your agent by select **Start** within the **Actions** pane.
+  :::image type="content" source="media/agent-deploy/agent-vm-start.png" alt-text="Image illustrating the steps involved with starting a VM within Hyper-V Manager.":::
+1. After starting, the agent VM's **State**, **CPU Usage**, and other metrics are displayed in the **Virtual Machines** pane. Additionally, a checkpoint is automatically created. Connect to the agent VM by selecting **Connect...** from the agent's section within the **Actions** pane as shown.
+  :::image type="content" source="media/agent-deploy/agent-vm-connect.png" alt-text="Image illustrating the location of the Connect icon within Hyper-V Manager.":::
+1. In the **Virtual Machine Connection** window, login to the agent VM using the default credentials. At the **login** prompt, enter **admin** and press the **Enter** key. Enter **admin** again at the **Password** prompt and press the **Enter** key. Enter **n** when prompted to change the default password and press the **Enter** key.
+  :::image type="content" source="media/agent-deploy/agent-vm-login.png" alt-text="Image illustrating the authentication prompts for the agent VM using Hyper-V Manager.":::
 
 # [PowerShell](#tab/powershell)
 
@@ -107,9 +118,7 @@ Content for CLI.
 
 ---
 
-## Register the agent
 
-Once your agent VM is running, you'll need to create trust to use it for migrations.
 
 ## Prepare the batter
 
