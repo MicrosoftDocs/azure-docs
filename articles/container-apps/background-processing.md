@@ -48,6 +48,7 @@ Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command may result i
 $CmdArgs = @{
   Name = "myworkspace"
   ResourceGroupName = $RESOURCE_GROUP
+  Location = $LOCATION
   PublicNetworkAccessForIngestion = "Enabled"
   PublicNetworkAccessForQuery = "Enabled"
 }
@@ -63,9 +64,9 @@ $CmdArgs = @{
   EnvName = $CONTAINERAPPS_ENVIRONMENT
   ResourceGroupName = $RESOURCE_GROUP
   Location = $LOCATION
-  AppLogConfigurationDestination "log-analytics"
-  LogAnalyticConfigurationCustomerId $WORKSPACE_ID
-  LogAnalyticConfigurationSharedKey $WORKSPACE_SHARED_KEY
+  AppLogConfigurationDestination = "log-analytics"
+  LogAnalyticConfigurationCustomerId = $WORKSPACE_ID
+  LogAnalyticConfigurationSharedKey = $WORKSPACE_SHARED_KEY
 }
 New-AzContainerAppManagedEnv @CmdArgs
 ```
@@ -150,7 +151,7 @@ az storage queue create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queue = New-AzStorageQueue -Name "myqueue"  -Context $STORAGE_ACCOUNT.Context
+$queue = New-AzStorageQueue -Name "myqueue" -Context $STORAGE_ACCOUNT.Context
 ```
 
 ---
@@ -172,6 +173,8 @@ az storage message put \
 $queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("Hello Queue Reader App")
 $queue.CloudQueue.AddMessageAsync($QueueMessage).GetAwaiter().GetResult()
 ```
+
+A result of `Microsoft.Azure.Storage.Core.NullType` is returned when the message is added to the queue.
 
 ---
 
@@ -282,11 +285,11 @@ $params = @{
 $CmdArgs = @{
    ResourceGroupName = $RESOURCE_GROUP
    TemplateParameterObject = $params
-   TemplateFile = ./queue.json
+   TemplateFile = "./queue.json"
    SkipTemplateParameterPrompt = $true
 }
 
-New-AzResourceGroupDeployment = @CmdArgs
+New-AzResourceGroupDeployment  @CmdArgs
 ```
 
 ---
