@@ -78,7 +78,7 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
 
 ## Connect with Azure AD
 
-Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](/azure/active-directory/managed-identities-azure-resources/overview)). This functionality allows you to develop code that doesn't require any secrets (keys or connection strings) stored in the code or environment. Managed identity requires [**setup**](assign-azure-role-data-access.md?tabs=portal) for any identities such as developer (personal) or cloud (hosting) environments. You need to complete the setup before using the code in this section. 
+Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This functionality allows you to develop code that doesn't require any secrets (keys or connection strings) stored in the code or environment. Managed identity requires [**setup**](assign-azure-role-data-access.md?tabs=portal) for any identities such as developer (personal) or cloud (hosting) environments. You need to complete the setup before using the code in this section. 
 
 After you complete the setup, your Storage resource needs to have one or more of the following roles assigned to the identity resource you plan to connect with:
 

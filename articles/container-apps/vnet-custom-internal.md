@@ -15,9 +15,6 @@ zone_pivot_groups: azure-cli-or-portal
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 
-> [!IMPORTANT]
-> Container Apps environments are deployed on a virtual network. This network can be managed or custom (pre-configured by the user beforehand). In either case, the environment has dependencies on services outside of that virtual network. For a list of these dependencies see [Outbound FQDN dependencies](firewall-integration.md#outbound-fqdn-dependencies).
-
 ::: zone pivot="azure-portal"
 
 <!-- Create -->

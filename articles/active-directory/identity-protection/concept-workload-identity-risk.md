@@ -54,6 +54,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 | Unusual addition of credentials to an OAuth app | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate-anomaly-alerts#unusual-addition-of-credentials-to-an-oauth-app). This detection identifies the suspicious addition of privileged credentials to an OAuth app. This can indicate that an attacker has compromised the app, and is using it for malicious activity. |
 | Admin confirmed account compromised | Offline | This detection indicates an admin has selected 'Confirm compromised' in the Risky Workload Identities UI or using riskyServicePrincipals API. To see which admin has confirmed this account compromised, check the account’s risk history (via UI or API). |
 | Leaked Credentials (public preview) | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against current valid credentials in Azure AD to find valid matches. |
+| Anomalous service principal activity (public preview) | Offline | This risk detection indicates suspicious patterns of activity have been identified for an authenticated service principal. The post-authentication behavior for service principals is assessed for anomalies based on action or sequence of actions occurring for the account, along with any sign-in risk detected. |
 
 ## Identify risky workload identities
 
@@ -113,3 +114,4 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 - [Microsoft Graph API](/graph/use-the-api)
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
+- [Simulate risk detections](howto-identity-protection-simulate-risk.md)

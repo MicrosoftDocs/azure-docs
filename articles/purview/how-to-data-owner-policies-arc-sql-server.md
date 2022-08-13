@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 07/11/2022
+ms.date: 08/12/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -24,11 +24,18 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 
 **Enforcement of policies for this data source is available only in the following regions for Microsoft Purview**
 - East US
+- East US 2
+- South Central US
 - West US 3
 - Canada Central
 - West Europe
+- North Europe
 - UK South
 - France Central
+- UAE North
+- Central India
+- Korea Central
+- Japan East
 - Australia East
 
 ## Security considerations
@@ -109,7 +116,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 
 >[!Important]
-> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
+> - Publish is a background operation. It can take up to **5 minutes** for the changes to be reflected in this data source.
 > - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull.
 
 ### Test the policy

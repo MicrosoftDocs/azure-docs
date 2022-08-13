@@ -15,7 +15,7 @@ Streaming jobs that output no result or unexpected results often need troublesho
 
 ## Debug a query using job diagram
 
-An Azure Stream Analytics script is used to transform input data to output data. The job diagram shows how data flows from input sources, like Event Hub or IoT Hub, through multiple query steps to output sinks. Each query step is mapped to a temporary result set defined in the script using a `WITH` statement. You can view the data as well as metrics of each query step in each intermediate result set to find the source of an issue.
+An Azure Stream Analytics script is used to transform input data to output data. The job diagram shows how data flows from input sources, like Event Hubs or IoT Hub, through multiple query steps to output sinks. Each query step is mapped to a temporary result set defined in the script using a `WITH` statement. You can view the data as well as metrics of each query step in each intermediate result set to find the source of an issue.
 
 > [!NOTE]
 > This job diagram only shows the data and metrics for local testing in a single node. It should not be used for performance tuning and troubleshooting.
@@ -93,11 +93,9 @@ Select **Job Summary** at the top-right of the job diagram to see properties and
 
 ## Limitations
 
-* Live output sinks aren't supported in local run.
-
 * Run job locally with JavaScript function is only supported on the Windows operating system.
 
-* C# custom code and Azure Machine Learning functions aren't supported. 
+* Azure Machine Learning functions aren't supported. 
 
 * Only cloud input options have [time policies](./stream-analytics-time-handling.md) support, while local input options don't.
 

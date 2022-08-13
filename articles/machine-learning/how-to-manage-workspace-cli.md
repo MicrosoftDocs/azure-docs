@@ -5,8 +5,9 @@ description: Learn how to use the Azure CLI extension for machine learning to cr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: Blackmist
+ms.author: deeikele
+author: deeikele
+ms.reviewer: larryfr
 ms.date: 01/05/2022
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, cliv1, event-tier1-build-2022
@@ -504,3 +505,5 @@ For more information on the Azure CLI extension for machine learning, see the [a
 To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+
+For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

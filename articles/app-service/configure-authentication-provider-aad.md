@@ -150,6 +150,9 @@ At present, this allows _any_ client application in your Azure AD tenant to requ
 
 You have now configured a daemon client application that can access your App Service app using its own identity.
 
+> [!NOTE]
+> The access tokens provided to your app via EasyAuth do not have scopes for other APIs, such as Graph, even if your application has permissions to access those APIs. To use these APIs, you will need to use Azure Resource Manager to configure the token returned so it can be used to authenticate to other services. For more information, see [Tutorial: Access Microsoft Graph from a secured .NET app as the user](/azure/app-service/scenario-secure-app-access-microsoft-graph-as-user?tabs=azure-resource-explorer) .
+
 ## Best practices
 
 Regardless of the configuration you use to set up authentication, the following best practices will keep your tenant and applications more secure:

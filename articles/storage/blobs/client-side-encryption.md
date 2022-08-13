@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/11/2022
+ms.date: 07/12/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
@@ -224,6 +224,8 @@ For a sample project that shows how to migrate data from client-side encryption 
 ### [Python](#tab/python)
 
 For a sample project that shows how to migrate data from client-side encryption v1 to v2 and how to encrypt data with client-side encryption v2 in Python, see [Client Side Encryption Migration from V1 to V2](https://github.com/wastore/azure-storage-samples-for-python/tree/master/ClientSideEncryptionToServerSideEncryptionMigrationSamples/ClientSideEncryptionV1ToV2).
+
+---
 
 ## Client-side encryption and performance
 

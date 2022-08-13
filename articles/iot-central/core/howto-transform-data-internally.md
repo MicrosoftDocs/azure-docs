@@ -730,7 +730,7 @@ JSON output:
 The output data is exported to your Azure Data Explorer cluster. To visualize the exported data in Power BI, complete the following steps:
 
 1. Install the Power BI application. You can download the desktop Power BI application from [Go from data to insight to action with Power BI Desktop](https://powerbi.microsoft.com/desktop/).
-1. Download the Power BI desktop [IoT Central ADX Connector.pbit](https://github.com/Azure-Samples/iot-central-docs-samples/raw/master/azure-data-explorer-power-bi/IoT%20Central%20ADX%20Connector.pbit) file from GitHub.
+1. Download the Power BI desktop [IoT Central ADX Connector.pbit](https://github.com/Azure-Samples/iot-central-docs-samples/raw/main/azure-data-explorer-power-bi/IoT%20Central%20ADX%20Connector.pbit) file from GitHub.
 1. Use the Power BI Desktop app to open the *IoT Central ADX Connector.pbit* file you downloaded in the previous step. When prompted, enter the Azure Data Explorer cluster, database, and table information you made a note of previously.
 
 Now you can visualize the data in Power BI:
