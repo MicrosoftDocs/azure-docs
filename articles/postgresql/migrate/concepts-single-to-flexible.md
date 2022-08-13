@@ -36,9 +36,6 @@ The migration tool is agnostic of source and target PostgreSQL versions. Here ar
 >[!NOTE]
 > Migration initiation from Single Server is enabled in preview in these regions: Central US, West US, South Central US, North Central US, East Asia, Switzerland North, Australia South East, UAE North, UK West and Canada East. However, you can use the migration wizard from the Flexible Server side in all regions.
 
->[!IMPORTANT]
-> The intent of the tool is to provide a seamless migration experience for most workloads. However, you may also choose other options to migrate using [dump/restore](../single-server/how-to-upgrade-using-dump-and-restore.md) or using [Azure Database Migration Service (DMS)](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) or using any 3rd party tools.
-
 ## Overview
 
 The migration tool provides an inline experience to migrate databases from Single Server (source) to Flexible Server (target).
@@ -225,6 +222,11 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 - Cut over all dependent applications to access the new primary database, and open the applications for production usage.
 - After the application starts running on the Flexible Server target, monitor the database performance closely to see if performance tuning is required.
+
+## Other migration methods
+
+The intent of the tool is to provide a seamless migration experience for most workloads. However, you may also choose other options to migrate using [dump/restore](../single-server/how-to-upgrade-using-dump-and-restore.md) or using [Azure Database Migration Service (DMS)](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) or using any 3rd party tools.
+
 
 ## Next steps
 
