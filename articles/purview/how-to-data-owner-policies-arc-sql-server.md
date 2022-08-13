@@ -84,7 +84,8 @@ Register each data source with Microsoft Purview to later define access policies
 
 1. **Select a collection** to put this registration in. 
 
-1. Turn the switch **Data Use Management** to **Enabled**. This switch enables the access-policies to be used with the given Arc-enabled SQL server. Note: Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. Secure practices related to Data Use Management are described in this guide: [registering a data resource for Data Use Management](./how-to-enable-data-use-management.md)
+1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management]
+(./how-to-enable-data-use-management.md)
 
 1. Enter the **Application ID** from the App Registration related to this Arc-enabled SQL server.
 
