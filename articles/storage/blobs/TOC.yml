@@ -402,12 +402,15 @@ items:
             items:
             - name: Check the encryption key model for the account
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Configure encryption with customer-managed keys
+            - name: Configure customer-managed keys in Azure Key Vault
               items:
-              - name: Store customer-managed keys in a key vault
+              - name: Configure the key vault and keys
+                href: 
+              - name: Configure customer-managed keys for a new account
+              - name: Configure customer-managed keys for an existing account
                 href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              - name: Store customer-managed keys in a managed HSM
-                href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configure customer-managed keys in a managed HSM
+              href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Provide an encryption key on a request
             href: storage-blob-customer-provided-key.md
           - name: Manage encryption scopes

@@ -14,7 +14,7 @@ ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure an Azure key vault for customer-managed keys
+# Configure encryption with customer-managed keys stored in Azure Key Vault
 
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM).
 
@@ -23,25 +23,11 @@ This article shows how to configure encryption with customer-managed keys stored
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
-## Prerequisites
-
-When you configure customer-managed keys in an Azure key vault, you associate the key vault with your Azure storage account. The storage account can be a new or existing account.
-
-### Configuring customer-managed keys for a new storage account
-
-If you are creating a new storage account, create the key vault first, then create the storage account. You'll  
-
-you'll either need to create a new storage account, or have an existing storage account
-
-### Configuring customer-managed keys for an existing storage account
-
-xyz
-
-## Configure the key vault
+## Configure a key vault
 
 You can use a new or existing key vault to store customer-managed keys. The storage account and key vault may be in different regions or subscriptions in the same tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
 
-Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created. For more information about soft delete and purge protection, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md).
+Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
 # [Azure portal](#tab/portal)
 
