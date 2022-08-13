@@ -58,22 +58,34 @@ Prescriptively direct the customer through the procedure end-to-end. Don't link 
 
 ## Download agent VM
 
-You'll need an agent VM to facilitate the migration of your files.
+You'll need to download the agent's VHD and attach it to a new VM to facilitate the migration of your files.
 
-## Run the agent
+You can access the VHD file from [\\xstoreself.corp.microsoft.com\scratch\XDataMove\Public Preview](\\xstoreself.corp.microsoft.com\scratch\XDataMove\Public Preview).
+
+## Create the agent
 
 Providing sufficient resources like RAM and compute cores to your agent is important.
 
-# [Hyper-V](#tab/hyper-v)
-
 1. Unpack the agent VHD to a local folder.
-1. Create a new VM to host the agent.
-1. Specify values for the agent VM's name and location (preferably in the same location as he VHD). Select **Next**.
-1. Specify the generation of the agent VM - for now, only **Gen 1** is supported.
-1. Provide adequate RAM for the agent VM (3072 MB dynamic RAM provided in our example).
-1. Configure networking (**Not connected** for now). Select **Next**.
-1. Select **Use an existing Virtual Hard Disk** and specify the unpacked agent VHD created earlier. Select **Next**.
-1. Select **Finish**.
+  :::image type="content" source="media/agent-deploy/agent-disk-extract.png" alt-text="Image of a compressed file being extracted to the local file system.":::
+1. Create a new VM to host the agent. Open **Hyper-V Manager**. In the **Actions** pane, select **New** and **Virtual Machine...** to launch the **New Virtual Machine Wizard**.
+  :::image type="content" source="media/agent-deploy/agent-vm-create.png" alt-text="Image showing how to launch the New Virtual Machine Wizard from within the Hyper-V Manager.":::
+1. Within the **Specify Name and Location** pane, specify values for the agent VM's **Name** and **Location** fields. The location should match the folder where the VHD is stored, if possible. Select **Next**.
+  :::image type="content" source="media/agent-deploy/agent-name-select.png" alt-text="Image showing the location of the Name and Location fields within the New Virtual Machine Wizard.":::
+1. Within the **Specify Generation** pane, select the **Generation 1** option. Only **Generation 1** VM generation is supported during the Azure Storage Mover public preview.
+  :::image type="content" source="media/agent-deploy/agent-vm-generation-select.png" alt-text="Image showing the location of the VM Generation options within the New Virtual Machine Wizard.":::
+1. Within the **Assign Memory** pane, enter the amount of memory you will allocate to the agent VM. 3072 MB dynamic RAM is being provided in our example. For information on allocation recommendations, see the article on [Performance Targets](performance-targets.md).
+  :::image type="content" source="media/agent-deploy/agent-memory-allocate.png" alt-text="Image showing the location of the Startup Memory field within the New Virtual Machine Wizard.":::
+1. Within the **Assign Memory** pane, select the **Connection** drop-down and choose the virtual switch which will provide the agent with internet connectivity. Select **Next**.
+  :::image type="content" source="media/agent-deploy/agent-networking-configure.png" alt-text="Image showing the location of the network Connection field within the New Virtual Machine Wizard.":::
+1. Within the **Connect Virtual Hard Disk** pane, select the **Use an existing Virtual Hard Disk** option. In the **Location** field, select **Browse** and navigate to the VHD file that was extracted in the previous steps. Select **Next**.
+  :::image type="content" source="media/agent-deploy/agent-disk-connect.png" alt-text="Image showing the location of the Virtual Hard Disk Connection fields within the New Virtual Machine Wizard.":::
+1. Within the **Summary** pane, select **Finish** to create the agent VM.
+  :::image type="content" source="media/agent-deploy/agent-configuration-details.png" alt-text="Image showing the user-assigned values in the Summary pane of the New Virtual Machine Wizard.":::
+1. After the new agent is successfully created, it will appear in the **Virtual Machines** pane within the **Hyper-V Manager**.
+     :::image type="content" source="media/agent-deploy/agent-created.png" alt-text="Image showing the user-assigned values in the Summary pane of the New Virtual Machine Wizard.":::
+
+# [Hyper-V](#tab/hyper-v)
 
 # [PowerShell](#tab/powershell)
 

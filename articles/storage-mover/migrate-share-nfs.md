@@ -55,9 +55,7 @@ The script will create the following resources:
 In addition, the script will authorize the Agent to read and write to the target storage container using Azure role-based access control (RBAC). This is done using the account the admin is logged in with. Your account will need to have Owner permissions on the target storage account to grant access to the Agent. By design, the Storage Mover service cannot grant access to agents. Please note that in this release, agent permissions are not automatically revoked after a migration job finishes.
 
 The Agent does not have access to the Storage Access Keys or a SAS token to the migration target. 
-The Agent uses a managed identity created when the Agent registered to Azure. The identity is 
-unique to the Agent and its lifetime is linked to the Agent. This identity will also show in the access 
-logs.
+The Agent uses a managed identity created when the Agent registered to Azure. The identity is unique to the Agent and its lifetime is linked to the Agent. This identity will also show in the access logs.
 
 Reference the Microsoft docs for an [Overview of Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
