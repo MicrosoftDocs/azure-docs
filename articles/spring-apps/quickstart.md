@@ -30,7 +30,7 @@ This quickstart explains how to:
 
 At the end, you'll have a working spring app running on Azure Spring Apps.
 
-:::image type="content" source="media/quickstart/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="media/quickstart/access-app-browser.png":::
+:::image type="content" source="articles/spring-apps/media/quickstart/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="articles/spring-apps/media/quickstart/access-app-browser.png":::
 
 ## [CLI](#tab/Azure-CLI)
 
