@@ -19,7 +19,7 @@ In this article, we're going to show you how to use auto provisioning to deploy 
 | Aspect                                               | Details                                                                                                                                                         |
 |------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                                       | Preview                                                                                                                                                                            |
-| Relevant Defender plan:                              | - For [Endpoint protection assessment](endpoint-protection-recommendations-technical.md): [Security posture management (CSPM)](overview-page.md) (Free and enabled by default)<br>- For [Adaptive application controls](adaptive-application-controls.md): [Defender for Servers Plan 2](defender-for-servers-introduction.md)<br>- For [File Integrity Monitoring](file-integrity-monitoring-overview.md): [Defender for Servers Plan 2](defender-for-servers-introduction.md)<br>- For [Fileless attack detection](defender-for-servers-introduction.md#plan-features): [Defender for Servers Plan 2](defender-for-servers-introduction.md)<br>- For SQL content: [Defender for SQL on machines](defender-for-sql-usage.md)                                                                                                                      |
+| Relevant Defender plan:                              | - For [Endpoint protection assessment](endpoint-protection-recommendations-technical.md): [Security posture management (CSPM)](overview-page.md) (Free and enabled by default)<br>- For [Adaptive application controls](adaptive-application-controls.md): [Defender for Servers Plan 2](defender-for-servers-introduction.md)<br>- For [File Integrity Monitoring](file-integrity-monitoring-overview.md): [Defender for Servers Plan 2](defender-for-servers-introduction.md)<br>- For [Fileless attack detection](defender-for-servers-introduction.md#plan-features): [Defender for Servers Plan 2](defender-for-servers-introduction.md)                                                                                                         |
 | Supported destinations:                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines<br> :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines                                                                                             |
 | Policy-based:                                        | :::image type="icon" source="./media/icons/no-icon.png"::: No                                                                                                                       |
 | Clouds:                                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
@@ -37,7 +37,6 @@ Before you enable auto provisioning, you must have the following prerequisites:
     - [Install Azure Arc](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - Make sure the Defender plans that you want Azure Monitor agent to support are enabled:
   - [Enable Defender for Servers Plan 2 on Azure and on-premises VMs](enable-enhanced-security.md)
-  - [Enable Defender for SQL on machines on Azure and on-premises VMs](defender-for-sql-usage.md)
   - [Enable Defender plans on the subscriptions for your AWS VMs](quickstart-onboard-aws.md)
   - [Enable Defender plans on the subscriptions for your GCP VMs](quickstart-onboard-gcp.md)
 
@@ -113,7 +112,6 @@ The required [Log Analytics workspace solutions](/azure/azure-monitor/insights/s
 
   - Security posture management (CSPM) – **SecurityCenterFree solution**
   - Defender for Servers Plan 2 – **Security solution**
-  - Database protection - None required
 
 ### Additional extensions for Defender for Cloud
 
@@ -121,7 +119,6 @@ The Azure Monitor agent requires additional extensions. These extensions are aut
 
 - For fileless attack detection: ASA extension
 - For endpoint protection recommendations and fileless attack detection: ASA extension
-- For database protections: one for ATP and one for VA.
 
 ### Additional security events collection
 
