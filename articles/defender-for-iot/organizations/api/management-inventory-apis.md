@@ -55,18 +55,18 @@ Array of JSON objects that represent devices.
 | **scanner** | Boolean | Not nullable | `True` or `false` |
 | **authorized** | Boolean | Not nullable | `True` or `false` |
 | **vendor** | String | Nullable | The device vendor.|
-| **Protocols** | JSON array | Nullable | JSON array of protocol objects |
-| **firmware** | JSON array | Nullable | JSON array of firmware objects |
-<!--we left off here-->
+| **Protocols** | JSON array | Nullable | JSON array of protocol objects. For more information, see [Protocol fields](#protocol-fields). |
+| **firmware** | JSON array | Nullable | JSON array of firmware objects. For more information, see [Firmware fields](#firmware-fields). |
 
-**Protocol fields**
+
+### Protocol fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
-| **Name** | String | Not nullable | The protocol name|
-| **Addresses** | JSON array of IP addresses | Optional | `Master`, or IP addresses <!--hadar to verify-->|
+| **Name** | String | Not nullable | The protocol name |
+| **Addresses** | JSON array of protocol addresses | Not nullable | `Master`, `N/A`, or a numeric representation of the protocol address |
 
-**Firmware fields**
+### Firmware fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|

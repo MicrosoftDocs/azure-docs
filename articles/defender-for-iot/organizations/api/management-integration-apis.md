@@ -27,14 +27,13 @@ For example, this API is currently implemented with [Tutorial: Integrate Service
 
 This API returns data about all devices that were updated after the given timestamp.
 
-**URI**: /devices/{timestamp}
+**URI**: `/external/v3/integration/devices/{timestamp}`
 
 **URI parameters**:
 
-
-|Name  |Description  |
-|---------|---------|
-|**timestamp**     |   The start time from which results are returned.     |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**timestamp**     |   The start time from which results are returned, in milliseconds from Epoch time and in UTC timezone.     | `/external/v3/integration/devices/timestamp=<epoch>` | Required |
 
 ### GET
 
@@ -42,12 +41,12 @@ This API returns data about all devices that were updated after the given timest
 
 **Query parameters**:
 
-|Name  |Description  |
-|---------|---------|
-|**sensorId**     |   Return only devices seen by a specific sensor. Use the ID value from the results of the [sensors (Get sensors)](#sensors-get-sensors) API. |
-|**notificationType**     | Determines the types of devices to return. Supported values include: <br>- `0`: Both updated and new devices (default). <br>- `1`: Only new devices. <br>`2`: Only updated devices.        |
-|**page**     | Defines the number where the result page numbering begins. For example, `0`= first page is **0**. <br>Default = `0`|
-|**size**     |Defines the page sizing. Default = `50`         |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**sensorId**     |   Return only devices seen by a specific sensor. Use the ID value from the results of the [sensors (Get sensors)](#sensors-get-sensors) API. | `1` | Optional |
+|**notificationType**     | Determines the types of devices to return. Supported values include: <br>- `0`: Both updated and new devices (default). <br>- `1`: Only new devices. <br>`2`: Only updated devices.        | `2` | Optional |
+|**page**     | Defines the number where the result page numbering begins. For example, `0`= first page is **0**. <br>Default = `0`| `0` | Optional |
+|**size**     |Defines the page sizing. Default = `50`         | `75` | Optional |
 
 
 # [Response](#tab/devices-response)
@@ -56,10 +55,10 @@ This API returns data about all devices that were updated after the given timest
 
 **Response fields**:
 
-|Name  |Description  |
-|---------|---------|
-|**u_count**    |  The number of objects in the full result set, including all pages.       |
-|**u_devices**    |  An array of device objects, as defined by the [device (Get details for a device)](#device-get-details-for-a-device) API.   |
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+|**u_count**    | Integer | Not nullable | The number of objects in the full result set, including all pages.       |
+|**u_devices**    |JSON array of device objects   |Not nullable  | An array of device objects, as defined by the [device (Get details for a device)](#device-get-details-for-a-device) API.   |
 
 ---
 
@@ -67,14 +66,13 @@ This API returns data about all devices that were updated after the given timest
 
 This API returns data about all device connections that were updated after the given timestamp.
 
-
-**URI**: `/connections/{timestamp}`
+**URI**: `/external/v3/integration/connections/{timestamp}`
 
 **URI parameters**:
 
-|Name  |Description  |
-|---------|---------|
-|**timestamp**     |   The start time from which results are returned.     |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**timestamp**     |   The start time from which results are returned, in milliseconds from Epoch time and in UTC timezone.     | `/external/v3/integration/devices/timestamp=<epoch>` | Required |
 
 ### GET
 
@@ -82,10 +80,10 @@ This API returns data about all device connections that were updated after the g
 
 **Query parameters**:
 
-|Name  |Description  |
-|---------|---------|
-|**page**     | Defines the number where the result page numbering begins. For example, `1`= first page is **1**. <br>Default = `1`|
-|**size**     |Defines the page sizing. Default = `50`         |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**page**     | Defines the number where the result page numbering begins. For example, `0`= first page is **0**. <br>Default = `0`| `0` | Optional |
+|**size**     |Defines the page sizing. Default = `50`         | `75` | Optional |
 
 
 # [Response](#tab/connections-response)
@@ -94,12 +92,22 @@ This API returns data about all device connections that were updated after the g
 
 **Response fields**:
 
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+|**u_count**    | Integer | Not nullable | The number of objects in the full result set, including all pages.       |
+|**u_connections**    |JSON array of connection objects   |Not nullable  | An array of connection objects. For more information, see [connections fields](#connections-fields).|
 
-|Name  |Description  |
-|---------|---------|
-|**u_count**     |  Defines the number of objects in the full result set, including all pages.       |
-|**u_connections**     |    An array of the following values: <br><br>- **u_src_device_id**: The source device ID <br>- **u_dest_device_id**:  The destination device ID. <br>- **u_connection_type**: The connection type: `One Way`, `Two Way`, `Multicast`    |
+### connections fields
 
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_appliance** | String | Not nullable  | The name of the sensor that discovered the connection. |
+| **u_src_device_id** |Integer  | Not nullable | The ID of the connection's source device. |
+| **u_src_device_name** | String | Not nullable | The name of the connection's source device. |
+| **u_dest_device_id** |Integer  | Not nullable | The ID of the connection's destination device. |
+| **u_dest_device_name** | String | Not nullable | The name of the connection's destination device. |
+| **u_connection_type** | String | Not nullable | One of the following: `One Way`, `Two Way`, `Multicast` |
 
 ---
 
@@ -107,18 +115,18 @@ This API returns data about all device connections that were updated after the g
 
 This API returns data about a specific device per a given device ID.
 
+**URI**: `/external/v3/integration//device/{deviceId}`
+
 ### GET
 
 # [Request](#tab/device-request)
 
 
-**URI**: `/device/{deviceId}`
+**Query parameters**:
 
-**URI parameters**:
-
-|Name  |Description  |
-|---------|---------|
-|**deviceId**     |   The ID of the requested device     |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**deviceId**     |   The ID of the requested device on the on-premises management console    | `1` |Required |
 
 
 # [Response](#tab/device-response)
@@ -127,28 +135,74 @@ This API returns data about a specific device per a given device ID.
 
 **Response fields**:
 
-|Name  |Description  |
-|---------|---------|
-| **u_id** | The device's internal ID. |
-| **u_vendor**  | The device's vendor name. |
-| **u_mac_address_objects** | An array of **u_mac_address** values, listing the device's MAC addresses |
-| **u_ip_address_objects** - array of **u_ip_address**, values, defining the devices IP addresses |
-| **u_guessed_mac_addresses** - array of **u_mac_address** values, defining the guessed MAC address. <!--what are guessed?-->
-| **u_name** | Defines the name of the device. |
-| **u_last_activity**  | Defines the timestamp of the last time the device was active. |
-| **u_first_discovered** | Defines the timestamp of the device's discovery time. |
-| **u_last_update**  | Defines the timestamp of the device's last update time. |
-| **u_vlans** | An array of **u_vlan** values, which defines the device's VLAN. |
-| **u_device_type** | Defines the device type. |
-| **u_name** | Defines the device name. |
-| **u_purdue_layer** |Defines the default [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
-| **u_category**  | Defines the device category as one of the following: <br><br>- **IT** <br>- **ICS** <br>- **IoT** <br>- **Network** |
-| **u_operating_system** | Defines the device operating system.|
-| **u_protocol_objects** | An array of **u_protocol** values, which defines the protocols used by the device. |
-| **u_purdue_layer** | Defines the device's [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) layer, as manually defined by the user.|
-| **u_sensor_ids**| An array of **u_sensor_id** values, which defines the sensor IDs for any sensor that detected the device. |
-| **u_device_urls** | An array of **u_device_url** values, which defines the URLs used to view the device in the sensor. |
-| **u_firmwares** |An array of the following values: <!--do we define what these are?--><br><br>- **u_address** <br>- **u_module_address** <br>- **u_serial** <br>- **u_model** <br>- **u_version** <br>- **u_additional_data** |
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_id** | Long integer | Not nullable | The device's ID on the on-premises management console. |
+| **u_vendor**   |String  | Nullable | The device's vendor name. |
+| **u_appliance** | String | Not nullable | The name of the sensor that detected the device. |
+| **u_mac_address_objects**  |JSON array of strings | Not nullable | An array of **u_mac_address** values, listing the device's MAC addresses.  |
+| **u_groups** | JSON array of strings | Not nullable | An array of the groups that contains the device. |
+| **u_site** | String | Not nullable | The name of the device's site. |
+| **u_zone** | String | Not nullable | The name of the device's site. |
+| **u_last_activity**  | DateTime |Not nullable  | The timestamp of the last time the device was active. |
+| **u_first_discovered** | DateTime| Not nullable | Rhe timestamp of the device's discovery time. |
+| **u_device_type**  |String |Not nullable  | The device type. For more information, see [Supported `type` values](sensor-inventory-apis.md#supported-type-values). |
+| **u_name**  | String| Not nullable| Defines the device name. |
+| **u_ip_address_objects**  |JSON array of IP addresses | Not nullable | Array of IP address objects. For more information, see [ip_address_object fields](#ip_address_object-fields). |
+| **u_mac_address_objects** |JSON array of MAC addresses | Not nullable | Array of MAC address objects. For more information, see [mac_address_object fields](#mac_address_object-fields). |
+| **u_protocol_objects** | JSON array of protocols | Not nullable  | An array of protocol objects. For more information, see [protocol_object fields](#protocol_object-fields). |
+| **u_vlans**  |JSON array of VLAN objects | Not nullable | An array of vlan objects. For more information, see [vlan_object fields](#vlan_object-fields). |
+| **u_purdue_layer**  | String | Not nullable |Defines the default [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
+| **u_sensor_ids** |JSON array of sensor ID objects |Not nullable | An array of **u_sensor_id** values, which defines the sensor IDs for any sensor that detected the device. <!--fix this-->|
+| **u_cm_device_url** |String |Not nullable  | The URL used to access the device on the on-premises management console. |
+| **u_device_urls** |JSON array of URL objects |Not nullable  | An array of **u_device_url** values, which defines the URLs used to view the device in the sensor.  <!--Fix this-->|
+| **u_last_update**   | Long integer  |Not nullable | Defines the timestamp of the device's last update time. |
+| **u_firmwares**  |JSON array of firmware objects | Not nullable |An array of the following values: <!--do we define what these are?--><br><br>- **u_address** <br>- **u_module_address** <br>- **u_serial** <br>- **u_model** <br>- **u_version** <br>- **u_additional_data** |
+
+### ip_address_object fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_ip_address** | String | Not nullable | One of the device's IP addresses |
+| **u_guessed_mac_address** | String | Not nullable | The guessed MAC addresses associated with the IP address  |
+
+### mac_address_object fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_mac_address** | String | Not nullable | One of the device's MAC addresses. |
+
+
+### protocol_object fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_protocol** | String | Not nullable | One of the protocols used by the device. |
+
+### vlan_object fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_vlan** | String | Not nullable | One of the VLANs where the device is found. |
+
+### sensor_id_object fields
+
+An array of **u_sensor_id** values, which defines the sensor IDs for any sensor that detected the device.
+
+### firmware_object fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_appliance** | String | Not nullable | The name of the on-premises management console that manages the device. |
+| **u_id** | Long integer | Not nullable | The ID of the device on the on-premises management console |
+| **u_asset** | String | Not nullable | The name of the device |
+| **u_address** | String | Not nullable | The device's firmware address |
+| **u_module_address** | String | Nullable | The device's firmware module address |
+| **u_serial** | String | Nullable | The device's firmware serial number |
+| **u_model** | String | Nullable | The device's firmware model |
+| **u_version** | String | Nullable | The device's firmware version |
+| **u_additional_data** | String | Nullable | The device's firmware vendor-specific additional data |
+
 
 ---
 
@@ -163,20 +217,20 @@ This API returns data about a specific device per a given device ID.
 
 **URI parameters**:
 
-|Name  |Description  |
-|---------|---------|
-|**timestamp**     |   The start time from which results are returned.     |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**timestamp**     |   The start time from which results are returned, in milliseconds from Epoch time and in UTC timezone.     | `/external/v3/integration/deleteddevices/timestamp=<epoch>` | Required |
 
 
 # [Response](#tab/deleteddevices-response)
 
-**Type**: JSON
+**Type**: JSON array of deleted devices
 
-**Response fields**:
+**Deleted device fields**:
 
-|Name  |Description  |
-|---------|---------|
-| **u_id** | Array of device IDs for deleted devices. |
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_id** | Long integer | Not nullable | An ID of a deleted device |
 
 ---
 
@@ -189,6 +243,7 @@ This API returns data about a specific device per a given device ID.
 
 **URI**: `/sensors`
 
+No query parameters
 
 # [Response](#tab/sensors-response)
 
@@ -198,23 +253,27 @@ This API returns data about a specific device per a given device ID.
 
 An array of the following fields:
 
-|Name  |Description  |
-|---------|---------|
-|**u_id** | Defines the internal sensor ID, to be used in the [devices (Create and update devices)](#devices-create-and-update-devices) API.|
-| **u_name** |Defines the sensor appliance's name. |
-|**u_connection_state** | Defines the connection state with an on-premises management console, using one of the following values: <br><br>- **SYNCED**: Connection is successful. <br>- **OUT_OF_SYNC**: On-premises management console cannot process data received from the sensor. <br>- **TIME_DIFF_OFFSET**: Time drift detected. On-premises management console has been disconnected from the sensor. <br>**DISCONNECTED**: Sensor not communicating with management console. Check network connectivity. |
-| **u_interface_address** | Defines the sensor appliance's network address.|
-|**u_version** | A string representation of the sensor's software version. |
-| **u_alert_count** | The number of alerts triggered by the sensor. <!--since when?-->|
-| **u_device_count** |The number of devices detected by the sensor. |
-| **u_unhandled_alert_count** |The number of currently unhandled alerts on the sensor.  |
-| **u_is_activated** | Defines whether the alert is activated. <!--which alert-->|
-| **u_data_intelligence_version**  |A string representation of the threat intelligence version installed on the sensor. |
-| **u_remote_upgrade_stage** |Defines a current stage in a version update process as one of the following:  - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
-| **u_uid** | Defines the sensor's globally unique identifier. |
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+|**u_id** | Long integer | Not nullable | Defines the internal sensor ID, to be used in the [devices (Create and update devices)](#devices-create-and-update-devices) API.|
+| **u_name** | String | Not nullable | Defines the sensor appliance's name. |
+| **u_interface_address** | String | Not nullable | Defines the sensor appliance's network address.|
+|**u_connection_state** |String |Not nullable | Defines the device's connection state with an on-premises management console, using one of the following values: <br><br>- **SYNCED**: Connection is successful. <br>- **OUT_OF_SYNC**: On-premises management console cannot process data received from the sensor. <br>- **TIME_DIFF_OFFSET**: Time drift detected. On-premises management console has been disconnected from the sensor. <br>**DISCONNECTED**: Sensor not communicating with management console. Check network connectivity. |
+|**u_version** | String | Not nullable | A string representation of the sensor's software version. |
+| **u_alert_count** | Long integer | Not nullable | The current number of alerts triggered by the sensor. |
+| **u_device_count** | Long integer | Not nullable | The current number of devices detected by the sensor. |
+| **u_unhandled_alert_count** |Long integer | Not nullable | The current number of currently unhandled alerts on the sensor.  |
+| **u_is_activated** | Boolean | Not nullable | Defines whether the sensor is activated. |
+| **u_data_intelligence_version** |String | Not nullable |A string representation of the threat intelligence version installed on the sensor. |
+| **u_uid** |String | Not nullable | Defines the sensor's globally unique identifier. |
+| **u_zone_id** | Long integer | Nullable | Define's the device's zone. |
+| **u_is_in_learning_mode** | Boolean | Not nullable  | Determines whether the sensor is in learning mode. |
+| **u_remote_upgrade_stage** | String |Nullable |Defines a current stage in a version update process as one of the following:  - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
+
+<!--hadar sent this list in teams-->
 
 ---
-
+<!--we left off here-->
 ## devicecves (Get device CVEs)
 
 
