@@ -3,7 +3,7 @@ title: Rotate user-provided TLS certificate in indirectly connected Azure Arc-en
 description: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
