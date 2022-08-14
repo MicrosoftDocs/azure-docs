@@ -27,27 +27,37 @@ Each Front Door profile incurs an hourly fee. You're billed for each hour, or pa
 
 <!-- TODO -->
 
-## Number of requests from client to Front Door
+### Number of requests from client to Front Door
 
-<!-- TODO -->
+Front Door charges a fee for the number of requests that are received at a Front Door edge node for your profile. Front Door identifies requests by using the `Host` header on the HTTP request. If the `Host` header matches one from your Front Door profile, it counts as a request to your profile.
 
-## Data transfer from Front Door to origin
+The price is different depending on the geographical region of the Front Door edge node. The price is also different for the Standard and Premium SKUs.
 
-<!-- TODO -->
+### Data transfer from Front Door edge to origin
 
-## Data transfer from origin to Front Door
+Front Door charges for the bytes that are sent from the Front Door edge node to your origin server. The price is different depending on the geographical region of the Front Door edge node.
 
-<!-- TODO -->
+The price per gigabyte is lower when you have higher volumes of traffic.
 
-## Data transfer from Front Door to client
+### Data transfer from origin to Front Door
 
-<!-- TODO -->
+When your origin server processes requests, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door.
+
+If your origin is within Azure, you should determine whether those Azure services might bill you for request processing or outbound traffic. For example, if you use an Azure Storage origin, then Azure Storage might bill you for the read operations that take place to serve the request.
+
+If your origin is outside of Azure, you might incur charges from other network providers.
+
+### Data transfer from Front Door to client
+
+Front Door charges for the bytes that are sent from the Front Door edge node back to the client.
+
+The price is different depending on the geographical region of the Front Door edge node.
 
 ## Private Link origins
 
 When you use the Premium SKU, Front Door can [connect to your origin by using Private Link](private-link.md).
 
-Front Door Premium has a higher base fee and request processing fee. You don't pay extra for Private Link traffic compared to normal traffic.
+Front Door Premium has a higher base fee and request processing fee. You don't pay extra for Private Link traffic compared to traffic that uses an origin's public endpoint.
 
 When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different to the region the origin is deployed to, you won't be charged extra for cross-region traffic. However, the request latency will likely be greater.
 
@@ -55,19 +65,82 @@ When you configure a Private Link origin, you select a region for the private en
 
 ### Example 1: Azure origin, no caching
 
-<!-- TODO -->
+Contoso hosts their website on Azure App Service, and has deployed Front Door with the standard SKU. They have disabled caching.
+
+Suppose a request from a client is sent to the Contoso website, sending a 1KB request and receiving a 100KB response:
+
+TODO diagram
+
+The following billing meters will be incremented:
+
+- Number of requests from client to Front Door: 1
+- Data transfer from Front Door edge to origin: 1KB
+- Data transfer from origin to Front Door: *non-billable*
+- Data transfer from Front Door to client: 100KB
+
+Additionally, Azure App Service might charge additional fees.
 
 ### Example 2: Azure origin, caching and compression enabled
 
 <!-- TODO -->
 
+Suppose Contoso updates their Front Door configuration to enable [content compression](TODO) and [caching](TODO). Now, the same request as in example 1 might be able to be compressed down to 30KB:
+
+TODO diagram
+
+The following billing meters will be incremented:
+
+- Number of requests from client to Front Door: 1
+- Data transfer from Front Door edge to origin: 1KB
+- Data transfer from origin to Front Door: *non-billable*
+- Data transfer from Front Door to client: 30KB
+
+Additionally, Azure App Service might charge additional fees.
+
 ### Example 3: Request served from cache
 
-<!-- TODO -->
+Suppose a second request arrives at the same Front Door edge node and a valid cached response is available:
+
+TODO diagram
+
+The following billing meters will be incremented:
+
+- Number of requests from client to Front Door: 1
+- Data transfer from Front Door edge to origin: *none when request is served from cache*
+- Data transfer from origin to Front Door: *none*
+- Data transfer from Front Door to client: 30KB
 
 ### Example 4: Non-Azure origin
 
-<!-- TODO -->
+Fabrikam runs an eCommerce site on another cloud provider, and uses Azure Front Door to serve the traffic. They have not enabled caching or compression.
+
+Suppose a request from a client is sent to the Fabrikam website, sending a 2KB request and receiving a 350KB response:
+
+TODO
+
+The following billing meters will be incremented:
+
+- Number of requests from client to Front Door: 1
+- Data transfer from Front Door edge to origin: 2KB
+- Data transfer from origin to Front Door: *non-billable by Azure*
+- Data transfer from Front Door to client: 350KB
+
+Additionally, the other cloud provider might charge additional fees.
+
+### Example 5: Request blocked by web application firewall
+
+When a request is blocked by the web application firewall (WAF), it isn't sent to the origin. However, Front Door charges the request, and also charges to send a response.
+
+Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address. The WAF is configured with a custom error response page, which is 1KB in size. If a client from the blocked IP addres sends a 1KB request:
+
+TODO
+
+The following billing meters will be incremented:
+
+- Number of requests from client to Front Door: 1
+- Data transfer from Front Door edge to origin: *none*
+- Data transfer from origin to Front Door: *none*
+- Data transfer from Front Door to client: 1KB
 
 ## Next steps
 
