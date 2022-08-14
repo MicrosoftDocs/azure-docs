@@ -69,7 +69,7 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 ### View vulnerabilities for running images
 
-By deploying the Defender agent to your container, you enable Defender for Container's integrated vulnerability scanner which has the capability to scan the images located on your containers for vulnerabilities.
+Defender for Cloud uses the Defender agent to provide visibility into which containers are currently running. With that information, and the VA results for each container that was scanned in ACR, Defender for Containers is able to alert you to detectable vulnerabilities.
 
 When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation maps the vulnerability data that is created for images in ACR to the containers in AKS that are using those images. Images that are used in containers that have not been pulled from ACR for deployment in AKS will not be checked and will appear under the Not applicable tab.
 
