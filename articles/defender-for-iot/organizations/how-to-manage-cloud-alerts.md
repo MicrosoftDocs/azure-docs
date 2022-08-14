@@ -143,6 +143,8 @@ On each alert details page, the **Take Action** tab lists recommended remediatio
 
 ## Manage alert status and severity
 
+**Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user
+
 You can update alert status or severity for a single alert or for a group of alerts.
 
 *Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. For more information, see [Learn and unlearn alert traffic](how-to-manage-the-alert-event.md#learn-and-unlearn-alert-traffic).
