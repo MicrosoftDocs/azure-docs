@@ -30,7 +30,7 @@ This quickstart explains how to:
 
 At the end, you'll have a working spring app running on Azure Spring Apps.
 
-:::image type="content" source="articles/spring-apps/media/quickstart/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="articles/spring-apps/media/quickstart/access-app-browser.png":::
+:::image type="content" source="media/quickstart/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="media/quickstart/access-app-browser.png":::
 
 ## [CLI](#tab/Azure-CLI)
 
@@ -48,7 +48,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
 
 1. Azure Cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions.
 
-   :::image type="content" source="articles/spring-apps/media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="articles/spring-apps/media/quickstart/Azure-storage-subscription.png":::
+   :::image type="content" source="media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/Azure-storage-subscription.png":::
 
 1. After login successfully, copying the command to list all the subscription you have.
 
@@ -169,7 +169,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. Select **Azure Spring Apps** from the results.
 
-   :::image type="content" source="articles/spring-apps/media/quickstart/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="articles/spring-apps/media/quickstart/spring-apps-start.png":::
+   :::image type="content" source="media/quickstart/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/quickstart/spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
