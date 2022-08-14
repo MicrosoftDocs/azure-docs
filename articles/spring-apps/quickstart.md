@@ -30,7 +30,7 @@ This quickstart explains how to:
 
 At the end, you'll have a working spring app running on Azure Spring Apps.
 
-:::image type="content" source="spring-apps/media/quickstart/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="spring-apps/media/quickstart/access-app-browser.png":::
+:::image type="content" source="media/quickstart/access-app-browser.png" alt-text="Screenshot of app in browser window." lightbox="media/quickstart/access-app-browser.png":::
 
 ## [CLI](#tab/Azure-CLI)
 
@@ -48,7 +48,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
 
 1. Azure cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions. Read more to learn about the [persistence mechanisms used in Cloud Shell](/azure/cloud-shell/persisting-shell-storage#how-cloud-shell-storage-works).
 
-   :::image type="content" source="spring-apps/media/quickstart/Azure-storage-subscription-new.png" alt-text="Screenshot of Azure Storage subscription." lightbox="spring-apps/media/quickstart/Azure-storage-subscription-new.png":::
+   :::image type="content" source="media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/Azure-storage-subscription.png":::
 
 1. After login successfully, copying the command to list all the subscription you have.
 
@@ -135,7 +135,7 @@ The following image shows the recommended Initializr set up for this sample proj
 
 This example uses Java version 11.  If you want to use Java version 17, change the option under **Project Metadata**. 
 
-:::image type="content" source="media/quickstart/initializr-page-new.png" alt-text="Screenshot of Spring Initializr page.":::
+:::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page.":::
 
 1. Select **Generate** when all the dependencies are set.
 1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
