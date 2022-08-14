@@ -138,11 +138,12 @@ automation_username = "azureadm"
 The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                              | Description                                                                    | Type         | Notes                               |
-> | ------------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
-> | `user_keyvault_id`	                  | Azure resource identifier for existing system credentials key vault            | Optional	  |                                     | 
-> | `spn_keyvault_id`                     | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	  |                                     | 
-> | `enable_purge_control_for_keyvaults`  | Disables the purge protection for Azure key vaults.                            | Optional     | Only use this for test environments |
+> | Variable                                         | Description                                                                    | Type         | Notes                               |
+> | ------------------------------------------------ | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
+> | `user_keyvault_id`	                             | Azure resource identifier for existing system credentials key vault            | Optional	 |                                     | 
+> | `spn_keyvault_id`                                | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	 |                                     | 
+> | `enable_purge_control_for_keyvaults`             | Disables the purge protection for Azure key vaults.                            | Optional     | Only use this for test environments |
+> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies    | Optional	 |                                     | 
 
 ## Private DNS
 
