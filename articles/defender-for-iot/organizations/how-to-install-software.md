@@ -15,8 +15,6 @@ Make sure that you've downloaded the relevant software file for the sensor or on
 
 You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal. On the Defender for IoT > **Getting started** page, select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
 
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
-
 Mount the ISO file using one of the following options:
 
 - **Physical media** – burn the ISO file to a DVD or USB, and boot from the media.
