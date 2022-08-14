@@ -5,7 +5,7 @@ author: patelr3
 ms.author: ravpate
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.reviewer: mikeray
 ms.topic: how-to
 ms.date: 05/22/2022

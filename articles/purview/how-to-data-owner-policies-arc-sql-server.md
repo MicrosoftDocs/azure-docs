@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 08/12/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -84,7 +84,8 @@ Register each data source with Microsoft Purview to later define access policies
 
 1. **Select a collection** to put this registration in. 
 
-1. Turn the switch **Data Use Management** to **Enabled**. This switch enables the access-policies to be used with the given Arc-enabled SQL server. Note: Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. Secure practices related to Data Use Management are described in this guide: [registering a data resource for Data Use Management](./how-to-enable-data-use-management.md)
+1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management]
+(./how-to-enable-data-use-management.md)
 
 1. Enter the **Application ID** from the App Registration related to this Arc-enabled SQL server.
 
@@ -116,7 +117,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 
 >[!Important]
-> - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
+> - Publish is a background operation. It can take up to **5 minutes** for the changes to be reflected in this data source.
 > - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull.
 
 ### Test the policy
