@@ -21,8 +21,6 @@ Administrators who sign in for the first time should verify that they have acces
 - Subscription contributor
 - Subscription owner permissions
 
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
-
 ### First-time sign in and activation checklist
 
 Before signing in to the sensor console, administrator users should have access to:

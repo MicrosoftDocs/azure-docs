@@ -27,8 +27,6 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
         1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
 
-            [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
-
         1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
 ## Onboard sensors
@@ -109,8 +107,6 @@ Make the downloaded activation file accessible to the sensor console admin so th
 Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. Select a specific sensor name to drill down to more details for that sensor.
 
 Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page.
-
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 |Task |Description  |
 |---------|---------|
