@@ -25,7 +25,18 @@ Each Front Door profile incurs an hourly fee. You're billed for each hour, or pa
 
 ## Request processing and traffic fees
 
-<!-- TODO -->
+Each request that goes through Front Door incur request processing and traffic fees:
+
+:::image type="content" source="./media/billing/request-components.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin." border="false":::
+
+Each part of the request process is billed separately:
+
+1. Number of requests from client to Front Door
+1. Data transfer from Front Door edge to origin
+1. Data transfer from origin to Front Door (non-billable)
+1. Data transfer from Front Door to client
+
+The following sections describe each of these request components in more detail.
 
 ### Number of requests from client to Front Door
 
@@ -69,7 +80,7 @@ Contoso hosts their website on Azure App Service, and has deployed Front Door wi
 
 Suppose a request from a client is sent to the Contoso website, sending a 1KB request and receiving a 100KB response:
 
-TODO diagram
+:::image type="content" source="./media/billing/scenario-1.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin." border="false":::
 
 The following billing meters will be incremented:
 
@@ -80,13 +91,13 @@ The following billing meters will be incremented:
 | Data transfer from origin to Front Door | *non-billable* |
 | Data transfer from Front Door to client | 100KB |
 
-Additionally, Azure App Service might charge additional fees.
+Note that Azure App Service might charge additional fees.
 
 ### Example 2: Azure origin, caching and compression enabled
 
 Suppose Contoso updates their Front Door configuration to enable [content compression](front-door-caching.md#file-compression). Now, the same request as in example 1 might be able to be compressed down to 30KB:
 
-TODO diagram
+:::image type="content" source="./media/billing/scenario-2.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, with compression enabled." border="false":::
 
 The following billing meters will be incremented:
 
@@ -97,13 +108,13 @@ The following billing meters will be incremented:
 | Data transfer from origin to Front Door | *non-billable* |
 | Data transfer from Front Door to client | 30KB |
 
-Additionally, Azure App Service might charge additional fees.
+Note that Azure App Service might charge additional fees.
 
 ### Example 3: Request served from cache
 
 Suppose a second request arrives at the same Front Door edge node and a valid cached response is available:
 
-TODO diagram
+:::image type="content" source="./media/billing/scenario-3.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and being returned from cache." border="false":::
 
 The following billing meters will be incremented:
 
@@ -120,7 +131,7 @@ Fabrikam runs an eCommerce site on another cloud provider, and uses Azure Front 
 
 Suppose a request from a client is sent to the Fabrikam website, sending a 2KB request and receiving a 350KB response:
 
-TODO
+:::image type="content" source="./media/billing/scenario-4.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to an origin outside of Azure." border="false":::
 
 The following billing meters will be incremented:
 
@@ -131,15 +142,15 @@ The following billing meters will be incremented:
 | Data transfer from origin to Front Door | *non-billable by Azure* |
 | Data transfer from Front Door to client | 350KB |
 
-Additionally, the other cloud provider might charge additional fees.
+Note that the other cloud provider might charge additional fees.
 
 ### Example 5: Request blocked by web application firewall
 
 When a request is blocked by the web application firewall (WAF), it isn't sent to the origin. However, Front Door charges the request, and also charges to send a response.
 
-Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address. The WAF is configured with a custom error response page, which is 1KB in size. If a client from the blocked IP addres sends a 1KB request:
+Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address. The WAF is configured with a custom error response page, which is 1KB in size. If a client from the blocked IP address sends a 1KB request:
 
-TODO
+:::image type="content" source="./media/billing/scenario-5.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door, where the request is blocked by the WAF." border="false":::
 
 The following billing meters will be incremented:
 
