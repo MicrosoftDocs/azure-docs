@@ -21,6 +21,7 @@ Mount the ISO file using one of the following options:
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
+
 ## Pre-installation configuration
 
 Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
