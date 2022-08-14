@@ -48,7 +48,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
 
 1. Azure Cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions.
 
-   :::image type="content" source="media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/Azure-storage-subscription.png":::
+   :::image type="content" source="media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription.":::
 
 1. After login successfully, copying the command to list all the subscription you have.
 
@@ -182,7 +182,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
    - **Service Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
    - [**Region**](https://docs.microsoft.com/en-us/azure/spring-apps/how-to-enable-availability-zone?tabs=azure-cli#region-availability): Select the region for your service instance.
 
-   :::image type="content" source="articles/spring-apps/media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="articles/spring-apps/media/quickstart/portal-start.png":::
+   :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/quickstart/portal-start.png":::
 
 1. Select **Review and create**.
 
@@ -255,7 +255,7 @@ az spring app logs -n hellospring -s <service instance name> -g <resource group 
 
 Logs appear in the results:
 
-:::image type="content" source="media/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="media/streaming-logs.png":::
+:::image type="content" source="media/quickstart/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="media/quickstart/streaming-logs.png":::
 
 >[!TIP]
 > Use `az spring app logs -h` to explore more parameters and log stream functionalities.
@@ -267,11 +267,11 @@ Logs appear in the results:
 1. Select **Streaming Logs** from the drop-down list.
 1. Select instance.
 
-    :::image type="content" source="media/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="media/intellij-get-streaming-logs.png":::
+    :::image type="content" source="media/quickstart/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="media/quickstart/intellij-get-streaming-logs.png":::
 
 1. The streaming log will be visible in the output window.
 
-    :::image type="content" source="media/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="media/intellij-streaming-logs-output.png":::
+    :::image type="content" source="media/quickstart/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="media/quickstart/intellij-streaming-logs-output.png":::
 
 #### [Visual Studio Code](#tab/VS-Code)
 
@@ -281,7 +281,7 @@ To get real-time application logs with Visual Studio Code, follow the steps in [
 
 For advanced logs analytics features, visit the **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 
-:::image type="content" source="media/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="media/logs-analytics.png":::
+:::image type="content" source="media/quickstart/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="media/quickstart/logs-analytics.png":::
 
 ## Clean up resources
 
