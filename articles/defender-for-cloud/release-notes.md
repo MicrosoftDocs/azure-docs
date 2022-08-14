@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 08/02/2022
+ms.date: 08/14/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,18 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## August 2022
+
+Updates in August include:
+
+- [Auto-deployment of Azure Monitor Agent (Preview)](#auto-deployment-of-azure-monitor-agent-preview)
+
+### Auto-deployment of Azure Monitor Agent (Preview)
+
+[Azure Monitor Agent](/azure-monitor/agents/agents-overview.md) (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud.
+
+You can now use Microsoft Defender for Cloud to [auto-provision Azure Monitor Agent](auto-deploy-azure-monitoring-agent.md) to all of your cloud and on-premises servers.
 
 ## July 2022
 
