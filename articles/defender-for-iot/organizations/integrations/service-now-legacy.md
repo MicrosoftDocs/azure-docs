@@ -1,6 +1,6 @@
 ---
 title: Microsoft Defender for IoT integration with ServiceNow (legacy)
-description: In this tutorial, learn how to integrate ServiceNow with Microsoft Defender for IoT.
+description: In this tutorial, learn how to integrate the legacy ServiceNow integration with Microsoft Defender for IoT.
 ms.topic: tutorial
 ms.date: 08/11/2022
 ---
@@ -66,15 +66,15 @@ To access the Defender for IoT application within ServiceNow, you will need to d
 
 1. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
 
-   :::image type="content" source="media/tutorial-servicenow/search-results.png" alt-text="Screenshot of the search screen in ServiceNow.":::
+   :::image type="content" source="../media/tutorial-servicenow/search-results.png" alt-text="Screenshot of the search screen in ServiceNow.":::
 
 1. Select the application.
 
-   :::image type="content" source="media/tutorial-servicenow/cyberx-app.png" alt-text="Screenshot of the search screen results.":::
+   :::image type="content" source="../media/tutorial-servicenow/cyberx-app.png" alt-text="Screenshot of the search screen results.":::
 
 1. Select **Request App**.
 
-   :::image type="content" source="media/tutorial-servicenow/sign-in.png" alt-text="Sign in to the application with your credentials.":::
+   :::image type="content" source="../media/tutorial-servicenow/sign-in.png" alt-text="Sign in to the application with your credentials.":::
 
 1. Sign in, and download the application.
 
@@ -88,9 +88,9 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 
 1. Select **Forwarding**, in the left side pane.
 
-1. Select the :::image type="icon" source="media/tutorial-servicenow/plus-icon.png" border="false"::: button.
+1. Select the :::image type="icon" source="../media/tutorial-servicenow/plus-icon.png" border="false"::: button.
 
-    :::image type="content" source="media/tutorial-servicenow/forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window.":::
+    :::image type="content" source="../media/tutorial-servicenow/forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window.":::
 
 1. Add a rule name.
 
@@ -106,11 +106,11 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 
 1. In the Actions section, select **Add** and then select **ServiceNow**.
 
-    :::image type="content" source="media/tutorial-servicenow/select-servicenow.png" alt-text="Select ServiceNow from the dropdown options.":::
+    :::image type="content" source="../media/tutorial-servicenow/select-servicenow.png" alt-text="Select ServiceNow from the dropdown options.":::
 
 1. Enter the ServiceNow action parameters:
 
-    :::image type="content" source="media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters.":::
+    :::image type="content" source="../media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters.":::
 
 1. In the **Actions** pane, set the following parameters:
 
@@ -143,11 +143,11 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
 1. Select **System Settings**, and then **ServiceNow** from the on-premises management console Integration section.
 
-      :::image type="content" source="media/tutorial-servicenow/servicenow.png" alt-text="Screenshot of the select the ServiceNow button.":::
+      :::image type="content" source="../media/tutorial-servicenow/servicenow.png" alt-text="Screenshot of the select the ServiceNow button.":::
 
 1. Enter the following sync parameters in the ServiceNow Sync dialog box.
 
-    :::image type="content" source="media/tutorial-servicenow/sync.png" alt-text="Screenshot of the ServiceNow sync dialog box.":::
+    :::image type="content" source="../media/tutorial-servicenow/sync.png" alt-text="Screenshot of the ServiceNow sync dialog box.":::
 
      Parameter | Description |
     |--|--|
@@ -163,7 +163,7 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
 Verify that the on-premises management console is connected to the ServiceNow instance by reviewing the Last Sync date.
 
-:::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="Screenshot of the communication occurring by looking at the last sync.":::
+:::image type="content" source="../media/tutorial-servicenow/sync-confirmation.png" alt-text="Screenshot of the communication occurring by looking at the last sync.":::
 
 ## Set up the integrations using an HTTPS proxy
 
@@ -209,7 +209,7 @@ This article describes the device attributes and alert information presented in 
 
 3. Navigate to **Inventory**, or **Alert**.
 
-   [:::image type="content" source="media/tutorial-servicenow/alert-list.png" alt-text="Screenshot of the Inventory or Alert.":::](media/tutorial-servicenow/alert-list.png#lightbox)
+   [:::image type="content" source="../media/tutorial-servicenow/alert-list.png" alt-text="Screenshot of the Inventory or Alert.":::](../media/tutorial-servicenow/alert-list.png#lightbox)
 
 ## View connected devices
 
@@ -217,7 +217,7 @@ To view connected devices:
 
 1. Select a device, and then select the **Appliance** listed in for that device.
 
-    :::image type="content" source="media/tutorial-servicenow/appliance.png" alt-text="Screenshot of the desired appliance from the list.":::
+    :::image type="content" source="../media/tutorial-servicenow/appliance.png" alt-text="Screenshot of the desired appliance from the list.":::
 
 1. In the **Device Details** dialog box, select **Connected Devices**.
 
@@ -227,4 +227,4 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this article, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./tutorial-forescout.md).
+In this article, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](../tutorial-forescout.md).
