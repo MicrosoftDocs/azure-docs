@@ -184,6 +184,8 @@ Alert management across all interfaces functions as follows:
 
 ## Access alert PCAP data (Public preview)
 
+**Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user
+
 To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page.
 
 For example:
