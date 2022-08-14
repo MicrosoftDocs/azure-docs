@@ -25,7 +25,7 @@ Enterprise IoT network protection extends agentless features beyond operational 
 
 Enterprise IoT is designed to help customers secure unmanaged devices throughout the organization and extend IT security to also cover IoT devices. The solution leverages multiple means in order to ensure optimal coverage.
 
-- **In the Defender for Endpoint portal**: This is the GA offering for Enterprise IoT. Microsoft 365 P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint. Customers can onboard an Enterprise IoT plan in the same portal and gain security value by viewing alerts, recommendations and vulnerabilities for their discovered IoT devices.
+- **In the Microsoft Defender for Endpoint portal**: This is the GA offering for Enterprise IoT. Microsoft 365 P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint. Customers can onboard an Enterprise IoT plan in the same portal and gain security value by viewing alerts, recommendations and vulnerabilities for their discovered IoT devices.
 
 - **In the Azure portal**: Defender for IoT customers can view their discovered IoT devices in the **Device inventory** page in Defender for IoT in the Azure portal. To view Enterprise IoT devices in the Azure portal, you'll need to set up a network sensor (currently in Public Preview). or more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
 
@@ -44,7 +44,7 @@ The Enterprise IoT network sensor is currently in Public Preview and can be used
 
 For more information, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md).
 
-## What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription? 
+## What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription?
 
 For information on required permissions, see [Prerequisites](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
@@ -54,15 +54,15 @@ For more information about billable devices, see [Defender for IoT committed dev
 
 ## How should I estimate the number of committed devices?
 
-In the **Device inventory** in MDE:
+In the **Device inventory** in Defender for Endpoint:
 
 Add the total number of discovered network devices with the total number of discovered IoT devices. Round that up to a multiple of 100, and that is the number of committed devices to use.
 
  For more information, see [Defender for IoT committed devices](how-to-manage-subscriptions.md#defender-for-iot-committed-devices).
 
-## How does the integration between Microsoft Defender for Endpoint and Microsoft Defender for IoT work? 
+## How does the integration between Microsoft Defender for Endpoint and Microsoft Defender for IoT work?
 
-Once you've [added a Defender for IoT plan with Enterprise IoT to an Azure subscription in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#onboard-a-defender-for-iot-plan),integration between the two products takes place seamlessly.
+Once you've [added a Defender for IoT plan with Enterprise IoT to an Azure subscription in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#onboard-a-defender-for-iot-plan), integration between the two products takes place seamlessly.
 
 Discovered IoT devices can be viewed in both Defender for IoT and Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
@@ -70,17 +70,17 @@ Discovered IoT devices can be viewed in both Defender for IoT and Defender for E
 
 To change the subscription you're using for your Defender for IoT plan, you'll need to cancel your plan on the existing subscription, and then onboard a new plan to a new subscription. Your existing data won't be migrated to the new subscription. For more information, see [Move existing sensors to a different subscription](how-to-manage-subscriptions.md#move-existing-sensors-to-a-different-subscription).
 
-## How can I edit my plan in Defender for Endpoint? 
+## How can I edit my plan in Defender for Endpoint?
 
-To make any changes to an existing plan, you'll need to cancel your existing plan and onboard a new plan with the new details. Changes might include moving billing charges from one subscription to another, changing the number of committed devices, or changing the plan commitment from a trial to a monthly commitment. 
+To make any changes to an existing plan, you'll need to cancel your existing plan and onboard a new plan with the new details. Changes might include moving billing charges from one subscription to another, changing the number of committed devices, or changing the plan commitment from a trial to a monthly commitment.
 
 ## How can I cancel Enterprise IoT?
 
-To remove only Enterprise IoT from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see [Cancel your Defender for IoT plan](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#cancel-your-defender-for-iot-plan). 
+To remove only Enterprise IoT from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see [Cancel your Defender for IoT plan](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#cancel-your-defender-for-iot-plan).
 
 To cancel the plan and remove all Defender for IoT services from the associated subscription, cancel the plan in Defender for IoT in the Azure portal. For more information, see [Cancel a Defender for IoT plan from a subscription](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan-from-a-subscription).
 
-## What happens when the 30-day trial ends? 
+## What happens when the 30-day trial ends?
 
 If you haven't changed your plan from a trial to a monthly commitment by the time your trial ends, your plan is automatically canceled, and you’ll lose access to Defender for IoT security features. 
 
