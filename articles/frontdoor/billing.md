@@ -73,27 +73,29 @@ TODO diagram
 
 The following billing meters will be incremented:
 
-- Number of requests from client to Front Door: 1
-- Data transfer from Front Door edge to origin: 1KB
-- Data transfer from origin to Front Door: *non-billable*
-- Data transfer from Front Door to client: 100KB
+| Meter | Incremented by |
+|-|-|
+| Number of requests from client to Front Door | 1 |
+| Data transfer from Front Door edge to origin | 1KB |
+| Data transfer from origin to Front Door | *non-billable* |
+| Data transfer from Front Door to client | 100KB |
 
 Additionally, Azure App Service might charge additional fees.
 
 ### Example 2: Azure origin, caching and compression enabled
 
-<!-- TODO -->
-
-Suppose Contoso updates their Front Door configuration to enable [content compression](TODO) and [caching](TODO). Now, the same request as in example 1 might be able to be compressed down to 30KB:
+Suppose Contoso updates their Front Door configuration to enable [content compression](front-door-caching.md#file-compression). Now, the same request as in example 1 might be able to be compressed down to 30KB:
 
 TODO diagram
 
 The following billing meters will be incremented:
 
-- Number of requests from client to Front Door: 1
-- Data transfer from Front Door edge to origin: 1KB
-- Data transfer from origin to Front Door: *non-billable*
-- Data transfer from Front Door to client: 30KB
+| Meter | Incremented by |
+|-|-|
+| Number of requests from client to Front Door | 1 |
+| Data transfer from Front Door edge to origin | 1KB |
+| Data transfer from origin to Front Door | *non-billable* |
+| Data transfer from Front Door to client | 30KB |
 
 Additionally, Azure App Service might charge additional fees.
 
@@ -105,10 +107,12 @@ TODO diagram
 
 The following billing meters will be incremented:
 
-- Number of requests from client to Front Door: 1
-- Data transfer from Front Door edge to origin: *none when request is served from cache*
-- Data transfer from origin to Front Door: *none*
-- Data transfer from Front Door to client: 30KB
+| Meter | Incremented by |
+|-|-|
+| Number of requests from client to Front Door | 1 |
+| Data transfer from Front Door edge to origin | *none when request is served from cache* |
+| Data transfer from origin to Front Door | *none* |
+| Data transfer from Front Door to client | 30KB |
 
 ### Example 4: Non-Azure origin
 
@@ -120,10 +124,12 @@ TODO
 
 The following billing meters will be incremented:
 
-- Number of requests from client to Front Door: 1
-- Data transfer from Front Door edge to origin: 2KB
-- Data transfer from origin to Front Door: *non-billable by Azure*
-- Data transfer from Front Door to client: 350KB
+| Meter | Incremented by |
+|-|-|
+| Number of requests from client to Front Door | 1 |
+| Data transfer from Front Door edge to origin | 2KB |
+| Data transfer from origin to Front Door | *non-billable by Azure* |
+| Data transfer from Front Door to client | 350KB |
 
 Additionally, the other cloud provider might charge additional fees.
 
@@ -137,10 +143,12 @@ TODO
 
 The following billing meters will be incremented:
 
-- Number of requests from client to Front Door: 1
-- Data transfer from Front Door edge to origin: *none*
-- Data transfer from origin to Front Door: *none*
-- Data transfer from Front Door to client: 1KB
+| Meter | Incremented by |
+|-|-|
+| Number of requests from client to Front Door | 1 |
+| Data transfer from Front Door edge to origin | *none* |
+| Data transfer from origin to Front Door | *none* |
+| Data transfer from Front Door to client | 1KB |
 
 ## Next steps
 
