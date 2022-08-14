@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 08/02/2022
+ms.date: 08/14/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,24 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## August 2022
+
+Updates in August include:
+
+[Defender for Container's Vulnerability assessment now supports Windows containers](#defender-for-containers-vulnerability-assessment-now-supports-windows-containers)
+
+
+
+### Defender for Container's Vulnerability assessment now supports Windows containers
+
+Defender for Container's Vulnerability assessment has now added support for Windows containers.
+
+In order to gain visibility into your vulnerabilities, your AKS clusters must run the Defender agent. Since there is no Defender agent for Windows containers, the Defender agent is deployed to one of the Linux nodes, of which there must be at least one running on every AKS cluster, in order to collect the running container inventory for your Windows nodes.
+
+When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation maps the vulnerability data that is created for images in ACR to the containers in AKS that are using those images.
+
+Learn more about [Vulnerability assessment](defender-for-containers-introduction.md#vulnerability-assessment).
 
 ## July 2022
 
