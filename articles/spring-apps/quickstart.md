@@ -46,7 +46,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
    az account show
    ```
 
-1. Azure cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions. Read more to learn about the [persistence mechanisms used in Cloud Shell](/azure/cloud-shell/persisting-shell-storage#how-cloud-shell-storage-works).
+1. Azure Cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions.
 
    :::image type="content" source="articles/spring-apps/media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="articles/spring-apps/media/quickstart/Azure-storage-subscription.png":::
 
@@ -77,6 +77,8 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
    And choose **Y** to install the Azure Spring Apps extension and run.
 
 ### Create an app in your instance
+
+Here, we specify the app name on Azure Spring Apps as 'hellospring'.
 
 ```azurecli-interactive
 az spring app create -n hellospring -s <service instance name> -g <Name of Resource Group> --assign-endpoint true
@@ -135,7 +137,7 @@ The following image shows the recommended Initializr set up for this sample proj
 
 This example uses Java version 11.  If you want to use Java version 17, change the option under **Project Metadata**. 
 
-:::image type="content" source="articles/spring-apps/media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page.":::
+:::image type="content" source="articles/spring-apps/media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="articles/spring-apps/media/quickstart/initializr-page.png":::
 
 1. Select **Generate** when all the dependencies are set.
 1. Download and unpack the package, then create a web controller for a simple web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
@@ -175,10 +177,10 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
-   - **Subscription**: Select the subscription you want to be billed for this resource.
-   - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
-   - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-   - **Location**: Select the region for your service instance.
+   - [**Subscription**](https://docs.microsoft.com/en-us/azure/api-management/api-management-subscriptions): Select the subscription you want to be billed for this resource.
+   - [**Resource group**](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups): Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
+   - **Service Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+   - [**Region**](https://docs.microsoft.com/en-us/azure/spring-apps/how-to-enable-availability-zone?tabs=azure-cli#region-availability): Select the region for your service instance.
 
    :::image type="content" source="articles/spring-apps/media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="articles/spring-apps/media/quickstart/portal-start.png":::
 
@@ -253,7 +255,7 @@ az spring app logs -n hellospring -s <service instance name> -g <resource group 
 
 Logs appear in the results:
 
-:::image type="content" source="articles/spring-apps/media/spring-apps-quickstart-java/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="articles/spring-apps/media/spring-apps-quickstart-java/streaming-logs.png":::
+:::image type="content" source="articles/spring-apps/media/streaming-logs.png" alt-text="Screenshot of streaming logs in a console window." lightbox="articles/spring-apps/media/streaming-logs.png":::
 
 >[!TIP]
 > Use `az spring app logs -h` to explore more parameters and log stream functionalities.
@@ -265,11 +267,11 @@ Logs appear in the results:
 1. Select **Streaming Logs** from the drop-down list.
 1. Select instance.
 
-    :::image type="content" source="articles/spring-apps/media/spring-apps-quickstart-java/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="articles/spring-apps/media/spring-apps-quickstart-java/intellij-get-streaming-logs.png":::
+    :::image type="content" source="articles/spring-apps/media/intellij-get-streaming-logs.png" alt-text="Screenshot of IntelliJ IDEA showing Select instance dialog box." lightbox="articles/spring-apps/media/intellij-get-streaming-logs.png":::
 
 1. The streaming log will be visible in the output window.
 
-    :::image type="content" source="articles/spring-apps/media/spring-apps-quickstart-java/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="articles/spring-apps/media/spring-apps-quickstart-java/intellij-streaming-logs-output.png":::
+    :::image type="content" source="articles/spring-apps/media/intellij-streaming-logs-output.png" alt-text="Screenshot of IntelliJ IDEA showing streaming log output." lightbox="articles/spring-apps/media/intellij-streaming-logs-output.png":::
 
 #### [Visual Studio Code](#tab/VS-Code)
 
@@ -279,7 +281,7 @@ To get real-time application logs with Visual Studio Code, follow the steps in [
 
 For advanced logs analytics features, visit the **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 
-:::image type="content" source="articles/spring-apps/media/spring-apps-quickstart-java/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="articles/spring-apps/media/spring-apps-quickstart-java/logs-analytics.png":::
+:::image type="content" source="articles/spring-apps/media/logs-analytics.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Logs query." lightbox="articles/spring-apps/media/logs-analytics.png":::
 
 ## Clean up resources
 
