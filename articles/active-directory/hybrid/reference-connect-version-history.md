@@ -77,6 +77,14 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.1.16.0
+
+### Release status
+8/2/2022: Released for download and auto-upgrade.
+
+### Bug fixes
+ - We fixed a bug where auto-upgrade fails when the service account is in "UPN" format.
+
 ## 2.1.15.0
 
 ### Release status

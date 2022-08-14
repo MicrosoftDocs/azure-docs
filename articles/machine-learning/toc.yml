@@ -210,8 +210,14 @@
           href: concept-vulnerability-management.md
 - name: Infrastructure & security
   items:
+    - name: Tutorials & templates
+      items:
+        - name: "Tutorial: Create a secure workspace in Azure portal"
+          href: tutorial-create-secure-workspace.md
+        - name: "Tutorial: Create a secure workspace with templates"
+          href: tutorial-create-secure-workspace-template.md
     - name: Identity & access management
-      items: 
+      items:
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
@@ -220,11 +226,7 @@
         - name: Use managed identities for access control
           href: how-to-use-managed-identities.md
     - name: Network security
-      items: 
-        - name: "Tutorial: Create a secure workspace in Azure portal"
-          href: tutorial-create-secure-workspace.md
-        - name: "Tutorial: Create a secure workspace with templates"
-          href: tutorial-create-secure-workspace-template.md
+      items:
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -408,8 +410,6 @@
             href: how-to-train-with-custom-image.md
           - name: Migrate from Estimators to ScriptRunConfig
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-          - name: Reinforcement learning
-            href: how-to-use-reinforcement-learning.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
@@ -422,11 +422,13 @@
             - name: Monitor training jobs
               displayName: cancel, fail, status, child run
               href: how-to-track-monitor-analyze-runs.md
-            - name: Log & view metrics, parameters and files
+            - name: Log metrics, parameters and files
               displayName: troubleshoot, log, files, tracing, metrics
               href: how-to-log-view-metrics.md
             - name: Log MLflow models
               href: how-to-log-mlflow-models.md
+            - name: Query & compare experiments and runs
+              href: how-to-track-experiments-mlflow.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
               href: how-to-monitor-tensorboard.md
@@ -446,10 +448,8 @@
             - name: Train experiments with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
-            - name: Manage experiments and runs with MLflow
+            - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-            - name: Migrate from SDK v1 logging to MLflow
-              href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items: 

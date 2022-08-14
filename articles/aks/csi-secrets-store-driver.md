@@ -5,13 +5,17 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 4/26/2022
+ms.date: 8/02/2022
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secrets store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
+
+## Limitations
+
+*  A container using subPath volume mount will not receive secret updates when it is rotated. [See](https://secrets-store-csi-driver.sigs.k8s.io/known-limitations.html#secrets-not-rotated-when-using-subpath-volume-mount)
 
 ## Prerequisites
 

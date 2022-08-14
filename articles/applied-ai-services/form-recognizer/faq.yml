@@ -410,7 +410,7 @@ sections:
 
           - For **document analysis and prebuilt models**, you need full access—**Contributor** role—to at least one [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
 
-          - For custom models, you can use the endpoint and key of a [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project, and access to at least one blob storage account.
+          - For **custom models**, you can either use a **Contributor** role, or use the endpoint and key of a [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Contributor** role to access to at least one blob storage account.
 
           - For more information, *see* [Azure AD built-in roles](../../role-based-access-control/built-in-roles.md).
 

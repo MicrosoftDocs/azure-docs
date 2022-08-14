@@ -35,7 +35,7 @@ Feedback on AzAcSnap, including this preview, can be provided [online](https://a
 
 ## Getting the AzAcSnap Preview snapshot tools
 
-Refer to [Get started with Azure Application COnsistent Snapshot tool](azacsnap-get-started.md)
+Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
 
 Return to this document for details on using the preview features.
 

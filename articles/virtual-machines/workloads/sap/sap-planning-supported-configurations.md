@@ -85,7 +85,7 @@ For simplification, we did not distinguish between SAP Central Services and SAP 
 ## High Availability protection for the SAP DBMS layer
 As you look to deploy SAP production systems, you need to consider hot standby type of high availability configurations. Especially with SAP HANA, where data needs to be loaded into memory before being able to get the full performance and scalability back, Azure service healing is not an ideal measure for high availability.
 
-In general Microsoft supports only high availability configurations and software packages that are described under the SAP workload section in docs.microsoft.com. You can read the same statement in SAP note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Microsoft will not provide support for other high availability third-party software frameworks that are not documented by Microsoft with SAP workload. In such cases, the third-party supplier of the high availability framework is the supporting party for the high availability configuration who needs to be engaged by you as a customer into the support process. Exceptions are going to be mentioned in this article.
+In general, Microsoft supports only high availability configurations and software packages that are described in the [SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started). You can read the same statement in SAP note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Microsoft will not provide support for other high availability third-party software frameworks that are not documented by Microsoft with SAP workload. In such cases, the third-party supplier of the high availability framework is the supporting party for the high availability configuration who needs to be engaged by you as a customer into the support process. Exceptions are going to be mentioned in this article.
 
 In general Microsoft supports a limited set of high availability configurations on Azure VMs or HANA Large Instances units. For the supported scenarios of HANA Large Instances, read the document [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md).
 
@@ -300,8 +300,3 @@ Scenario(s) that we did not test and therefore have no experience with list like
 
 ## Next Steps
 Read next steps in the [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
-
-
-
-
-
