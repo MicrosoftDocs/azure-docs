@@ -5,11 +5,7 @@ ms.date: 05/25/2022
 ms.topic: reference
 ---
 
-<!--no nullable values-->
-
 # Integration API reference for on-premises management consoles (Public preview)
-
-DONT FORGET NEW SNOW API
 
 This article lists the APIs supported for integrating Microsoft Defender for IoT with partner services.
 
@@ -153,11 +149,11 @@ This API returns data about a specific device per a given device ID.
 | **u_protocol_objects** | JSON array of protocols | Not nullable  | An array of protocol objects. For more information, see [protocol_object fields](#protocol_object-fields). |
 | **u_vlans**  |JSON array of VLAN objects | Not nullable | An array of vlan objects. For more information, see [vlan_object fields](#vlan_object-fields). |
 | **u_purdue_layer**  | String | Not nullable |Defines the default [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
-| **u_sensor_ids** |JSON array of sensor ID objects |Not nullable | An array of **u_sensor_id** values, which defines the sensor IDs for any sensor that detected the device. <!--fix this-->|
+| **u_sensor_ids** |JSON array of sensor ID objects |Not nullable | An array of sensor ID objects. For more information, see [sensor_id_object fields](#sensor_id_object-fields). |
 | **u_cm_device_url** |String |Not nullable  | The URL used to access the device on the on-premises management console. |
-| **u_device_urls** |JSON array of URL objects |Not nullable  | An array of **u_device_url** values, which defines the URLs used to view the device in the sensor.  <!--Fix this-->|
+| **u_device_urls** |JSON array of URL objects |Not nullable  | An array of device URL objects. For more information, see [device_url_object fields](#device_url_object-fields).|
 | **u_last_update**   | Long integer  |Not nullable | Defines the timestamp of the device's last update time. |
-| **u_firmwares**  |JSON array of firmware objects | Not nullable |An array of the following values: <!--do we define what these are?--><br><br>- **u_address** <br>- **u_module_address** <br>- **u_serial** <br>- **u_model** <br>- **u_version** <br>- **u_additional_data** |
+| **u_firmwares**  |JSON array of firmware objects | Not nullable |An array of firmware objects.  For more information, see [firmware_object fields](#firmware_object-fields).|
 
 ### ip_address_object fields
 
@@ -187,7 +183,16 @@ This API returns data about a specific device per a given device ID.
 
 ### sensor_id_object fields
 
-An array of **u_sensor_id** values, which defines the sensor IDs for any sensor that detected the device.
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_sensor_id** | String | Not nullable | The ID of the sensor that detected the device.|
+
+
+### device_url_object fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_device_url** | String | Not nullable | The URLs used to view the device on the on-premises management console.|
 
 ### firmware_object fields
 
@@ -202,7 +207,6 @@ An array of **u_sensor_id** values, which defines the sensor IDs for any sensor 
 | **u_model** | String | Nullable | The device's firmware model |
 | **u_version** | String | Nullable | The device's firmware version |
 | **u_additional_data** | String | Nullable | The device's firmware vendor-specific additional data |
-
 
 ---
 
@@ -270,7 +274,6 @@ An array of the following fields:
 | **u_is_in_learning_mode** | Boolean | Not nullable  | Determines whether the sensor is in learning mode. |
 | **u_remote_upgrade_stage** | String |Nullable |Defines a current stage in a version update process as one of the following:  - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
 
-<!--hadar sent this list in teams-->
 
 ---
 <!--we left off here-->

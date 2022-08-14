@@ -200,7 +200,6 @@ Array of JSON objects that represent devices.
 | **content / error** | String | Required | If the request is successful, the content property appears. Otherwise, the error property appears. |
 
 **Possible content values**:
-<!--clarify if we really need 3 columns-->
 
 | Status code | Message | Description |
 |--|--|--|
