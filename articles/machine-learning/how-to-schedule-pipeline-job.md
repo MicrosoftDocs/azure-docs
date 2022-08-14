@@ -53,7 +53,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 # [CLI v2](#tab/cliv2)
 
-:::code language="yaml"source="~/azureml-examples-main/cli/schedules/recurrence-schedule.yml":::
+:::code language="yaml"source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
 
 `trigger` contains the following properties:
 
@@ -91,7 +91,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 # [CLI v2](#tab/cliv2)
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/schedules/recurrence-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
 
 The `trigger` section defines the schedule details and contains following properties:
 
@@ -254,15 +254,9 @@ All the display name of jobs triggered by schedule will have the display name as
 
 :::image type="content" source="media/how-to-schedule-pipeline-job/schedule-triggered-pipeline-jobs.png" alt-text="Screenshot of the jobs tab in the Azure Machine Learning studio filtering by job display name.":::
 
-# [CLI v2](#tab/cliv2)
-
 You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
 
 :::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::  
-
-# [SDK v2](#tab/sdkv2)
-
-N/A
 
 ---
 
