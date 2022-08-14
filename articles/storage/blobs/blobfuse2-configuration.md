@@ -1,17 +1,17 @@
 ---
-title: How to configure Blobfuse2 | Microsoft Docs
+title: How to configure Blobfuse2 (preview) | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: How to configure Blobfuse2.
+description: How to configure Blobfuse2 (preview).
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to configure Blobfuse2
+# How to configure Blobfuse2 (preview)
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
@@ -69,9 +69,9 @@ Configuration settings can be set when passed as parameters of the BlobFuse2 com
 blobfuse2 mount ./mount_dir --config-file=./config.yaml --container-name=blobfuse2b --log-level=log_debug --log-file-path=./bobfuse2b.log
 ```
 
-For more information about the complete BlobFuse2 command set, including the `blobfuse2 mount` command, see [The BlobFuse2 command set reference](blobfuse2-commands.md) and [The BlobFuse2 mount command reference](blobfuse2-commands-mount.md).
+For more information about the complete BlobFuse2 command set, including the `blobfuse2 mount` command, see [The BlobFuse2 command set reference (preview)](blobfuse2-commands.md) and [The BlobFuse2 mount command reference (preview)](blobfuse2-commands-mount.md).
 
 ## See also
 
-- [What is BlobFuse2?](blobfuse2-what-is.md)
-- [How to mount an Azure blob storage container on Linux with BlobFuse2](blobfuse2-how-to-deploy.md)
+- [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
+- [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)

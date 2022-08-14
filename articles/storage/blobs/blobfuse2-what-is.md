@@ -1,17 +1,17 @@
 ---
-title: How you can use BlobFuse2 (preview) to mount an Azure Blob storage container on Linux. | Microsoft Docs
+title: Use BlobFuse2 (preview) to mount and manage Azure Blob storage containers on Linux. | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how you can use BlobFuse2 (preview) to mount an Azure Blob storage container on Linux.
+description: Use BlobFuse2 (preview) to mount and manage Azure Blob storage containers on Linux.
 author: jammart
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# What is BlobFuse2 (preview)?
+# What is BlobFuse2? (preview)
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
@@ -143,11 +143,11 @@ This table shows how this feature is supported in your account and the impact on
 
 ## Next steps
 
-- [How to mount an Azure blob storage container on Linux with BlobFuse2](blobfuse2-how-to-deploy.md)
+- [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
 - [The BlobFuse2 Migration Guide (from v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
 
 ## See also
 
-- [BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [BlobFuse2 command reference](blobfuse2-commands.md)
-- [How to troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
+- [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
+- [BlobFuse2 command reference (preview)](blobfuse2-commands.md)
+- [How to troubleshoot BlobFuse2 issues (preview)](blobfuse2-troubleshooting.md)

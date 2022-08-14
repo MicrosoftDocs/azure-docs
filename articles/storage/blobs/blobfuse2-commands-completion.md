@@ -1,17 +1,17 @@
 ---
-title: How to use the completion command to generate the autocompletion script for BlobFuse2 | Microsoft Docs
+title: How to use the completion command to generate the autocompletion script for BlobFuse2 (preview) | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how to use the completion command to generate the autocompletion script for BlobFuse2.
+description: Learn how to use the completion command to generate the autocompletion script for BlobFuse2 (preview).
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 08/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# BlobFuse2 completion command
+# BlobFuse2 completion command (preview)
 
 Use the `blobfuse2 completion` command to generate the autocompletion script for BlobFuse2 for a specified shell.
 
@@ -59,7 +59,7 @@ The following flags are inherited from parent command [`blobfuse2`](blobfuse2-co
 
 ## See also
 
-- [The Blobfuse2 completion bash command](blobfuse2-commands-completion-bash.md)
-- [The Blobfuse2 completion fish command](blobfuse2-commands-completion-fish.md)
-- [The Blobfuse2 completion PowerShell command](blobfuse2-commands-completion-powershell.md)
-- [The Blobfuse2 completion zsh command](blobfuse2-commands-completion-zsh.md)
+- [The Blobfuse2 completion bash command (preview)](blobfuse2-commands-completion-bash.md)
+- [The Blobfuse2 completion fish command (preview)](blobfuse2-commands-completion-fish.md)
+- [The Blobfuse2 completion PowerShell command (preview)](blobfuse2-commands-completion-powershell.md)
+- [The Blobfuse2 completion zsh command (preview)](blobfuse2-commands-completion-zsh.md)

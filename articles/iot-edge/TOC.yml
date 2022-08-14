@@ -227,6 +227,14 @@
       href: how-to-access-dtpm.md
     - name: Configure virtual machine on a demilitarized zone (DMZ)
       href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
+    - name: Troubleshoot
+      items:
+        - name: Diagnose virtual machine
+          href: troubleshoot-iot-edge-for-linux-on-windows.md
+        - name: Diagnose virtual machine networking
+          href: troubleshoot-iot-edge-for-linux-on-windows-networking.md
+        - name: Resolve common errors
+          href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2022

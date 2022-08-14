@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 08/05/2022
 ---
 
 # Resource functions for Bicep
@@ -103,7 +103,22 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 `keyVaultName.getSecret(secretName)`
 
-Returns a secret from an Azure Key Vault. The `getSecret` function can only be called on a `Microsoft.KeyVault/vaults` resource. Use this function to pass a secret to a secure string parameter of a Bicep module. The function can be used only with a parameter that has the `@secure()` decorator.
+Returns a secret from an Azure Key Vault. Use this function to pass a secret to a secure string parameter of a Bicep module.
+
+You can only use the `getSecret` function from within the `params` section of a module. You can only use it with a `Microsoft.KeyVault/vaults` resource.
+
+```bicep
+module sql './sql.bicep' = {
+  name: 'deploySQL'
+  params: {
+    adminPassword: keyVault.getSecret('vmAdminPassword')
+  }
+}
+```
+
+You'll get an error if you attempt to use this function in any other part of the Bicep file. You'll also get an error if you use this function with string interpolation, even when used in the params section.  
+
+The function can be used only with a module parameter that has the `@secure()` decorator.
 
 The key vault must have `enabledForTemplateDeployment` set to `true`. The user deploying the Bicep file must have access to the secret. For more information, see [Use Azure Key Vault to pass secure parameter value during Bicep deployment](key-vault-parameter.md).
 

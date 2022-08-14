@@ -38,15 +38,15 @@ Once your request is approved, a private IP address gets assigned from the Azure
 
 Azure Front Door private link is available in the following regions:
 
-| Americas | Europe | Asia Pacific |
-|--|--|--|
-| Brazil South | France Central | Australia East |
-| Canada Central | Germany West Central | Central India |
-| Central US | Norway East | East Asia |
-| East US | Sweden Central | Japan East |
-| East US 2 | UK South | Korea Central |
-| South Central US | West Europe |  |
-| West US 3 |  |  |
+| Americas | Europe | Africa | Asia Pacific |
+|--|--|--|--|
+| Brazil South | France Central | South Africa North | Australia East |
+| Canada Central | Germany West Central | | Central India |
+| Central US | North Europe | | Japan East |
+| East US | Norway East | | Korea Central |
+| East US 2 | UK South | | East Asia |
+| South Central US | West Europe | | |
+| West US 3 | Sweden Central | | |
 
 ## Limitations
 
