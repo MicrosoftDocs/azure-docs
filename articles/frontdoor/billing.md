@@ -19,6 +19,9 @@ For Azure Front Door pricing information, see the [Azure Front Door pricing page
 > [!NOTE]
 > This article explains how billing works for Azure Front Door Standard and Premium SKUs. For information about Azure Front Door (classic), see the [Azure Front Door pricing page](https://azure.microsoft.com/pricing/details/frontdoor/).
 
+> [!CAUTION] <!-- TODO -->
+> The diagrams on this page are rough drafts for content review purposes only. After the article has been reviewed, I'll get the diagrams redrawn by the Azure illustration team.
+
 ## Base fees
 
 Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door SKU that you deploy.
@@ -131,7 +134,7 @@ The following billing meters will be incremented:
 
 Fabrikam runs an eCommerce site on another cloud provider, and uses Azure Front Door to serve the traffic. They haven't enabled caching or compression.
 
-Suppose a request from a client is sent to the Fabrikam website, sending a 2KB request and receiving a 350KB response:
+Suppose a request from a client is sent to the Fabrikam website, sending a 2 KB request and receiving a 350 KB response:
 
 :::image type="content" source="./media/billing/scenario-4.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to an origin outside of Azure." border="false":::
 
@@ -140,9 +143,9 @@ The following billing meters will be incremented:
 | Meter | Incremented by |
 |-|-|
 | Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | 2KB |
+| Data transfer from Front Door edge to origin | 2 KB |
 | Data transfer from origin to Front Door | *non-billable by Azure* |
-| Data transfer from Front Door to client | 350KB |
+| Data transfer from Front Door to client | 350 KB |
 
 The external cloud provider might charge other fees.
 
