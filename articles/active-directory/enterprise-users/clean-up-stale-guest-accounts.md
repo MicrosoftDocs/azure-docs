@@ -115,7 +115,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    | Group | Select the dynamic group |
    | Scope | **Guest users only**
    | Inactive users (on tenant level) only | Check the box |
-   | Days inactive | Enter the number of days that constitute inactivity |
+   | Days inactive | Enter the number of days that constitutes inactivity |
 
    >[!NOTE]
    >The inactivity time you configure will not affect recently created users. The Access Review will check if the user has been created in the timeframe you configure and ignore users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created/invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that guests can sign in once before being removed.
@@ -129,7 +129,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    | Property | Value |
    |:----|:---|
    | **Specify reviewers** |  |
-   | Select reviewers | Select **Group owner(s)** or a user or group.<br>(Optional) To enable the process to remain automated, select a reviewer who will have no action.|  
+   | Select reviewers | Select **Group owner(s)** or a user or group.<br>(Optional) To enable the process to remain automated, select a reviewer who will take no action.|  
    | **Specify recurrence of review**| | 
    | Duration (in days) | Enter or select a value based on your preference|
    | Review recurrence | Select your preference from the drop-down |
