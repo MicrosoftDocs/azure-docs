@@ -136,7 +136,7 @@ Push notifications let clients be notified for incoming messages and other opera
       }
    ```
 
-7. Put the following code below comment `<RECEIVE CHAT MESSAGES>`:
+7. Put the following code below the comment `<RECEIVE CHAT MESSAGES>` in `MainActivity`:
 
 ```java
    startFcmPushNotification();
