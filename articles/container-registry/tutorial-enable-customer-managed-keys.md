@@ -18,7 +18,7 @@ In this article
 
 ## Prerequisites
 
->* [Install or Upgrade Azure CLI](/cli/azure/install-azure-cli) with version 2.2.0 or later.
+>* See [Install Azure CLI][azure-cli] or run in [Azure Cloud Shell.](../cloud-shell/quickstart.md).
 >* Sign into [Azure Portal](https://ms.portal.azure.com/) 
 
 ## Enable a Customer managed key - Azure CLI
