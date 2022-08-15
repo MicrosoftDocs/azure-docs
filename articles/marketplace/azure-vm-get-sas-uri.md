@@ -115,22 +115,22 @@ There are two common tools used to create a SAS address (URI):
     az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <container-name> --permissions r --start '<start-date>' --expiry '<expiry-date>'
     ```
 
-Before running the command above, remember to insert the following parameter values.
+    Before running the command above, remember to insert the following parameter values.
 
-| Parameter value | Description |
-| --------------- | ----------- |
-| account-name | Your Azure storage account name. |
-| account-key | Your Azure storage account key. |
-| container-name | Your blob container that hosts the VHD file. |
-| start-date | This is the permission start date for VHD access. Provide a date one day before the current date. For example, if the current date is July 15, 2022, set the date as 07/14/2022. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
-| expiry-date | This is the permission expiration date for VHD access. Provide a date at least three weeks after the current date. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
+    | Parameter value | Description |
+    | --------------- | ----------- |
+    | account-name | Your Azure storage account name. |
+    | account-key | Your Azure storage account key. |
+    | container-name | Your blob container that hosts the VHD file. |
+    | start-date | This is the permission start date for VHD access. Provide a date one day before the current date. For example, if the current date is July 15, 2022, set the date as 07/14/2022. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
+    | expiry-date | This is the permission expiration date for VHD access. Provide a date at least three weeks after the current date. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
 
-    [![creation of a SAS connection string within the PowerShell editor](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
+    [![creation of a SAS connection string within the PowerShell editor](./media/vm/create-sas-uri-power-shell-ise.png)](./media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 
-6. Copy the SAS connection string and save it to a text file in a secure location. Edit this string to add the VHD location information to create the final SAS URI.
-7. In the Azure portal, go to the blob container that includes the VHD associated with the new URI.
-8. Copy the URL of the blob service endpoint.
-9. Edit the text file with the SAS connection string from step 2. Create the complete SAS URI using this format. Be sure to insert a “?” between the endpoint URL and the connection string.
+1. Copy the SAS connection string and save it to a text file in a secure location. Edit this string to add the VHD location information to create the final SAS URI.
+1. In the Azure portal, go to the blob container that includes the VHD associated with the new URI.
+1. Copy the URL of the blob service endpoint.
+1. Edit the text file with the SAS connection string from step 2. Create the complete SAS URI using this format. Be sure to insert a “?” between the endpoint URL and the connection string.
 
     `<blob-service-endpoint-url>?<sas-connection-string>`
 
