@@ -11,13 +11,13 @@ ms.author: ranku
 # Exporting de-identified data
 
 > [!Note] 
-> Results when using the FHIR service's de-identified export will vary based on the nature of the data being exported and what de-id functions are in use. Microsoft is unable to evaluate the de-identified export outputs or determine the acceptability for customers' use cases and compliance needs. The FHIR service's de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
+> Results when using the FHIR service's de-identified export will vary based on the nature of the data being exported and what de-id functions are in use. Microsoft is unable to evaluate de-identified export outputs or determine the acceptability for customers' use cases and compliance needs. The FHIR service's de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
 
- With the `$export` operation, the FHIR service is able to de-identify data on export. For de-identified export, the FHIR service uses the anonymization engine from [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization). You can customize your own anonymization rules using the [sample config file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#sample-configuration-file) as a starting point for redacting/transforming fields in FHIR data that contain identifying information. 
+ The FHIR service is able to de-identify data on export when running an `$export` operation. For de-identified export, the FHIR service uses the anonymization engine from the [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization) (OSS) project on GitHub. There is a [sample config file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#sample-configuration-file) to help you get started redacting/transforming FHIR data fields that contain personally identifying information. 
 
 ## Configuration file
 
-The anonymization engine comes with a sample configuration file to help you get started with [HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance) de-id requirements. The configuration file is a JSON file with four sections: `fhirVersion`, `processingErrors`, `fhirPathRules`, `parameters`. 
+The anonymization engine comes with a sample configuration file to help you get started with [HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance) de-id requirements. The configuration file is a JSON file with four properties: `fhirVersion`, `processingErrors`, `fhirPathRules`, `parameters`. 
 * `fhirVersion` specifies the FHIR version for the anonymization engine.
 * `processingErrors` specifies what action to take for any processing errors that may arise during the anonymization. You can _raise_ or _keep_ the exceptions based on your needs.
 * `fhirPathRules` specifies which anonymization method to use. The rules are executed in the order they appear in the configuration file.
@@ -46,7 +46,7 @@ Here's a sample configuration file for FHIR R4:
 }
 ```
 
-For detailed information on each of the four sections of the configuration file, visit [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format). 
+For detailed information on each of the four properties of the configuration file, visit [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format). 
 
 ## Using the `$export` endpoint for de-identifying data 
 
@@ -56,9 +56,10 @@ The API call below demonstrates how to form a request for de-id on export from t
 GET https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>
 ```
 
-You will need to create a container for the de-identified export within your ADLS Gen2 storage account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
+You will need to create a container for the de-identified export in your ADLS Gen2 storage account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
 
-It is common practice to name the container `anonymization`. The JSON file within the container is often called `anonymizationConfig.json`.
+> [!Note] 
+> It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
 
 > [!Note] 
 > Right now the FHIR service only supports de-identified export at the system level (`$export`).
