@@ -66,7 +66,7 @@ To install BlobFuse2:
 
     ```bash
     sudo apt-get install libfuse3-dev fuse3 
-    sudo apt install blobfuse2-2.0.0-preview.2-ubuntu-20.04-x86-64.deb
+    sudo apt install ./blobfuse2-2.0.0-preview.2-ubuntu-20.04-x86-64.deb
     ```
     
 ### Option 2: Build from source
