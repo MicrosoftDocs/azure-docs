@@ -92,7 +92,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 
 9. Select **Next: Review + Create**
 
-10. Enter an Access Review name. Provide description (optional).
+10. Enter an Access Review name. (Optional) provide description .
 
 11. Select **Create**.
 
@@ -156,7 +156,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 
 9. Select **Next: Review + Create**.
 
-10. Enter an Access Review name. Provide a description (optional).
+10. Enter an Access Review name. (Optional) provide description .
 
 11. Select **Create**.
 
