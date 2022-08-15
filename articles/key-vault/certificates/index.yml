@@ -56,6 +56,8 @@ landingContent:
             url: quick-create-node.md
           - text: Java
             url: quick-create-java.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
           - text: Import a certificate in Key Vault 
             url: tutorial-import-certificate.md
 

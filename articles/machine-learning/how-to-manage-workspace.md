@@ -347,7 +347,7 @@ A contains search scans across all metadata fields for the given asset and sorts
 
 :::image type="content" source="media/how-to-manage-workspace/start-search.png" alt-text="Screenshot shows the top search bar.":::
 
-You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
+You can use the asset quick links to navigate to search results for jobs, models, components, environments, and data assets that you created.
 
 Also,  you can change the scope of applicable subscriptions and workspaces via the 'Change' link in the search bar drop down.
 
@@ -363,9 +363,9 @@ Select any number of filters to create more specific search queries. The followi
 * Tags:
 * SubmittedBy:
 * Environment:
-* Dataset:
+* Data:
 
-If an asset filter (job, model, component, environment, dataset) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
+If an asset filter (job, model, component, environment, data) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
 
 > [!TIP]
 > * Filters search for exact matches of text. Use free text queries for a contains search.
@@ -427,7 +427,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 * **Azure portal**: 
   * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
-  * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
+  * All assets (Data, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
   * Attempting to export a template for a workspace from the Azure portal may return an error similar to the following text: `Could not get resource of the type <type>. Resources of this type will not be exported.` As a workaround, use one of the templates provided at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) as the basis for your template.
 
 ### Workspace diagnostics

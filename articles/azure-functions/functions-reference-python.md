@@ -406,7 +406,7 @@ The *host.json* file must also be updated to include an HTTP `routePrefix` value
 }
 ```
 
-Update the Python code file *init.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
+Update the Python code file *__init__.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
 
 # [ASGI](#tab/asgi)
 
@@ -632,6 +632,10 @@ When your project has dependencies not found in the [Python Package Index](https
 When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` with the `--extra-index-url` option. To learn more, see the [Python pip install documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
 You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in Python documentation.
+
+> [!NOTE]
+> If you need to change the base URL of the Python Package Index from the default of `https://pypi.org/simple`, you can do this by [creating an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named [`PIP_INDEX_URL`](functions-app-settings.md#pip_index_url) that points to a different package index URL. Like [`PIP_EXTRA_INDEX_URL`](functions-app-settings.md#pip_extra_index_url), [`PIP_INDEX_URL`](functions-app-settings.md#pip_index_url) is a pip-specific application setting that changes the source for pip to use.
+
 
 #### Installing local packages
 

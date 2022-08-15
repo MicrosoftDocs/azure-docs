@@ -95,7 +95,7 @@ landingContent:
           - text: Energy grid ontology
             url: https://github.com/Azure/opendigitaltwins-energygrid/
             
-  - title: Scenario-based learning with Microsoft Learn
+  - title: Scenario-based learning
     linkLists:
       - linkListType: learn
         links:

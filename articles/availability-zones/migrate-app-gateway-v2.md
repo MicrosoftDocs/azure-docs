@@ -1,10 +1,10 @@
 ---
-title: Migrate Azure Application Gateway and WAF deployments to availability zone support 
+title: Migrate Azure Application Gateway Standard and WAF v2 deployments to availability zone support 
 description: Learn how to migrate your Azure Application Gateway and WAF deployments to availability zone support.
 author: anaharris-ms
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.date: 07/28/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -12,13 +12,13 @@ ms.custom: references_regions
 
 # Migrate Application Gateway and WAF deployments to availability zone support
  
-[Application Gateway Standard v2](/azure/application-gateway/overview-v2) or [WAF v2](/azure/web-application-firewall/ag/ag-overview) supports zonal and zone redundant deployments. For more information about zone redundancy, see [Regions and availability zones](az-overview.md). 
+[Application Gateway Standard v2](/azure/application-gateway/overview-v2) and Application Gateway with [WAF v2](/azure/web-application-firewall/ag/ag-overview) supports zonal and zone redundant deployments. For more information about zone redundancy, see [Regions and availability zones](az-overview.md). 
 
-If you previously deployed Azure Application Gateway Standard v2 or WAF v2 without zonal support, you must redeploy these services to enable zone redundancy. Two migration options to redeploy these services are described in this article.
+If you previously deployed **Azure Application Gateway Standard v2** or **Azure Application Gateway Standard v2 + WAF v2** without zonal support, you must redeploy these services to enable zone redundancy. Two migration options to redeploy these services are described in this article.
 
 ## Prerequisites
 
-- Your deployment must be Standard v2 or WAF v2 SKU. Earlier SKUs (Standard and WAF) don't support zone awareness.
+- Your deployment must be Standard v2 or WAF v2 SKU. Earlier SKUs (Standard and WAF) don't support availability zones.
 
 ## Downtime requirements
 
@@ -38,7 +38,7 @@ Use this option to:
 To create a separate Application Gateway, WAF (optional) and IP address:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway V2 + WAF v2, respectively. You can reuse your existing Virtual Network or create a new one, but you must create a new frontend Public IP address.
+2. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway v2 + WAF v2, respectively. You can reuse your existing Virtual Network or create a new one, but you must create a new frontend Public IP address.
 3. Verify that the application gateway and WAF are working as intended.
 4. Migrate your DNS configuration to the new public IP address.
 5. Delete the old Application gateway and WAF resources.
@@ -57,7 +57,7 @@ To delete the Application Gateway and WAF and redeploy:
 1. Go to the [Azure portal](https://portal.azure.com). 
 2. Select **All resources**, and then select the resource group that contains the Application Gateway.
 3. Select the Application Gateway resource and then select **Delete**. Type **yes** to confirm deletion, and then click **Delete**.
-4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway V2 + WAF v2, respectively, using the same Virtual Network, subnets, and Public IP address that you used previously.
+4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to create a new Application Gateway v2 or Application Gateway v2 + WAF v2, respectively, using the same Virtual Network, subnets, and Public IP address that you used previously.
 
 ## Next steps
 

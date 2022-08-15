@@ -20,6 +20,10 @@ ms.author: radubulboaca
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/rooms-quickstart).
+
 ## Setting up
 
 ### Create a new web application
@@ -86,7 +90,7 @@ console.log(`Retrieved Room with ID ${roomId}`);
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```javascript
 validFrom.setTime(validUntil.getTime());
@@ -127,6 +131,14 @@ To add new participants to a `room`, use the `addParticipants` method exposed on
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
+
+### Get list of participants
+
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+
+```javascript
+  const participantsList = await roomsClient.getParticipants(roomId);
+```
 
 ### Remove participants
 
