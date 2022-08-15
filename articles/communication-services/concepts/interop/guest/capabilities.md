@@ -20,13 +20,13 @@ The following table shows supported client-side capabilities available in Azure 
 | Category | Capability | Supported |
 | --- | --- | --- |
 |Chat | Send and receive chat messages                | ✔️ |
-| | Send and recieve Giphy                        | ❌ |
+| | Send and receive Giphy                        | ❌ |
 | | Send messages with high priority              | ❌ |
 | | Recieve messages with high priority           | ✔️ |
-| | Send and recieve Loop components              | ❌ |
-| | Send and recieve Emojis                       | ❌ |
-| | Send and recieve Stickers                     | ❌ |
-| | Send and recieve Stickers                     | ❌ |
+| | Send and receive Loop components              | ❌ |
+| | Send and receive Emojis                       | ❌ |
+| | Send and receive Stickers                     | ❌ |
+| | Send and receive Stickers                     | ❌ |
 | | Send and receive Teams messaging extensions   | ❌ |
 | | Use typing indicators                         | ✔️ |
 | | Read receipt                                  | ❌ |
@@ -103,4 +103,3 @@ The following table shows supported Teams capabilities:
 - [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)
 - [Communicate as Teams user](../../teams-endpoint.md).
-
