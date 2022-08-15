@@ -2,7 +2,7 @@
 title: Azure Monitor Agent overview
 description: Overview of the Azure Monitor Agent, which collects monitoring data from the guest operating system of virtual machines.
 ms.topic: conceptual
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.date: 7/21/2022
 ms.custom: references_regions
@@ -120,8 +120,8 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 # [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
-$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
+$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
@@ -129,8 +129,8 @@ Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMo
 # [Linux VM](#tab/PowerShellLinux)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
-$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
+$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
@@ -138,8 +138,8 @@ Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMoni
 # [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
-$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
+$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
 ```
@@ -147,8 +147,8 @@ New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType Az
 # [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
-$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
+$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
 ```
@@ -264,7 +264,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux                                                   | X | X |   |
+| AlmaLinux 8.*                                               | X | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X |   |
@@ -272,7 +272,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | CentOS Linux 6                                              |   | X |   |
 | CentOS Linux 6.5+                                           |   | X | X |
 | Debian 11 <sup>1</sup>                                      | X |   |   |
-| Debian 10 <sup>1</sup>                                      | X |   |   |
+| Debian 10 <sup>1</sup>                                      | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
 | Debian 7                                                    |   |   | X |
@@ -286,7 +286,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
-| Rocky Linux                                                 | X | X |   |
+| Rocky Linux 8.*                                             | X | X |   |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
@@ -301,10 +301,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
-<sup>3</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
-
-> [!NOTE]
-> For Dependency Agent Linux support, see [Dependency Agent documentation](../vm/vminsights-dependency-agent-maintenance.md#dependency-agent-linux-support). 
+<sup>3</sup> Not all kernel versions are supported. For more information, see [Dependency Agent Linux support](../vm/vminsights-dependency-agent-maintenance.md#dependency-agent-linux-support).
 
 ## Next steps
 
