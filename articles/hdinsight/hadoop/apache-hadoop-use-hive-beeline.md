@@ -36,7 +36,7 @@ This example is based on using the Beeline client from [an SSH connection](../hd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Connect to HiveServer2 with your Beeline client from your open SSH session by entering the following command :
+2. Connect to HiveServer2 with your Beeline client from your open SSH session by entering the following command:
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
