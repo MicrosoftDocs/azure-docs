@@ -117,7 +117,8 @@ Use the following instructions to learn how to create Access Reviews that follow
    | Inactive users (on tenant level) only | Check the box |
    | Days inactive | Enter the number of days that constitute inactivity |
 
-   >[!NOTE] The inactivity time you configure will not affect recently created users. The Access Review will check if the user has been created in the timeframe you configure and ignore users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created/invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that guests can sign in once before being removed.
+   >[!NOTE]
+   >The inactivity time you configure will not affect recently created users. The Access Review will check if the user has been created in the timeframe you configure and ignore users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created/invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that guests can sign in once before being removed.
    
    ![Screenshot shows the review type dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/review-type-remove-inactive-guests.png)
 
