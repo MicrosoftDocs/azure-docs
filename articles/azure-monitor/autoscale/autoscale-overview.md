@@ -34,9 +34,9 @@ When the conditions in the rules are met, one or more autoscale actions are trig
 
 ## Scaling out and scaling up
 
-Autoscale scales in and out, which is an increase, or decrease of the number of resource instances. This is also known as horizontal scaling. For example, for a virtual machine scale set, scaling out means adding more virtual machines Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
+Autoscale scales in and out, which is an increase, or decrease of the number of resource instances. Scaling in and out is also called horizontal scaling. For example, for a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
 
-In contrast, scaling up and down, or vertical scaling, keeps the same number of resources constant, but gives them more capacity in terms of memory, CPU speed, disk space and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling may also require a restart of the virtual machine during the scaling process.
+In contrast, scaling up and down, or vertical scaling, keeps the number of resources constant, but gives those resources more capacity in terms of memory, CPU speed, disk space and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling may also require a restart of the virtual machine during the scaling process.
 
  ![Scaling up explained](./media/autoscale-overview/vertical-scaling.png)
 
@@ -71,8 +71,8 @@ Use your own custom metrics that your application generates. Configure your appl
 
 ### Time
 
-Set up schedule-based rules to trigger scale events. Use schedule-based rules when you see time patterns in your load, and want to scale before an anticipated change in load occurs.   
- 
+Set up schedule-based rules to trigger scale events. Use schedule-based rules when you see time patterns in your load, and want to scale before an anticipated change in load occurs.
+
 ### Rules
 
 Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Rules can be:
@@ -94,10 +94,9 @@ Rules can trigger one or more actions. Actions include:
 + Scale - Scale resources in or out.
 + Email - Send an email to the subscription admins, co-admins, and/or any other email address.
 + Webhooks - Call webhooks to trigger multiple complex actions inside or outside Azure. In Azure, you can:
-  visio
-   + Start an [Azure Automation runbook](/azure/automation/overview).
-     + Call an [Azure Function](/azure/azure-functions/functions-overview).
-     + Trigger an [Azure Logic App](/azure/logic-apps/logic-apps-overview)/
+  + Start an [Azure Automation runbook](/azure/automation/overview).
+    + Call an [Azure Function](/azure/azure-functions/functions-overview).
+    + Trigger an [Azure Logic App](/azure/logic-apps/logic-apps-overview)/
 
 ## Autoscale settings
 
@@ -108,7 +107,7 @@ Autoscale uses the following terminology and structure. The UI and JSON
 | UI               | JSON/CLI     | Description                                                                                                                                                                                                                                                                   |
 |------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Scale conditions | profiles     | A collection of rules, instance limits and schedules, based on a metric or time. You can define one or more scale conditions or profiles.                                                                                                                                                                                             |
-| Rules            | rules        | A set of time or metric-based conditions that trigger a scale action. You can define one or more rules for both scale in and scale out actions.                                                                                                                                                                                                         |
+| Rules            | rules        | A set of time or metric-based conditions that trigger a scale action. You can define one or more rules for both scale-in and scale-out actions.                                                                                                                                                                                                         |
 | Instance limits  | capacity     | Each scale condition or profile defines th default, max, and min number of instances that can run under that profile.                                                                                                                                                                                                                                    |
 | Schedule         | recurrence   | Indicates when autoscale should put this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day, or days of the week. |
 | Notify           | notification | Defines the notifications to send when an autoscale event occurs. Autoscale can notify one or more email addresses or make a call one or more webhooks. You can configure multiple webhooks in the JSON but only one in the UI.                                 |
@@ -124,7 +123,7 @@ For code examples, see
 
 ## Horizontal vs vertical scaling
 
-Autoscale scales horizontally, which is an increase, or decrease of the number of resource instances. For example, in a virtual machine scale set, scaling out means adding more virtual machines Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
+Autoscale scales horizontally, which is an increase, or decrease of the number of resource instances. For example, in a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
 
 In contrast, vertical scaling, keeps the same number of resources constant, but gives them more capacity in terms of memory, CPU speed, disk space and network. Adding or removing capacity in vertical scaling is known as scaling or down. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling may also require a restart of the virtual machine during the scaling process.
 
