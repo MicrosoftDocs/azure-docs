@@ -43,6 +43,8 @@ This article guides you through the construction of Oma's waffles. After complet
 
 - An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure subscription enabled for the Storage Mover preview.
+- An Azure resource group in which to deploy the agent
+- A storage mover object with which to perform the migration
 
 <!-- 
 4. H2s (Docs Required)
@@ -89,7 +91,25 @@ Once your agent VM is running, you'll need to create trust to use it for migrati
 1. After starting, the agent VM's **State**, **CPU Usage**, and other metrics are displayed in the **Virtual Machines** pane. Additionally, a checkpoint is automatically created. Connect to the agent VM by selecting **Connect...** from the agent's section within the **Actions** pane as shown.
   :::image type="content" source="media/agent-deploy/agent-vm-connect-sml.png" lightbox="media/agent-deploy/agent-vm-connect-lrg.png"  alt-text="Image illustrating the location of the Connect icon within Hyper-V Manager.":::
 1. In the **Virtual Machine Connection** window, login to the agent VM using the default credentials. At the **login** prompt, enter **admin** and press the **Enter** key. Enter **admin** again at the **Password** prompt and press the **Enter** key. Enter **n** when prompted to change the default password and press the **Enter** key.
-  :::image type="content" source="media/agent-deploy/agent-vm-login-sml.png" lightbox="media/agent-deploy/agent-vm-login-lrg.png"  alt-text="Image illustrating the authentication prompts for the agent VM using Hyper-V Manager.":::
+  :::image type="content" source="media/agent-deploy/agent-vm-login-sml.png" lightbox="media/agent-deploy/agent-vm-login-lrg.png" alt-text="Image illustrating the authentication prompts for the agent VM using Hyper-V Manager.":::
+1. Enter **4** at the prompt to begin registering your agent. When prompted to choose the type of registration, enter **2** to use an interactive session.
+  :::image type="content" source="media/agent-deploy/register-interactive-sml.png" lightbox="media/agent-deploy/register-interactive-sml.png" alt-text="7":::
+1. Open a web browser and navigate to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) to access the authentication page. Enter the authentication code provided by the agent in the **Enter Code** field.
+  :::image type="content" source="media/agent-deploy/register-interactive-code-sml.png" lightbox="media/agent-deploy/register-interactive-code-lrg.png" alt-text="4":::
+1. On the **Sign in** page, enter your account email, phone, or Skype account when prompted.
+  :::image type="content" source="media/agent-deploy/register-interactive-signin-sml.png" lightbox="media/agent-deploy/register-interactive-signin-lrg.png" alt-text="3":::
+1. Approve sign in.
+  :::image type="content" source="media/agent-deploy/register-interactive-approve-sml.png" lightbox="media/agent-deploy/register-interactive-approve-lrg.png"  alt-text="2":::
+
+1. Confirm
+  :::image type="content" source="media/agent-deploy/register-interactive-confirm-sml.png" lightbox="media/agent-deploy/register-interactive-confirm-lrg.png" alt-text="1":::
+
+1. Successful sign in.
+  :::image type="content" source="media/agent-deploy/register-interactive-success-sml.png" lightbox="media/agent-deploy/register-interactive-success-lrg.png" alt-text="5":::
+
+1. The agent is registered.
+  :::image type="content" source="media/agent-deploy/agent-registered-interactive-sml.png" lightbox="media/agent-deploy/agent-registered-interactive-sml.png" alt-text="6":::
+
 
 # [PowerShell](#tab/powershell)
 
