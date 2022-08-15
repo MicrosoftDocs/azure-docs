@@ -36,11 +36,15 @@ This example is based on using the Beeline client from [an SSH connection](../hd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Connect to HiveServer2 with your Beeline client from your open SSH session by entering the following command:
+2. Connect to HiveServer2 with your Beeline client from your open SSH session by entering the following command :
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
+   > [!NOTE]  
+   > Refer to [Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local](https://docs.microsoft.com/azure/hdinsight/hadoop/connect-install-beeline#to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos) if you are using an Enterprise Security Package enabled cluster
+   >
+   > Dropping an external table does **not** delete the data, only the table definition.
 
 3. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
 
