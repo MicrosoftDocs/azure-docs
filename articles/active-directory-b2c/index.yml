@@ -121,7 +121,7 @@ conceptualContent:
           - text: Register your applications
             url: index-register-apps.yml
             itemType: how-to-guide
-          - text: Create user sign in experience
+          - text: Create a user sign-in/sign-up experience
             url: index-create-user-flow.yml
             itemType: how-to-guide
           - text: Enable self-service sign-in
@@ -160,6 +160,9 @@ conceptualContent:
           - text: Roles and access control
             url: roles-resource-access-control.md
             itemType: concept
+          - text: Manage users using Microsoft Graph API
+            url: microsoft-graph-operations.md#user-management
+            itemType: reference
     ## CARD 5 ######################
     - title: 'Authorize: Call and secure your APIs'
       links:

@@ -1,9 +1,8 @@
 ### YamlMime:Landing
 
-title: Single-page application (SPA) documentation
+title: Daemon/service apps documentation
 summary: >
-  Choose your target language to learn how to sign in users and access web APIs in your single-page apps with
-  our quickstarts and how-to guides.
+  Learn how to access protected web APIs by daemons/services apps using our how-to guide and samples.
 
 metadata:
    author: kengaderdus
@@ -17,33 +16,18 @@ metadata:
 landingContent:
 
 ## ROW 1 ################################################### ROW 1 ##
-  - title: "Configure ready apps quickly"
+  - title: "Explore sample apps"
     linkLists:
-      - linkListType: quickstart
+      - linkListType: sample
         links:
-          - text: Angular
-            url: configure-authentication-sample-angular-spa-app.md
-          - text: JavaScript
-            url: configure-authentication-sample-spa-app.md
-          - text: React
-            url: configure-authentication-sample-react-spa-app.md
-  - title: "Build your own app"
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app.md
-          - text: JavaScript
-            url: enable-authentication-spa-app.md
-          - text: React
-            url: enable-authentication-react-spa-app.md
-  - title: "Configuration options"
+          - text: Node console application
+            url: https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter2
+          - text: .NET Core console application
+            url: https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management
+  
+  - title: "Scenarios in depth"
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app-options.md
-          - text: JavaScript
-            url: enable-authentication-spa-app-options.md
-          - text: React
-            url: enable-authentication-react-spa-app-options.md
+          - text: Client credentials flow
+            url: client-credentials-grant-flow.md
