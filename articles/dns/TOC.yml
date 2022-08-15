@@ -203,6 +203,8 @@
       href: https://www.npmjs.com/package/@azure/arm-dnsresolver
     - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
+    - name: Resource Manager template
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-dns-private-resolver   
 - name: Resources
   items:
   - name: Azure Roadmap
