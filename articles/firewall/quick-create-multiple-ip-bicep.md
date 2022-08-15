@@ -2,9 +2,11 @@
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep'
 description: In this quickstart, you learn how to use a Bicep file to create an Azure Firewall with multiple public IP addresses.
 services: firewall
+author: mumian
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.author: jgao
 ms.date: 08/11/2022
 ---
 
@@ -68,12 +70,11 @@ Multiple Azure resources are defined in the template:
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
-
 ## Validate the deployment
 
 In the Azure portal, review the deployed resources. Note the firewall public IP addresses.
 
-Use Remote Desktop Connection to connect to the firewall public IP addresses. Successful connections demonstrates firewall NAT rules that allow the connection to the backend servers.
+Use Remote Desktop Connection to connect to the firewall public IP addresses. Successful connection demonstrates firewall NAT rules that allow the connection to the backend servers.
 
 ## Clean up resources
 
