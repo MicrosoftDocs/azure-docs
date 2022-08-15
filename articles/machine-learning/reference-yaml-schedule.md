@@ -134,7 +134,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ### Timezone
 
-Current schedule supports following timezones. The key (left of =) can be used directly in Python SDK, while the value (right of =) can be used in job YAML.
+Current schedule supports the following timezones. The key (left of =) can be used directly in the Python SDK, while the value (right of =) can be used in the YAML job.
 
 ```
     DATELINE_STANDARD_TIME = "Dateline Standard Time"
