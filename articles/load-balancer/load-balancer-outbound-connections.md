@@ -46,9 +46,12 @@ With outbound rules, you have full declarative control over outbound internet co
 
 You can manually allocate SNAT ports either by "ports per instance" or "maximum number of backend instances". If you have virtual machines in the backend, it's recommended that you allocate ports by "ports per instance" to get maximum SNAT port usage. 
 
-Ports per instance should be calculated as below: 
+As the number of frontend IPs <  the number of backend instances, ports per instance should be calculated as below: 
 
 **Number of frontend IPs * 64K / Number of backend instances** 
+
+As the number of frontend IPs >=  the number of backend instances, the ports per instance can be set to (0,64,000]. 
+
 
 If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, it's possible that virtual machine scale set scaling up could be blocked or that the new VMs won't receive sufficient SNAT ports. 
 
