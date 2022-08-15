@@ -39,7 +39,7 @@ ms.topic: how-to
 
 1. Select **Done**
 
-   > [!Note]
+   > [!NOTE]
    > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
 
    :::image type="content" source="../media/quickstart/resource-key.png" alt-text="Screenshot illustrating the resource key.":::
