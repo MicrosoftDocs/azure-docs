@@ -32,7 +32,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 ## Create a data factory
 
-1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure Portal.
+1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
@@ -144,7 +144,7 @@ As a best practice, conduct a performance POC with a representative sample datas
 
 3. If you have maximized the performance of a single copy activity, but have not yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel.  
 
-When you see significant number of throttling errors from [copy activity monitoring](copy-activity-monitoring.md#monitor-visually), it indicates you have reached the capacity limit of your storage account. ADF will retry automatically to overcome each throttling error to make sure there will not be any data lost, but too many retries impact your copy throughput as well. In such case, you are encouraged to reduce the number of copy activities running cocurrently to avoid significant amounts of throttling errors. If you have been using single copy activity to copy data, then you are encouraged to reduce the DIU.
+When you see significant number of throttling errors from [copy activity monitoring](copy-activity-monitoring.md#monitor-visually), it indicates you have reached the capacity limit of your storage account. ADF will retry automatically to overcome each throttling error to make sure there will not be any data lost, but too many retries can degrade your copy throughput as well. In such case, you are encouraged to reduce the number of copy activities running cocurrently to avoid significant amounts of throttling errors. If you have been using single copy activity to copy data, then you are encouraged to reduce the DIU.
 
 
 ### Delta data migration

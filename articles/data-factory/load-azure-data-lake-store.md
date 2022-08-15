@@ -38,7 +38,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 ## Create a data factory
 
-1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure Portal.
+1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
@@ -52,7 +52,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 2. In the **Properties** page, specify **CopyFromAmazonS3ToADLS** for the **Task name** field, and select **Next**:
 
     :::image type="content" source="./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png" alt-text="Properties page":::
-3. In the **Source data store** page, click **+ Create new connection**:
+3. In the **Source data store** page, select **+ Create new connection**:
 
     :::image type="content" source="./media/load-data-into-azure-data-lake-store/source-data-store-page.png" alt-text="Source data store page":::
 	
@@ -79,7 +79,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     :::image type="content" source="./media/load-data-into-azure-data-lake-store/specify-binary-copy.png" alt-text="Screenshot shows the Choose the input file or folder where you can select Copy file recursively and Binary Copy.":::
 	
-7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen1**, and select **Continue**:
+7. In the **Destination data store** page, select **+ Create new connection**, and then select **Azure Data Lake Storage Gen1**, and select **Continue**:
 
     :::image type="content" source="./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png" alt-text="Destination data store page":::
 

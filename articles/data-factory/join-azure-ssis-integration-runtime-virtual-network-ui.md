@@ -70,7 +70,7 @@ Use Azure portal to configure a classic virtual network before you try to join y
 
    1. On the **Add role assignment** page, enter **Microsoft Azure Batch** in the search box, select the role, and select **Next**.
 
-      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/add-vm-contributor-role.png" alt-text="Sreenshot showing search results for the &quot;Virtual Machine Contributor&quot; role.":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/add-virtual-machine-contributor-role.png" alt-text="Sreenshot showing search results for the &quot;Virtual Machine Contributor&quot; role.":::
 
    1. On the **Members** page, under **Members** select **+ Select members**.  Then on the **Select Members** pane, search for **Microsoft Azure Batch**, and select it from the list to add it, and click **Select**. 
 
@@ -90,7 +90,7 @@ After you've configured an Azure Resource Manager/classic virtual network, you c
 
 1. In the [Azure portal](https://portal.azure.com), under the **Azure Services** section, select **More Services** to see a list of all Azure services. In the **Filter services** search box, type **Data Factories**, and then choose **Data Factories** in the list of services that appear. 
 
-   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/portal-find-data-factories.png" alt-text="Screenshot of the All Services page on the Azure Portal filtered for &quot;Data Factories&quot;.":::
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/portal-find-data-factories.png" alt-text="Screenshot of the All Services page on the Azure portal filtered for Data Factories.":::
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png" alt-text="List of data factories":::
 
