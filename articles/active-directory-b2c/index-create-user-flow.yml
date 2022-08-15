@@ -1,9 +1,8 @@
 ### YamlMime:Landing
 
-title: Single-page application (SPA) documentation
+title: Create user flow documentation
 summary: >
-  Choose your target language to learn how to sign in users and access web APIs in your single-page apps with
-  our quickstarts and how-to guides.
+  Choose the type of user flow, and learn how to create it using our how-to guides. 
 
 metadata:
    author: kengaderdus
@@ -15,35 +14,18 @@ metadata:
    ms.topic: landing-page
 
 landingContent:
-
 ## ROW 1 ################################################### ROW 1 ##
-  - title: "Configure ready apps quickly"
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Angular
-            url: configure-authentication-sample-angular-spa-app.md
-          - text: JavaScript
-            url: configure-authentication-sample-spa-app.md
-          - text: React
-            url: configure-authentication-sample-react-spa-app.md
-  - title: "Build your own app"
+  - title: "Create a user flow"
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app.md
-          - text: JavaScript
-            url: enable-authentication-spa-app.md
-          - text: React
-            url: enable-authentication-react-spa-app.md
-  - title: "Configuration options"
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app-options.md
-          - text: JavaScript
-            url: enable-authentication-spa-app-options.md
-          - text: React
-            url: enable-authentication-react-spa-app-options.md
+          - text: Sign-up and sign-in flow
+            url: add-sign-up-and-sign-in-policy.md
+          - text: Sign-in flow
+            url: add-sign-in-policy.md
+          - text: Profile editing flow
+            url: add-profile-editing-policy.md
+          - text: Phone sign-up and sign-in user flows
+            url: phone-authentication-user-flows.md   
+          - text: Resource owner password credentials user flow
+            url: add-ropc-policy.md          

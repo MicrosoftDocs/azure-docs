@@ -200,7 +200,7 @@ conceptualContent:
             url: partner-gallery.md
             itemType: how-to-guide   
    ## CARD 7 ######################
-    - title: Secure, privacy and compliance
+    - title: Security, privacy and compliance
       links:
           - text: Enable multi-factor authentication (MFA)
             url: multi-factor-authentication.md

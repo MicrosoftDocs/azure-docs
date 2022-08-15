@@ -1,9 +1,8 @@
 ### YamlMime:Landing
 
-title: Single-page application (SPA) documentation
+title: Desktop app authentication documentation
 summary: >
-  Choose your target language to learn how to sign in users and access web APIs in your single-page apps with
-  our quickstarts and how-to guides.
+  Learn how to sign in users and access web APIs in your desktop application using our how-to guide.
 
 metadata:
    author: kengaderdus
@@ -17,33 +16,16 @@ metadata:
 landingContent:
 
 ## ROW 1 ################################################### ROW 1 ##
-  - title: "Configure ready apps quickly"
+  - title: "Configure ready app quickly"
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Angular
-            url: configure-authentication-sample-angular-spa-app.md
-          - text: JavaScript
-            url: configure-authentication-sample-spa-app.md
-          - text: React
-            url: configure-authentication-sample-react-spa-app.md
-  - title: "Build your own app"
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app.md
-          - text: JavaScript
-            url: enable-authentication-spa-app.md
-          - text: React
-            url: enable-authentication-react-spa-app.md
+          - text: Windows Presentation Foundation (WPF) desktop - .NET
+            url: configure-authentication-sample-wpf-desktop-app.md
+
   - title: "Configuration options"
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Angular
-            url: enable-authentication-angular-spa-app-options.md
-          - text: JavaScript
-            url: enable-authentication-spa-app-options.md
-          - text: React
-            url: enable-authentication-react-spa-app-options.md
+          - text: Windows Presentation Foundation (WPF) desktop - .NET
+            url: enable-authentication-wpf-desktop-app-options.md
