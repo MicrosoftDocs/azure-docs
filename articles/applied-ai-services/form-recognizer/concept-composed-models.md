@@ -30,10 +30,10 @@ With composed models, you can assign multiple custom models to a composed model 
 
 ### Composed model compatibility
 
- |Custom model type | API Version |Custom form 2022-08-31 (v3.0)| Custom document 2022-08-31(v3.0) | Custom form GA version (v2.1) or earlier|
+ |Custom model type | API Version |Custom form `2022-08-31` (v3.0)| Custom document `2022-08-31` (v3.0) | Custom form GA version (v2.1) or earlier|
 |--|--|--|--|--|
 |**Custom template** (updated custom form)| v3.0 |  &#10033;| ✓ | X |
-|**Custom neural**| trained with current API version (2022-08-31) |✓ |✓ | X |
+|**Custom neural**| trained with current API version (`2022-08-31`) |✓ |✓ | X |
 |**Custom form**| Custom form GA version (v2.1) or earlier | X | X|  ✓|
 
 **Table symbols**: ✔—supported; **X—not supported; ✱—unsupported for this API version, but will be supported in a future API version.
