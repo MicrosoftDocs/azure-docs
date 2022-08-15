@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/07/2022
 ---
 
-# OT networks frequently asked questions
+# Operational Technology (OT) networks frequently asked questions
 
 This article provides a list of frequently asked questions and answers about OT networks in Defender for IoT.
 
@@ -63,6 +63,6 @@ You can also use our [UI and CLI tools](how-to-troubleshoot-the-sensor-and-on-pr
 
 For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
 
-## Next Steps
+## Next steps
 
 - [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)
