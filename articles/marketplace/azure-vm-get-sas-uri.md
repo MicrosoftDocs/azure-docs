@@ -12,23 +12,22 @@ ms.date: 08/17/2022
 # Generate a SAS URI for a VM image
 
 > [!NOTE]
-> A Shared access signature (SAS) URI can be used to publish your virtual machine (VM). Alternatively, you can share an image in Partner Center via Azure compute gallery. Refer to [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [Create a virtual machine using your own image](azure-vm-use-own-image.md) instructions.
+> A Shared access signature (SAS) URI can be used to publish your virtual machine (VM). Alternatively, you can share an image in Partner Center via Azure compute gallery. Refer to [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [Create a virtual machine using your own image](azure-vm-use-own-image.md) for further instructions.
 
 Before getting started, you will need the following:
 
-• a virtual machine
-• a [storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) with a container for storing the virtual hard drive (VHD)
-• your [storage account key](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)
+- A virtual machine
+- A [storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) with a container for storing the virtual hard drive (VHD)
+- Your [storage account key](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)
 
-
-## Extract vhd from a VM
+## Extract VHD from a VM
 
 > [!NOTE]
 > You can skip this step if you already have a VHD uploaded to a storage account.
 
 To extract the VHD from your VM, you need to first take a snapshot of your VM disk and then extract the VHD from the snapshot into your storage account.
 
-Take a snapshot of your VM disk:
+### Take a snapshot of your VM disk
 
 1. Sign in to the [Azure portal](https://www.portal.azure.com/).
 1. Select **Create a resource**, then search for and select **Snapshot**.
@@ -78,7 +77,7 @@ sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snaps
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```
 
-This script about uses the following commands to generate the SAS URI for a snapshot and copies the underlying VHD to a storage account using the SAS URI. Each command in the table links to command specific documentation.
+This script about uses the following commands to generate the SAS URI for a snapshot and copies the underlying VHD to a storage account using the SAS URI.
 
 |Command  |Notes  |
 |---------|---------|
@@ -89,8 +88,8 @@ This script about uses the following commands to generate the SAS URI for a snap
 
 There are two common tools used to create a SAS address (URI):
 
-1. **Azure Storage browser** – Available on the Azure portal.
-2. **Azure CLI** – Recommended for non-Windows operating systems and automated or continuous integration environments.
+- **Azure Storage browser** – Available on the Azure portal.
+- **Azure CLI** – Recommended for non-Windows operating systems and automated or continuous integration environments.
 
 ### Using Tool 1: Azure Storage browser
 
@@ -142,7 +141,7 @@ This table shows the common errors encountered when providing a shared access si
 | --- | --- | --- |
 | "?" is not found in SAS URI | `Must be a valid Azure shared access signature URI.` | Ensure that the SAS URI provided uses the proper syntax and includes the “?”character.<br>Syntax: `<blob-service-endpoint-url>?<sas-connection-string>`  |
 | "st" parameter not in SAS URI | `Specified SAS URL cannot be reached.` | Update the SAS URI with proper **Start Date** ("st") value. |
-| "se" parameter not in SAS URI | `The end date parameter (se) is required.` | Update the SAS URI with proper End Date (“se”) value. |
+| "se" parameter not in SAS URI | `The end date parameter (se) is required.` | Update the SAS URI with proper **End Date** (“se”) value. |
 | "sp=r" not in SAS URI | `Missing Permissions (sp) must include 'read' (r).` | Update the SAS URI with permissions set as `Read` (“sp=r”). |
 | SAS URI Authorization error | `Failure: Copying Images. Not able to download blob due to authorization error.` | Review and correct the SAS URI format. Regenerate if necessary. |
 | SAS URI "st" and "se" parameters do not have full date-time specification | `The start time parameter (st) is not a valid date string.`<br>OR<br>`The end date parameter (se) is not a valid date string.` | SAS URI **Start Date** and **End Date** parameters (“st” and “se” substrings) must have full date-time format (YYYY-MM-DDT00:00:00Z), such as 11-02-2017T00:00:00Z. Shortened versions are invalid (some commands in Azure CLI may generate shortened values by default). |
