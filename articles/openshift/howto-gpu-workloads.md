@@ -502,7 +502,7 @@ Official Documentation for Installing [Node Feature Discovery Operator](https://
          sources:
          #  cpu:
          #    cpuid:
-         ##     NOTE: whitelist has priority over blacklist
+         ##     NOTE: attributeWhitelist has priority over attributeBlacklist
          #      attributeBlacklist:
          #        - "BMI1"
          #        - "BMI2"
