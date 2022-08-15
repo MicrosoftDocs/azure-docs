@@ -82,7 +82,7 @@ Contoso hosts their website on Azure App Service, and has deployed Front Door wi
 
 Suppose a request from a client is sent to the Contoso website, sending a 1KB request and receiving a 100KB response:
 
-:::image type="content" source="./media/billing/scenario-1.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin." border="false":::
+:::image type="content" source="./media/billing/scenario-1.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, without caching or compression." border="false":::
 
 The following billing meters will be incremented:
 
