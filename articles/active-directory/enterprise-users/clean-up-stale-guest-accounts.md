@@ -81,8 +81,8 @@ Use the following instructions to learn how to create Access Reviews that follow
    |:--------|:-------|
    | **Upon completion settings**| |
    |Auto apply results to resource| Check the box|
-   |If reviewers don't respond | Remove access |
-   | Action to apply on denied guest users | Block user from signing in for 30 days, then remove user from the tenant.|
+   |If reviewers don't respond | **Remove access** |
+   | Action to apply on denied guest users | **Block user from signing in for 30 days, then remove user from the tenant**|
    | (Optional) At end of review, send notification to | Specify other users or groups to notify.|
    | **Enable reviewer decision helpers** |  |
    | Additional content for reviewer email | Add a custom message for reviewers |
@@ -146,8 +146,8 @@ Use the following instructions to learn how to create Access Reviews that follow
    | :----| :-----|
    | **Upon completion settings** | |
    | Auto apply results to resource | Check the box |
-   | If reviews don't respond | Remove access |
-   | Action to apply on denied guest users | Block user from signing in for 30 days, then remove user from the tenant.  |
+   | If reviews don't respond | **Remove access** |
+   | Action to apply on denied guest users | **Block user from signing in for 30 days, then remove user from the tenant**  |
    | **Enable reviewer decision helpers** | |
    | No sign-in within 30 days | Check the box |
    | All other fields | Check/uncheck the boxes based on your preference. |
