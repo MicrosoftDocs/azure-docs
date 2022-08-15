@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssalgado
 author: ssalgadodev
-ms.date: 11/20/2020
+ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: deploy, sdkv1, event-tier1-build-2022
 ---

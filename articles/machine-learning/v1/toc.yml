@@ -205,7 +205,9 @@
       href: how-to-deploy-update-web-service.md
     - name: Deployment targets
       items: 
-        - name: Local
+        - name: Deploy locally
+          href: how-to-deploy-local.md
+        - name: Deploy locally on compute instance
           href: ../how-to-deploy-local-container-notebook-vm.md
         - name: GPU inference
           href: how-to-deploy-inferencing-gpus.md
