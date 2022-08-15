@@ -74,7 +74,7 @@ The FHIR service supports the following query parameters for filtering exported 
 | `_container` | No |  Specifies the name of the container in the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder in that container. If the container isn't specified, the data will be exported to a new container with an auto-generated name. |
 
 > [!Note]
-> Only storage accounts in the same subscription as that for the FHIR service are allowed to be registered as the destination for `$export` operations.
+> Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
     
 ## Next steps
 
