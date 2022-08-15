@@ -159,7 +159,7 @@ conceptualContent:
             itemType: how-to-guide
           - text: Roles and access control
             url: roles-resource-access-control.md
-            itemType: how-to-guide
+            itemType: concept
     ## CARD 5 ######################
     - title: 'Authorize: Call and secure your APIs'
       links:
@@ -178,92 +178,81 @@ conceptualContent:
     ## CARD 6 ######################
     - title: Customize
       links:
-          - text: Request an access token
-            url: access-tokens.md
+          - text: Define custom user attributes
+            url: user-flow-custom-attributes.md
             itemType: how-to-guide
-          - text: Register and secure your API 
-            url: enable-authentication-web-api.md
+          - text: Customize the UI/UX 
+            url: customize-ui.md
             itemType: how-to-guide
-          - text: 'Samples: Web apps and APIs'
-            url: integrate-with-app-code-samples.md#web-apps-and-apis
+          - text: Customize language
+            url: language-customization.md
             itemType: how-to-guide
-          - text: Integrate with API gateway
-            url: secure-api-management.md?tabs=app-reg-ga
+          - text: Use custom domains 
+            url: custom-domain.md
+            itemType: how-to-guide            
+          - text: Customize email verification 
+            url: custom-email-sendgrid.md
+            itemType: how-to-guide  
+          - text: Customize user experiences using custom policies
+            url: custom-policy-overview.md
+            itemType: concept
+          - text: Integrate with our technology partners
+            url: partner-gallery.md
+            itemType: how-to-guide   
+   ## CARD 7 ######################
+    - title: Secure, privacy and compliance
+      links:
+          - text: Enable multi-factor authentication (MFA)
+            url: multi-factor-authentication.md
             itemType: how-to-guide
-    ## CARD 7 ######################
+          - text: Manage credential attacks
+            url: threat-management.md
+            itemType: how-to-guide
+          - text: Learn where data is stored
+            url: data-residency.md
+            itemType: how-to-guide
+          - text: Regulations
+            url: https://docs.microsoft.com/azure/compliance/
+            itemType: concept  
+          - text: Microsoft Sentinel with Azure AD B2C 
+            url: azure-sentinel.md
+            itemType: how-to-guide                                                  
+    ## CARD 8 ######################
     - title: Automate
       links:
-          - text: CI/CD pipeline
-            url: deploy-custom-policies-devops.md
-            itemType: how-to-guide
-          - text: Monitoring
-            url: azure-monitor.md
-            itemType: how-to-guide
-          - text: Microsoft Sentinel with Azure AD B2C
-            url: azure-sentinel.md
-            itemType: how-to-guide
-          - text: Role-based access control for admins
-            url: ../active-directory/roles/permissions-reference.md
-            itemType: how-to-guide
-          - text: User management
+          - text: Manage resources using Microsoft Graph API
             url: microsoft-graph-operations.md
-            itemType: how-to-guide
-          - text: Troubleshooting
-            url: troubleshoot-custom-policies.md?tabs-app-reg-ga
-            itemType: how-to-guide
-          - text: Best practices
-            url: best-practices.md
-            itemType: how-to-guide
-    ## CARD 8 ######################
-    - title: Monitor & Secure applications
-      links:
-          - text: 'Azure Monitor: Retain and analyze your logs'
-            url: azure-monitor.md
-            itemType: how-to-guide
+            itemType: how-to-guide          
           - text: 'Azure DevOps Services: Build your CI/CD pipeline'
             url: deploy-custom-policies-devops.md
+            itemType: how-to-guide 
+          - text: Deploy with GitHub actions
+            url: deploy-custom-policies-github-action.md
             itemType: how-to-guide
-          - text: 'Application Insights: Troubleshoot and get your user insights'
-            url: troubleshoot-with-application-insights.md
-            itemType: how-to-guide
-          - text: Integrate with our technology partners
-            url: partner-gallery.md
-            itemType: how-to-guide
-    ## CARD 9 ######################
-    - title: Secure applications
-      links:
-          - text: 'Azure Monitor: Retain and analyze your logs'
-            url: azure-monitor.md
-            itemType: how-to-guide
-          - text: 'Azure DevOps Services: Build your CI/CD pipeline'
-            url: deploy-custom-policies-devops.md
-            itemType: how-to-guide
-          - text: 'Application Insights: Troubleshoot and get your user insights'
-            url: troubleshoot-with-application-insights.md
-            itemType: how-to-guide
-          - text: Integrate with our technology partners
-            url: partner-gallery.md
+          - text: Manage resources using Microsoft Powershell
+            url: manage-custom-policies-powershell.md
             itemType: how-to-guide
 
-    ## CARD 10 ######################
-    - title: Troubleshoot
+    ## CARD 9 ######################
+    - title: Monitor and troubleshoot
       links:
-          - text: Enable self-service sign-in
-            url: user-flow-overview.md
+          - text: 'Azure Monitor: Retain and analyze your logs'
+            url: azure-monitor.md
             itemType: how-to-guide
-          - text: 'Add social and work identities: OIDC/OAuth2/SAML'
-            url: add-identity-provider.md
+          - text: 'Application Insights: Troubleshoot and get your user insights'
+            url: troubleshoot-with-application-insights.md
             itemType: how-to-guide
-          - text: Enable single sign-on (SSO)
-            url: session-behavior.md
+          - text: Access audit logs
+            url: view-audit-logs.md
             itemType: how-to-guide
-          - text: Customize your UI/UX
-            url: customize-ui-with-html.md
-            itemType: how-to-guide
-          - text: User and app migration
-            url: user-migration.md
-            itemType: how-to-guide
-    ## CARD 11 ######################
+          - text: Troubleshoot and error handling 
+            url: troubleshoot.md
+            itemType: how-to-guide  
+          - text: Azure AD B2C error-codes
+            url: error-codes.md
+            itemType: reference
+
+    ## CARD 10 ######################
     - title: More resources
       links:
           - text: Stack Overflow
