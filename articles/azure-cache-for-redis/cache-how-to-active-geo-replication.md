@@ -65,7 +65,7 @@ You should remove the unavailable cache because the remaining caches in the repl
 
 ### Azure CLI
 
-Use the Azure CLI for creating a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [az redisenterprise create](/cli/azure/redisenterprise).
+Use the Azure CLI for creating a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create).
 
 #### Create new Enterprise instance in a new geo-replication group using Azure CLI
 
