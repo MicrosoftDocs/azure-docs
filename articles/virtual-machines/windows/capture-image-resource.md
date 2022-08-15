@@ -58,13 +58,14 @@ Before you begin, make sure that you have the latest version of the Azure PowerS
 
 To create a VM image, follow these steps:
 
-1. Create some variables.
+1. Create a VM.
 
     ```azurepowershell-interactive
 	$vmName = "myVM"
 	$rgName = "myResourceGroup"
 	$location = "EastUS"
 	$imageName = "myImage"
+	New-AzVM -ResourceGroupName $vmName -Name $vmName -Location $location -ImageName $imageName
 	```
 2. Make sure the VM has been deallocated.
 
