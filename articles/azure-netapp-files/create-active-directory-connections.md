@@ -113,7 +113,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         If you're using Azure NetApp Files with Azure Active Directory Domain Services (AAD DS), the organizational unit path is `OU=AADDC Computers`
 
-        ![Screenshot of the Join Active Directory input fields.](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+        :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-join-active-directory.png" alt-text="Screenshot of the Join Active Directory input fields.":::
 
     * <a name="aes-encryption"></a>**AES Encryption**    
         This option enables AES encryption authentication support for the admin account of the AD connection. 
