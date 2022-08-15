@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 08/14/2022
+ms.date: 08/15/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,19 +20,15 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in August include:
 
-[Defender for Container's Vulnerability assessment now supports Windows containers](#defender-for-containers-vulnerability-assessment-now-supports-windows-containers)
+[Defender for Container's vulnerability assessment now supports Windows containers](#defender-for-containers-vulnerability-assessment-now-supports-windows-containers)
 
+### Defender for Container's vulnerability assessment now supports Windows containers
 
+Defender for Container's vulnerability assessment has now added support for Windows containers.
 
-### Defender for Container's Vulnerability assessment now supports Windows containers
+When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation maps the vulnerability data that is created for images in ACR to the containers in AKS that associated with those images.
 
-Defender for Container's Vulnerability assessment has now added support for Windows containers.
-
-In order to gain visibility into your vulnerabilities, your AKS clusters must run the Defender agent. Since there is no Defender agent for Windows containers, the Defender agent is deployed to one of the Linux nodes, of which there must be at least one running on every AKS cluster, in order to collect the running container inventory for your Windows nodes.
-
-When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation maps the vulnerability data that is created for images in ACR to the containers in AKS that are using those images.
-
-Learn more about [Vulnerability assessment](defender-for-containers-introduction.md#vulnerability-assessment).
+Learn more about [vulnerability assessment](defender-for-containers-introduction.md#vulnerability-assessment).
 
 ## July 2022
 
@@ -45,9 +41,9 @@ Updates in July include:
 - [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit)
 - [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service)
 
-### General availability (GA) of the Cloud-native security agent for Kubernetes runtime protection
+### General availability (GA) of the cloud-native security agent for Kubernetes runtime protection
 
-We're excited to share that the Cloud-native security agent for Kubernetes runtime protection is now generally available (GA)!
+We're excited to share that the cloud-native security agent for Kubernetes runtime protection is now generally available (GA)!
 
 The production deployments of Kubernetes clusters continue to grow as customers continue to containerize their applications. To assist with this growth, the Defender for Containers team has developed a cloud-native Kubernetes oriented security agent.
 

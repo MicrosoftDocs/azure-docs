@@ -67,29 +67,14 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
-### View vulnerabilities for running images
+### View vulnerability recommendations
 
-#### Option 1
-
-The  Defender for Containers scans images for vulnerabilities that are stored in ACR, and coordinates this information with the vulnerability data found for the image with the running containers that are associated with the image through the Defender agent (which is installed on the AKS cluster). If vulnerabilities are found, Defender for Cloud will then produce the recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) which is available for Windows and Linux containers.
+The recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) shows recommendations based on vulnerability scanning of images that are stored in ACR, and shows the associated Windows and Linux containers.
 
 > [!NOTE] 
-> **Windows containers**: Since there is no Defender agent for Windows containers and each AKS cluster runs with at least one Linux node, that Linux node is utilized to run the Defender agent. The Defender agent then retrieves the running container inventory for your Windows nodes.
+> **Windows containers**: There is no Defender agent for Windows containers. A Linux node running in the cluster retrieves the running container inventory for your Windows nodes.
 
-Images that are used in containers that have not been pulled from ACR for deployment in AKS will not be checked and will appear under the Not applicable tab.
-
-:::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
-
-#### Option 2
-
-The recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) shows vulnerabilities for running images, for Windows and Linux containers.
-
-> [!NOTE] 
-> **Windows containers**: Since there is no Defender agent for Windows containers and each AKS cluster runs with at least one Linux node, that Linux node is utilized to run the Defender agent. The Defender agent then retrieves the running container inventory for your Windows nodes.
-
-Defender for Containers uses the scan results from your ACR registries and the information collected on running images from the Defender agent, which is installed on the AKS cluster, to provide this recommendation.
-
-Images that are used in containers that have not been pulled from ACR for deployment in AKS will not be checked and will appear under the Not applicable tab.
+Images that aren't pulled from ACR for deployment in AKS will not be checked and will appear under the **Not applicable** tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
