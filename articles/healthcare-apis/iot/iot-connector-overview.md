@@ -6,7 +6,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/14/22
+ms.date: 08/14/2022
 ms.author: v-smcevoy
 ---
 
@@ -22,7 +22,7 @@ MedTech service is important because healthcare data can be difficult to access,
 
 This diagram outlines how five parts of MedTech service fit together to create a system that inputs device data and transforms it into a standard FHIR resource in the cloud.
 
-:::image type="content" source="./media/iot-what-is/what-is-simple-diagram.png" alt-text="Diagram of five parts of MedTech system converting device data to a standard FHIR resource." lightbox="./media/iot-what-is/what-is-simple-diagram.png":::
+:::image type="content" source="./media/iot-what-is/what-is-simple-diagram.png" alt-text="Simple diagram showing MedTech service." lightbox="./media/iot-what-is/what-is-simple-diagram.png":::
 
 ### Deployment
 
@@ -92,7 +92,7 @@ The MedTech service uses [Azure role-based access control (Azure RBAC)](../../ro
 
 MedTech service has an architecture.
 
-:::image type="content" source="./media/iot-get-started/get-started-with-iot.png" alt-text="Diagram of five parts of MedTech system converting device data to a standard FHIR resource." lightbox="./media/iot-get-started/get-started-with-iot.png":::
+:::image type="content" source="./media/iot-get-started/get-started-with-iot.png" alt-text="Detailed diagram showing MedTech service deploy and run." lightbox="./media/iot-get-started/get-started-with-iot.png":::
 
 It is in six parts.
 
