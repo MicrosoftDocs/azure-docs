@@ -14,7 +14,7 @@ ms.custom: deploy, sdkv1, event-tier1-build-2022
 
 # Deploy models trained with Azure Machine Learning on your local machines 
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 This article describes how to use your local computer as a target for training or deploying models created in Azure Machine Learning. Azure Machine Learning is flexible enough to work with most Python machine learning frameworks. Machine learning solutions generally have complex dependencies that can be difficult to duplicate. This article will show you how to balance total control with ease of use.
 
@@ -26,8 +26,8 @@ Scenarios for local deployment include:
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
-- A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-deploy-notebook.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
+- A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](../tutorial-train-deploy-notebook.md).
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 - A conda manager, like Anaconda or Miniconda, if you want to mirror Azure Machine Learning package dependencies.
 - Docker, if you want to use a containerized version of the Azure Machine Learning environment.
@@ -58,7 +58,7 @@ The argument to the `run()` method will be in this form:
 
 The object you return from the `run()` method must implement `toJSON() -> string`.
 
-The following example demonstrates how to load a registered scikit-learn model and score it by using NumPy data. This example is based on the model and dependencies of [this tutorial](tutorial-train-deploy-notebook.md).
+The following example demonstrates how to load a registered scikit-learn model and score it by using NumPy data. This example is based on the model and dependencies of [this tutorial](../tutorial-train-deploy-notebook.md).
 
 ```python
 import json
@@ -214,7 +214,7 @@ After you download the model and resolve its dependencies, there are no Azure-de
 
 ## Upload a retrained model to Azure Machine Learning
 
-If you have a locally trained or retrained model, you can register it with Azure. After it's registered, you can continue tuning it by using Azure compute or deploy it by using Azure facilities like [Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](how-to-deploy-with-triton.md).
+If you have a locally trained or retrained model, you can register it with Azure. After it's registered, you can continue tuning it by using Azure compute or deploy it by using Azure facilities like [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](../how-to-deploy-with-triton.md).
 
 To be used with the Azure Machine Learning Python SDK, a model must be stored as a serialized Python object in pickle format (a .pkl file). It must also implement a `predict(data)` method that returns a JSON-serializable object. For example, you might store a locally trained scikit-learn diabetes model with: 
 
@@ -251,6 +251,6 @@ For more information on uploading and updating models and environments, see [Reg
 
 ## Next steps
 
-- For information on using VS Code with Azure Machine Learning, see [Connect to compute instance in Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md)
+- For information on using VS Code with Azure Machine Learning, see [Connect to compute instance in Visual Studio Code (preview)](../how-to-set-up-vs-code-remote.md)
 - For more information on managing environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
 - To learn about accessing data from your datastore, see [Connect to storage services on Azure](how-to-access-data.md).

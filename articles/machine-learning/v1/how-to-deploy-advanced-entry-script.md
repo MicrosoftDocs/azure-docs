@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ms.author: larryfr
 author: blackmist
 ms.custom: deploy, sdkv1, event-tier1-build-2022
@@ -333,6 +333,6 @@ More entry script examples for specific machine learning use cases can be found 
 * [Update web service](how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights)
+* [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights)
 * [Collect data for models in production](../how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)
