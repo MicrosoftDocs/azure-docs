@@ -152,9 +152,9 @@ Use the following instructions to learn how to create Access Reviews that follow
    | No sign-in within 30 days | Check the box |
    | All other fields | Check/uncheck the boxes based on your preference. |
 
-9. Select **Next: Review + Create**.
-
    ![Screenshot shows the Settings dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/settings-remove-inactive-guests.png)
+
+9. Select **Next: Review + Create**.
 
 10. Enter an Access Review name. Provide a description (optional).
 
