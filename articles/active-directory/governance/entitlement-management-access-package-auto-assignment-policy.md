@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 07/25/2022
+ms.date: 08/15/2022
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -47,11 +47,15 @@ To create a policy for an access package, you need to start from the access pack
    > [!NOTE]
    > The rule builder might not be able to display some rules constructed in the text box. For more information, see [rule builder in the Azure portal](/enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
+    ![Access package automatic assignment policy Rule configuration](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
+
 1. Click **Save** to close the dynamic membership rule editor, then click **Next** to open the **Custom Extensions** tab.
 
 1. If you have a [custom extension](entitlement-management-logic-apps-integration.md) in your catalog you wish to have run when the policy assigns or removes access, you can add them to this policy.  Then click next to open the **Review** tab.
 
 1. Type a name and a description for the policy.
+
+    ![Access package automatic assignment policy Review tab](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-review.png)
 
 1. Click **Create** to save the policy.
 
