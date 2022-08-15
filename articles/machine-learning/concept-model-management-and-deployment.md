@@ -87,7 +87,7 @@ Before you deploy a model into production, it's packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
+For more information, see [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
 ### Convert and optimize models
 
@@ -126,7 +126,7 @@ To deploy the model to an endpoint, you must provide the following items:
 * Dependencies required to use the model. Examples are a script that accepts requests and invokes the model and conda dependencies.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md).
+For more information, see [Deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
 
 #### Controlled rollout
 
@@ -209,7 +209,7 @@ You can also use Azure Data Factory to create a data ingestion pipeline that pre
 Learn more by reading and exploring the following resources:
 
 + [Learning path: End-to-end MLOps with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow/)
-+ [How and where to deploy models](how-to-deploy-and-where.md) with Machine Learning
++ [How to deploy a model to an online endpoint](how-to-deploy-managed-online-endpoints.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 + [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)

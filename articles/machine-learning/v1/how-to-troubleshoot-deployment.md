@@ -5,7 +5,7 @@ description: Learn how to work around, solve, and troubleshoot some common Docke
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 author: blackmist
 ms.author: larryfr
 ms.topic: troubleshooting
@@ -18,10 +18,10 @@ ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, s
 Learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model to Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
 > [!NOTE]
-> If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
+> If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](/azure/azure-monitor/containers/container-insights-enable-existing-clusters) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
 >
-> * [Check for Resource Health events impacting your AKS cluster](../aks/aks-resource-health.md)
-> * [Azure Kubernetes Service Diagnostics](../aks/concepts-diagnostics.md)
+> * [Check for Resource Health events impacting your AKS cluster](/azure/aks/aks-resource-health)
+> * [Azure Kubernetes Service Diagnostics](/azure/aks/concepts-diagnostics)
 >
 > If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 
@@ -30,7 +30,7 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md).
+* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## Steps for Docker deployment of machine learning models
 
@@ -49,11 +49,11 @@ Understanding these high-level steps should help you understand where errors are
 
 ## Get deployment logs
 
-The first step in debugging errors is to get your deployment logs. First, follow the [instructions here to connect to your workspace](./v1/how-to-deploy-and-where.md#connect-to-your-workspace).
+The first step in debugging errors is to get your deployment logs. First, follow the [instructions here to connect to your workspace](how-to-deploy-and-where.md#connect-to-your-workspace).
 
 # [Azure CLI](#tab/azcli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 To get the logs from a deployed webservice, do:
 
@@ -63,7 +63,7 @@ az ml service get-logs --verbose --workspace-name <my workspace name> --name <se
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Assuming you have an object of type `azureml.core.Workspace` called `ws`, you can do the following:
 
@@ -82,11 +82,11 @@ print(service.get_logs())
 
 ## Debug locally
 
-If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](./how-to-troubleshoot-deployment-local.md).
+If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](how-to-troubleshoot-deployment-local.md).
 
 ## Azure Machine learning inference HTTP server
 
-The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
 
 1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
 
@@ -106,7 +106,7 @@ The local inference server allows you to quickly debug your entry script (`score
     curl -p 127.0.0.1:5001/score
     ```
 > [!NOTE]
-> [**Learn frequently asked questions**](how-to-inference-server-http.md#frequently-asked-questions) about Azure machine learning Inference HTTP server.
+> [**Learn frequently asked questions**](../how-to-inference-server-http.md#frequently-asked-questions) about Azure machine learning Inference HTTP server.
 
 ## Container cannot be scheduled
 
@@ -130,7 +130,7 @@ The most common failure for `azureml-fe-aci` is that the provided SSL certificat
 
 Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.model import Model
@@ -232,7 +232,7 @@ Take these actions for the following errors:
 
 You may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container.
 
-For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
+For more information, visit the [interactive debugging in VS Code guide](../how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
 ## [Model deployment user forum](/answers/topics/azure-machine-learning-inference.html)
 
@@ -240,6 +240,5 @@ For more information, visit the [interactive debugging in VS Code guide](how-to-
 
 Learn more about deployment:
 
-* [How to deploy and where](./v1/how-to-deploy-and-where.md)
-* [Tutorial: Train & deploy models](tutorial-train-deploy-notebook.md)
-* [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)
+* [How to deploy and where](how-to-deploy-and-where.md)zzs
+* [How to run and debug experiments locally](../how-to-debug-visual-studio-code.md)

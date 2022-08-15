@@ -10,7 +10,7 @@ author: rsethur
 ms.author:  seramasu
 ms.reviewer: larryfr
 ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
-ms.date: 11/04/2021
+ms.date: 08/15/2022
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
@@ -86,7 +86,7 @@ Before deploying a model into production, it is packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](../how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](../how-to-troubleshoot-deployment.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
 
 ### Convert and optimize models
 

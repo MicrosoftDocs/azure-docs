@@ -546,7 +546,7 @@ Now that you've set up VS Code Remote, you can use a compute instance as remote 
 
 Learn more about troubleshooting:
 
-* [Local model deployment](how-to-troubleshoot-deployment-local.md)
-* [Remote model deployment](how-to-troubleshoot-deployment.md)
+* [Local model deployment](./v1/how-to-troubleshoot-deployment-local.md)
+* [Remote model deployment](./v1/how-to-troubleshoot-deployment.md)
 * [Machine learning pipelines](how-to-debug-pipelines.md)
 * [ParallelRunStep](how-to-debug-parallel-run-step.md)
