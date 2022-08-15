@@ -240,6 +240,8 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    This example continues by selecting **IntegrationAccount**.
 
+   ![Screenshot showing Standard workflow with "Source" property and "IntegrationAccount" selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-logic-app-integration-account.png)
+
 1. From the **Name** list, select your Liquid template.
 
    This example continues with the template named **JsonToJsonTemplate**.
