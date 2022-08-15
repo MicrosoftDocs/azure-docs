@@ -36,7 +36,7 @@ For more information, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your logic app workflow and basic knowledge about how to create logic app workflows. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, review the following documentation:
+* Your logic app resource and workflow. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, review the following documentation:
 
   * [Quickstart: Create your first Consumption logic app workflow with multi-tenant Azure Logic Apps](quickstart-create-first-logic-app-workflow.md)
 
@@ -44,16 +44,21 @@ For more information, review the following documentation:
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 
-  > [!NOTE]
+  > [!IMPORTANT]
   >
-  > To use an integration account with a logic app workflow, both resources 
-  > must exist in the same Azure subscription and Azure region.
+  > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-  * If you're working on a Consumption logic app workflow, your integration account also requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
+  * If you're working on a Consumption logic app workflow, your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-  * If you're working on a Standard logic app workflow, you can upload maps directly to your logic app resource, so an integration account is optional. However, if you have an integration account with the maps that you want to use, you can also [link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account). By linking your integration account to multiple logic apps, you don't have to upload maps to each individual logic app.
+  * If you're working on a Standard logic app workflow, you can link your integration account to your logic app resource, upload maps directly to your logic app resource, or both, based on the following scenarios:
 
-    For Standard workflows, Liquid actions support selecting maps *either* from your logic app resource or from your linked integration account. You can then use these maps across all child workflows within the *same logic app resource*.
+    * If you already have an integration account with the artifacts that you need or want to use, you can link the integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload maps to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
+
+    * Some Azure-hosted integration account connectors, such as **AS2**, **EDIFACT**, and **X12**, let you create a connection to your integration account. If you're just using these connectors, you don't need the link.
+
+    * The built-in connectors named **Liquid** and **Flat File** let you select maps and schemas that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use these artifacts across all child workflows within the *same logic app resource*.
+
+    So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
 * Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/). Azure Logic Apps uses DotLiquid 2.0.361.
 
