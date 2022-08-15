@@ -114,7 +114,6 @@ When deploying models as web services, you can enable transport-layer security (
 
 * [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
 * [Secure Azure Machine Learning web services with TLS](./v1/how-to-secure-web-service.md)
-* [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)
 * [Use Azure Machine Learning with Azure Virtual Network](how-to-network-security-overview.md)
 * [Data encryption at rest and in transit](concept-data-encryption.md)

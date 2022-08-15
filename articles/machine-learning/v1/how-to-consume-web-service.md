@@ -47,7 +47,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 * When you deploy a model, a `Webservice` object is returned with information about the service:
 
@@ -76,7 +76,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az-ml-service-show) command:
 
@@ -107,7 +107,7 @@ If you secured the deployed web service using a TLS/SSL certificate, you can use
 > [!IMPORTANT]
 > Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.
 
-For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
 
 ### Authentication for services
 
@@ -160,7 +160,7 @@ print(token)
 
 If you have the [Azure CLI and the machine learning extension](v1/reference-azure-machine-learning-cli.md), you can use the following command to get a token:
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml service get-access-token -n <service-name>

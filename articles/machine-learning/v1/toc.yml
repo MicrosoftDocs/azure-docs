@@ -220,12 +220,14 @@
       href: ../how-to-troubleshoot-deployment.md
     - name: Troubleshoot deployment (local)
       href: ../how-to-troubleshoot-deployment-local.md
+    - name: Authenticate web service
+      href: how-to-authenticate-web-service
     - name: Consume web service
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Advanced entry script authoring
       displayName: swagger inference schema binary cors
-      href: ../how-to-deploy-advanced-entry-script.md
+      href: how-to-deploy-advanced-entry-script.md
     - name: Prebuilt Docker images
       items: 
         - name: Python extensibility
