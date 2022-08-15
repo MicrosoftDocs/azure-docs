@@ -199,7 +199,7 @@ Regression scenarios will support mean absolute error, mean squared error, and m
 
 
 #### Feature cohorts
-The **Feature cohorts** tab allows you to investigate your model by comparing model performance across user-specified sensitive/non-sensitive features (e.g., performance across different gender, race, income level cohorts). 
+The **Feature cohorts** tab allows you to investigate your model by comparing model performance across user-specified sensitive/non-sensitive features (for example, performance across different gender, race, income level cohorts). 
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-feature-cohorts.png" alt-text="Screenshot of the dashboard's model overview tab showing the feature cohorts tab." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-feature-cohorts.png":::
 
