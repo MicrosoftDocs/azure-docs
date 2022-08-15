@@ -42,7 +42,85 @@ To complete this article, you need:
 
 [!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
-## Create the service app
+## Create a device app with a direct method
+
+In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to confirm that it's connected using a cellular network.
+
+1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. The `--yes` parameter accepts all the defaults.
+
+    ```cmd/sh
+    npm init --yes
+    ```
+
+2. At your command prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** packages:
+
+    ```cmd/sh
+    npm install azure-iot-device azure-iot-device-mqtt --save
+    ```
+
+3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
+
+4. Add the following code to the **ReportConnectivity.js** file. Replace `{device connection string}` with the device connection string you saw when you registered a device in the IoT Hub:
+
+    ```javascript
+        'use strict';
+        var Client = require('azure-iot-device').Client;
+        var Protocol = require('azure-iot-device-mqtt').Mqtt;
+
+        var connectionString = '{device connection string}';
+        var client = Client.fromConnectionString(connectionString, Protocol);
+
+        client.open(function(err) {
+        if (err) {
+            console.error('could not open IotHub client');
+        }  else {
+            console.log('client opened');
+
+            client.getTwin(function(err, twin) {
+            if (err) {
+                console.error('could not get twin');
+            } else {
+                var patch = {
+                    connectivity: {
+                        type: 'cellular'
+                    }
+                };
+
+                twin.properties.reported.update(patch, function(err) {
+                    if (err) {
+                        console.error('could not update twin');
+                    } else {
+                        console.log('twin state reported');
+                        process.exit();
+                    }
+                });
+            }
+            });
+        }
+        });
+    ```
+
+    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId** and updates its reported property with the connectivity information.
+
+5. Run the device app
+
+    ```cmd/sh
+        node ReportConnectivity.js
+    ```
+
+    You should see the message `twin state reported`.
+
+6. Now that the device reported its connectivity information, it should appear in both queries. Go back in the **addtagsandqueryapp** folder and run the queries again:
+
+    ```cmd/sh
+        node AddTagsAndQuery.js
+    ```
+
+    This time **myDeviceId** should appear in both query results.
+
+    ![Show myDeviceId in both query results](media/iot-hub-node-node-twin-getstarted/service2.png)
+
+## Create a service app to trigger a reboot
 
 In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
 
@@ -134,86 +212,6 @@ In this section, you create a Node.js console app that adds location metadata to
    You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
 
    ![See the one device in the query results](media/iot-hub-node-node-twin-getstarted/service1.png)
-
-In the next section, you create a device app that reports connectivity information and changes the result of the query in the previous section.
-
-## Create the device app
-
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to confirm that it's connected using a cellular network.
-
-1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. The `--yes` parameter accepts all the defaults.
-
-    ```cmd/sh
-    npm init --yes
-    ```
-
-2. At your command prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** packages:
-
-    ```cmd/sh
-    npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
-
-3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
-
-4. Add the following code to the **ReportConnectivity.js** file. Replace `{device connection string}` with the device connection string you saw when you registered a device in the IoT Hub:
-
-    ```javascript
-        'use strict';
-        var Client = require('azure-iot-device').Client;
-        var Protocol = require('azure-iot-device-mqtt').Mqtt;
-
-        var connectionString = '{device connection string}';
-        var client = Client.fromConnectionString(connectionString, Protocol);
-
-        client.open(function(err) {
-        if (err) {
-            console.error('could not open IotHub client');
-        }  else {
-            console.log('client opened');
-
-            client.getTwin(function(err, twin) {
-            if (err) {
-                console.error('could not get twin');
-            } else {
-                var patch = {
-                    connectivity: {
-                        type: 'cellular'
-                    }
-                };
-
-                twin.properties.reported.update(patch, function(err) {
-                    if (err) {
-                        console.error('could not update twin');
-                    } else {
-                        console.log('twin state reported');
-                        process.exit();
-                    }
-                });
-            }
-            });
-        }
-        });
-    ```
-
-    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId** and updates its reported property with the connectivity information.
-
-5. Run the device app
-
-    ```cmd/sh
-        node ReportConnectivity.js
-    ```
-
-    You should see the message `twin state reported`.
-
-6. Now that the device reported its connectivity information, it should appear in both queries. Go back in the **addtagsandqueryapp** folder and run the queries again:
-
-    ```cmd/sh
-        node AddTagsAndQuery.js
-    ```
-
-    This time **myDeviceId** should appear in both query results.
-
-    ![Show myDeviceId in both query results](media/iot-hub-node-node-twin-getstarted/service2.png)
 
 In this article, you:
 
