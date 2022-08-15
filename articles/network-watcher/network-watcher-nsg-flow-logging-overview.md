@@ -436,15 +436,15 @@ Flow logs data is collected outside of the path of your network traffic, and the
 
 To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
-- Navigate to the Storage Account by typing the storage account's name in global search on the portal or from the [Storage Accounts page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
+- Navigate to the Storage account by typing the Storage account's name in global search on the portal or from the [Storage accounts page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 - Under the **Networking** section, select **Firewalls and virtual networks** at top of page.
 - Under the **Public network access**, select:
   ☑️ **Enabled from selected virtual networks and IP addresses**
 - Under **Firewall** select:
   ☑️ **Add your Client IP Address**
 
-> [!Note]
-> A client IP Address is provided here by default, verify this IP matches the machine you are using to access Storage Account using `ipconfig`. If the Client IP Address does not match your machine, you may receive Unauthorized when attempting to access the storage account to read NSG Flow Logs.
+   > [!Note]
+   > A client IP Address is provided here by default, verify this IP matches the machine you are using to access Storage Account using `ipconfig`. If the Client IP Address does not match your machine, you may receive Unauthorized when attempting to access the storage account to read NSG Flow Logs.
 
 - Under  **Exceptions**, select:
   ☑️ **Allow Azure service on the trusted services list to access this storage account.**
