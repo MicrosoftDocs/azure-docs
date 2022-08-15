@@ -70,7 +70,7 @@ You will need to create a container for the de-identified export in your ADLS Ge
 | `anonymizationConfigEtag`|"0x8D8494A069489EC"|Optional for de-identified export|This is the Etag of the configuration file. You can get the Etag using Azure Storage Explorer from the blob property.|
 
 > [!IMPORTANT]
-> Both raw export and de-identified export write to the same Azure storage account specified in the export configuration for the FHIR service. If you have need for multiple de-identification configurations, it is recommended that you create a different container for each configuration and manage user access at the container level.
+> Both the raw export and de-identified export operations write to the same Azure storage account specified in the export configuration for the FHIR service. If you have need for multiple de-identification configurations, it is recommended that you create a different container for each configuration and manage user access at the container level.
 
 ## Next steps
 
