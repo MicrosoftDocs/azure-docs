@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: Form Recognizer Studio
     href: form-recognizer-studio-overview.md
+  - name: Form Recognizer SDK overview
+    href: sdk-overview.md
   - name: Language support
     href: language-support.md
   - name: Pricing
