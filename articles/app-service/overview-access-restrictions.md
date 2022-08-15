@@ -23,9 +23,15 @@ If the traffic is sent through the default endpoint (often a public endpoint), t
 
 App access allows you to configure if access is available thought the default (public) endpoint. If the setting has never been configured, the default behavior is to enable access unless a private endpoint exists after which it will be implicitly disabled. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
 
+:::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal":::
+
 ## Site access
 
-Site access restrictions let you filter the incoming requests. Site access restrictions allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. Site access restriction has several types of rules that you can apply:
+Site access restrictions let you filter the incoming requests. Site access restrictions allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking.
+
+:::image type="content" source="media/overview-access-restrictions/site-access-portal.png" alt-text="Screenshot of site access options in Azure portal":::
+
+Site access restriction has several types of rules that you can apply:
 
 ### Unmatched rule
 
@@ -52,6 +58,10 @@ Service endpoints allow you to lock down *inbound* access to your app so that th
 
 To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions](../virtual-network/virtual-network-service-endpoints-overview.md).
 
+#### Any service endpoint source
+
+For testing or in very specific scenarios, you may want to allow traffic from any service endpoint enabled subnet. You can do that by defining an IP-based rule with the text "AnyVnets" instead of an IP range. You cannot create these rules in the portal, but you can modify an existing IP-based rule and replace the IP address with the "AnyVnets" string.
+
 ### Access restriction rules based on service tags
 
 [Azure service tags](../virtual-network/service-tags-overview.md) are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
@@ -59,15 +69,7 @@ To learn more about configuring service endpoints with your app, see [Azure App 
 For a full list of tags and more information, visit the service tag link above. 
 To learn how to enable this feature, see [Configuring access restrictions](./app-service-ip-restrictions.md).
 
-### Advanced access restriction rule types
-
-These rule types solves a few very specific use cases.
-
-#### Any service endpoint source
-
-For testing or in very specific scenarios, you may want to allow traffic from any service endpoint enabled subnet. You can do that by defining an IP-based rule with the text "AnyVnets" instead of an IP range. You cannot create these rules in the portal, but you can modify an existing IP-based rule and replace the IP address with the "AnyVnets" string.
-
-#### Multi-source rules
+### Multi-source rules
 
 Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use this if you have more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
 
@@ -75,7 +77,7 @@ Multi-source rules are defined the same way you define single-source rules, but 
 
 You cannot create these rules in the portal, but you can modify an existing service tag or IP-based rule and add additional sources to the rule.
 
-#### Http header filtering for site access restriction rules
+### Http header filtering for site access restriction rules
 
 For any rule, regardless of type, you can add additional http header filtering. This allows you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following lists the supported http headers:
 
@@ -90,7 +92,7 @@ Some use cases for http header filtering are:
 
 ## Advanced use cases
 
-A few use cases are worth pointing out. 
+Combining the above features allow you to solve some specific use cases that are described in the following sections.
 
 ### Block a single IP address
 
