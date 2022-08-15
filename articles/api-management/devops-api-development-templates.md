@@ -109,7 +109,7 @@ We've seen the greatest success in customer deployments, and recommend the follo
 [20]: https://learn.hashicorp.com/tutorials/terraform/github-actions
 [21]: https://git-scm.com/
 [22]: https://github.com/
-[23]: /azure/devops/repos/get-started/what-is-repos?view=azure-devops
+[23]: /azure/devops/repos/get-started/what-is-repos?view=azure-devops&preserve-view=true
 [24]: ./policy-fragments.md
 [25]: https://azure.microsoft.com/services/devops/
 [26]: https://github.com/microsoft/api-guidelines
