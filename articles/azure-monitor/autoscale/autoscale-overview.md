@@ -34,7 +34,7 @@ When the conditions in the rules are met, one or more autoscale actions are trig
 
 ## Scaling out and scaling up
 
-Autoscale scales in and out, which is an increase, or decrease of the number of resource instances. This is also known as horizontal scaling For example, for a virtual machine scale set, scaling out means adding more virtual machines Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
+Autoscale scales in and out, which is an increase, or decrease of the number of resource instances. This is also known as horizontal scaling. For example, for a virtual machine scale set, scaling out means adding more virtual machines Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
 
 In contrast, scaling up and down, or vertical scaling, keeps the same number of resources constant, but gives them more capacity in terms of memory, CPU speed, disk space and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling may also require a restart of the virtual machine during the scaling process.
 
