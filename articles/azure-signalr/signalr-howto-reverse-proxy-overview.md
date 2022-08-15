@@ -18,54 +18,54 @@ A common architecture using a reverse proxy server with Azure SignalR is as belo
 
 When using a reverse proxy in front of Azure SignalR, there are several general practices to follow:
 
-* Make sure to rewrite the incoming HTTP `HOST` header with Azure SignalR host name. Azure SignalR is a multi-tenant service, and it relies on the `HOST` header to resolve to the correct endpoint. For example, when [configuring Application Gateway](./signalr-howto-app-gateway-integration.md#TODO) for Azure SignalR, select **Yes** for the option *Override with new host name*.
+* Make sure to rewrite the incoming HTTP `HOST` header with Azure SignalR host name. Azure SignalR is a multi-tenant service, and it relies on the `HOST` header to resolve to the correct endpoint. For example, when [configuring Application Gateway](./signalr-howto-work-with-app-gateway.md#create-an-application-gateway-instance) for Azure SignalR, select **Yes** for the option *Override with new host name*.
 
 * When your client goes through your reverse proxy to Azure SignalR, set `ClientEndpoint` as your reverse proxy host name. When your client **_negotiate_**s with your hub server, the hub server will return the URL defined in `ClientEndpoint` for your client to connect. [Check here for more details.](./concept-connection-string.md#client-and-server-endpoints)
 
   There are 2 ways to configure `ClientEndpoint`:
   1. Add `ClientEndpoint` section to your ConnectionString: `Endpoint=...;AccessKey=...;ClientEndpoint=<reverse-proxy-host>`
   2. Or configure `ClientEndpoint` when `AddAzureSignalR`:
-
-  ```cs
-  services.AddSignalR().AddAzureSignalR(o =>
-  {
-      o.Endpoints = new Microsoft.Azure.SignalR.ServiceEndpoint[1]
+    
+      ```cs
+      services.AddSignalR().AddAzureSignalR(o =>
       {
-          new Microsoft.Azure.SignalR.ServiceEndpoint("<azure-signalr-connection-string>")
+          o.Endpoints = new Microsoft.Azure.SignalR.ServiceEndpoint[1]
           {
-              ClientEndpoint = new Uri("<reverse-proxy-host>")
-          }
-      };
-  })
-  ```
+              new Microsoft.Azure.SignalR.ServiceEndpoint("<azure-signalr-connection-string>")
+              {
+                  ClientEndpoint = new Uri("<reverse-proxy-host>")
+              }
+          };
+      })
+      ```
 
 * When your server goes through your reverse proxy to Azure SignalR, set `ServerEndpoint` as your reverse proxy host name. Your app server will use the URL defined in `ServerEndpoint` to start the server connections or REST API calls. [Check here for more details.](./concept-connection-string.md#client-and-server-endpoints)
 
   There are 2 ways to configure `ServerEndpoint`:
     1. Add `ServerEndpoint` section to your ConnectionString: `Endpoint=...;AccessKey=...;ServerEndpoint=<reverse-proxy-host>`
     2. Or configure `ServerEndpoint` when `AddAzureSignalR`:
-
-    ```cs
-    services.AddSignalR().AddAzureSignalR(o =>
-    {
-        o.Endpoints = new Microsoft.Azure.SignalR.ServiceEndpoint[1]
+    
+        ```cs
+        services.AddSignalR().AddAzureSignalR(o =>
         {
-            new Microsoft.Azure.SignalR.ServiceEndpoint("<azure-signalr-connection-string>")
+            o.Endpoints = new Microsoft.Azure.SignalR.ServiceEndpoint[1]
             {
-                ServerEndpoint = new Uri("<reverse-proxy-host>")
-            }
-        };
-    })
-    ```
+                new Microsoft.Azure.SignalR.ServiceEndpoint("<azure-signalr-connection-string>")
+                {
+                    ServerEndpoint = new Uri("<reverse-proxy-host>")
+                }
+            };
+        })
+        ```
 
 * When your client goes through your reverse proxy to Azure SignalR, there are 2 types of requests:
   1. HTTP post request to `<reverse-proxy-host>/client/negotiate`
-  2. WebSocket/SSE/Longpolling connection request depending on your transport type to `<reverse-proxy-host>/client`
-
+  2. WebSocket/SSE/LongPolling connection request depending on your transport type to `<reverse-proxy-host>/client`
+  
   When your transport type is WebSocket for example, make sure your reverse proxy supports both HTTP and WebSocket for `/client` subpath.
 
 ## Next steps
 
-- Learn [how to integrate Azure SignalR with App Gateway](./signalr-howto-app-gateway-integration.md).
+- Learn [how to work with Application Gateway](./signalr-howto-work-with-app-gateway.md).
 
 - Learn more about [the internals of Azure SignalR](./signalr-concept-internals.md).
