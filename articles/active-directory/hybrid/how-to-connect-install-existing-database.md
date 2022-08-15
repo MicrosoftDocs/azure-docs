@@ -68,6 +68,8 @@ Important notes to take note of before you proceed:
    ![Connect](./media/how-to-connect-install-existing-database/db5.png)
  
 1. On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.
+> [!NOTE]
+> You will not be able to continue the installation until you have authenticated with one or more AD forests. Make sure you have **Enterprise Administrator** access or a custom sync account in all forests before initiating the installation.
    ![Directories](./media/how-to-connect-install-existing-database/db6.png)
  
 1. In the pop-up dialog, you can either (i) provide an Enterprise Admin credential and let Azure AD Connect create the AD DS account for you, or (ii) create the AD DS account yourself and provide its credential to Azure AD Connect. Once you have selected an option and provide the necessary credentials, click **OK** to close the pop-up dialog.
