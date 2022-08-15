@@ -12,7 +12,7 @@ ms.author: adhal
 
 # Use DevOps and CI/CD to publish APIs
 
-With the strategic value of APIs in the enterprise, adopting DevOps continuous integration (CI) and deployment (CD) techniques has become an important aspect of API development.  This article discusses the decisions you will need to make to adopt DevOps principles for the management of APIs.
+With the strategic value of APIs in the enterprise, adopting DevOps continuous integration (CI) and deployment (CD) techniques has become an important aspect of API development.  This article discusses the decisions you'll need to make to adopt DevOps principles for the management of APIs.
 
 API DevOps consists of three parts:
 
@@ -29,7 +29,7 @@ There are several tools to assist producing the API definition:
 * The [Azure API Management DevOps Resource Toolkit][4] includes two tools that provide an Azure Resource Manager (ARM) template.  The _extractor_ creates an ARM template by extracting an API definition from an API Management service. The _creator_ produces the ARM template from a YAML specification.  The DevOps Resource Toolkit supports SOAP, REST, and GraphQL APIs.
 * The [Azure API Ops Toolkit][5] provides a workflow built on top of a [git][21] source code control system (such as [GitHub][22] or [Azure Repos][23]).  It uses an _extractor_ similar to the DevOps Resource Toolkit to produce an API definition that is then applied to a target API Management service.  API Ops supports REST only at this time.
 * The [dotnet-apim][6] tool converts a well-formed YAML definition into an ARM template for later deployment.  The tool is focused on REST APIs.
-* [Terraform][7] is an alternative to Azure Resource MAnager to configure resources in Azure.  You can create a Terraform configuration (together with policies) to implement the API in the same way that an ARM template is created.
+* [Terraform][7] is an alternative to Azure Resource Manager to configure resources in Azure.  You can create a Terraform configuration (together with policies) to implement the API in the same way that an ARM template is created.
 
 You can also use IDE-based tools for editors such as [Visual Studio Code][8] to produce the artifacts necessary to define the API.  For instance, there are [over 30 plugins for editing OpenAPI specification files][9] on the Visual Studio Code Marketplace.  You can also use code generators to create the artifacts.  The [CADL language][10] lets you easily create high-level building blocks and then compile them into a standard API definition format such as OpenAPI.
 
@@ -47,7 +47,7 @@ Both GitHub and Azure Repos allow approval pipelines to be configured that run w
 > [!NOTE]
 > Azure APIs must conform to a [strict set of guidelines][26] that you can use as a starting point for your own API guidelines.  There is a [Spectral configuration][27] for enforcing the guidelines.
 
-Once the automated tools have been run, the API definition is reviewed by the human eye.  Tools will not catch all problems.  A human reviewer ensures that the API definition meets the organizational criteria for APIs, including adherence to security, privacy, and consistency guidelines.
+Once the automated tools have been run, the API definition is reviewed by the human eye.  Tools won't catch all problems.  A human reviewer ensures that the API definition meets the organizational criteria for APIs, including adherence to security, privacy, and consistency guidelines.
 
 ## API publication
 
@@ -63,13 +63,13 @@ The API definition will be published to an API Management service through a rele
 
 ## Best practices
 
-There is no industry standard for setting up a DevOps pipeline for publishing APIs, and none of the tools mentioned will work in all situations.  However, we see that most situations are covered by using a combination of the following tools and services:
+There's no industry standard for setting up a DevOps pipeline for publishing APIs, and none of the tools mentioned will work in all situations.  However, we see that most situations are covered by using a combination of the following tools and services:
 
 * [Azure Repos][23] stores the API definitions in a [git][21] repository.
 * [Azure Pipelines][17] runs the automated API approval and API publication processes.
 * [Azure API Ops Toolkit][5] provides tools and workflows for publishing APIs.
 
-We have seen the greatest success in customer deployments, and recommend the following practices:
+We've seen the greatest success in customer deployments, and recommend the following practices:
 
 * Set up either [GitHub][22] or [Azure Repos][23] for your source code control system.  This choice will determine your choice of pipeline runner as well.  GitHub can use [Azure Pipelines][17] or [GitHub Actions][18], whereas Azure Repos must use Azure Pipelines.
 * Set up an Azure API Management service for each API developer so that they can develop API definitions along with the API service.  Use the consumption or developer SKU when creating the service.
