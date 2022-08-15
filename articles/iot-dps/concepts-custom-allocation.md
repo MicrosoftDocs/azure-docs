@@ -44,8 +44,8 @@ The request body is an **AllocationRequest** object:
 
 | Property name | Description |
 |---------------|-------------|
-| individualEnrollment | Contains properties associated with the individual enrollment that the allocation request originated from. Present if the device is registering through an individual enrollment. |
-| enrollmentGroup | Contains the properties associated with the enrollment group that the allocation request originated from. Present if the device is registering through an enrollment group. |
+| individualEnrollment | An [individual enrollment record](/rest/api/iot-dps/service/individual-enrollment/get#individualenrollment) that contains properties associated with the individual enrollment that the allocation request originated from. Present if the device is registering through an individual enrollment. |
+| enrollmentGroup | An [enrollment group record](/rest/api/iot-dps/service/enrollment-group/get#enrollmentgroup) that contains the properties associated with the enrollment group that the allocation request originated from. Present if the device is registering through an enrollment group. |
 | deviceRuntimeContext | A context that contains properties associated with the device that is registering. Always present. |
 | linkedHubs | An array that contains the hostnames of the IoT hubs that are linked to the enrollment entry that the allocation request originated from. The device may be assigned to any one of these IoT hubs. Always present. |
 
