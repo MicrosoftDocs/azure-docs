@@ -185,11 +185,10 @@ Push notifications let clients be notified for incoming messages and other opera
 
 ```java
 public class MyAppConfiguration extends Application implements Configuration.Provider {
-    private ClientLogger logger = new ClientLogger(MyAppConfiguration.class);
     Consumer<Throwable> exceptionHandler = new Consumer<Throwable>() {
         @Override
         public void accept(Throwable throwable) {
-            logger.warning("Registration failed for push notifications!", throwable);
+            Log.i("YOUR_TAG", "Registration failed for push notifications!" + throwable.getMessage());
         }
     };
     @Override
