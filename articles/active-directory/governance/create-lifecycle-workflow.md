@@ -123,7 +123,7 @@ Content-type: application/json
          "@odata.type" : "microsoft.graph.identityGovernance.scopeAndTriggerBasedCondition",
          "trigger": {
             "@odata.type" : "microsoft.graph.identityGovernance.timeBasedAttributeTrigger",
-            "timeBasedAttribute":"<time-based attribute>",
+            "timeBasedAttribute":"<time-based trigger argument>",
             "arguments": -7
        },
         "scope": {
@@ -134,7 +134,7 @@ Content-type: application/json
 } 
 
 > [!NOTE]
-> Time based attribute can be from -60 to 60. The negative value denotes **Before** a time based attribute, while a positive value denotes **After**. For example the -7 in the workflow example above denotes the workflow will run 1 week before the time-based attribute happens.
+> time based trigger arguments can be from -60 to 60. The negative value denotes **Before** a time based argument, while a positive value denotes **After**. For example the -7 in the workflow example above denotes the workflow will run 1 week before the time-based argument happens.
 
 ```
 

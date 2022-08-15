@@ -21,7 +21,7 @@ This attribute, however, is not automatically populated using such synchronizati
 
 This document explains how to setup synchronization from on-premises Azure AD Connect cloud sync and Azure AD Connect for the required attributes.  This document only demonstrates synchronization for the `EmployeeHireDate` attribute. For additional attributes, see the [Lifecyce workflows template](lifecycle-workflow-templates.md) document.
 
-## How to create a custom synch rule in Azure AD Connect cloud sync for EmployeeHireDate
+## How to create a custom synchronization rule in Azure AD Connect cloud sync for EmployeeHireDate
 
 
  1.  In the Azure portal, select **Azure Active Directory**.
@@ -44,7 +44,7 @@ This document explains how to setup synchronization from on-premises Azure AD Co
 
 For more information on attributes see [Attribute mapping in Azure AD Connect cloud sync.](../cloud-sync/how-to-attribute-mapping.md)
 
-## How to create a custom synch rule in Azure AD Connect for EmployeeHireDate
+## How to create a custom synchronization rule in Azure AD Connect for EmployeeHireDate
 The following example will walk you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
 
  1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false`.

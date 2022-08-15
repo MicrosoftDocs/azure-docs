@@ -92,7 +92,7 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workf
 
 ### User processing results using Microsoft Graph
 
-When multiple information is processed by a workflow, running the **userProcessingResults** may give incomprehensible information. To get a summary of information such as total users and tasks, and failed users and tasks, Lifecycle Workflows provides a call to get count totals.
+When multiple user events are processed by a workflow, running the **userProcessingResults** may give incomprehensible information. To get a summary of information such as total users and tasks, and failed users and tasks, Lifecycle Workflows provides a call to get count totals.
 
 To view a summary in count form, you would run the following API call:
 ```http
