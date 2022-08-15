@@ -74,9 +74,16 @@ Managed Disks handles Azure Storage account creation and management in the backg
 You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of virtual machines in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](managed-disks-overview.md).
 
 ## Distributions 
-Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You can find available distributions in the marketplace. Microsoft actively works with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](linux/endorsed-distros.md) list.
+Microsoft Azure supports a variety of Linux and Windows distributions. You can find available distributions in the [marketplace](https://azuremarketplace.microsoft.com), Azure Portal or by querying results using CLI, PowerShell and REST APIs. 
 
-If your preferred Linux distro of choice is not currently present in the gallery, you can "Bring your own Linux" virtual machine by [creating and uploading a Linux VHD in Azure](linux/create-upload-generic.md).
+This table shows some ways that you can find the information for an image.
+
+| Method | Description |
+| --- | --- |
+| Azure portal |The values are automatically specified for you when you select an image to use. |
+| Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
+| REST APIs |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image) --location *location*<BR>[az vm image list-offers](/cli/azure/vm/image) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm) --location *location* --publisher *publisherName* --offer *offerName*|
 
 Microsoft works closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partner offers, see the following links:
 
