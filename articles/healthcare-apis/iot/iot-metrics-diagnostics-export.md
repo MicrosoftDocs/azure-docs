@@ -6,32 +6,34 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 07/22/2022
+ms.date: 08/15/2022
 ms.author: jasteppe
 ---
 
 # How to configure diagnostic settings for exporting the MedTech service metrics 
 
-In this article, you'll learn how to configure the diagnostic setting for the MedTech service to export metrics to different destinations (for example: to Azure storage or an event hub) for audit, analysis, or backup.
+In this article, you'll learn how to configure the diagnostic settings for the MedTech service to export metrics to different destinations (for example: to [Azure storage](/azure/storage/) or an [Azure Event Hubs Namespace event hub](/azure/event-hubs/)) for audit, analysis, or backup.
 
 ## Create diagnostic setting for the MedTech service
-1. To enable metrics export for the MedTech service, select **MedTech service** in your workspace.
+1. To enable metrics export for your MedTech service, select **MedTech service** in your workspace under **Services**.
  
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-select-medtech-service-in-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-metrics-export/iot-select-medtech-service-in-workspace.png":::
 
-2. Select the MedTech service that you want to configure metrics export for.
+2. Select the MedTech service that you want to configure for metrics exporting. For this example, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service named by you within your Azure Health Data Services workspace.
    
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-connector.png" alt-text="Screenshot of select the MedTech service for exporting metrics" lightbox="media/iot-metrics-export/iot-connector-logging-select-connector.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-select-medtech-service.png" alt-text="Screenshot of select the MedTech service for exporting metrics" lightbox="media/iot-metrics-export/iot-select-medtech-service.png":::
 
-3. Select the **Diagnostic settings** button and then select the **+ Add diagnostic setting** button.
+3. Select the **Diagnostic settings** option under **Monitoring**.
 
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png" alt-text="Screenshot of select the Diagnostic settings and select the + Add diagnostic setting buttons." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png"::: 
+   :::image type="content" source="media/iot-metrics-export/iot-select-diagnostic-settings.png" alt-text="Screenshot of select the Diagnostic settings." lightbox="media/iot-metrics-export/iot-select-diagnostic-settings.png"::: 
 
-4. After the **+ Add diagnostic setting** page opens, enter a name in the **Diagnostic setting name** dialog box.   
+4. Select the **+ Add diagnostic setting** option.
 
-    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png" alt-text="Screenshot diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png"::: 
+   :::image type="content" source="media/iot-metrics-export/iot-add-diagnostic-setting.png" alt-text="Screenshot of select the + Add diagnostic setting." lightbox="media/iot-metrics-export/iot-add-diagnostic-setting.png":::   
 
-5. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In the above example, we've selected an Azure storage account.
+5. After the **+ Add diagnostic setting** page opens, enter a display name in the **Diagnostic setting name** dialog box. For this example, we'll name it **MedTech_service_All_Metrics**. You'll select a display name of your own choosing.  
+
+6. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In the above example, we've selected an Azure storage account. You'll select a destination of your own choosing.
 
    Metrics can be exported to the following destinations:
 
@@ -45,17 +47,38 @@ In this article, you'll learn how to configure the diagnostic setting for the Me
    > [!Important]
    > Each **Destination details** selection requires that certain resources (for example, an existing Azure storage account) be created and available before the selection can be successfully configured. Choose each selection to get a list of the required resources.
 
-6. Select **AllMetrics**.
+7. Select the **AllMetrics** option.
 
    > [!Note]
+   >
    > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
-7. Select **Save**.
+8. Select the **Save** option to save your selections.
+
+   :::image type="content" source="media/iot-metrics-export/iot-select-diagnostic-setting-options.png" alt-text="Screenshot diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-select-diagnostic-setting-options.png"::: 
+
+9. Once you've selected the **Save** option, the page will display a message that the diagnostic setting for your MedTech service has saved successfully.
+
+   :::image type="content" source="media/iot-metrics-export/iot-successful-save-diagnostic-setting.png" alt-text="Screenshot of a successful diagnostic setting save." lightbox="media/iot-metrics-export/iot-successful-save-diagnostic-setting.png"::: 
 
    > [!Note] 
-   > It might take up to 15 minutes for the first MedTech service metrics to display in the destination of your choice.  
+   >
+   > It might take up to 15 minutes for the first MedTech service metrics to display in the destination of your choice.
+
+10. To view your saved diagnostic setting, select **Diagnostic settings**.
+
+    :::image type="content" source="media/iot-metrics-export/iot-navigate-to-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings option to view the saved diagnostic setting" lightbox="media/iot-metrics-export/iot-navigate-to-diagnostic-settings.png"::: 
+
+11. The **Diagnostic settings** page will open displaying your newly created diagnostic setting for your MedTech service. You'll have the ability to: 
+
+    1. Edit your saved MedTech service diagnostic setting. 
+    2. Create more diagnostic settings for your MedTech service (for example: you may also want to send your MedTech service metrics to another endpoint like a Logs Analytics workspace). 
+
+    :::image type="content" source="media/iot-metrics-export/iot-view-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options" lightbox="media/iot-metrics-export/iot-view-diagnostic-settings.png"::: 
  
-For more information about how to work with diagnostics logs, see the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md).
+    > [!TIP]
+    > 
+    > For more information about how to work with diagnostics logs, see the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Conclusion 
 Having access to the MedTech service metrics is essential for monitoring and troubleshooting.  The MedTech service allows you to do these actions through the export of metrics. 
@@ -67,4 +90,4 @@ To view the frequently asked questions (FAQs) about the MedTech service, see
 >[!div class="nextstepaction"]
 >[MedTech service FAQs](iot-connector-faqs.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
