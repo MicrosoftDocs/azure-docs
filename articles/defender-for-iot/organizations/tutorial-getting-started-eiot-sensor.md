@@ -217,6 +217,15 @@ For more information, see [Sensor management options from the Azure portal](how-
 
 Continue viewing device data in both the Azure portal and Defender for Endpoint, depending on your organization's needs.
 
+
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md)
+- [View and manage alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
+- [Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)](workbooks.md)
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
+- [Enterprise IoT networks frequently asked questions](faqs-eiot.md)
+
 In Defender for Endpoint, also view alerts data, recommendations and vulnerabilities related to your network traffic.
 
 For more information in Defender for Endpoint documentation, see:
