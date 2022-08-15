@@ -767,6 +767,8 @@
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Enable preview features
+      href: how-to-enable-preview-features.md
     - name: Feature availability across regions
       href: reference-machine-learning-cloud-parity.md
     - name: User forum

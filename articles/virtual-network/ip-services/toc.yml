@@ -116,6 +116,8 @@ items:
         href: remove-public-ip-address-vm.md
       - name: Create VM - dual-stack network
         items:
+        - name: Azure PowerShell
+          href: create-vm-dual-stack-ipv6-powershell.md
         - name: Azure CLI
           href: create-vm-dual-stack-ipv6-cli.md
       - name: Create VM - static public IP
