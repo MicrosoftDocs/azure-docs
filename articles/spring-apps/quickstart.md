@@ -177,7 +177,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
-   - [**Subscription**](https://docs.microsoft.com/en-us/azure/api-management/api-management-subscriptions): Select the subscription you want to be billed for this resource.
+   - [**Subscription**](/azure/api-management/api-management-subscriptions): Select the subscription you want to be billed for this resource.
    - [**Resource group**](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups): Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
    - **Service Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
    - [**Region**](https://docs.microsoft.com/en-us/azure/spring-apps/how-to-enable-availability-zone?tabs=azure-cli#region-availability): Select the region for your service instance.
