@@ -32,9 +32,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Node web API
-            url: enable-authentication-web-api.md?tabs=nodejsgeneric.md
+            url: enable-authentication-web-api.md?tabs=nodejsgeneric
           - text: Node web app and web API
             url: enable-authentication-in-node-web-app-with-api.md
+          - text: ASP.NET Core
+            url: enable-authentication-web-api.md?tabs=csharpclient            
           - text: Single-page app (JavaScript)
             url: enable-authentication-spa-app.md
           - text: Python
