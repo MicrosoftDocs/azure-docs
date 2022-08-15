@@ -51,5 +51,5 @@ The view slices the data based on a one- or two-dimensional grid of input featur
 ## Next steps
 
 - Learn how to generate the Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Explore the [supported Error Analysis visualizations](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard#error-analysis).
+- Explore the [supported Error Analysis visualizations](how-to-responsible-ai-dashboard.md#error-analysis).
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
