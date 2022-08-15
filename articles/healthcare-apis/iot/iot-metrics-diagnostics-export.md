@@ -33,7 +33,7 @@ In this article, you'll learn how to configure the diagnostic settings for the M
 
 5. After the **+ Add diagnostic setting** page opens, enter a display name in the **Diagnostic setting name** dialog box. For this example, we'll name it **MedTech_service_All_Metrics**. You'll select a display name of your own choosing.  
 
-6. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In the above example, we've selected an Azure storage account. You'll select a destination of your own choosing.
+6. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In this example, we've selected an Azure storage account. You'll select a destination of your own choosing.
 
    Metrics can be exported to the following destinations:
 
@@ -53,7 +53,7 @@ In this article, you'll learn how to configure the diagnostic settings for the M
    >
    > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
-8. Select the **Save** option to save your selections.
+8. Select the **Save** option to save your diagnostic setting selections.
 
    :::image type="content" source="media/iot-metrics-export/iot-select-diagnostic-setting-options.png" alt-text="Screenshot diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-select-diagnostic-setting-options.png"::: 
 
@@ -72,7 +72,7 @@ In this article, you'll learn how to configure the diagnostic settings for the M
 11. The **Diagnostic settings** page will open displaying your newly created diagnostic setting for your MedTech service. You'll have the ability to: 
 
     1. Edit your saved MedTech service diagnostic setting. 
-    2. Create more diagnostic settings for your MedTech service (for example: you may also want to send your MedTech service metrics to another endpoint like a Logs Analytics workspace). 
+    2. Create more diagnostic settings for your MedTech service (for example: you may also want to send your MedTech service metrics to another destination like a Logs Analytics workspace). 
 
     :::image type="content" source="media/iot-metrics-export/iot-view-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options" lightbox="media/iot-metrics-export/iot-view-diagnostic-settings.png"::: 
  
