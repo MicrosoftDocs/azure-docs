@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: cloga
 ms.author: lochen
-ms.date: 08/11/2022
+ms.date: 08/15/2022
 ms.reviewer: laobri
 ---
 
@@ -121,9 +121,13 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: Schedule with recurrence pattern
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
 
 ## YAML: Schedule with cron expression
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
 
