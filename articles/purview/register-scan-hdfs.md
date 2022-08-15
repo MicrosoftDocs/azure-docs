@@ -23,9 +23,9 @@ This article outlines how to register Hadoop Distributed File System (HDFS), and
 When scanning HDFS source, Microsoft Purview supports extracting technical metadata including HDFS:
 
 - Namenode
-- Folder
-- File
-- Resource set
+- Folders
+- Files
+- Resource sets
 
 When setting up scan, you can choose to scan the entire HDFS or selective folders. Learn about the supported file format [here](microsoft-purview-connector-overview.md#file-types-supported-for-scanning).
 
