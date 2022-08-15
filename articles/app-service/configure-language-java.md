@@ -1139,10 +1139,13 @@ The Premium V3 and Isolated V2 App Service Plan types can optionally be distribu
 
 #### Auto-Scale Rules
 
-When configuring auto-scaling:
-- Ensure stability of the cluster
-- Set removal to **one** instance at a time
-- Remmoval interval should be 5 min or greater
+When configuring auto-scale rules for horizontal scaling it is important to remove instances incrementally (one at a time) to ensure each removed instance can transfer its activity (such as handling a database transaction) to another member of the cluster. When configuring your autoscale rules in the Portal to scale down, use the following options:
+
+- **Operation**: "Decrease count by"
+- **Cool down**: "5 minutes" or greater
+- **Instance count**: 1
+
+You do not need to incrementally add instances (scaling out), you can add multiple instances to the cluster at a time.
 
 ### JBoss EAP App Service Plans
 
