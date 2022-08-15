@@ -16,6 +16,13 @@ This article explains the common tasks that a direct Enterprise Agreement (EA) a
 
 Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. Indirect EAs are managed using the [Azure Enterprise portal](https://ea.azure.com/). For more information about managing indirect EAs, see [Azure EA portal administration](ea-portal-administration.md).
 
+> [!NOTE]
+> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+>
+> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
+
 ## Manage your enrollment
 
 To manage your service, the initial enterprise administrator opens the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes) and signs in using the email address from the invitation email.
