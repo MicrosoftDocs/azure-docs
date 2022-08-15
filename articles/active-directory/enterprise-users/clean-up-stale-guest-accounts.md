@@ -40,6 +40,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 3. Select **New access review**.
 
 4. Configure Review type.
+
    | Property | Value |
    |:-----|:-------|
    | Select what to review | **Teams + Groups**|
@@ -75,6 +76,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 7. Select **Next > Settings**.
 
 8. Configure Settings:
+
    | Property | Value |
    |:--------|:-------|
    | **Upon completion settings**| |
