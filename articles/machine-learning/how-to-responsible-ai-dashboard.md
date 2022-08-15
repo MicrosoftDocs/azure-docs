@@ -176,7 +176,7 @@ The **Dataset cohorts** tab allows you to investigate your model by comparing th
 2. **Show heatmap**: toggle on and off to see heatmap visualization in the table below. The gradient of the heatmap corresponds to the range normalized between the lowest value and the highest value in each column.  
 3. **Table of metrics for each dataset cohort**: Table with columns for dataset cohorts, sample size of each cohort, and the selected model performance metrics for each cohort. 
 4. **Bar chart visualizing individual metric **(I.e., mean absolute error) across the cohorts for easy comparison. 
-5. **Choose metric (x-axis)**: Clicking this will allow you to select which metric to view in the bar chart. 
+5. **Choose metric (x-axis)**: Selecting this will allow you to select which metric to view in the bar chart. 
 6. **Choose cohorts (y-axis)**: Selecting this will allow you to select which cohorts you want to view in the bar chart. Note that you may see “Feature cohort” selection disabled unless you specify your desired features in the “Feature cohort tab” of the component first. 
 
 
