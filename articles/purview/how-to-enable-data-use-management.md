@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 4/21/2022
+ms.date: 8/10/2022
 ms.custom:
 ---
 
@@ -67,18 +67,14 @@ To disable Data Use Management for a source, resource group, or subscription, a 
 1. Set the **Data Use Management** toggle to **Disabled**.
 
 ## Additional considerations related to Data Use Management
-
 - Make sure you write down the **Name** you use when registering in Microsoft Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
 - To disable a source for *Data Use Management*, remove it first from being bound (i.e. published) in any policy.
-- While user needs to have both data source *Owner* and Microsoft Purview *Data source admin* to enable a source for *Data Use Management*, either of those roles can independently disable it.
-- Make sure you write down the **Name** you use when registering in Microsoft Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
-- To disable a source for *Data Use Management*, remove it first from being bound (i.e., published) in any policy.
 - While user needs to have both data source *Owner* and Microsoft Purview *Data source admin* to enable a source for *Data Use Management*, either of those roles can independently disable it.
 - Disabling *Data Use Management* for a subscription will disable it also for all assets registered in that subscription.
 
 > [!WARNING]
 > **Known issues** related to source registration
-> - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Microsoft Purview before moving it and then register it again after that happens.
+> - Moving data sources to a different resource group or subscription is not supported. If want to do that, de-register the data source in Microsoft Purview before moving it and then register it again after that happens. Note that policies are bound to the data source ARM path. Changing the data source subscription or resource group makes policies ineffective.
 > - Once a subscription gets disabled for *Data Use Management* any underlying assets that are enabled for *Data Use Management* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ## Data Use Management best practices

@@ -1,13 +1,15 @@
 ---
 title: What is a private endpoint?
+titleSuffix: Azure Private Link
 description: In this article, you'll learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: asudbring
 # Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 08/10/2022
 ms.author: allensu
+ms.custom: references_regions
 ---
 # What is a private endpoint?
 
@@ -160,52 +162,57 @@ The DNS settings that you use to connect to a private-link resource are importan
 The network interface associated with the private endpoint contains the information that's required to configure your DNS. The information includes the FQDN and private IP address for a private-link resource. 
 
 For complete, detailed information about recommendations to configure DNS for private endpoints, see [Private endpoint DNS configuration](private-endpoint-dns.md).
- 
+
 ## Limitations
- 
-The following table list the known limitations to the use of private endpoints: 
 
-| Limitation | Description |Mitigation |
-| --------- | --------- | --------- |
-| Traffic that's destined for a private endpoint through a user-defined route (UDR) might be asymmetric. | Return traffic from a private endpoint bypasses a network virtual appliance (NVA) and attempts to return to the source virtual machine. | Source network address translation (SNAT) is used to ensure symmetric routing. For all traffic to a private endpoint that uses a UDR, we recommend that you use SNAT for traffic at the NVA. |
+The following information lists the known limitations to the use of private endpoints: 
 
-> [!IMPORTANT]
-> Network security group (NSG) and UDR support for private endpoints is in preview in select regions. For more information, see [Preview of Private Link UDR support](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) and [Preview of Private Link network security group support](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/).
->
-> This preview version is provided without a service-level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### Network security group
 
-## Limitations of the preview version
-
-### Network security groups
-
-| Limitation | Description | Mitigation |
-| ---------- | ----------- | ---------- |
-| Obtaining effective routes and security rules isn't available on a private-endpoint network interface. | You can't navigate to the network interface to view relevant information about the effective routes and security rules. | Q4CY2021 |
-| NSG flow logs aren't supported. | NSG flow logs don't work for inbound traffic that's destined for a private endpoint. | No mitigation information is available at this time. |
-| Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. | No mitigation information is available at this time. |
-| Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. | No mitigation information is available at this time. |
-| The number of address prefixes per NSG is limited. | Having more than 500 address prefixes in an NSG in a single rule isn't supported. | No mitigation information is available at this time. |
-| AllowVirtualNetworkAccess flag | Customers that set virtual network peering on their virtual network (virtual network A) with the *AllowVirtualNetworkAccess* flag set to *false* on the peering link to another virtual network (virtual network B) can't use the *VirtualNetwork* tag to deny traffic from virtual network B accessing private endpoint resources. The customers need to explicitly place a block for virtual network B’s address prefix to deny traffic to the private endpoint. | No mitigation information is available at this time. |
-| Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the UDR rule example in the next table. | No mitigation information is available at this time. |
-| | |
+| Limitation | Description |
+| --------- | ------------ |
+| Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. |
+| NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. |
+| Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. |
+| Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. |
+| The number of address prefixes per NSG is limited. | Having more than 500 address prefixes in an NSG in a single rule is unsupported. |
+| AllowVirtualNetworkAccess flag | Customers that set virtual network peering on their virtual network (virtual network A) with the *AllowVirtualNetworkAccess* flag set to *false* on the peering link to another virtual network (virtual network B) can't use the *VirtualNetwork* tag to deny traffic from virtual network B accessing private endpoint resources. The customers need to explicitly place a block for virtual network B’s address prefix to deny traffic to the private endpoint. |
+| No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that’s coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |
+| Destination port ranges supported up to a factor of 250K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br></br> Example inbound rule: </br> 1 source * 1 destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. |
+| Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. |
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast |
+| Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the UDR rule example in the next table. |
   
 The following table shows an example of a dual port NSG rule:
   
-| Priority | Source&nbsp;port&nbsp; | Destination&nbsp;port | Action | Effective&nbsp;action |
+| Priority | Source port | Destination port | Action | Effective action |
 | -------- | ----------- | ---------------- | ------ | ---------------- |
 | 10 | 10-12 | 10-12 | Allow/Deny | Single port range in source/destination ports will work as expected. |
 | 10 | 10-12, 13-14 | 14-15, 16-17 | Allow | Only source ports 10-12 and destination ports 14-15 will be allowed. |
 | 10 | 10-12, 13-14 | 120-130, 140-150 | Deny | Traffic from all source ports will be denied to all destination ports, because there are multiple source and destination port ranges. |
 | 10 | 10-12, 13-14 | 120-130 | Deny | Traffic from all source ports will be denied to destination ports 120-130 only. There are multiple source port ranges and a single destination port range. |
-| | |
 
-| Limitation | Description | Mitigation |
-| ---------- | ----------- | ---------- |
-| Source Network Address Translation (SNAT) is recommended always. | Because of the variable nature of the private-endpoint data plane, we recommend using SNAT traffic that's destined to a private endpoint, which ensures that return traffic is honored. | No mitigation information is available at this time. |
-| | |
- 
+### NSG additional considerations
+
+- Outbound traffic denied from a private endpoint isn't a valid scenario, as the service provider can't originate traffic.
+
+- The following services may require all destination ports to be open when leveraging a private endpoint and adding NSG security filters:
+
+    - Cosmos DB - For more information see, [Service port ranges](/azure/cosmos-db/sql/sql-sdk-connection-modes#service-port-ranges).
+
+### UDR
+
+| Limitation | Description |
+| --------- | --------- | 
+| SNAT is recommended at all times. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. |
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
+
+### Application security group
+
+| Limitation | Description |
+| --------- | --------- | 
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> UK North </br> UK South 2 </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
+
 ## Next steps
 
 - For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md).
