@@ -54,7 +54,7 @@ The price is different depending on the geographical region of the Front Door ed
 
 ### Data transfer from Front Door edge to origin
 
-Front Door charges for the bytes that are sent from the Front Door edge location to your origin server. The price is different depending on the geographical region of the Front Door edge location.
+Front Door charges for the bytes that are sent from the Front Door edge location to your origin server. The price is different depending on the geographical region of the Front Door edge location. The location of the origin doesn't affect the price.
 
 The price per gigabyte is lower when you have higher volumes of traffic.
 
@@ -62,7 +62,7 @@ If the request can be served from the Front Door edge location's cache, Front Do
 
 ### Data transfer from origin to Front Door
 
-When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door.
+When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door, even if the origin is in a diferent region to the Front Door edge location for the request.
 
 If your origin is within Azure, you should determine whether those Azure services might bill you for request processing or outbound traffic. For example, if you use an Azure Storage origin, then Azure Storage might bill you for the read operations that take place to serve the request.
 
@@ -82,23 +82,29 @@ Front Door Premium has a higher base fee and request processing fee. You don't p
 
 When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different to the region the origin is deployed to, you won't be charged extra for cross-region traffic. However, the request latency will likely be greater.
 
+## Cross-region traffic
+
+Some of the Front Door billing meters have different rates depending on the location of the Front Door edge location that processes a request. Usually, [the Front Door edge location that processes a request is the one that's closest to the client](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast), which helps to reduce latency and maximize performance.
+
+Front Door charges for traffic from the edge location to the origin. Traffic is charged at different rates depending on the location of the Front Door edge location. If your origin is in a different Azure region, you aren't billed extra for inter-region traffic.
+
 ## Example scenarios
 
 ### Example 1: Azure origin, no caching
 
-Contoso hosts their website on Azure App Service, and has deployed Front Door with the standard SKU. They have disabled caching.
+Contoso hosts their website on Azure App Service, which runs in the West US region. Contoso has deployed Front Door with the standard SKU. They have disabled caching.
 
-Suppose a request from a client is sent to the Contoso website, sending a 1 KB request and receiving a 100 KB response:
+Suppose a request from a client in California is sent to the Contoso website, sending a 1 KB request and receiving a 100 KB response:
 
 :::image type="content" source="./media/billing/scenario-1.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, without caching or compression." border="false":::
 
-The following billing meters will be incremented:
+The following billing meters are incremented:
 
-| Meter | Incremented by |
-|-|-|
-| Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | 1 KB |
-| Data transfer from Front Door to client | 100 KB |
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Number of requests from client to Front Door | 1 | North America |
+| Data transfer from Front Door edge to origin | 1 KB | North America pricing |
+| Data transfer from Front Door to client | 100 KB | North America pricing |
 
 Azure App Service might charge other fees.
 
@@ -108,13 +114,13 @@ Suppose Contoso updates their Front Door configuration to enable [content compre
 
 :::image type="content" source="./media/billing/scenario-2.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, with compression enabled." border="false":::
 
-The following billing meters will be incremented:
+The following billing meters are incremented:
 
-| Meter | Incremented by |
-|-|-|
-| Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | 1 KB |
-| Data transfer from Front Door to client | 30 KB |
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Number of requests from client to Front Door | 1 | North America  |
+| Data transfer from Front Door edge to origin | 1 KB | North America |
+| Data transfer from Front Door to client | 30 KB | North America |
 
 Azure App Service might charge other fees.
 
@@ -124,47 +130,61 @@ Suppose a second request arrives at the same Front Door edge location and a vali
 
 :::image type="content" source="./media/billing/scenario-3.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and being returned from cache." border="false":::
 
-The following billing meters will be incremented:
+The following billing meters are incremented:
 
-| Meter | Incremented by |
-|-|-|
-| Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | *none when request is served from cache* |
-| Data transfer from Front Door to client | 30 KB |
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Number of requests from client to Front Door | 1 | North America |
+| Data transfer from Front Door edge to origin | *none when request is served from cache* | |
+| Data transfer from Front Door to client | 30 KB | North America |
 
-### Example 4: Non-Azure origin
+### Example 4: Cross-region traffic
 
-Fabrikam runs an eCommerce site on another cloud provider, and uses Azure Front Door to serve the traffic. They haven't enabled caching or compression.
+Suppose a request to Contoso's website comes from a client in Australia, and can't be served from cache:
 
-Suppose a request from a client is sent to the Fabrikam website, sending a 2 KB request and receiving a 350 KB response:
+:::image type="content" source="./media/billing/scenario-4.png" alt-text="Diagram of traffic flowing from the client in Australia to Azure Front Door and to the origin." border="false":::
 
-:::image type="content" source="./media/billing/scenario-4.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to an origin outside of Azure." border="false":::
+The following billing meters are incremented:
 
-The following billing meters will be incremented:
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Number of requests from client to Front Door | 1 | Australia |
+| Data transfer from Front Door edge to origin | 1 KB | Australia |
+| Data transfer from Front Door to client | 30 KB | Australia |
 
-| Meter | Incremented by |
-|-|-|
-| Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | 2 KB |
-| Data transfer from Front Door to client | 350 KB |
+### Example 5: Non-Azure origin
+
+Fabrikam runs an eCommerce site on another cloud provider. Their site is hosted in Europe. They Azure Front Door to serve the traffic. They haven't enabled caching or compression.
+
+Suppose a request from a client is sent to the Fabrikam website from a client in New York. The client sends a 2 KB request and receives a 350 KB response:
+
+:::image type="content" source="./media/billing/scenario-5.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to an origin outside of Azure." border="false":::
+
+The following billing meters are incremented:
+
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Number of requests from client to Front Door | 1 | North America |
+| Data transfer from Front Door edge to origin | 2 KB | North America |
+| Data transfer from Front Door to client | 350 KB | North America |
 
 The external cloud provider might charge other fees.
 
-### Example 5: Request blocked by web application firewall
+### Example 6: Request blocked by web application firewall
 
 When a request is blocked by the web application firewall (WAF), it isn't sent to the origin. However, Front Door charges the request, and also charges to send a response.
 
-Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address. The WAF is configured with a custom error response page, which is 1 KB in size. If a client from the blocked IP address sends a 1 KB request:
+Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address in South America. The WAF is configured with a custom error response page, which is 1 KB in size. If a client from the blocked IP address sends a 1 KB request:
 
-:::image type="content" source="./media/billing/scenario-5.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door, where the request is blocked by the WAF." border="false":::
+:::image type="content" source="./media/billing/scenario-6.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door, where the request is blocked by the WAF." border="false":::
 
-The following billing meters will be incremented:
+The following billing meters are incremented:
 
-| Meter | Incremented by |
-|-|-|
-| Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | *none* |
-| Data transfer from Front Door to client | 1 KB |
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Number of requests from client to Front Door | 1 | South America |
+| Data transfer from Front Door edge to origin | *none* | South America |
+| Data transfer from Front Door to client | 1 KB | South America |
 
 ## Next steps
 
