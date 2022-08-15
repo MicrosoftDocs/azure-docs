@@ -46,7 +46,7 @@ At the end, you'll have a working spring app running on Azure Spring Apps.
    az account show
    ```
 
-1. Azure Cloud Shell machines are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. On initial start, it prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) by your subscription to persist files across sessions.
 
    :::image type="content" source="media/quickstart/Azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription.":::
 
@@ -193,7 +193,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
    :::image type="content" source="media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="media/quickstart/intellij-new-project.png":::
 
-### Installation and sign-in
+### Install and sign-in
 
 1. Before you want to start the quickstarts by IntelliJ, you should [install Azure Toolkit for IntelliJ from the Marketplace](/azure/developer/java/toolkit-for-intellij/install-toolkit#install-azure-toolkit-for-intellij-from-the-marketplace).
 
