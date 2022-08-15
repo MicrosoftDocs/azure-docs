@@ -1,7 +1,19 @@
+---
+title: Use environment variables with Cognitive Services
+titleSuffix: Azure Cognitive Services
+description: "This guide shows you how to set and retrieve environment variables to handle your Cognitive Services subscription credentials in a more secure way when you test out applications."
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: how-to
+ms.date: 08/15/2022
+ms.author: pafarley
+---
 
+# Use environment variables with Cognitive Services
 
-
-## Use environment variables with Cognitive Services
+This guide shows you how to set and retrieve environment variables to handle your Cognitive Services subscription credentials in a more secure way when you test out applications.
 
 ## Set an environment variable
 
@@ -151,5 +163,6 @@ NSString* value =
 
 ---
 
-
 ## Next steps
+
+* Explore [Cognitive Services](./what-are-cognitive-services.md) and choose a service to get started.
