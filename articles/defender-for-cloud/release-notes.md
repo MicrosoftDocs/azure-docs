@@ -20,8 +20,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in August include:
 
-[Defender for Container's vulnerability assessment now supports Windows containers](#defender-for-containers-vulnerability-assessment-now-supports-windows-containers)
-
+- [Defender for Container's vulnerability assessment now supports Windows containers](#defender-for-containers-vulnerability-assessment-now-supports-windows-containers)
+- [Auto-deployment of Azure Monitor Agent (Preview)](#auto-deployment-of-azure-monitor-agent-preview)
 ### Defender for Container's vulnerability assessment now supports Windows containers
 
 Defender for Container's vulnerability assessment has now added support for Windows containers.
@@ -29,6 +29,12 @@ Defender for Container's vulnerability assessment has now added support for Wind
 When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation maps the vulnerability data that is created for images in ACR to the containers in AKS that associated with those images.
 
 Learn more about [vulnerability assessment](defender-for-containers-introduction.md#vulnerability-assessment).
+
+### Auto-deployment of Azure Monitor Agent (Preview)
+
+The [Azure Monitor Agent](/azure-monitor/agents/agents-overview.md) (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud.
+
+The [Azure Monitor Agent is now integrated](enable-data-collection.md?tabs=autoprovision-ama#tabpanel_1_autoprovision-ama) into Microsoft Defender for Cloud. You can [auto-provision Azure Monitor Agent](auto-deploy-azure-monitoring-agent.md) to all of your cloud and on-premises servers with Defender for Cloud. Also, Defender for Cloud protections can use data collected by the Azure Monitor Agent.
 
 ## July 2022
 
@@ -480,52 +486,3 @@ Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.m
 Registry scan for Windows images is now supported in Azure Government and Azure China 21Vianet. This addition is currently in preview.
 
 Learn more about our [feature's availability](supported-machines-endpoint-solutions-clouds-containers.md).
-
-## February 2022
-
-Updates in February include:
-
-- [Kubernetes workload protection for Arc-enabled Kubernetes clusters](#kubernetes-workload-protection-for-arc-enabled-kubernetes-clusters)
-- [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances)
-- [Microsoft Defender for Azure Cosmos DB plan released for preview](#microsoft-defender-for-azure-cosmos-db-plan-released-for-preview)
-- [Threat protection for Google Kubernetes Engine (GKE) clusters](#threat-protection-for-google-kubernetes-engine-gke-clusters)
-
-### Kubernetes workload protection for Arc-enabled Kubernetes clusters
-
-Defender for Containers previously only protected Kubernetes workloads running in Azure Kubernetes Service. We've now extended the protective coverage to include Azure Arc-enabled Kubernetes clusters.
-
-Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections.md#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
-
-### Native CSPM for GCP and threat protection for GCP compute instances
-
-The new automated onboarding of GCP environments allows you to protect GCP workloads with Microsoft Defender for Cloud. Defender for Cloud protects your resources with the following plans:
-
-- **Defender for Cloud's CSPM** features extend to your GCP resources. This agentless plan assesses your GCP resources according to the GCP-specific security recommendations, which are provided with Defender for Cloud. GCP recommendations are included in your secure score, and the resources will be assessed for compliance with the built-in GCP CIS standard. Defender for Cloud's asset inventory page is a multicloud enabled feature helping you manage your resources across Azure, AWS, and GCP.
-
-- **Microsoft Defender for Servers** brings threat detection and advanced defenses to your GCP compute instances. This plan includes the integrated license for Microsoft Defender for Endpoint, vulnerability assessment scanning, and more.
-
-    For a full list of available features, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md). Automatic onboarding capabilities will allow you to easily connect any existing, and new compute instances discovered in your environment.
-
-Learn how to protect, and [connect your GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
-
-### Microsoft Defender for Azure Cosmos DB plan released for preview
-
-We have extended Microsoft Defender for Cloud’s database coverage. You can now enable protection for your Azure Cosmos DB databases.
-
-Microsoft Defender for Azure Cosmos DB is an Azure-native layer of security that detects any attempt to exploit databases in your Azure Cosmos DB accounts. Microsoft Defender for Azure Cosmos DB detects potential SQL injections, known bad actors based on Microsoft Threat Intelligence, suspicious access patterns, and potential exploitation of your database through compromised identities, or malicious insiders.
-
-It continuously analyzes the customer data stream generated by the Azure Cosmos DB services.
-
-When potentially malicious activities are detected, security alerts are generated. These alerts are displayed in Microsoft Defender for Cloud together with the details of the suspicious activity along with the relevant investigation steps, remediation actions, and security recommendations.
-
-There's no impact on database performance when enabling the service, because Defender for Azure Cosmos DB doesn't access the Azure Cosmos DB account data.
-
-Learn more at [Overview of Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md).
-
-We're also introducing a new enablement experience for database security. You can now enable Microsoft Defender for Cloud protection on your subscription to protect all database types, such as, Azure Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and Microsoft Defender for open-source relational databases through one enablement process. Specific resource types can be included, or excluded by configuring your plan.  
-
-Learn how to [enable your database security at the subscription level](quickstart-enable-database-protections.md#enable-database-protection-on-your-subscription).
-
-### Threat protection for Google Kubernetes Engine (GKE) clusters
-
-Following our recent announcement [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances), Microsoft Defender for Containers has extended its Kubernetes threat protection, behavioral analytics, and built-in admission control policies to Google's Kubernetes Engine (GKE) Standard clusters. You can easily onboard any existing, or new GKE Standard clusters to your environment through our Automatic onboarding capabilities. Check out [Container security with Microsoft Defender for Cloud](defender-for-containers-introduction.md#vulnerability-assessment), for a full list of available features.
