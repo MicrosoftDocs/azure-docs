@@ -28,7 +28,7 @@ Selecting the name of the dashboard will open up your dashboard into a full view
 
 ## Full functionality with integrated compute resource
 
-Some features of the Responsible AI dashboard require dynamic, on-the-fly, and real-time computation (e.g., what if analysis). Without connecting a compute resource to the dashboard, you may find some functionality missing. Connecting to a compute resource will enable full functionality of your Responsible AI dashboard for the following components:
+Some features of the Responsible AI dashboard require dynamic, on-the-fly, and real-time computation (for example, what if analysis). Without connecting a compute resource to the dashboard, you may find some functionality missing. Connecting to a compute resource will enable full functionality of your Responsible AI dashboard for the following components:
 
 - **Error analysis**
     - Setting your global data cohort to any cohort of interest will update the error tree instead of disabling it.
