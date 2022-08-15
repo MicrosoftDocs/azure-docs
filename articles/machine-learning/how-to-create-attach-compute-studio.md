@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q1, event-tier1-build-2022
 ---
-# Manage compute for model training and deployment in Azure Machine Learning studio
+# Manage compute resources for model training and deployment in studio
 
 In this article, learn how to manage the compute resources you use for model training and deployment in Azure Machine studio.  
 
