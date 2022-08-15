@@ -1698,7 +1698,7 @@ Jump to a resource provider namespace:
 ## Microsoft.SaaS
 
 > [!IMPORTANT]
-> Marketplace offerings that are implemented through the Microsoft.Saas resource provider support resource group and subscription moves. These offering are represented by the `resources` type below. For example, **SendGrid** is implemented through Microsoft.Saas and supports move operations. However, limitations defined in the [move requirements checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) may limit the supported move scenarios. For example, you can't move the resources from a Cloud Solution Provider (CSP) partner.
+> Marketplace offerings that are implemented through the Microsoft.Saas resource provider support resource group and subscription moves. These offerings are represented by the `resources` type below. For example, **SendGrid** is implemented through Microsoft.Saas and supports move operations. However, limitations defined in the [move requirements checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) may limit the supported move scenarios. For example, you can't move the resources from a Cloud Solution Provider (CSP) partner.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
