@@ -120,7 +120,7 @@ Push notifications let clients be notified for incoming messages and other opera
 
    ```
 
-6. Update function `onCreate` in class `MainActivity`.
+6. Update the function `onCreate` in `MainActivity`.
 
    ```java
       @Override
