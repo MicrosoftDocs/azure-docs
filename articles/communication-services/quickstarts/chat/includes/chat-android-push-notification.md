@@ -181,7 +181,7 @@ Push notifications let clients be notified for incoming messages and other opera
     implementation "androidx.work:work-runtime:$work_version"
 ```
 
-11. Add a custom worker manager initializer by creating a class implementing Configuration.Provider:
+11. Add a custom `WorkManager` initializer by creating a class implementing `Configuration.Provider`:
 
 ```java
 public class MyAppConfiguration extends Application implements Configuration.Provider {
