@@ -36,7 +36,7 @@ You can authorize access to data in your storage account using the following ste
 
 1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
 
-    [!INCLUDE [defaultazurecredential-sign-in](default-azure-credential-sign-in.md)]
+    [!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
 2. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
