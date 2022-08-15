@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 08/15/2022
 ms.author: aahi
 ---
 
@@ -67,6 +67,8 @@ Use the table below to find which model versions are supported by each feature:
 
 \*\* Latest preview version
 
+> [!IMPORTANT]
+> The versions listed for deprecation wil be unavailable for use after October 30, 2022
 
 ## Custom features
 
