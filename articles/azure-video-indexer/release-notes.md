@@ -41,7 +41,17 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## June 2022 release updates
+## July 2022 release updates
+
+### Improved contextual ads placement with featured clothing insight 
+
+You can now enable more targeted ads placement that is based on captured featured clothing images appearing in a video. The captured clothing feature is currently in a preview.
+
+The featured clothing images are ranked according to the importance of the person wearing the clothing, key moments of the video, general emotions from text or audio and other features. Can be used for showing more targeted ads based on the clothing detected.
+
+For more information, see [observed people featured clothing](observed-people-featured-clothing.md).
+
+## June 2022
 
 ### Create Video Indexer blade improvements in Azure portal 
 
