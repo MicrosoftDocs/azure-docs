@@ -8,7 +8,7 @@ ms.devlang: java
 author: jdubois
 ms.author: judubois
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
-ms.date: 06/20/2022
+ms.date: 08/15/2022
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for MySQL
@@ -18,6 +18,11 @@ ms.date: 06/20/2022
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](./index.yml).
 
 JDBC is the standard Java API to connect to traditional relational databases.
+
+In this article, we will include two authentication methods, one is Azure Active Directory (Azure AD) authenction and the other is MySQL authentication. The "Credential-free connection" tab is using the Azure AD authentication, and the "Password" tab is using the MySQL authentication.
+
+- Azure AD authentication is a mechanism of connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+- MySQL authentication is to use accounts that stored in MySQL. And if you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. So these passwords are stored in MySQL and you will need to manage the rotation of the passwords by yourself.
 
 ## Prerequisites
 
@@ -30,23 +35,45 @@ JDBC is the standard Java API to connect to traditional relational databases.
 
 We are going to use environment variables to limit typing mistakes, and to make it easier for you to customize the following configuration for your specific needs.
 
-Set up those environment variables by using the following commands:
+First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
 
+### [Credential-free connection (Recommended)](#tab/credential-free)
 ```bash
-AZ_RESOURCE_GROUP=database-workshop
-AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
-AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_MYSQL_USERNAME=demo
-AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
-AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+export AZ_RESOURCE_GROUP=database-workshop
+export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_LOCATION=<YOUR_AZURE_REGION>
+export AZ_MYSQL_AD_ADMIN_USERNAME=demo
+export AZ_MYSQL_AD_NON_ADMIN_USERNAME=demo-non-admin
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
-- `<YOUR_MYSQL_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+### [Password](#tab/password)
+
+```bash
+export AZ_RESOURCE_GROUP=database-workshop
+export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_LOCATION=<YOUR_AZURE_REGION>
+export AZ_MYSQL_ADMIN_USERNAME=demo
+export AZ_MYSQL_ADMIN_PASSWORD=<YOUR_MYSQL_ADMIN_PASSWORD>
+export AZ_MYSQL_NON_ADMIN_USERNAME=demo-non-admin
+export AZ_MYSQL_NON_ADMIN_PASSWORD=<YOUR_MYSQL_NON_ADMIN_PASSWORD>
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+```
+
+Replace the placeholders with the following values, which are used throughout this article:
+
+- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
+- `<YOUR_MYSQL_ADMIN_PASSWORD>` and `<YOUR_MYSQL_NON_ADMIN_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+---
 
 Next, create a resource group:
 
@@ -54,21 +81,48 @@ Next, create a resource group:
 az group create \
     --name $AZ_RESOURCE_GROUP \
     --location $AZ_LOCATION \
-    | jq
+    --output tsv
 ```
 
-> [!NOTE]
-> We use the `jq` utility, which is installed by default on [Azure Cloud Shell](https://shell.azure.com/) to display JSON data and make it more readable.
-> If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
-
 ## Create an Azure Database for MySQL instance
+
+### Create a MySQL server and set up admin user
 
 The first thing we'll create is a managed MySQL server.
 
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
-In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
+#### [Credential-free connection (Recommended)](#tab/credential-free)
+
+If you are using Azure CLI, run the following command to make sure it has sufficient permission:
+```bash
+az login --scope https://graph.microsoft.com/.default
+```
+
+Then run following commands to the server and admin user:
+```azurecli
+az mysql server create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME \
+    --location $AZ_LOCATION \
+    --sku-name B_Gen5_1 \
+    --storage-size 5120 \
+    --output tsv
+
+az mysql server ad-admin create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --server-name $AZ_DATABASE_NAME \
+    --display-name $AZ_MYSQL_AD_ADMIN_USERNAME \
+    --object-id `(az ad signed-in-user show --query id -o tsv)`
+```
+
+> [!IMPORTANT]
+>  When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
+
+This command creates a small MySQL server and set the Active Directory admin to the signed-in user.
+
+#### [Password](#tab/password)
 
 ```azurecli
 az mysql server create \
@@ -77,10 +131,12 @@ az mysql server create \
     --location $AZ_LOCATION \
     --sku-name B_Gen5_1 \
     --storage-size 5120 \
-    --admin-user $AZ_MYSQL_USERNAME \
-    --admin-password $AZ_MYSQL_PASSWORD \
-    | jq
+    --admin-user $AZ_MYSQL_ADMIN_USERNAME \
+    --admin-password $AZ_MYSQL_ADMIN_PASSWORD \
+    --output tsv
 ```
+
+---
 
 This command creates a small MySQL server.
 
@@ -97,7 +153,7 @@ az mysql server firewall-rule create \
     --server $AZ_DATABASE_NAME \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
-    | jq
+    --output tsv
 ```
 
 ### Configure a MySQL database
@@ -109,8 +165,59 @@ az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name demo \
     --server-name $AZ_DATABASE_NAME \
-    | jq
+    --output tsv
 ```
+
+### Create a MySQL non-admin user and grant permission
+
+This step will create a non-admin user and grant all permissions on the `demo` database to it.
+
+> [!NOTE]
+> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
+
+#### [Credential-free connection (Recommended)](#tab/credential-free)
+
+We have already enabled the Azure AD authentication, and this step will create an Azure AD user and grant permissions.
+
+```bash
+AZ_MYSQL_AD_NON_ADMIN_USERID=`az ad signed-in-user show --query id -o tsv`
+
+cat << EOF > create_ad_user.sql
+SET aad_auth_validate_oids_in_tenant = OFF;
+
+CREATE AADUSER '$AZ_MYSQL_AD_NON_ADMIN_USERNAME' IDENTIFIED BY '$AZ_MYSQL_AD_NON_ADMIN_USERID';
+
+GRANT ALL PRIVILEGES ON demo.* TO '$AZ_MYSQL_AD_NON_ADMIN_USERNAME'@'%';
+
+FLUSH privileges;
+
+EOF
+
+mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $AZ_MYSQL_AD_ADMIN_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user.sql
+
+rm create_ad_user.sql
+```
+
+#### [Password](#tab/password)
+
+```bash
+
+cat << EOF > create_user.sql
+
+CREATE USER '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%' IDENTIFIED BY '$AZ_MYSQL_NON_ADMIN_PASSWORD';
+
+GRANT ALL PRIVILEGES ON demo.* TO '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%';
+
+FLUSH PRIVILEGES;
+
+EOF
+
+mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql
+
+rm create_user.sql
+```
+
+---
 
 ### Create a new Java project
 
@@ -151,14 +258,22 @@ This file is an [Apache Maven](https://maven.apache.org/) that configures our pr
 
 Create a *src/main/resources/application.properties* file, and add:
 
+#### [Credential-free connection (Recommended)](#tab/credential-free)
+
 ```properties
-url=jdbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-user=demo@$AZ_DATABASE_NAME
-password=$AZ_MYSQL_PASSWORD
+url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
 ```
 
-- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
-- Replace the `$AZ_MYSQL_PASSWORD` variable with the value that you configured at the beginning of this article.
+#### [Password](#tab/password)
+
+```properties
+url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
+```
+
+---
 
 > [!NOTE]
 > We append `?serverTimezone=UTC` to the configuration property `url`, to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, our Java server would not use the same date format as the database, which would result in an error.
