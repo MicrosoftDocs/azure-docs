@@ -118,7 +118,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * <a name="aes-encryption"></a>**AES Encryption**    
         This option enables AES encryption authentication support for the admin account of the AD connection. 
 
-        ![Screenshot of the AES description field which is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
+        ![Screenshot of the AES description field. The field is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
         
         See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
           ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
@@ -211,7 +211,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
         |  `SeTakeOwnershipPrivilege`  |  Take ownership of files or other objects. |  
         |  `SeSecurityPrivilege`  |  Manage log operations. |  
-        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  |  <!-- tHIS option IS REMOVED -->
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege aren't required to have traverse (`x`) permissions to traverse folders or symlinks.  | 
 
     * Credentials, including your **username** and **password**
 
@@ -270,7 +270,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the three dots (`...`) at the end of the row. Select **Reset Active Directory Account**.
 :::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message which reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
+:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
 
 ## Next steps  
 
