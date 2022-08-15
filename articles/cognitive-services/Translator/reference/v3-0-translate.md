@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/09/2022
+ms.date: 08/15/2022
 ms.author: lajanuar
 ---
 
@@ -38,11 +38,8 @@ Request parameters passed on the query string are:
 
 ### Optional parameters
 
-
-
 | Query parameter | Description |
 | --- | --- |
-
 
 | Query parameter | Description |
 | --- | --- |
@@ -77,10 +74,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 ]
 ```
 
-The following limitations apply:
-
-* The array can have at most 100 elements.
-* The entire text included in the request can't exceed 10,000 characters including spaces.
+For information on character and array limits, _see_ [Request limits](../request-limits.md#character-and-array-limits-per-request).
 
 ## Response body
 
@@ -92,7 +86,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
+    The `detectedLanguage` property is only present in the result object when language auto-detection is requested.
 
 * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
