@@ -2427,7 +2427,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-graph-api.md",
-      "redirect_url": "https://docs.microsoft.com/graph/migrate-azure-ad-graph-planning-checklist",
+      "redirect_url": "/graph/migrate-azure-ad-graph-planning-checklist",
       "redirect_document_id": false
     },
     {
