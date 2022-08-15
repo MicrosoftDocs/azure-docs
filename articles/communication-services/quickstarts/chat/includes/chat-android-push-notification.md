@@ -174,7 +174,7 @@ Push notifications let clients be notified for incoming messages and other opera
     <!-- End of Disabling default initializer of WorkManager -->
 ```
 
-10. Add worker manager dependency in build.gradle:
+10. Add the `WorkManager` dependency to your `build.gradle` file:
 
 ```
     def work_version = "2.7.1"
