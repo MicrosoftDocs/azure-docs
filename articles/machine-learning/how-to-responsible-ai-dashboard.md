@@ -173,7 +173,7 @@ The **Dataset cohorts** tab allows you to investigate your model by comparing th
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-dataset-cohorts.png" alt-text="Screenshot of the dashboard's model overview tab showing the dataset cohorts tab." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-dataset-cohorts.png":::
 
 1. **Help me choose metrics**: Selecting this icon will open a panel with more information about what model performance metrics are available to be shown in the table below. Easily adjust which metrics you can view by using the multi-select drop down to select and deselect performance metrics. (see more below) 
-2. **Show heatmap**: toggle on and off to see heatmap visualization in the table below. The gradient of the heatmap corresponds to the range normalized between the lowest value and the highest value in each column.  
+2. **Show heatmap**: Toggle on and off to see heatmap visualization in the table below. The gradient of the heatmap corresponds to the range normalized between the lowest value and the highest value in each column.  
 3. **Table of metrics for each dataset cohort**: Table with columns for dataset cohorts, sample size of each cohort, and the selected model performance metrics for each cohort. 
 4. **Bar chart visualizing individual metric **(I.e., mean absolute error) across the cohorts for easy comparison. 
 5. **Choose metric (x-axis)**: Selecting this will allow you to select which metric to view in the bar chart. 
