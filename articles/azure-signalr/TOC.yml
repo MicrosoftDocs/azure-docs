@@ -137,8 +137,8 @@
       items:
         - name: Overview
           href: signalr-howto-reverse-proxy-overview.md
-        - name: Integrate with App Gateway
-          href: signalr-howto-app-gateway-integration.md
+        - name: Use SignalR Service with Application Gateway
+          href: signalr-howto-work-with-app-gateway.md
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor SignalR Service
