@@ -47,7 +47,7 @@ The following [private-link resources](../../../private-link/private-endpoint-ov
 * Microsoft.Synapse/workspaces
 * Microsoft.Synapse/privateLinkHubs
 
-All other private-link resource don't support move.
+All other private-link resources don't support move.
 
 ## Next steps
 
