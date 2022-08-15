@@ -22,18 +22,18 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
-   - name: Form Recognizer v2.1
-     items:
-     - name: Sample Labeling tool
-       href: quickstarts/try-sample-label-tool.md
-     - name: Form Recognizer SDKs and REST API v2.1
-       href: quickstarts/get-started-v2-1-sdk-rest-api.md
    - name: "Form Recognizer v3.0"
      items:
        - name: Form Recognizer Studio | v3.0
          href: quickstarts/try-v3-form-recognizer-studio.md
        - name: Form Recognizer SDKs and REST API v3.0
          href: quickstarts/get-started-v3-sdk-rest-api.md
+   - name: Form Recognizer v2.1
+     items:
+     - name: Sample Labeling tool
+       href: quickstarts/try-sample-label-tool.md
+     - name: Form Recognizer SDKs and REST API v2.1
+       href: quickstarts/get-started-v2-1-sdk-rest-api.md
 - name: How-to guides
   items:
   - name: Create a Form Recognizer resource
