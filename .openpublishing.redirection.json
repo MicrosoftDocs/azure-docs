@@ -18304,6 +18304,11 @@
     "redirect_document_id":  false
 },
 {
+  "source_path_from_root": "/articles/connectors/connectors-create-api-twilio.md",
+  "redirect_url": "/connectors/twilio",
+  "redirect_document_id": false
+},
+{
     "source_path_from_root":  "/articles/logic-apps/logic-apps-scenario-error-and-exception-handling.md",
     "redirect_url":  "/azure/logic-apps/logic-apps-exception-handling",
     "redirect_document_id":  false
