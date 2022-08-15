@@ -61,7 +61,7 @@ To deploy the Azure Monitor Agent with auto provisioning:
 
     By default:
 
-    - The Azure Monitor Agent is installed on all existing machines in the subscription that don't already have it installed, and on all new machines created in the subscription.
+    - The Azure Monitor Agent is installed on all existing machines in the selected subscription, and on all new machines created in the subscription.
     - The Log Analytics agent isn't uninstalled from machines that already have it installed. You can [leave the Log Analytics agent](#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) on the machine, or you can manually [remove the Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration.md) if you don't require it for other protections.
     - The agent sends data to the default workspace for the subscription. You can also [configure a custom workspace](#configure-custom-destination-log-analytics-workspace) to send data to.
     - You can't enable [collection of additional security events](#additional-security-events-collection).
@@ -108,10 +108,7 @@ The required [Log Analytics workspace solutions](/azure/azure-monitor/insights/s
 
 ### Additional extensions for Defender for Cloud
 
-The Azure Monitor Agent requires additional extensions. These extensions are automatically installed when you auto-provision the Azure Monitor Agent:
-
-- For fileless attack detection: ASA extension
-- For endpoint protection recommendations and fileless attack detection: ASA extension
+The Azure Monitor Agent requires additional extensions. The ASA extension, which supports endpoint protection recommendations and fileless attack detection, is automatically installed when you auto-provision the Azure Monitor Agent.
 
 ### Additional security events collection
 
