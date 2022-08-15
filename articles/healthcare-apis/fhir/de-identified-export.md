@@ -58,7 +58,7 @@ GET https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_ano
 
 You will need to create a container for the de-identified export within your ADLS Gen2 storage account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
 
-It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
+It is common practice to name the container `anonymization`. The JSON file within the container is often called `anonymizationConfig.json`.
 
 > [!Note] 
 > Right now the FHIR service only supports de-identified export at the system level (`$export`).
