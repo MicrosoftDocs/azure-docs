@@ -41,15 +41,8 @@ This article guides you through the construction of Oma's waffles. After complet
 
 ## Prerequisites
 
-- 250 g (8.81 oz) of melted butter
-- 250 g (8.81 oz) of sugar
-- 500 g (17.63 oz) of all purpose flour
-- 6 eggs, XL
-- 500 ml (16.9 oz) of milk
-- 1 ½ teaspoons of baking powder
-- grated lemon peel of 1 lemon
-- 2 pouches of vanilla sugar
-- 1 teaspoon of vanilla extract
+- An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Azure subscription enabled for the Storage Mover preview.
 
 <!-- 
 4. H2s (Docs Required)
@@ -67,23 +60,23 @@ You can access the VHD file from [\\xstoreself.corp.microsoft.com\scratch\XDataM
 Providing sufficient resources like RAM and compute cores to your agent is important.
 
 1. Unpack the agent VHD to a local folder.
-  :::image type="content" source="media/agent-deploy/agent-disk-extract.png" alt-text="Image of a compressed file being extracted to the local file system.":::
+  :::image type="content" source="media/agent-deploy/agent-disk-extract-sml.png" alt-text="Image of a compressed file being extracted to the local file system." lightbox="media/agent-deploy/agent-disk-extract-lrg.png":::
 1. Create a new VM to host the agent. Open **Hyper-V Manager**. In the **Actions** pane, select **New** and **Virtual Machine...** to launch the **New Virtual Machine Wizard**.
-  :::image type="content" source="media/agent-deploy/agent-vm-create.png" alt-text="Image showing how to launch the New Virtual Machine Wizard from within the Hyper-V Manager.":::
+  :::image type="content" source="media/agent-deploy/agent-vm-create-sml.png" alt-text="Image showing how to launch the New Virtual Machine Wizard from within the Hyper-V Manager." lightbox="media/agent-deploy/agent-vm-create-lrg.png":::
 1. Within the **Specify Name and Location** pane, specify values for the agent VM's **Name** and **Location** fields. The location should match the folder where the VHD is stored, if possible. Select **Next**.
-  :::image type="content" source="media/agent-deploy/agent-name-select.png" alt-text="Image showing the location of the Name and Location fields within the New Virtual Machine Wizard.":::
+  :::image type="content" source="media/agent-deploy/agent-name-select-sml.png" alt-text="Image showing the location of the Name and Location fields within the New Virtual Machine Wizard." lightbox="media/agent-deploy/agent-name-select-lrg.png":::
 1. Within the **Specify Generation** pane, select the **Generation 1** option. Only **Generation 1** VM generation is supported during the Azure Storage Mover public preview.
-  :::image type="content" source="media/agent-deploy/agent-vm-generation-select.png" alt-text="Image showing the location of the VM Generation options within the New Virtual Machine Wizard.":::
+  :::image type="content" source="media/agent-deploy/agent-vm-generation-select-sml.png" lightbox="media/agent-deploy/agent-vm-generation-select-lrg.png"  alt-text="Image showing the location of the VM Generation options within the New Virtual Machine Wizard.":::
 1. Within the **Assign Memory** pane, enter the amount of memory you will allocate to the agent VM. 3072 MB dynamic RAM is being provided in our example. For information on allocation recommendations, see the article on [Performance Targets](performance-targets.md).
-  :::image type="content" source="media/agent-deploy/agent-memory-allocate.png" alt-text="Image showing the location of the Startup Memory field within the New Virtual Machine Wizard.":::
-1. Within the **Assign Memory** pane, select the **Connection** drop-down and choose the virtual switch which will provide the agent with internet connectivity. Select **Next**.
-  :::image type="content" source="media/agent-deploy/agent-networking-configure.png" alt-text="Image showing the location of the network Connection field within the New Virtual Machine Wizard.":::
+  :::image type="content" source="media/agent-deploy/agent-memory-allocate-sml.png" lightbox="media/agent-deploy/agent-memory-allocate-lrg.png"  alt-text="Image showing the location of the Startup Memory field within the New Virtual Machine Wizard.":::
+1. Within the **Configure Networking** pane, select the **Connection** drop-down and choose the virtual switch which will provide the agent with internet connectivity. Select **Next**.
+  :::image type="content" source="media/agent-deploy/agent-networking-configure-sml.png" lightbox="media/agent-deploy/agent-networking-configure-lrg.png"  alt-text="Image showing the location of the network Connection field within the New Virtual Machine Wizard.":::
 1. Within the **Connect Virtual Hard Disk** pane, select the **Use an existing Virtual Hard Disk** option. In the **Location** field, select **Browse** and navigate to the VHD file that was extracted in the previous steps. Select **Next**.
-  :::image type="content" source="media/agent-deploy/agent-disk-connect.png" alt-text="Image showing the location of the Virtual Hard Disk Connection fields within the New Virtual Machine Wizard.":::
+  :::image type="content" source="media/agent-deploy/agent-disk-connect-sml.png" lightbox="media/agent-deploy/agent-disk-connect-lrg.png"  alt-text="Image showing the location of the Virtual Hard Disk Connection fields within the New Virtual Machine Wizard.":::
 1. Within the **Summary** pane, select **Finish** to create the agent VM.
-  :::image type="content" source="media/agent-deploy/agent-configuration-details.png" alt-text="Image showing the user-assigned values in the Summary pane of the New Virtual Machine Wizard.":::
+  :::image type="content" source="media/agent-deploy/agent-configuration-details-sml.png"  lightbox="media/agent-deploy/agent-configuration-details-lrg.png" alt-text="Image showing the user-assigned values in the Summary pane of the New Virtual Machine Wizard.":::
 1. After the new agent is successfully created, it will appear in the **Virtual Machines** pane within the **Hyper-V Manager**.
-     :::image type="content" source="media/agent-deploy/agent-created.png" alt-text="Image showing the agent VM deployed within the New Virtual Machine Wizard.":::
+     :::image type="content" source="media/agent-deploy/agent-created-sml.png" lightbox="media/agent-deploy/agent-created-lrg.png" alt-text="Image showing the agent VM deployed within the New Virtual Machine Wizard.":::
 
 ## Register the agent
 
@@ -92,11 +85,11 @@ Once your agent VM is running, you'll need to create trust to use it for migrati
 # [Hyper-V](#tab/hyper-v)
 
 1. Open **Hyper-V Manager**. In the **Virtual Machines** pane and select your agent. Start your agent by select **Start** within the **Actions** pane.
-  :::image type="content" source="media/agent-deploy/agent-vm-start.png" alt-text="Image illustrating the steps involved with starting a VM within Hyper-V Manager.":::
+  :::image type="content" source="media/agent-deploy/agent-vm-start-sml.png" lightbox="media/agent-deploy/agent-vm-start-lrg.png"  alt-text="Image illustrating the steps involved with starting a VM within Hyper-V Manager.":::
 1. After starting, the agent VM's **State**, **CPU Usage**, and other metrics are displayed in the **Virtual Machines** pane. Additionally, a checkpoint is automatically created. Connect to the agent VM by selecting **Connect...** from the agent's section within the **Actions** pane as shown.
-  :::image type="content" source="media/agent-deploy/agent-vm-connect.png" alt-text="Image illustrating the location of the Connect icon within Hyper-V Manager.":::
+  :::image type="content" source="media/agent-deploy/agent-vm-connect-sml.png" lightbox="media/agent-deploy/agent-vm-connect-lrg.png"  alt-text="Image illustrating the location of the Connect icon within Hyper-V Manager.":::
 1. In the **Virtual Machine Connection** window, login to the agent VM using the default credentials. At the **login** prompt, enter **admin** and press the **Enter** key. Enter **admin** again at the **Password** prompt and press the **Enter** key. Enter **n** when prompted to change the default password and press the **Enter** key.
-  :::image type="content" source="media/agent-deploy/agent-vm-login.png" alt-text="Image illustrating the authentication prompts for the agent VM using Hyper-V Manager.":::
+  :::image type="content" source="media/agent-deploy/agent-vm-login-sml.png" lightbox="media/agent-deploy/agent-vm-login-lrg.png"  alt-text="Image illustrating the authentication prompts for the agent VM using Hyper-V Manager.":::
 
 # [PowerShell](#tab/powershell)
 
@@ -117,44 +110,6 @@ Get-AzStorageMoverAgent -ResourceGroupName $ResourceGroupName -StorageMoverName 
 Content for CLI.
 
 ---
-
-
-
-## Prepare the batter
-
-The first step to making Haushaltswaffeln is the preparation of the batter. To prepare the batter, complete the steps listed below. 
-
-1. Separate the eggs with an egg separator.
-1. Using a handheld mixer beat the egg whites until stiff.
-1. In a separate bowl add the egg yolks, sugar, grated lemon peel and vanilla sugar or vanilla extract and mix until creamy.
-1. Slowly add the butter to the egg mixture and beat until smooth.
-1. Mix the flour with baking powder and sift it into a bowl.
-1. Alternate between flour and lukewarm milk and add these ingredients into the egg mixture.
-1. Fold in the beaten egg whites using a pastry blender.
-
-After the batter is prepared, you can begin baking the batter into the tasty Haushaltswaffeln.
-
-## Cook the batter
-
-In this section, you will cook the batter prepared in the previous section, resulting in a batch of warm and delicious Haushaltswaffeln.
-
-Use the steps below to create your first batch.
-
-1. Heat up a waffle maker.
-1. Fill about ½ cup of batter in the waffle maker.
-1. Close the waffle maker and bake the waffles until golden and crisp.
-
-After the Haushaltswaffeln are cooked to perfection, it's time to serve your guests. This process is described in the next section.
-
-## Serve the Haushaltswaffeln
-
-Although you can dress Haushaltswaffeln up with a sprinkling of powdered sugar, they really need no embellishment. The flavour is rich and buttery, and they are nicely sweetened. You can give your callers the option to sprinkle some powdered sugar over the Haushaltswaffeln, or add whipped cream and fruit.
-
-<!-- 
-
-5. Next steps (Docs required)
-
-A single link in the blue box format. Point to the next logical tutorial or how-to in a series, or, if there are no other tutorials or how-tos, to some other cool thing the customer can do. -->
 
 ## Next steps
 

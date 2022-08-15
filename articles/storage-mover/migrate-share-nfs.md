@@ -37,7 +37,6 @@ There are only two prerequisites to running the script:
 
 - An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure subscription enabled for the Storage Mover preview.
-- 
 
 ## Prepare your migration resources
 
