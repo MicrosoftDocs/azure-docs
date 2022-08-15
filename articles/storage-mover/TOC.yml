@@ -4,7 +4,7 @@ items:
 - name: Overview
   items:
   - name: What is Azure Storage Mover?
-    href: overview.md
+    href: service-overview.md
   expanded: true
 - name: Concepts
   items: 
@@ -65,7 +65,7 @@ items:
   - name: Release notes
     href: release-notes.md
   - name: Samples
-    href: https://review.docs.microsoft.com/en-us/samples/browse/?branch=main&expanded=azure
+    href: /samples/browse/?branch=main&expanded=azure
   - name: Azure Storage Mover release notes
     href: release-notes.md
 

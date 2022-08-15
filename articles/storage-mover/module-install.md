@@ -5,113 +5,125 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 08/11/2022
 ms.custom: template-how-to
 ---
 
-<!--
-
-This template provides the basic structure of a HOW-TO article. A HOW-TO article is used to help the customer complete a specific task.
-
-1. H1 (Docs Required)
-   Start your H1 with a verb. Pick an H1 that clearly conveys the task the user will complete (example below).
-
--->
-
 # How to install Azure Storage Mover modules for PowerShell
 
-<!-- 
+Installing the Storage Mover PowerShell modules is the first step in evaluating the public preview. This article guides you through the installation of the Azure Storage Mover modules for PowerShell.
 
-2. Introductory paragraph (Docs Required)
-   Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short (example provided below).
-
--->
-
-This article guides you through the installation of the Azure Storage Mover modules for PowerShell. This article is the first step in evaluating the public preview. After completing the steps within this article, you'll be able to complete the remaining PowerShell examples.
-
-<!-- 
-3. Prerequisites (Optional)
-   If you need prerequisites, make them your first H2 in a how-to guide. Use clear and unambiguous language and use a list format. Remove this section if prerequisites are not needed.
-
--->
+After completing the steps within this article, you'll be able to complete the remaining PowerShell examples.
 
 ## Prerequisites
 
 - **PowerShell 5.1, or 6.0 and greater**<br />
-  To check your version, use the following command.
- 
-   ```powershell
-   echo $PSVersionTable.PSVersion.ToString()
-   ``` 
-
-- **The latest version of PowerShellGet**<br />
-  The install the latests version, close and subsequently re-open the PowerShell console after running the following command.
+  To check your version, use the following sample code. You can reference the [Install PowerShell](/powershell/scripting/install/installing-powershell) article to install a newer version of PowerShell if needed.
 
   ```powershell
-  Install-Module PowerShellGet –Repository PSGallery –Force
+  echo $PSVersionTable.PSVersion.ToString()
   ```
 
-<!-- 
-4. H2s (Docs Required)
+- **The latest version of PowerShellGet**<br />
+  To install or update to the latest version, run one of the following commands with elevated privileges. Afterward, close and subsequently re-open the PowerShell console.
 
-Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
+  ```powershell
+  #New installation of PowerShellGet
+  Install-Module PowerShellGet –Repository PSGallery –Force
+
+  #Update an existing installation of PowerShellGet
+  Update-Module -Name PowerShellGet -RequiredVersion 2.2.5
+  ```
+
+  For additional help installing PowerShellGet, see the article on [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
+
+  <!-- ####NOTE####   I don't want to keep updating the version number above - how  can this be done better? -->
 
 ## Remove previous installations and modules
 
-Before installing the new versions of the Azure Storage Mover PowerShell modules, remove previous installations of Microsoft Azure PowerShell and any existing `AzureRM` and `Az` modules. This will prevent any possible module clashes. Complete the following steps to verify that the removal has been completed.
+Before installing a newer version of the Azure Storage Mover PowerShell module, you'll need to remove any previous installations. The removal of Microsoft Azure PowerShell and any existing `AzureRM` and `Az` modules will prevent the possibility of module clashes when running the Storage Mover cmdlets.
 
-1. **Remove Azure PowerShell**<br />
-    Open the Windows control panel and select **Programs > Programs and Features**. Remove any existing installations of Microsoft Azure PowerShell.
+You can reference the [uninstall Azure PowerShell modules](/powershell/azure/uninstall-az-ps) article for help with the removal.
 
-1. **Identify any `AzureRM` and `Az` modules installed**<br />
-    Open PowerShell and run the following commands, taking note of the *Directory* location if modules are located.
-
-    ```powershell
-    Get-Module -Name AzureRM.* -ListAvailable
-    Get-Module -Name Az.* -ListAvailable
-    ```
-
-1. **Delete any modules identified**<br />
-   If the PowerShell command identifies modules installed on your machine, navigate to the directory specified within the command list. Select any `AzureRM.*` and `Az.*` folders containing the modules and delete them.
-
-After completing the previously identified steps, you're ready to begin installing the new modules as described in the next section.
+After ensuring that no `AzureRM` and `Az` modules exist locally, follow the guidance in the next section to install the new modules.
 
 ## Install Storage Mover modules
 
-With no installed `AzureRM` or `Az` modules to cause clashes with the updated modules, you're ready to begin the install. Follow the steps within this section to complete the installation process.
+1. First, copy the folder containing the Storage Mover PowerShell modules and scripts to the file system of your local machine. You can access the `StorageMoverRC1` folder at [https://paste.microsoft.com/0162a457-7e30-44ab-85e5-75514c078c73](https://paste.microsoft.com/0162a457-7e30-44ab-85e5-75514c078c73).
 
-1. Run the RegisterRepository.ps1 script to setup a local repository pointing at the modules found in the **pkgs** file. Running **RegisterRepository.ps1** with no parameters will create a repository with the same name as its containing folder. You can also choose the name for the repository by providing a value for the `-RepositoryName` parameter.
+1. Next, open PowerShell with elevated privileges and navigate to your local copy of the `StorageMoverRC1` folder. Create a local repository referencing the modules within the `pkgs` folder by running the `RegisterRepository.ps1` script.
 
-1. Install the modules by running the following command.
+  Running `RegisterRepository.ps1` with no parameters will create a repository with the same name as its containing folder. You can also specify a custom name for the new repository by supplying values for two parameters. The `-RepositoryName` parameter stores the desired name of the repository, and the `-PkgsPath` parameter expects the path to the `pkgs` folder within `StorageMoverRC1`. Both parameters are required when creating a repository with a specific name.
 
-```powershell
--Install-Module -Name Az.StorageMover -Repository [Repository Name] –AllowPrerelease –AllowClobber –Force
-```
+  The sample code below shows the creation of a custom repository name using the optional parameters.
+  
+  ```PowerShell
+  cd C:\Temp\StorageMoverRC1\
+  .\RegisterRepository.ps1 `
+  -RepositoryName StorageMover `
+  -PkgsPath C:\Temp\StorageMoverRC1\pkgs                                                                                               
+  ```
 
-If you're using PowerShell 5.0 or 5.1, this will install the modules in *C:\Program Files\WindowsPowerShell\Modules*. PowerShell 6.0 and greater will install the modules in *C:\Program Files\PowerShell\Modules*.
+  The response indicates that the repository was created. You should see results similar to those shown.
 
-> [!IMPORTANT]
-> If the PowerShell binary is unsigned or the **Restricted** execution policy is in effect on your machine, you may encounter an error. To run unsigned scripts, start PowerShell with the *Run as Administrator* option and then use the following command to change the execution policy on the computer to **Unrestricted**.
-> ```powershell
-> Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-> ```
-> If the Powershell binary is unsigned and you face issues with importing the module on strong name validation, import the following registry keys to skip strong name validation:
-> *[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,*]*
-> *[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\StrongName\Verification\*,*]*
-> For more information, see the article for the [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy) cmdlet.
+  ```Response
+  Registered repository 'StorageMover' at location 'C:\Temp\StorageMoverRC1\pkgs'
+  To install modules from this repository, please run the following:
+  
+  Install-Module -Name Az.StorageMover -Repository StorageMover -AllowPrerelease -AllowClobber -Force -SkipPublisherCheck
+  ```
 
-1. Enter necessary parameters in **sample.ps1** file, then run the script.
+  > [!TIP]
+  > If you're updating PowerShell cmdlet binaries stored in the same local folder, you may receive an error asking you to use a different name. You can use the following sample code to list and unregister conflicting repository names.
+
+  >    ```powershell
+  >    Get-PSRepository
+  >    Unregister-PSRepository -Name [conflicting repository name]
+  >   ```
+
+1. After the `RegisterRepository.ps1` script has successfully run, install the modules using the `Install-Module` command as shown in the following example.
+
+  ```powershell
+  Install-Module -Name Az.StorageMover -Repository [Repository Name] –AllowPrerelease –AllowClobber –Force
+  ```
+
+  If you're using PowerShell 5.1, the modules will be installed in `C:\Program Files\WindowsPowerShell\Modules`. PowerShell 6.0 and greater will install the modules in `C:\Program Files\PowerShell\Modules`.
+
+  > [!IMPORTANT]
+  > If the PowerShell binary is unsigned or the **Restricted** execution policy is in effect on your machine, you may encounter an error. To run unsigned scripts, start PowerShell with the *Run as Administrator* option and then use the following command to change the execution policy on the computer to **Unrestricted**.
+  > ```powershell
+  > Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+  > ```
+  >
+  > You may also face issues with importing the module due to strong name validation. Import the following registry keys to skip strong name validation if needed.
+  > *[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,*]*
+  > *[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\StrongName\Verification\*,*]*
+  > For more information, see the article for the [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy) cmdlet.
+
+1. Run the following sample code in PowerShell to verify that you have successfully installed the cmdlets.
+
+    ```powershell
+    Get-Command -Module Az.StorageMover
+    ```
+
+    You should receive a response similar to the following example.
+
+    ```Response
+    CommandType     Name                    Version    Source
+    -----------     ----                    -------    ------
+    Function        Get-AzStorageMover              0.1.0      Az.StorageMover
+    Function        Get-AzStorageMoverAgent         0.1.0      Az.StorageMover
+    Function        Get-AzStorageMoverEndpoint      0.1.0      Az.StorageMover
+    Function        Get-AzStorageMoverJobDefinition 0.1.0      Az.StorageMover
+    Function        Get-AzStorageMoverJobRun        0.1.0      Az.StorageMover
+    Function        Get-AzStorageMoverProject       0.1.0      Az.StorageMover
+    [...]
+    ```
 
 By completing the steps contained in this section, you've successfully installed the Azure Storage Mover modules for PowerShell. You are now ready to begin utilizing the cmdlets to perform your migration.
-
-<!-- 
-
-5. Next steps (Docs required)
-
-A single link in the blue box format. Point to the next logical tutorial or how-to in a series, or, if there are no other tutorials or how-tos, to some other cool thing the customer can do. -->
 
 ## Next steps
 
 Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
-> [Prepare Haushaltswaffeln for Fabian and Stephen](overview.md)
+> [Prepare Haushaltswaffeln for Fabian and Stephen](service-overview.md)

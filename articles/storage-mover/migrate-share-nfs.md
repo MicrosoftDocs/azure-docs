@@ -5,20 +5,24 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: tutorial
-ms.date: 06/21/2022
-ms.custom: template-tutorial
+ms.date: 08/10/2022
+ms.custom: template-quickstart
 ---
 
-# Tutorial: Migrate an NFS share to an Azure blob container using Azure Storage Mover
+# Quickstart: Migrate an NFS share to an Azure blob container using Azure Storage Mover
 
-After your cloud resources are deployed and the agent VM is registered, it’s time to start a copy.
+Azure Storage Mover is a hybrid service which relies on both cloud as well as on-premises components.
+
+The cloud service portion of Storage Mover consists of a series of Azure resources deployed within an Azure resource group. The on-premises components consist of one or more virtual machines (VMs) deployed within your environment which act as migration agents.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing completion steps
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+
+> * Provision Azure resources
+> * Provision on-premises resources
+> * Start a copy job
+> * Deprovision and dispose of resources
 
 <!-- 4. Prerequisites 
 
@@ -31,19 +35,8 @@ First prerequisite is a link to a free trial account if one exists. If there are
 
 There are only two prerequisites to running the script:
 
-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Data Mover resource in an Azure resource group.
-
-  There is no portal support at this time. You can verify this prerequisite using the following PowerShell cmdlet.
-
-  ```azurepowershell
-  Get-AzDataMover -ResourceGroup [myResourceGroup]
-  ```
-
-- An available NFS share on a machine accessible by the agent on its local network.
-  Reference the machine by IP when making the source Endpoint to avoid DNS issues. The path for an NFS share adheres to the following structure: ```<serverIP>:/<shareName>```. An NFS share is also known as an “NFS export”.
-
+- An Azure account. If you don't yet have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Azure subscription enabled for the Storage Mover preview.
 
 ## Prepare your migration resources
 
@@ -61,9 +54,7 @@ The script will create the following resources:
 In addition, the script will authorize the Agent to read and write to the target storage container using Azure role-based access control (RBAC). This is done using the account the admin is logged in with. Your account will need to have Owner permissions on the target storage account to grant access to the Agent. By design, the Storage Mover service cannot grant access to agents. Please note that in this release, agent permissions are not automatically revoked after a migration job finishes.
 
 The Agent does not have access to the Storage Access Keys or a SAS token to the migration target. 
-The Agent uses a managed identity created when the Agent registered to Azure. The identity is 
-unique to the Agent and its lifetime is linked to the Agent. This identity will also show in the access 
-logs.
+The Agent uses a managed identity created when the Agent registered to Azure. The identity is unique to the Agent and its lifetime is linked to the Agent. This identity will also show in the access logs.
 
 Reference the Microsoft docs for an [Overview of Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -143,4 +134,4 @@ A single link in the blue box format. Point to the next logical tutorial or how-
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](overview.md)
+> [Next steps button](service-overview.md)
