@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.author: amhindma
 author: amhindma
-ms.date: 08/16/2022
+ms.date: 08/17/2022
 ---
 
 # Generate a SAS URI for a VM image
