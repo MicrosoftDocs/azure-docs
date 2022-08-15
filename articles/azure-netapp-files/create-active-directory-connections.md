@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 08/15/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -90,7 +90,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         If you use Azure AD DS (AAD DS), you should use the IP addresses of the AAD DS domain controllers for Primary DNS and Secondary DNS respectively. 
     * **AD DNS Domain Name (required)**  
        This is the fully qualified domain name of the AD DS that will be used with Azure NetApp Files (for example, `contoso.com`).
-    * **AD Site Name**  
+    * **AD Site Name (required)**  
         This is the AD DS site name that will be used by Azure NetApp Files for domain controller discovery.  
         
          >[!NOTE]
