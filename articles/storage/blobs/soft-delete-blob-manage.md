@@ -115,7 +115,7 @@ blockBlob.StartCopy(copySource);
 
 #### Restore soft-deleted blobs when versioning is enabled
 
-To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob with a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation.
+To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob by using the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation.
 
 ##### [.NET v12 SDK](#tab/dotnet)
 
