@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # How to configure diagnostic settings for exporting the MedTech service metrics 
 
-In this article, you'll learn how to configure the diagnostic settings for the MedTech service to export metrics to different destinations (for example: to [Azure storage](/azure/storage/) or an [Azure Event Hubs Namespace event hub](/azure/event-hubs/)) for audit, analysis, or backup.
+In this article, you'll learn how to configure diagnostic settings for the MedTech service to export metrics to different destinations (for example: to [Azure storage](/azure/storage/) or an [Azure Event Hubs Namespace event hub](/azure/event-hubs/)) for audit, analysis, or backup.
 
 ## Create a diagnostic setting for the MedTech service
 1. To enable metrics export for your MedTech service, select **MedTech service** in your workspace under **Services**.
@@ -43,7 +43,11 @@ In this article, you'll learn how to configure the diagnostic settings for the M
       >
       > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
-   3. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In this example, we've selected an Azure storage account. You'll select a destination of your own choosing.
+   3. Under **Destination details**, select the destination you want to use for your exported MedTech service metrics. In this example, we've selected an Azure storage account. You'll select a destination of your own choosing.
+   
+      > [!Important]
+      >
+      > Each **Destination details** selection requires that certain resources (for example, an existing Azure storage account) be created and available before the selection can be successfully configured. Choose each selection to get a list of the required resources.
 
       Metrics can be exported to the following destinations:
 
@@ -53,9 +57,6 @@ In this article, you'll learn how to configure the diagnostic settings for the M
       |Azure storage account|Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.|
       |Event Hubs|Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other Log Analytics solutions.|
       |Azure Monitor partner integrations|Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you're already using one of the partners.|
-   
-      > [!Important]
-      > Each **Destination details** selection requires that certain resources (for example, an existing Azure storage account) be created and available before the selection can be successfully configured. Choose each selection to get a list of the required resources.
 
    4. Select the **Save** option to save your diagnostic setting selections.
 
