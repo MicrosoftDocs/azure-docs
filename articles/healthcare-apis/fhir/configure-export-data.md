@@ -17,24 +17,24 @@ The FHIR service supports the `$export` operation [specified by HL7](https://hl7
 There are three steps in setting up the `$export` operation for the FHIR service:
 
 - Enable a managed identity for the FHIR service.
-- Set up a new or existing ADLS Gen2 account and grant permission for the FHIR service to access the account.
-- Select the ADLS Gen2 account as the export destination for the FHIR service.
+- Configure a new or existing Azure Data Lake Storage Gen2 (ADLS Gen2) account and give permission for the FHIR service to access the account.
+- Set the ADLS Gen2 account as the export destination for the FHIR service.
 
 ## Enable managed identity for the FHIR service
 
-The first step in configuring your environment for FHIR data export is to enable a system-wide managed identity for the FHIR service. This managed identity is used to authenticate the FHIR service when exporting data to the ADLS Gen2 account. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+The first step in configuring your environment for FHIR data export is to enable a system-wide managed identity for the FHIR service. This managed identity is used to authenticate the FHIR service to allow access to the ADLS Gen2 account during an `$export` operation. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 In this step, browse to your FHIR service in the Azure portal and select the **Identity** blade. Set the **Status** option to **On**, and then click **Save**. When the **Yes** and **No** buttons display, select **Yes** to enable the managed identity for the FHIR service. Once the system identity has been enabled, you'll see an **Object (principal) ID** value for your FHIR service. 
 
 [![Enable Managed Identity](media/export-data/fhir-mi-enabled.png)](media/export-data/fhir-mi-enabled.png#lightbox)
 
-## Assign permission to FHIR service to access the storage account
+## Give permission in the storage account for FHIR service access
 
 1. Go to your ADLS Gen2 storage account in the Azure portal.
 
 2. Select **Access control (IAM)**.
 
-3. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator for help with this task.
+3. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator for help with this step.
 
    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
@@ -46,17 +46,17 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 6. Select your Azure subscription.
 
-7. Select **System-assigned managed identity**, and then select the FHIR service managed identity that you created earlier.
+7. Select **System-assigned managed identity**, and then select the managed identity that you enabled earlier for your FHIR service.
 
-8. On the **Review + assign** tab, click **Review + assign** to assign the **Storage Blob Data Contributor** role.
+8. On the **Review + assign** tab, click **Review + assign** to assign the **Storage Blob Data Contributor** role to your FHIR service.
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-Now you're ready to select the storage account in the FHIR service as the default storage account for export.
+Now you're ready to configure the FHIR service with the ADLS Gen2 account as the default storage account for export.
 
 ## Specify the storage account for FHIR service export
 
-The final step is to specify the Azure storage account that the FHIR service will use when exporting data.
+The final step is to specify the ADLS Gen2 account that the FHIR service will use when exporting data.
 
 > [!NOTE]
 > In the storage account, if you haven't assigned the **Storage Blob Data Contributor** role to the FHIR service, the `$export` operation will fail.
@@ -65,27 +65,27 @@ The final step is to specify the Azure storage account that the FHIR service wil
 
 2. Select the **Export** blade.
 
-3. Select the name of the storage account from the list. If you need to search for your storage account, you can do so by using the **Name**, **Resource group**, or **Region** filters. 
+3. Select the name of the storage account from the list. If you need to search for your storage account, use the **Name**, **Resource group**, or **Region** filters. 
 
 [![Screen shot showing user interface of FHIR Export Storage.](media/export-data/fhir-export-storage.png)](media/export-data/fhir-export-storage.png#lightbox)
 
-After you've completed this final configuration step, you're ready to export data from the FHIR service. See [How to export FHIR data](./export-data.md) for details on using the FHIR service's `$export` operation.
+After you've completed this final configuration step, you're ready to export data from the FHIR service. See [How to export FHIR data](./export-data.md) for details on the FHIR service's `$export` operation.
 
 > [!Note]
 > Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
 
 ## Securing the FHIR service `$export` operation
 
-For securely exporting to an ADLS Gen2 account, FHIR service offers two main options:
+For securely exporting from the FHIR service to an ADLS Gen2 account, there are two main options:
 
-* Allowing the FHIR service to access the the storage account as a Microsoft Trusted Service.
+* Allowing the FHIR service to access the storage account as a Microsoft Trusted Service.
 
 * Allowing specific IP addresses associated with the FHIR service to access the storage account. 
-This option permits two different configurations depending on whether the storage account is in the same location as, or is in a different location from that of the FHIR service.
+This option permits two different configurations depending on whether or not the storage account is in the same Azure region as the FHIR service.
 
 ### Allowing FHIR service as a Microsoft Trusted Service
 
-Select a storage account from the Azure portal, and then select the **Networking** blade. Select **Enabled from selected virtual networks and IP addresses** under the **Firewalls and virtual networks** tab.
+Go to your ADLS Gen2 account in the Azure portal and select the **Networking** blade. Select **Enabled from selected virtual networks and IP addresses** under the **Firewalls and virtual networks** tab.
 
   :::image type="content" source="media/export-data/storage-networking-1.png" alt-text="Screenshot of Azure Storage Networking Settings." lightbox="media/export-data/storage-networking-1.png":::
   
@@ -101,9 +101,9 @@ Next, run the following PowerShell command to install the `Az.Storage` PowerShel
 Install-Module Az.Storage -Repository PsGallery -AllowClobber -Force 
 ``` 
 
-Now, use the PowerShell command below to set the FHIR service instance in the selected workspace for the storage account. Make sure that all listed parameters are defined. 
+Now, use the PowerShell command below to set the selected FHIR service instance as a trusted resource for the storage account. Make sure that all listed parameters are defined in your PowerShell environment. 
 
-Note that you'll need to run the `Add-AzStorageAccountNetworkRule` command using an administrator account. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
+Note that you'll need to run the `Add-AzStorageAccountNetworkRule` command as an administrator in your local environment. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 
 ```PowerShell
 $subscription="xxx"
@@ -117,16 +117,13 @@ $resourceId = "/subscriptions/$subscription/resourceGroups/$resourceGroupName/pr
 Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $storageaccountName -TenantId $tenantId -ResourceId $resourceId
 ```
 
-After running this command, the networking setting for the storage account will show **two selected** in the **Instance name** dropdown list. One is linked to the workspace instance and the other is linked to the FHIR service instance.
+After running this command, in the **Firewall** section under **Resource instances** you will see **2 selected** in the **Instance name** dropdown list. One is linked to the workspace instance and the other is linked to the FHIR service instance.
 
   :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
 
-You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable and use private endpoints for the storage account.
+You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable private endpoints for the storage account.
 
-> [!IMPORTANT]
-> The user interface will be updated later to allow you to select the Resource type for FHIR service and a specific service instance.
-
-### Allowing specific IP addresses for the Azure storage account in a different region
+### Allowing specific IP addresses to access the Azure storage account
 
 In the Azure portal, go to the AHDS Gen2 account and select the **Networking** blade. 
    
@@ -159,16 +156,16 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 > [!NOTE]
 > The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure ACR firewall](./convert-data.md#configure-acr-firewall).
 
-### Allowing specific IP addresses for the Azure storage account in the same region
+### Allowing specific IP addresses to access the Azure storage account in the same region
 
 The configuration process for IP addresses in the same region is just like above except a specific IP address range in Classless Inter-Domain Routing (CIDR) format is used instead (i.e., 100.64.0.0/10). The reason why the IP address range (100.64.0.0 – 100.127.255.255) must be specified is because the IP address for the FHIR service will be within the range for each `$export` request.
 
 > [!Note] 
-> It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$export` operation will succeed in such a case. You can retry if the `$export` request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This behavior is by design. The alternative is to configure the storage account in a different region.
+> It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$export` operation will succeed in such a case. You can retry if the `$export` request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This network behavior for IP address ranges is by design. The alternative is to configure the storage account in a different region.
 
 ## Next steps
 
-In this article, you learned about the three steps in configuring your environment to allow export of data from your FHIR service to an Azure storage account. For more information about the Bulk Export feature of the FHIR service, see 
+In this article, you learned about the three steps in configuring your environment to allow export of data from your FHIR service to an Azure storage account. For more information about Bulk Export capabilities in the FHIR service, see 
 
 >[!div class="nextstepaction"]
 >[How to export FHIR data](export-data.md)
