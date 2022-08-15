@@ -12,7 +12,9 @@ ms.author: jodowns
 
 # Understand Azure Front Door billing
 
-Azure Front Door's billing model includes several components. Front Door charges a base fee for each profile that you deploy. You're also charged for requests and data transfer based on your usage. This page explains how Front Door pricing works so that you can understand and predict your monthly Azure Front Door bill.
+Azure Front Door's billing model includes several components. Front Door charges a base fee for each profile that you deploy. You're also charged for requests and data transfer based on your usage. *Billing meters* collect information about your Front Door usage. Your monthly Azure bill aggregates the billing information across the month and applies the pricing to determine the amount you need to pay.
+
+This page explains how Front Door pricing works so that you can understand and predict your monthly Azure Front Door bill.
 
 For Azure Front Door pricing information, see the [Azure Front Door pricing page](https://azure.microsoft.com/pricing/details/frontdoor/).
 
@@ -26,7 +28,7 @@ For Azure Front Door pricing information, see the [Azure Front Door pricing page
 
 Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door SKU that you deploy.
 
-You don't pay extra fees for features like response caching, response compression, and the rules engine. If you use Front Door Premium, you also don't pay extra fees for managed WAF rule sets or Private Link origins.
+You don't pay extra fees to use features like [traffic acceleration](front-door-traffic-acceleration.md), [response caching](front-door-caching.md), [response compression](front-door-caching.md#file-compression), the [rules engine](front-door-rules-engine.md), and [custom web application firewall (WAF) rules](web-application-firewall.md#custom-rules). If you use Front Door Premium, you also don't pay extra fees to use [managed WAF rule sets](web-application-firewall.md#managed-rules) or [Private Link origins](private-link.md).
 
 ## Request processing and traffic fees
 
@@ -45,19 +47,21 @@ The following sections describe each of these request components in more detail.
 
 ### Number of requests from client to Front Door
 
-Front Door charges a fee for the number of requests that are received at a Front Door edge node for your profile. Front Door identifies requests by using the `Host` header on the HTTP request. If the `Host` header matches one from your Front Door profile, it counts as a request to your profile.
+Front Door charges a fee for the number of requests that are received at a Front Door edge location for your profile. Front Door identifies requests by using the `Host` header on the HTTP request. If the `Host` header matches one from your Front Door profile, it counts as a request to your profile.
 
-The price is different depending on the geographical region of the Front Door edge node. The price is also different for the Standard and Premium SKUs.
+The price is different depending on the geographical region of the Front Door edge location. The price is also different for the Standard and Premium SKUs.
 
 ### Data transfer from Front Door edge to origin
 
-Front Door charges for the bytes that are sent from the Front Door edge node to your origin server. The price is different depending on the geographical region of the Front Door edge node.
+Front Door charges for the bytes that are sent from the Front Door edge location to your origin server. The price is different depending on the geographical region of the Front Door edge location.
 
 The price per gigabyte is lower when you have higher volumes of traffic.
 
+If the request can be served from the Front Door edge location's cache, Front Door doesn't send any request to the origin server and you aren't billed for this component.
+
 ### Data transfer from origin to Front Door
 
-When your origin server processes requests, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door.
+When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door.
 
 If your origin is within Azure, you should determine whether those Azure services might bill you for request processing or outbound traffic. For example, if you use an Azure Storage origin, then Azure Storage might bill you for the read operations that take place to serve the request.
 
@@ -65,9 +69,9 @@ If your origin is outside of Azure, you might incur charges from other network p
 
 ### Data transfer from Front Door to client
 
-Front Door charges for the bytes that are sent from the Front Door edge node back to the client.
+Front Door charges for the bytes that are sent from the Front Door edge location back to the client. The price is different depending on the geographical region of the Front Door edge location.
 
-The price is different depending on the geographical region of the Front Door edge node.
+If a response is compressed, Front Door only charges for the compressed data.
 
 ## Private Link origins
 
@@ -93,14 +97,13 @@ The following billing meters will be incremented:
 |-|-|
 | Number of requests from client to Front Door | 1 |
 | Data transfer from Front Door edge to origin | 1 KB |
-| Data transfer from origin to Front Door | *non-billable* |
 | Data transfer from Front Door to client | 100 KB |
 
 Azure App Service might charge other fees.
 
 ### Example 2: Azure origin, caching and compression enabled
 
-Suppose Contoso updates their Front Door configuration to enable [content compression](front-door-caching.md#file-compression). Now, the same request as in example 1 might be able to be compressed down to 30 KB:
+Suppose Contoso updates their Front Door configuration to enable [content compression](front-door-caching.md#file-compression). Now, the same response as in example 1 might be able to be compressed down to 30 KB:
 
 :::image type="content" source="./media/billing/scenario-2.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, with compression enabled." border="false":::
 
@@ -110,14 +113,13 @@ The following billing meters will be incremented:
 |-|-|
 | Number of requests from client to Front Door | 1 |
 | Data transfer from Front Door edge to origin | 1 KB |
-| Data transfer from origin to Front Door | *non-billable* |
 | Data transfer from Front Door to client | 30 KB |
 
 Azure App Service might charge other fees.
 
 ### Example 3: Request served from cache
 
-Suppose a second request arrives at the same Front Door edge node and a valid cached response is available:
+Suppose a second request arrives at the same Front Door edge location and a valid cached response is available:
 
 :::image type="content" source="./media/billing/scenario-3.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and being returned from cache." border="false":::
 
@@ -127,7 +129,6 @@ The following billing meters will be incremented:
 |-|-|
 | Number of requests from client to Front Door | 1 |
 | Data transfer from Front Door edge to origin | *none when request is served from cache* |
-| Data transfer from origin to Front Door | *none* |
 | Data transfer from Front Door to client | 30 KB |
 
 ### Example 4: Non-Azure origin
@@ -144,7 +145,6 @@ The following billing meters will be incremented:
 |-|-|
 | Number of requests from client to Front Door | 1 |
 | Data transfer from Front Door edge to origin | 2 KB |
-| Data transfer from origin to Front Door | *non-billable by Azure* |
 | Data transfer from Front Door to client | 350 KB |
 
 The external cloud provider might charge other fees.
@@ -163,7 +163,6 @@ The following billing meters will be incremented:
 |-|-|
 | Number of requests from client to Front Door | 1 |
 | Data transfer from Front Door edge to origin | *none* |
-| Data transfer from origin to Front Door | *none* |
 | Data transfer from Front Door to client | 1 KB |
 
 ## Next steps
