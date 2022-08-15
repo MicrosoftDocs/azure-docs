@@ -141,9 +141,9 @@ FROM
 		FORMAT='PARQUET'
     ) 
 	WITH (
-		vendor_id varchar(4), -- we used length of 4 instead of the inferred 8000
-		pickup_datetime datetime2,
-		passenger_count int
+		vendorID varchar(4), -- we used length of 4 instead of the inferred 8000
+		tpepPickupDateTime datetime2,
+		passengerCount int
 	) AS nyc;
 ```
 
