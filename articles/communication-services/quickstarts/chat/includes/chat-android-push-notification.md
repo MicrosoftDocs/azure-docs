@@ -156,7 +156,7 @@ Push notifications let clients be notified for incoming messages and other opera
     package="com.azure.android.communication.chat.sampleapp">
 ```
 
-9. Disable worker manager default initializer in AndroidManifest.xml:
+9. Disable the default initializer for `WorkManager` in `AndroidManifest.xml`:
 
 ```
     <!-- Disable the default initializer of  WorkManager so that we could override it in MyAppConfiguration  -->
