@@ -1555,17 +1555,17 @@ This section describes on-premises management console APIs for:
 
 ### Version 3
 
-- [Request devices by timestamp - /external/v3/integration/devices/{timestamp}](#request-devices-by-timestamp---externalv3integrationdevicestimestamp)
+- [Request devices - /external/v3/integration/devices/{timestamp}](#request-devices---externalv3integrationdevicestimestamp)
 
-- [Request all device connection events after a given timestamp - /external/v3/integration/connections/{timestamp}](#request-all-device-connection-events-after-a-given-timestamp---externalv3integrationconnectionstimestamp)
+- [Request device connection events - /external/v3/integration/connections/{timestamp}](#request-device-connection-events---externalv3integrationconnectionstimestamp)
 
-- [Request specific device data by device ID - /external/v3/integration/device/{deviceId}](#request-specific-device-data-by-device-id---externalv3integrationdevicedeviceid)
+- [Request device data by device ID - /external/v3/integration/device/{deviceId}](#request-device-data-by-device-id---externalv3integrationdevicedeviceid)
 
-- [Request deleted devices by a given timestamp - /external/v3/integration/deleteddevices/{timestamp}](#request-deleted-devices-by-a-given-timestamp---externalv3integrationdeleteddevicestimestamp)
+- [Request deleted devices - /external/v3/integration/deleteddevices/{timestamp}](#request-deleted-devices---externalv3integrationdeleteddevicestimestamp)
 
 - [Request sensor data - external/v3/integration/sensors](#request-sensor-data---externalv3integrationsensors)
 
-- [Request all device CVEs by a given timestamp - /external/v3/integration/devicecves/{timestamp}](#request-all-device-cves-by-a-given-timestamp---externalv3integrationdevicecvestimestamp)
+- [Request all device CVEs - /external/v3/integration/devicecves/{timestamp}](#request-all-device-cves---externalv3integrationdevicecvestimestamp)
 
 All parameters in Version 3 APIs are optional.
 
@@ -2679,7 +2679,7 @@ Example:
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
 
-### Request devices by timestamp - /external/v3/integration/devices/{timestamp} 
+### Request devices - /external/v3/integration/devices/{timestamp}
 
 This API returns data about all devices that were updated after the given timestamp.
 
@@ -2688,6 +2688,7 @@ This API returns data about all devices that were updated after the given timest
 - **GET**
 
 #### Path parameters
+
 - **timestamp** – the time from which updates are required, only later updates will be returned.
 
 #### Query parameters
@@ -2697,8 +2698,8 @@ This API returns data about all devices that were updated after the given timest
     - **0** – both updated and new devices (default).
     - **1** – only new devices.
     - **2** – only updated devices.
-- **page** - the page number, from the result set (first page is 0, default value is 0)ץ
-- **size** - the page size (default value is 50)ץ
+- **page** - the page number, from the result set (first page is 0, default value is 0).
+- **size** - the page size (default value is 50).
 
 #### Response type
 
@@ -2707,17 +2708,18 @@ This API returns data about all devices that were updated after the given timest
 #### Response structure
 
 - **u_count** - amount of objects in the full result sets, including all pages.
-- **u_devices** - array of device objects. Each object is defined with the parameters listed in the [device ID](#request-specific-device-data-by-device-id---externalv3integrationdevicedeviceid) API.
+- **u_devices** - array of device objects. Each object is defined with the parameters listed in the [device ID](#request-device-data-by-device-id---externalv3integrationdevicedeviceid) API.
 
-### Request all device connection events after a given timestamp - /external/v3/integration/connections/{timestamp}
+### Request device connection events - /external/v3/integration/connections/{timestamp}
 
-This API returns data about all device connections that were updated after the given timestamp.
+This API returns data about all device connection events that were updated after the given timestamp.
 
 #### Method
 
 - **GET**
 
 #### Path parameters
+
 - **timestamp** – the time from which updates are required, only later updates will be returned.
 
 #### Query parameters
@@ -2740,7 +2742,7 @@ This API returns data about all device connections that were updated after the g
         - **Two Way**
         - **Multicast**
 
-### Request specific device data by device ID - /external/v3/integration/device/{deviceId}
+### Request device data by device ID - /external/v3/integration/device/{deviceId}
 
 This API returns data about a specific device per a given device ID.
 
@@ -2796,7 +2798,9 @@ This API returns data about a specific device per a given device ID.
     - **u_version**
     - **u_additional_data**
 
-### Request deleted devices by a given timestamp - /external/v3/integration/deleteddevices/{timestamp}
+### Request deleted devices - /external/v3/integration/deleteddevices/{timestamp}
+
+This API returns data about deleted devices after the given timestamp.
 
 #### Method
 
@@ -2816,6 +2820,8 @@ Array of:
 - **u_id** - the ID of the deleted device.
 
 ### Request sensor data - external/v3/integration/sensors
+
+This API returns data about the sensor.
 
 #### Method
 
@@ -2864,7 +2870,9 @@ Array of:
 - **u_uid** - globally unique identifier of the sensor.
 - **u_is_in_learning_mode** - boolean indication as to whether the sensor is in Learn mode or not.
 
-### Request all device CVEs by a given timestamp - /external/v3/integration/devicecves/{timestamp}
+### Request all device CVEs - /external/v3/integration/devicecves/{timestamp}
+
+This API returns data about device CVEs after the given timestamp.
 
 #### Method 
 
@@ -2876,10 +2884,10 @@ Array of:
 
 #### Query parameters
 
-- **page** - defines the page number, from the result set (first page is 0, default value is 0)
-- **size** - defines the page size (default value is 50)
+- **page** - defines the page number, from the result set (first page is 0, default value is 0).
+- **size** - defines the page size (default value is 50).
 - **sensorId** - shows results from a specific sensor, as defined by the given sensor ID.
-- **score** - determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**. 
+- **score** - determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. (default value is 0).
 - **deviceIds** -  a comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
 
 #### Response
