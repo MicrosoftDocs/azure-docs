@@ -173,7 +173,8 @@ This section defines the list of parameters required to configure the Responsibl
 | ModelType    | Values in [‘classification’, ‘regression’]. |
 | ModelSummary | Input a blurb of text summarizing what the model is for.  |
 
-Please note that for multi-class classification, you should first use the One-vs-Rest strategy to choose your reference class, and hence, split your multi-class classification model into a binary classification problem for your selected reference class vs the rest of classes.
+> [!NOTE]
+> For multi-class classification, you should first use the One-vs-Rest strategy to choose your reference class, and hence, split your multi-class classification model into a binary classification problem for your selected reference class vs the rest of classes.
 #### Metrics
 
 | Performance Metric    | Definition                                                                                                                             | Model Type     |
