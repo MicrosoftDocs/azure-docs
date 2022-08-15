@@ -1,0 +1,739 @@
+---
+title: Use GPU workloads with Azure Red Hat OpenShift (ARO)
+description: Discover how to utilize GPU workloads with Azure Red Hat OpenShift (ARO)
+ms.author: johnmarc
+ms.service: azure-redhat-openshift
+keywords: aro, gpu, openshift, red hat
+ms.topic: how-to
+ms.date: 08/12/2022
+ms.custom: template-how-to
+---
+
+# Use GPU workloads with Azure Red Hat OpenShift (ARO)
+
+This article shows you how to use NVIDIA GPU workloads with Azure Red Hat OpenShift (ARO)
+
+## Prerequisites
+
+* OpenShift cli
+* jq, moreutils, and gettext package
+* Azure Red Hat OpenShift 4.10
+
+If you need to install an ARO cluster, see [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md). ARO clusters must be version 4.10.x or higher.
+
+> [!NOTE] 
+> As of ARO 4.10, it is no longer necessary to set up entitlements to use the nVidia Operator. This has greatly simplified the setup of the cluster for GPU workloads.
+
+Linux:
+
+```bash
+sudo dnf install jq moreutils gettext
+```
+
+MacOS
+```bash
+brew install jq moreutils gettext
+```
+
+### Helm Prerequisites
+
+If you plan to use Helm to deploy the GPU operator, you will need do the following:
+
+1. Add the MOBB chart repository to your Helm using the following command:
+
+    ```bash
+    helm repo add mobb https://rh-mobb.github.io/helm-charts/
+    ```
+
+1. Update your repositories using the following command:
+
+    ```bash
+    helm repo update
+    ```
+
+## Request GPU quota
+
+All GPU quotas in Azure are 0 by default. You will need to log in to the Azure portal and request GPU quota. Since there is a lot of competition for GPU workers, you may have to provision an ARO cluster in a region where you can actually reserve GPU.
+
+ARO supports the following GPU workers:
+
+* NC4as T4 v3
+* NC8as T4 v3
+* NC16as T4 v3
+* NC464as T4 v3
+
+> [!NOTE] 
+> When requesting quota, remember that Azure is per core. To request a single NC4as T4 v3 node, you will need to request quota in groups of 4. If you wish to request an NC16as T4 v3, you will need to request quota of 16.
+
+1. Sign in to [Azure portal](../azure-portal/azure-portal-overview.md).
+
+1. Enter **quotas** in the search box, then select **Compute**.
+
+1. In the search box, enter **NCAv3_T4**, check the box for the region your cluster is in, and then select **Request quota increase**.
+
+1. Configure quota.
+
+    :::image type="content" source="media/howto-gpu-workloads/gpu-quota-azure.png" alt-text="screen shot of":::
+
+## Log in to your ARO cluster
+
+Log in to OpenShift with a user account with cluster-admin privileges. The example below uses an account named **kubadmin**:
+
+   ```bash
+   oc login <apiserver> -u kubeadmin -p <kubeadminpass>
+   ```
+
+## Pull secret (Conditional)
+
+Update your pull secret to make sure you can install operators and connect to [cloud.redhat.com](https://cloud.redhat.com/).
+
+> [!NOTE] 
+> Skip this step if you have already recreated a full pull secret with cloud.redhat.com enabled.
+
+### Using Helm
+
+1. Before deploying the Helm chart, you must adopt the existing pull secret:
+
+   ```bash
+   kubectl -n openshift-config annotate secret \
+    pull-secret meta.helm.sh/release-name=pull-secret
+   kubectl -n openshift-config annotate secret \
+     pull-secret meta.helm.sh/release-namespace=openshift-config
+   kubectl -n openshift-config label secret \
+     pull-secret app.kubernetes.io/managed-by=Helm
+   ```
+
+1. Download your new pull secret from **https://console.redhat.com/openshift/downloads -> Tokens -> Pull secret**.  
+
+1. Use the new pull secret to update/create the pull secret in your cluster. This chart will merge the in-cluster pull secret with the new pull secret:
+
+   ```
+   helm upgrade --install pull-secret mobb/aro-pull-secret \
+     -n openshift-config --set-file pullSecret=$HOME/Downloads/pull-secret.txt
+   ```
+
+1. Enable Operator Hub:
+
+   ```bash
+   oc patch configs.samples.operator.openshift.io cluster --type=merge \
+         -p='{"spec":{"managementState":"Managed"}}'
+   oc patch operatorhub cluster --type=merge \
+         -p='{"spec":{"sources":[
+           {"name":"redhat-operators","disabled":false},
+           {"name":"certified-operators","disabled":false},
+           {"name":"community-operators","disabled":false},
+           {"name":"redhat-marketplace","disabled":false}
+         ]}}'
+   ```
+
+1. Skip to [GPU Machine Set](#gpu-machine-set)
+
+### Manually
+
+1. Log into to [cloud.redhat.com](https://cloud.redhat.com/).
+
+1. Browse to https://cloud.redhat.com/openshift/install/azure/aro-provisioned.
+
+1. Select **Download pull secret** and save the pull secret as `pull-secret.txt`.
+
+   > [!IMPORTANT] 
+   > The remaining steps in this section must be run in the same working directory as `pull-secret.txt`.
+
+1. Export the existing pull secret.
+
+   ```bash
+   oc get secret pull-secret -n openshift-config -o json | jq -r '.data.".dockerconfigjson"' | base64 --decode > export-pull.json
+   ```
+
+1. Merge the downloaded pull secret with the system pull secret to add `cloud.redhat.com`.
+
+   ```bash
+   jq -s '.[0] * .[1]' export-pull.json pull-secret.txt | tr -d "\n\r" > new-pull-secret.json
+   ```
+
+1. Upload the new secret file.
+
+   ```bash
+   oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=new-pull-secret.json
+   ```
+
+> You may need to wait about 1 hour for everything to sync up with cloud.redhat.com.
+
+1. Delete secrets.
+
+   ```bash
+   rm pull-secret.txt export-pull.json new-pull-secret.json
+   ```
+
+## GPU Machine Set
+
+ARO uses Kubernetes Machinsets to create machine sets. The procedures below explain how export the first machine set in a cluster and use that as a template to build a single GPU machine. 
+
+<!--I'm going to export the first machine set in my cluster (az 1) and use that as a template to build a single GPU machine in southcentralus region 1.-->
+
+### Helm
+
+1. Create a new machine-set (replicas of 1). See the Chart's [values](https://github.com/rh-mobb/helm-charts/blob/main/charts/aro-gpu/values.yaml) file for configuration options.
+
+   ```
+   helm upgrade --install -n openshift-machine-api \
+      gpu mobb/aro-gpu
+   ```
+
+1. Wait for the new GPU nodes to become available.
+
+   ```bash
+   watch oc get machines
+   ```
+
+1. Skip to [Install Nvidia GPU Operator](#install-nvidia-gpu-operator)
+
+### Manually
+
+1. View existing machine sets.
+
+   For ease of set up, this example uses the first machine set as the one to clone to create a new GPU machine set.
+
+   ```bash
+   MACHINESET=$(oc get machineset -n openshift-machine-api -o=jsonpath='{.items[0]}' | jq -r '[.metadata.name] | @tsv')
+   ```
+
+1. Save a copy of the example machine set.
+
+   ```bash
+   oc get machineset -n openshift-machine-api $MACHINESET -o json > gpu_machineset.json
+   ```
+
+1. Change the `.metadata.name` field to a new unique name.
+
+   <!--I'm going to create a unique name for this single node machine set, that shows nvidia-worker-<region><az>, that follows a similar pattern as all the other machine sets.-->
+
+   ```bash
+   jq '.metadata.name = "nvidia-worker-<region><az>"' gpu_machineset.json| sponge gpu_machineset.json
+   ```
+
+1. Ensure `spec.replicas` matches the desired replica count for the machine set.
+
+    ```bash
+    jq '.spec.replicas = 1' gpu_machineset.json| sponge gpu_machineset.json
+    ```
+
+1. Change the `.spec.selector.matchLabels.machine.openshift.io/cluster-api-machineset` field to match the `.metadata.name` field.
+
+   ```bash
+   jq '.spec.selector.matchLabels."machine.openshift.io/cluster-api-machineset" = "nvidia-worker-southcentralus1"' gpu_machineset.json| sponge gpu_machineset.json
+   ```
+
+1. Change the `.spec.template.metadata.labels.machine.openshift.io/cluster-api-machineset` to match the `.metadata.name` field.
+
+   ```bash
+   jq '.spec.template.metadata.labels."machine.openshift.io/cluster-api-machineset" = "nvidia-worker-southcentralus1"' gpu_machineset.json| sponge gpu_machineset.json
+   ```
+
+1. Change the `spec.template.spec.providerSpec.value.vmSize` to match the desired GPU instance type from Azure.
+
+   The machine used in this example is **Standard_NC4as_T4_v3**.
+
+   ```bash
+   jq '.spec.template.spec.providerSpec.value.vmSize = "Standard_NC4as_T4_v3"' gpu_machineset.json | sponge gpu_machineset.json
+   ```
+
+1.  Change the `spec.template.spec.providerSpec.value.zone` to match the desired zone from Azure.
+
+    ```bash
+    jq '.spec.template.spec.providerSpec.value.zone = "1"' gpu_machineset.json | sponge gpu_machineset.json
+    ```
+
+1. Delete the `.status` section of the yaml file.
+
+   ```bash
+   jq 'del(.status)' gpu_machineset.json | sponge gpu_machineset.json
+   ```
+
+1. Verify the other data in the yaml file.
+
+#### Create GPU machine set
+
+Use the following steps to create the new GPU machine. It may take 10-15 minutes to provision a new GPU machine. If this step fails, sign in to [azure portal](https://portal.azure.com) and ensure there are no availability issues. To do so, go to **Virtual Machines** and search for the worker name you created previously to see the status of VMs.
+
+1. Create the GPU Machine set.
+
+   ```bash
+   oc create -f gpu_machineset.json
+   ```
+
+   This command will take a few minutes to complete.
+
+1. Verify GPU machine set.
+
+   Machines should be deploying. You can view the status of the machine set with the following commands:
+
+   ```bash
+   oc get machineset -n openshift-machine-api
+   oc get machine -n openshift-machine-api
+   ```
+
+   Once the machines are provisioned (which could take 5-15 minutes), machines will show as nodes in the node list:
+
+   ```bash
+   oc get nodes
+   ```
+
+   You should see a node with the `nvidia-worker-southcentralus1` name that was created previously.
+
+## Install Nvidia GPU Operator
+
+This explains how to create the nvidia-gpu-operator name space, set up the operator group, and install the Nvidia GPU operator.
+
+### Helm
+
+1. Create namespaces.
+
+    ```bash
+    oc create namespace openshift-nfd
+    oc create namespace nvidia-gpu-operator
+    ```
+
+1. Use the `mobb/operatorhub` chart to deploy the needed operators.
+
+    ```bash
+    helm upgrade -n nvidia-gpu-operator nvidia-gpu-operator \
+      mobb/operatorhub --install \
+      --values https://raw.githubusercontent.com/rh-mobb/helm-charts/main/charts/nvidia-gpu/files/operatorhub.yaml
+    ```
+
+1. Wait until the two operators are running.
+
+    ```bash
+    watch kubectl get pods -n openshift-nfd
+    ```
+
+    ```
+    NAME                                      READY   STATUS    RESTARTS   AGE
+    nfd-controller-manager-7b66c67bd9-rk98w   2/2     Running   0          47s
+    ```
+
+    ```bash
+    watch oc get pods -n nvidia-gpu-operator
+    ```
+
+    ```
+    NAME                            READY   STATUS    RESTARTS   AGE
+    gpu-operator-5d8cb7dd5f-c4ljk   1/1     Running   0          87s
+    ```
+
+1. Install the Nvidia GPU Operator chart.
+
+    ```bash
+
+    ```bash
+    helm upgrade --install -n nvidia-gpu-operator nvidia-gpu \
+      mobb/nvidia-gpu --disable-openapi-validation
+    ```
+
+1. Skip to [Validate GPU](#validate-gpu).
+
+
+### Manually
+
+1. Create Nvidia namespace.
+
+   ```yaml
+   cat <<EOF | oc apply -f -
+   apiVersion: v1
+   kind: Namespace
+   metadata:
+     name: nvidia-gpu-operator
+   EOF
+   ```
+
+1. Create Operator Group.
+
+   ```yaml
+   cat <<EOF | oc apply -f -
+   apiVersion: operators.coreos.com/v1
+   kind: OperatorGroup
+   metadata:
+     name: nvidia-gpu-operator-group
+     namespace: nvidia-gpu-operator
+   spec:
+    targetNamespaces:
+    - nvidia-gpu-operator
+   EOF
+   ```
+
+1. Get latest nvidia channel.
+
+   ```bash
+   CHANNEL=$(oc get packagemanifest gpu-operator-certified -n openshift-marketplace -o jsonpath='{.status.defaultChannel}')
+   ```
+
+1. Get latest nvidia package.
+
+   ```bash
+   PACKAGE=$(oc get packagemanifests/gpu-operator-certified -n openshift-marketplace -ojson | jq -r '.status.channels[] | select(.name == "'$CHANNEL'") | .currentCSV')
+   ```
+
+1. Create Subscription.
+
+   ```yaml
+   envsubst  <<EOF | oc apply -f -
+   apiVersion: operators.coreos.com/v1alpha1
+   kind: Subscription
+   metadata:
+     name: gpu-operator-certified
+     namespace: nvidia-gpu-operator
+   spec:
+     channel: "$CHANNEL"
+     installPlanApproval: Automatic
+     name: gpu-operator-certified
+     source: certified-operators
+     sourceNamespace: openshift-marketplace
+     startingCSV: "$PACKAGE"
+   EOF
+   ```
+
+1. Wait for Operator to finish installing.
+
+   Don't proceed until you have verified that the operator has finished installing. Also, ensure that your GPU worker is online.
+
+    :::image type="content" source="media/howto-gpu-workloads/nvidia-installed.png" alt-text="Screen shot of":::
+
+#### Install Node Feature Discovery Operator
+
+The node feature discovery operator will discover the GPU on your nodes and appropriately label the nodes so you can target them for workloads. 
+
+This example installs the NFD operator into the `openshift-ndf` namespace and creates the "subscription" which is the configuration for NFD.
+
+Official Documentation for Installing [Node Feature Discovery Operator](https://docs.openshift.com/container-platform/4.10/hardware_enablement/psap-node-feature-discovery-operator.html).
+
+1. Set up Name Space.
+
+   ```yaml
+   cat <<EOF | oc apply -f -
+   apiVersion: v1
+   kind: Namespace
+   metadata:
+     name: openshift-nfd
+   EOF
+   ```
+
+1. Create OperatorGroup.
+
+   ```yaml
+   cat <<EOF | oc apply -f -
+   apiVersion: operators.coreos.com/v1
+   kind: OperatorGroup
+   metadata:
+     generateName: openshift-nfd-
+     name: openshift-nfd
+     namespace: openshift-nfd
+   EOF
+   ```
+
+1. Create Subscription.
+
+   ```yaml
+   cat <<EOF | oc apply -f -
+   apiVersion: operators.coreos.com/v1alpha1
+   kind: Subscription
+   metadata:
+     name: nfd
+     namespace: openshift-nfd
+   spec:
+     channel: "stable"
+     installPlanApproval: Automatic
+     name: nfd
+     source: redhat-operators
+     sourceNamespace: openshift-marketplace
+   EOF
+   ```
+1. Wait for Node Feature discovery to complete installation.
+
+   You can log in to your OpenShift console to view operators or simply wait a few minutes. Failure to wait for the operator to install will result in an error in the next step.
+
+1. Create NFD Instance.
+
+   ```yaml
+   cat <<EOF | oc apply -f -
+   kind: NodeFeatureDiscovery
+   apiVersion: nfd.openshift.io/v1
+   metadata:
+     name: nfd-instance
+     namespace: openshift-nfd
+   spec:
+     customConfig:
+       configData: |
+         #    - name: "more.kernel.features"
+         #      matchOn:
+         #      - loadedKMod: ["example_kmod3"]
+         #    - name: "more.features.by.nodename"
+         #      value: customValue
+         #      matchOn:
+         #      - nodename: ["special-.*-node-.*"]
+     operand:
+       image: >-
+         registry.redhat.io/openshift4/ose-node-feature-discovery@sha256:07658ef3df4b264b02396e67af813a52ba416b47ab6e1d2d08025a350ccd2b7b
+       servicePort: 12000
+     workerConfig:
+       configData: |
+         core:
+         #  labelWhiteList:
+         #  noPublish: false
+           sleepInterval: 60s
+         #  sources: [all]
+         #  klog:
+         #    addDirHeader: false
+         #    alsologtostderr: false
+         #    logBacktraceAt:
+         #    logtostderr: true
+         #    skipHeaders: false
+         #    stderrthreshold: 2
+         #    v: 0
+         #    vmodule:
+         ##   NOTE: the following options are not dynamically run-time
+         ##          configurable and require a nfd-worker restart to take effect
+         ##          after being changed
+         #    logDir:
+         #    logFile:
+         #    logFileMaxSize: 1800
+         #    skipLogHeaders: false
+         sources:
+         #  cpu:
+         #    cpuid:
+         ##     NOTE: whitelist has priority over blacklist
+         #      attributeBlacklist:
+         #        - "BMI1"
+         #        - "BMI2"
+         #        - "CLMUL"
+         #        - "CMOV"
+         #        - "CX16"
+         #        - "ERMS"
+         #        - "F16C"
+         #        - "HTT"
+         #        - "LZCNT"
+         #        - "MMX"
+         #        - "MMXEXT"
+         #        - "NX"
+         #        - "POPCNT"
+         #        - "RDRAND"
+         #        - "RDSEED"
+         #        - "RDTSCP"
+         #        - "SGX"
+         #        - "SSE"
+         #        - "SSE2"
+         #        - "SSE3"
+         #        - "SSE4.1"
+         #        - "SSE4.2"
+         #        - "SSSE3"
+         #      attributeWhitelist:
+         #  kernel:
+         #    kconfigFile: "/path/to/kconfig"
+         #    configOpts:
+         #      - "NO_HZ"
+         #      - "X86"
+         #      - "DMI"
+           pci:
+             deviceClassWhitelist:
+               - "0200"
+               - "03"
+               - "12"
+             deviceLabelFields:
+         #      - "class"
+               - "vendor"
+         #      - "device"
+         #      - "subsystem_vendor"
+         #      - "subsystem_device"
+         #  usb:
+         #    deviceClassWhitelist:
+         #      - "0e"
+         #      - "ef"
+         #      - "fe"
+         #      - "ff"
+         #    deviceLabelFields:
+         #      - "class"
+         #      - "vendor"
+         #      - "device"
+         #  custom:
+         #    - name: "my.kernel.feature"
+         #      matchOn:
+         #        - loadedKMod: ["example_kmod1", "example_kmod2"]
+         #    - name: "my.pci.feature"
+         #      matchOn:
+         #        - pciId:
+         #            class: ["0200"]
+         #            vendor: ["15b3"]
+         #            device: ["1014", "1017"]
+         #        - pciId :
+         #            vendor: ["8086"]
+         #            device: ["1000", "1100"]
+         #    - name: "my.usb.feature"
+         #      matchOn:
+         #        - usbId:
+         #          class: ["ff"]
+         #          vendor: ["03e7"]
+         #          device: ["2485"]
+         #        - usbId:
+         #          class: ["fe"]
+         #          vendor: ["1a6e"]
+         #          device: ["089a"]
+         #    - name: "my.combined.feature"
+         #      matchOn:
+         #        - pciId:
+         #            vendor: ["15b3"]
+         #            device: ["1014", "1017"]
+         #          loadedKMod : ["vendor_kmod1", "vendor_kmod2"]
+   EOF
+   ```
+
+1. Verify NFD is ready.
+
+   The status of this operator should show as **Available**.
+
+    :::image type="content" source="media/howto-gpu-workloads/nfd-ready-for-use.png" alt-text="Screen shot of":::
+
+#### Apply nVidia Cluster Config
+
+This sections explains how to apply the nvidia cluster config. Please read the [nvidia documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/openshift/install-gpu-ocp.html) on customizing this if you have your own private repos or specific settings. This process may take several minutes to complete.
+
+1. Apply cluster config.
+
+   ```yaml
+   cat <<EOF | oc apply -f -
+   apiVersion: nvidia.com/v1
+   kind: ClusterPolicy
+   metadata:
+     name: gpu-cluster-policy
+   spec:
+     migManager:
+       enabled: true
+     operator:
+       defaultRuntime: crio
+       initContainer: {}
+       runtimeClass: nvidia
+       deployGFD: true
+     dcgm:
+       enabled: true
+     gfd: {}
+     dcgmExporter:
+       config:
+         name: ''
+     driver:
+       licensingConfig:
+         nlsEnabled: false
+         configMapName: ''
+       certConfig:
+         name: ''
+       kernelModuleConfig:
+         name: ''
+       repoConfig:
+         configMapName: ''
+       virtualTopology:
+         config: ''
+       enabled: true
+       use_ocp_driver_toolkit: true
+     devicePlugin: {}
+     mig:
+       strategy: single
+     validator:
+       plugin:
+         env:
+           - name: WITH_WORKLOAD
+             value: 'true'
+     nodeStatusExporter:
+       enabled: true
+     daemonsets: {}
+     toolkit:
+       enabled: true
+   EOF
+   ```
+
+1. Verify Cluster Policy.
+
+   Log in to OpenShift console and browse to operators. Ensure sure you're in the `nvidia-gpu-operator` namespace. It should say `State: Ready once everything is complete`.
+
+    :::image type="content" source="media/howto-gpu-workloads/nvidia-cluster-policy.png" alt-text="Screen shot of":::
+
+## Validate GPU
+
+It may take some time for the nVidia Operator and NFD to completely install and self-identify the machines. Run the following commands to validate that everything is running as expected:
+
+1.  Verify that NFD can see your GPU(s).
+
+    ```bash
+    oc describe node | egrep 'Roles|pci-10de' | grep -v master
+    ```
+
+      The output should appear similar to the following:
+
+    ```bash
+    Roles:              worker
+                    feature.node.kubernetes.io/pci-10de.present=true
+    ```
+
+1. Verify node labels.
+
+   You can see the node labels by logging into the OpenShift console -> Compute -> Nodes -> nvidia-worker-southcentralus1-<id>.  You should see multiple nvidia GPU labels and the pci-10de device from above.
+
+    :::image type="content" source="media/howto-gpu-workloads/node-labels.png" alt-text="Screen shot of":::
+
+1. Nvidia SMI tool verification.
+
+   ```bash
+   oc project nvidia-gpu-operator
+   for i in $(oc get pod -lopenshift.driver-toolkit=true --no-headers |awk '{print $1}'); do echo $i; oc exec -it $i -- nvidia-smi ; echo -e '\n' ;  done
+   ```
+
+   You should see output that shows the GPUs available on the host such as this example screenshot. (Varies depending on GPU worker type)
+
+  :::image type="content" source="media/howto-gpu-workloads/test-gpu.png" alt-text="Screen shot of":::
+
+2. Create Pod to run a GPU workload
+
+   ```yaml
+   oc project nvidia-gpu-operator
+   cat <<EOF | oc apply -f -
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: cuda-vector-add
+   spec:
+     restartPolicy: OnFailure
+     containers:
+       - name: cuda-vector-add
+         image: "quay.io/giantswarm/nvidia-gpu-demo:latest"
+         resources:
+           limits:
+             nvidia.com/gpu: 1
+         nodeSelector:
+           nvidia.com/gpu.present: true
+   EOF
+   ```
+
+3. View logs.
+
+   ```bash
+   oc logs cuda-vector-add --tail=-1
+   ```
+
+> [!NOTE] 
+> If you get an error `Error from server (BadRequest): container "cuda-vector-add" in pod "cuda-vector-add" is waiting to start: ContainerCreating`, try running `oc delete pod cuda-vector-add` and then re-run the create statement above.
+
+   The output should be similar to the following (depending on GPU):
+
+   ```bash
+   [Vector addition of 5000 elements]
+   Copy input data from the host memory to the CUDA device
+   CUDA kernel launch with 196 blocks of 256 threads
+   Copy output data from the CUDA device to the host memory
+   Test PASSED
+   Done
+   ```
+
+4. If successful, the pod can be deleted.
+
+   ```bash
+   oc delete pod cuda-vector-add
+   ```
+
+
