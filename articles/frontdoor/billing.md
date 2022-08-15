@@ -23,6 +23,8 @@ For Azure Front Door pricing information, see the [Azure Front Door pricing page
 
 Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door SKU that you deploy.
 
+You don't pay extra fees for features like response caching, response compression, and the rules engine. If you are using Front Door Premium, you also don't pay extra fees for managed WAF rule sets or Private Link origins.
+
 ## Request processing and traffic fees
 
 Each request that goes through Front Door incur request processing and traffic fees:
