@@ -26,7 +26,7 @@ At Microsoft, we have developed a [Responsible AI Standard](https://blogs.micros
 
 This article explains the six principles and demonstrates how Azure Machine Learning supports tools for making it seamless for ML developers and data scientists to implement and operationalize them in practice.
 
-:::image type="content" source="./media/concept-responsible-ml/concept-responsible-ml.png" alt-text="Microsoft Responsible AI six principles - fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.":::
+:::image type="content" source="./media/concept-responsible-ml/concept-responsible-ml.png" alt-text="Microsoft Responsible A I six principles - fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.":::
 
 ## Fairness and inclusiveness
 
