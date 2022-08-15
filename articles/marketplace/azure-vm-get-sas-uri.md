@@ -30,7 +30,7 @@ To extract the VHD from your VM, you need to first take a snapshot of your VM di
 
 Take a snapshot of your VM disk:
 
-1. Sign in to the [Azure portal](http://www.portal.azure.com/).
+1. Sign in to the [Azure portal](https://www.portal.azure.com/).
 1. Select **Create a resource**, then search for and select **Snapshot**.
 1. In the Snapshot blade, select **Create**.
 1. Select the **Subscription**. Select an existing resource group within the selected subscription or **Create new** and enter the name for a new resource group to be created. This is the resource group the snapshot will be associated to.
@@ -83,7 +83,7 @@ This script about uses the following commands to generate the SAS URI for a snap
 |Command  |Notes  |
 |---------|---------|
 | az disk grant-access    | Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises. |
-|  az storage blob copy start   | Copies a blob asynchronously from one storage account to another. Use [az storage blob show](/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-show) to check the status of the new blob. |
+|  az storage blob copy start   | Copies a blob asynchronously from one storage account to another. Use [az storage blob show](/cli/azure/storage/blob#az-storage-blob-show) to check the status of the new blob. |
 
 ## Generate the SAS URI
 
@@ -117,11 +117,13 @@ There are two common tools used to create a SAS address (URI):
 
 Before running the command above, remember to insert the following parameter values.
 
-    - account-name – Your Azure storage account name.
-    - account-key – Your Azure storage account key.
-    - container-name – Your blob container that hosts the VHD file.
-    - start-date – This is the permission start date for VHD access. Provide a date one day before the current date. For example, if the current date is July 15, 2022, set the date as 07/14/2022. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z.
-    - expiry-date – This is the permission expiration date for VHD access. Provide a date at least three weeks after the current date. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z.
+| Parameter value | Description |
+| --------------- | ----------- |
+| account-name | Your Azure storage account name. |
+| account-key | Your Azure storage account key. |
+| container-name | Your blob container that hosts the VHD file. |
+| start-date | This is the permission start date for VHD access. Provide a date one day before the current date. For example, if the current date is July 15, 2022, set the date as 07/14/2022. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
+| expiry-date | This is the permission expiration date for VHD access. Provide a date at least three weeks after the current date. Provide dates in UTC date/time format (YYYY-MM-DDT00:00:00Z), such as 2022-04-01T00:00:00Z. |
 
     [![creation of a SAS connection string within the PowerShell editor](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 
