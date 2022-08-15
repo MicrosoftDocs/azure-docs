@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 08/14/2022
+ms.date: 08/15/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -69,12 +69,27 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 ### View vulnerabilities for running images
 
-Defender for Cloud uses the Defender agent to provide visibility into which containers are currently running. With that information, and the VA results for each container that was scanned in ACR, Defender for Containers is able to alert you to detectable vulnerabilities.
+#### Option 1
 
-When vulnerabilities are detected, Defender for Cloud shows the detected issues, and generates the following security recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false). This recommendation maps the vulnerability data that is created for images in ACR to the containers in AKS that are using those images. Images that are used in containers that have not been pulled from ACR for deployment in AKS will not be checked and will appear under the Not applicable tab.
+The  Defender for Containers scans images for vulnerabilities that are stored in ACR, and coordinates this information with the vulnerability data found for the image with the running containers that are associated with the image through the Defender agent (which is installed on the AKS cluster). If vulnerabilities are found, Defender for Cloud will then produce the recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) which is available for Windows and Linux containers.
 
 > [!NOTE] 
-> **For Windows only**: Since there is currently no Defender agent for Windows containers and each AKS cluster runs with at least one Linux node, that Linux node is utilized to run the Defender agent. The Defender agent then retrieves the running container inventory for your Windows nodes.
+> **Windows containers**: Since there is no Defender agent for Windows containers and each AKS cluster runs with at least one Linux node, that Linux node is utilized to run the Defender agent. The Defender agent then retrieves the running container inventory for your Windows nodes.
+
+Images that are used in containers that have not been pulled from ACR for deployment in AKS will not be checked and will appear under the Not applicable tab.
+
+:::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
+
+#### Option 2
+
+The recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) shows vulnerabilities for running images, for Windows and Linux containers.
+
+> [!NOTE] 
+> **Windows containers**: Since there is no Defender agent for Windows containers and each AKS cluster runs with at least one Linux node, that Linux node is utilized to run the Defender agent. The Defender agent then retrieves the running container inventory for your Windows nodes.
+
+Defender for Containers uses the scan results from your ACR registries and the information collected on running images from the Defender agent, which is installed on the AKS cluster, to provide this recommendation.
+
+Images that are used in containers that have not been pulled from ACR for deployment in AKS will not be checked and will appear under the Not applicable tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable." lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
