@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: mesameki
-author: lgayhardt
+author: mesameki
 ms.reviewer: lgayhardt
 ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 08/08/2022
