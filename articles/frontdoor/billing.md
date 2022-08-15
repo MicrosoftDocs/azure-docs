@@ -12,7 +12,7 @@ ms.author: jodowns
 
 # Understand Azure Front Door billing
 
-Azure Front Door's billing model includes several components. You are charged a base fee for each Front Door profile that you deploy. You are also charged for requests and data transfer based on your usage. This page explains how Front Door pricing works so that you can understand and predict your monthly Azure Front Door bill.
+Azure Front Door's billing model includes several components. Front Door charges a base fee for each profile that you deploy. You're also charged for requests and data transfer based on your usage. This page explains how Front Door pricing works so that you can understand and predict your monthly Azure Front Door bill.
 
 For Azure Front Door pricing information, see the [Azure Front Door pricing page](https://azure.microsoft.com/pricing/details/frontdoor/).
 
@@ -23,7 +23,7 @@ For Azure Front Door pricing information, see the [Azure Front Door pricing page
 
 Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door SKU that you deploy.
 
-You don't pay extra fees for features like response caching, response compression, and the rules engine. If you are using Front Door Premium, you also don't pay extra fees for managed WAF rule sets or Private Link origins.
+You don't pay extra fees for features like response caching, response compression, and the rules engine. If you use Front Door Premium, you also don't pay extra fees for managed WAF rule sets or Private Link origins.
 
 ## Request processing and traffic fees
 
@@ -80,7 +80,7 @@ When you configure a Private Link origin, you select a region for the private en
 
 Contoso hosts their website on Azure App Service, and has deployed Front Door with the standard SKU. They have disabled caching.
 
-Suppose a request from a client is sent to the Contoso website, sending a 1KB request and receiving a 100KB response:
+Suppose a request from a client is sent to the Contoso website, sending a 1 KB request and receiving a 100 KB response:
 
 :::image type="content" source="./media/billing/scenario-1.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, without caching or compression." border="false":::
 
@@ -89,15 +89,15 @@ The following billing meters will be incremented:
 | Meter | Incremented by |
 |-|-|
 | Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | 1KB |
+| Data transfer from Front Door edge to origin | 1 KB |
 | Data transfer from origin to Front Door | *non-billable* |
-| Data transfer from Front Door to client | 100KB |
+| Data transfer from Front Door to client | 100 KB |
 
-Note that Azure App Service might charge additional fees.
+Azure App Service might charge other fees.
 
 ### Example 2: Azure origin, caching and compression enabled
 
-Suppose Contoso updates their Front Door configuration to enable [content compression](front-door-caching.md#file-compression). Now, the same request as in example 1 might be able to be compressed down to 30KB:
+Suppose Contoso updates their Front Door configuration to enable [content compression](front-door-caching.md#file-compression). Now, the same request as in example 1 might be able to be compressed down to 30 KB:
 
 :::image type="content" source="./media/billing/scenario-2.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, with compression enabled." border="false":::
 
@@ -106,11 +106,11 @@ The following billing meters will be incremented:
 | Meter | Incremented by |
 |-|-|
 | Number of requests from client to Front Door | 1 |
-| Data transfer from Front Door edge to origin | 1KB |
+| Data transfer from Front Door edge to origin | 1 KB |
 | Data transfer from origin to Front Door | *non-billable* |
-| Data transfer from Front Door to client | 30KB |
+| Data transfer from Front Door to client | 30 KB |
 
-Note that Azure App Service might charge additional fees.
+Azure App Service might charge other fees.
 
 ### Example 3: Request served from cache
 
@@ -125,11 +125,11 @@ The following billing meters will be incremented:
 | Number of requests from client to Front Door | 1 |
 | Data transfer from Front Door edge to origin | *none when request is served from cache* |
 | Data transfer from origin to Front Door | *none* |
-| Data transfer from Front Door to client | 30KB |
+| Data transfer from Front Door to client | 30 KB |
 
 ### Example 4: Non-Azure origin
 
-Fabrikam runs an eCommerce site on another cloud provider, and uses Azure Front Door to serve the traffic. They have not enabled caching or compression.
+Fabrikam runs an eCommerce site on another cloud provider, and uses Azure Front Door to serve the traffic. They haven't enabled caching or compression.
 
 Suppose a request from a client is sent to the Fabrikam website, sending a 2KB request and receiving a 350KB response:
 
@@ -144,13 +144,13 @@ The following billing meters will be incremented:
 | Data transfer from origin to Front Door | *non-billable by Azure* |
 | Data transfer from Front Door to client | 350KB |
 
-Note that the other cloud provider might charge additional fees.
+The external cloud provider might charge other fees.
 
 ### Example 5: Request blocked by web application firewall
 
 When a request is blocked by the web application firewall (WAF), it isn't sent to the origin. However, Front Door charges the request, and also charges to send a response.
 
-Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address. The WAF is configured with a custom error response page, which is 1KB in size. If a client from the blocked IP address sends a 1KB request:
+Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address. The WAF is configured with a custom error response page, which is 1 KB in size. If a client from the blocked IP address sends a 1 KB request:
 
 :::image type="content" source="./media/billing/scenario-5.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door, where the request is blocked by the WAF." border="false":::
 
@@ -161,7 +161,7 @@ The following billing meters will be incremented:
 | Number of requests from client to Front Door | 1 |
 | Data transfer from Front Door edge to origin | *none* |
 | Data transfer from origin to Front Door | *none* |
-| Data transfer from Front Door to client | 1KB |
+| Data transfer from Front Door to client | 1 KB |
 
 ## Next steps
 
