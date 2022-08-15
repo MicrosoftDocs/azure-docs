@@ -34,12 +34,16 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that identifies entities in unstructured text across several pre-defined categories. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
 
    :::column-end:::
+
+   :::column span="":::
+      **Development options**
+
+      * [Language Studio](language-studio.md)
+      * [REST API and client library (Azure SDK)](named-entity-recognition/quickstart.md)
+      
+   :::column-end:::
+
 :::row-end:::
-
-You can use this feature with:
-
-* [**Language Studio**](language-studio.md), a web-based platform where you can try NER without needing writing code.
-* [**REST API and client library (Azure SDK)**](named-entity-recognition/quickstart.md), which enables you to integrate NER into your applications using the REST API, or the client library available in a variety of languages.
 
 ### Personally identifying (PII) and health (PHI) information  detection
 
