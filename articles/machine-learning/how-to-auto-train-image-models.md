@@ -431,13 +431,13 @@ image_model:
 
 ---
 
-## Automatically sweeping model hyperparameters (AutoMode)
+## Automatically sweeping model hyperparameters (Automode)
 
-It is generally hard to predict the best model architecture and hyperparameters for a dataset. Additionally, in some cases the human time allocated to tuning hyperparameters may be limited. With support for computer vision tasks, you can specify a number of runs and the AutoMode feature will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter space, a sampling method or an early termination policy.
+It is generally hard to predict the best model architecture and hyperparameters for a dataset. Additionally, in some cases the human time allocated to tuning hyperparameters may be limited. With support for computer vision tasks, you can specify a number of runs and the Automode feature will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter space, a sampling method or an early termination policy.
 
 ### Triggering Automode
 
-You can run AutoMode sweeps by setting `max_trials` to a value greater than 1 in `limits`, as shown in the example below.
+You can run Automode sweeps by setting `max_trials` to a value greater than 1 in `limits`, as shown in the example below.
 
 # [CLI v2](#tab/CLI-v2)
 
@@ -453,7 +453,7 @@ limits:
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 ```python
-# Trigger AutoMode
+# Trigger Automode
 image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
 ```
 
