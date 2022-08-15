@@ -117,7 +117,7 @@ You can create a web API from scratch by using Microsoft.Identity.Web project te
 
 #### Starting from an existing ASP.NET Core 3.1 application
 
-ASP.NET Core 3.1 uses the Microsoft.AspNetCore.Authentication.JwtBearer library. The middleware is initialized in the Startup.cs file.
+ASP.NET Core 3.1 uses the Microsoft.AspNetCore.Authentication.JwtBearer library. The middleware is initialized in the Program.cs file.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -127,40 +127,31 @@ The middleware is added to the web API by this instruction:
 
 ```csharp
 // This method gets called by the runtime. Use this method to add services to the container.
-public void ConfigureServices(IServiceCollection services)
-{
-  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
-          .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
-}
+builder.Services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+    .AddAzureADBearer(options => builder.Configuration.Bind("AzureAd", options));
 ```
 
- Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. However, you can change the templates to use the Microsoft identity platform by using [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) replacing the code in *Startup.cs*:
+ Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. However, you can change the templates to use the Microsoft identity platform by using [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) replacing the code in *Program.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
 ```
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
-{
- // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+// Adds Microsoft Identity platform (AAD v2.0) support to protect this API
+builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration, "AzureAd");
 
- services.AddControllers();
-}
+builder.Services.AddControllers();
 ```
 
 you can also write the following (which is equivalent)
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
-{
- // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
-             .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
+// Adds Microsoft Identity platform (AAD v2.0) support to protect this API
+builder.Services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration, "AzureAd");
 
-services.AddControllers();
-}
+builder.Services.AddControllers();
 ```
 
 > [!NOTE]
@@ -205,21 +196,21 @@ The validators are associated with properties of the **TokenValidationParameters
 In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well.
 
 
-In ASP.NET Core, if you want to customize the token validation parameters, use the following snippet in your *Startup.cs*:
+In ASP.NET Core, if you want to customize the token validation parameters, use the following snippet in your *Program.cs*:
 
-```c#
-services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddMicrosoftIdentityWebApi(Configuration);
-services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
+```csharp
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration);
+builder.Services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
-  var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;
-  options.Events.OnTokenValidated = async context =>
-  {
-       await existingOnTokenValidatedHandler(context);
-      // Your code to add extra configuration that will be executed after the current event implementation.
-      options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
-      options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  };
+    var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;
+    options.Events.OnTokenValidated = async context =>
+    {
+        await existingOnTokenValidatedHandler(context);
+        // Your code to add extra configuration that will be executed after the current event implementation.
+        options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
+        options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
+    };
 });
 ```
 
