@@ -166,7 +166,7 @@ az keyvault key create \
 
 #### Option 1: Manual key rotation - key ID with version
 
-To encrypt a registry with a customer-managed key with a key version will only allow manual key rotation in Azure Container Registry.
+Encrypting a registry with a customer-managed key with a key version will only allow manual key rotation in Azure Container Registry.
 
 1. This example stores the key's `kid` property:
 
@@ -179,7 +179,7 @@ keyID=$(az keyvault key show \
 
 #### Option 2: Automatic key rotation - key ID omitting version 
 
-To encrypt a registry with a customer-managed key by omitting a key version will enable automatic key rotation to detect a  new key version in Azure Key Vault.
+Encrypting a registry with a customer-managed key by omitting a key version will enable automatic key rotation to detect a  new key version in Azure Key Vault.
 
 1. This example removes the version from the key's `kid` property:
 
@@ -447,7 +447,7 @@ Once you enable a customer-managed key in a registry, you can perform all the re
 
 ## Next steps
 
-In this tutorial, you have learned to enable a customer-managed key on your Azure container registry using Azure CLI, portal, and Resource manager template. This article also explains how to create resources for the encryption and verify the encryption status of your registry.
+In this tutorial, you've learned to enable a customer-managed key on your Azure container registry using Azure CLI, portal, and Resource Manager template. This article also explains how to create resources for the encryption and verify the encryption status of your registry.
 
 Advance to the next [tutorial](tutorial-rotate-revoke-customer-managed-keys.md), to have a walk-through of performing the customer-managed key rotation, update key versions, and revoke a customer-managed key. 
 

@@ -10,7 +10,7 @@ ms.author: tejaswikolli
 
 # Rotate and Revoke a Customer managed key 
 
-This article is part three in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a Customer managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learnt to enable a Customer managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a Customer managed key, update key version and revoke the key.
+This article is part three in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a Customer managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you've learned to enable a Customer managed key using the Azure CLI, Azure portal, or a Resource Manager template. In this article walks you to rotate a Customer managed key, update key version and revoke the key.
 
 ## Rotate a Customer managed key
 
@@ -40,7 +40,7 @@ az keyvault key create \
 > [!TIP]
 > When you run `az-acr-encryption-rotate-key`, you can pass either a versioned key ID or a non-versioned key ID. If you use a non-versioned key ID, the registry is then configured to automatically detect later key version updates.
 
-To update a Customer managed key version manually:
+Update a Customer managed key version manually:
 
  1. Rotate key and use user-assigned identity
 
@@ -102,7 +102,7 @@ az keyvault key delete  \
 
 ## Next steps
 
-In this tutorial, you have learned to perform key rotations, update key versions using CLI and Portal, and revoking a Customer managed key on your Azure container registry.
+In this tutorial, you've learned to perform key rotations, update key versions using CLI and Portal, and revoking a Customer managed key on your Azure container registry.
 
 Advance to the next tutorial to [troubleshoot](tutorial-troubleshoot-customer-managed-keys.md) most common issues like removing a managed identity, 403 errors, and restoring accidental key deletes.
 

@@ -10,20 +10,20 @@ ms.author: tejaswikolli
 
 # Troubleshoot a Customer managed key 
 
-This article is part four in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you have learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](tutorial-rotate-revoke-customer-managed-keys.md), you will learn to rotate, update, revoke a Customer managed key. In this article learn to troubleshoot any issues with customer-managed keys.
+This article is part four in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you've learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](tutorial-rotate-revoke-customer-managed-keys.md), you'll learn to rotate, update, revoke a Customer managed key. In this article, learn to troubleshoot any issues with customer-managed keys.
 
 ## Troubleshoot a Customer managed key
 
 This article helps you to troubleshoot and resolve most common issues such as authentication issues, accidental deletions of keys, etc.
 ## Removing managed identity
 
-If you try to remove a user-assigned or a system-assigned managed identity that you have used to configure encryption for your registry, you may see an error:
+If you try to remove a user-assigned or a system-assigned managed identity that you've used to configure encryption for your registry, you may see an error:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-You will also not be able to change (rotate) the encryption key. The resolution steps depend on the type of identity you have used for encryption.
+You'll also not be able to change (rotate) the encryption key. The resolution steps depend on the type of identity you've used for encryption.
 
 ### Removing a **user-assigned identity**:
 
@@ -54,7 +54,7 @@ If the problem persists, please contact Azure Support.
 
 ## Accidental deletion of key vault or key
 
-Deletion of the key vault, or the key, used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
+Deletion of the key vault, or the key, used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault, or key vault object and resume registry operations.
 
 ## Next steps
 
