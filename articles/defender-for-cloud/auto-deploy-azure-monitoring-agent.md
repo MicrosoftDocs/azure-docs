@@ -127,5 +127,4 @@ Now that you enabled the Azure Monitor Agent, check out the features that are su
 
 - [Endpoint protection assessment](endpoint-protection-recommendations-technical.md)
 - [Adaptive application controls](adaptive-application-controls.md)
-- [File Integrity Monitoring](file-integrity-monitoring-overview.md)
 - [Fileless attack detection](defender-for-servers-introduction.md#plan-features)
