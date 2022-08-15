@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 2 - Set up database connectivity
 
-The creation wizard generated a connection string to the database for you, but not in a format that's useable for your code yet. In this step, you create [app settings](configure-common.md#configure-app-settings) with the format that your app needs.
+The creation wizard generated a connection string to the database for you, but not in a format that's useable for your code yet. In this step, you create [app settings](../../app-service/configure-common.md#configure-app-settings) with the format that your app needs.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -156,8 +156,8 @@ Pricing for the create resources is as follows:
 #### How do I connect to the MySQL database that's secured behind the virtual network with other tools?
 
 - For basic access from a commmand-line tool, you can run `mysql` from the app's SSH terminal.
-- To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
-- You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
+- To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
+- You can also [integrate Azure Cloud Shell](../../cloud-shell/private-vnet.md) with the virtual network.
 
 #### How does local app development work with GitHub Actions?
 
@@ -196,7 +196,7 @@ In this tutorial, you learned how to:
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](../../app-service/app-service-web-tutorial-custom-domain.md)
 > [!div class="nextstepaction"]
 > [How to manage your resources in Azure portal](../../azure-resource-manager/management/manage-resources-portal.md) <br/>
 > [!div class="nextstepaction"]

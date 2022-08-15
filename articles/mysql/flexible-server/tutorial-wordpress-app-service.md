@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Create a WordPress site on Azure App Service integrating with Azure Database for MySQL - Flexible Server'
 description: Create your first and fully managed WordPress site on Azure App Service and integrate with Azure Database for MySQL - Flexible Server in minutes.
-keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php, azure database for mysql
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
@@ -11,8 +10,8 @@ ms.devlang: wordpress
 ms.date: 8/11/2022
 ms.custom: mvc, devx-track-azurecli
 ---
-# Tutorial: Create a WordPress site on Azure App Service integrating with Azure Database for MySQL - Flexible Server
 
+# Tutorial: Create a WordPress site on Azure App Service integrating with Azure Database for MySQL - Flexible Server
 
 [WordPress](https://www.wordpress.org) is an open source content management system (CMS) that can be used to create websites, blogs, and other applications. Over 40% of the web uses WordPress from blogs to major news websites.
 
@@ -79,11 +78,11 @@ In this tutorial, you'll learn how to create and deploy your first [WordPress](h
 
 - Database username and password of the MySQL Flexible Server are generated automatically. To retrieve these values after the deployment go to Application Settings section of the Configuration page in Azure App Service. The WordPress configuration is modified to use these [Application Settings](../../app-service/reference-app-settings.md#wordpress) to connect to the MySQL database.
 
-- To change the MySQL database password, see [Reset admin password](how-to-manage-server-portal#reset-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](../../app-service/reference-app-settings.md#wordpress) also need to be updated. The [Application Settings for MySQL database](../../app-service/reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html#known-limitations).
+- To change the MySQL database password, see [Reset admin password](how-to-manage-server-portal.md#reset-admin-password). Whenever the MySQL database credentials are changed, the [Application Settings](../../app-service/reference-app-settings.md#wordpress) also need to be updated. The [Application Settings for MySQL database](../../app-service/reference-app-settings.md#wordpress) begin with the **`DATABASE_`** prefix. For more information on updating MySQL passwords, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html#known-limitations).
 
 ## Manage the MySQL database
 
-The MySQL Flexible Server is created behind a private [Virtual Network](../../virtual-network/virtual-networks-overview) and can't be accessed directly. To access and manage the database, use phpMyAdmin that's deployed with the WordPress site. 
+The MySQL Flexible Server is created behind a private [Virtual Network](../../virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access and manage the database, use phpMyAdmin that's deployed with the WordPress site. 
 - Navigate to the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
 - Login with the flexible server's username and password
 
