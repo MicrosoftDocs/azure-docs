@@ -12,33 +12,31 @@ ms.author: "dinethi"
 ---
 # Azure Arc-enabled data services support policy. 
 
-This article explains the support policy for Azure Arc-enabled data services.
+This article describes the support policies and troubleshooting boundaries for Azure Arc-enabled data services. This article specifically explains support for Azure Arc data controller and Azure Arc-enabled SQL Managed Instance.
 
 ## Support policy
 - Azur Arc-enabled data services follows [Microsoft Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy).
 - Read the original [Modern Lifecycle Policy announcement](https://support.microsoft.com/help/447912/announcing-microsoft-modern-lifecycle-policy).
 - For additional information, see [Modern Policy FAQs](https://support.microsoft.com/help/30882/modern-lifecycle-policy-faq).
 
-## Supported updates
+## Support versions
 
-Microsoft supports Azure Arc-enabled data services for one year from the date of the release. This support applies to the data controller, and any supported data services. For example, this support also applies to Azure Arc-enabled SQL Managed Instance.
+Microsoft supports Azure Arc-enabled data services for one year from the date of the release. This support applies to the data controller, and any supported data services. For example, this support also applies to Azure Arc-enabled SQL Managed Instance. 
+
+For descriptions, and instructions on how to identify a version release date, see [Supported versions](upgrade-overview.md#supported-versions). 
 
 Microsoft releases new versions periodically. [Version log](version-log.md) shows the history of releases.
 
-Each release contains an image tag. Use the image tag to identify when Microsoft released the component. Microsoft supports the component for 1 full year after the release.
+To plan updates, see [Upgrade Azure Arc-enabled data services](upgrade-overview.md).
 
-### Example
+## Support by components
 
-For example, a complete image tag for the release in June, 2022 is: `v1.8.0_2022-06-1`.
+Microsoft supports Azure Arc-enabled data services, including the data controller, and the data services (like Azure Arc-enabled SQL Managed Instance) that we provide. Data services requires a Kubernetes distribution deployed in a customer operated environment. Microsoft does not provide support for the Kubernetes distribution. Support for the environment and hardware that hosts Kubernetes is provided by the operator of the environment and hardware.
 
-The image tag follows this pattern, *\<version\>_\<date\>-#*.  
-- \<version\> identifies the data services major and minor version numbers. The pattern is: **v**#.#.#
-- \<date\> identifies the year, month, and day of the release. The pattern is: YYYY-MM-DD-#. 
-- -# identifies an internal build number.
+Microsoft has worked with industry partners to validate specific distributions for Azure Arc-enabled data services. You can see a list of partners and validated solutions in [Azure Arc-enabled data services Kubernetes validation](validation-program.md).
 
-The example image released on June 6th, 2022. 
+Microsoft recommends that you run Azure Arc-enabled data services on a validated solution.
 
-Microsoft supports this release through June 5th, 2023.
+## See also
 
-> [!NOTE]
-> The latest current branch version is always in the **Full Support** servicing phase. This support statement means that if you encounter a code defect that warrants a critical update, you must have the latest current branch version installed in order to receive a fix.
+[SQL Server running in Linux containers](/troubleshoot/sql/general/support-policy-sql-server)

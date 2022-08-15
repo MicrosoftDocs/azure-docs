@@ -98,6 +98,8 @@ items:
           href: update-service-principal-credentials.md
     - name: Upgrade
       items:
+        - name: Overview
+          href: upgrade-overview.md
         - name: Indirect connectivity mode
           items:
             - name: Data controller indirect - CLI
