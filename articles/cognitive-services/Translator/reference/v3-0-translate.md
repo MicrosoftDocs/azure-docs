@@ -38,11 +38,8 @@ Request parameters passed on the query string are:
 
 ### Optional parameters
 
-
-
 | Query parameter | Description |
 | --- | --- |
-
 
 | Query parameter | Description |
 | --- | --- |
