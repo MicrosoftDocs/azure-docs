@@ -10,7 +10,7 @@ ms.date: 05/31/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sahandle
 
 ms.custom: contperf-fy21q1
