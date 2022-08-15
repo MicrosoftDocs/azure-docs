@@ -171,7 +171,7 @@ Push notifications let clients be notified for incoming messages and other opera
           android:value="androidx.startup"
           tools:node="remove" />
     </provider>
-    <!--  End of Disabling  default initializer of  WorkManager -->
+    <!-- End of Disabling default initializer of WorkManager -->
 ```
 
 10. Add worker manager dependency in build.gradle:
