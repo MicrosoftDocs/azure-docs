@@ -115,7 +115,7 @@ using System.IO;
 Console.WriteLine("Hello, World!");
 ```
 
-[!INCLUDE [storage-quickstart-credentials-free-include](./includes/storage-quickstart-credential-free-include.md)]
+[!INCLUDE [storage-quickstart-credential-free-include](../../../includes/storage-quickstart-credential-free-include.md)]
 
 ## Object model
 
