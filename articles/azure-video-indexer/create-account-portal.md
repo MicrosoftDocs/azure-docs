@@ -35,13 +35,13 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the regist
 1. In the Create an Azure Video Indexer resource section, enter required values (the descriptions follow after the image). 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/create-account-portal/avi-create-blade.png" alt-text="Image of how to create an Azure Video Indexer resource." lightbox="./media/create-account-portal/avi-create-blade.png":::
+    > :::image type="content" source="./media/create-account-portal/avi-create-blade.png" alt-text="Screenshot showing how to create an Azure Video Indexer resource." lightbox="./media/create-account-portal/avi-create-blade.png":::
     
     Here are the definitions:
     
     | Name | Description|
     |---|---|
-    |**Subscription**|Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If there are multiple choices, chose a subscription in which your user has the required role.
+    |**Subscription**|Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If there are multiple choices, choose a subscription in which your user has the required role.
     |**Resource group**|Select an existing resource group or create a new one. A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../azure-resource-manager/management/overview.md#resource-groups).|
     |**Resource name**|This will be the name of the new Azure Video Indexer account. The name can contain letters, numbers and dashes with no spaces.|
     |**Region**|Select the Azure region that will be used to deploy the Azure Video Indexer account. The region matches the resource group region you chose.  If you'd like to change the selected region, change the selected resource group or create a new one in the preferred region. [Azure region in which Azure Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
