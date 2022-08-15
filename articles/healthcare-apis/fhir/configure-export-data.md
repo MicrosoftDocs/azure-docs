@@ -69,7 +69,7 @@ The final step is to specify the ADLS Gen2 account that the FHIR service will us
 
 [![Screen shot showing user interface of FHIR Export Storage.](media/export-data/fhir-export-storage.png)](media/export-data/fhir-export-storage.png#lightbox)
 
-After you've completed this final configuration step, you're ready to export data from the FHIR service. See [How to export FHIR data](./export-data.md) for details on the FHIR service's `$export` operation.
+After you've completed this final configuration step, you're ready to export data from the FHIR service. See [How to export FHIR data](./export-data.md) for details on performing `$export` operations with the FHIR service.
 
 > [!Note]
 > Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
