@@ -34,7 +34,7 @@ When you add an associated billing tenant, you can enable one or both of the fol
 
 ## Add an associated billing tenant
 
-Before you begin, make sure you have either the tenant ID, or the primary domain name for the tenant you want to add. For more information, see [Find a tenant ID or domain name](finding-tenant-id-domain.md).
+Before you begin, make sure you have either the tenant ID, or the primary domain name for the tenant you want to add. For more information, see [Find a tenant ID or domain name](find-tenant-id-domain.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
