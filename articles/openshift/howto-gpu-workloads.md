@@ -1,6 +1,7 @@
 ---
 title: Use GPU workloads with Azure Red Hat OpenShift (ARO)
 description: Discover how to utilize GPU workloads with Azure Red Hat OpenShift (ARO)
+author: johnmarc
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, gpu, openshift, red hat
@@ -73,7 +74,7 @@ ARO supports the following GPU workers:
 
 1. Configure quota.
 
-    :::image type="content" source="media/howto-gpu-workloads/gpu-quota-azure.png" alt-text="screen shot of":::
+    :::image type="content" source="media/howto-gpu-workloads/gpu-quota-azure.png" alt-text="Screen capture of quotas page on Azure portal.":::
 
 ## Log in to your ARO cluster
 
@@ -397,7 +398,7 @@ This explains how to create the nvidia-gpu-operator name space, set up the opera
 
    Don't proceed until you have verified that the operator has finished installing. Also, ensure that your GPU worker is online.
 
-    :::image type="content" source="media/howto-gpu-workloads/nvidia-installed.png" alt-text="Screen shot of":::
+    :::image type="content" source="media/howto-gpu-workloads/nvidia-installed.png" alt-text="Screen shot of installed operators on namespace.":::
 
 #### Install Node Feature Discovery Operator
 
@@ -590,7 +591,7 @@ Official Documentation for Installing [Node Feature Discovery Operator](https://
 
    The status of this operator should show as **Available**.
 
-    :::image type="content" source="media/howto-gpu-workloads/nfd-ready-for-use.png" alt-text="Screen shot of":::
+    :::image type="content" source="media/howto-gpu-workloads/nfd-ready-for-use.png" alt-text="Screen shot of node feature discovery operator.":::
 
 #### Apply nVidia Cluster Config
 
@@ -652,7 +653,7 @@ This sections explains how to apply the nvidia cluster config. Please read the [
 
    Log in to OpenShift console and browse to operators. Ensure sure you're in the `nvidia-gpu-operator` namespace. It should say `State: Ready once everything is complete`.
 
-    :::image type="content" source="media/howto-gpu-workloads/nvidia-cluster-policy.png" alt-text="Screen shot of":::
+    :::image type="content" source="media/howto-gpu-workloads/nvidia-cluster-policy.png" alt-text="Screen shot of existing cluster policies.":::
 
 ## Validate GPU
 
@@ -673,9 +674,9 @@ It may take some time for the nVidia Operator and NFD to completely install and 
 
 1. Verify node labels.
 
-   You can see the node labels by logging into the OpenShift console -> Compute -> Nodes -> nvidia-worker-southcentralus1-<id>.  You should see multiple nvidia GPU labels and the pci-10de device from above.
+   You can see the node labels by logging into the OpenShift console -> Compute -> Nodes -> nvidia-worker-southcentralus1-.  You should see multiple nvidia GPU labels and the pci-10de device from above.
 
-    :::image type="content" source="media/howto-gpu-workloads/node-labels.png" alt-text="Screen shot of":::
+    :::image type="content" source="media/howto-gpu-workloads/node-labels.png" alt-text="Screen shot of GPU labels.":::
 
 1. Nvidia SMI tool verification.
 
@@ -686,7 +687,7 @@ It may take some time for the nVidia Operator and NFD to completely install and 
 
    You should see output that shows the GPUs available on the host such as this example screenshot. (Varies depending on GPU worker type)
 
-  :::image type="content" source="media/howto-gpu-workloads/test-gpu.png" alt-text="Screen shot of":::
+  :::image type="content" source="media/howto-gpu-workloads/test-gpu.png" alt-text="Screen shot of output showing available GPUs.":::
 
 2. Create Pod to run a GPU workload
 
