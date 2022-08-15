@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: sehan
 author: dem108
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, sdkv1, event-tier1-build-2022
@@ -166,7 +166,7 @@ Here are some things that may cause this problem:
 
 ## Best Practices
 
-* Refer to the [Load registered model](how-to-deploy-advanced-entry-script.md#load-registered-models) docs. When you register a model directory, don't include your scoring script, your mounted dependencies directory, or `requirements.txt` within that directory.
+* Refer to the [Load registered model](./v1/how-to-deploy-advanced-entry-script.md#load-registered-models) docs. When you register a model directory, don't include your scoring script, your mounted dependencies directory, or `requirements.txt` within that directory.
 
 
 * For more information on how to load a registered or local model, see [Where and how to deploy](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script).
@@ -180,6 +180,6 @@ For example, if the both the requirements.txt and score script is in **my_folder
 
 ## Next steps
 
-To learn more about deploying a model, see [How to deploy a model](how-to-deploy-and-where.md).
+To learn more about deploying a model, see [How to deploy a model](./v1/how-to-deploy-and-where.md).
 
 To learn how to troubleshoot prebuilt docker image deployments, see [how to troubleshoot prebuilt Docker image deployments](how-to-troubleshoot-prebuilt-docker-image-inference.md).

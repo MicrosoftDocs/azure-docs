@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: sehan
 author: dem108
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
@@ -48,7 +48,7 @@ The local inference server allows you to quickly debug your entry script (`score
 
 ## For common model deployment issues
 
-For problems when deploying a model from Azure Machine Learning to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS), see [Troubleshoot model deployment](how-to-troubleshoot-deployment.md).
+For problems when deploying a model from Azure Machine Learning to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS), see [Troubleshoot model deployment](./v1/how-to-troubleshoot-deployment.md).
 
 ## init() or run() failing to write a file
 
