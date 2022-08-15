@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Model lifecycle
 
-Language service features utilize AI models that are versioned. We update the language service with new model versions to improve accuracy, support, and quality. As models become older, we retire them to make room for newer models. Use this article for information on that process, and what you can expect for your applications.
+Language service features utilize AI models that are versioned. We update the language service with new model versions to improve accuracy, support, and quality. As models become older, they are retired. Use this article for information on that process, and what you can expect for your applications.
 
 ## Prebuilt features
 
