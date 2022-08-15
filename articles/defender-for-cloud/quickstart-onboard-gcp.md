@@ -385,5 +385,5 @@ Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST 
 Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:
 
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
-- [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)--Learn about the Google Cloud resource hierarchy in Google's online docs
+- [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) - Learn about the Google Cloud resource hierarchy in Google's online docs
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)
