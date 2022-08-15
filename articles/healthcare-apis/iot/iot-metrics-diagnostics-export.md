@@ -14,7 +14,7 @@ ms.author: jasteppe
 
 In this article, you'll learn how to configure the diagnostic settings for the MedTech service to export metrics to different destinations (for example: to [Azure storage](/azure/storage/) or an [Azure Event Hubs Namespace event hub](/azure/event-hubs/)) for audit, analysis, or backup.
 
-## Create diagnostic setting for the MedTech service
+## Create a diagnostic setting for the MedTech service
 1. To enable metrics export for your MedTech service, select **MedTech service** in your workspace under **Services**.
  
    :::image type="content" source="media/iot-metrics-export/iot-select-medtech-service-in-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-metrics-export/iot-select-medtech-service-in-workspace.png":::
@@ -36,8 +36,14 @@ In this article, you'll learn how to configure the diagnostic settings for the M
    :::image type="content" source="media/iot-metrics-export/iot-select-diagnostic-setting-options.png" alt-text="Screenshot diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-select-diagnostic-setting-options.png":::    
 
    1. Enter a display name in the **Diagnostic setting name** dialog box. For this example, we'll name it **MedTech_service_All_Metrics**. You'll select a display name of your own choosing.  
+   
+   2. Select the **AllMetrics** option.
 
-   2. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In this example, we've selected an Azure storage account. You'll select a destination of your own choosing.
+      > [!Note]
+      >
+      > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
+
+   3. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In this example, we've selected an Azure storage account. You'll select a destination of your own choosing.
 
       Metrics can be exported to the following destinations:
 
@@ -50,12 +56,6 @@ In this article, you'll learn how to configure the diagnostic settings for the M
    
       > [!Important]
       > Each **Destination details** selection requires that certain resources (for example, an existing Azure storage account) be created and available before the selection can be successfully configured. Choose each selection to get a list of the required resources.
-
-   3. Select the **AllMetrics** option.
-
-      > [!Note]
-      >
-      > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
    4. Select the **Save** option to save your diagnostic setting selections.
 
@@ -73,8 +73,8 @@ In this article, you'll learn how to configure the diagnostic settings for the M
 
 8. The **Diagnostic settings** page will open displaying your newly created diagnostic setting for your MedTech service. You'll have the ability to: 
    
-   1. Edit your saved MedTech service diagnostic setting. 
-   2. Create more diagnostic settings for your MedTech service (for example: you may also want to send your MedTech service metrics to another destination like a Logs Analytics workspace). 
+   1. **Edit setting**: Edit or delete your saved MedTech service diagnostic setting. 
+   2. **+ Add diagnostic setting**: Create more diagnostic settings for your MedTech service (for example: you may also want to send your MedTech service metrics to another destination like a Logs Analytics workspace). 
 
    :::image type="content" source="media/iot-metrics-export/iot-view-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options" lightbox="media/iot-metrics-export/iot-view-diagnostic-settings.png"::: 
  
