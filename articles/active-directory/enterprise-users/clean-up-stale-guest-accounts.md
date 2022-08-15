@@ -49,7 +49,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    |Scope| **Guest users only**|
    |(Optional) Review inactive guests | Check the box for **Inactive users (on tenant level) only**.<br> Enter the number of days that constitute inactivity.|
 
-    >![Screenshot shows the review type dialog for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/review-type-multi-stage-review.png)
+   ![Screenshot shows the review type dialog for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/review-type-multi-stage-review.png)
 
 5. Select **Next > Reviews**.
 
@@ -71,7 +71,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    | **Specify reviewees to go to the next stage** | | 
    | Reviewees going to the next stage | Select reviewees. For example, select users who self-approved or responded **Don't know**.
 
-    >![Screenshot shows the first stage review for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/first-stage-review-for-multi-stage-review.png)
+    ![Screenshot shows the first stage review for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/first-stage-review-for-multi-stage-review.png)
 
 7. Select **Next > Settings**.
 
@@ -88,7 +88,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    | Additional content for reviewer email | Add a custom message for reviewers |
    | All other fields| Leave the default values for the remaining options. |
 
-   >![Screenshot shows the settings dialog for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/settings-for-multi-stage-review.png)
+   ![Screenshot shows the settings dialog for multi-stage review for guests to self-attest continued access](./media/clean-up-stale-guest-accounts/settings-for-multi-stage-review.png)
 
 9. Select **Next > Review + Create**
 
@@ -154,7 +154,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 
 9. Select **Next: Review + Create**.
 
-   >![Screenshot shows the Settings dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/settings-remove-inactive-guests.png)
+   ![Screenshot shows the Settings dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/settings-remove-inactive-guests.png)
 
 10. Enter an Access Review name. Provide a description (optional).
 
