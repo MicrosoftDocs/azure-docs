@@ -102,7 +102,7 @@ While progress has been made on individual tools for specific areas of Responsib
 ### Responsible AI dashboard challenging the status quo
 The Responsible AI dashboard is the first comprehensive yet customizable tool, bringing together fragmented experiences under one roof, enabling you to seamlessly onboard to a single customizable framework for model debugging and data-driven decision making. 
 
-Using the Responsible AI dashboard, you can create dataset cohorts (subgroups of data), pass those cohorts to all of the supported components (e.g., model interpretability, data explorer, model performance, etc) and observe your model health for your identified cohorts. You can further compare insights from all supported components across a variety of pre-built cohorts to perform disaggregated analysis and find the blind spots of your model.
+Using the Responsible AI dashboard, you can create dataset cohorts (subgroups of data), pass those cohorts to all of the supported components (for example, model interpretability, data explorer, model performance, etc) and observe your model health for your identified cohorts. You can further compare insights from all supported components across a variety of pre-built cohorts to perform disaggregated analysis and find the blind spots of your model.
 
 Whenever you are ready to share those insights with other stakeholders, you can extract them easily via our [Responsible AI PDF scorecard](how-to-responsible-ai-scorecard.md)) and attach the PDF report to your compliance reports or simply share it with other colleagues to build trust and get their approval.
 
