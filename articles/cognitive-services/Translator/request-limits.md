@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 08/15/2022
 ms.author: lajanuar
 ---
 
@@ -35,7 +35,7 @@ The following table lists array element and character limits for each operation 
 
 Your character limit per hour is based on your Translator subscription tier.
 
-The hourly quota should be consumed evenly throughout the hour. ). For example, at the F0 tier limit of 2 million characters per hour, characters should be consumed no faster than roughly 33,300 characters per minute. The sliding window range is 2 million characters divided by 60 minutes.
+The hourly quota should be consumed evenly throughout the hour. For example, at the F0 tier limit of 2 million characters per hour, characters should be consumed no faster than roughly 33,300 characters per minute. The sliding window range is 2 million characters divided by 60 minutes.
 
 You're likely to receive an out-of-quota response under the following circumstances:
 
