@@ -53,7 +53,7 @@ Request parameters passed on the query string are:
 | suggestedFrom | _Optional parameter_.  <br>Specifies a fallback language if the language of the input text can't be identified. Language autodetection is applied when the `from` parameter is omitted. If detection fails, the `suggestedFrom` language will be assumed. |
 | fromScript | _Optional parameter_.  <br>Specifies the script of the input text. |
 | toScript | _Optional parameter_.  <br>Specifies the script of the translated text. |
-| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. |
+| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X → E and E → Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. |
 
 Request headers include:
 
@@ -270,7 +270,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 | ProfanityAction | Action |
 | --- | --- |
 | `NoAction` | NoAction is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a jack---. |
-| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a. |
+| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a** |
 | `Marked` | Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.  <br>  <br>For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a \\*\\*\\*.  <br>  <br>For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He's a &lt;profanity&gt;jack---&lt;/profanity&gt;. |
 
 For example:
@@ -434,4 +434,9 @@ The result is:
 ]
 ```
 
-This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you've or can afford to create training data that shows your work or phrase in context, you get much better results. [Learn more about Custom Translator](../customization.md).
+This dynamic-dictionary feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you can create training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../customization.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Try the Translator quickstart](../quickstart-translator.md)
