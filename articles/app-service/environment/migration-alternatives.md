@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 8/1/2022
+ms.date: 8/19/2022
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3
