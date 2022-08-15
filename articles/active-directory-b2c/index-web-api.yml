@@ -51,5 +51,4 @@ landingContent:
           - text: Python
             url: enable-authentication-python-web-app-options.md   
           - text: Secure Azure API Management API
-            url: secure-api-management.md                  
-            
+            url: secure-api-management.md    
