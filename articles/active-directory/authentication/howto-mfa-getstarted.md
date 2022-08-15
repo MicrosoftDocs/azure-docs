@@ -98,13 +98,13 @@ To manage your Conditional Access policies, the location condition of a Conditio
 
 ### Risk-based policies
 
-If your organization uses [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) to detect risk signals, consider using [risk-based policies](../identity-protection/howto-identity-protection-configure-risk-policies.md) instead of named locations. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign in is deemed [risky by events](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) such as leaked credentials, sign ins from anonymous IP addresses, and more. 
+If your organization uses [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) to detect risk signals, consider using [risk-based policies](../identity-protection/howto-identity-protection-configure-risk-policies.md) instead of named locations. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign in is deemed [at risk](../identity-protection/howto-identity-protection-configure-risk-policies.md) such as leaked credentials, sign ins from anonymous IP addresses, and more. 
 
 Risk policies include:
 
 - [Require all users to register for Azure AD Multi-Factor Authentication](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
-- [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
-- [Require MFA for users with medium or high sign in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
+- [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#user-risk-with-conditional-access)
+- [Require MFA for users with medium or high sign in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#sign-in-risk-with-conditional-access)
 
 ### Convert users from per-user MFA to Conditional Access based MFA
 
