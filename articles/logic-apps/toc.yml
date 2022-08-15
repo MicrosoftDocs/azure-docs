@@ -386,8 +386,8 @@
       href: plan-manage-costs.md
     - name: Move logic app resources
       href: move-logic-app-resources.md
-    - name: Migrate to latest schema
-      href: ../connectors/connectors-schema-migration.md
+    - name: Update schema for Consumption workflows
+      href: update-consumption-workflow-schema.md
   - name: Test
     items:
     - name: Test logic apps with mock data

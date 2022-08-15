@@ -1,6 +1,6 @@
 ---
-title: Migrate Consumption workflows to latest Workflow Definition Language schema
-description: Update Consumption logic app workflows to the current Workflow Definition Language schema in Azure Logic Apps.
+title: Update Consumption workflows to latest workflow schema
+description: Update Consumption logic app workflows to the latest Workflow Definition Language schema in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -36,7 +36,7 @@ When you select the option to update the schema, Azure Logic Apps automatically 
    >
    > If the **Update Schema** command is unavailable, your workflow already uses the current schema.
 
-   ![Screenshot showing Azure portal, Consumption logic app resource with "Overview" pane open, and "Update Schema" selected.](./media/connectors-schema-migration/update-schema.png)
+   ![Screenshot showing Azure portal, Consumption logic app resource with "Overview" pane open, and "Update Schema" selected.](./media/update-consumption-workflow-schema/update-schema.png)
 
    The **Update Schema** pane opens to show a link to a document that describes the improvements in the new schema.
 
