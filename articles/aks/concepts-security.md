@@ -63,7 +63,7 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 
 > [!NOTE]
 > AKS clusters using:
-> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
+> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 > * Kubernetes prior to v1.19 for Linux node pools use Docker as its container runtime. For Windows Server 2019 node pools, Docker is the default container runtime.
 
 ### Node security patches
@@ -175,7 +175,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

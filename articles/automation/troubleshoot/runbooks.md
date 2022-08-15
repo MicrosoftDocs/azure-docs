@@ -448,7 +448,7 @@ $Job = Start-AzAutomationRunbook @StartAzAutomationRunBookParameters
 $PollingSeconds = 5
 $MaxTimeout = New-TimeSpan -Hours 3 | Select-Object -ExpandProperty TotalSeconds
 $WaitTime = 0
-while((-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
+while(-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
    Start-Sleep -Seconds $PollingSeconds
    $WaitTime += $PollingSeconds
    $Job = $Job | Get-AzAutomationJob
