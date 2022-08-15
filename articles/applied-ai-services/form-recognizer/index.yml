@@ -181,8 +181,6 @@ landingContent:
             url: "concept-invoice.md#sample-labeling-tool-api-v21"
           - text:  Receipt model
             url: "concept-receipt.md#sample-labeling-tool-api-v21"
-          - text:  ID document model
-            url: "concept-id-document.md#sample-labeling-tool-api-v21"
           - text:  Business card model
             url: "concept-business-card.md#sample-labeling-tool-api-v21"
 
