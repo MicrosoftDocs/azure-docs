@@ -41,6 +41,10 @@ This example is based on using the Beeline client from [an SSH connection](../hd
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
+   > [!NOTE]  
+   > Refer to "To HDInsight Enterprise Security Package (ESP) cluster using Kerberos" part in [Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local](connect-install-beeline.md#to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos) if you are using an Enterprise Security Package (ESP) enabled cluster
+   >
+   > Dropping an external table does **not** delete the data, only the table definition.
 
 3. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
 
