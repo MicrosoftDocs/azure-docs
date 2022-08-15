@@ -12,17 +12,16 @@ ms.date: 08/11/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q1, event-tier1-build-2022
 ---
-# Manage compute targets for model training and deployment in Azure Machine Learning studio
+# Manage compute for model training and deployment in Azure Machine Learning studio
 
-In this article, learn how to manage compute targets in Azure Machine studio.  
-
+In this article, learn how to manage the compute resources you use for model training and deployment in Azure Machine studio.  
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
 * An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
-## What's a compute target? 
+## What's a compute target?
 
 With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as _compute targets_). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
