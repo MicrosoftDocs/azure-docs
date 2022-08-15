@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # How to use custom allocation policies
 
-Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. This is accomplished by using custom code in an [Azure Function](../azure-functions/functions-overview.md) to assign devices to an IoT hub. When a device registers with DPS, the service calls your Azure Function code providing all relevant information about the device and the enrollment. Your function code is executed and returns the IoT hub information used to provision the device. A custom allocation policy can determine which IoT hub a device should be assigned to and its initial twin state. The policy can also pass custom information back to the device being provisioned. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
+Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. A custom allocation policy is implemented in a webhook hosted in [Azure functions](../azure-functions/functions-overview.md) and configured on one or more individual enrollments and/or enrollment groups. When a device registers with DPS using a configured enrollment entry, DPS calls the webhook to find out which IoT hub the device should be registered to and, optionally, its initial state. To learn more, see [Using custom allocation policies with DPS](concepts-custom-allocation.md).
 
 This article demonstrates a custom allocation policy using an Azure Function written in C#. Devices are assigned to one of two IoT hubs representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
 
@@ -70,7 +70,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 3. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. 
+    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**.
 
     > [!CAUTION]
     > The example Azure Function code for the custom allocation policy requires the substring `-toasters-` in the hub name. Make sure to use a name containing the required toasters substring.

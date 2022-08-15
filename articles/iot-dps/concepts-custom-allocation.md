@@ -22,23 +22,23 @@ You implement a custom allocation policy in a webhook hosted in [Azure Functions
 
 The following steps describe how custom allocation polices work:
 
-1. A custom allocation developer deploys an Azure Function that implements the intended allocation policy. The policy is implemented as an HTTP Trigger function. It takes information about the DPS enrollment entry and the device and returns the IoT hub that the device should be registered to and, optionally, information about the device's initial state. For details, see the following steps.
+1. A custom allocation developer deploys a webhook that implements the intended allocation policy and deploys it as an HTTP Trigger function to Azure Functions. It takes information about the DPS enrollment entry and the device and returns the IoT hub that the device should be registered to and, optionally, information about the device's initial state. For details, see the following steps.
 
-1. An IoT operator configures one or more individual enrollments and/or enrollment groups for custom allocation and provides details for the custom allocation Azure Function.
+1. An IoT operator configures one or more individual enrollments and/or enrollment groups for custom allocation and provides calling details for the custom allocation webhook in Azure Functions.
 
-1. When a device registers through an enrollment entry configured for the custom allocation function, DPS sends a POST request to the Azure Function with the request body set to an **AllocationRequest** request object. The **AllocationRequest** object contains information about the device trying to provision and the individual enrollment or enrollment group it's provisioning through. The device information can include an optional custom payload sent from the device in its registration request. For more information, see [Custom allocation policy request](#custom-allocation-policy-request).
+1. When a device [registers](/rest/api/iot-dps/device/runtime-registration/register-device) through an enrollment entry configured for the custom allocation webhook, DPS sends a POST request to the webhook with the request body set to an **AllocationRequest** request object. The **AllocationRequest** object contains information about the device trying to provision and the individual enrollment or enrollment group it's provisioning through. The device information can include an optional custom payload sent from the device in its registration request. For more information, see [Custom allocation policy request](#custom-allocation-policy-request).
 
 1. The Azure Function executes and returns an **AllocationResponse** object on success. The **AllocationResponse** object that contains the IoT hub the device should be provisioned to, the initial twin state, and an optional custom payload to return to the device. For more information, see [Custom allocation policy response](#custom-allocation-policy-response).
 
-1. DPS assigns the device to the IoT hub indicated in the response, and, if an initial twin is returned, sets the initial twin for the device accordingly. If a custom payload is returned by the Azure function, it's passed to the device along with the assigned IoT hub and authentication details in the registration response from DPS.
+1. DPS assigns the device to the IoT hub indicated in the response, and, if an initial twin is returned, sets the initial twin for the device accordingly. If a custom payload is returned by the Azure function, it's passed to the device along with the assigned IoT hub and authentication details in the [registration response](/rest/api/iot-dps/device/runtime-registration/register-device#deviceregistrationresult) from DPS.
 
-1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is returned in the registration response, the device uses it according to its own logic.  
+1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is returned in the registration response, the device uses it according to its own client-side logic.  
 
 The following sections provide more detail about the custom allocation request and response, custom payloads, and policy implementation. For a complete end-to-end example of a custom allocation policy, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
 
 ## Custom allocation policy request
 
-DPS sends a POST request to your Azure Function on the following endpoint: `https://{your-function-app-name}.azurewebsites.net/api/{your-http-trigger}`
+DPS sends a POST request to your webhook on the following endpoint: `https://{your-function-app-name}.azurewebsites.net/api/{your-http-trigger}`
 
 The request body is an **AllocationRequest** object:
 
@@ -125,7 +125,7 @@ A successful request returns an **AllocationResponse** object.
 
 | Property | Description |
 |----------|-------------|
-| initialTwin | Optional. An object that contains the desired properties and tags to set in the initial twin on the assigned IoT hub. DPS uses the initialTwin property to set the initial twin on the assigned IoT hub on initial assignment or when re-provisioning if the enrollment entry's migration policy is set to *Re-provision and reset to initial config*. In both of these cases, if the initialTwin is not returned or is set to null, DPS sets the twin on the assigned IoT hub to the initial twin settings in the enrollment entry. DPS ignores the initialTwin for all other re-provisioning settings in the enrollment entry. To learn more, see [Implementation](#implementation-details). |
+| initialTwin | Optional. An object that contains the desired properties and tags to set in the initial twin on the assigned IoT hub. DPS uses the initialTwin property to set the initial twin on the assigned IoT hub on initial assignment or when re-provisioning if the enrollment entry's migration policy is set to *Re-provision and reset to initial config*. In both of these cases, if the initialTwin is not returned or is set to null, DPS sets the twin on the assigned IoT hub to the initial twin settings in the enrollment entry. DPS ignores the initialTwin for all other re-provisioning settings in the enrollment entry. To learn more, see [Implementation details](#implementation-details). |
 | iotHubHostName | Required. The hostname of the IoT hub to assign the device to. This must be one of the IoT hubs passed in the **linkedHubs** property in the request. |
 | payload | Optional. An object that contains data to be passed back to the device in the Registration response. The exact data will depend on the implicit contract defined by the developer between the device and the custom allocation function. |
 
@@ -216,7 +216,7 @@ The following JSON shows a webhook response that includes a payload:
 
 ### DPS sends data payload to device
 
-If DPS receives a payload in the webhook response, it passes this data back to the device in the **RegistrationOperationStatus.registrationState.payload** property in the response on a successful registration. **registrationState** property is of type [DeviceRegistrationResult](/rest/api/iot-dps/device/runtime-registration/register-device#deviceregistrationresult).
+If DPS receives a payload in the webhook response, it passes this data back to the device in the **RegistrationOperationStatus.registrationState.payload** property in the response on a successful registration. The **registrationState** property is of type [DeviceRegistrationResult](/rest/api/iot-dps/device/runtime-registration/register-device#deviceregistrationresult).
 
 The following JSON shows a successful registration response for a TPM device that includes the **payload** property:
 
@@ -237,7 +237,9 @@ The following JSON shows a successful registration response for a TPM device tha
 
 ## Implementation details
 
-This section describes the requirements that your custom allocation webhook must observe and behavior that you should be aware of when designing your webhook. The custom allocation webhook can be called for a device that has not been previously registered through DPS (initial assignment) or for a device that has previously registered through DPS (reprovisioning). DPS supports the following reprovisioning policies: *Re-provision and migrate data*, *Re-provision and reset to initial config*, and *Never re-provision*. These policies are applied whenever a previously provisioned device is assigned to a new IoT hub. For more details, see [Reprovisioning](concepts-device-reprovision.md).
+The custom allocation webhook can be called for a device that has not been previously registered through DPS (initial assignment) or for a device that has been previously registered through DPS (reprovisioning). DPS supports the following reprovisioning policies: *Re-provision and migrate data*, *Re-provision and reset to initial config*, and *Never re-provision*. These policies are applied whenever a previously provisioned device is assigned to a new IoT hub. For more details, see [Reprovisioning](concepts-device-reprovision.md).
+
+The following points describe the requirements that your custom allocation webhook must observe and behavior that you should be aware of when designing your webhook:
 
 * The device should be assigned to one of the IoT hubs in the **AllocationRequest.linkedHubs** property. This property contains a list of IoT hubs by hostname that the device can be assigned to. This is typically composed of the IoT hubs selected for the enrollment entry; however, if the device is reprovisioning and the *Never re-provision* policy is set on the enrollment entry, only the IoT hub that the device is currently assigned to will appear in the list.
 
@@ -257,3 +259,9 @@ This section describes the requirements that your custom allocation webhook must
             "migrateDeviceData":true
          }
    ```
+
+## Next Steps
+
+* For an end-to-end example using a custom allocation policy, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md)
+
+* To learn more about Azure Functions, see the [Azure Functions documentation](../azure-functions/index.yml)
