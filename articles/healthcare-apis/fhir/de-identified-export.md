@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 08/15/2022
 ms.author: ranku
 ---
 # Exporting de-identified data
@@ -50,15 +50,15 @@ For detailed information on each of the four sections of the configuration file,
 
 ## Using the `$export` endpoint for de-identifying data 
 
-The API call below demonstrates how to form a request for de-identified export from the FHIR service.
+The API call below demonstrates how to form a request for de-id on export from the FHIR service.
 
 ```
 GET https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>
 ```
 
-You will need to create a container for de-identified export within your ADLS Gen2 storage account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
+You will need to create a container for the de-identified export within your ADLS Gen2 storage account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
 
-It is common practice to name the container `anonymization` and the JSON file within the container — `anonymizationConfig.json`.
+It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
 
 > [!Note] 
 > Right now the FHIR service only supports de-identified export at the system level (`$export`).
