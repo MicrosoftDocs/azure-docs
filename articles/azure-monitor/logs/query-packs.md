@@ -3,7 +3,7 @@ title: Query packs in Azure Monitor
 description: Query packs in Azure Monitor provide a way to share collections of log queries in multiple Log Analytics workspaces. 
 ms.subservice: logs
 ms.topic: conceptual
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: roygal
 ms.date: 06/22/2022
