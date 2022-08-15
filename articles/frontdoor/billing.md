@@ -103,8 +103,8 @@ The following billing meters are incremented:
 | Meter | Incremented by | Billing region |
 |-|-|-|
 | Number of requests from client to Front Door | 1 | North America |
-| Data transfer from Front Door edge to origin | 1 KB | North America pricing |
-| Data transfer from Front Door to client | 100 KB | North America pricing |
+| Data transfer from Front Door edge to origin | 1 KB | North America |
+| Data transfer from Front Door to client | 100 KB | North America |
 
 Azure App Service might charge other fees.
 
