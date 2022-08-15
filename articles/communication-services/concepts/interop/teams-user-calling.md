@@ -111,6 +111,7 @@ The following list presents the set of Teams capabilities, which are currently a
 |                         | Transfer a call from Teams call queue (only conference mode)                         |   ✔️      |
 | Compliance              | Place a call honors information barriers                                             |   ✔️      |
 |                         | Support for compliance recording                                                     |   ✔️      |
+| Meeting                 | [Include participant in Teams meeting attendance report](/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ❌ |
 
 
 ## Teams meeting options
