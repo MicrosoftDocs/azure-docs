@@ -37,7 +37,7 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 When you deploy a model to non-local compute in Azure Machine Learning, the following things happen:
 
 1. The Dockerfile you specified in your Environments object in your InferenceConfig is sent to the cloud, along with the contents of your source directory
-1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your workspace's default container registry.
+1. If a previously built image isn't available in your container registry, a new Docker image is built in the cloud and stored in your workspace's default container registry.
 1. The Docker image from your container registry is downloaded to your compute target.
 1. Your workspace's default Blob store is mounted to your compute target, giving you access to registered models
 1. Your web server is initialized by running your entry script's `init()` function
@@ -108,11 +108,11 @@ The local inference server allows you to quickly debug your entry script (`score
 > [!NOTE]
 > [**Learn frequently asked questions**](../how-to-inference-server-http.md#frequently-asked-questions) about Azure machine learning Inference HTTP server.
 
-## Container cannot be scheduled
+## Container can't be scheduled
 
 When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
 
-The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that do not have available GPUs. This could be addressed by adding more nodes if you are using a GPU SKU, switching to a GPU enabled SKU if you are not or changing your environment to not require GPUs.  
+The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that don't have available GPUs. This could be addressed by adding more nodes if you're using a GPU SKU, switching to a GPU enabled SKU if you aren't or changing your environment to not require GPUs.  
 
 ## Service launch fails
 
@@ -128,7 +128,7 @@ The most common failure for `azureml-fe-aci` is that the provided SSL certificat
 
 ## Function fails: get_model_path()
 
-Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
+Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder can't be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -139,7 +139,7 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-This example prints out the local path (relative to `/var/azureml-app`) in the container where your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it is expected to be.
+This example prints the local path (relative to `/var/azureml-app`) in the container where your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it's expected to be.
 
 Setting the logging level to DEBUG may cause additional information to be logged, which may be useful in identifying the failure.
 
@@ -160,7 +160,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Note**: Returning error messages from the `run(input_data)` call should be done for debugging purpose only. For security reasons, you should not return error messages this way in a production environment.
+**Note**: Returning error messages from the `run(input_data)` call should be done for debugging purpose only. For security reasons, you shouldn't return error messages this way in a production environment.
 
 ## HTTP status code 502
 
@@ -168,9 +168,9 @@ A 502 status code indicates that the service has thrown an exception or crashed 
 
 ## HTTP status code 503
 
-Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support additional load. The autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create additional containers.
+Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support extra load. The autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers.
 
-Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds `autoscale_target_utilization`, then more replicas are created. If it is lower, then replicas are reduced. Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute). By default, autoscaling target utilization is set to **70%**, which means that the service can handle spikes in requests per second (RPS) of **up to 30%**.
+Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds `autoscale_target_utilization`, then more replicas are created. If it's lower, then replicas are reduced. Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute). By default, autoscaling target utilization is set to **70%**, which means that the service can handle spikes in requests per second (RPS) of **up to 30%**.
 
 There are two things that can help prevent 503 status codes:
 
@@ -182,7 +182,7 @@ There are two things that can help prevent 503 status codes:
     > [!IMPORTANT]
     > This change does not cause replicas to be created *faster*. Instead, they are created at a lower utilization threshold. Instead of waiting until the service is 70% utilized, changing the value to 30% causes replicas to be created when 30% utilization occurs.
     
-    If the web service is already using the current max replicas and you are still seeing 503 status codes, increase the `autoscale_max_replicas` value to increase the maximum number of replicas.
+    If the web service is already using the current max replicas and you're still seeing 503 status codes, increase the `autoscale_max_replicas` value to increase the maximum number of replicas.
 
 * Change the minimum number of replicas. Increasing the minimum replicas provides a larger pool to handle the incoming spikes.
 
@@ -214,7 +214,7 @@ For more information on setting `autoscale_target_utilization`, `autoscale_max_r
 
 A 504 status code indicates that the request has timed out. The default timeout is 1 minute.
 
-You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a non-responsive state or an infinite loop.
+You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, use the information in this article to debug the score.py file. The code may be in a non-responsive state or an infinite loop.
 
 ## Other error messages
 
@@ -225,12 +225,12 @@ Take these actions for the following errors:
 | 409 conflict error| When an operation is already in progress, any new operation on that same web service will respond with 409 conflict error. For example, If create or update web service operation is in progress and if you trigger a new Delete operation it will throw an error. |
 |Image building failure when deploying web service     |  Add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Change the SKU for VMs used in your deployment to one that has more memory. |
-|FPGA failure     |  You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai       |
+|FPGA failure     |  You won't be able to deploy models on FPGAs until you've requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai       |
 
 
 ## Advanced debugging
 
-You may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container.
+You may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason can't be determined by extra logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container.
 
 For more information, visit the [interactive debugging in VS Code guide](../how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 

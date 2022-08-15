@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 08/15/2022
 ms.topic: how-to
 ms.devlang: csharp, golang, java, python
 ms.custom: devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022
@@ -43,7 +43,7 @@ The [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%2
 * `scoring_uri` - The REST API address.
 * `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
-There are a several ways to retrieve this information for deployed web services:
+There are several ways to retrieve this information for deployed web services:
 
 # [Python](#tab/python)
 
@@ -127,10 +127,10 @@ The primary difference between keys and tokens is that **keys are static and can
 
 When you enable authentication for a deployment, you automatically create authentication keys.
 
-* Authentication is enabled by default when you are deploying to Azure Kubernetes Service.
-* Authentication is disabled by default when you are deploying to Azure Container Instances.
+* Authentication is enabled by default when you're deploying to Azure Kubernetes Service.
+* Authentication is disabled by default when you're deploying to Azure Container Instances.
 
-To control authentication, use the `auth_enabled` parameter when you are creating or updating a deployment.
+To control authentication, use the `auth_enabled` parameter when you're creating or updating a deployment.
 
 If authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
 
@@ -146,10 +146,10 @@ print(primary)
 
 When you enable token authentication for a web service, a user must provide an Azure Machine Learning JWT token to the web service to access it. 
 
-* Token authentication is disabled by default when you are deploying to Azure Kubernetes Service.
-* Token authentication is not supported when you are deploying to Azure Container Instances.
+* Token authentication is disabled by default when you're deploying to Azure Kubernetes Service.
+* Token authentication isn't supported when you're deploying to Azure Container Instances.
 
-To control token authentication, use the `token_auth_enabled` parameter when you are creating or updating a deployment.
+To control token authentication, use the `token_auth_enabled` parameter when you're creating or updating a deployment.
 
 If token authentication is enabled, you can use the `get_token` method to retrieve a bearer token and that tokens expiration time:
 
@@ -169,7 +169,7 @@ az ml service get-access-token -n <service-name>
 > [!IMPORTANT]
 > Currently the only way to retrieve the token is by using the Azure Machine Learning SDK or the Azure CLI machine learning extension.
 
-You will need to request a new token after the token's `refresh_by` time. 
+You'll need to request a new token after the token's `refresh_by` time. 
 
 ## Request data
 

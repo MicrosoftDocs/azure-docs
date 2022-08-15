@@ -119,7 +119,7 @@ def run(Inputs, GlobalParameters):
 > return result
 > ```
 
-## <a id="binary-data"></a> Binary (i.e. image) data
+## <a id="binary-data"></a> Binary (that is, image) data
 
 If your model accepts binary data, like an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
 
@@ -166,7 +166,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-The `AMLRequest` class only allows you to access the raw posted data in the score.py, there is no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
+The `AMLRequest` class only allows you to access the raw posted data in the score.py, there's no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
 
 ```python
 import requests
@@ -282,7 +282,7 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 
 In this scenario, two models are registered with the workspace:
 
-* `my_first_model`: Contains one file (`my_first_model.pkl`) and there is only one version (`1`).
+* `my_first_model`: Contains one file (`my_first_model.pkl`) and there's only one version (`1`).
 * `my_second_model`: Contains one file (`my_second_model.pkl`) and there are two versions; `1` and `2`.
 
 When the service was deployed, both models are provided in the deploy operation:
@@ -333,6 +333,6 @@ More entry script examples for specific machine learning use cases can be found 
 * [Update web service](how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](../how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)

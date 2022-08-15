@@ -189,7 +189,7 @@ You can download the model:
 - From the command line, by using `az ml model download`. (See [model download.](/cli/azure/ml/model#az-ml-model-download))
 - By using the Python SDK `Model.download()` method. (See [Model class.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-))
 
-An Azure model may be in whatever form your framework uses but is generally one or more serialized Python objects, packaged as a Python pickle file (.pkl extension). The contents of the pickle file depend on the machine learning library or technique used to train the model. For example, if you're using the model from the tutorial, you might load the model with:
+An Azure model may be in whatever form your framework uses but is generally one or more serialized Python objects, packaged as a Python pickle file (`.pkl` extension). The contents of the pickle file depend on the machine learning library or technique used to train the model. For example, if you're using the model from the tutorial, you might load the model with:
 
 ```python
 import pickle
@@ -208,7 +208,7 @@ myenv.build_local(workspace=ws, useDocker=False) #Creates conda environment.
 
 If you set the `build_local()` `useDocker` argument to `True`, the function will create a Docker image rather than a conda environment. If you want more control, you can use the `save_to_directory()` method of `Environment`, which writes conda_dependencies.yml and azureml_environment.json definition files that you can fine-tune and use as the basis for extension. 
 
-The `Environment` class has a number of other methods for synchronizing environments across your compute hardware, your Azure workspace, and Docker images. For more information, see [Environment class](/python/api/azureml-core/azureml.core.environment(class)).
+The `Environment` class has many other methods for synchronizing environments across your compute hardware, your Azure workspace, and Docker images. For more information, see [Environment class](/python/api/azureml-core/azureml.core.environment(class)).
 
 After you download the model and resolve its dependencies, there are no Azure-defined restrictions on how you perform scoring, fine-tune the model, use transfer learning, and so forth. 
 
@@ -216,7 +216,7 @@ After you download the model and resolve its dependencies, there are no Azure-de
 
 If you have a locally trained or retrained model, you can register it with Azure. After it's registered, you can continue tuning it by using Azure compute or deploy it by using Azure facilities like [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](../how-to-deploy-with-triton.md).
 
-To be used with the Azure Machine Learning Python SDK, a model must be stored as a serialized Python object in pickle format (a .pkl file). It must also implement a `predict(data)` method that returns a JSON-serializable object. For example, you might store a locally trained scikit-learn diabetes model with: 
+To be used with the Azure Machine Learning Python SDK, a model must be stored as a serialized Python object in pickle format (a `.pkl` file). It must also implement a `predict(data)` method that returns a JSON-serializable object. For example, you might store a locally trained scikit-learn diabetes model with: 
 
 ```python
 import joblib
