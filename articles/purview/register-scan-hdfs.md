@@ -29,6 +29,8 @@ When scanning HDFS source, Microsoft Purview supports extracting technical metad
 
 When setting up scan, you can choose to scan the entire HDFS or selective folders. Learn about the supported file format [here](microsoft-purview-connector-overview.md#file-types-supported-for-scanning).
 
+The connector uses *webhdfs* protocol to connect to HDFS and retrieve metadata. MapR Hadoop distribution is not supported.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
