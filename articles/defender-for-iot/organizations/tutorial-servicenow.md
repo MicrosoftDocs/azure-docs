@@ -15,13 +15,13 @@ A new [Operational Technology Manager](https://store.servicenow.com/sn_appstore_
 
 Once you have the Operational Technology Manager application, two new integrations are available:
 
-## Service Graph Connector (SGC)
+### Service Graph Connector (SGC)
 
 Import Microsoft Defender for IoT sensors with additional attributes, including connection details and Purdue model zones, into the Network Intrusion Detection Systems (NIDS) class. Provide visibility into your OT network status and manage it within the ServiceNow application.
 
 For more information, please see the [Service Graph Connector (SGC)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) information on the ServiceNow store.
 
-## Vulnerability Response (VR)
+### Vulnerability Response (VR)
 
 Track and resolve vulnerabilities of your OT assets with the data imported from Defender for IoT into the ServiceNow Operational Technology Vulnerability Response application.
 
