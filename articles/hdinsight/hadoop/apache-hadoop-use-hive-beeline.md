@@ -42,7 +42,7 @@ This example is based on using the Beeline client from [an SSH connection](../hd
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
    > [!NOTE]  
-   > Refer to [Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local](https://docs.microsoft.com/azure/hdinsight/hadoop/connect-install-beeline#to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos) if you are using an Enterprise Security Package enabled cluster
+   > Refer to [Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local](../connect-install-beeline#to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos) if you are using an Enterprise Security Package enabled cluster
    >
    > Dropping an external table does **not** delete the data, only the table definition.
 
