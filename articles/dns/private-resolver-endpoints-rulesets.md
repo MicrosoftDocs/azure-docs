@@ -2,18 +2,29 @@
 title: Azure DNS Private Resolver endpoints and rulesets
 description: In this article, understand the Azure DNS Private Resolver endpoints and rulesets
 services: dns
-ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
-ms.topic: article
-ms.date: 08/10/2022
+ms.topic: conceptual
+ms.date: 08/15/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
 
 # Azure DNS Private Resolver endpoints and rulesets
 
-## How it works
+In this article, you will learn about components of the [Azure DNS Private Resolver](dns-private-resolver-overview.md). Inbound endpoints, outbound endpoints, and DNS forwarding rulesets are discussed. Properties and settings of these components are described, and examples are provided for how to use them. 
+
+## Inbound endpoints
+
+
+
+## Outbound endpoints
+
+## DNS Forwarding Rulesets
+
+### Rules
+
+### Virtual Network Links
 
 
 ## Next steps
