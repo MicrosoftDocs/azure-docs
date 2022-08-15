@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Experience for users in Teams client
+# Experience for users in Teams client interacting with Teams users
 Teams users calling users in the same organization or joining Teams meetings organized in the same organization will be represented in Teams client as any other Teams user. Teams users calling users in trusted organizations or joining Teams meetings organized in trusted organizations will be represented in Teams clients as Teams users from different organizations. Teams users from the other organizations will be marked as "external" in the participant's lists as Teams clients. As Teams users from a trusted organization, their capabilities in the Teams meetings will be limited regardless of the assigned Teams meeting role.
 
 The following image shows Teams user joining Teams meeting in the same organization:
@@ -22,4 +22,4 @@ The following image shows Teams users joining Teams meetings organized by differ
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with calling](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+> [Get started with calling](../../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
