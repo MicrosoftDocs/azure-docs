@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/02/2022
+ms.date: 08/15/2022
 ms.author: ranku
 ms.custom: subject-rbac-steps
 ---
