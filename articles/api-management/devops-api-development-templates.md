@@ -91,7 +91,7 @@ We've seen the greatest success in customer deployments, and recommend the follo
 [2]: https://www.openapis.org/
 [3]: https://graphql.org/learn/schema/
 [4]: https://github.com/Azure/azure-api-management-devops-resource-kit
-[5]: https://github.com/Azure/API Ops
+[5]: https://github.com/Azure/APIOps
 [6]: https://github.com/mirsaeedi/dotnet-apim
 [7]: https://www.terraform.io/
 [8]: https://code.visualstudio.com/
