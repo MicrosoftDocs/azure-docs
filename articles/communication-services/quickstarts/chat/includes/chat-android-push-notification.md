@@ -8,7 +8,7 @@ Push notifications let clients be notified for incoming messages and other opera
 1. Set up Firebase Cloud Messaging for the ChatQuickstart project. Complete steps `Create a Firebase project`, `Register your app with Firebase`, `Add a Firebase configuration file`, `Add Firebase SDKs to your app`, and `Edit your app manifest` in [Firebase Documentation](https://firebase.google.com/docs/cloud-messaging/android/client).
 
 2. Create a Notification Hub within the same subscription as your Communication Services resource, configure your Firebase Cloud Messaging settings for the hub, and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../../../concepts/notifications.md#notification-hub-provisioning).
-3. Create a new file `MyFirebaseMessagingService.java` in the same path of file `MainActivity.java`. Copy the following code into file `MyFirebaseMessagingService.java`. You need to replace `<your_package_name>` with the package name used in `MainActivity.java`. You can use your own value for `<your_intent_name>`. This value would be used in step 6 below.
+3. Create a new file called `MyFirebaseMessagingService.java` in the same directory where `MainActivity.java` resides. Copy the following code into `MyFirebaseMessagingService.java`. You will need to replace `<your_package_name>` with the package name used in `MainActivity.java`. You can use your own value for `<your_intent_name>`. This value will be used in step 6 below.
 
    ```java
       package <your_package_name>;
