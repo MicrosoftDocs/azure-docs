@@ -17,7 +17,7 @@ This article describes how to integrate partner network ground stations.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active contract with the partner network(s) you wish to integrate with Azure Orbital.
-- KSAT Lite
+- [KSAT Lite] (https://azuremarketplace.microsoft.com/marketplace/apps/kongsbergsatelliteservicesas1657024593438.ksatlite?tab=overview)
 - [Viasat RTE](https://azuremarketplace.microsoft.com/marketplace/apps/viasatinc1628707641775.viasat-real-time-earth?tab=overview)
 
 ## Request integration resource information
