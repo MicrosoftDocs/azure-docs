@@ -25,9 +25,11 @@ App access allows you to configure if access is available thought the default (p
 
 ## Site access
 
-Site access restrictions let you filter the incoming requests. Site access restrictions allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can also configure the behavior when no rules are matched (the default action). If the setting has never been configured, the unmatched rule behavior is to allow all access unless one or more rules exists after which it will be implicitly changed to deny all access. You can explicitly configure this behavior to either allow or deny access regardless of defined rules.
+Site access restrictions let you filter the incoming requests. Site access restrictions allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. Site access restriction has several types of rules that you can apply:
 
-Site access restriction has several types of rules that you can apply: 
+### Unmatched rule
+
+You can configure the behavior when no rules are matched (the default action). It is a special rule that will always appear as the last rule of the rules collection. If the setting has never been configured, the unmatched rule behavior is to allow all access unless one or more rules exists after which it will be implicitly changed to deny all access. You can explicitly configure this behavior to either allow or deny access regardless of defined rules.
 
 ### IP-based access restriction rules
 
@@ -59,6 +61,8 @@ To learn how to enable this feature, see [Configuring access restrictions](./app
 
 ### Advanced access restriction rule types
 
+These rule types solves a few very specific use cases.
+
 #### Any service endpoint source
 
 For testing or in very specific scenarios, you may want to allow traffic from any service endpoint enabled subnet. You can do that by defining an IP-based rule with the text "AnyVnets" instead of an IP range. You cannot create these rules in the portal, but you can modify an existing IP-based rule and replace the IP address with the "AnyVnets" string.
@@ -77,14 +81,36 @@ For any rule, regardless of type, you can add additional http header filtering. 
 
 * **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid CIDR values.
 * **X-Forwarded-Host**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) for identifying the original host requested by the client. Accepts any string up to 64 characters in length.
-* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the proxy host. Azure Front Door will send a guid identifying the instance, but it can also be used by 3rd party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
-* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the health probe of the proxy backend. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by 3rd party proxies to identify health probes. Accepts any string up to 64 characters in length.
+* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the reverse proxy instance. Azure Front Door will send a guid identifying the instance, but it can also be used by 3rd party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
+* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the health probe of the reverse proxy. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by 3rd party proxies to identify health probes. Accepts any string up to 64 characters in length.
 
 Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name
 * Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
 
 ## Advanced use cases
+
+A few use cases are worth pointing out. 
+
+### Block a single IP address
+
+If you want to deny/block one or more specific IP addresses, you can add the IP addresses as deny rules and configure the unmatched rule to allow all unmatched traffic.
+
+### Restrict access to the advanced tools site
+
+The advanced tools site, which is also known as scm or kudu, has an individual rules collection that you can configure. You can also configure the unmatched rule for this site. A setting will also allow you to use the rules configured for the main site.
+
+### Deploy through a private endpoint
+
+You might have a site that is publicly accessible, but your deployment system is in a virtual network. You can keep the deployment traffic private by adding a private endpoint. You then need to ensure that public app access is enabled. Finally you need to set the unmatched rule for the advanced tools site to deny, which will block all public traffic to that endpoint.
+
+### Allow external partner access to private endpoint protected site
+
+In this scenario, you are accessing your site through a private endpoint and are deploying through a private endpoint. You may want to temporarily invite an external partner to test the site. You can do that by enabling public app access. Add a rule (IP-based) to identify the client of the partner. Configure unmatched rules action to deny for both main and advanced tools site. 
+
+### Restrict access to a specific Azure Front Door instance
+
+Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you will need to further filter the incoming requests based on the unique http header that Azure Front Door sends called X-Azure-FDID. You can find the Front Door ID in the portal.
 
 ## Next steps
 
