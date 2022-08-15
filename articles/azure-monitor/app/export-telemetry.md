@@ -269,9 +269,9 @@ To migrate to diagnostic settings export:
 3. [Enable diagnostic settings export](create-workspace-resource.md#export-telemetry). Select **Diagnostic settings > add diagnostic setting** from within your Application Insights resource.
 
 > [!CAUTION]
-> If you want to store diagnostic logs in a Log Analytics workspace, there are two things to consider to avoid seeing duplicates in Application Insights:
-> * Make sure the destination is not the same Log Analytics workspace that your Application Insights resource is based on.
-> * Set the Access Control mode to workspace-based and make sure the Application Insights user does not have access to the workspace you created for diagnostic logs.
+> If you want to store diagnostic logs in a Log Analytics workspace, there are two things to consider to avoid seeing duplicate data in Application Insights:
+> * The destination is not the same Log Analytics workspace that your Application Insights resource is based on.
+> * The Application Insights user does not have access to the workspace created for diagnostic logs. This can be done with [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
 
 <!--Link references-->
 
