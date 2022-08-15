@@ -13,6 +13,8 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 In this article, you'll learn to block high risk network ports using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You'll walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create & deploy security admin configurations for your organization. You'll deploy a general block rule for high risk ports. Then you'll create an exception for managing a specific application's VNet. This allows you to manage access to the application VNets using network security groups.
 
+While this article focuses on a single port, SSH, you can use protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
+
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
