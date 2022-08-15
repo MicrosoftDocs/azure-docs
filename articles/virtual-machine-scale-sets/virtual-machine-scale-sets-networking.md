@@ -133,15 +133,14 @@ To create a scale set using an Azure template, make sure the API version of the 
 "publicIpAddressConfiguration": {
     "name": "pub1",
     "sku" {
-      "name": "Standard",
-      "tier": "Regional"
+      "name": "Standard"
     },
     "properties": {
       "idleTimeoutInMinutes": 15
     }
 }
 ```
-Note when virtual machine scale sets with public IPs per instance are created with a load balancer in front, the SKU of the instance IPs is determined by the SKU of the Load Balancer (i.e. Basic or Standard).  If the virtual machine scale set is created without a load balancer, the SKU of the instance IPs can be set directly by using the SKU section of the template as shown above.
+Note when virtual machine scale sets with public IPs per instance are created with a load balancer in front, the of the instance IPs is determined by the SKU of the Load Balancer (i.e. Basic or Standard).  If the virtual machine scale set is created without a load balancer, the SKU of the instance IPs can be set directly by using the SKU section of the template as shown above.
 
 Example template using a Basic Load Balancer: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
 
