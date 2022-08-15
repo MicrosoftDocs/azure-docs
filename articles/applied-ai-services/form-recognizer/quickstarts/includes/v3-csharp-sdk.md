@@ -16,11 +16,11 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD029 -->
 
-[Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 In this quickstart, you'll use the following features to analyze and extract data and values from forms and documents:
 
-* [ **General document model**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [**General document model**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -44,44 +44,6 @@ In this quickstart, you'll use the following features to analyze and extract dat
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
-
-<!---
-### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
-
-```console
-dotnet new console -n formrecognizer-quickstart
-```
-
-Open a command line and switch to the directory that contains your project file. Build the application with:
-
-```console
-dotnet build
-```
-
-The build output should contain no warnings or errors.
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-### Install the client library with NuGet
-
-In the directory that contains your project, install the Form Recognizer client library for .NET with the following command:
-
-```console
-dotnet add package Azure.AI.FormRecognizer
-```
-
-This version of the client library defaults to the 2021-09-30-preview version of the service.
-
-### [Option 2: Visual Studio](#tab/vs)
---->
 
 1. Start Visual Studio.
 
@@ -111,7 +73,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
      :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
- 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.4*** from the dropdown menu and install the package in your project.
+ 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.5** from the dropdown menu and install the package in your project.
 <!-- --- -->
 
 ## Build your application

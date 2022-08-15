@@ -25,10 +25,10 @@ Form Recognizer SDK supports the following languages and platforms:
 
 | Programming language | Package| Reference |Platform support |
 |:----------------------:|:----------|:----------| :----------------|
-|[C#](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [.NET](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true) |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
-|[Java](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Node.js](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Python](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+|[C#](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [.NET](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) |[Windows, macOS, Linux, Docker](/dotnet.microsoft.com/download)|
+|[Java](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true)|[Windows, macOS, Linux](/java/openjdk/install)|
+|[JavaScript](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Node.js](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-latest&preserve-view=true) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[Python](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Python](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python&preserve-view=true) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## How to use the Form Recognizer SDK in your applications
 
@@ -304,5 +304,5 @@ The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overf
 > [**Try the Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [**Explore the Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+> [**Explore the Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 

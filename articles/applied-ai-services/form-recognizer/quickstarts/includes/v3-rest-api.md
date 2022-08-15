@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Form Recognizer REST API v3.0 | v3.0"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0 
+description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,7 +11,7 @@ ms.date: 08/16/2022
 ms.author: lajanuar
 ---
 
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
+| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
 
 In this quickstart you'll, use the Form Recognizer REST API to analyze and extract data and values from forms and documents:
 
@@ -25,13 +25,13 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
 * **PowerShell version 7.*+** (or a similar command-line application.):
-    * [Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true) 
-    * [macOS](/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2&preserve-view=true)
-    * [Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2&preserve-view=true)
-     
+  * [Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true)
+  * [macOS](/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2&preserve-view=true)
+  * [Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2&preserve-view=true)
+
 * To check your PowerShell version, type the following:
-    * Windows: `Get-Host | Select-Object Version`
-    * macOS or Linux: `$PSVersionTable`
+  * Windows: `Get-Host | Select-Object Version`
+  * macOS or Linux: `$PSVersionTable`
 
 * A Form Recognizer (single-service) or Cognitive Services (multi-service) resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -64,7 +64,7 @@ Before you run the cURL command, make the following changes:
 #### POST request
 
 ```bash
-curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-06-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### Reference table
@@ -88,7 +88,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-location*
 
 ### Get analyze results (GET Request)
 
-After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{POST response}` Operation-location header from the [POST response](#post-response).
 

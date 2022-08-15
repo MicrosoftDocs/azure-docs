@@ -7,12 +7,11 @@ manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 08/16/2022
 ms.author: sajagtap
-ms.custom: ignite-fall-2021
 ---
 
-# Form Recognizer Studio 
+# Form Recognizer Studio
 
 [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pre-trained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-v3-sdk-rest-api.md) and other quickstarts.
 
