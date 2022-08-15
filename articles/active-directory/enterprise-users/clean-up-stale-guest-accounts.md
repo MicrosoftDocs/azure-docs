@@ -122,7 +122,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    
    ![Screenshot shows the review type dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/review-type-remove-inactive-guests.png)
 
-5. Select **Next: Reviews**.
+5. Select **Next > Reviews**.
 
 6. Configure Reviews:
 
@@ -136,7 +136,7 @@ Use the following instructions to learn how to create Access Reviews that follow
    | Start date | Select a date |
    | End | Choose an option |
 
-7. Select **Next: Settings**.
+7. Select **Next > Settings**.
 
    ![Screenshot shows the Reviews dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/reviews-remove-inactive-guests.png)
 
@@ -154,7 +154,7 @@ Use the following instructions to learn how to create Access Reviews that follow
 
    ![Screenshot shows the Settings dialog to remove inactive external guests](./media/clean-up-stale-guest-accounts/settings-remove-inactive-guests.png)
 
-9. Select **Next: Review + Create**.
+9. Select **Next > Review + Create**.
 
 10. Enter an Access Review name. Provide a description (optional).
 
