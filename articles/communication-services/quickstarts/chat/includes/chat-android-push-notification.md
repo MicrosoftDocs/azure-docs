@@ -148,7 +148,7 @@ Push notifications let clients be notified for incoming messages and other opera
    });
 ```
 
-8. Adding xmlns:tools field in AndroidManifest.xml:
+8. Add the `xmlns:tools` field to the `AndroidManifest.xml` file:
 
 ```
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
