@@ -48,7 +48,7 @@ If issue occurs while you try to remove a system-assigned identity, please [crea
 
 ## Enabling the key vault firewall
 
-If you enable a key vault firewall or virtual network after creating an encrypted registry, you might see HTTP 403 or other errors with image import or automated key rotation. To correct this problem, reconfigure the managed identity and key you used initially for encryption. See steps in [Rotate a customer managed key.](tutorial-rotate-revoke-customer-managed-keys#rotate-a-customer-managed-key)
+If you enable a key vault firewall or virtual network after creating an encrypted registry, you might see HTTP 403 or other errors with image import or automated key rotation. To correct this problem, reconfigure the managed identity and key you used initially for encryption. See steps in [Rotate a customer managed key.](tutorial-rotate-revoke-customer-managed-keys.md#rotate-a-customer-managed-key)
 
 If the problem persists, please contact Azure Support.
 
