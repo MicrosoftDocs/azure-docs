@@ -19,53 +19,81 @@ adobe-target: true
 
 # Leave an organization as an external user
 
-You can leave an external organization at any time if you no longer need to use apps from that organization or maintain any association.
+As an Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user, you can decide to leave an organization at any time if you no longer need to use apps from that organization or maintain any association.
+
+You can usually leave an organization on your own without having to contact an administrator. However, in some cases this option won't be available and you'll need to contact your tenant admin, who can delete your account in the external organization.
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
+
 ## What organizations do I belong to?
+
 1. Go to your **My Account** page by doing one of the following:
+
    - If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
    - If you're using a personal account, go to https://myapps.microsoft.com and sign in, and then select your account icon in the upper right and select **View account**. Or, use a My Account URL that includes your tenant information to go directly to your My Account page (examples are shown in the following note).  
+
    > [!NOTE]
    > If you use the email one-time passcode feature when signing in, you'll need to use a My Account URL that includes your tenant name or tenant ID, for example: `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` or `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
+
 1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
+
 1. you can view and manage the organizations you belong to in the **Other organizations you collaborate with** list.
-   ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
+   ![Screenshot showing the list of organizations you belong to.](media/leave-the-organization/organization-list.png)
    - **Home organization**: Your home organization is listed first. This is the organization that owns your work or school account. Because your account is managed by your administrator, you're not allowed to leave your home organization. (If you don't have an assigned home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.)
+
    - **Other organizations you collaborate with**: You'll also see the other organizations that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
-## Why can’t I leave an organization?
-You can usually leave an organization on your own without having to contact an administrator. However, this option isn’t available if:
-- The organization is your home organization. 
-- Your organization doesn’t allow users to leave external organizations without contacting their administrator.
-- Your account has been disabled.
-If any of these scenarios, you’ll need to contact your administrator and ask to leave the external organization.
-## Leave an organization
-If your organization allows users to remove themselves from external organizations, you can follow these steps. 
-1. Follow the steps above to view the list of organizations you belong to.
-1. Under **Other organizations you collaborate with**, find the organization that you want to leave, and select **Leave**.
+
+## How to leave an organization
+
+If your organization allows users to remove themselves from external organizations, you can follow these steps to leave an organization.
+
+1. Open your **Organizations** page. (Follow the steps in [What organizations do I belong to](#what-organizations-do-i-belong-to), above.)
+
+1. Under **Other organizations you collaborate with**, find the organization that you want to leave, and then select **Leave**.
+
    ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
+
 1. When asked to confirm, select **Leave**.
 
-## For admins: Managing options for leaving organizations
+## Why can’t I leave an organization?
 
-An Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user can decide to leave an organization at any time if they no longer need to use apps from that organization or maintain any association. 
+Sometimes you're unable to leave an organization on your own, for example if:
 
-### Configuring external user leave settings
+- The organization is your home organization.
+- Your organization doesn’t allow users to leave external organizations without contacting their administrator.
+- Your account has been disabled.
+
+If you select **Leave** for an organization, but you see the following message, this means you’ll need to contact your administrator and ask to leave the external organization.
+
+   ![Screenshot showing the message when you need permission to leave an organization.](media/leave-the-organization/need-permission-leave.png)
+
+
+## More information for administrators
 
 In an organization’s **External collaboration settings**, administrators can use the **External user leave settings** to control whether users can remove themselves from external organizations. If you turn the self-serve feature off, your users will need to contact an administrator to have their account removed from an external organization.
+
 1. Sign in to the Azure portal using a Global administrator account and open the Azure Active Directory service.
+
 1. Select **External Identities** > **External collaboration settings**.
+
 1. Under External user leave settings, choose whether to allow users to leave external organizations themselves:
    - **Yes**: Users can leave the organization without approval from an administrator.
    - **No**: Users will be guided to review the privacy statement or to request approval to leave the organization from the privacy contact.
 
    ![Screenshot showing External user leave settings in the portal.](media/leave-the-organization/external-user-leave-settings.png)
 
-### Account removal 
-When a B2B collaboration user leaves an organization, the user's account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD, but permanent deletion doesn't start for 30 days. This soft deletion enables the administrator to restore the user account, including groups and permissions, if the user makes a request to restore the account before it's permanently deleted. 
+### Account removal
+
+When a B2B collaboration user leaves an organization, the user's account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD, but permanent deletion doesn't start for 30 days. This soft deletion enables the administrator to restore the user account, including groups and permissions, if the user makes a request to restore the account before it's permanently deleted.
+
 If desired, a tenant administrator can permanently delete the account at any time during the soft-delete period with the following steps. This action is irrevocable.
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+
 1. Under **Manage**, select **Users**.
+
 1. Select **Deleted users**.
+
 1. Select the check box next to a deleted user, and then select **Delete permanently**.
 
 Once permanent deletion begins, whether it's initiated by the admin or the end of the soft deletion period, it can take up to an additional 30 days for data removal ([learn more](/compliance/regulatory/gdpr-dsr-azure#step-5-delete)).
