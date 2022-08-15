@@ -72,7 +72,7 @@ Push notifications let clients be notified for incoming messages and other opera
       import com.google.firebase.messaging.FirebaseMessaging;
    ```
 
-5. Add the following code into class `MainActivity`:
+5. Add the following code to the `MainActivity` class:
 
    ```java
       private BroadcastReceiver firebaseMessagingReceiver = new BroadcastReceiver() {
