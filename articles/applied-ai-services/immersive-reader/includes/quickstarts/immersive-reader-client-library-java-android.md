@@ -51,6 +51,9 @@ Create a new **/assets** folder.
 
  Create a file named **env** inside the assets folder. Add the following names and values, and supply values as appropriate. Don't commit this env file into source control because it contains secrets that shouldn't be made public.
 
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
+
 ![Create a new env file - Android](../../media/android/java/android-studio-create-env-file.png)
 
 ```text

@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Understand how multiple Azure Active Directory tenant organizations interact
 
-In Azure Active Directory (Azure AD, part of Microsoft Entra, each Azure AD organization is fully independent: a peer that is logically independent from the other Azure AD organizations that you manage. This independence between organizations includes resource independence, administrative independence, and synchronization independence. There is no parent-child relationship between organizations.
+In Azure Active Directory (Azure AD), part of Microsoft Entra, each Azure AD organization is fully independent: a peer that is logically independent from the other Azure AD organizations that you manage. This independence between organizations includes resource independence, administrative independence, and synchronization independence. There is no parent-child relationship between organizations.
 
 ## Resource independence
 

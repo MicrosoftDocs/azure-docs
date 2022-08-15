@@ -4,7 +4,7 @@ description: Learn about storage capacity, storage policies, fault tolerance, an
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
 ms.service: azure-vmware
-ms.date: 07/27/2022
+ms.date: 08/09/2022
 ---
 
 # Azure VMware Solution storage concepts
@@ -49,7 +49,7 @@ vSAN datastores use data-at-rest encryption by default using keys stored in Azur
 
 ## Azure storage integration
 
-You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. You can also connect Azure disk pools or [Azure NetApp Files datastores](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) to expand the storage capacity. This functionality is in preview.
+You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. You can also connect Azure disk pools or [Azure NetApp Files datastores](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) to expand the storage capacity.
 
 ## Alerts and monitoring
 
