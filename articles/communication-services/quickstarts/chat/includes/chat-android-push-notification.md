@@ -57,7 +57,7 @@ Push notifications let clients be notified for incoming messages and other opera
 
    ```
 
-4. At the top of file `MainActivity.java`, add the following import:
+4. At the top of file `MainActivity.java`, add the following import statements:
 
    ```java
       import android.content.BroadcastReceiver;
