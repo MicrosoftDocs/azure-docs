@@ -67,12 +67,16 @@ Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
-### View vulnerability recommendations
+### View vulnerabilities for running and stored images
+
+Having the ability to map image vulnerabilities to running containers, allows you to prioritize and simplify the assessment and mitigation process based on the highest risk workloads.
+
+Defender for Container scans images that are in use and images that are stored in ACR for vulnerabilities. The Defender for Cloud agent is installed on the AKS cluster, and collects the pod inventory which includes which containers are currently running and the associated images used by each container. Defender for Cloud correlates the vulnerability data found for the image with the containers that are running the image, and provides recommendations and remediation steps.
 
 The recommendation [Running container images should have vulnerability findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false) shows recommendations based on vulnerability scanning of images that are stored in ACR, and shows the associated Windows and Linux containers.
 
 > [!NOTE] 
-> **Windows containers**: There is no Defender agent for Windows containers. A Linux node running in the cluster retrieves the running container inventory for your Windows nodes.
+> **Windows containers**: The Defender agent is required for this functionality to work. Since there is no Defender agent for Windows containers, a Linux node running in the cluster, is used to retrieve the running container inventory for your Windows nodes.
 
 Images that aren't pulled from ACR for deployment in AKS will not be checked and will appear under the **Not applicable** tab.
 
