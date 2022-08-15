@@ -27,11 +27,12 @@ For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the
 
 ## 1. Get your App Service Environment ID
 
-Run these commands to get your App Service Environment ID and store it as an environment variable. Replace the placeholders for name and resource group with your values for the App Service Environment you want to migrate.
+Run these commands to get your App Service Environment ID and store it as an environment variable. Replace the placeholders for name and resource groups with your values for the App Service Environment you want to migrate. "ASE_RG" and "VNET_RG" will be the same if your virtual network and App Service Environment are in the same resource group.
 
 ```azurecli
 ASE_NAME=<Your-App-Service-Environment-name>
-ASE_RG=<Your-Resource-Group>
+ASE_RG=<Your-ASE-Resource-Group>
+VNET_RG=<Your-VNet-Resource-Group>
 ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --query id --output tsv)
 ```
 
@@ -71,10 +72,10 @@ Using the new IPs, update any of your resources or networking components to ensu
 
 ## 5. Delegate your App Service Environment subnet
 
-App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com). If your virtual network/subnet is in a different resource group than your App Service Environment, change the value of that parameter in the below command accordingly.
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
 
 ```azurecli
-az network vnet subnet update --resource-group $ASE_RG -name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
+az network vnet subnet update --resource-group $VNET_RG -name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
 :::image type="content" source="./media/migration/subnet-delegation.png" alt-text="Subnet delegation sample.":::
 
