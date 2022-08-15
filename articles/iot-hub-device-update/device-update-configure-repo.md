@@ -29,7 +29,7 @@ You need an Azure account with an [IoT Hub](https://azure.microsoft.com/services
 ## How to configure package repository for package updates
 Follow the below steps to update Azure IoT Edge on Ubuntu Server 18.04 x64 by configuring a source repository. The tools and concepts in this tutorial still apply even if you plan to use a different OS platform configuration.
 
-1. Configure the package repository of your choice with the OSConfig’s configure package repo module. See [how to](https://docs.microsoft.com/azure/osconfig/howto-pmc?tabs=portal%2Csingle#example-1--specify-desired-package-sources). This repository should be the location where you wish to store packages to be downloaded to the device. Customers can use these modules as is or extend OSConfig to write their own modules. Note: Only available for Linux devices.
+1. Configure the package repository of your choice with the OSConfig’s configure package repo module. See [how to](https://docs.microsoft.com/azure/osconfig/howto-pmc?tabs=portal%2Csingle#example-1--specify-desired-package-sources). This repository should be the location where you wish to store packages to be downloaded to the device.
 2. Upload your packages to the above configured repository.
 3. Create an [APT manifest]( https://docs.microsoft.com/azure/iot-hub-device-update/device-update-apt-manifest) to provide the Device Update agent with the information it needs to download and install the packages (and their dependencies) from the repository.
 4. Follow steps from [here](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-ubuntu-agent#prerequisites) to do a package update with Device Update. Device Update is used to deploy package updates to a large number of devices and at scale. 
