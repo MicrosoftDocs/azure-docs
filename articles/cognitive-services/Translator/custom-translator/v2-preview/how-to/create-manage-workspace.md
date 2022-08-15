@@ -39,10 +39,13 @@ ms.topic: how-to
 
 1. Select **Done**
 
-   >[!Note]
+   > [!Note]
    > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
 
    :::image type="content" source="../media/quickstart/resource-key.png" alt-text="Screenshot illustrating the resource key.":::
+
+    > [!NOTE]
+    > All uploaded customer content, custom model binaries, custom model configurations, and training logs are kept encrypted at-rest in the selected region.
 
    :::image type="content" source="../media/quickstart/create-workspace-1.png" alt-text="Screenshot illustrating workspace creation.":::
 
