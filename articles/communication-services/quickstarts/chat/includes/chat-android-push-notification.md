@@ -159,7 +159,7 @@ Push notifications let clients be notified for incoming messages and other opera
 9. Disable the default initializer for `WorkManager` in `AndroidManifest.xml`:
 
 ```
-    <!-- Disable the default initializer of  WorkManager so that we could override it in MyAppConfiguration  -->
+    <!-- Disable the default initializer of WorkManager so that we could override it in MyAppConfiguration  -->
     <provider
         android:name="androidx.startup.InitializationProvider"
         android:authorities="${applicationId}.androidx-startup"
