@@ -89,7 +89,7 @@
       href: lifecycle-workflow-versioning.md 
     - name: History (Preview)
       href: lifecycle-workflow-history.md 
-    - name: Parts of Lifecycle Workflows (Preview)
+    - name: Parts (Preview)
       href: lifecycle-workflows-concept-parts.md          
 - name: How-to guides
   expanded: true
