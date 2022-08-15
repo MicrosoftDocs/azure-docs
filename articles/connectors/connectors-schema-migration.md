@@ -1,55 +1,45 @@
 ---
-title: Migrate apps to latest schema
-description: How to migrate logic app workflow JSON definitions to the most recent Workflow Definition Language schema version
+title: Migrate Consumption workflows to latest Workflow Definition Language schema
+description: Update Consumption logic app workflows to the current Workflow Definition Language schema in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2018
+ms.date: 08/15/2022
 ---
 
-# Migrate logic apps to latest schema version
+# Update Consumption logic app workflows to latest Workflow Definition Language schema version in Azure Logic Apps
 
-To move your existing logic apps to the newest schema, 
-follow these steps: 
-
-1. In the [Azure portal](https://portal.azure.com), 
-open your logic app in the Logic App Designer.
-
-2. On your logic app's menu, choose **Overview**. 
-On the toolbar, choose **Update Schema**.
-
-   > [!NOTE]
-   > When you choose **Update Schema**, Azure Logic Apps 
-   > automatically runs the migration steps and provides 
-   > the code output for you. You can use this output for 
-   > updating your logic app definition. However, make 
-   > sure you follow best practices as described in the 
-   > following **Best practices** section.
-
-   ![Update Schema](./media/connectors-schema-migration/update-schema.png)
-
-   The Update Schema page appears and shows 
-   a link to a document that describes the 
-   improvements in the new schema.
+If you have a Consumption logic app workflow that uses an older Workflow Definition Language schema, you can update your workflow to use the newest schema. This capability applies only to Consumption logic app workflows.
 
 ## Best practices
 
-Here are some best practices for migrating your 
-logic apps to the latest schema version:
+The following list includes some best practices for updating your logic app workflows to the latest schema:
 
-* Copy the migrated script to a new logic app. 
-Don't overwrite the old version until you complete 
-your testing and confirm that your migrated app works as expected.
+* Don't overwrite your original workflow until after you finish your testing and confirm that your updated workflow works as expected.
 
-* Test your logic app **before** putting in production.
+* Copy the updated script to a new logic app workflow.
 
-* After you finish migration, start updating your logic 
-apps to use the [managed APIs](../connectors/apis-list.md) 
-where possible. For example, start using Dropbox v2 
-everywhere that you use DropBox v1.
+* Test your workflow *before* you deploy to production.
+
+* After you finish and confirm a successful migration, update your logic app workflows to use the latest [managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors) where possible. For example, replace older versions of the Dropbox connector with the latest version.
+
+## Update workflow schema
+
+When you select the option to update the schema, Azure Logic Apps automatically runs the migration steps and provides the code output for you. You can use this output to update your workflow definition. However, before you update your workflow definition using this output, make sure that you review and follow the best practices as described in the [Best practices](#best-practices) section.
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. On your logic app's navigation menu, select **Overview**. On the toolbar, select **Update Schema**.
+
+   > [!NOTE]
+   >
+   > If the **Update Schema** command is unavailable, your workflow already uses the current schema.
+
+   ![Screenshot showing Azure portal, Consumption logic app resource with "Overview" pane open, and "Update Schema" selected.](./media/connectors-schema-migration/update-schema.png)
+
+   The **Update Schema** pane opens to show a link to a document that describes the improvements in the new schema.
 
 ## Next steps
 
-* Learn how to [manually migrate your Logic apps](../logic-apps/logic-apps-schema-2016-04-01.md)
-
+* [Review Workflow Definition Language schema updates - June 1, 2016](../logic-apps/logic-apps-schema-2016-04-01.md)
