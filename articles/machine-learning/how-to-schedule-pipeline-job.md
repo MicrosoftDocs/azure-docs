@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: lochen
 author: cloga
-ms.date: 08/11/2022
+ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 
@@ -61,7 +61,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_recurrence)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=create_schedule_recurrence)]
 
 `RecurrenceTrigger` contains following properties:
 
@@ -99,7 +99,7 @@ The `trigger` section defines the schedule details and contains following proper
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule_cron)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=create_schedule_cron)]
 
 The `CronTrigger` section defines the schedule details and contains following properties:
 
@@ -144,7 +144,7 @@ When defining a schedule using an existing job, you can change the runtime setti
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=change_run_settings)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=change_run_settings)]
 
 ---
 
@@ -179,7 +179,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=create_schedule)]
 
 ---
 
@@ -191,7 +191,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=show_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=show_schedule)]
 
 ---
 
@@ -203,7 +203,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=list_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=list_schedule)]
 
 ---
 
@@ -215,7 +215,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=create_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=create_schedule)]
 
 ---
 
@@ -227,7 +227,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=disable_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=disable_schedule)]
 
 ---
 
@@ -239,7 +239,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=enable_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=enable_schedule)]
 
 ---
 
@@ -271,7 +271,7 @@ You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to que
 
 # [SDK v2](#tab/sdkv2)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/schedules/schedule.ipynb?name=delete_schedule)]
+[!notebook-python[] (~/azureml-examples-main/sdk/schedules/job-schedule.ipynb?name=delete_schedule)]
 
 ---
 

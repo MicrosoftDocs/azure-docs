@@ -117,15 +117,15 @@ The `az ml schedule` command can be used for managing Azure Machine Learning mod
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedule). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). Several are shown below.
 
 ## YAML: Schedule with recurrence pattern
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
 
 ## YAML: Schedule with cron expression
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
 
 ## Appendix
 
