@@ -125,7 +125,9 @@ In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is r
 
 ## Enable log reception on port 514
 
-Verify that the VM that's collecting the log data allows reception on port 514 TCP or UDP depending on the syslog source. Then configure the  build-in Linux syslog daemon on the VM to listen for syslog messages from your devices.
+Verify that the VM that's collecting the log data allows reception on port 514 TCP or UDP depending on the syslog source. Then configure the  build-in Linux syslog daemon on the VM to listen for syslog messages from your devices. After you complete those steps, configure your linux-based device to send logs to your VM.
+
+The following two sections cover how to add an inbound port rule for an Azure VM and configure the build-in Linux syslog daemon.
 
 ### Allow inbound syslog traffic on the VM
 
@@ -150,15 +152,17 @@ If you're forwarding syslogs to an Azure VM, use the following steps to allow re
 
 ### Configure Linux syslog daemon
 
-On your Linux VM, run the following command to configure the Linux syslog daemon:
+Connect to your Linux VM and run the following command to configure the Linux syslog daemon:
 
 ```bash
 sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py 
 ```
 
+This script can make changes for both rsyslog.d and syslog-ng.
+
 ## Verify event logs are forwarded to your Log Analytics workspace
 
-In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is forwarding event log data to your workspace.
+After you configured your linux-based device to send logs to your VM, verify that the Azure Monitor agent is forwarding event log data to your workspace.
 
 1. In the Azure portal, search for and open **Microsoft Sentinel** or **Azure Monitor**.
 1. If you're using Microsoft Sentinel, select the appropriate workspace.
