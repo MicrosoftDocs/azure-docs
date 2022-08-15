@@ -21,7 +21,6 @@ You can create a Responsible AI dashboard with a no-code experience in the [Azur
 - Select the **Create Responsible AI dashboard (preview)** button from the top panel.
 
 Please see the Responsible AI dashboard's [supported model types, and limitations](
-https://docs.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai-dashboard#supported-scenarios-and-limitations) to learn more about coverage.
 
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-page.png" alt-text="Screenshot of the wizard details tab with create responsible AI dashboard tab highlighted." lightbox ="./media/how-to-responsible-ai-dashboard-ui/model-page.png":::
