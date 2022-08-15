@@ -140,7 +140,7 @@ When defining a schedule using an existing job, you can change the runtime setti
 
 # [CLI v2](#tab/cliv2)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-with-settings-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-with-settings-job-schedule.yml":::
 
 # [SDK v2](#tab/sdkv2)
 
