@@ -204,12 +204,17 @@ Typically, you'll want to test and debug each module before running it within an
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. (You cannot run the `curl` command from a PowerShell or command prompt.)
+1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. (Please note, You cannot run the `curl` command from a PowerShell or command prompt.)
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
-
+    Id you get the error "*unmatched close brace/bracket in URL*", please try the following command instead:
+    
+  ```bash
+curl --header "Content-Type: application/json" --request POST --data "{\"inputName\": \"input1\", \"data\", \"hello world\"}"  http://localhost:53000/api/v1/messages
+  ```
+  
    :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png" alt-text="Screenshot of the output console, Visual Studio project, and Bash window." lightbox="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png":::
 
    The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window, found when the debugger is running. Go to Debug > Windows > Locals. 
