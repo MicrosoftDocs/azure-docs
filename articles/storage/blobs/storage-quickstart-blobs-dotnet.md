@@ -9,6 +9,7 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Azure Blob Storage client library v12 for .NET
@@ -29,12 +30,12 @@ Additional resources:
 - [API reference documentation](/dotnet/api/azure.storage.blobs)
 - [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 - [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#blob-samples)
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Azure storage account - [create a storage account](../common/storage-account-create.md)
+- Azure storage account - [create a storage account](/azure/storage/common/storage-account-create)
 - Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
@@ -43,11 +44,25 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the project
 
-Create a .NET Core application named *BlobQuickstartV12*.
+For the steps ahead, you'll need to create a .NET console app using either the .NET CLI or Visual Studio 2022.
+
+### [Visual Studio 2022](#tab/visual-studio)
+
+1. At the top of Visual Studio, navigate to **File** > **New** > **Project..**.
+
+1. In the dialog window, enter *console app* into the project template search box and select the first result. Choose **Next** at the bottom of the dialog.
+
+    :::image type="content" source="media/storage-quickstart-blobs-dotnet/visual-studio-new-console-app.png" alt-text="A screenshot showing how to create a new project using Visual Studio.":::
+
+1. For the **Project Name**, enter *BlobQuickstartV12*. Leave the default values for the rest of the fields and select **Next**.
+
+1. For the **Framework**, ensure .NET 6.0 is selected. Then choose **Create**. The new project will open inside the Visual Studio environment.
+
+### [.NET CLI](#tab/net-cli)
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
-   ```console
+   ```dotnetcli
    dotnet new console -n BlobQuickstartV12
    ```
 
@@ -57,36 +72,50 @@ Create a .NET Core application named *BlobQuickstartV12*.
    cd BlobQuickstartV12
    ```
 
-1. In side the *BlobQuickstartV12* directory, create another directory called *data*. This is where the blob data files will be created and stored.
+1. Open the project in your desired code editor. To open the project in:
+    * Visual Studio, locate and double-click the `BlobQuickStartV12.csproj` file.
+    * Visual Studio Code, run the following command:
 
-    ```console
-    mkdir data
+    ```bash
+    code .
     ```
+---
 
 ### Install the package
 
-While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
+To interact with Azure Blob Storage, install the Azure Blob Storage client library for .NET.
 
-```console
+### [Visual Studio 2022](#tab/visual-studio)
+
+1. In **Solution Explorer**, right-click the **Dependencies** node of your project. Select **Manage NuGet Packages**.
+
+1. In the resulting window, search for *Azure.Storage.Blobs*. Select the appropriate result, and select **Install**.
+
+    :::image type="content" source="media/storage-quickstart-blobs-dotnet/visual-studio-add-package.png" alt-text="A screenshot showing how to add a new package using Visual Studio.":::
+
+### [.NET CLI](#tab/net-cli)
+
+```dotnetcli
 dotnet add package Azure.Storage.Blobs
 ```
 
-### Set up the app framework
+---
 
-Open the newly created project in your editor of choice. Update the starting code to match the following example, which includes the necessary using statements for this exercise.
+### Set up the app code
+
+Replace the starting code in the `Program.cs` file so that it matches the following example, which includes the necessary `using` statements for this exercise.
 
 ```csharp
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System;
 using System.IO;
-using System.Threading.Tasks;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 ```
 
-[!INCLUDE [storage-quickstart-credentials-free-include](../../../includes/storage-quickstart-credential-free-include.md)]
+[!INCLUDE [storage-quickstart-credentials-free-include](./includes/storage-quickstart-credential-free-include.md)]
 
 ## Object model
 
@@ -98,7 +127,7 @@ Azure Blob Storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
+![Diagram of Blob storage architecture.](media/storage-quickstart-blobs-dotnet/blob-1.png)
 
 Use the following .NET classes to interact with these resources:
 
@@ -135,7 +164,8 @@ Add the following code to the end of the `Program.cs` class:
 
 ```csharp
 // Create a local file in the ./data/ directory for uploading and downloading
-string localPath = "./data/";
+string localPath = "data";
+Directory.CreateDirectory(localPath);
 string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
 string localFilePath = Path.Combine(localPath, fileName);
 

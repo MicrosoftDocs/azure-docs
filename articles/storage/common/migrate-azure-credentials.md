@@ -19,19 +19,7 @@ Application requests to Azure Storage must be authenticated. Azure Storage provi
 
 ## Compare authentication options
 
-The following code examples demonstrate how to connect to Azure Storage using traditional credentials and techniques. Many developers gravitate towards these solutions because they feel familiar to options have worked with in the past. If your application currently uses one of these approaches, consider migrating to credential-free connections using the steps described later in this document.
-
-### [Connection String](#tab/connection-string)
-
-A connection string includes the authorization information required for your application to access data in an Azure Storage account. A connection string is similar to a root password for your storage account. Always be careful to never expose the keys in an unsecure location.
-
-```csharp
-var blobServiceClient = new BlobServiceClient("<your-connection-string>");
-```
-
-### [Access Key](#tab/access-keys)
-
-When you create a storage account, Azure generates storage account access keys for that account. These keys can be used to authorize access to data in your storage account via shared key authorization. They should be managed with Azure Key Vault and rotated regularly. 
+The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account.  Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to credential-free connections using the steps described later in this document.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -39,19 +27,7 @@ var blobServiceClient = new BlobServiceClient(
     new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
 ```
 
-### [Shared Access Signature](#tab/shared-access-signature)
-
-A shared access signature (SAS) is a URI that grants restricted access rights to Azure Storage resources. You can provide a shared access signature to clients who should not be trusted with your storage account key but whom you wish to delegate access to certain storage account resources. By distributing a shared access signature URI to these clients, you grant them access to a resource for a specified period of time.
-
-```csharp
-var blobServiceClient = new BlobServiceClient(
-    new Uri("https://identitymigrationstorage.blob.core.windows.net"),
-    new AzureSasCredential("<shared-access-signature-token>"));
-
-```
----
-
-Although it's possible to connect to Azure Storage with any of these options, they should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections.
+Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use credential-free connections.
 
 ## Introducing credential-free connections
 
@@ -69,7 +45,7 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 
 The following code examples demonstrates how to connect to an Azure Storage account using credential-free connections. The next section describes how to migrate to this setup in more detail.
 
-### [C# and .NET Core](#tab/dotnet-credentials)
+### [C# and .NET Core](#tab/dotnet)
 
 A .NET Core application should explicitly pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
@@ -79,7 +55,7 @@ var blobServiceClient = new BlobServiceClient(
     new DefaultAzureCredential());
 ```
 
-### [Java](#tab/java-credentials)
+### [Java](#tab/java)
 
 ```Java
 
@@ -87,7 +63,7 @@ var blobServiceClient = new BlobServiceClient(
 
 ```
 
-### [Python](#tab/python-credentials)
+### [Python](#tab/python)
 
 ```python
 ## Python code here
@@ -106,11 +82,11 @@ The following steps explain how to migrate an existing application to use creden
 
 ### 2) Migrate the application code to use credential-free connections
 
-Each language or framework features a slightly different implementation process for `DefaultAzureCredential`, as demonstrated below:
+Each language or framework uses different implementation steps for credential-free connections, as demonstrated below:
 
-### [C# and .NET Core](#tab/dotnet-migrate)
+### [C# and .NET Core](#tab/dotnet)
 
-Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`.
+To use DefaultAzureCredential, add the Azure.Identity package to your application.
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -130,7 +106,7 @@ var blobServiceClient = new BlobServiceClient(
     new DefaultAzureCredential());
 ```
 
-### [Java](#tab/java-migrate)
+### [Java](#tab/java)
 
 ```Java
 
@@ -138,7 +114,7 @@ var blobServiceClient = new BlobServiceClient(
 
 ```
 
-### [Python](#tab/python-migrate)
+### [Python](#tab/python)
 
 ```Python
 
@@ -150,7 +126,7 @@ var blobServiceClient = new BlobServiceClient(
 
 #### Run the app locally
 
-After making these code changes, run your application locally. The new configuration should pick up your local credentials, assuming you are logged into a compatible IDE or command line tool, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
+After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
 
 ### 3) Configure the Azure hosting environment
 

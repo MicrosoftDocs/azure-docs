@@ -39,31 +39,25 @@ The order and locations in which DefaultAzureCredential searches for credentials
 
 For example, when working locally, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio, the Azure CLI, or other tools. When the app is deployed to Azure, `DefaultAzureCredential` will automatically discover and use an available managed identity that was assigned to the app environment. No code changes are required for this transition. 
 
-## Connect Azure hosted apps to multiple Azure services using credential-free connections
+## Connect an Azure hosted app to multiple Azure services
 
-You have been tasked with configuring two existing apps to use credential-free connections to different Azure services. The applications are two different ASP.NET Core Web APIs hosted on Azure App Service. Both APIs must connect to two different storage accounts and retrieve secrets from an instance of Azure Key Vault. 
+You have been tasked with connecting existing app to multiple Azure services and databases using credential-free connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps and AKS.
 
-You plan to share a user-assigned identity between both applications, since they have the same access requirements to the services. When the app is deployed to Azure it will use a user-assigned managed identity to achieve this configuration. During local development it will use your local sign-in credentials through the Azure CLI or Visual Studio. Both scenarios in this overall strategy can be accomplished using `DefaultAzureCredential`.
+This tutorial applies to the following architectures, though it can be adapted to many other scenarios as well through minimal configuration changes.
 
-This tutorial assumes the following architecture, though it can be adapted to many other scenarios as well through minimal configuration changes.
+:::image type="content" source="media/architecture-diagram-multiple-services-small.png" alt-text="A diagram showing the user assigned identity relationships." lightbox="media/architecture-diagram-multiple-services.png":::
 
-:::image type="content" source="media/user-assigned-identity-multiple-services.png" alt-text="A diagram showing the user assigned identity relationships.":::
+The following steps demonstrate how to configure an app to use a system-assigned managed identity and your local development account to connect to multiple Azure Services. 
 
-The following steps demonstrate how to create and configure a user-assigned managed identity and your local development account to connect to multiple Azure Services.
+### 1) Create a system-assigned managed identity
 
-### 1) Create a user-assigned managed identity
+1) In the Azure Portal, navigate to the hosted application would you like to connect to other services.
 
-1) In the Azure Portal search bar, enter *Managed Identities* and select the matching result.
+2) On the service overview page, select **Identity**.
 
-2) On the managed identities overview page, select **+ Create**.
+3) Toggle the **Status** setting to **On** to enable a system assigned managed identity for the service.
 
-3) On the **Create User Assigned Managed Identity** page, select the subscription, resource group, and region that should contain your new managed identity. Enter a meaningful name for the identity as well. 
-
-    :::image type="content" source="media/create-managed-identity.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-add-role.png":::
-
-4) Select **Review + create** and then select **Create** after Azure has validated your inputs.
-
-5) Once the resource has been created, select **Go to resource** to view the details of the user-assigned managed identity.
+    :::image type="content" source="media/enable-system-assigned-identity.png" alt-text="A screenshot showing how to assign a system assigned managed identity."  :::
 
 ### 2) Assign roles to the managed identity for each connected service
     
@@ -71,9 +65,9 @@ The following steps demonstrate how to create and configure a user-assigned mana
 
 3) Select **Access Control (IAM)** from the storage account navigation.
 
-4) Choose **Add role assignment**
+4) Choose **+ Add** and then **Add role assignment**.
 
-    :::image type="content" source="media/assign-identity-app-service.png" alt-text="A screenshot showing how to assign a system assigned managed identity."  lightbox="media/migration-add-role.png":::
+    :::image type="content" source="media/assign-role-system-identity.png" alt-text="A screenshot showing how to select a system-assigned identity."  :::
 
 5) In the **Role** search box, search for *Storage Blob Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
@@ -81,11 +75,9 @@ The following steps demonstrate how to create and configure a user-assigned mana
 
 7) In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to select a system-assigned identity."  lightbox="media/migration-select-identity.png":::
+    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to select a system-assigned identity."  :::
 
 8) Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
-
-9) Repeat the preceding role assignment steps for any additional storage accounts you would like to grant your identity access to.
 
 #### Local development considerations
 
@@ -93,30 +85,12 @@ You can also enable access to Azure resources for local development by assigning
 
 1) After assigning the **Storage Blob Data Contributor** role to your managed identity,  under **Assign access to**, this time select **User, group or service principal**. Choose **+ Select members** to open the flyout menu again.
 
-2) Search for the user account or Azure AD security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
-
-    :::image type="content" source="media/migration-select-identity.png" alt-text="A screenshot showing how to select a user account."  lightbox="media/local-dev-assign-user.png":::
+2) Search for the *user@domain* account or Azure AD security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
 
 > [!NOTE]
 > You can also assign these roles to an Azure Active Directory security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
 
-### 3) Associate the managed identity with the app services
-
-Now that you have assigned roles to your managed identity, you must associate that identity with the app service hosting your app. The app will use the managed identity to authenticate to other services, such as a storage account.
-
-1) Navigate to the main overview page for the app service you would like to associate your managed identity with.
-
-2) On the left navigation, select **Identity**, and then select the **User-assigned** tab.
-
-3) Choose **+ Add** to open the flyout menu.
-
-    :::image type="content" source="media/assign-identity-app-service.png" alt-text="A screenshot showing how to assign a managed identity."  lightbox="media/migration-select-identity-role.png":::
-
-4) Search for the managed identity you created by its name. Select the managed identity from the search results, and then choose **Add**.
-
-5) Repeat these steps for any additional app services you would like to grant permission to using the managed identity.
-
-### 4) Add the client libraries to your app
+### 3) Implement the application code
 
 Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
 
@@ -126,8 +100,6 @@ dotnet add package Azure.Storage.Blobs
 dotnet add package Azure.KeyVault.Keys
 ```
 
-### 5) Implement DefaultAzureCredential in your code
-
 At the top of your `Program.cs` file, add the following using statements:
 
 ```csharp
@@ -136,17 +108,7 @@ using Azure.Storage.Blobs;
 using Azure.Security.KeyVault.Keys;
 ```
 
-In the `Program.cs` file of your project code, retrieve the `Managed_Identity_Client_ID` environment variable. Create an instance of `DefaultAzureCredentialOptions` and assign the `clientID` to the `ManagedIdentityClientId` property. 
-
-```csharp
-var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
-var credOptions = new DefaultAzureCredentialOptions()
-{
-    ManagedIdentityClientId = clientID
-};
-```
-
-Next, create instances of the necessary services your app will connect to. The following examples connect to blob storage and key vault using the corresponding SDK classes.
+In the `Program.cs` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to blob storage and key vault using the corresponding SDK classes.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -164,7 +126,7 @@ When the application is deployed to Azure, `DefaultAzureCredential` will automat
 
 This overall process ensures that your app can run securely locally and in Azure without the need for any code changes.
 
-## Additional multi-service managed identity scenarios
+## Connect multiple apps using multiple managed identities
 
 Although the apps in the previous example all shared the same service access requirements, real environments are often more nuanced. Consider a scenario where multiple apps share some of the same access goals, but also have individual or more granular requirements. Applications support multiple user-assigned managed identities to handle these requirements.
 
