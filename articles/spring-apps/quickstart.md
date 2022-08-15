@@ -178,9 +178,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
    - [**Subscription**](/azure/api-management/api-management-subscriptions): Select the subscription you want to be billed for this resource.
-   - [**Resource group**](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups): Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
+   - [**Resource group**](/azure/azure-resource-manager/management/overview#resource-groups): Creating new resource groups for new resources is a best practice. You will use this resource group in later steps as **\<resource group name\>**.
    - **Service Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-   - [**Region**](https://docs.microsoft.com/en-us/azure/spring-apps/how-to-enable-availability-zone?tabs=azure-cli#region-availability): Select the region for your service instance.
+   - [**Region**](/azure/spring-apps/how-to-enable-availability-zone?tabs=azure-cli#region-availability): Select the region for your service instance.
 
    :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/quickstart/portal-start.png":::
 
@@ -195,9 +195,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 ### Installation and sign-in
 
-1. Before you want to start the quickstarts by IntelliJ, you should [install Azure Toolkit for IntelliJ from the Marketplace](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/install-toolkit#install-azure-toolkit-for-intellij-from-the-marketplace).
+1. Before you want to start the quickstarts by IntelliJ, you should [install Azure Toolkit for IntelliJ from the Marketplace](/azure/developer/java/toolkit-for-intellij/install-toolkit#install-azure-toolkit-for-intellij-from-the-marketplace).
 
-1. After that, [sign-in to your Azure account](https://docs.microsoft.com/en-us/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in) in IntelliJ.
+1. After that, [sign-in to your Azure account](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in) in IntelliJ.
 
 ### Build and deploy an app
 
