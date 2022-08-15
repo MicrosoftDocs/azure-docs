@@ -215,13 +215,13 @@
           href: how-to-deploy-fpga-web-service.md
     - name: Profile models
       displayName: profile resource requirement
-      href: ../how-to-deploy-profile-model.md
+      href: how-to-deploy-profile-model.md
     - name: Troubleshoot deployment
-      href: ../how-to-troubleshoot-deployment.md
+      href: how-to-troubleshoot-deployment.md
     - name: Troubleshoot deployment (local)
-      href: ../how-to-troubleshoot-deployment-local.md
+      href: how-to-troubleshoot-deployment-local.md
     - name: Authenticate web service
-      href: how-to-authenticate-web-service
+      href: how-to-authenticate-web-service.md
     - name: Consume web service
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
