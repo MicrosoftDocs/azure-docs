@@ -15,7 +15,7 @@ ms.subservice: teams-interop
 In this article, you will learn which capabilities are supported for Teams external users using Azure Communication Services SDKs.
 
 ## Client capabilities
-The following table shows supported client-side capabilities available in Azure Communication Services SDKs. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features).
+The following table shows supported client-side capabilities available in Azure Communication Services SDKs. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
 | Category | Capability | Supported |
 | --- | --- | --- |
