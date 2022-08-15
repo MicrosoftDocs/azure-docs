@@ -1,38 +1,38 @@
 ---
-title: How to integrate Azure SignalR with Azure Application Gateway
-description: This article provides information about integrating Azure SignalR with Azure Application Gateway
+title: How to use SignalR Service with Azure Application Gateway
+description: This article provides information about using Azure SignalR Service with Azure Application Gateway.
 author: vicancy
 ms.author: lianwei
-ms.date: 08/10/2022
+ms.date: 08/16/2022
 ms.service: signalr
 ms.topic: how-to
 ---
 
-# How to integrate Azure SignalR with Azure Application Gateway
+# How to use Azure SignalR Service with Azure Application Gateway
 
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Using the Azure Application Gateway with Azure SignalR Service enables you to:  
+Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Using Application Gateway with SignalR Service enables you to do the following:  
 
 * Protect your applications from common web vulnerabilities.  
 * Get application-level load-balancing for your scalable and highly available applications. 
-* Setup end to end secure.
-* Customize the domain name. 
+* Set up end-to-end security.
+* Customize the domain name.
 
 This article contains 2 parts, 
-* [The first part](#setup-and-configure-application-gateway) shows how to configure Application Gateway so that the clients can access Azure SignalR through Application Gateway.
-* [The second part](#secure-azure-signalr) shows how to secure Azure SignalR by adding access control to Azure SignalR and only allow traffic from Application Gateway.
+* [The first part](#setup-and-configure-application-gateway) shows how to configure Application Gateway so that the clients can access SignalR through Application Gateway.
+* [The second part](#secure-azure-signalr) shows how to secure SignalR Service by adding access control to SignalR Service and only allow traffic from Application Gateway.
 
-:::image type="content" source="./media/signalr-howto-app-gateway-integration/arch.png" alt-text="The architecture of the Azure SignalR and Azure Application Gateway integration.":::
+:::image type="content" source="./media/signalr-howto-app-gateway-integration/arch.png" alt-text="The architecture of the SignalR Service and Azure Application Gateway integration.":::
 
-## Setup and configure Application Gateway
+## Set up and configure Application Gateway
 
-### Create an Azure SignalR service instance
-* Follow [the article](./signalr-quickstart-azure-signalr-service-arm-template.md) and create an Azure SignalR Service instance **_ASRS1_**
+### Create an SignalR Service instance
+* Follow [the article](./signalr-quickstart-azure-signalr-service-arm-template.md) and create an SignalR Service instance **_ASRS1_**
 
 ### Create an Application Gateway instance
 Create from the portal an Application Gateway instance **_AG1_**:
 * On the [Azure portal](https://portal.azure.com/), search for **Application Gateway** and **Create**.
 * On the **Basics** tab, use these values for the following application gateway settings:
-    - **Subscription** and **Resource group** and **Region**: the same as what you choose for Azure SignalR
+    - **Subscription** and **Resource group** and **Region**: the same as what you choose for SignalR Service
     - **Application gateway name**: **_AG1_**
     - **Virtual network**, select **Create new**, and in the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets, one for the application gateway, and another for the backend servers.
         - **Name**: Enter **_VN1_** for the name of the virtual network.
@@ -54,7 +54,7 @@ Create from the portal an Application Gateway instance **_AG1_**:
     - Backend targets **Target**: the **host name** of your SignalR Service instance **_ASRS1_**, for example `asrs1.service.signalr.net`
     - Select **Next: Configuration**
 
-    :::image type="content" source="./media/signalr-howto-app-gateway-integration/application-gateway-create-backends.png" alt-text="Setup the application gateway backend pool for the Azure SignalR.":::  
+    :::image type="content" source="./media/signalr-howto-app-gateway-integration/application-gateway-create-backends.png" alt-text="Setup the application gateway backend pool for the SignalR Service.":::  
 
 * On the **Configuration** tab, select **Add a routing rule** in the **Routing rules** column:
     - **Rule name**: **_myRoutingRule_** 
@@ -66,7 +66,7 @@ Create from the portal an Application Gateway instance **_AG1_**:
             * We use the HTTP frontend protocol on Application Gateway in this article to simplify the demo and help you get started easier. But in reality, you may need to enable HTTPs and Customer Domain on it with production scenario.
         - Accept the default values for the other settings on the **Listener** tab
         
-        :::image type="content" source="./media/signalr-howto-app-gateway-integration/application-gateway-create-rule-listener.png" alt-text="Setup the application gateway routing rule listener tab for the Azure SignalR.":::  
+        :::image type="content" source="./media/signalr-howto-app-gateway-integration/application-gateway-create-rule-listener.png" alt-text="Setup the application gateway routing rule listener tab for the SignalR Service.":::  
     - On the **Backend targets** tab, use the following values:
         * **Target type**: Backend pool 
         * **Backend target**: select **signalr** we previously created
@@ -78,7 +78,7 @@ Create from the portal an Application Gateway instance **_AG1_**:
             * **Host name override**: **Pick host name from backend target**
             * Others keep the default values
      
-        :::image type="content" source="./media/signalr-howto-app-gateway-integration/step8.png" alt-text="Setup the application gateway backend setting for the Azure SignalR.":::   
+        :::image type="content" source="./media/signalr-howto-app-gateway-integration/step8.png" alt-text="Setup the application gateway backend setting for the SignalR Service.":::   
 
 * Review and create the **_AG1_**
 
@@ -88,11 +88,11 @@ Create from the portal an Application Gateway instance **_AG1_**:
 
 When **_AG1_** is created, go to **Health probes** tab under **Settings** section in the portal, change the health probe path to `/api/health`
 
-:::image type="content" source="./media/signalr-howto-app-gateway-integration/health-probe.png" alt-text="Setup the application gateway backend health probe for the Azure SignalR.":::
+:::image type="content" source="./media/signalr-howto-app-gateway-integration/health-probe.png" alt-text="Setup the application gateway backend health probe for the SignalR Service.":::
 
 ### Quick test
 
-* Try with an invalid client request https://asrs1.service.signalr.net/client and it returns *400* with error message *'hub' query parameter is required.*. It means the request arrived at the Azure SignalR service and did the request validation.
+* Try with an invalid client request https://asrs1.service.signalr.net/client and it returns *400* with error message *'hub' query parameter is required.*. It means the request arrived at the SignalR Service and did the request validation.
     ```bash
     curl -v https://asrs1.service.signalr.net/client
     ```
@@ -105,9 +105,9 @@ When **_AG1_** is created, go to **Health probes** tab under **Settings** sectio
     ```
 * Go to the Overview tab of **_AG1_**, and find out the Frontend public IP address 
 
-    :::image type="content" source="./media/signalr-howto-app-gateway-integration/quick-test.png" alt-text="Quick test Azure SignalR health endpoint through Application Gateway.":::
+    :::image type="content" source="./media/signalr-howto-app-gateway-integration/quick-test.png" alt-text="Quick test SignalR Service health endpoint through Application Gateway.":::
 
-* Visit the health endpoint through **_AG1_** `http://<frontend-public-IP-address>/client`, and it also returns *400* with error message *'hub' query parameter is required.*. It means the request successfully went through the Application Gateway to Azure SignalR and did the request validation.
+* Visit the health endpoint through **_AG1_** `http://<frontend-public-IP-address>/client`, and it also returns *400* with error message *'hub' query parameter is required.*. It means the request successfully went through the Application Gateway to SignalR Service and did the request validation.
 
     ```bash
     curl -I http://<frontend-public-IP-address>/client
@@ -122,14 +122,14 @@ When **_AG1_** is created, go to **Health probes** tab under **Settings** sectio
 
 ### Run Chatroom through Application Gateway
 
-Now, the traffic can reach Azure SignalR through the Application Gateway. The customer could use the Application Gateway public IP address or custom domain name to access the resource. Let’s use [this chatroom application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
+Now, the traffic can reach SignalR Service through the Application Gateway. The customer could use the Application Gateway public IP address or custom domain name to access the resource. Let’s use [this chatroom application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
 
 * First let's get the connection string of **_ASRS1_** 
     * On the **Connection strings** tab of **_ASRS1_**
         * **Client endpoint**: Enter the URL using frontend public IP address of **_AG1_**, for example `http://20.88.8.8`. It is a connection string generator when using reverse proxies, and the value is not preserved when next time you come back to this tab. When value entered, the connection string appends a `ClientEndpoint` section.
         * Copy the Connection string
         
-        :::image type="content" source="./media/signalr-howto-app-gateway-integration/connection-string.png" alt-text="Get the connection string for Azure SignalR with client endpoint.":::
+        :::image type="content" source="./media/signalr-howto-app-gateway-integration/connection-string.png" alt-text="Get the connection string for SignalR Service with client endpoint.":::
 
 * Clone the github repo https://github.com/aspnet/AzureSignalR-samples 
 * Go to samples/Chatroom folder:
@@ -143,23 +143,24 @@ Now, the traffic can reach Azure SignalR through the Application Gateway. The cu
     ```
 * Open http://localhost:5000 from the browser and use F12 to view the network traces, you can see that the WebSocket connection is established through **_AG1_**  
 
-    :::image type="content" source="./media/signalr-howto-app-gateway-integration/step12.png" alt-text="Run chat application locally with App Gateway and Azure SignalR.":::
+    :::image type="content" source="./media/signalr-howto-app-gateway-integration/step12.png" alt-text="Run chat application locally with App Gateway and SignalR Service.":::
 
-## Secure Azure SignalR
+## Secure SignalR Service
 
-In previous section, we successfully configured Azure SignalR as the backend service of Application Gateway, we can call Azure SignalR directly from public network, or through Application Gateway.
+In previous section, we successfully configured SignalR Service as the backend service of Application Gateway, we can call SignalR Service directly from public network, or through Application Gateway.
 
-In this section, let's configure Azure SignalR to deny all the traffic from public network and only accept traffic from Application Gateway.
+In this section, let's configure SignalR Service to deny all the traffic from public network and only accept traffic from Application Gateway.
 
 ### Configure SignalR Service
 
-Let's configure Azure SignalR to only allow private access. You can find more details in [use private endpoint for Azure SignalR Service](howto-private-endpoints.md).
+Let's configure SignalR Service to only allow private access. You can find more details in [use private endpoint for SignalR Service](howto-private-endpoints.md).
 
-* Go to the Azure SignalR instance **_ASRS1_** in the portal. 
+* Go to the SignalR Service instance **_ASRS1_** in the portal. 
 * Go the **Networking** tab:
-    * On **Public access** tab: **Public network access** change to **Disabled** and **Save**, now you are no longer able to access Azure SignalR from public network
+    * On **Public access** tab: **Public network access** change to **Disabled** and **Save**, now you are no longer able to access SignalR Service from public network
 
-    :::image type="content" source="./media/signalr-howto-app-gateway-integration/disable-public-access.png.png" alt-text="Disable public access for Azure SignalR.":::   
+    :::image type="content" source="./media/signalr-howto-app-gateway-integration/disable-public-access.png" alt-text="Disable public access for SignalR Service.":::
+
     * On **Private access** tab, select **+ Private endpoint**:
         * On **Basics** tab:
             * **Name**: **_PE1_**
@@ -178,7 +179,7 @@ Let's configure Azure SignalR to only allow private access. You can find more de
             * **Integration with private DNS zone**: **Yes** 
         * Review and create the private endpoint
 
-    :::image type="content" source="./media/signalr-howto-app-gateway-integration/step2.png" alt-text="Setup the private endpoint resource for the Azure SignalR.":::  
+    :::image type="content" source="./media/signalr-howto-app-gateway-integration/step2.png" alt-text="Setup the private endpoint resource for the SignalR Service.":::  
 
 ### Refresh Application Gateway backend pool
 Since Application Gateway was set up before there was a private endpoint for it to use, we need to **refresh** the backend pool for it to look at the Private DNS Zone and figure out that it should route the traffic to the private endpoint instead of the public address. We do the **refresh** by setting the backend FQDN to some other value and then changing it back.
@@ -196,7 +197,7 @@ Go to the **Backend pools** tab for **_AG1_**, and select **signalr**:
     returns
     ```
     < HTTP/1.1 403 Forbidden
-* Visit the endpoint through **_AG1_** `http://<frontend-public-IP-address>/client`, and it returns *400* with error message *'hub' query parameter is required.*. It means the request successfully went through the Application Gateway to Azure SignalR.
+* Visit the endpoint through **_AG1_** `http://<frontend-public-IP-address>/client`, and it returns *400* with error message *'hub' query parameter is required.*. It means the request successfully went through the Application Gateway to SignalR Service.
 
     ```bash
     curl -I http://<frontend-public-IP-address>/client
@@ -217,12 +218,12 @@ Let's deploy the Chatroom application into the same VNet with **_ASRS1_** so tha
 * On the [Azure portal](https://portal.azure.com/), search for **App services** and **Create**.
 
 * On the **Basics** tab, use these values for the following application gateway settings:
-    - **Subscription** and **Resource group** and **Region**: the same as what you choose for Azure SignalR
+    - **Subscription** and **Resource group** and **Region**: the same as what you choose for SignalR Service
     - **Name**: **_WA1_**
     * **Publish**: **Code**
     * **Runtime stack**: **.NET 6 (LTS)**
     * **Operating System**: **Linux**
-    * **Region**: Make sure it is the same as what you choose for Azure SignalR
+    * **Region**: Make sure it is the same as what you choose for SignalR Service
     * Select **Next: Docker**
 * On the **Networking** tab
     * **Enable network injection**: select **On**
@@ -267,9 +268,9 @@ Now the web app is deployed, let's go to the portal for **_WA1_** and make the f
 > Sometimes you need to disable browser's auto https redirection and browser cache to prevent the URL from redirecting to HTTPS automatically.
 
 
-:::image type="content" source="./media/signalr-howto-app-gateway-integration/web-app-run.png" alt-text="Run chat application in Azure with App Gateway and Azure SignalR.":::
+:::image type="content" source="./media/signalr-howto-app-gateway-integration/web-app-run.png" alt-text="Run chat application in Azure with App Gateway and SignalR Service.":::
 
 
 ## Next Steps 
 
-Now, you are successful to build a real-time chatroom application with Azure SignalR Service and use Application Gateway to protect your applications and setup end to end secure. [Explore more about Azure SignalR from here](./signalr-overview.md).
+Now, you have successfully built a real-time chatroom application with SignalR Service and used Application Gateway to protect your applications and set up end-to-end secururity. [Learn more about SignalR Service](./signalr-overview.md).
