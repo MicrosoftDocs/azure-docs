@@ -19,7 +19,7 @@ When you deploy multiple resolvers across different regions, DNS failover can be
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Resolve Azure Private DNS zones using your on-premises DNS service.
+> * Resolve Azure Private DNS zones using on-premises conditional fowarders and Azure DNS private resolvers.
 > * Enable on-premises DNS failover for your Azure Private DNS zones.
 
 ## Prerequisites
@@ -108,7 +108,7 @@ Now that DNS resolution is working from on-premises to Azure using two different
 
 1. Open a an elevated Windows PowerShell prompt and enter the following. Replace **azure.contoso.com** with the name of your private zone, and replace the IP addresses below with the IP addresses for your private resolvers.
 
-    ```Windows PowerShell
+    ```PowerShell
     Add-DnsServerConditionalForwarderZone -Name "azure.contoso.com" -MasterServers 10.20.0.4,10.10.0.4
     ```
 2. If preferred, you can also use the DNS console to enter conditioal forwarders. See the following example:
