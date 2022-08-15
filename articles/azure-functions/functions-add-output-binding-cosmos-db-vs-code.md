@@ -77,7 +77,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
     |**Enter new app setting name**| Type `CosmosDbConnectionString`.|
     |**Enter value for "CosmosDbConnectionString"**| Paste the connection string of your Azure Cosmos DB account you just copied.|
 
-    This creates a application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
+    This creates an application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
 
 1. Press <kbd>F1</kbd> again to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings...`. 
 
